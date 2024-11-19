@@ -4,17 +4,18 @@
     --font-size: 1.2rem;
     --subtitle-font-size: 1rem;
     --transition-duration: 0.3s;
+    --font-color: black;
 }
 
 body {
-    color: black;
+    color: var(--font-color);
     font-family: "Apolline Std", serif;
     font-weight: 400;
     font-style: normal;
 }
 
 a {
-    color: black;
+    color: var(--font-color);
     font-weight: 400;
 }
 
