@@ -7,11 +7,14 @@
 }
 
 body {
-    background-color: #EAF4F6;
     color: black;
     font-family: "Apolline Std", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+a {
+    color: black;
 }
 
 /* Container for all links */
