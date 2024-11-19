@@ -1,0 +1,100 @@
+:root {
+    --gap-size-desktop: 60px;
+    --gap-size-mobile: 40px;
+    --font-size: 1.2rem;
+    --subtitle-font-size: 1rem;
+    --transition-duration: 0.3s;
+}
+
+/* Container for all links */
+#link-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-size-desktop);
+    width: 100%;
+}
+
+/* Row styling */
+#link-container .row {
+    position: relative;
+    width: 100%;
+    visibility: hidden; /* Initially hidden until placement is complete */
+}
+
+/* Default alignment for left-arrow */
+.left-arrow {
+    text-align: left;
+}
+
+/* Default alignment for right-arrow */
+.right-arrow {
+    text-align: right;
+}
+
+/* Link-wrapper ensures proper stacking */
+.link-wrapper {
+    position: relative;
+    display: inline-block;
+    text-align: inherit;
+}
+
+.linkwrapper:focus {
+    outline: 2px solid #000; /* or a color matching your theme */
+}
+
+/* Link styling */
+#link-container .row a {
+    display: block;
+    font-size: var(--font-size);
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    transition: all var(--transition-duration) ease-in-out;
+}
+
+#link-container .row a:hover {
+    transform: scale(1.05);
+}
+
+/* Subtitle styling */
+.subtitle {
+    display: block;
+    font-size: var(--subtitle-font-size);
+    text-transform: lowercase;
+}
+
+/* Mobile-specific styling */
+@media (max-width: 768px) {
+    #link-container {
+        gap: var(--gap-size-mobile);
+    }
+
+    #link-container .row {
+        visibility: visible; /* Always visible on mobile */
+    }
+
+    #link-container .row a {
+        position: static;
+        transition: none;
+    }
+}
+
+/* Overlay styling */
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    pointer-events: none;
+    transition: all var(--transition-duration) ease-in-out;
+    z-index: 100;
+
+
+}
