@@ -12,7 +12,6 @@ function debounce(func, wait) {
 }
 
 function randomizeLinks(rows) {
-
     rows.forEach((row, index) => {
         const linkWrapper = row.querySelector('.link-wrapper');
         const link = row.querySelector('a');
@@ -102,21 +101,18 @@ window.onload = () => {
         });
     }
 
-    function handleLinkHover(event, imageList) {
+    function handleLinkHover(event) {
         const link = event.target.closest('a');
         if (!link) return;
 
-        // Randomly select and send an overlay image
+        // Randomly select an overlay image
         const randomImage = imageList[Math.floor(Math.random() * imageList.length)];
-        window.parent.postMessage({ type: 'show-overlay', image: randomImage }, '*');
+        overlay.style.backgroundImage = `url(${randomImage})`;
+        overlay.style.opacity = '1'; // Fade in
     }
 
-    function handleLinkLeave(event) {
-        const link = event.target.closest('a');
-        if (!link) return;
-
-        // Send a message to hide the overlay
-        window.parent.postMessage({ type: 'hide-overlay' }, '*');
+    function handleLinkLeave() {
+        overlay.style.opacity = '0'; // Fade out
     }
 
     // Preload all images
@@ -151,14 +147,14 @@ window.onload = () => {
     linkContainer.addEventListener('mouseover', (event) => {
         const link = event.target.closest('a');
         if (link && !isMobile()) {
-            handleLinkHover(event, overlay, shuffledImages);
+            handleLinkHover(event);
         }
     });
 
     linkContainer.addEventListener('mouseout', (event) => {
         const link = event.target.closest('a');
         if (link && !isMobile()) {
-            handleLinkLeave(event, overlay);
+            handleLinkLeave();
         }
     });
 
@@ -179,22 +175,6 @@ window.onload = () => {
             } else {
                 // Desktop-specific behavior remains unchanged (if any)
             }
-        }
-    });
-
-    window.addEventListener('pageshow', () => {
-        const overlay = document.getElementById('image-overlay');
-        const imageList = JSON.parse(overlay.getAttribute('data-images'));
-
-        if (isMobile()) {
-            const randomImage = imageList[Math.floor(Math.random() * imageList.length)];
-            const img = new Image();
-            img.onload = () => {
-                console.log(`Page restored: Image loaded: ${randomImage}`);
-                overlay.style.backgroundImage = `url(${randomImage})`;
-                overlay.style.opacity = '1'; // Ensure visibility
-            };
-            img.src = randomImage;
         }
     });
 };
