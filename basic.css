@@ -5,3 +5,8 @@ body {
     font-weight: 400;
     font-style: normal;
 }
+
+a {
+    color: black; /* Set link color */
+    font-weight: bold;
+}
