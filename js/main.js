@@ -102,26 +102,21 @@ window.onload = () => {
         });
     }
 
-    function handleLinkHover(event, overlay, imageList) {
+    function handleLinkHover(event, imageList) {
         const link = event.target.closest('a');
         if (!link) return;
 
-        if (!link.dataset.originalText) {
-            link.dataset.originalText = link.textContent;
-        }
-
-        // Randomize and set an overlay image
+        // Randomly select and send an overlay image
         const randomImage = imageList[Math.floor(Math.random() * imageList.length)];
-        overlay.style.backgroundImage = `url(${randomImage})`;
-        overlay.style.opacity = '1'; // Make overlay visible
+        window.parent.postMessage({ type: 'show-overlay', image: randomImage }, '*');
     }
 
-    function handleLinkLeave(event, overlay) {
+    function handleLinkLeave(event) {
         const link = event.target.closest('a');
         if (!link) return;
 
-        link.textContent = link.dataset.originalText; // Reset link text if changed
-        overlay.style.opacity = '0'; // Hide overlay
+        // Send a message to hide the overlay
+        window.parent.postMessage({ type: 'hide-overlay' }, '*');
     }
 
     // Preload all images
