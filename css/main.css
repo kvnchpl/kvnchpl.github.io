@@ -7,16 +7,18 @@
     --font-color: black;
 }
 
+iframe {
+    outline: none;
+}
+
 body {
     color: var(--font-color);
     font-family: "Apolline Std", serif;
-    font-weight: 400;
-    font-style: normal;
 }
 
 a {
     color: var(--font-color);
-    font-weight: 400;
+    text-decoration: none;
 }
 
 /* Container for all links */
