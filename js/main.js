@@ -97,7 +97,7 @@ window.onload = () => {
     const adjustHeight = () => {
         let maxHeight = 0;
 
-        // Calculate the total height required for all rows
+        // Calculate the height required to fit all rows
         rows.forEach((row) => {
             const rowBottom = row.offsetTop + row.offsetHeight;
             if (rowBottom > maxHeight) {
@@ -105,7 +105,7 @@ window.onload = () => {
             }
         });
 
-        // Set the container's height dynamically
+        // Dynamically set the container height
         linkContainer.style.height = `${maxHeight}px`;
     };
 
