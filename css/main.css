@@ -20,6 +20,8 @@ body {
 
 .sqs-layout {
     padding: 0 !important;
+    min-height: unset !important;
+    height: auto !important;
 }
 
 .sqs-block {
