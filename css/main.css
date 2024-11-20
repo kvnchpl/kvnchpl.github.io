@@ -11,7 +11,7 @@ html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: auto !important;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 body {
@@ -19,56 +19,23 @@ body {
     font-family: "Apolline Std", serif;
 }
 
-.spacer-block, .footer, .sqs-block-spacer, .fe-spacer {
-    display: none !important;
-    height: 0 !important;
-}
-
-/* Remove padding/margin on the fe-block and its containers */
-.fe-block, .fe-block-content {
+.sqs-layout, .sqs-block {
     margin: 0 !important;
     padding: 0 !important;
-    height: auto !important;
-    overflow: hidden !important;
-}
-
-/* Ensure no minimum height or extra height is applied */
-.fe-block {
-    min-height: unset !important;
-    height: auto !important;
-}
-
-/* Reset layout styles for fe-block's parents */
-.fe-block-parent, .sqs-layout {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: auto !important;
-    display: flex; /* Ensure it adapts to content */
-    flex-direction: column;
-    align-items: center;
-}
-
-.sqs-block, .sqs-layout {
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-.sqs-block.embed-block {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: auto !important;
-    overflow: hidden !important;
 }
 
 .sqs-layout {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    height: auto !important;
 }
 
-.sqs-section {
-    padding: 0 !important;
-    margin: 0 !important;
+.sqs-block.embed-block {
+    overflow: hidden !important;
+}
+
+
+footer, .spacer-block, .footer {
+    display: none !important;
+    height: 0 !important;
 }
 
 a {
@@ -83,6 +50,8 @@ a {
     align-items: center;
     gap: var(--gap-size-desktop);
     padding 0;
+    position: relative;
+    min-height: 100vh;
 }
 
 #link-container .row {
