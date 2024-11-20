@@ -8,9 +8,9 @@
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
 }
 
 body {
@@ -18,23 +18,27 @@ body {
     font-family: "Apolline Std", serif;
 }
 
+.sqs-block, .sqs-layout {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.sqs-block.embed-block {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
 .sqs-layout {
-    padding: 0 !important;
-    min-height: unset !important;
-    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.sqs-block, .fe-block {
+.sqs-section {
     padding: 0 !important;
     margin: 0 !important;
-}
-
-
-.sqs-block.embed-block, .fe-block {
-    padding: 0 !important;
-    margin: 0 !important;
-    height: auto !important;
-    overflow: hidden;
 }
 
 a {
