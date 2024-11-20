@@ -11,11 +11,41 @@ html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: auto !important;
+    overflow-y: hidden;
 }
 
 body {
     color: var(--font-color);
     font-family: "Apolline Std", serif;
+}
+
+.spacer-block, .footer, .sqs-block-spacer, .fe-spacer {
+    display: none !important;
+    height: 0 !important;
+}
+
+/* Remove padding/margin on the fe-block and its containers */
+.fe-block, .fe-block-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+/* Ensure no minimum height or extra height is applied */
+.fe-block {
+    min-height: unset !important;
+    height: auto !important;
+}
+
+/* Reset layout styles for fe-block's parents */
+.fe-block-parent, .sqs-layout {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    display: flex; /* Ensure it adapts to content */
+    flex-direction: column;
+    align-items: center;
 }
 
 .sqs-block, .sqs-layout {
