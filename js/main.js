@@ -93,6 +93,13 @@ window.onload = () => {
     const linkContainer = document.getElementById('link-container');
     const overlay = document.getElementById('image-overlay');
     const imageList = JSON.parse(overlay.getAttribute('data-images'));
+    
+    const adjustBodyHeight = () => {
+        document.body.style.height = `${linkContainer.offsetHeight}px`;
+    };
+    
+    adjustBodyHeight();
+    window.addEventListener('resize', adjustBodyHeight);
 
     function preloadImages(imageList) {
         imageList.forEach((src) => {
