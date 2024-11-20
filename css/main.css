@@ -24,13 +24,13 @@ body {
     height: auto !important;
 }
 
-.sqs-block {
+.sqs-block, .fe-block {
     padding: 0 !important;
     margin: 0 !important;
 }
 
 
-.sqs-block.embed-block {
+.sqs-block.embed-block, .fe-block {
     padding: 0 !important;
     margin: 0 !important;
     height: auto !important;
