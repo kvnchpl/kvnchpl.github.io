@@ -90,16 +90,21 @@ function enableHoverEffect(rows, initialPositions, debounceTime) {
 }
 
 window.onload = () => {
-    const linkContainer = document.getElementById('link-container');
     const overlay = document.getElementById('image-overlay');
     const imageList = JSON.parse(overlay.getAttribute('data-images'));
-    
-    const adjustBodyHeight = () => {
-        document.body.style.height = `${linkContainer.offsetHeight}px`;
+    const embedBlock = document.querySelector('.sqs-block.embed-block');
+    const linkContainer = document.getElementById('link-container');
+
+    // Adjust the embed block height dynamically
+    const adjustHeight = () => {
+        if (embedBlock && linkContainer) {
+            embedBlock.style.height = `${linkContainer.offsetHeight}px`;
+        }
     };
-    
-    adjustBodyHeight();
-    window.addEventListener('resize', adjustBodyHeight);
+
+    // Call the adjustment function on load and on window resize
+    adjustHeight();
+    window.addEventListener('resize', adjustHeight);
 
     function preloadImages(imageList) {
         imageList.forEach((src) => {
