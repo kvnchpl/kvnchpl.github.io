@@ -92,14 +92,21 @@ function enableHoverEffect(rows, initialPositions, debounceTime) {
 window.onload = () => {
     const overlay = document.getElementById('image-overlay');
     const imageList = JSON.parse(overlay.getAttribute('data-images'));
-    const embedBlock = document.querySelector('.sqs-block.embed-block');
     const linkContainer = document.getElementById('link-container');
 
-    // Adjust the embed block height dynamically
     const adjustHeight = () => {
-        if (embedBlock && linkContainer) {
-            embedBlock.style.height = `${linkContainer.offsetHeight}px`;
-        }
+        let maxHeight = 0;
+
+        // Calculate the total height required for all rows
+        rows.forEach((row) => {
+            const rowBottom = row.offsetTop + row.offsetHeight;
+            if (rowBottom > maxHeight) {
+                maxHeight = rowBottom;
+            }
+        });
+
+        // Set the container's height dynamically
+        linkContainer.style.height = `${maxHeight}px`;
     };
 
     // Call the adjustment function on load and on window resize

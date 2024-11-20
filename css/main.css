@@ -8,10 +8,12 @@
 }
 
 html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-    height: auto !important;
-    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 body {
@@ -44,14 +46,13 @@ a {
 }
 
 #link-container {
+    position: relative;
     margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--gap-size-desktop);
-    padding 0;
-    position: relative;
-    min-height: 100vh;
 }
 
 #link-container .row {
@@ -104,11 +105,16 @@ a {
 /* mobile styling */
 @media (max-width: 768px) {
     #link-container {
-        gap: var(--gap-size-mobile);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        min-height: auto;
     }
 
     #link-container .row {
-        visibility: visible; /* always visible on mobile */
+        position: static;
+        margin-bottom: 20px;
     }
 
     #link-container .row a {
