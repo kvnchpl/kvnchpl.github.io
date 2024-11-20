@@ -49,7 +49,8 @@ a {
     position: relative;
     margin: 0 auto;
     padding: 20px;
-    min-height: 100vh;
+    min-min-height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -128,7 +129,7 @@ a {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
