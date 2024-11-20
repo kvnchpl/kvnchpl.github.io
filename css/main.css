@@ -18,6 +18,14 @@ body {
     font-family: "Apolline Std", serif;
 }
 
+.sqs-layout {
+    padding: 0 !important;
+}
+
+.sqs-block {
+    margin: 0 !important;
+}
+
 a {
     color: var(--font-color);
     text-decoration: none;
