@@ -25,7 +25,16 @@ body {
 }
 
 .sqs-block {
+    padding: 0 !important;
     margin: 0 !important;
+}
+
+
+.sqs-block.embed-block {
+    padding: 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    overflow: hidden;
 }
 
 a {
@@ -39,7 +48,7 @@ a {
     flex-direction: column;
     align-items: center;
     gap: var(--gap-size-desktop);
-    padding 20px;
+    padding 0;
 }
 
 #link-container .row {
