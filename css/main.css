@@ -73,7 +73,7 @@ a {
     gap: 20px;
     padding: 20px;
     margin: 0 auto;
-    min-height: 100vh;
+    height: auto;
     width: 100%;
     box-sizing: border-box;
 }
