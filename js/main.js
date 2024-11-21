@@ -93,6 +93,7 @@ window.onload = () => {
     const overlay = document.getElementById('image-overlay');
     const imageList = JSON.parse(overlay.getAttribute('data-images'));
     const linkContainer = document.getElementById('link-container');
+    const rows = document.querySelectorAll('#link-container .row');
 
     const adjustHeight = () => {
         let maxHeight = 0;
@@ -151,8 +152,6 @@ window.onload = () => {
         };
         img.src = randomImage;
     }
-
-    const rows = document.querySelectorAll('#link-container .row');
 
     const debounceTime = 200; // Locally scoped constant for debouncing
 
