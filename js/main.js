@@ -110,10 +110,6 @@ window.onload = () => {
         linkContainer.style.height = `${maxHeight}px`;
     };
 
-    // Call the adjustment function on load and on window resize
-    adjustHeight();
-    window.addEventListener('resize', adjustHeight);
-
     function preloadImages(imageList) {
         imageList.forEach((src) => {
             const img = new Image();
@@ -195,4 +191,9 @@ window.onload = () => {
             }
         }
     });
+
+    // Final Step: Make the container visible after randomization
+    adjustHeight(); // Adjust height dynamically
+    linkContainer.style.visibility = 'visible';
+    linkContainer.style.opacity = '1';
 };
