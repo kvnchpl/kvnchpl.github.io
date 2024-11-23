@@ -7,23 +7,13 @@
     --font-color: black;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: auto;
-    min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-#siteWrapper {
-    height: auto;
-    min-height: 0;
-}
-
 body {
     color: var(--font-color);
     font-family: "Apolline Std", serif;
+}
+
+.page-section, .section-border, .section-background, .content-wrapper {
+    min-height: 0 !important;
 }
 
 .fluid-engine {
@@ -39,39 +29,6 @@ a {
     display: flex;
     flex-direction: column;
     gap: var(--gap-size-desktop);
-    padding: 0 auto;
-    margin: 0 auto;
-    height: auto;
-    width: 100%;
-    visibility: hidden;
-}
-
-#link-container .row {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-
-#link-container .link-wrapper {
-    display: inline-block;
-    text-align: center;
-}
-
-.left-arrow {
-    text-align: left;
-}
-
-.right-arrow {
-    text-align: right;
-}
-
-.link-wrapper {
-    position: relative;
-    display: inline-block;
-    text-align: inherit;
 }
 
 .linkwrapper:focus, a:focus {
@@ -79,10 +36,9 @@ a {
 }
 
 #link-container .row a {
-    display: block;
     font-size: var(--font-size);
     text-transform: uppercase;
-    position: relative;
+    white-space: nowrap;
     transition: all var(--transition-duration) ease-in-out;
 }
 
@@ -99,11 +55,20 @@ a {
 /* mobile styling */
 @media (max-width: 768px) {
     #link-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        min-height: auto;
         gap: var(--gap-size-mobile);
     }
 
     #link-container .row {
         position: static;
+        margin-bottom: 20px;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
     }
 
     #link-container .row a {
