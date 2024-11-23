@@ -21,7 +21,7 @@ body {
     font-family: "Apolline Std", serif;
 }
 
-.page-section, .section-border, .section-background, .content-wrapper {
+#siteWrapper, .page-section, .section-border, .section-background, .content-wrapper {
     min-height: 0 !important;
 }
 
@@ -58,7 +58,6 @@ a {
 }
 
 #link-container .row:last-child {
-    background: red;
     padding-bottom: calc(var(--font-size)*2);
 }
 
