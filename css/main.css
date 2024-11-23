@@ -12,8 +12,7 @@ html, body {
     padding: 0;
     height: auto;
     min-height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: visible;
 }
 
 #siteWrapper {
@@ -27,43 +26,7 @@ body {
 }
 
 .fluid-engine {
-    height: auto !important;
-    min-height: 0 !important;
-}
-
-.fluid-engine, .fe-block {
-    display: block !important;
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-    overflow: hidden !important;
-}
-
-.sqs-layout, .sqs-block {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.sqs-layout {
-    height: auto !important;
-}
-
-.sqs-block.embed-block {
-    height: auto !important;
-    min-height: 0 !important;
-    overflow: hidden !important;
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.sqs-block-content {
-    height: auto !important;
-    min-height: 0 !important;
-}
-
-
-footer, .spacer-block, .footer {
-    display: none !important;
-    height: 0 !important;
+    display: block;
 }
 
 a {
@@ -74,9 +37,8 @@ a {
 #link-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 20px;
-    padding: 20px;
+    padding: 0 20px;
     margin: 0 auto;
     height: auto;
     width: 100%;
