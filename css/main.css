@@ -1,6 +1,6 @@
 :root {
     --gap-size-desktop: 60px;
-    --gap-size-mobile: 30px;
+    --gap-size-mobile: 40px;
     --font-size: 1.2rem;
     --subtitle-font-size: 1rem;
     --transition-duration: 0.3s;
@@ -99,20 +99,11 @@ a {
 /* mobile styling */
 @media (max-width: 768px) {
     #link-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        min-height: auto;
         gap: var(--gap-size-mobile);
     }
 
     #link-container .row {
         position: static;
-        margin-bottom: 20px;
-        flex-direction: column;
-        align-items: center;
-        padding: 5px;
     }
 
     #link-container .row a {
