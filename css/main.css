@@ -90,7 +90,6 @@ a {
     margin: 0;
     padding: 10px;
     position: relative;
-    box-sizing: border-box;
 }
 
 #link-container .link-wrapper {
