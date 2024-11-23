@@ -1,5 +1,5 @@
 :root {
-    --gap-size-desktop: 30px;
+    --gap-size-desktop: 60px;
     --gap-size-mobile: 30px;
     --font-size: 1.2rem;
     --subtitle-font-size: 1rem;
@@ -24,7 +24,6 @@ html, body {
 body {
     color: var(--font-color);
     font-family: "Apolline Std", serif;
-    padding-bottom: 20px;
 }
 
 .fluid-engine {
