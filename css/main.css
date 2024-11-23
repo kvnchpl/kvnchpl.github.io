@@ -23,6 +23,7 @@ body {
 
 #siteWrapper, .page-section, .section-border, .section-background, .content-wrapper {
     min-height: 0 !important;
+    padding-bottom: 0 !important;
 }
 
 .fluid-engine {
