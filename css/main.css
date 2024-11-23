@@ -69,7 +69,7 @@ a {
 }
 
 /* mobile styling */
-@media (max-width: var(--mobile-width)) {
+@media (max-width: var(--mobilewidth)) {
     #link-container {
         display: flex;
         flex-direction: column;
@@ -78,23 +78,20 @@ a {
 
     #link-container .row {
         display: flex;
-        width: 100%; /* Ensure rows take up full width */
-        flex-direction: row; /* Maintain row layout */
+        justify-content: flex-start;
+        width: 100%;
     }
 
-    #link-container .row.left-arrow .link-wrapper {
-        margin-left: 0; /* Align left-arrow links to the left */
-        margin-right: auto; /* Push content to the left */
+    #link-container .row.left-arrow {
+        justify-content: flex-start;
     }
 
-    #link-container .row.right-arrow .link-wrapper {
-        margin-right: 0; /* Align right-arrow links to the right */
-        margin-left: auto; /* Push content to the right */
+    #link-container .row.right-arrow {
+        justify-content: flex-end;
     }
 
     #link-container .row a {
-        text-align: left; /* Ensure text aligns correctly */
-        transition: none; /* Disable hover effects on mobile */
+        transition: none;
     }
 }
 
