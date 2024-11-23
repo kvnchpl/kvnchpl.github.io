@@ -69,7 +69,7 @@ a {
 }
 
 /* mobile styling */
-@media (max-width: var(--mobilewidth)) {
+@media (max-width: var(--mobile-width)) {
     #link-container {
         display: flex;
         flex-direction: column;
