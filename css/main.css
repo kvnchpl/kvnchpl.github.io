@@ -83,9 +83,6 @@ a {
     display: block;
     font-size: var(--font-size);
     text-transform: uppercase;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     position: relative;
     transition: all var(--transition-duration) ease-in-out;
 }
