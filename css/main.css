@@ -75,7 +75,6 @@ a {
     margin: 0 auto;
     height: auto;
     width: 100%;
-    box-sizing: border-box;
     overflow: visible;
     visibility: hidden;
     opacity: 0;
