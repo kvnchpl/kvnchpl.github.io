@@ -43,7 +43,7 @@ a {
     gap: var(--gap-size-desktop);
 }
 
-.linkwrapper:focus, a:focus {
+.link-wrapper:focus, a:focus {
     outline: 2px solid var(--font-color);
 }
 
