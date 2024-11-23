@@ -69,7 +69,7 @@ a {
 }
 
 /* mobile styling */
-@media (max-width: var(--mobilewidth)) {
+@media (max-width: var(--mobile-width)) {
     #link-container {
         display: flex;
         flex-direction: column;
@@ -78,20 +78,23 @@ a {
 
     #link-container .row {
         display: flex;
-        justify-content: flex-start;
-        width: 100%;
+        width: 100%; /* Ensure rows take up full width */
+        flex-direction: row; /* Maintain row layout */
     }
 
-    #link-container .row.left-arrow {
-        justify-content: flex-start;
+    #link-container .row.left-arrow .link-wrapper {
+        margin-left: 0; /* Align left-arrow links to the left */
+        margin-right: auto; /* Push content to the left */
     }
 
-    #link-container .row.right-arrow {
-        justify-content: flex-end;
+    #link-container .row.right-arrow .link-wrapper {
+        margin-right: 0; /* Align right-arrow links to the right */
+        margin-left: auto; /* Push content to the right */
     }
 
     #link-container .row a {
-        transition: none;
+        text-align: left; /* Ensure text aligns correctly */
+        transition: none; /* Disable hover effects on mobile */
     }
 }
 
