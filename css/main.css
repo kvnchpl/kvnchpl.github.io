@@ -12,7 +12,8 @@ html, body {
     padding: 0;
     height: auto;
     min-height: 100%;
-    overflow-x: visible;
+    overflow-x: hidden;
+    overflow-y: visible;
 }
 
 #siteWrapper {
