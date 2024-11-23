@@ -16,6 +16,11 @@ html, body {
     overflow-y: auto;
 }
 
+#siteWrapper {
+    height: auto;
+    min-height: 0;
+}
+
 body {
     color: var(--font-color);
     font-family: "Apolline Std", serif;
