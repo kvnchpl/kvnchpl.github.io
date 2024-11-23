@@ -65,23 +65,28 @@ a {
     #link-container {
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding: 10px;
-        min-height: auto;
         gap: var(--gap-size-mobile);
     }
 
     #link-container .row {
-        position: static;
-        margin-bottom: 20px;
-        flex-direction: column;
-        align-items: center;
-        padding: 5px;
+        display: flex;
+        justify-content: flex-start; /* Align rows to the left by default */
+        width: 100%;
+    }
+
+    #link-container .row.left-arrow {
+        justify-content: flex-start; /* Align left-arrow rows to the left */
+    }
+
+    #link-container .row.right-arrow {
+        justify-content: flex-end; /* Align right-arrow rows to the right */
     }
 
     #link-container .row a {
-        position: static;
-        transition: none;
+        text-align: left; /* Optional: Adjust text alignment */
+        padding: 5px;
+        transition: none; /* Disable hover transitions on mobile */
     }
 }
 
