@@ -155,10 +155,10 @@ window.onload = () => {
     const initialPositions = randomizeLinks(rows);
 
     // Step 1.5: Force repaint to ensure styles are applied correctly
-setTimeout(() => {
-    rows.forEach(row => row.offsetHeight); // Trigger a repaint
-}, 0);
-    
+    setTimeout(() => {
+        rows.forEach(row => row.offsetHeight); // Trigger a repaint
+    }, 0);
+
     // Step 2: Enable hover effects with local debounce time
     enableHoverEffect(rows, initialPositions, debounceTime);
 
