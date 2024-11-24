@@ -89,6 +89,7 @@ a {
         display: flex;
         flex-direction: column;
         gap: var(--gap-size-mobile);
+        z-index: 200;
     }
 
     #link-container .row {
@@ -112,7 +113,7 @@ a {
     #image-overlay {
         pointer-events: auto; /* Enable click events on mobile */
     }
-    
+
     a {
         pointer-events: auto; /* Ensure links remain clickable */
         z-index: 101; /* Ensure links are above overlay */
