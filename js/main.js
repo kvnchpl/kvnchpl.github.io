@@ -94,7 +94,7 @@ window.onload = () => {
                     const otherLinkWidth = otherWrapper.offsetWidth;
                     otherWrapper.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
-                        : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
+                    : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
 
                     otherWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
                 }
@@ -153,4 +153,13 @@ window.onload = () => {
     adjustHeight();
     linkContainer.style.visibility = 'visible';
     linkContainer.style.opacity = '1';
+
+    console.log('Image List:', imageList);
+    console.log('Shuffled Images:', shuffledImages);
+
+    console.log('Next Image:', getNextImage());
+
+    console.log('Overlay Background Image:', overlay.style.backgroundImage);
+
+    console.log('Overlay Opacity:', overlay.style.opacity);
 };
