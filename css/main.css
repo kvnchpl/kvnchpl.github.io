@@ -80,6 +80,7 @@ a {
     opacity: 0; /* initially hidden */
     pointer-events: none;
     transition: opacity var(--transition-duration) ease-in-out;
+    z-index: 100;
 }
 
 /* mobile styling */
@@ -110,5 +111,10 @@ a {
 
     #image-overlay {
         pointer-events: auto; /* Enable click events on mobile */
+    }
+    
+    a {
+        pointer-events: auto; /* Ensure links remain clickable */
+        z-index: 101; /* Ensure links are above overlay */
     }
 }
