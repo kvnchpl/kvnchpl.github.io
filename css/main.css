@@ -86,6 +86,11 @@ a {
 
 /* mobile styling */
 @media (max-width: 768px) {
+    .sqs-block.html-block.sqs-block-html {
+        position: relative;
+        z-index: 150;
+    }
+    
     #link-container {
         position: relative;
         display: flex;
