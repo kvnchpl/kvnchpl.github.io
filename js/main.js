@@ -136,10 +136,10 @@ window.onload = () => {
         document.addEventListener('click', (event) => {
             const target = event.target;
 
-            // Allow links to navigate
-            if (target.closest('a')) {
-                console.log('Link clicked:', target.closest('a').href);
-                return; // Let the link handle navigation
+            // Check if the target is a link
+            if (target.tagName.toLowerCase() === 'a') {
+                console.log('Link clicked:', target.href);
+                return; // Allow the link to function normally
             }
 
             // Otherwise, cycle the image
