@@ -132,18 +132,15 @@ window.onload = () => {
         const initialImage = getNextImage();
         overlay.style.backgroundImage = `url(${initialImage})`;
         overlay.style.opacity = '1';
-    }
-
-    // Add tap functionality for mobile
-    console.log('Setting up mobile click event...');
-    overlay.addEventListener('click', () => {
-        console.log('Click event detected on overlay!');
-        if (window.innerWidth <= 768) { // Ensure it's mobile
+        
+        document.addEventListener('click', () => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            console.log('Mobile Tap Image:', nextImage);
-        }
-    });
+        });
+    }
+
+    // Add a global tap listener
+
 
     // Desktop: Handle hover effects and randomized links
     const debounceTime = 200; // Adjust as needed
