@@ -40,6 +40,7 @@ a {
     flex-grow: 1;
     flex-direction: column;
     gap: var(--gap-size-desktop);
+    padding-bottom: var(--font-size);
 }
 
 .link-wrapper:focus, a:focus {
