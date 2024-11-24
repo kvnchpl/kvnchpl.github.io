@@ -135,8 +135,10 @@ window.onload = () => {
     }
 
     // Add tap functionality for mobile
+    console.log('Setting up mobile click event...');
     overlay.addEventListener('click', () => {
-        if (isMobile()) { // Check if it's mobile
+        console.log('Click event detected on overlay!');
+        if (window.innerWidth <= 768) { // Ensure it's mobile
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             console.log('Mobile Tap Image:', nextImage);
