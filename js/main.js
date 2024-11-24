@@ -133,7 +133,6 @@ window.onload = () => {
         overlay.style.backgroundImage = `url(${initialImage})`;
         overlay.style.opacity = '1';
 
-        // Add a global click listener
         document.addEventListener('click', (event) => {
             const target = event.target;
 
@@ -141,12 +140,6 @@ window.onload = () => {
             if (target.closest('a')) {
                 console.log('Link clicked:', target.closest('a').href);
                 return; // Let the link handle navigation
-            }
-
-            // Ignore clicks on high-priority elements (e.g., Squarespace blocks)
-            if (target.closest('.sqs-block')) {
-                console.log('Ignored click on high-priority element:', target);
-                return;
             }
 
             // Otherwise, cycle the image
