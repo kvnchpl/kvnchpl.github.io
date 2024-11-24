@@ -1,7 +1,7 @@
 :root {
     --gap-size-desktop: 60px;
     --gap-size-mobile: calc(var(--gap-size-desktop)*(0.6));
-    --link-container-margin: calc(var(--font-size)*(0.5));
+    --link-container-margin: calc(var(--font-size));
     --font-size: 1.2rem;
     --subtitle-font-size: calc(var(--font-size)*(0.8));
     --transition-duration: 0.3s;
