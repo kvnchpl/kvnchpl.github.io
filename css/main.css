@@ -7,7 +7,6 @@
     --transition-duration: 0.3s;
     --font-color: black;
     --hover-scale: 1.05;
-    --mobile-width: 768px;
 }
 
 html, body {
@@ -69,7 +68,7 @@ a {
 }
 
 /* mobile styling */
-@media (max-width: var(--mobile-width)) {
+@media (max-width: 768px) {
     #link-container {
         display: flex;
         flex-direction: column;
