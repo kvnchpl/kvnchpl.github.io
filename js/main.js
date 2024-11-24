@@ -39,6 +39,9 @@ window.onload = () => {
             const isLeftArrow = index % 2 === 0;
             row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
 
+            // Add arrows to the link text
+            link.textContent = isLeftArrow ? `←${link.textContent}` : `${link.textContent}→`;
+
             if (!isMobile()) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
