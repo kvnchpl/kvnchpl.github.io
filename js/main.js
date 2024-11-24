@@ -143,10 +143,8 @@ window.onload = () => {
             }
 
             // Otherwise, cycle the image
-            if (!linkContainer.contains(target)) { // Ensure clicks on links are excluded
-                const nextImage = getNextImage();
-                overlay.style.backgroundImage = `url(${nextImage})`;
-            }
+            const nextImage = getNextImage();
+            overlay.style.backgroundImage = `url(${nextImage})`;
         });
     }
 
