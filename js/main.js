@@ -134,9 +134,13 @@ window.onload = () => {
         overlay.style.opacity = '1';
 
         document.addEventListener('click', (event) => {
-            // Allow default behavior for links
-            if (event.target.tagName.toLowerCase() === 'a') {
-                return; // Let the link navigate as usual
+            const target = event.target;
+
+            // Check if the target is a link
+            if (target.tagName.toLowerCase() === 'a') {
+                // Allow the link to function normally
+                console.log('Link clicked:', target.href);
+                return;
             }
 
             // Otherwise, cycle the image
