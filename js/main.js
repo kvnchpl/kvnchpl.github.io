@@ -16,7 +16,8 @@ window.onload = () => {
     // Get the next image in sequence
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
-        currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
+        console.log(`Image Index: ${currentImageIndex}, Image: ${nextImage}`);
+        currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
         return nextImage;
     };
 
