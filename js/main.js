@@ -16,7 +16,6 @@ window.onload = () => {
     // Get the next image in sequence
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
-        console.log(`Image Index: ${currentImageIndex}, Image: ${nextImage}`);
         currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
         return nextImage;
     };
@@ -92,7 +91,6 @@ window.onload = () => {
                 }
             });
 
-            console.log('Hover Image:', nextImage);
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
@@ -103,7 +101,6 @@ window.onload = () => {
             });
 
             overlay.style.opacity = '0'; // Hide the overlay
-            console.log('Overlay Hidden');
         }, debounceTime);
 
         rows.forEach((row) => {
@@ -129,16 +126,16 @@ window.onload = () => {
     shuffledImages = shuffleArray([...imageList]);
     preloadImages(shuffledImages);
 
-    console.log('Image List:', imageList);
-    console.log('Shuffled Images:', shuffledImages);
-
     // Mobile: Display the first image in the shuffled list
     const isMobile = () => window.innerWidth <= 768;
     if (isMobile()) {
         const initialImage = getNextImage();
         overlay.style.backgroundImage = `url(${initialImage})`;
         overlay.style.opacity = '1';
-        console.log('Mobile Initial Image:', initialImage);
+        overlay.addEventListener('click', () => {
+        const nextImage = getNextImage(); // Get the next shuffled image
+        overlay.style.backgroundImage = `url(${nextImage})`; // Update the overlay image
+    });
     }
 
     // Desktop: Handle hover effects and randomized links
