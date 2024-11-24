@@ -133,18 +133,22 @@ window.onload = () => {
         overlay.style.backgroundImage = `url(${initialImage})`;
         overlay.style.opacity = '1';
 
+        // Restrict click listener to the overlay and link container
         document.addEventListener('click', (event) => {
             const target = event.target;
 
-            // Allow links to navigate
-            if (target.closest('a')) {
-                console.log('Link clicked:', target.closest('a').href);
-                return; // Let the link handle navigation
-            }
+            // Check if the click is within the overlay or the link container
+            if (overlay.contains(target) || linkContainer.contains(target)) {
+                // Allow links to navigate
+                if (target.closest('a')) {
+                    console.log('Link clicked:', target.closest('a').href);
+                    return; // Let the link handle navigation
+                }
 
-            // Otherwise, cycle the image
-            const nextImage = getNextImage();
-            overlay.style.backgroundImage = `url(${nextImage})`;
+                // Otherwise, cycle the image
+                const nextImage = getNextImage();
+                overlay.style.backgroundImage = `url(${nextImage})`;
+            }
         });
     }
 
