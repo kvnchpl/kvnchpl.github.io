@@ -93,6 +93,10 @@ a {
     #link-container .row a {
         transition: none;
     }
+    
+    #image-overlay {
+        pointer-events: auto; /* Enable click events on mobile */
+    }
 }
 
 #image-overlay {
