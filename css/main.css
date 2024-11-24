@@ -86,6 +86,7 @@ a {
 /* mobile styling */
 @media (max-width: 768px) {
     #link-container {
+        position: relative;
         display: flex;
         flex-direction: column;
         gap: var(--gap-size-mobile);
@@ -116,6 +117,6 @@ a {
 
     a {
         pointer-events: auto; /* Ensure links remain clickable */
-        z-index: 101; /* Ensure links are above overlay */
+        z-index: 300; /* Ensure links are above overlay */
     }
 }
