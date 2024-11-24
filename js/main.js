@@ -132,8 +132,14 @@ window.onload = () => {
         const initialImage = getNextImage();
         overlay.style.backgroundImage = `url(${initialImage})`;
         overlay.style.opacity = '1';
-        
-        document.addEventListener('click', () => {
+
+        document.addEventListener('click', (event) => {
+            // Allow default behavior for links
+            if (event.target.tagName.toLowerCase() === 'a') {
+                return; // Let the link navigate as usual
+            }
+
+            // Otherwise, cycle the image
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
         });
