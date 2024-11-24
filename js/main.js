@@ -132,11 +132,16 @@ window.onload = () => {
         const initialImage = getNextImage();
         overlay.style.backgroundImage = `url(${initialImage})`;
         overlay.style.opacity = '1';
-        overlay.addEventListener('click', () => {
-        const nextImage = getNextImage(); // Get the next shuffled image
-        overlay.style.backgroundImage = `url(${nextImage})`; // Update the overlay image
-    });
     }
+
+    // Add tap functionality for mobile
+    overlay.addEventListener('click', () => {
+        if (isMobile()) { // Check if it's mobile
+            const nextImage = getNextImage();
+            overlay.style.backgroundImage = `url(${nextImage})`;
+            console.log('Mobile Tap Image:', nextImage);
+        }
+    });
 
     // Desktop: Handle hover effects and randomized links
     const debounceTime = 200; // Adjust as needed
