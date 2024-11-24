@@ -138,14 +138,15 @@ window.onload = () => {
 
             // Check if the target is a link
             if (target.tagName.toLowerCase() === 'a') {
-                // Allow the link to function normally
                 console.log('Link clicked:', target.href);
-                return;
+                return; // Allow the link to function normally
             }
 
             // Otherwise, cycle the image
-            const nextImage = getNextImage();
-            overlay.style.backgroundImage = `url(${nextImage})`;
+            if (!linkContainer.contains(target)) { // Ensure clicks on links are excluded
+                const nextImage = getNextImage();
+                overlay.style.backgroundImage = `url(${nextImage})`;
+            }
         });
     }
 
