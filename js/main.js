@@ -10,24 +10,14 @@ window.onload = () => {
     let currentImageIndex = 0;
     let initialPositions = [];
 
-    // Helper to shuffle the image list
+    // Helper to shuffle array
     const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-    // Function to get the next image in sequence
+    // Get the next image in sequence
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
-        currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
+        currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
         return nextImage;
-    };
-
-    // Debounce function to limit hover effect execution
-    const debounce = (func, wait) => {
-        let timeout;
-        return function (...args) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), wait);
-        };
     };
 
     // Preload images for better performance
@@ -38,17 +28,7 @@ window.onload = () => {
         });
     };
 
-    // Adjust the height of the container
-    const adjustHeight = () => {
-        let maxHeight = 0;
-        rows.forEach((row) => {
-            const rowBottom = row.offsetTop + row.offsetHeight;
-            if (rowBottom > maxHeight) maxHeight = rowBottom;
-        });
-        linkContainer.style.height = `${maxHeight}px`;
-    };
-
-    // Randomize the positions of the links (desktop only)
+    // Randomize link positions
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
             const linkWrapper = row.querySelector('.link-wrapper');
@@ -58,36 +38,44 @@ window.onload = () => {
             const isLeftArrow = index % 2 === 0;
             row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
 
-            // Add arrows to the link text
-            link.textContent = isLeftArrow ? `←${link.textContent}` : `${link.textContent}→`;
+            if (!isMobile()) {
+                const linkWidth = link.offsetWidth;
+                const viewportWidth = window.innerWidth;
 
-            if (isMobile()) {
-                row.style.visibility = 'visible';
-                return;
+                const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
+                const safeMaxPercent = 100 - safeMinPercent;
+
+                const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
+                initialPositions.push(randomPercent);
+
+                const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
+                linkWrapper.style.position = "absolute";
+                linkWrapper.style.left = initialLeft;
             }
 
-            // Random placement on desktop
-            const linkWidth = link.offsetWidth;
-            const viewportWidth = window.innerWidth;
-
-            const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
-            const safeMaxPercent = 100 - safeMinPercent;
-
-            const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
-            initialPositions.push(randomPercent);
-
-            const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
-            linkWrapper.style.position = "absolute";
-            linkWrapper.style.left = initialLeft;
             row.style.visibility = "visible";
         });
 
-        return initialPositions; // Return positions for hover effects
+        return initialPositions;
     };
 
-    // Enable hover effects with debouncing (desktop only)
+    // Debounce function
+    const debounce = (func, wait) => {
+        let timeout;
+        return function (...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    };
+
+    // Enable hover effects with sliding and image handling
     const enableHoverEffect = (rows, initialPositions, debounceTime) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
+            const nextImage = getNextImage(); // Update the overlay image
+            overlay.style.backgroundImage = `url(${nextImage})`;
+            overlay.style.opacity = '1';
+
             rows.forEach((otherRow) => {
                 const otherWrapper = otherRow.querySelector('.link-wrapper');
                 if (otherWrapper !== linkWrapper) {
@@ -99,6 +87,8 @@ window.onload = () => {
                     otherWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
                 }
             });
+
+            console.log('Hover Image:', nextImage);
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
@@ -107,6 +97,9 @@ window.onload = () => {
                 linkWrapper.style.left = `calc(${initialPositions[index]}% - ${linkWrapper.offsetWidth / 2}px)`;
                 linkWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
             });
+
+            overlay.style.opacity = '0'; // Hide the overlay
+            console.log('Overlay Hidden');
         }, debounceTime);
 
         rows.forEach((row) => {
@@ -128,38 +121,28 @@ window.onload = () => {
         });
     };
 
-    // Initialize the shuffled image list
+    // Initialize shuffled images
     shuffledImages = shuffleArray([...imageList]);
     preloadImages(shuffledImages);
+
+    console.log('Image List:', imageList);
+    console.log('Shuffled Images:', shuffledImages);
 
     // Mobile: Display the first image in the shuffled list
     const isMobile = () => window.innerWidth <= 768;
     if (isMobile()) {
         const initialImage = getNextImage();
-        const img = new Image();
-        img.onload = () => {
-            overlay.style.backgroundImage = `url(${initialImage})`;
-            overlay.style.opacity = '1';
-        };
-        img.src = initialImage;
+        overlay.style.backgroundImage = `url(${initialImage})`;
+        overlay.style.opacity = '1';
+        console.log('Mobile Initial Image:', initialImage);
     }
 
-    // Desktop: Handle hover effects with debouncing and randomized links
+    // Desktop: Handle hover effects and randomized links
     const debounceTime = 200; // Adjust as needed
-    initialPositions = randomizeLinks(rows); // Step 1: Randomize link positions
-    enableHoverEffect(rows, initialPositions, debounceTime); // Step 2: Enable hover effects
+    initialPositions = randomizeLinks(rows); // Randomize link positions
+    enableHoverEffect(rows, initialPositions, debounceTime); // Enable hover effects
 
     // Final adjustments
-    adjustHeight();
     linkContainer.style.visibility = 'visible';
     linkContainer.style.opacity = '1';
-
-    console.log('Image List:', imageList);
-    console.log('Shuffled Images:', shuffledImages);
-
-    console.log('Next Image:', getNextImage());
-
-    console.log('Overlay Background Image:', overlay.style.backgroundImage);
-
-    console.log('Overlay Opacity:', overlay.style.opacity);
 };
