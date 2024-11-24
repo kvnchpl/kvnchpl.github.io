@@ -2,15 +2,6 @@ const isMobile = () => window.innerWidth <= 768;
 
 let initialPositions = [];
 
-function debounce(func, wait) {
-    let timeout;
-    return function (...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
-    };
-}
-
 function randomizeLinks(rows) {
     rows.forEach((row, index) => {
         const linkWrapper = row.querySelector('.link-wrapper');
@@ -95,105 +86,92 @@ window.onload = () => {
     const linkContainer = document.getElementById('link-container');
     const rows = document.querySelectorAll('#link-container .row');
 
-    const adjustHeight = () => {
-        let maxHeight = 0;
+    let shuffledImages = [];
+    let currentImageIndex = 0;
 
-        // Calculate the height required to fit all rows
-        rows.forEach((row) => {
-            const rowBottom = row.offsetTop + row.offsetHeight;
-            if (rowBottom > maxHeight) {
-                maxHeight = rowBottom;
-            }
-        });
+    // Helper to shuffle the image list
+    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-        // Dynamically set the container height
-        linkContainer.style.height = `${maxHeight}px`;
+    // Function to get the next image in sequence
+    const getNextImage = () => {
+        const nextImage = shuffledImages[currentImageIndex];
+        currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
+        return nextImage;
     };
 
-    function preloadImages(imageList) {
-        imageList.forEach((src) => {
+    // Debounce function to limit hover effect execution
+    const debounce = (func, wait) => {
+        let timeout;
+        return function (...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    };
+
+    // Preload images for better performance
+    const preloadImages = (images) => {
+        images.forEach((src) => {
             const img = new Image();
             img.src = src;
         });
-    }
+    };
 
-    function handleLinkHover(event) {
-        const link = event.target.closest('a');
-        if (!link) return;
+    // Adjust the height of the container
+    const adjustHeight = () => {
+        let maxHeight = 0;
+        rows.forEach((row) => {
+            const rowBottom = row.offsetTop + row.offsetHeight;
+            if (rowBottom > maxHeight) maxHeight = rowBottom;
+        });
+        linkContainer.style.height = `${maxHeight}px`;
+    };
 
-        // Randomly select an overlay image
-        const randomImage = imageList[Math.floor(Math.random() * imageList.length)];
-        overlay.style.backgroundImage = `url(${randomImage})`;
-        overlay.style.opacity = '1'; // Fade in
-    }
+    // Initialize the shuffled image list
+    shuffledImages = shuffleArray([...imageList]);
+    preloadImages(shuffledImages);
 
-    function handleLinkLeave() {
-        overlay.style.opacity = '0'; // Fade out
-    }
-
-    // Preload all images
-    preloadImages(imageList);
-
-    // Shuffle the image list for randomness
-    const shuffledImages = [...imageList].sort(() => Math.random() - 0.5);
-
-    // Set a random static overlay image for mobile
+    // Mobile: Display the first image in the shuffled list
+    const isMobile = () => window.innerWidth <= 768;
     if (isMobile()) {
-        const randomImage = shuffledImages[Math.floor(Math.random() * shuffledImages.length)];
+        const initialImage = getNextImage();
         const img = new Image();
         img.onload = () => {
-            console.log(`Image loaded: ${randomImage}`);
-            overlay.style.backgroundImage = `url(${randomImage})`;
+            overlay.style.backgroundImage = `url(${initialImage})`;
             overlay.style.opacity = '1';
         };
-        img.src = randomImage;
+        img.src = initialImage;
     }
 
-    const debounceTime = 200; // Locally scoped constant for debouncing
+    // Desktop: Handle hover effects with debouncing
+    const debouncedHoverHandler = debounce((linkWrapper) => {
+        const nextImage = getNextImage();
+        overlay.style.backgroundImage = `url(${nextImage})`;
+        overlay.style.opacity = '1';
+    }, 200); // Debounce wait time in milliseconds
 
-    // Step 1: Randomize link positions and get initial positions
-    const initialPositions = randomizeLinks(rows);
+    const debouncedLeaveHandler = debounce(() => {
+        overlay.style.opacity = '0';
+    }, 200); // Debounce wait time in milliseconds
 
-    // Step 2: Enable hover effects with local debounce time
-    enableHoverEffect(rows, initialPositions, debounceTime);
+    rows.forEach((row) => {
+        const linkWrapper = row.querySelector('.link-wrapper');
 
-    // Step 3: Set up event delegation for hover and click interactions
-    linkContainer.addEventListener('mouseover', (event) => {
-        const link = event.target.closest('a');
-        if (link && !isMobile()) {
-            handleLinkHover(event);
-        }
-    });
-
-    linkContainer.addEventListener('mouseout', (event) => {
-        const link = event.target.closest('a');
-        if (link && !isMobile()) {
-            handleLinkLeave();
-        }
-    });
-
-    linkContainer.addEventListener('click', (event) => {
-        const link = event.target.closest('a');
-        if (link) {
-            if (isMobile()) {
-                event.preventDefault(); // Prevent immediate navigation
-
-                // Start fading out the overlay
-                overlay.style.transition = 'opacity 0.3s ease'; // Adjust duration as needed
-                overlay.style.opacity = '0';
-
-                // Delay navigation until the fade-out is complete
-                setTimeout(() => {
-                    window.location.href = link.href;
-                }, 1000);
-            } else {
-                // Desktop-specific behavior remains unchanged (if any)
+        linkWrapper.addEventListener('mouseenter', () => {
+            if (!isMobile()) {
+                debouncedHoverHandler(linkWrapper);
             }
-        }
+        });
+
+        linkWrapper.addEventListener('mouseleave', () => {
+            if (!isMobile()) {
+                debouncedLeaveHandler();
+            }
+        });
     });
 
-    // Final Step: Make the container visible after randomization
-    adjustHeight(); // Adjust height dynamically
+    // Final adjustments
+    adjustHeight();
     linkContainer.style.visibility = 'visible';
     linkContainer.style.opacity = '1';
 };
