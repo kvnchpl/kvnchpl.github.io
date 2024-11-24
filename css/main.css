@@ -80,7 +80,6 @@ a {
     opacity: 0; /* initially hidden */
     pointer-events: none;
     transition: opacity var(--transition-duration) ease-in-out;
-    z-index: 100;
 }
 
 /* mobile styling */
