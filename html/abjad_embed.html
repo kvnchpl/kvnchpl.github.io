@@ -11,48 +11,134 @@
             <h3>abjad</h3>
             <textarea id="userInput" rows="4" style="width: 100%;" placeholder="Type your text here..."></textarea>
             <br>
+            <label for="regionSelect">Select Pronunciation Preference:</label>
+            <select id="regionSelect">
+                <option value="United States">United States</option>
+                <option value="United Kingdom">United Kingdom</option>
+                <option value="Australia">Australia</option>
+                <option value="Canada">Canada</option>
+            </select>
+            <br>
             <button id="convertButton" style="margin-top: 10px;">Convert</button>
             <p><strong>Output:</strong></p>
             <pre id="outputText" style="background: #f7f7f7; padding: 10px; border: 1px solid #ddd;"></pre>
         </div>
-
         <script>
-            // Replace this with the actual API endpoint
-            const IPA_API_URL = 'https://api.linguarobot.io/ipa/v1/convert?text=';
+            const API_KEY = "15956897f6mshdc7a0f36187e559p17b488jsn49f99cb816a4";
+            const API_HOST = "lingua-robot.p.rapidapi.com";
 
-            // Function to remove vowels from IPA text
-            function removeVowelsFromIPA(ipaText) {
-                // Define IPA vowel symbols
-                const vowels = /[aeiouyAEIOUYɪɨʉɯøœɤɜəɶʌɑɛæɐ]/g;
-                return ipaText.replace(vowels, '').trim();
+            // Function to expand common contractions
+            function expandContractions(word) {
+                const contractions = {
+                    "I'm": "I am",
+                    "you're": "you are",
+                    "he's": "he is",
+                    "she's": "she is",
+                    "it's": "it is",
+                    "we're": "we are",
+                    "they're": "they are",
+                    "can't": "cannot",
+                    "don't": "do not",
+                    "won't": "will not",
+                    "didn't": "did not"
+                };
+                return contractions[word] || word;
             }
 
-            // Add event listener to the button
-            document.getElementById('convertButton').addEventListener('click', async function () {
-                const userInput = document.getElementById('userInput').value;
-
-                if (userInput.trim() === '') {
-                    document.getElementById('outputText').textContent = 'Please enter some text.';
-                    return;
-                }
-
+            // Function to call the Lingua Robot API for IPA conversion
+            async function fetchIPA(word, regionPreference) {
+                const url = `https://${API_HOST}/language/v1/entries/en/${word}`;
                 try {
-                    // Fetch IPA transcription using the API
-                    const response = await fetch(IPA_API_URL + encodeURIComponent(userInput));
-                    const data = await response.json();
+                    const response = await fetch(url, {
+                        method: "GET",
+                        headers: {
+                            "X-RapidAPI-Key": API_KEY,
+                            "X-RapidAPI-Host": API_HOST
+                        }
+                    });
 
-                    if (data.ipa) {
-                        const ipaText = data.ipa;
-                        const convertedText = removeVowelsFromIPA(ipaText);
-                        document.getElementById('outputText').textContent = convertedText || '(No output)';
-                    } else {
-                        document.getElementById('outputText').textContent = 'IPA conversion failed.';
+                    const data = await response.json();
+                    console.log(`Word: ${word}`, data); // Log for debugging
+
+                    // Handle empty entries
+                    if (!data.entries || data.entries.length === 0) {
+                        return word; // Return the original word if no transcription is found
                     }
-                } catch (error) {
-                    console.error('Error fetching IPA:', error);
-                    document.getElementById('outputText').textContent = 'Error fetching IPA.';
-                }
-            });
+
+                    // Extract the first valid transcription for the selected region
+                    for (const entry of data.entries) {
+                        const pronunciations = entry.pronunciations || [];
+                        for (const pronunciation of pronunciations) {
+                            if (regionPreference && pronunciation.context?.regions?.includes(regionPreference)) {
+                                const transcription = pronunciation.transcriptions?.[0]?.transcription;
+                                if (transcription) {
+                                return transcription; // Return the first transcription matching the region
+                                }
+                                }
+                                }
+                                }
+
+                                // If no region-specific transcription is found, return the first available transcription
+                                for (const entry of data.entries) {
+                                const pronunciations = entry.pronunciations || [];
+                                for (const pronunciation of pronunciations) {
+                                const transcription = pronunciation.transcriptions?.[0]?.transcription;
+                                if (transcription) {
+                                return transcription;
+                                }
+                                }
+                                }
+
+                                // Default to original word if no transcription is found
+                                return word;
+                                } catch (error) {
+                                console.error(`Error fetching IPA for "${word}":`, error);
+                                return word; // Return the original word on error
+                                }
+                                }
+
+                                // Function to remove vowels from IPA transcription
+                                function removeVowelsFromIPA(ipaText) {
+                                const vowels = /[aeiouyɪɨʉɯøœɤɜəɶʌɑɛæɐ]/g;
+                                return ipaText.replace(vowels, '');
+                                }
+
+                                // Preprocess input to handle contractions and punctuation
+                                function preprocessInput(text) {
+                                return text
+                                .split(/\s+/)
+                                .map(word => expandContractions(word.replace(/[^\w\s']/g, '')))
+                                .join(' ');
+                                }
+
+                                // Event listener for the Convert button
+                                document.getElementById('convertButton').addEventListener('click', async function () {
+                                const userInput = document.getElementById('userInput').value;
+                                const regionPreference = document.getElementById('regionSelect').value;
+
+                                if (!userInput.trim()) {
+                                document.getElementById('outputText').textContent = 'Please enter some text.';
+                                return;
+                                }
+
+                                // Preprocess input
+                                const preprocessedInput = preprocessInput(userInput);
+
+                                // Split the input into words
+                                const words = preprocessedInput.split(/\s+/);
+
+                                // Fetch IPA for each word and process it
+                                const results = await Promise.all(
+                                words.map(async (word) => {
+                                const ipa = await fetchIPA(word, regionPreference); // Get IPA transcription
+                                return removeVowelsFromIPA(ipa); // Remove vowels from IPA
+                                })
+                               );
+
+                                // Combine the results into a single string and display
+                                const outputText = results.join(' ');
+                                document.getElementById('outputText').textContent = outputText;
+                                });
         </script>
     </body>
 </html>
