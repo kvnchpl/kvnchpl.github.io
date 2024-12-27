@@ -1,15 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>trellis</title>
-        <link rel="stylesheet" href="https://kvnchpl.github.io/css/main.css">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trellis</title>
+        <!-- Example external CSS file -->
+        <link rel="stylesheet" href="https://kvnchpl.github.io/css/main.css" />
+        <style>
+            /* Minimal inline styles for demonstration */
+            body {
+                margin: 0;
+                font-family: Arial, sans-serif;
+                background: #f0f0f0;
+            }
+            #gameUI {
+                display: flex;
+                justify-content: space-around;
+                background: #333;
+                color: #fff;
+                padding: 0.5rem;
+                align-items: center;
+            }
+            #gameUI button {
+                cursor: pointer;
+                padding: 0.5rem 1rem;
+                border: none;
+                background: #555;
+                color: #fff;
+                transition: background 0.3s;
+            }
+            #gameUI button:hover {
+                background: #777;
+            }
+            #gameContainer {
+                position: relative;
+                margin: 0 auto;
+                width: 600px;
+                height: 600px;
+                background: #ccc;
+            }
+            canvas {
+                display: block;
+                background: #eee;
+                border: 2px solid #999;
+            }
+            /* Tutorial overlay */
+            #tutorialOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 600px;
+                height: 600px;
+                background: rgba(0, 0, 0, 0.7);
+                color: #fff;
+                display: none; /* start hidden */
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding: 1rem;
+            }
+            #tutorialOverlay button {
+                background: #aaa;
+                color: #000;
+                margin-top: 1rem;
+            }
+        </style>
     </head>
     <body>
-        <div>
+        <!-- Top UI bar (time, week, biodiversity score, skip week) -->
+        <div id="gameUI">
+            <div>
+                <strong>Time:</strong> <span id="timeDisplay">7:00 AM</span>
+            </div>
+            <div>
+                <strong>Week:</strong> <span id="weekDisplay">1</span>
+            </div>
+            <div>
+                <strong>Biodiversity:</strong> <span id="biodiversityScore">0</span>
+            </div>
+            <button id="skipToNextWeekBtn">Skip to Next Week</button>
         </div>
+
+        <!-- Main game container (canvas + tutorial overlay) -->
+        <div id="gameContainer">
+            <canvas id="gameCanvas" width="600" height="600"></canvas>
+
+            <!-- Tutorial popup -->
+            <div id="tutorialOverlay">
+                <h2>Welcome to Trellis!</h2>
+                <p>
+                    Use arrow keys or WASD to move.<br />
+                    Each action (till, plant, water, etc.) costs time.<br />
+                    The day runs from 7:00 AM to 7:00 PM.<br />
+                    At 7:00 PM (or if you choose to skip), it automatically advances to the next week.<br />
+                    Try to maintain soil health and biodiversity for a sustainable garden!
+                </p>
+                <button id="closeTutorialBtn">Close Tutorial</button>
+            </div>
+        </div>
+
         <script>
+            /********************************
+     *     CORE GAME CONSTANTS
+     ********************************/
+            const TILE_SIZE = 40;      // each tile is 40x40 px
+            const GRID_WIDTH = 15;     // 15 tiles horizontally
+            const GRID_HEIGHT = 15;    // 15 tiles vertically
+
+            const DAY_START = 0;       // minutes after 7:00 AM (0 means 7:00 AM)
+            const DAY_END = 720;       // 720 minutes after 7:00 AM is 7:00 PM (12 hours x 60 min)
+
+            // Time cost (in minutes) for some example actions
+            const TIME_COST = {
+                TILL: 30,
+                PLANT: 20,
+                WATER: 10,
+                WEED: 15
+            };
+
+            /********************************
+     *     GLOBAL GAME STATE
+     ********************************/
+            let currentWeek = 1;
+            let currentTime = DAY_START; // track minutes elapsed from 7:00 AM
+            let biodiversityScore = 0;
+
+            // Player state
+            const player = {
+                x: 0, // grid X
+                y: 0, // grid Y
+                // In a real game, you might store player speed, sprite, etc.
+            };
+
+            // Simple inventory system example
+            const inventory = {
+                seeds: {
+                    tomato: 5,
+                    kale: 5,
+                },
+                produce: {},
+                fertilizer: 2,
+                mulch: 5,
+            };
+
+            // Basic tile structure: 
+            // type (e.g., "PATH", "PLOT"), 
+            // plant, 
+            // soilNutrients, 
+            // moisture, 
+            // weedLevel, etc.
+            const grid = [];
+
+            //  Initialize a 2D array for the grid
+            function initGrid() {
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    grid[row] = [];
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        grid[row][col] = {
+                            type: "PLOT",
+                            plant: null,
+                            weedLevel: 0,
+                            moisture: 50, // out of 100?
+                            soilNutrients: { N: 50, P: 50, K: 50 }
+                        };
+                    }
+                }
+            }
+
+            /********************************
+     *     RENDERING
+     ********************************/
+            function drawGrid(context) {
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        // Decide color based on type or whether player is there
+                        let tileColor = "#77dd77"; // greenish for "PLOT"
+                        if (grid[row][col].type === "PATH") {
+                            tileColor = "#d8d8d8";
+                        }
+
+                        // Highlight if player's position is here
+                        if (row === player.y && col === player.x) {
+                            tileColor = "#ffdd57"; // highlight for player
+                        }
+
+                        context.fillStyle = tileColor;
+                        context.fillRect(
+                            col * TILE_SIZE,
+                            row * TILE_SIZE,
+                            TILE_SIZE,
+                            TILE_SIZE
+                        );
+
+                        // Optional: draw grid lines
+                        context.strokeStyle = "#555";
+                        context.strokeRect(
+                            col * TILE_SIZE,
+                            row * TILE_SIZE,
+                            TILE_SIZE,
+                            TILE_SIZE
+                        );
+                    }
+                }
+            }
+
+            function render() {
+                const canvas = document.getElementById("gameCanvas");
+                const ctx = canvas.getContext("2d");
+
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw the grid
+                drawGrid(ctx);
+            }
+
+            /********************************
+     *     TIME / WEEK LOGIC
+     ********************************/
+            function advanceTime(minutes) {
+                // Add minutes to currentTime
+                currentTime += minutes;
+                // If time hits or exceeds DAY_END, skip to next week
+                if (currentTime >= DAY_END) {
+                    // Force end of day
+                    skipToNextWeek();
+                } else {
+                    updateTimeDisplay();
+                }
+            }
+
+            function skipToNextWeek() {
+                // End-of-week updates:
+                // - Plant growth
+                // - Soil changes
+                // - Pest checks
+                // - Biodiversity calculation, etc.
+                currentWeek++;
+                // Reset time to 7:00 AM
+                currentTime = DAY_START;
+
+                // Just a placeholder for how you might recalc biodiversity
+                // In reality, you'd scan grid for unique plant types, etc.
+                biodiversityScore = calculateBiodiversity();
+
+                updateTimeDisplay();
+                updateWeekDisplay();
+                updateBiodiversityDisplay();
+
+                // For demonstration, you can re-render after the updates
+                render();
+            }
+
+            function updateTimeDisplay() {
+                const timeDisplay = document.getElementById("timeDisplay");
+                // Convert currentTime (minutes) to HH:MM format (7:00 AM + currentTime)
+                let totalMinutes = currentTime;
+                let hours = 7 + Math.floor(totalMinutes / 60);
+                let minutes = totalMinutes % 60;
+                let ampm = hours >= 12 ? "PM" : "AM";
+
+                // Convert to 12-hour format if you prefer
+                if (hours > 12) hours = hours - 12;
+                if (hours === 0) hours = 12; // edge case
+
+                const mm = minutes < 10 ? "0" + minutes : minutes;
+                timeDisplay.textContent = `${hours}:${mm} ${ampm}`;
+            }
+
+            function updateWeekDisplay() {
+                document.getElementById("weekDisplay").textContent = currentWeek;
+            }
+
+            function updateBiodiversityDisplay() {
+                document.getElementById("biodiversityScore").textContent = biodiversityScore;
+            }
+
+            function calculateBiodiversity() {
+                // Simple placeholder logic: random or fixed for demo
+                // Ideally, you'd parse the grid to find how many unique plant types exist
+                return Math.floor(Math.random() * 10);
+            }
+
+            /********************************
+     *     PLAYER MOVEMENT
+     ********************************/
+            function handleKeyDown(e) {
+                let oldX = player.x;
+                let oldY = player.y;
+
+                switch (e.key) {
+                    case "ArrowUp":
+                    case "w":
+                        if (player.y > 0) player.y--;
+                        break;
+                    case "ArrowDown":
+                    case "s":
+                        if (player.y < GRID_HEIGHT - 1) player.y++;
+                        break;
+                    case "ArrowLeft":
+                    case "a":
+                        if (player.x > 0) player.x--;
+                        break;
+                    case "ArrowRight":
+                    case "d":
+                        if (player.x < GRID_WIDTH - 1) player.x++;
+                        break;
+                    default:
+                        // No movement
+                        break;
+                }
+
+                // If the position changed, re-render
+                if (oldX !== player.x || oldY !== player.y) {
+                    render();
+                }
+            }
+
+            /********************************
+     *     ACTIONS (SAMPLE)
+     ********************************/
+            // Placeholder function for an example "TILL" action
+            // In a real game, you'd verify the tile is suitable for tilling, etc.
+            function tillSoil() {
+                const tile = grid[player.y][player.x];
+                if (tile.type === "PLOT") {
+                    // Tilling might improve soil or set a 'isTilled' flag, etc.
+                    console.log("Soil tilled at:", player.x, player.y);
+                    advanceTime(TIME_COST.TILL);
+                    // Re-render to reflect changes
+                    render();
+                }
+            }
+
+            /********************************
+     *     TUTORIAL OVERLAY
+     ********************************/
+            function showTutorial() {
+                const tutorialOverlay = document.getElementById("tutorialOverlay");
+                tutorialOverlay.style.display = "flex";
+            }
+
+            function hideTutorial() {
+                const tutorialOverlay = document.getElementById("tutorialOverlay");
+                tutorialOverlay.style.display = "none";
+            }
+
+/********************************
+ *     GAME INIT
+ ********************************/
+            function initGame() {
+                initGrid();
+                render();
+
+                // Show tutorial on first load (optional)
+                showTutorial();
+
+                // Setup UI event listeners
+                document.getElementById("skipToNextWeekBtn").addEventListener("click", skipToNextWeek);
+                document.getElementById("closeTutorialBtn").addEventListener("click", hideTutorial);
+
+                // Listen for keyboard
+                window.addEventListener("keydown", handleKeyDown);
+
+                // Update UI displays once at start
+                updateTimeDisplay();
+                updateWeekDisplay();
+                updateBiodiversityDisplay();
+
+                // Example: Press "t" to TILL the current tile (demo action)
+                window.addEventListener("keydown", (e) => {
+                    if (e.key === "t") {
+                        tillSoil();
+                    }
+                });
+            }
+
+            // Start the game once the page is fully loaded
+            window.onload = initGame;
         </script>
     </body>
 </html>
