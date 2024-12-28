@@ -115,12 +115,6 @@ canvas {
     font-size: 0.9rem;
 }
 
-#tileStats strong {
-    display: block;
-    margin-bottom: var(--spacing-unit);
-    font-size: 1rem;
-}
-
 #actionHelp {
     position: relative; /* Enable precise placement of the heading */
     text-align: left; /* Align text consistently */
@@ -150,6 +144,12 @@ canvas {
     font-size: 0.9rem;
     line-height: 1.4;
     box-sizing: border-box;
+}
+
+#gameUI strong, #tileStats strong, #actionHelp strong {
+    display: block;
+    margin-bottom: var(--spacing-unit);
+    font-size: 1rem;
 }
 
 #tutorialOverlay {
