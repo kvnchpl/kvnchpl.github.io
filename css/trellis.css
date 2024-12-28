@@ -93,8 +93,8 @@ canvas {
 
 #gameUI button {
     position: absolute;
-    bottom: calc(var(--spacing-unit) * 2); /* Position at the bottom of the section */
-    right: calc(var(--spacing-unit) * 2); /* Align to the right */
+    top: calc(var(--spacing-unit) * 2); /* Position at the bottom of the section */
+    left: calc(var(--spacing-unit) * 2); /* Align to the right */
     background: var(--color-ui-bg-button);
     color: var(--color-text-primary);
     border: none;
