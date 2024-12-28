@@ -21,7 +21,7 @@
     --game-height: 600px;
 
     --spacing-unit: 0.5rem;
-    
+
     --tile-default: #77dd77;
     --tile-empty: #e0e0e0;
     --tile-path: #bdbdbd;
@@ -92,9 +92,9 @@ canvas {
 
 #tileStats {
     position: absolute;
-    top: 10px;
+    top: 80px;
     right: 10px;
-    width: 200px;
+    width: 220px;
     background: #f9f9f9;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -102,6 +102,13 @@ canvas {
     font-size: 0.9rem;
     line-height: 1.5;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+#tileStats strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
 
 #tileStats strong {
