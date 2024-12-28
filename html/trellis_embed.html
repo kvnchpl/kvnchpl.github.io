@@ -64,11 +64,11 @@
             let PRODUCE_YIELD = {};
 
             let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
-            
+
             const TILE_TYPE = {
-                PLOT: "PLOT",
-                EMPTY: "EMPTY",
-                PATH: "PATH",
+                PLOT: "Plot",
+                EMPTY: "Empty",
+                PATH: "Path",
             };
 
             /* GAME STATE */
@@ -80,7 +80,7 @@
             const player = { x: 0, y: 0 };
             let highlightedTile = { x: null, y: null };
 
-            
+
 
             const inventory = {
                 seeds: {
@@ -433,6 +433,10 @@
                     case "d":
                     case "D":
                         highlightTile(player.x + 1, player.y); // Highlight right
+                        return;
+                    case "q":
+                    case "Q":
+                        highlightTile(player.x, player.y); // Highlight player tile
                         return;
 
                         // Actions (Keys 1–8)
