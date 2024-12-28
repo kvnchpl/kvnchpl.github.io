@@ -416,7 +416,7 @@
 
                 // Set highlighted tile to player's starting position
                 highlightedTile = { x: gameState.player.x, y: gameState.player.y };
-                displayTileStats(player.x, gameState.player.y);
+                displayTileStats(gameState.player.x, gameState.player.y);
             }
 
             function configureGameConstants(gameConfig, plants) {
@@ -730,23 +730,23 @@
                         // Highlight adjacent tiles (WASD keys)
                     case "w":
                     case "W":
-                        highlightTile(player.x, gameState.player.y - 1); // Highlight above
+                        highlightTile(gameState.player.x, gameState.player.y - 1); // Highlight above
                         return;
                     case "s":
                     case "S":
-                        highlightTile(player.x, gameState.player.y + 1); // Highlight below
+                        highlightTile(gameState.player.x, gameState.player.y + 1); // Highlight below
                         return;
                     case "a":
                     case "A":
-                        highlightTile(player.x - 1, gameState.player.y); // Highlight left
+                        highlightTile(gameState.player.x - 1, gameState.player.y); // Highlight left
                         return;
                     case "d":
                     case "D":
-                        highlightTile(player.x + 1, gameState.player.y); // Highlight right
+                        highlightTile(gameState.player.x + 1, gameState.player.y); // Highlight right
                         return;
                     case "q":
                     case "Q":
-                        highlightTile(player.x, gameState.player.y); // Highlight player tile
+                        highlightTile(gameState.player.x, gameState.player.y); // Highlight player tile
                         return;
 
                         // Actions (Keys 1–8)
@@ -793,7 +793,7 @@
                         gameState.player.y = newY;
 
                         // Reset highlighted tile to the player's current position
-                        highlightTile(player.x, gameState.player.y);
+                        highlightTile(gameState.player.x, gameState.player.y);
 
                         render();
                     } else {
@@ -823,7 +823,7 @@
                     x < GRID_WIDTH &&
                     y >= 0 &&
                     y < GRID_HEIGHT &&
-                    (Math.abs(player.x - x) + Math.abs(player.y - y) <= 1 || (player.x === x && gameState.player.y === y))
+                    (Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1 || (gameState.player.x === x && gameState.player.y === y))
                 ) {
                     // Allow highlighting if the tile is adjacent or the player's tile
                     highlightedTile.x = x;
@@ -841,7 +841,7 @@
                 if (highlightedTile.x !== null && highlightedTile.y !== null) {
                     displayTileStats(highlightedTile.x, highlightedTile.y);
                 } else {
-                    displayTileStats(player.x, gameState.player.y);
+                    displayTileStats(gameState.player.x, gameState.player.y);
                 }
             }
 
