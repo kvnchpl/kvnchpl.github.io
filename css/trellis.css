@@ -19,8 +19,12 @@
 
     --game-width: 600px;
     --game-height: 600px;
+    --sidebar-width: 260px;
 
     --spacing-unit: 0.5rem;
+    --border-radius: 5px;
+    --border-color: #ccc;
+    --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 
     --tile-default: #77dd77;
     --tile-empty: #e0e0e0;
@@ -44,17 +48,16 @@ body {
 #mainContent {
     display: flex;
     justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Align the map and sidebar at the top */
-    margin-top: 20px; /* Space from the top of the screen */
-    gap: 20px; /* Space between the map and sidebar */
+    align-items: flex-start; /* Align map and sidebar at the top */
+    margin-top: calc(var(--spacing-unit) * 4);
+    gap: calc(var(--spacing-unit) * 4); /* Space between map and sidebar */
 }
 
 #gameContainer {
-    position: relative;
     width: var(--game-width);
     height: var(--game-height);
     background: var(--color-container-bg);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for style */
+    box-shadow: var(--box-shadow); /* Consistent shadow */
 }
 
 canvas {
@@ -66,51 +69,35 @@ canvas {
 #gameSidebar {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch; /* Ensures child elements stretch to the sidebar width */
-    width: 260px; /* Sidebar width */
-    background: #f9f9f9; /* Light background for better readability */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Prevents child elements from overflowing */
+    width: var(--sidebar-width);
+    background: #f9f9f9;
+    padding: var(--spacing-unit);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
 }
 
 #gameSidebar > div {
-    margin-bottom: 15px; /* Space between sidebar sections */
-}
-
-#gameUI button {
-    cursor: pointer;
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
-    border: none;
-    background: var(--color-ui-bg-button);
-    color: var(--color-text-primary);
-    transition: background 0.3s;
-    width: 100%; /* Stretch button to fill width */
-    margin-top: 10px;
+    margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
 #gameUI {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background: var(--color-ui-bg);
-    color: var(--color-text-primary);
     padding-bottom: var(--spacing-unit);
 }
 
 #gameUI button {
-    width: 100%; /* Button spans the full width */
-    padding: 10px;
+    cursor: pointer;
+    padding: calc(var(--spacing-unit) * 2);
     background: var(--color-ui-bg-button);
     color: var(--color-text-primary);
     border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    border-radius: var(--border-radius);
+    width: 100%; /* Stretch button to fill width */
     transition: background 0.3s ease;
-    margin-top: 10px;
+    margin-top: var(--spacing-unit);
 }
 
 #gameUI button:hover {
@@ -119,35 +106,35 @@ canvas {
 
 #tileStats {
     background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
 }
 
 #tileStats strong {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: var(--spacing-unit);
     font-size: 1rem;
 }
 
 #actionHelp {
-    background: var(--color-ui-bg);
-    color: var(--color-text-primary);
     font-size: 0.85rem;
     text-align: left;
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-ui-bg);
+    color: var(--color-text-primary);
+    border-radius: var(--border-radius);
 }
 
 #gameUI, #tileStats, #actionHelp {
-    width: 100%; /* Stretch elements to the sidebar width */
-    padding: 10px;
-    background: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-ui-bg);
+    color: var(--color-text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
     font-size: 0.9rem;
     line-height: 1.4;
-    box-sizing: border-box; /* Ensure padding doesn't overflow */
+    box-sizing: border-box; /* Prevent padding overflow */
 }
 
 #tutorialOverlay {
@@ -158,19 +145,20 @@ canvas {
     height: var(--game-height);
     background: var(--color-overlay-bg);
     color: var(--color-overlay-text);
-    display: none; /* start hidden */
+    display: none; /* Hidden by default */
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: calc(var(--spacing-unit)*2);
+    padding: calc(var(--spacing-unit) * 4);
 }
 
 #tutorialOverlay button {
     background: var(--color-overlay-button-bg);
     color: var(--color-overlay-button-text);
     margin-top: var(--spacing-unit);
-    padding: var(--spacing-unit) calc(var(--spacing-unit)*2);
+    padding: calc(var(--spacing-unit) * 2);
     border: none;
+    border-radius: var(--border-radius);
     cursor: pointer;
 }
 
