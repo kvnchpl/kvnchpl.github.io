@@ -324,7 +324,7 @@
                 },
 
                 // Currently highlighted tile
-                highlightedTile: null, // { x: null, y: null }
+                gameState.highlightedTile: null, // { x: null, y: null }
 
                 // Player's inventory
                 inventory: {
@@ -529,7 +529,7 @@
                         context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
                         // Highlight tile with a red border if it's the highlighted tile
-                        if (row === highlightedTile.y && col === highlightedTile.x) {
+                        if (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) {
                             context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim();
                             context.lineWidth = 3;
                             context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
@@ -843,15 +843,15 @@
 
             function updateTileStats() {
                 // Determine which tile to update stats for
-                if (highlightedTile.x !== null && highlightedTile.y !== null) {
-                    displayTileStats(highlightedTile.x, highlightedTile.y);
+                if (gameState.highlightedTile.x !== null && gameState.highlightedTile.y !== null) {
+                    displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
                 } else {
                     displayTileStats(gameState.player.x, gameState.player.y);
                 }
             }
 
             function displayTileStats(x, y) {
-                if (!gameState.grid[y] || !gameState.grid[y][x]) {
+                if (x == null || y == null || !gameState.grid[y] || !gameState.grid[y][x]) {
                     console.error(`Invalid tile coordinates: (${x}, ${y})`);
                     clearTileStats();
                     return;
@@ -1031,7 +1031,7 @@ No tile highlighted.
             }
 
             function getTargetTile() {
-                if (highlightedTile.x !== null && highlightedTile.y !== null) {
+                if (gameState.highlightedTile.x !== null && gameState.highlightedTile.y !== null) {
                     return gameState.grid[highlightedTile.y][highlightedTile.x]; // Highlighted tile
                 }
                 return gameState.grid[player.y][player.x]; // Player's tile
