@@ -522,7 +522,7 @@ No tile highlighted.
 
             // TILL
             function tillSoil() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
 
                 if (tile.type === "empty") {
                     tile.type = "plot";
@@ -538,7 +538,7 @@ No tile highlighted.
 
             // FERTILIZE
             function fertilizeTile() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
 
                 if (inventory.fertilizer > 0) {
                     tile.soilNutrients.N = Math.min(tile.soilNutrients.N + 20, 100);
@@ -556,7 +556,7 @@ No tile highlighted.
 
             // PLANT
             function plantSeed(seedType) {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
                 if (!tile.isTilled) {
                     console.log("Soil is not tilled. Cannot plant yet.");
                     return;
@@ -589,7 +589,7 @@ No tile highlighted.
                 }
             });
             function waterTile() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
                 // Increase moisture but cap at 100
                 tile.moisture = Math.min(tile.moisture + 20, 100);
                 console.log("Watered tile. Moisture now:", tile.moisture);
@@ -599,7 +599,7 @@ No tile highlighted.
 
             // MULCH
             function mulchTile() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
 
                 if (inventory.mulch > 0) {
                     // Reduce moisture decay rate for the tile
@@ -616,7 +616,7 @@ No tile highlighted.
 
             // WEED
             function weedTile() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
                 if (tile.weedLevel > 0) {
                     tile.weedLevel = 0;
                     console.log("Weeds removed at:", player.x, player.y);
@@ -629,7 +629,7 @@ No tile highlighted.
 
             // HARVEST
             function harvestPlant() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
                 if (tile.plant && tile.plant.isMature) {
                     // Add produce to inventory
                     const type = tile.plant.type;
@@ -652,7 +652,7 @@ No tile highlighted.
 
             // CLEAR
             function clearPlot() {
-                const tile = getPlayerTile();
+                const tile = getTargetTile();
 
                 if (tile.type === "plot") {
                     tile.type = "empty";
@@ -670,6 +670,13 @@ No tile highlighted.
             // Utility function to get the tile the player is standing on
             function getPlayerTile() {
                 return grid[player.y][player.x];
+            }
+
+            function getTargetTile() {
+                if (highlightedTile.x !== null && highlightedTile.y !== null) {
+                    return grid[highlightedTile.y][highlightedTile.x]; // Highlighted tile
+                }
+                return grid[player.y][player.x]; // Player's tile
             }
 
             /* TUTORIAL OVERLAY */
