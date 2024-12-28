@@ -47,19 +47,21 @@ body {
 
 #mainContent {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: flex-start; /* Align map and sidebar at the top */
-    margin-top: calc(var(--spacing-unit) * 4);
-    gap: calc(var(--spacing-unit) * 4); /* Space between map and sidebar */
+    justify-content: center; /* Center the entire content horizontally */
+    align-items: flex-start; /* Align the game container and sidebar at the top */
+    margin: 0 auto; /* Center the entire layout within the viewport */
+    gap: calc(var(--spacing-unit) * 4); /* Space between game container and sidebar */
+    max-width: calc(var(--game-width) + var(--sidebar-width) + var(--spacing-unit) * 4); /* Constrain total width */
+    padding: calc(var(--spacing-unit) * 4) 0; /* Add some vertical padding */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
 #gameContainer {
-    position: relative; /* Ensure #tutorialOverlay is positioned relative to this container */
+    position: relative;
     width: var(--game-width);
     height: var(--game-height);
     background: var(--color-container-bg);
-    box-shadow: var(--box-shadow);
-    margin: 0 auto; /* Center the game container if necessary */
+    box-shadow: var(--box-shadow); /* Add shadow for visual distinction */
 }
 
 canvas {
@@ -71,12 +73,14 @@ canvas {
 #gameSidebar {
     display: flex;
     flex-direction: column;
-    width: var(--sidebar-width);
+    width: var(--sidebar-width); /* Defined in global variables */
     background: #f9f9f9;
-    padding: var(--spacing-unit);
+    padding: calc(var(--spacing-unit) * 2);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
+    overflow: hidden; /* Prevent content overflow */
+    box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
 }
 
 #gameSidebar > div {
