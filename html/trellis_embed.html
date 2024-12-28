@@ -25,7 +25,7 @@
         <!-- Simple reminder of keyboard actions -->
         <div id="actionHelp">
             <em>Keyboard Shortcuts:</em><br/>
-            T = Till | P = Plant | W = Water | E = Weed | H = Harvest
+            1 = Till | 2 = Fertilize | 3 = Plant | 4 = Water | 5 = Mulch | 6 = Weed | 7 = Harvest
         </div>
 
         <!-- Main game container (canvas + tutorial overlay) -->
@@ -58,6 +58,8 @@
             let GROWTH_TIME = {};
             let PRODUCE_YIELD = {};
 
+            let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
+
             /* GAME STATE */
             let currentWeek = 1;
             let currentTime = 0;
@@ -65,6 +67,8 @@
 
             const grid = [];
             const player = { x: 0, y: 0 };
+            let highlightedTile = { x: null, y: null };
+
             const inventory = {
                 seeds: {
                     tomato: 5,
@@ -93,14 +97,16 @@
                 console.log("Action time costs:", timeCosts);
                 console.log("Core game config:", gameConfig);
 
-                TILE_SIZE    = gameConfig.TILE_SIZE;
-                GRID_WIDTH   = gameConfig.GRID_WIDTH;
-                GRID_HEIGHT  = gameConfig.GRID_HEIGHT;
-                DAY_START    = gameConfig.DAY_START;
-                DAY_END      = gameConfig.DAY_END;
-                TIME_COST    = timeCosts;
-                GROWTH_TIME  = {};
-                PRODUCE_YIELD = {};
+                TILE_SIZE               = gameConfig.TILE_SIZE;
+                GRID_WIDTH              = gameConfig.GRID_WIDTH;
+                GRID_HEIGHT             = gameConfig.GRID_HEIGHT;
+                DAY_START               = gameConfig.DAY_START;
+                DAY_END                 = gameConfig.DAY_END;
+                TIME_COST               = timeCosts;
+                GROWTH_TIME             = {};
+                PRODUCE_YIELD           = {};
+                BASE_MOISTURE_START     = gameConfig.BASE_MOISTURE_START;
+                BASE_MOISTURE_DECAY     = gameConfig.BASE_MOISTURE_DECAY;
 
                 for (let p in plants) {
                     GROWTH_TIME[p] = plants[p].GROWTH_TIME;
@@ -151,7 +157,8 @@
                             isTilled: false,
                             plant: null,
                             weedLevel: 0,
-                            moisture: 50, // out of 100?
+                            moisture: BASE_MOISTURE_START,
+                            moistureDecayRate: BASE_MOISTURE_DECAY,
                             soilNutrients: { N: 50, P: 50, K: 50 }
                         };
                     }
@@ -168,6 +175,15 @@
                         // Base color for PLOT or PATH
                         let tileColor = (tile.type === "PATH") ? "#d8d8d8" : "#77dd77";
 
+                        // Modify color based on soil moisture
+                        const moistureIntensity = Math.round(tile.moisture / 2.55); // Convert to 0-255 scale
+                        tileColor = `rgb(0, ${moistureIntensity}, 0)`;
+
+                        // Highlight player's position
+                        if (row === player.y && col === player.x) {
+                            tileColor = "#ffdd57";
+                        }
+
                         // If tile is tilled, make it a different shade
                         if (tile.type === "PLOT" && tile.isTilled) {
                             tileColor = "#c2b280"; // A brownish color
@@ -183,15 +199,19 @@
                             }
                         }
 
-                        // Highlight if player's position is here
-                        if (row === player.y && col === player.x) {
-                            tileColor = "#ffdd57";
-                        }
-
                         context.fillStyle = tileColor;
                         context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
-                        // Optional: draw grid lines
+                        if (row === highlightedTile.y && col === highlightedTile.x) {
+                            context.strokeStyle = "red";
+                            context.lineWidth = 3;
+                            context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                        } else {
+                            context.strokeStyle = "#555";
+                            context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                        }
+
+                        // Grid lines
                         context.strokeStyle = "#555";
                         context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     }
@@ -209,6 +229,36 @@
                 drawGrid(ctx);
             }
 
+            /* CURSOR LOGIC */
+
+            function highlightTile(x, y) {
+                // Ensure the tile is within bounds
+                if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
+                    highlightedTile.x = x;
+                    highlightedTile.y = y;
+
+                    // Update the tile stats display
+                    displayTileStats(x, y);
+
+                    // Re-render the grid
+                    render();
+                }
+            }
+
+            function displayTileStats(x, y) {
+                const tile = grid[y][x];
+                const statsContainer = document.getElementById("tileStats");
+
+                statsContainer.innerHTML = `
+<strong>Tile (${x}, ${y})</strong><br>
+Type: ${tile.type}<br>
+Tilled: ${tile.isTilled ? "Yes" : "No"}<br>
+Moisture: ${tile.moisture}<br>
+Nutrients: N=${tile.soilNutrients.N}, P=${tile.soilNutrients.P}, K=${tile.soilNutrients.K}<br>
+Plant: ${tile.plant ? tile.plant.type : "None"}
+`;
+            }
+
             /* TIME & WEEK LOGIC */
 
             function advanceTime(minutes) {
@@ -221,31 +271,78 @@
             }
 
             function skipToNextWeek() {
-                // Weekly update: plant growth, recalc biodiversity, etc.
                 currentWeek++;
                 currentTime = DAY_START;
 
-                // Age all plants by 1 week
-                for (let row = 0; row < GRID_HEIGHT; row++) {
-                    for (let col = 0; col < GRID_WIDTH; col++) {
-                        const tile = grid[row][col];
-                        if (tile.plant) {
-                            tile.plant.age += 1;
-                            // Check if plant is mature
-                            if (tile.plant.age >= GROWTH_TIME[tile.plant.type]) {
-                                tile.plant.isMature = true;
-                            }
-                        }
-                    }
-                }
-
-                // Recalculate biodiversity
-                biodiversityScore = calculateBiodiversity();
+                updateAllTiles();
+                recalculateBiodiversity();
 
                 updateTimeDisplay();
                 updateWeekDisplay();
                 updateBiodiversityDisplay();
                 render();
+            }
+
+            function updateAllTiles() {
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        const tile = grid[row][col];
+                        updateTileMoisture(tile);
+                        updateTilePlant(tile, row, col);
+                    }
+                }
+            }
+
+            function updateTileMoisture(tile) {
+                tile.moisture = Math.max(tile.moisture - tile.moistureDecayRate, 0);
+            }
+
+            function updateTilePlant(tile, row, col) {
+                if (!tile.plant) return;
+
+                const plantType = tile.plant.type;
+                const plantData = gameData.plants[plantType];
+
+                // Extract soil properties
+                const { N, P, K } = tile.soilNutrients;
+                const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
+                const sufficientMoisture = tile.moisture >= 40;
+
+                // Grow plant if conditions are sufficient
+                if (sufficientNutrients && sufficientMoisture) {
+                    tile.plant.age += 1;
+                } else {
+                    console.log(`Plant at (${row}, ${col}) is growing slowly due to poor conditions.`);
+                }
+
+                // Deplete nutrients if the plant is growing
+                if (sufficientNutrients) {
+                    tile.soilNutrients.N = Math.max(N - 10, 0);
+                    tile.soilNutrients.P = Math.max(P - 5, 0);
+                    tile.soilNutrients.K = Math.max(K - 5, 0);
+                }
+
+                // Check if the plant is mature
+                if (tile.plant.age >= plantData.growthTime) {
+                    tile.plant.isMature = true;
+                }
+            }
+
+            function recalculateBiodiversity() {
+                biodiversityScore = calculateBiodiversity();
+            }
+
+            function calculateBiodiversity() {
+                const typesFound = new Set();
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        const tile = grid[row][col];
+                        if (tile.plant) {
+                            typesFound.add(tile.plant.type);
+                        }
+                    }
+                }
+                return typesFound.size;
             }
 
             function updateTimeDisplay() {
@@ -303,45 +400,56 @@
                 let oldY = player.y;
 
                 switch (e.key) {
-                    case "ArrowUp":
                     case "w":
+                    case "W":
                         if (player.y > 0) player.y--;
                         break;
-                    case "ArrowDown":
                     case "s":
+                    case "S":
                         if (player.y < GRID_HEIGHT - 1) player.y++;
                         break;
-                    case "ArrowLeft":
                     case "a":
+                    case "A":
                         if (player.x > 0) player.x--;
                         break;
-                    case "ArrowRight":
                     case "d":
+                    case "D":
                         if (player.x < GRID_WIDTH - 1) player.x++;
+                        break;
+                    case "ArrowUp":
+                        highlightTile(player.x, player.y - 1);
+                        break;
+                    case "ArrowDown":
+                        highlightTile(player.x, player.y + 1);
+                        break;
+                    case "ArrowLeft":
+                        highlightTile(player.x - 1, player.y);
+                        break;
+                    case "ArrowRight":
+                        highlightTile(player.x + 1, player.y);
                         break;
 
                         // ACTION SHORTCUTS
-                    case "t":
-                    case "T":
+                    case "1":
                         tillSoil();
                         break;
-                    case "p":
-                    case "P":
+                    case "2":
+                        fertilizeTile();
+                        break;
+                    case "3":
                         // Default to planting tomato for demo, or show a prompt
                         plantSeed("tomato");
                         break;
-                    case "w":
-                    case "W":
-                        // w is also "move up" by default; let's define SHIFT+W or something else?
-                        // For simplicity, let's define a second letter for water: "o" (like H2O).
-                        // Or "altKey" check. We'll skip that for now to avoid collisions.
+                    case "4":
+                        waterTile();
                         break;
-                    case "e":
-                    case "E":
+                    case "5":
+                        mulchTile();
+                        break;
+                    case "6":
                         weedTile();
                         break;
-                    case "h":
-                    case "H":
+                    case "7":
                         harvestPlant();
                         break;
                     default:
@@ -356,7 +464,7 @@
 
             /* ACTIONS */
 
-            // 1) TILL
+            // TILL
             function tillSoil() {
                 const tile = getPlayerTile();
                 // Only till if it's a "PLOT" and not already tilled
@@ -370,8 +478,25 @@
                 }
             }
 
-            // 2) PLANT
-            // For demonstration, this plants the given seed type if we have inventory
+            // FERTILIZE
+            function fertilizeTile() {
+                const tile = getPlayerTile();
+
+                if (inventory.fertilizer > 0) {
+                    tile.soilNutrients.N = Math.min(tile.soilNutrients.N + 20, 100);
+                    tile.soilNutrients.P = Math.min(tile.soilNutrients.P + 10, 100);
+                    tile.soilNutrients.K = Math.min(tile.soilNutrients.K + 10, 100);
+                    inventory.fertilizer--;
+
+                    console.log("Fertilized tile at:", player.x, player.y);
+                    advanceTime(TIME_COST.TILL);
+                    render();
+                } else {
+                    console.log("No fertilizer left!");
+                }
+            }
+
+            // PLANT
             function plantSeed(seedType) {
                 const tile = getPlayerTile();
                 if (!tile.isTilled) {
@@ -399,8 +524,7 @@
                 }
             }
 
-            // 3) WATER
-            // We'll bind this to a custom key to avoid conflicts. Let's use "o" for example.
+            // WATER
             window.addEventListener("keydown", (e) => {
                 if (e.key === "o" || e.key === "O") {
                     waterTile();
@@ -415,7 +539,24 @@
                 render();
             }
 
-            // 4) WEED
+            // MULCH
+            function mulchTile() {
+                const tile = getPlayerTile();
+
+                if (inventory.mulch > 0) {
+                    // Reduce moisture decay rate for the tile
+                    tile.moistureDecayRate = Math.max(tile.moistureDecayRate - 1, 0); // Ensure it doesn’t go below 0
+                    inventory.mulch--;
+
+                    console.log(`Mulched tile at (${player.x}, ${player.y}). New decay rate: ${tile.moistureDecayRate}`);
+                    advanceTime(TIME_COST.TILL);
+                    render();
+                } else {
+                    console.log("No mulch left!");
+                }
+            }
+
+            // WEED
             function weedTile() {
                 const tile = getPlayerTile();
                 if (tile.weedLevel > 0) {
@@ -428,7 +569,7 @@
                 }
             }
 
-            // 5) HARVEST
+            // HARVEST
             function harvestPlant() {
                 const tile = getPlayerTile();
                 if (tile.plant && tile.plant.isMature) {

@@ -6,6 +6,7 @@
         "DAY_START": 0,
         "DAY_END": 720,
         "PEST_OUTBREAK_CHANCE": 5,
+        "BASE_MOISTURE_START": 50,
         "BASE_MOISTURE_DECAY": 2,
         "REGION_NAME": "Upstate New York"
     },
