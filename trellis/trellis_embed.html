@@ -368,7 +368,9 @@
                 gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
 
                 highlightTile(gameState.player.x, gameState.player.y);
-                displayTileStats(gameState.player.x, gameState.player.y);
+                if (gameState.highlightedTile) {
+                    displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
+                }
 
                 // Initialize UI
                 updateTimeState();
@@ -413,10 +415,13 @@
                     soilNutrients: { N: 50, P: 50, K: 50 },
                 }))
                                            );
+                console.log("Grid initialized:", gameState.grid);
 
                 // Set highlighted tile to the player's starting position
                 gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
-                displayTileStats(gameState.player.x, gameState.player.y);
+                if (gameState.highlightedTile) {
+                    displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
+                }
             }
 
             function configureGameConstants(gameConfig, plants) {
@@ -846,11 +851,7 @@
             }
 
             function displayTileStats(x, y) {
-                // Validate grid bounds
-                if (
-                    x < 0 || x >= GRID_WIDTH ||
-                    y < 0 || y >= GRID_HEIGHT
-                ) {
+                if (!gameState.grid[y] || !gameState.grid[y][x]) {
                     console.error(`Invalid tile coordinates: (${x}, ${y})`);
                     clearTileStats();
                     return;
