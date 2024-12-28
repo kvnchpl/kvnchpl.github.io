@@ -19,11 +19,11 @@
     "plants": {
         "tomato": {
             "GROWTH_TIME": 2,
-            "YIELD": 3
+            "PRODUCE_YIELD": 3
         },
         "kale": {
             "GROWTH_TIME": 3,
-            "YIELD": 2
+            "PRODUCE_YIELD": 2
         }
     }
 }
