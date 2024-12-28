@@ -4,8 +4,206 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>trellis</title>
-        <link rel="stylesheet" href="https://kvnchpl.github.io/css/main.css"/>
-        <link rel="stylesheet" href="https://kvnchpl.github.io/css/trellis.css">
+        <link rel="stylesheet" href="https://kvnchpl.github.io/main/main.css"/>
+        <!-- <link rel="stylesheet" href="https://kvnchpl.github.io/trellis/trellis.css"> -->
+        <style>
+            :root {
+                --body-bg: #f0f0f0;
+                --font-family: Arial, sans-serif;
+
+                --color-text-primary: #fff;
+                --color-text-secondary: #000;
+                --color-ui-bg: #333;
+                --color-ui-bg-button: #555;
+                --color-ui-bg-button-hover: #777;
+
+                --color-container-bg: #ccc;
+                --color-canvas-bg: #eee;
+                --color-canvas-border: #999;
+
+                --color-overlay-bg: rgba(0, 0, 0, 0.7);
+                --color-overlay-text: #fff;
+                --color-overlay-button-bg: #aaa;
+                --color-overlay-button-text: #000;
+
+                --game-width: 600px;
+                --game-height: 600px;
+                --sidebar-width: 300px;
+
+                --spacing-unit: 0.5rem;
+                --border-radius: 5px;
+                --border-color: #ccc;
+                --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+                --tile-default: #77dd77;
+                --tile-empty: #e0e0e0;
+                --tile-path: #bdbdbd;
+                --tile-plot: #8b4513;
+                --tile-player: #ffd700;
+                --tile-highlight: red;
+                --tile-tilled: #c2b280;
+                --tile-moisture-high: #7ec850;
+                --tile-moisture-low: #c2b280;
+                --tile-plant-young: #7EC850;
+                --tile-plant-mature: #98FB98;
+            }
+
+            body {
+                margin: 0;
+                font-family: var(--font-family);
+                background: var(--body-bg);
+            }
+
+            #mainContent {
+                display: flex;
+                justify-content: center; /* Center the entire content horizontally */
+                align-items: flex-start; /* Align the game container and sidebar at the top */
+                margin: 0 auto; /* Center the entire layout within the viewport */
+                gap: calc(var(--spacing-unit) * 4); /* Space between game container and sidebar */
+                max-width: calc(var(--game-width) + var(--sidebar-width) + var(--spacing-unit) * 4); /* Constrain total width */
+                padding: calc(var(--spacing-unit) * 4) 0; /* Add some vertical padding */
+                box-sizing: border-box; /* Ensure padding is included in width calculations */
+            }
+
+            #gameContainer {
+                position: relative;
+                width: var(--game-width);
+                height: var(--game-height);
+                background: var(--color-container-bg);
+                box-shadow: var(--box-shadow); /* Add shadow for visual distinction */
+            }
+
+            canvas {
+                display: block;
+                background: var(--color-canvas-bg);
+                border: 2px solid var(--color-canvas-border);
+            }
+
+            #gameSidebar {
+                display: flex;
+                flex-direction: column;
+                width: var(--sidebar-width); /* Defined in global variables */
+                background: #f9f9f9;
+                padding: calc(var(--spacing-unit) * 2);
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                overflow: hidden; /* Prevent content overflow */
+                box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
+            }
+
+            #gameSidebar > div {
+                margin-bottom: calc(var(--spacing-unit) * 2);
+            }
+
+            #gameUI {
+                position: relative; /* Allows for precise positioning of the skip button */
+            }
+
+            #gameUI button {
+                position: absolute;
+                top: calc(var(--spacing-unit) * 2); /* Position at the bottom of the section */
+                left: calc(var(--spacing-unit) * 2); /* Align to the right */
+                background: var(--color-ui-bg-button);
+                color: var(--color-text-primary);
+                border: none;
+                border-radius: var(--border-radius);
+                padding: calc(var(--spacing-unit) * 2);
+                cursor: pointer;
+                font-size: 1rem;
+                box-shadow: var(--box-shadow);
+                transition: background 0.3s ease;
+            }
+
+            #gameUI button:hover {
+                background: var(--color-ui-bg-button-hover);
+            }
+
+            #tileStats {
+                background: #fff;
+                font-size: 0.9rem;
+            }
+
+            #actionHelp {
+                position: relative; /* Enable precise placement of the heading */
+                text-align: left; /* Align text consistently */
+                font-size: 0.9rem;
+            }
+
+            #actionHelp em {
+                position: absolute;
+                top: calc(var(--spacing-unit) * 2); /* Align near the top of the section */
+                left: calc(var(--spacing-unit) * 2); /* Align to the left */
+                font-size: 1rem;
+                font-weight: bold;
+            }
+
+            #gameUI, #tileStats, #actionHelp {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                padding: calc(var(--spacing-unit) * 2);
+                background: var(--color-ui-bg);
+                color: var(--color-text-primary);
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                font-size: 0.9rem;
+                line-height: 1.4;
+                box-sizing: border-box;
+            }
+
+            #tileStats strong, #actionHelp strong {
+                display: block;
+                margin-bottom: var(--spacing-unit);
+                font-size: 1rem;
+            }
+
+            #tutorialOverlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%; /* Match the game container width */
+                height: 100%; /* Match the game container height */
+                background: var(--color-overlay-bg);
+                color: var(--color-overlay-text);
+                display: flex;
+                flex-direction: column; /* Stack content vertically */
+                justify-content: center; /* Center content vertically */
+                align-items: center; /* Center content horizontally */
+                text-align: center;
+                padding: calc(var(--spacing-unit) * 4);
+                z-index: 5;
+                box-sizing: border-box; /* Include padding in size calculations */
+                gap: calc(var(--spacing-unit) * 2); /* Space between paragraph and button */
+            }
+
+            #tutorialOverlay p {
+                font-size: 1rem;
+                line-height: 1.5;
+                max-width: 80%; /* Constrain paragraph width for readability */
+                margin: 0; /* Remove default margin */
+            }
+
+            #tutorialOverlay button {
+                background: var(--color-overlay-button-bg);
+                color: var(--color-overlay-button-text);
+                padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+                border: none;
+                border-radius: var(--border-radius);
+                cursor: pointer;
+                font-size: 1rem;
+                box-shadow: var(--box-shadow);
+                transition: background 0.3s ease;
+            }
+
+            #tutorialOverlay button:hover {
+                background: var(--color-overlay-bg);
+                color: var(--color-overlay-text);
+            }
+        </style>
     </head>
     <body>
         <div id="mainContent">
@@ -60,7 +258,7 @@
                 </div>
             </div>
         </div>
-        <!-- <script src="https://kvnchpl.github.io/js/trellis.js"></script> -->
+        <!-- <script src="https://kvnchpl.github.io/trellis/trellis.js"></script> -->
         <script>
 
             /* GLOBALS */
@@ -172,7 +370,7 @@
 
             // Automatically fetch JSON once the page is loaded
             window.onload = function() {
-                fetch('https://kvnchpl.github.io/json/trellis.json')
+                fetch('https://kvnchpl.github.io/trellis/trellis.json')
                     .then(response => {
                     if (!response.ok) {
                         throw new Error("Failed to load trellis.json: " + response.status);
