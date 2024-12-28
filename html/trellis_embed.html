@@ -195,18 +195,18 @@
                 console.log("Action time costs:", timeCosts);
                 console.log("Core game config:", gameConfig);
 
-                TILE_SIZE    = gameConfig.tileSize;
-                GRID_WIDTH   = gameConfig.gridWidth;
-                GRID_HEIGHT  = gameConfig.gridHeight;
-                DAY_START    = gameConfig.dayStart;
-                DAY_END      = gameConfig.dayEnd;
+                TILE_SIZE    = gameConfig.TILE_SIZE;
+                GRID_WIDTH   = gameConfig.GRID_WIDTH;
+                GRID_HEIGHT  = gameConfig.GRID_HEIGHT;
+                DAY_START    = gameConfig.DAY_START;
+                DAY_END      = gameConfig.DAY_END;
                 TIME_COST    = timeCosts;
                 GROWTH_TIME  = {};
                 PRODUCE_YIELD = {};
 
                 for (let p in plants) {
-                    GROWTH_TIME[p] = plants[p].growthTime;
-                    PRODUCE_YIELD[p] = plants[p].yield;
+                    GROWTH_TIME[p] = plants[p].GROWTH_TIME;
+                    PRODUCE_YIELD[p] = plants[p].PRODUCE_YIELD;
                 }
 
                 currentTime = DAY_START;
@@ -352,6 +352,15 @@
 
             function updateTimeDisplay() {
                 const timeDisplay = document.getElementById("timeDisplay");
+
+                // Ensure currentTime is valid
+                if (isNaN(currentTime) || currentTime < 0) {
+                    console.error("Invalid currentTime:", currentTime);
+                    timeDisplay.textContent = "Error";
+                    return;
+                }
+
+                // Convert currentTime (minutes since 7:00 AM) to HH:MM format
                 let totalMinutes = currentTime;
                 let hours = 7 + Math.floor(totalMinutes / 60);
                 let minutes = totalMinutes % 60;
@@ -361,8 +370,11 @@
                 if (hours > 12) hours -= 12;
                 if (hours === 0) hours = 12;
 
-                const mm = minutes < 10 ? "0" + minutes : minutes;
-                timeDisplay.textContent = `${hours}:${mm} ${ampm}`;
+                // Format minutes as two digits (e.g., "07")
+                const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+
+                // Update the time display
+                timeDisplay.textContent = `${hours}:${formattedMinutes} ${ampm}`;
             }
 
             function updateWeekDisplay() {
