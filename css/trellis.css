@@ -51,6 +51,15 @@ body {
     background: var(--color-ui-bg-button-hover);
 }
 
+#actionHelp {
+    margin-top: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
+    font-size: 0.9rem;
+    background: var(--color-ui-bg);
+    color: var(--color-text-primary);
+    text-align: center;
+}
+
 #gameContainer {
     position: relative;
     margin: 0 auto;
@@ -65,7 +74,27 @@ canvas {
     border: 2px solid var(--color-canvas-border);
 }
 
-/* Tutorial overlay */
+#tileStats {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 200px;
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#tileStats strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+
 #tutorialOverlay {
     position: absolute;
     top: 0;
@@ -90,12 +119,3 @@ canvas {
     cursor: pointer;
 }
 
-/* Simple help text for keyboard actions */
-#actionHelp {
-    margin-top: var(--spacing-unit);
-    padding-bottom: var(--spacing-unit);
-    font-size: 0.9rem;
-    background: var(--color-ui-bg);
-    color: var(--color-text-primary);
-    text-align: center;
-}
