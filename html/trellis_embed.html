@@ -8,49 +8,53 @@
         <link rel="stylesheet" href="https://kvnchpl.github.io/css/trellis.css">
     </head>
     <body>
-        <!-- Top UI bar (time, week, biodiversity score, skip week) -->
-        <div id="gameUI">
-            <div>
-                <strong>Time:</strong> <span id="timeDisplay">7:00 AM</span>
+        <div id="mainContent">
+            <div id="gameContainer">
+                <canvas id="gameCanvas" width="600" height="600"></canvas>
             </div>
-            <div>
-                <strong>Week:</strong> <span id="weekDisplay">1</span>
+            <div id="gameSidebar">
+                <!-- Top UI bar -->
+                <div id="gameUI">
+                    <div>
+                        <strong>Time:</strong> <span id="timeDisplay">7:00 AM</span>
+                    </div>
+                    <div>
+                        <strong>Year:</strong> <span id="yearDisplay">1</span>
+                    </div>
+                    <div>
+                        <strong>Week:</strong> <span id="weekDisplay">1</span> (<span id="seasonDisplay">Winter</span>)
+                    </div>
+                    <div>
+                        <strong>Biodiversity:</strong> <span id="biodiversityScore">0</span>
+                    </div>
+                    <button id="skipToNextWeekBtn">Skip to Next Week</button>
+                </div>
+
+                <!-- Tile stats display -->
+                <div id="tileStats">
+                    <strong>Tile Stats</strong><br>
+                    Click or use arrow keys to highlight a tile.
+                </div>
+
+                <!-- Action Help -->
+                <div id="actionHelp">
+                    <em>Keyboard Shortcuts:</em><br />
+                    1 = Till | 2 = Fertilize | 3 = Plant | 4 = Water | 5 = Mulch | 6 = Weed | 7 = Harvest | 8 = Clear
+                </div>
+
+                <div id="tutorialOverlay">
+                    <h2>Welcome to Trellis!</h2>
+                    <p>
+                        Use arrow keys or WASD to move.<br />
+                        Each action (till, plant, water, weed, harvest) costs time.<br />
+                        The day runs from 7:00 AM to 7:00 PM.<br />
+                        At 7:00 PM (or if you choose to skip), it automatically advances to the next week.<br />
+                        Try to maintain soil health and biodiversity for a sustainable garden!
+                    </p>
+                    <button id="closeTutorialBtn">Close Tutorial</button>
+                </div>
             </div>
-            <div>
-                <strong>Biodiversity:</strong> <span id="biodiversityScore">0</span>
-            </div>
-            <button id="skipToNextWeekBtn">Skip to Next Week</button>
         </div>
-
-        <!-- Simple reminder of keyboard actions -->
-        <div id="actionHelp">
-            <em>Keyboard Shortcuts:</em><br/>
-            1 = Till | 2 = Fertilize | 3 = Plant | 4 = Water | 5 = Mulch | 6 = Weed | 7 = Harvest | 8 = Clear
-        </div>
-
-        <!-- Main game container (canvas + tutorial overlay) -->
-        <div id="gameContainer">
-            <canvas id="gameCanvas" width="600" height="600"></canvas>
-
-            <!-- Tutorial popup -->
-            <div id="tutorialOverlay">
-                <h2>Welcome to Trellis!</h2>
-                <p>
-                    Use arrow keys or WASD to move.<br/>
-                    Each action (till, plant, water, weed, harvest) costs time.<br/>
-                    The day runs from 7:00 AM to 7:00 PM.<br/>
-                    At 7:00 PM (or if you choose to skip), it automatically advances to the next week.<br/>
-                    Try to maintain soil health and biodiversity for a sustainable garden!
-                </p>
-                <button id="closeTutorialBtn">Close Tutorial</button>
-            </div>
-        </div>
-
-        <div id="tileStats">
-            <strong>Tile Stats</strong><br>
-            Click or use arrow keys to highlight a tile.
-        </div>
-
         <script>
 
             /* GLOBALS */
@@ -70,6 +74,17 @@
                 EMPTY: "Empty",
                 PATH: "Path",
             };
+
+            const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
+            const WEEKS_PER_SEASON = 13;
+            const WEEKS_PER_YEAR = 52;
+
+            function getSeasonAndYear(currentWeek) {
+                const year = Math.floor((currentWeek - 1) / WEEKS_PER_YEAR) + 1;
+                const seasonIndex = Math.floor(((currentWeek - 1) % WEEKS_PER_YEAR) / WEEKS_PER_SEASON);
+                const season = SEASONS[seasonIndex];
+                return { year, season };
+            }
 
             /* GAME STATE */
             let currentWeek = 1;
@@ -127,6 +142,8 @@
                 }
 
                 currentTime = DAY_START;
+                const { year, season } = getSeasonAndYear(currentWeek);
+                updateYearAndSeasonDisplay(year, season);
 
                 initGrid();
                 render();
@@ -274,15 +291,27 @@
             }
 
             function skipToNextWeek() {
+                // Increment the week and reset time
                 currentWeek++;
                 currentTime = DAY_START;
 
+                // Recalculate the year and season
+                const { year, season } = getSeasonAndYear(currentWeek);
+
+                // Weekly updates for all tiles
                 updateAllTiles();
                 recalculateBiodiversity();
 
+                // Update UI elements
                 updateTimeDisplay();
                 updateWeekDisplay();
                 updateBiodiversityDisplay();
+                updateYearAndSeasonDisplay(year, season);
+
+                // Update tile stats
+                updateTileStats();
+
+                // Render the grid
                 render();
             }
 
@@ -377,6 +406,11 @@
 
             function updateWeekDisplay() {
                 document.getElementById("weekDisplay").textContent = currentWeek;
+            }
+
+            function updateYearAndSeasonDisplay(year, season) {
+                document.getElementById("yearDisplay").textContent = year;
+                document.getElementById("seasonDisplay").textContent = season;
             }
 
             function updateBiodiversityDisplay() {

@@ -41,6 +41,49 @@ body {
     background: var(--body-bg);
 }
 
+#mainContent {
+    display: flex; /* Arrange game map and sidebar horizontally */
+}
+
+#gameContainer {
+    position: relative;
+    margin: 0;
+    width: var(--game-width);
+    height: var(--game-height);
+    background: var(--color-container-bg);
+}
+
+canvas {
+    display: block;
+    background: var(--color-canvas-bg);
+    border: 2px solid var(--color-canvas-border);
+}
+
+#gameSidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 250px; /* Sidebar width */
+    margin-left: 20px; /* Spacing from game map */
+    background: #f0f0f0; /* Background color for sidebar */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#gameUI button {
+    cursor: pointer;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    border: none;
+    background: var(--color-ui-bg-button);
+    color: var(--color-text-primary);
+    transition: background 0.3s;
+    width: 100%; /* Stretch button to fill width */
+    margin-top: 10px;
+}
+
 #gameUI {
     display: flex;
     justify-content: space-around;
@@ -63,46 +106,12 @@ body {
     background: var(--color-ui-bg-button-hover);
 }
 
-#actionHelp {
-    margin-top: var(--spacing-unit);
-    padding-bottom: var(--spacing-unit);
-    font-size: 0.9rem;
-    background: var(--color-ui-bg);
-    color: var(--color-text-primary);
-    text-align: center;
-}
-
-#gameContainer {
-    position: relative;
-    margin: 0 auto;
-    width: var(--game-width);
-    height: var(--game-height);
-    background: var(--color-container-bg);
-}
-
-canvas {
-    display: block;
-    background: var(--color-canvas-bg);
-    border: 2px solid var(--color-canvas-border);
-}
-
-.highlighted-tile {
-    border: 3px solid red;
-}
-
 #tileStats {
-    position: absolute;
-    top: 80px;
-    right: 10px;
-    width: 220px;
-    background: #f9f9f9;
+    background: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
-    font-size: 0.9rem;
-    line-height: 1.5;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10;
 }
 
 #tileStats strong {
@@ -111,12 +120,19 @@ canvas {
     font-size: 1rem;
 }
 
-#tileStats strong {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+#actionHelp {
+    background: var(--color-ui-bg);
+    color: var(--color-text-primary);
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: left;
+    border-radius: 5px;
 }
 
+#gameUI, #tileStats, #actionHelp {
+    margin-bottom: 20px; /* Space between sections */
+    width: 100%; /* Ensure sections span the full sidebar width */
+}
 
 #tutorialOverlay {
     position: absolute;
