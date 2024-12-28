@@ -23,6 +23,9 @@
     --spacing-unit: 0.5rem;
     
     --tile-default: #77dd77;
+    --tile-empty: #e0e0e0;
+    --tile-path: #bdbdbd;
+    --tile-plot: #8b4513;
     --tile-player: #ffdd57;
     --tile-highlight: red;
     --tile-tilled: #c2b280;

@@ -25,7 +25,7 @@
         <!-- Simple reminder of keyboard actions -->
         <div id="actionHelp">
             <em>Keyboard Shortcuts:</em><br/>
-            1 = Till | 2 = Fertilize | 3 = Plant | 4 = Water | 5 = Mulch | 6 = Weed | 7 = Harvest
+            1 = Till | 2 = Fertilize | 3 = Plant | 4 = Water | 5 = Mulch | 6 = Weed | 7 = Harvest | 8 = Clear
         </div>
 
         <!-- Main game container (canvas + tutorial overlay) -->
@@ -158,7 +158,7 @@
                     grid[row] = [];
                     for (let col = 0; col < GRID_WIDTH; col++) {
                         grid[row][col] = {
-                            type: "PLOT",
+                            type: "empty", // Default type
                             isTilled: false,
                             plant: null,
                             weedLevel: 0,
@@ -169,10 +169,8 @@
                     }
                 }
 
-                // Do not highlight any tile at the start
+                // No tile is highlighted initially
                 highlightedTile = { x: null, y: null };
-
-                // Clear tile stats display
                 clearTileStats();
             }
 
@@ -185,6 +183,18 @@
 
                         // Default tile color
                         let tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim();
+
+                        // Determine color based on type
+                        if (tile.type === "path") {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-path").trim();
+                        } else if (tile.type === "plot") {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plot").trim();
+                        }
+
+                        // Player position color
+                        if (row === player.y && col === player.x) {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
+                        }
 
                         // Modify color based on soil moisture
                         if (tile.moisture > 70) {
@@ -377,69 +387,86 @@
             /* PLAYER MOVEMENT & CONTROLS */
 
             function handleKeyDown(e) {
-                let oldX = player.x;
-                let oldY = player.y;
+                let newX = player.x;
+                let newY = player.y;
 
                 switch (e.key) {
-                    case "w":
-                    case "W":
-                        if (player.y > 0) player.y--;
-                        break;
-                    case "s":
-                    case "S":
-                        if (player.y < GRID_HEIGHT - 1) player.y++;
-                        break;
-                    case "a":
-                    case "A":
-                        if (player.x > 0) player.x--;
-                        break;
-                    case "d":
-                    case "D":
-                        if (player.x < GRID_WIDTH - 1) player.x++;
-                        break;
+                        // Player movement (Arrow keys)
                     case "ArrowUp":
-                        highlightTile(player.x, player.y - 1);
+                        newY = player.y - 1;
                         break;
                     case "ArrowDown":
-                        highlightTile(player.x, player.y + 1);
+                        newY = player.y + 1;
                         break;
                     case "ArrowLeft":
-                        highlightTile(player.x - 1, player.y);
+                        newX = player.x - 1;
                         break;
                     case "ArrowRight":
-                        highlightTile(player.x + 1, player.y);
+                        newX = player.x + 1;
                         break;
 
-                        // ACTION SHORTCUTS
-                    case "1":
+                        // Highlight adjacent tiles (WASD keys)
+                    case "w":
+                    case "W":
+                        highlightTile(player.x, player.y - 1); // Highlight above
+                        return;
+                    case "s":
+                    case "S":
+                        highlightTile(player.x, player.y + 1); // Highlight below
+                        return;
+                    case "a":
+                    case "A":
+                        highlightTile(player.x - 1, player.y); // Highlight left
+                        return;
+                    case "d":
+                    case "D":
+                        highlightTile(player.x + 1, player.y); // Highlight right
+                        return;
+
+                        // Actions (Keys 1–8)
+                    case "1": // Till
                         tillSoil();
                         break;
-                    case "2":
+                    case "2": // Fertilize
                         fertilizeTile();
                         break;
-                    case "3":
-                        // Default to planting tomato for demo, or show a prompt
-                        plantSeed("tomato");
+                    case "3": // Plant
+                        plantSeed("tomato"); // Example default plant type
                         break;
-                    case "4":
+                    case "4": // Water
                         waterTile();
                         break;
-                    case "5":
+                    case "5": // Mulch
                         mulchTile();
                         break;
-                    case "6":
+                    case "6": // Weed
                         weedTile();
                         break;
-                    case "7":
+                    case "7": // Harvest
                         harvestPlant();
                         break;
-                    default:
+                    case "8": // Clear
+                        clearPlot();
                         break;
+
+                    default:
+                        return; // Do nothing for other keys
                 }
 
-                // Re-render if the position changed
-                if (oldX !== player.x || oldY !== player.y) {
+                // Prevent movement if the target tile is out of bounds or a plot
+                if (
+                    newX >= 0 &&
+                    newX < GRID_WIDTH &&
+                    newY >= 0 &&
+                    newY < GRID_HEIGHT &&
+                    grid[newY][newX].type !== "plot"
+                ) {
+                    player.x = newX;
+                    player.y = newY;
+                    highlightTile(null, null); // Clear highlight on movement
                     render();
+                } else {
+                    console.log("Cannot move onto this tile!");
                 }
             }
 
@@ -499,14 +526,16 @@ No tile highlighted.
             // TILL
             function tillSoil() {
                 const tile = getPlayerTile();
-                // Only till if it's a "PLOT" and not already tilled
-                if (tile.type === "PLOT" && !tile.isTilled) {
+
+                if (tile.type === "empty") {
+                    tile.type = "plot";
                     tile.isTilled = true;
+
                     console.log("Soil tilled at:", player.x, player.y);
-                    advanceTime(TIME_COST.TILL);
+                    advanceTime(TIME_COST.till);
                     render();
                 } else {
-                    console.log("Cannot till here.");
+                    console.log("Cannot till this tile.");
                 }
             }
 
@@ -621,6 +650,23 @@ No tile highlighted.
                     render();
                 } else {
                     console.log("No mature plant to harvest here.");
+                }
+            }
+
+            // CLEAR
+            function clearPlot() {
+                const tile = getPlayerTile();
+
+                if (tile.type === "plot") {
+                    tile.type = "empty";
+                    tile.isTilled = false;
+                    tile.plant = null;
+
+                    console.log("Plot cleared at:", player.x, player.y);
+                    advanceTime(TIME_COST.clear);
+                    render();
+                } else {
+                    console.log("This tile is not a plot.");
                 }
             }
 
