@@ -21,6 +21,15 @@
     --game-height: 600px;
 
     --spacing-unit: 0.5rem;
+    
+    --tile-default: #77dd77;
+    --tile-player: #ffdd57;
+    --tile-highlight: red;
+    --tile-tilled: #c2b280;
+    --tile-moisture-high: #7ec850;
+    --tile-moisture-low: #c2b280;
+    --tile-plant-young: #7EC850;
+    --tile-plant-mature: #98FB98;
 }
 
 body {
@@ -72,6 +81,10 @@ canvas {
     display: block;
     background: var(--color-canvas-bg);
     border: 2px solid var(--color-canvas-border);
+}
+
+.highlighted-tile {
+    border: 3px solid red;
 }
 
 #tileStats {

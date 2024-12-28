@@ -168,6 +168,12 @@
                         };
                     }
                 }
+
+                // Do not highlight any tile at the start
+                highlightedTile = { x: null, y: null };
+
+                // Clear tile stats display
+                clearTileStats();
             }
 
             /* RENDER */
@@ -177,48 +183,48 @@
                     for (let col = 0; col < GRID_WIDTH; col++) {
                         const tile = grid[row][col];
 
-                        // Base color for PLOT or PATH
-                        let tileColor = (tile.type === "PATH") ? "#d8d8d8" : "#77dd77";
+                        // Default tile color
+                        let tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim();
 
                         // Modify color based on soil moisture
-                        const moistureIntensity = Math.round(tile.moisture / 2.55); // Convert to 0-255 scale
-                        tileColor = `rgb(0, ${moistureIntensity}, 0)`;
-
-                        // Highlight player's position
-                        if (row === player.y && col === player.x) {
-                            tileColor = "#ffdd57";
+                        if (tile.moisture > 70) {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim();
+                        } else if (tile.moisture < 30) {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-low").trim();
                         }
 
-                        // If tile is tilled, make it a different shade
-                        if (tile.type === "PLOT" && tile.isTilled) {
-                            tileColor = "#c2b280"; // A brownish color
+                        // Tilled tile color
+                        if (tile.isTilled) {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-tilled").trim();
                         }
 
-                        // If there's a plant, maybe we change the color slightly
+                        // Plant growth stage colors
                         if (tile.plant) {
-                            // If mature, make it a brighter color to indicate readiness
                             if (tile.plant.isMature) {
-                                tileColor = "#98FB98"; // PaleGreen
+                                tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim();
                             } else {
-                                tileColor = "#7EC850"; // Medium spring green
+                                tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim();
                             }
+                        }
+
+                        // Player position color
+                        if (row === player.y && col === player.x) {
+                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
                         }
 
                         context.fillStyle = tileColor;
                         context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
+                        // Highlight tile with a red border if it's the highlighted tile
                         if (row === highlightedTile.y && col === highlightedTile.x) {
-                            context.strokeStyle = "red";
+                            context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim();
                             context.lineWidth = 3;
                             context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                         } else {
-                            context.strokeStyle = "#555";
+                            context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim();
+                            context.lineWidth = 1;
                             context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                         }
-
-                        // Grid lines
-                        context.strokeStyle = "#555";
-                        context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     }
                 }
             }
@@ -453,17 +459,17 @@
                 }
             });
             function highlightTile(x, y) {
-                // Ensure the tile is within bounds
-                if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
+                if (x === null || y === null) {
+                    highlightedTile.x = null;
+                    highlightedTile.y = null;
+                    clearTileStats();
+                } else if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
                     highlightedTile.x = x;
                     highlightedTile.y = y;
-
-                    // Update the tile stats display
                     displayTileStats(x, y);
-
-                    // Re-render the grid
-                    render();
                 }
+
+                render(); // Update the visual grid to reflect the highlight
             }
 
             function displayTileStats(x, y) {
@@ -477,6 +483,14 @@ Tilled: ${tile.isTilled ? "Yes" : "No"}<br>
 Moisture: ${tile.moisture}<br>
 Nutrients: N=${tile.soilNutrients.N}, P=${tile.soilNutrients.P}, K=${tile.soilNutrients.K}<br>
 Plant: ${tile.plant ? tile.plant.type : "None"}
+`;
+            }
+
+            function clearTileStats() {
+                const statsContainer = document.getElementById("tileStats");
+                statsContainer.innerHTML = `
+<strong>Tile Stats</strong><br>
+No tile highlighted.
 `;
             }
 
