@@ -368,7 +368,7 @@
                 gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
 
                 highlightTile(gameState.player.x, gameState.player.y);
-                displayTileStats(gameState.player.x, gameState.player.y);
+                displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
 
                 // Initialize UI
                 updateTimeState();
@@ -413,6 +413,8 @@
                     soilNutrients: { N: 50, P: 50, K: 50 },
                 }))
                                            );
+
+                console.log("Grid initialized:", gameState.grid);
 
                 // Set highlighted tile to player's starting position
                 gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
@@ -846,6 +848,18 @@
             }
 
             function displayTileStats(x, y) {
+                if (!gameState.grid || gameState.grid.length === 0) {
+                    console.error("Grid not initialized yet!");
+                    clearTileStats();
+                    return;
+                }
+
+                if (x < 0 || y < 0 || x >= GRID_WIDTH || y >= GRID_HEIGHT) {
+                    console.error("Tile coordinates out of bounds:", x, y);
+                    clearTileStats();
+                    return;
+                }
+
                 const tile = gameState.grid[y][x];
                 const statsContainer = document.getElementById("tileStats");
 
