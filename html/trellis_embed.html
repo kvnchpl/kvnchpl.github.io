@@ -2,67 +2,110 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>Trellis</title>
-        <!-- Example external CSS file -->
         <link rel="stylesheet" href="https://kvnchpl.github.io/css/main.css" />
         <style>
-            /* Minimal inline styles for demonstration */
+            :root {
+                --body-bg: #f0f0f0;
+                --font-family: Arial, sans-serif;
+
+                --color-text-primary: #fff;
+                --color-text-secondary: #000;
+                --color-ui-bg: #333;
+                --color-ui-bg-button: #555;
+                --color-ui-bg-button-hover: #777;
+
+                --color-container-bg: #ccc;
+                --color-canvas-bg: #eee;
+                --color-canvas-border: #999;
+
+                --color-overlay-bg: rgba(0, 0, 0, 0.7);
+                --color-overlay-text: #fff;
+                --color-overlay-button-bg: #aaa;
+                --color-overlay-button-text: #000;
+                
+                --game-width: 600px;
+                --game-height: 600px;
+
+                --spacing-unit: 0.5rem;
+            }
+
             body {
                 margin: 0;
-                font-family: Arial, sans-serif;
-                background: #f0f0f0;
+                font-family: var(--font-family);
+                background: var(--body-bg);
             }
+
             #gameUI {
                 display: flex;
                 justify-content: space-around;
-                background: #333;
-                color: #fff;
-                padding: 0.5rem;
                 align-items: center;
+                background: var(--color-ui-bg);
+                color: var(--color-text-primary);
+                padding-bottom: var(--spacing-unit);
             }
+
             #gameUI button {
                 cursor: pointer;
-                padding: 0.5rem 1rem;
+                padding: var(--spacing-unit) calc(var(--spacing-unit)*2);
                 border: none;
-                background: #555;
-                color: #fff;
+                background: var(--color-ui-bg-button);
+                color: var(--color-text-primary);
                 transition: background 0.3s;
             }
+
             #gameUI button:hover {
-                background: #777;
+                background: var(--color-ui-bg-button-hover);
             }
+
             #gameContainer {
                 position: relative;
                 margin: 0 auto;
-                width: 600px;
-                height: 600px;
-                background: #ccc;
+                width: var(--game-width);
+                height: var(--game-height);
+                background: var(--color-container-bg);
             }
+
             canvas {
                 display: block;
-                background: #eee;
-                border: 2px solid #999;
+                background: var(--color-canvas-bg);
+                border: 2px solid var(--color-canvas-border);
             }
+
             /* Tutorial overlay */
             #tutorialOverlay {
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 600px;
-                height: 600px;
-                background: rgba(0, 0, 0, 0.7);
-                color: #fff;
+                width: var(--game-width);
+                height: var(--game-height);
+                background: var(--color-overlay-bg);
+                color: var(--color-overlay-text);
                 display: none; /* start hidden */
                 justify-content: center;
                 align-items: center;
                 text-align: center;
-                padding: 1rem;
+                padding: calc(var(--spacing-unit)*2);
             }
+
             #tutorialOverlay button {
-                background: #aaa;
-                color: #000;
-                margin-top: 1rem;
+                background: var(--color-overlay-button-bg);
+                color: var(--color-overlay-button-text);
+                margin-top: var(--spacing-unit);
+                padding: var(--spacing-unit) calc(var(--spacing-unit)*2);
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Simple help text for keyboard actions */
+            #actionHelp {
+                margin-top: var(--spacing-unit);
+                padding-bottom: var(--spacing-unit);
+                font-size: 0.9rem;
+                background: var(--color-ui-bg);
+                color: var(--color-text-primary);
+                text-align: center;
             }
         </style>
     </head>
@@ -81,6 +124,12 @@
             <button id="skipToNextWeekBtn">Skip to Next Week</button>
         </div>
 
+        <!-- Simple reminder of keyboard actions -->
+        <div id="actionHelp">
+            <em>Keyboard Shortcuts:</em><br/>
+            T = Till | P = Plant | W = Water | E = Weed | H = Harvest
+        </div>
+
         <!-- Main game container (canvas + tutorial overlay) -->
         <div id="gameContainer">
             <canvas id="gameCanvas" width="600" height="600"></canvas>
@@ -89,10 +138,10 @@
             <div id="tutorialOverlay">
                 <h2>Welcome to Trellis!</h2>
                 <p>
-                    Use arrow keys or WASD to move.<br />
-                    Each action (till, plant, water, etc.) costs time.<br />
-                    The day runs from 7:00 AM to 7:00 PM.<br />
-                    At 7:00 PM (or if you choose to skip), it automatically advances to the next week.<br />
+                    Use arrow keys or WASD to move.<br/>
+                    Each action (till, plant, water, weed, harvest) costs time.<br/>
+                    The day runs from 7:00 AM to 7:00 PM.<br/>
+                    At 7:00 PM (or if you choose to skip), it automatically advances to the next week.<br/>
                     Try to maintain soil health and biodiversity for a sustainable garden!
                 </p>
                 <button id="closeTutorialBtn">Close Tutorial</button>
@@ -108,14 +157,27 @@
             const GRID_HEIGHT = 15;    // 15 tiles vertically
 
             const DAY_START = 0;       // minutes after 7:00 AM (0 means 7:00 AM)
-            const DAY_END = 720;       // 720 minutes after 7:00 AM is 7:00 PM (12 hours x 60 min)
+            const DAY_END = 720;       // 720 minutes after 7:00 AM = 7:00 PM (12 hours)
 
-            // Time cost (in minutes) for some example actions
+            // Time cost (in minutes) for various actions
             const TIME_COST = {
                 TILL: 30,
                 PLANT: 20,
                 WATER: 10,
-                WEED: 15
+                WEED: 15,
+                HARVEST: 20
+            };
+
+            // Growth thresholds (weeks needed to mature) for each plant type
+            const GROWTH_TIME = {
+                tomato: 2, // after 2 weeks, it matures
+                kale: 3
+            };
+
+            // Produce yield per harvest (example)
+            const PRODUCE_YIELD = {
+                tomato: 3,
+                kale: 2
             };
 
             /********************************
@@ -129,35 +191,41 @@
             const player = {
                 x: 0, // grid X
                 y: 0, // grid Y
-                // In a real game, you might store player speed, sprite, etc.
             };
 
             // Simple inventory system example
             const inventory = {
                 seeds: {
                     tomato: 5,
-                    kale: 5,
+                    kale: 5
                 },
-                produce: {},
+                produce: {
+                    tomato: 0,
+                    kale: 0
+                },
                 fertilizer: 2,
-                mulch: 5,
+                mulch: 5
             };
 
             // Basic tile structure: 
-            // type (e.g., "PATH", "PLOT"), 
-            // plant, 
-            // soilNutrients, 
-            // moisture, 
-            // weedLevel, etc.
+            // type: "PLOT" or "PATH", 
+            // isTilled: boolean,
+            // plant: { type: "tomato"|"kale", age: number, isMature: boolean },
+            // weedLevel: number,
+            // moisture: number,
+            // soilNutrients: {N, P, K}
             const grid = [];
 
-            //  Initialize a 2D array for the grid
+            /********************************
+     *     INITIALIZATION
+     ********************************/
             function initGrid() {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     grid[row] = [];
                     for (let col = 0; col < GRID_WIDTH; col++) {
                         grid[row][col] = {
                             type: "PLOT",
+                            isTilled: false,
                             plant: null,
                             weedLevel: 0,
                             moisture: 50, // out of 100?
@@ -173,33 +241,37 @@
             function drawGrid(context) {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     for (let col = 0; col < GRID_WIDTH; col++) {
-                        // Decide color based on type or whether player is there
-                        let tileColor = "#77dd77"; // greenish for "PLOT"
-                        if (grid[row][col].type === "PATH") {
-                            tileColor = "#d8d8d8";
+                        const tile = grid[row][col];
+
+                        // Base color for PLOT or PATH
+                        let tileColor = (tile.type === "PATH") ? "#d8d8d8" : "#77dd77";
+
+                        // If tile is tilled, make it a different shade
+                        if (tile.type === "PLOT" && tile.isTilled) {
+                            tileColor = "#c2b280"; // A brownish color
+                        }
+
+                        // If there's a plant, maybe we change the color slightly
+                        if (tile.plant) {
+                            // If mature, make it a brighter color to indicate readiness
+                            if (tile.plant.isMature) {
+                                tileColor = "#98FB98"; // PaleGreen
+                            } else {
+                                tileColor = "#7EC850"; // Medium spring green
+                            }
                         }
 
                         // Highlight if player's position is here
                         if (row === player.y && col === player.x) {
-                            tileColor = "#ffdd57"; // highlight for player
+                            tileColor = "#ffdd57";
                         }
 
                         context.fillStyle = tileColor;
-                        context.fillRect(
-                            col * TILE_SIZE,
-                            row * TILE_SIZE,
-                            TILE_SIZE,
-                            TILE_SIZE
-                        );
+                        context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
                         // Optional: draw grid lines
                         context.strokeStyle = "#555";
-                        context.strokeRect(
-                            col * TILE_SIZE,
-                            row * TILE_SIZE,
-                            TILE_SIZE,
-                            TILE_SIZE
-                        );
+                        context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     }
                 }
             }
@@ -219,11 +291,8 @@
      *     TIME / WEEK LOGIC
      ********************************/
             function advanceTime(minutes) {
-                // Add minutes to currentTime
                 currentTime += minutes;
-                // If time hits or exceeds DAY_END, skip to next week
                 if (currentTime >= DAY_END) {
-                    // Force end of day
                     skipToNextWeek();
                 } else {
                     updateTimeDisplay();
@@ -231,38 +300,43 @@
             }
 
             function skipToNextWeek() {
-                // End-of-week updates:
-                // - Plant growth
-                // - Soil changes
-                // - Pest checks
-                // - Biodiversity calculation, etc.
+                // Weekly update: plant growth, recalc biodiversity, etc.
                 currentWeek++;
-                // Reset time to 7:00 AM
                 currentTime = DAY_START;
 
-                // Just a placeholder for how you might recalc biodiversity
-                // In reality, you'd scan grid for unique plant types, etc.
+                // Age all plants by 1 week
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        const tile = grid[row][col];
+                        if (tile.plant) {
+                            tile.plant.age += 1;
+                            // Check if plant is mature
+                            if (tile.plant.age >= GROWTH_TIME[tile.plant.type]) {
+                                tile.plant.isMature = true;
+                            }
+                        }
+                    }
+                }
+
+                // Recalculate biodiversity
                 biodiversityScore = calculateBiodiversity();
 
                 updateTimeDisplay();
                 updateWeekDisplay();
                 updateBiodiversityDisplay();
-
-                // For demonstration, you can re-render after the updates
                 render();
             }
 
             function updateTimeDisplay() {
                 const timeDisplay = document.getElementById("timeDisplay");
-                // Convert currentTime (minutes) to HH:MM format (7:00 AM + currentTime)
                 let totalMinutes = currentTime;
                 let hours = 7 + Math.floor(totalMinutes / 60);
                 let minutes = totalMinutes % 60;
                 let ampm = hours >= 12 ? "PM" : "AM";
 
-                // Convert to 12-hour format if you prefer
-                if (hours > 12) hours = hours - 12;
-                if (hours === 0) hours = 12; // edge case
+                // Convert to 12-hour format
+                if (hours > 12) hours -= 12;
+                if (hours === 0) hours = 12;
 
                 const mm = minutes < 10 ? "0" + minutes : minutes;
                 timeDisplay.textContent = `${hours}:${mm} ${ampm}`;
@@ -277,9 +351,16 @@
             }
 
             function calculateBiodiversity() {
-                // Simple placeholder logic: random or fixed for demo
-                // Ideally, you'd parse the grid to find how many unique plant types exist
-                return Math.floor(Math.random() * 10);
+                // Simple approach: count unique plant types in the grid
+                const typesFound = new Set();
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        if (grid[row][col].plant) {
+                            typesFound.add(grid[row][col].plant.type);
+                        }
+                    }
+                }
+                return typesFound.size;
             }
 
             /********************************
@@ -306,49 +387,158 @@
                     case "d":
                         if (player.x < GRID_WIDTH - 1) player.x++;
                         break;
+
+                        // ACTION SHORTCUTS
+                    case "t":
+                    case "T":
+                        tillSoil();
+                        break;
+                    case "p":
+                    case "P":
+                        // Default to planting tomato for demo, or show a prompt
+                        plantSeed("tomato");
+                        break;
+                    case "w":
+                    case "W":
+                        // w is also "move up" by default; let's define SHIFT+W or something else?
+                        // For simplicity, let's define a second letter for water: "o" (like H2O).
+                        // Or "altKey" check. We'll skip that for now to avoid collisions.
+                        break;
+                    case "e":
+                    case "E":
+                        weedTile();
+                        break;
+                    case "h":
+                    case "H":
+                        harvestPlant();
+                        break;
                     default:
-                        // No movement
                         break;
                 }
 
-                // If the position changed, re-render
+                // Re-render if the position changed
                 if (oldX !== player.x || oldY !== player.y) {
                     render();
                 }
             }
 
             /********************************
-     *     ACTIONS (SAMPLE)
+     *     ACTIONS
      ********************************/
-            // Placeholder function for an example "TILL" action
-            // In a real game, you'd verify the tile is suitable for tilling, etc.
+
+            // 1) TILL
             function tillSoil() {
-                const tile = grid[player.y][player.x];
-                if (tile.type === "PLOT") {
-                    // Tilling might improve soil or set a 'isTilled' flag, etc.
+                const tile = getPlayerTile();
+                // Only till if it's a "PLOT" and not already tilled
+                if (tile.type === "PLOT" && !tile.isTilled) {
+                    tile.isTilled = true;
                     console.log("Soil tilled at:", player.x, player.y);
                     advanceTime(TIME_COST.TILL);
-                    // Re-render to reflect changes
                     render();
+                } else {
+                    console.log("Cannot till here.");
                 }
+            }
+
+            // 2) PLANT
+            // For demonstration, this plants the given seed type if we have inventory
+            function plantSeed(seedType) {
+                const tile = getPlayerTile();
+                if (!tile.isTilled) {
+                    console.log("Soil is not tilled. Cannot plant yet.");
+                    return;
+                }
+                if (tile.plant !== null) {
+                    console.log("There's already a plant here!");
+                    return;
+                }
+                if (inventory.seeds[seedType] && inventory.seeds[seedType] > 0) {
+                    // Use 1 seed
+                    inventory.seeds[seedType]--;
+                    // Create a new plant object
+                    tile.plant = {
+                        type: seedType,
+                        age: 0,
+                        isMature: false
+                    };
+                    console.log(`Planted ${seedType} at (${player.x}, ${player.y})`);
+                    advanceTime(TIME_COST.PLANT);
+                    render();
+                } else {
+                    console.log(`No ${seedType} seeds left.`);
+                }
+            }
+
+            // 3) WATER
+            // We'll bind this to a custom key to avoid conflicts. Let's use "o" for example.
+            window.addEventListener("keydown", (e) => {
+                if (e.key === "o" || e.key === "O") {
+                    waterTile();
+                }
+            });
+            function waterTile() {
+                const tile = getPlayerTile();
+                // Increase moisture but cap at 100
+                tile.moisture = Math.min(tile.moisture + 20, 100);
+                console.log("Watered tile. Moisture now:", tile.moisture);
+                advanceTime(TIME_COST.WATER);
+                render();
+            }
+
+            // 4) WEED
+            function weedTile() {
+                const tile = getPlayerTile();
+                if (tile.weedLevel > 0) {
+                    tile.weedLevel = 0;
+                    console.log("Weeds removed at:", player.x, player.y);
+                    advanceTime(TIME_COST.WEED);
+                    render();
+                } else {
+                    console.log("No weeds here.");
+                }
+            }
+
+            // 5) HARVEST
+            function harvestPlant() {
+                const tile = getPlayerTile();
+                if (tile.plant && tile.plant.isMature) {
+                    // Add produce to inventory
+                    const type = tile.plant.type;
+                    inventory.produce[type] = (inventory.produce[type] || 0) + PRODUCE_YIELD[type];
+
+                    console.log(
+                        `Harvested ${type} at (${player.x}, ${player.y}). Gained ${PRODUCE_YIELD[type]} produce.`
+                    );
+
+                    // Remove the plant from the tile
+                    tile.plant = null;
+                    tile.isTilled = false; // optional: revert to untilled or keep tilled?
+
+                    advanceTime(TIME_COST.HARVEST);
+                    render();
+                } else {
+                    console.log("No mature plant to harvest here.");
+                }
+            }
+
+            // Utility function to get the tile the player is standing on
+            function getPlayerTile() {
+                return grid[player.y][player.x];
             }
 
             /********************************
      *     TUTORIAL OVERLAY
      ********************************/
             function showTutorial() {
-                const tutorialOverlay = document.getElementById("tutorialOverlay");
-                tutorialOverlay.style.display = "flex";
+                document.getElementById("tutorialOverlay").style.display = "flex";
             }
-
             function hideTutorial() {
-                const tutorialOverlay = document.getElementById("tutorialOverlay");
-                tutorialOverlay.style.display = "none";
+                document.getElementById("tutorialOverlay").style.display = "none";
             }
 
-/********************************
- *     GAME INIT
- ********************************/
+            /********************************
+     *     GAME INIT
+     ********************************/
             function initGame() {
                 initGrid();
                 render();
@@ -359,21 +549,11 @@
                 // Setup UI event listeners
                 document.getElementById("skipToNextWeekBtn").addEventListener("click", skipToNextWeek);
                 document.getElementById("closeTutorialBtn").addEventListener("click", hideTutorial);
-
-                // Listen for keyboard
                 window.addEventListener("keydown", handleKeyDown);
 
-                // Update UI displays once at start
                 updateTimeDisplay();
                 updateWeekDisplay();
                 updateBiodiversityDisplay();
-
-                // Example: Press "t" to TILL the current tile (demo action)
-                window.addEventListener("keydown", (e) => {
-                    if (e.key === "t") {
-                        tillSoil();
-                    }
-                });
             }
 
             // Start the game once the page is fully loaded
