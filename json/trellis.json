@@ -1,29 +1,29 @@
 {
     "gameConfig": {
-        "tileSize": 40,
-        "gridWidth": 15,
-        "gridHeight": 15,
-        "dayStart": 0,
-        "dayEnd": 720,
-        "pestOutbreakChance": 5,
-        "baseMoistureDecay": 2,
-        "regionName": "Upstate New York"
+        "TILE_SIZE": 40,
+        "GRID_WIDTH": 15,
+        "GRID_HEIGHT": 15,
+        "DAY_START": 0,
+        "DAY_END": 720,
+        "PEST_OUTBREAK_CHANCE": 5,
+        "BASE_MOISTURE_DECAY": 2,
+        "REGION_NAME": "Upstate New York"
     },
     "timeCosts": {
-        "till": 30,
-        "plant": 20,
-        "water": 10,
-        "weed": 15,
-        "harvest": 20
+        "TILL": 30,
+        "PLANT": 20,
+        "WATER": 10,
+        "WEED": 15,
+        "HARVEST": 20
     },
     "plants": {
         "tomato": {
-            "growthTime": 2,
-            "yield": 3
+            "GROWTH_TIME": 2,
+            "YIELD": 3
         },
         "kale": {
-            "growthTime": 3,
-            "yield": 2
+            "GROWTH_TIME": 3,
+            "YIELD": 2
         }
     }
 }
