@@ -12,10 +12,13 @@
     },
     "timeCosts": {
         "TILL": 30,
+        "FERTILIZE": 15,
         "PLANT": 20,
         "WATER": 10,
+        "MULCH": 10,
         "WEED": 15,
-        "HARVEST": 20
+        "HARVEST": 20,
+        "CLEAR": 25
     },
     "plants": {
         "tomato": {
