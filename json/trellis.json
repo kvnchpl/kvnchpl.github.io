@@ -1,0 +1,29 @@
+{
+    "gameConfig": {
+        "tileSize": 40,
+        "gridWidth": 15,
+        "gridHeight": 15,
+        "dayStart": 0,
+        "dayEnd": 720,
+        "pestOutbreakChance": 5,
+        "baseMoistureDecay": 2,
+        "regionName": "Upstate New York"
+    },
+    "timeCosts": {
+        "till": 30,
+        "plant": 20,
+        "water": 10,
+        "weed": 15,
+        "harvest": 20
+    },
+    "plants": {
+        "tomato": {
+            "growthTime": 2,
+            "yield": 3
+        },
+        "kale": {
+            "growthTime": 3,
+            "yield": 2
+        }
+    }
+}

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Trellis</title>
+        <title>trellis</title>
         <link rel="stylesheet" href="https://kvnchpl.github.io/css/main.css" />
         <style>
             :root {
@@ -24,7 +24,7 @@
                 --color-overlay-text: #fff;
                 --color-overlay-button-bg: #aaa;
                 --color-overlay-button-text: #000;
-                
+
                 --game-width: 600px;
                 --game-height: 600px;
 
@@ -149,40 +149,78 @@
         </div>
 
         <script>
-            /********************************
-     *     CORE GAME CONSTANTS
-     ********************************/
-            const TILE_SIZE = 40;      // each tile is 40x40 px
-            const GRID_WIDTH = 15;     // 15 tiles horizontally
-            const GRID_HEIGHT = 15;    // 15 tiles vertically
 
-            const DAY_START = 0;       // minutes after 7:00 AM (0 means 7:00 AM)
-            const DAY_END = 720;       // 720 minutes after 7:00 AM = 7:00 PM (12 hours)
+            /* GAME INIT */
+
+            let gameData = null;
+
+            function initGame() {
+
+                if (!gameData) {
+                    console.error("Game data not loaded yet!");
+                    return;
+                }
+
+                const { plants, timeCosts, gameConfig } = gameData;
+
+                console.log("Initialized game with plant data:", plants);
+                console.log("Action time costs:", timeCosts);
+                console.log("Core game config:", gameConfig);
+
+                initGrid();
+                render();
+
+                // Show tutorial on first load
+                showTutorial();
+
+                // Hook up other UI events
+                document.getElementById("skipToNextWeekBtn").addEventListener("click", skipToNextWeek);
+                document.getElementById("closeTutorialBtn").addEventListener("click", hideTutorial);
+                window.addEventListener("keydown", handleKeyDown);
+
+                updateTimeDisplay();
+                updateWeekDisplay();
+                updateBiodiversityDisplay();
+            }
+
+            // Automatically fetch JSON once the page is loaded
+            window.onload = function() {
+                fetch('https://kvnchpl.github.io/json/trellis.json')
+                    .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to load trellis.json: " + response.status);
+                    }
+                    return response.json();
+                })
+                    .then(data => {
+                    gameData = data;
+                    initGame();  // Now that gameData is set, we initialize the game
+                })
+                    .catch(error => {
+                    console.error("Error fetching trellis.json:", error);
+                });
+            };
+
+            /* CORE GAME CONSTANTS */
+
+            const TILE_SIZE = gameConfig.tileSize;   // each tile is 40x40 px
+            const GRID_WIDTH = gameConfig.gridWidth; // 15 tiles horizontally
+            const GRID_HEIGHT = gameConfig.gridHeight; // 15 tiles vertically
+
+            const DAY_START = gameConfig.dayStart;       // minutes after 7:00 AM (0 means 7:00 AM)
+            const DAY_END = gameConfig.dayEnd;       // 720 minutes after 7:00 AM = 7:00 PM (12 hours)
 
             // Time cost (in minutes) for various actions
-            const TIME_COST = {
-                TILL: 30,
-                PLANT: 20,
-                WATER: 10,
-                WEED: 15,
-                HARVEST: 20
-            };
+            const TIME_COST = gameConfig.timeCosts;
 
             // Growth thresholds (weeks needed to mature) for each plant type
-            const GROWTH_TIME = {
-                tomato: 2, // after 2 weeks, it matures
-                kale: 3
-            };
+            const GROWTH_TIME = gameConfig.growthTimes;
 
             // Produce yield per harvest (example)
-            const PRODUCE_YIELD = {
-                tomato: 3,
-                kale: 2
-            };
+            const PRODUCE_YIELD = gameconfig.produceYield;
 
-            /********************************
-     *     GLOBAL GAME STATE
-     ********************************/
+            /* GLOBAL GAME STATE */
+            
             let currentWeek = 1;
             let currentTime = DAY_START; // track minutes elapsed from 7:00 AM
             let biodiversityScore = 0;
@@ -216,9 +254,8 @@
             // soilNutrients: {N, P, K}
             const grid = [];
 
-            /********************************
-     *     INITIALIZATION
-     ********************************/
+            /* INITIALIZATION */
+            
             function initGrid() {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     grid[row] = [];
@@ -235,9 +272,8 @@
                 }
             }
 
-            /********************************
-     *     RENDERING
-     ********************************/
+            /* RENDERING */
+            
             function drawGrid(context) {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     for (let col = 0; col < GRID_WIDTH; col++) {
@@ -267,11 +303,11 @@
                         }
 
                         context.fillStyle = tileColor;
-                        context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                        context.fillRect(col * tileSize, row * tileSize, tileSize, tileSize);
 
                         // Optional: draw grid lines
                         context.strokeStyle = "#555";
-                        context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                        context.strokeRect(col * tileSize, row * tileSize, tileSize, tileSize);
                     }
                 }
             }
@@ -287,9 +323,8 @@
                 drawGrid(ctx);
             }
 
-            /********************************
-     *     TIME / WEEK LOGIC
-     ********************************/
+            /* TIME/WEEK LOGIC */
+            
             function advanceTime(minutes) {
                 currentTime += minutes;
                 if (currentTime >= DAY_END) {
@@ -363,9 +398,8 @@
                 return typesFound.size;
             }
 
-            /********************************
-     *     PLAYER MOVEMENT
-     ********************************/
+            /* PLAYER MOVEMENT */
+            
             function handleKeyDown(e) {
                 let oldX = player.x;
                 let oldY = player.y;
@@ -422,9 +456,7 @@
                 }
             }
 
-            /********************************
-     *     ACTIONS
-     ********************************/
+            /* ACTIONS */
 
             // 1) TILL
             function tillSoil() {
@@ -526,9 +558,8 @@
                 return grid[player.y][player.x];
             }
 
-            /********************************
-     *     TUTORIAL OVERLAY
-     ********************************/
+            /* TUTORIAL OVERLAY */
+            
             function showTutorial() {
                 document.getElementById("tutorialOverlay").style.display = "flex";
             }
@@ -536,28 +567,6 @@
                 document.getElementById("tutorialOverlay").style.display = "none";
             }
 
-            /********************************
-     *     GAME INIT
-     ********************************/
-            function initGame() {
-                initGrid();
-                render();
-
-                // Show tutorial on first load (optional)
-                showTutorial();
-
-                // Setup UI event listeners
-                document.getElementById("skipToNextWeekBtn").addEventListener("click", skipToNextWeek);
-                document.getElementById("closeTutorialBtn").addEventListener("click", hideTutorial);
-                window.addEventListener("keydown", handleKeyDown);
-
-                updateTimeDisplay();
-                updateWeekDisplay();
-                updateBiodiversityDisplay();
-            }
-
-            // Start the game once the page is fully loaded
-            window.onload = initGame;
         </script>
     </body>
 </html>
