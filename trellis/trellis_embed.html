@@ -404,18 +404,18 @@
 
             function initGrid() {
                 gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-                    Array.from({ length: GRID_WIDTH }, () => ({
-                        type: "EMPTY",
-                        isTilled: false,
-                        plant: null,
-                        weedLevel: 0,
-                        moisture: BASE_MOISTURE_START,
-                        soilNutrients: { N: 50, P: 50, K: 50 },
-                    }))
-                );
+                                            Array.from({ length: GRID_WIDTH }, () => ({
+                    type: TILE_TYPE.EMPTY,
+                    isTilled: false,
+                    plant: null,
+                    weedLevel: 0,
+                    moisture: BASE_MOISTURE_START,
+                    soilNutrients: { N: 50, P: 50, K: 50 },
+                }))
+                                           );
 
-                // Set highlighted tile to player's starting position
-                highlightedTile = { x: gameState.player.x, y: gameState.player.y };
+                // Set highlighted tile to the player's starting position
+                gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
                 displayTileStats(gameState.player.x, gameState.player.y);
             }
 
@@ -814,23 +814,23 @@
                 highlightTile(x, y); // Directly call highlightTile with the clicked coordinates
             });
             function highlightTile(x, y) {
-                if (x === null || y === null) {
-                    highlightedTile.x = null;
-                    highlightedTile.y = null;
-                    clearTileStats();
-                } else if (
-                    x >= 0 &&
-                    x < GRID_WIDTH &&
-                    y >= 0 &&
-                    y < GRID_HEIGHT &&
-                    (Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1 || (gameState.player.x === x && gameState.player.y === y))
+                if (
+                    x < 0 || x >= GRID_WIDTH ||
+                    y < 0 || y >= GRID_HEIGHT
                 ) {
-                    // Allow highlighting if the tile is adjacent or the player's tile
-                    highlightedTile.x = x;
-                    highlightedTile.y = y;
+                    console.error(`Cannot highlight out-of-bounds tile: (${x}, ${y})`);
+                    return;
+                }
+
+                // Allow highlighting if the tile is adjacent or the player's tile
+                if (
+                    (Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1) ||
+                    (gameState.player.x === x && gameState.player.y === y)
+                ) {
+                    gameState.highlightedTile = { x, y };
                     displayTileStats(x, y);
                 } else {
-                    console.log("Tile is not adjacent to the gameState.player.");
+                    console.log("Tile is not adjacent to the player.");
                 }
 
                 render(); // Update the visual grid to reflect the highlight
@@ -846,6 +846,16 @@
             }
 
             function displayTileStats(x, y) {
+                // Validate grid bounds
+                if (
+                    x < 0 || x >= GRID_WIDTH ||
+                    y < 0 || y >= GRID_HEIGHT
+                ) {
+                    console.error(`Invalid tile coordinates: (${x}, ${y})`);
+                    clearTileStats();
+                    return;
+                }
+
                 const tile = gameState.grid[y][x];
                 const statsContainer = document.getElementById("tileStats");
 
