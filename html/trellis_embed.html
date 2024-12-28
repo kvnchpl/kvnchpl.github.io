@@ -291,11 +291,11 @@
                         }
 
                         context.fillStyle = tileColor;
-                        context.fillRect(col * tileSize, row * tileSize, tileSize, tileSize);
+                        context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
                         // Optional: draw grid lines
                         context.strokeStyle = "#555";
-                        context.strokeRect(col * tileSize, row * tileSize, tileSize, tileSize);
+                        context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
                     }
                 }
             }
