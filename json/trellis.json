@@ -8,7 +8,7 @@
         "PEST_OUTBREAK_CHANCE": 5,
         "BASE_MOISTURE_START": 50,
         "BASE_MOISTURE_DECAY": 2,
-        "REGION_NAME": "Upstate New York"
+        "REGION_NAME": "UPSTATE_NEW_YORK"
     },
     "timeCosts": {
         "TILL": 30,
