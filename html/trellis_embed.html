@@ -46,6 +46,11 @@
             </div>
         </div>
 
+        <div id="tileStats">
+            <strong>Tile Stats</strong><br>
+            Click or use arrow keys to highlight a tile.
+        </div>
+
         <script>
 
             /* GLOBALS */
@@ -434,6 +439,19 @@
 
             /* CURSOR LOGIC */
 
+            document.getElementById("gameCanvas").addEventListener("click", (e) => {
+                const canvas = e.target;
+                const rect = canvas.getBoundingClientRect();
+
+                const x = Math.floor((e.clientX - rect.left) / TILE_SIZE);
+                const y = Math.floor((e.clientY - rect.top) / TILE_SIZE);
+
+                if (Math.abs(player.x - x) + Math.abs(player.y - y) === 1) {
+                    highlightTile(x, y);
+                } else {
+                    console.log("Tile is not adjacent to the player.");
+                }
+            });
             function highlightTile(x, y) {
                 // Ensure the tile is within bounds
                 if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
