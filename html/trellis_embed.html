@@ -229,36 +229,6 @@
                 drawGrid(ctx);
             }
 
-            /* CURSOR LOGIC */
-
-            function highlightTile(x, y) {
-                // Ensure the tile is within bounds
-                if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
-                    highlightedTile.x = x;
-                    highlightedTile.y = y;
-
-                    // Update the tile stats display
-                    displayTileStats(x, y);
-
-                    // Re-render the grid
-                    render();
-                }
-            }
-
-            function displayTileStats(x, y) {
-                const tile = grid[y][x];
-                const statsContainer = document.getElementById("tileStats");
-
-                statsContainer.innerHTML = `
-<strong>Tile (${x}, ${y})</strong><br>
-Type: ${tile.type}<br>
-Tilled: ${tile.isTilled ? "Yes" : "No"}<br>
-Moisture: ${tile.moisture}<br>
-Nutrients: N=${tile.soilNutrients.N}, P=${tile.soilNutrients.P}, K=${tile.soilNutrients.K}<br>
-Plant: ${tile.plant ? tile.plant.type : "None"}
-`;
-            }
-
             /* TIME & WEEK LOGIC */
 
             function advanceTime(minutes) {
@@ -460,6 +430,36 @@ Plant: ${tile.plant ? tile.plant.type : "None"}
                 if (oldX !== player.x || oldY !== player.y) {
                     render();
                 }
+            }
+
+            /* CURSOR LOGIC */
+
+            function highlightTile(x, y) {
+                // Ensure the tile is within bounds
+                if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
+                    highlightedTile.x = x;
+                    highlightedTile.y = y;
+
+                    // Update the tile stats display
+                    displayTileStats(x, y);
+
+                    // Re-render the grid
+                    render();
+                }
+            }
+
+            function displayTileStats(x, y) {
+                const tile = grid[y][x];
+                const statsContainer = document.getElementById("tileStats");
+
+                statsContainer.innerHTML = `
+<strong>Tile (${x}, ${y})</strong><br>
+Type: ${tile.type}<br>
+Tilled: ${tile.isTilled ? "Yes" : "No"}<br>
+Moisture: ${tile.moisture}<br>
+Nutrients: N=${tile.soilNutrients.N}, P=${tile.soilNutrients.P}, K=${tile.soilNutrients.K}<br>
+Plant: ${tile.plant ? tile.plant.type : "None"}
+`;
             }
 
             /* ACTIONS */
