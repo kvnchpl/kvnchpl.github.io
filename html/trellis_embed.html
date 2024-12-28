@@ -191,11 +191,6 @@
                             tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plot").trim();
                         }
 
-                        // Player position color
-                        if (row === player.y && col === player.x) {
-                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
-                        }
-
                         // Modify color based on soil moisture
                         if (tile.moisture > 70) {
                             tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim();
@@ -217,11 +212,6 @@
                             }
                         }
 
-                        // Player position color
-                        if (row === player.y && col === player.x) {
-                            tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
-                        }
-
                         context.fillStyle = tileColor;
                         context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
@@ -234,6 +224,13 @@
                             context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim();
                             context.lineWidth = 1;
                             context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+                        }
+
+                        // Add a bright border for the player position
+                        if (row === player.y && col === player.x) {
+                            context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
+                            context.lineWidth = 3;
+                            context.strokeRect(col * TILE_SIZE + 1, row * TILE_SIZE + 1, TILE_SIZE - 2, TILE_SIZE - 2);
                         }
                     }
                 }
@@ -532,7 +529,7 @@ No tile highlighted.
                     tile.isTilled = true;
 
                     console.log("Soil tilled at:", player.x, player.y);
-                    advanceTime(TIME_COST.till);
+                    advanceTime(TIME_COST.TILL);
                     render();
                 } else {
                     console.log("Cannot till this tile.");
