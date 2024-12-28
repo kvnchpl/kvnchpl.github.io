@@ -54,10 +54,12 @@ body {
 }
 
 #gameContainer {
+    position: relative; /* Ensure #tutorialOverlay is positioned relative to this container */
     width: var(--game-width);
     height: var(--game-height);
     background: var(--color-container-bg);
-    box-shadow: var(--box-shadow); /* Consistent shadow */
+    box-shadow: var(--box-shadow);
+    margin: 0 auto; /* Center the game container if necessary */
 }
 
 canvas {
@@ -141,15 +143,17 @@ canvas {
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--game-width);
-    height: var(--game-height);
+    width: 100%; /* Match the game container width */
+    height: 100%; /* Match the game container height */
     background: var(--color-overlay-bg);
     color: var(--color-overlay-text);
-    display: none; /* Hidden by default */
+    display: flex; /* Flexbox for centering */
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: calc(var(--spacing-unit) * 4);
+    z-index: 5; /* Ensure it appears above other elements within #gameContainer */
+    border-radius: var(--border-radius); /* Match container rounding */
 }
 
 #tutorialOverlay button {
