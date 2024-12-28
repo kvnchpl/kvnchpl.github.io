@@ -150,9 +150,37 @@
 
         <script>
 
-            /* GAME INIT */
+            /* GLOBALS */
 
             let gameData = null;
+
+            let TILE_SIZE, GRID_WIDTH, GRID_HEIGHT;
+            let DAY_START, DAY_END;
+            let TIME_COST = {};
+            let GROWTH_TIME = {};
+            let PRODUCE_YIELD = {};
+
+            /* GAME STATE */
+            let currentWeek = 1;
+            let currentTime = 0;
+            let biodiversityScore = 0;
+
+            const grid = [];
+            const player = { x: 0, y: 0 };
+            const inventory = {
+                seeds: {
+                    tomato: 5,
+                    kale: 5
+                },
+                produce: {
+                    tomato: 0,
+                    kale: 0
+                },
+                fertilizer: 2,
+                mulch: 5
+            };
+
+            /* GAME INIT */
 
             function initGame() {
 
@@ -167,13 +195,26 @@
                 console.log("Action time costs:", timeCosts);
                 console.log("Core game config:", gameConfig);
 
+                TILE_SIZE    = gameConfig.tileSize;
+                GRID_WIDTH   = gameConfig.gridWidth;
+                GRID_HEIGHT  = gameConfig.gridHeight;
+                DAY_START    = gameConfig.dayStart;
+                DAY_END      = gameConfig.dayEnd;
+                TIME_COST    = timeCosts;
+                GROWTH_TIME  = {};
+                PRODUCE_YIELD = {};
+
+                for (let p in plants) {
+                    GROWTH_TIME[p] = plants[p].growthTime;
+                    PRODUCE_YIELD[p] = plants[p].yield;
+                }
+
+                currentTime = DAY_START;
+
                 initGrid();
                 render();
 
-                // Show tutorial on first load
                 showTutorial();
-
-                // Hook up other UI events
                 document.getElementById("skipToNextWeekBtn").addEventListener("click", skipToNextWeek);
                 document.getElementById("closeTutorialBtn").addEventListener("click", hideTutorial);
                 window.addEventListener("keydown", handleKeyDown);
@@ -193,69 +234,16 @@
                     return response.json();
                 })
                     .then(data => {
-                    gameData = data;
-                    initGame();  // Now that gameData is set, we initialize the game
+                    gameData = data;   // Store the JSON data
+                    initGame();        // Initialize the game after data is set
                 })
                     .catch(error => {
                     console.error("Error fetching trellis.json:", error);
                 });
             };
 
-            /* CORE GAME CONSTANTS */
+            /* INIT GRID */
 
-            const TILE_SIZE = gameConfig.tileSize;   // each tile is 40x40 px
-            const GRID_WIDTH = gameConfig.gridWidth; // 15 tiles horizontally
-            const GRID_HEIGHT = gameConfig.gridHeight; // 15 tiles vertically
-
-            const DAY_START = gameConfig.dayStart;       // minutes after 7:00 AM (0 means 7:00 AM)
-            const DAY_END = gameConfig.dayEnd;       // 720 minutes after 7:00 AM = 7:00 PM (12 hours)
-
-            // Time cost (in minutes) for various actions
-            const TIME_COST = gameConfig.timeCosts;
-
-            // Growth thresholds (weeks needed to mature) for each plant type
-            const GROWTH_TIME = gameConfig.growthTimes;
-
-            // Produce yield per harvest (example)
-            const PRODUCE_YIELD = gameconfig.produceYield;
-
-            /* GLOBAL GAME STATE */
-            
-            let currentWeek = 1;
-            let currentTime = DAY_START; // track minutes elapsed from 7:00 AM
-            let biodiversityScore = 0;
-
-            // Player state
-            const player = {
-                x: 0, // grid X
-                y: 0, // grid Y
-            };
-
-            // Simple inventory system example
-            const inventory = {
-                seeds: {
-                    tomato: 5,
-                    kale: 5
-                },
-                produce: {
-                    tomato: 0,
-                    kale: 0
-                },
-                fertilizer: 2,
-                mulch: 5
-            };
-
-            // Basic tile structure: 
-            // type: "PLOT" or "PATH", 
-            // isTilled: boolean,
-            // plant: { type: "tomato"|"kale", age: number, isMature: boolean },
-            // weedLevel: number,
-            // moisture: number,
-            // soilNutrients: {N, P, K}
-            const grid = [];
-
-            /* INITIALIZATION */
-            
             function initGrid() {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     grid[row] = [];
@@ -272,8 +260,8 @@
                 }
             }
 
-            /* RENDERING */
-            
+            /* RENDER */
+
             function drawGrid(context) {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     for (let col = 0; col < GRID_WIDTH; col++) {
@@ -323,8 +311,8 @@
                 drawGrid(ctx);
             }
 
-            /* TIME/WEEK LOGIC */
-            
+            /* TIME & WEEK LOGIC */
+
             function advanceTime(minutes) {
                 currentTime += minutes;
                 if (currentTime >= DAY_END) {
@@ -398,8 +386,8 @@
                 return typesFound.size;
             }
 
-            /* PLAYER MOVEMENT */
-            
+            /* PLAYER MOVEMENT & CONTROLS */
+
             function handleKeyDown(e) {
                 let oldX = player.x;
                 let oldY = player.y;
@@ -559,7 +547,7 @@
             }
 
             /* TUTORIAL OVERLAY */
-            
+
             function showTutorial() {
                 document.getElementById("tutorialOverlay").style.display = "flex";
             }
