@@ -1,0 +1,101 @@
+:root {
+    --body-bg: #f0f0f0;
+    --font-family: Arial, sans-serif;
+
+    --color-text-primary: #fff;
+    --color-text-secondary: #000;
+    --color-ui-bg: #333;
+    --color-ui-bg-button: #555;
+    --color-ui-bg-button-hover: #777;
+
+    --color-container-bg: #ccc;
+    --color-canvas-bg: #eee;
+    --color-canvas-border: #999;
+
+    --color-overlay-bg: rgba(0, 0, 0, 0.7);
+    --color-overlay-text: #fff;
+    --color-overlay-button-bg: #aaa;
+    --color-overlay-button-text: #000;
+
+    --game-width: 600px;
+    --game-height: 600px;
+
+    --spacing-unit: 0.5rem;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background: var(--body-bg);
+}
+
+#gameUI {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--color-ui-bg);
+    color: var(--color-text-primary);
+    padding-bottom: var(--spacing-unit);
+}
+
+#gameUI button {
+    cursor: pointer;
+    padding: var(--spacing-unit) calc(var(--spacing-unit)*2);
+    border: none;
+    background: var(--color-ui-bg-button);
+    color: var(--color-text-primary);
+    transition: background 0.3s;
+}
+
+#gameUI button:hover {
+    background: var(--color-ui-bg-button-hover);
+}
+
+#gameContainer {
+    position: relative;
+    margin: 0 auto;
+    width: var(--game-width);
+    height: var(--game-height);
+    background: var(--color-container-bg);
+}
+
+canvas {
+    display: block;
+    background: var(--color-canvas-bg);
+    border: 2px solid var(--color-canvas-border);
+}
+
+/* Tutorial overlay */
+#tutorialOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--game-width);
+    height: var(--game-height);
+    background: var(--color-overlay-bg);
+    color: var(--color-overlay-text);
+    display: none; /* start hidden */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: calc(var(--spacing-unit)*2);
+}
+
+#tutorialOverlay button {
+    background: var(--color-overlay-button-bg);
+    color: var(--color-overlay-button-text);
+    margin-top: var(--spacing-unit);
+    padding: var(--spacing-unit) calc(var(--spacing-unit)*2);
+    border: none;
+    cursor: pointer;
+}
+
+/* Simple help text for keyboard actions */
+#actionHelp {
+    margin-top: var(--spacing-unit);
+    padding-bottom: var(--spacing-unit);
+    font-size: 0.9rem;
+    background: var(--color-ui-bg);
+    color: var(--color-text-primary);
+    text-align: center;
+}
