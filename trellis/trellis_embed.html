@@ -415,8 +415,8 @@
                                            );
 
                 // Set highlighted tile to player's starting position
-                gameState.highlightedTile = { x: player.x, y: player.y };
-                displayTileStats(player.x, player.y);
+                gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
+                displayTileStats(gameState.player.x, gameState.player.y);
             }
 
             function configureGameConstants(gameConfig, plants) {
@@ -535,7 +535,7 @@
                         }
 
                         // Add a bright border for the player position
-                        if (row === player.y && col === player.x) {
+                        if (row === gameState.player.y && col === gameState.player.x) {
                             context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
                             context.lineWidth = 3;
                             context.strokeRect(col * TILE_SIZE + 1, row * TILE_SIZE + 1, TILE_SIZE - 2, TILE_SIZE - 2);
@@ -709,44 +709,44 @@
             /* PLAYER MOVEMENT & CONTROLS */
 
             function handleKeyDown(e) {
-                let newX = player.x;
-                let newY = player.y;
+                let newX = gameState.player.x;
+                let newY = gameState.player.y;
 
                 switch (e.key) {
                         // Player movement (Arrow keys)
                     case "ArrowUp":
-                        newY = player.y - 1;
+                        newY = gameState.player.y - 1;
                         break;
                     case "ArrowDown":
-                        newY = player.y + 1;
+                        newY = gameState.player.y + 1;
                         break;
                     case "ArrowLeft":
-                        newX = player.x - 1;
+                        newX = gameState.player.x - 1;
                         break;
                     case "ArrowRight":
-                        newX = player.x + 1;
+                        newX = gameState.player.x + 1;
                         break;
 
                         // Highlight adjacent tiles (WASD keys)
                     case "w":
                     case "W":
-                        highlightTile(player.x, player.y - 1); // Highlight above
+                        highlightTile(gameState.player.x, gameState.player.y - 1); // Highlight above
                         return;
                     case "s":
                     case "S":
-                        highlightTile(player.x, player.y + 1); // Highlight below
+                        highlightTile(gameState.player.x, gameState.player.y + 1); // Highlight below
                         return;
                     case "a":
                     case "A":
-                        highlightTile(player.x - 1, player.y); // Highlight left
+                        highlightTile(gameState.player.x - 1, gameState.player.y); // Highlight left
                         return;
                     case "d":
                     case "D":
-                        highlightTile(player.x + 1, player.y); // Highlight right
+                        highlightTile(gameState.player.x + 1, gameState.player.y); // Highlight right
                         return;
                     case "q":
                     case "Q":
-                        highlightTile(player.x, player.y); // Highlight player tile
+                        highlightTile(gameState.player.x, gameState.player.y); // Highlight player tile
                         return;
 
                         // Actions (Keys 1–8)
@@ -780,7 +780,7 @@
                 }
 
                 // Check if the player is attempting to move to a new tile
-                if (newX !== player.x || newY !== player.y) {
+                if (newX !== gameState.player.x || newY !== gameState.player.y) {
                     // Prevent movement if the target tile is out of bounds or a plot
                     if (
                         newX >= 0 &&
@@ -789,11 +789,11 @@
                         newY < GRID_HEIGHT &&
                         gameState.grid[newY][newX].type !== TILE_TYPE.PLOT
                     ) {
-                        player.x = newX;
-                        player.y = newY;
+                        gameState.player.x = newX;
+                        gameState.player.y = newY;
 
                         // Reset highlighted tile to the player's current position
-                        highlightTile(player.x, player.y);
+                        highlightTile(gameState.player.x, gameState.player.y);
 
                         render();
                     } else {
@@ -823,14 +823,14 @@
                     x < GRID_WIDTH &&
                     y >= 0 &&
                     y < GRID_HEIGHT &&
-                    (Math.abs(player.x - x) + Math.abs(player.y - y) <= 1 || (player.x === x && player.y === y))
+                    (Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1 || (gameState.player.x === x && gameState.player.y === y))
                 ) {
                     // Allow highlighting if the tile is adjacent or the player's tile
                     gameState.highlightedTile.x = x;
                     gameState.highlightedTile.y = y;
                     displayTileStats(x, y);
                 } else {
-                    console.log("Tile is not adjacent to the player.");
+                    console.log("Tile is not adjacent to the gameState.player.");
                 }
 
                 render(); // Update the visual grid to reflect the highlight
@@ -841,7 +841,7 @@
                 if (gameState.highlightedTile.x !== null && gameState.highlightedTile.y !== null) {
                     displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
                 } else {
-                    displayTileStats(player.x, player.y);
+                    displayTileStats(gameState.player.x, gameState.player.y);
                 }
             }
 
