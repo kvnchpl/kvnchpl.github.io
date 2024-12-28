@@ -88,22 +88,22 @@ canvas {
 }
 
 #gameUI {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-bottom: var(--spacing-unit);
+    position: relative; /* Allows for precise positioning of the skip button */
 }
 
 #gameUI button {
-    cursor: pointer;
-    padding: calc(var(--spacing-unit) * 2);
+    position: absolute;
+    bottom: calc(var(--spacing-unit) * 2); /* Position at the bottom of the section */
+    right: calc(var(--spacing-unit) * 2); /* Align to the right */
     background: var(--color-ui-bg-button);
     color: var(--color-text-primary);
     border: none;
     border-radius: var(--border-radius);
-    width: 100%; /* Stretch button to fill width */
+    padding: calc(var(--spacing-unit) * 2);
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: var(--box-shadow);
     transition: background 0.3s ease;
-    margin-top: var(--spacing-unit);
 }
 
 #gameUI button:hover {
@@ -122,15 +122,24 @@ canvas {
 }
 
 #actionHelp {
-    font-size: 0.85rem;
-    text-align: left;
-    padding: calc(var(--spacing-unit) * 2);
-    background: var(--color-ui-bg);
-    color: var(--color-text-primary);
-    border-radius: var(--border-radius);
+    position: relative; /* Enable precise placement of the heading */
+    text-align: left; /* Align text consistently */
+    font-size: 0.9rem;
+}
+
+#actionHelp em {
+    position: absolute;
+    top: calc(var(--spacing-unit) * 2); /* Align near the top of the section */
+    left: calc(var(--spacing-unit) * 2); /* Align to the left */
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #gameUI, #tileStats, #actionHelp {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
     width: 100%;
     padding: calc(var(--spacing-unit) * 2);
     background: var(--color-ui-bg);
@@ -140,7 +149,7 @@ canvas {
     box-shadow: var(--box-shadow);
     font-size: 0.9rem;
     line-height: 1.4;
-    box-sizing: border-box; /* Prevent padding overflow */
+    box-sizing: border-box;
 }
 
 #tutorialOverlay {
