@@ -160,36 +160,37 @@ canvas {
     height: 100%; /* Match the game container height */
     background: var(--color-overlay-bg);
     color: var(--color-overlay-text);
-    display: flex; /* Flexbox for centering content */
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
     text-align: center;
-    padding: calc(var(--spacing-unit) * 2); /* Reduced padding to prevent overflow */
-    z-index: 5; /* Ensure it appears above other elements */
-    overflow: hidden; /* Prevent content from overflowing */
+    padding: calc(var(--spacing-unit) * 4);
+    z-index: 5;
     box-sizing: border-box; /* Include padding in size calculations */
-}
-
-#tutorialOverlay h2 {
-    font-size: 1.5rem;
-    margin-bottom: calc(var(--spacing-unit) * 2);
+    gap: calc(var(--spacing-unit) * 2); /* Space between paragraph and button */
 }
 
 #tutorialOverlay p {
     font-size: 1rem;
-    margin-bottom: calc(var(--spacing-unit) * 2);
-    max-width: 90%; /* Prevents text from spanning too wide */
-    line-height: 1.5; /* Improve readability */
+    line-height: 1.5;
+    max-width: 80%; /* Constrain paragraph width for readability */
+    margin: 0; /* Remove default margin */
 }
 
 #tutorialOverlay button {
     background: var(--color-overlay-button-bg);
     color: var(--color-overlay-button-text);
-    padding: calc(var(--spacing-unit) * 1.5);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
     font-size: 1rem;
-    max-width: 200px; /* Keep button size manageable */
-    width: 100%; /* Make button fill available space */
+    box-shadow: var(--box-shadow);
+    transition: background 0.3s ease;
+}
+
+#tutorialOverlay button:hover {
+    background: var(--color-overlay-bg);
+    color: var(--color-overlay-text);
 }
