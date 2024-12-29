@@ -48,6 +48,10 @@
                 --tile-plant-mature: #98FB98;
             }
 
+            .hidden {
+                display: none !important;
+            }
+
             body {
                 margin: 0;
                 font-family: var(--font-family);
@@ -285,16 +289,21 @@
 
             /* GLOBALS */
 
+            // Game data loaded from external sources (e.g., trellis.json)
             let gameData = null;
 
+            // Core configuration values (populated dynamically during initialization)
             let TILE_SIZE, GRID_WIDTH, GRID_HEIGHT;
             let DAY_START, DAY_END;
+            let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
+            let REGION_NAME;
+
+            // Time and action costs
             let TIME_COST = {};
             let GROWTH_TIME = {};
             let PRODUCE_YIELD = {};
 
-            let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
-
+            // Constants for gameplay mechanics
             const TILE_TYPE = {
                 PLOT: "Plot",
                 EMPTY: "Empty",
@@ -307,26 +316,23 @@
 
             /* GAME STATE */
 
+            /* GAME STATE */
+
             const gameState = {
                 currentWeek: 1,
                 year: 1,
                 season: "Winter",
-                currentTime: 0,
+                currentTime: 0, // Time in minutes past 7:00 AM
                 biodiversityScore: 0,
-
-                // The grid structure (will be initialized in initGrid)
                 grid: [],
-
-                // Player attributes
                 player: {
-                    x: null, // Will be dynamically set in initGame
+                    x: null,
                     y: null,
                 },
-
-                // Currently highlighted tile
-                highlightedTile: null, // { x: null, y: null }
-
-                // Player's inventory
+                highlightedTile: {
+                    x: null,
+                    y: null,
+                },
                 inventory: {
                     seeds: {
                         tomato: 5,
@@ -341,48 +347,8 @@
                 },
             };
 
-            /* GAME INIT */
+            /* INITIALIZATION */
 
-            function initGame() {
-                if (!gameData) {
-                    console.error("Game data not loaded yet!");
-                    return;
-                }
-
-                const { plants, timeCosts, gameConfig } = gameData;
-
-                console.log("Initialized game with plant data:", plants);
-                console.log("Action time costs:", timeCosts);
-                console.log("Core game config:", gameConfig);
-
-                // Configure game constants
-                configureGameConstants(gameConfig, plants);
-
-                // Initialize grid and render
-                initGrid();
-                render();
-
-                // Set player starting position at the center
-                gameState.player.x = Math.floor(GRID_WIDTH / 2);
-                gameState.player.y = Math.floor(GRID_HEIGHT / 2);
-                gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
-
-                highlightTile(gameState.player.x, gameState.player.y);
-                displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
-
-                // Initialize UI
-                updateTimeState();
-                updateYearAndSeasonDisplay();
-                initializeUI();
-
-                // Show the tutorial overlay
-                showTutorial();
-
-                // Attach event listeners
-                attachEventListeners();
-            }
-
-            // Automatically fetch JSON once the page is loaded
             window.onload = function() {
                 fetch('https://kvnchpl.github.io/trellis/trellis.json')
                     .then(response => {
@@ -400,12 +366,47 @@
                 });
             };
 
-            /* INIT GRID */
+            function initGame() {
+                if (!gameData) {
+                    console.error("Game data not loaded yet!");
+                    return;
+                }
+
+                const { plants, timeCosts, gameConfig } = gameData;
+
+                console.log("Initialized game with plant data:", plants);
+                console.log("Action time costs:", timeCosts);
+                console.log("Core game config:", gameConfig);
+
+                // Configure game constants
+                configureGameConstants(gameConfig, plants, timeCosts);
+
+                // Set default placeholder for player position
+                gameState.player.x = Math.floor(GRID_WIDTH / 2);
+                gameState.player.y = Math.floor(GRID_HEIGHT / 2);
+
+                // Initialize grid
+                initGrid();
+
+                // Reset player position (ensures synchronization with grid)
+                resetPlayerPosition();
+
+                // Initialize UI
+                updateTimeState();
+                updateYearAndSeasonDisplay();
+                initializeUI();
+
+                // Show the tutorial overlay
+                showTutorial();
+
+                // Attach event listeners
+                attachEventListeners();
+            }
 
             function initGrid() {
                 gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
                                             Array.from({ length: GRID_WIDTH }, () => ({
-                    type: "EMPTY",
+                    type: TILE_TYPE.EMPTY,
                     isTilled: false,
                     plant: null,
                     weedLevel: 0,
@@ -415,28 +416,19 @@
                                            );
 
                 console.log("Grid initialized:", gameState.grid);
-
-                // Set highlighted tile to player's starting position
-                gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
-                displayTileStats(gameState.player.x, gameState.player.y);
             }
 
-            function configureGameConstants(gameConfig, plants) {
-                TILE_SIZE = gameConfig.TILE_SIZE;
-                GRID_WIDTH = gameConfig.GRID_WIDTH;
-                GRID_HEIGHT = gameConfig.GRID_HEIGHT;
-                DAY_START = gameConfig.DAY_START;
-                DAY_END = gameConfig.DAY_END;
-                TIME_COST = gameConfig.timeCosts;
-                BASE_MOISTURE_START = gameConfig.BASE_MOISTURE_START;
-                BASE_MOISTURE_DECAY = gameConfig.BASE_MOISTURE_DECAY;
+            function configureGameConstants(gameConfig, plants, timeCosts) {
+                // Dynamically assign all properties from gameConfig and timeCosts
+                Object.assign(GAME_CONFIG, gameConfig);
+                Object.assign(TIME_COST, timeCosts);
 
-                // Populate plant-specific constants
+                // Map plant data dynamically
                 GROWTH_TIME = {};
                 PRODUCE_YIELD = {};
-                for (let p in plants) {
-                    GROWTH_TIME[p] = plants[p].GROWTH_TIME;
-                    PRODUCE_YIELD[p] = plants[p].PRODUCE_YIELD;
+                for (const [plant, data] of Object.entries(plants)) {
+                    GROWTH_TIME[plant] = data.GROWTH_TIME;
+                    PRODUCE_YIELD[plant] = data.PRODUCE_YIELD;
                 }
             }
 
@@ -446,6 +438,8 @@
                 updateYearAndSeasonDisplay();
                 updateBiodiversityDisplay();
             }
+
+            /* EVENT LISTENERS */
 
             function attachEventListeners() {
 
@@ -465,26 +459,24 @@
                 window.addEventListener("keydown", handleKeyDown);
             }
 
-            function resetPlayerPosition() {
-                // Reset player position to the center of the grid
-                gameState.player.x = Math.floor(GRID_WIDTH / 2);
-                gameState.player.y = Math.floor(GRID_HEIGHT / 2);
-
-                // Reset the highlighted tile to match
-                gameState.gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
-
-                highlightTile(gameState.player.x, gameState.player.y);
-                displayTileStats(gameState.player.x, gameState.player.y);
-                render();
-            }
-
             function preventArrowKeyScroll(e) {
                 if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
                     e.preventDefault();
                 }
             }
 
-            /* RENDER */
+            /* RENDERING */
+
+            function render() {
+                const canvas = document.getElementById("gameCanvas");
+                const ctx = canvas.getContext("2d");
+
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw the grid
+                drawGrid(ctx);
+            }
 
             function drawGrid(context) {
                 for (let row = 0; row < GRID_HEIGHT; row++) {
@@ -546,17 +538,6 @@
                 }
             }
 
-            function render() {
-                const canvas = document.getElementById("gameCanvas");
-                const ctx = canvas.getContext("2d");
-
-                // Clear canvas
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                // Draw the grid
-                drawGrid(ctx);
-            }
-
             /* TIME & WEEK LOGIC */
 
             function advanceTime(minutes) {
@@ -592,49 +573,15 @@
                 render();
             }
 
-            function updateAllTiles() {
-                for (let row = 0; row < GRID_HEIGHT; row++) {
-                    for (let col = 0; col < GRID_WIDTH; col++) {
-                        const tile = gameState.grid[row][col];
-                        updateTileMoisture(tile);
-                        updateTilePlant(tile, row, col);
-                    }
-                }
-            }
+            function updateTimeState() {
+                const WEEKS_PER_YEAR = 52;
+                const WEEKS_PER_SEASON = 13;
+                const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
 
-            function updateTileMoisture(tile) {
-                tile.moisture = Math.max(tile.moisture - tile.moistureDecayRate, 0);
-            }
-
-            function updateTilePlant(tile, row, col) {
-                if (!tile.plant) return;
-
-                const plantType = tile.plant.type;
-                const plantData = gameData.plants[plantType];
-
-                // Extract soil properties
-                const { N, P, K } = tile.soilNutrients;
-                const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
-                const sufficientMoisture = tile.moisture >= 40;
-
-                // Grow plant if conditions are sufficient
-                if (sufficientNutrients && sufficientMoisture) {
-                    tile.plant.age += 1;
-                } else {
-                    console.log(`Plant at (${row}, ${col}) is growing slowly due to poor conditions.`);
-                }
-
-                // Deplete nutrients if the plant is growing
-                if (sufficientNutrients) {
-                    tile.soilNutrients.N = Math.max(N - 10, 0);
-                    tile.soilNutrients.P = Math.max(P - 5, 0);
-                    tile.soilNutrients.K = Math.max(K - 5, 0);
-                }
-
-                // Check if the plant is mature
-                if (tile.plant.age >= plantData.growthTime) {
-                    tile.plant.isMature = true;
-                }
+                // Calculate year and season
+                gameState.year = Math.floor((gameState.currentWeek - 1) / WEEKS_PER_YEAR) + 1;
+                const seasonIndex = Math.floor(((gameState.currentWeek - 1) % WEEKS_PER_YEAR) / WEEKS_PER_SEASON);
+                gameState.season = SEASONS[seasonIndex];
             }
 
             function recalculateBiodiversity() {
@@ -648,60 +595,6 @@
                         const tile = gameState.grid[row][col];
                         if (tile.plant) {
                             typesFound.add(tile.plant.type);
-                        }
-                    }
-                }
-                return typesFound.size;
-            }
-
-            function updateYearAndSeasonDisplay() {
-                document.getElementById("yearDisplay").textContent = gameState.year;
-                document.getElementById("seasonDisplay").textContent = gameState.season;
-            }
-
-            function updateWeekDisplay() {
-                document.getElementById("weekDisplay").textContent = gameState.currentWeek;
-            }
-
-            function updateTimeDisplay() {
-                const timeDisplay = document.getElementById("timeDisplay");
-
-                // Convert gameState.currentTime (minutes since 7:00 AM) to HH:MM format
-                let totalMinutes = gameState.currentTime;
-                let hours = 7 + Math.floor(totalMinutes / 60);
-                let minutes = totalMinutes % 60;
-                let ampm = hours >= 12 ? "PM" : "AM";
-
-                // Convert to 12-hour format
-                if (hours > 12) hours -= 12;
-                if (hours === 0) hours = 12;
-
-                const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
-                timeDisplay.textContent = `${hours}:${formattedMinutes} ${ampm}`;
-            }
-
-            function updateTimeState() {
-                const WEEKS_PER_YEAR = 52;
-                const WEEKS_PER_SEASON = 13;
-                const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
-
-                // Calculate year and season
-                gameState.year = Math.floor((gameState.currentWeek - 1) / WEEKS_PER_YEAR) + 1;
-                const seasonIndex = Math.floor(((gameState.currentWeek - 1) % WEEKS_PER_YEAR) / WEEKS_PER_SEASON);
-                gameState.season = SEASONS[seasonIndex];
-            }
-
-            function updateBiodiversityDisplay() {
-                document.getElementById("biodiversityScore").textContent = biodiversityScore;
-            }
-
-            function calculateBiodiversity() {
-                // Simple approach: count unique plant types in the grid
-                const typesFound = new Set();
-                for (let row = 0; row < GRID_HEIGHT; row++) {
-                    for (let col = 0; col < GRID_WIDTH; col++) {
-                        if (gameState.grid[row][col].plant) {
-                            typesFound.add(gameState.grid[row][col].plant.type);
                         }
                     }
                 }
@@ -804,7 +697,23 @@
                 }
             }
 
-            /* CURSOR LOGIC */
+            function resetPlayerPosition() {
+                if (!gameState.grid || gameState.grid.length === 0) {
+                    console.error("Cannot reset player position: grid not initialized.");
+                    return;
+                }
+
+                // Reset player position to the center of the grid
+                gameState.player.x = Math.floor(GRID_WIDTH / 2);
+                gameState.player.y = Math.floor(GRID_HEIGHT / 2);
+
+                // Align the highlighted tile with the player's position
+                gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
+
+                highlightTile(gameState.player.x, gameState.player.y);
+                displayTileStats(gameState.player.x, gameState.player.y);
+                render();
+            }
 
             document.getElementById("gameCanvas").addEventListener("click", (e) => {
                 const canvas = e.target;
@@ -836,6 +745,53 @@
                 }
 
                 render(); // Update the visual grid to reflect the highlight
+            }
+
+            /* TILE & GRID UPDATES */
+
+            function updateAllTiles() {
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        const tile = gameState.grid[row][col];
+                        updateTileMoisture(tile);
+                        updateTilePlant(tile, row, col);
+                    }
+                }
+            }
+
+            function updateTileMoisture(tile) {
+                tile.moisture = Math.max(tile.moisture - tile.moistureDecayRate, 0);
+            }
+
+            function updateTilePlant(tile, row, col) {
+                if (!tile.plant) return;
+
+                const plantType = tile.plant.type;
+                const plantData = gameData.plants[plantType];
+
+                // Extract soil properties
+                const { N, P, K } = tile.soilNutrients;
+                const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
+                const sufficientMoisture = tile.moisture >= 40;
+
+                // Grow plant if conditions are sufficient
+                if (sufficientNutrients && sufficientMoisture) {
+                    tile.plant.age += 1;
+                } else {
+                    console.log(`Plant at (${row}, ${col}) is growing slowly due to poor conditions.`);
+                }
+
+                // Deplete nutrients if the plant is growing
+                if (sufficientNutrients) {
+                    tile.soilNutrients.N = Math.max(N - 10, 0);
+                    tile.soilNutrients.P = Math.max(P - 5, 0);
+                    tile.soilNutrients.K = Math.max(K - 5, 0);
+                }
+
+                // Check if the plant is mature
+                if (tile.plant.age >= plantData.growthTime) {
+                    tile.plant.isMature = true;
+                }
             }
 
             function updateTileStats() {
@@ -881,7 +837,39 @@ No tile highlighted.
 `;
             }
 
-            /* ACTIONS */
+            /* UI UPDATES */
+
+            function updateTimeDisplay() {
+                const timeDisplay = document.getElementById("timeDisplay");
+
+                // Convert gameState.currentTime (minutes since 7:00 AM) to HH:MM format
+                let totalMinutes = gameState.currentTime;
+                let hours = 7 + Math.floor(totalMinutes / 60);
+                let minutes = totalMinutes % 60;
+                let ampm = hours >= 12 ? "PM" : "AM";
+
+                // Convert to 12-hour format
+                if (hours > 12) hours -= 12;
+                if (hours === 0) hours = 12;
+
+                const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+                timeDisplay.textContent = `${hours}:${formattedMinutes} ${ampm}`;
+            }
+
+            function updateYearAndSeasonDisplay() {
+                document.getElementById("yearDisplay").textContent = gameState.year;
+                document.getElementById("seasonDisplay").textContent = gameState.season;
+            }
+
+            function updateWeekDisplay() {
+                document.getElementById("weekDisplay").textContent = gameState.currentWeek;
+            }
+
+            function updateBiodiversityDisplay() {
+                document.getElementById("biodiversityScore").textContent = biodiversityScore;
+            }
+
+            /* PLAYER ACTIONS */
 
             // TILL
             function tillSoil() {
@@ -903,7 +891,7 @@ No tile highlighted.
             function fertilizeTile() {
                 const tile = getTargetTile();
 
-                if (inventory.fertilizer > 0) {
+                if (gameState.inventory.fertilizer > 0) {
                     tile.soilNutrients.N = Math.min(tile.soilNutrients.N + 20, 100);
                     tile.soilNutrients.P = Math.min(tile.soilNutrients.P + 10, 100);
                     tile.soilNutrients.K = Math.min(tile.soilNutrients.K + 10, 100);
@@ -928,7 +916,7 @@ No tile highlighted.
                     console.log("There's already a plant here!");
                     return;
                 }
-                if (inventory.seeds[seedType] && gameState.inventory.seeds[seedType] > 0) {
+                if (gameState.inventory.seeds[seedType] && gameState.inventory.seeds[seedType] > 0) {
                     // Use 1 seed
                     gameState.inventory.seeds[seedType]--;
                     // Create a new plant object
@@ -946,11 +934,6 @@ No tile highlighted.
             }
 
             // WATER
-            window.addEventListener("keydown", (e) => {
-                if (e.key === "o" || e.key === "O") {
-                    waterTile();
-                }
-            });
             function waterTile() {
                 const tile = getTargetTile();
 
@@ -965,7 +948,7 @@ No tile highlighted.
             function mulchTile() {
                 const tile = getTargetTile();
 
-                if (inventory.mulch > 0) {
+                if (gameState.inventory.mulch > 0) {
                     tile.moistureDecayRate = Math.max(tile.moistureDecayRate - 1, 0);
                     gameState.inventory.mulch--;
 
@@ -998,7 +981,7 @@ No tile highlighted.
 
                 if (tile.plant && tile.plant.isMature) {
                     const type = tile.plant.type;
-                    gameState.inventory.produce[type] = (inventory.produce[type] || 0) + PRODUCE_YIELD[type];
+                    gameState.inventory.produce[type] = (gameState.inventory.produce[type] || 0) + PRODUCE_YIELD[type];
 
                     console.log(`Harvested ${type} at:`, tile);
 
@@ -1028,25 +1011,21 @@ No tile highlighted.
                 }
             }
 
-            // Utility function to get the tile the player is standing on
-            function getPlayerTile() {
-                return gameState.grid[player.y][player.x];
-            }
-
-            function getTargetTile() {
-                if (gameState.highlightedTile.x !== null && gameState.highlightedTile.y !== null) {
-                    return gameState.grid[gameState.highlightedTile.y][gameState.highlightedTile.x]; // Highlighted tile
-                }
-                return gameState.grid[player.y][player.x]; // Player's tile
-            }
-
             /* TUTORIAL OVERLAY */
 
             function showTutorial() {
-                document.getElementById("tutorialOverlay").style.display = "flex";
+                document.getElementById("tutorialOverlay").classList.remove("hidden");
             }
+
             function hideTutorial() {
-                document.getElementById("tutorialOverlay").style.display = "none";
+                document.getElementById("tutorialOverlay").classList.add("hidden");
+            }
+
+            /* UTILITY FUNCTIONS */
+
+            function getTargetTile() {
+                const { x, y } = gameState.highlightedTile.x !== null ? gameState.highlightedTile : gameState.player;
+                return gameState.grid[y][x];
             }
 
         </script>
