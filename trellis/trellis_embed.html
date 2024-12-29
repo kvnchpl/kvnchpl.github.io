@@ -97,7 +97,27 @@
             }
 
             #gameSidebar > div {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                width: 100%;
+                padding: calc(var(--spacing-unit) * 2);
+                background: var(--color-ui-bg);
+                color: var(--color-text-primary);
+                border: 1px solid var(--border-color);
+                border-radius: var(--border-radius);
+                box-shadow: var(--box-shadow);
+                font-size: 0.9rem;
+                line-height: 1.4;
+                box-sizing: border-box;
                 margin-bottom: calc(var(--spacing-unit) * 2);
+            }
+
+            #gameSidebar > div strong {
+                display: block;
+                margin-bottom: var(--spacing-unit);
+                font-size: 1rem;
             }
 
             #skipButtonContainer {
@@ -131,10 +151,6 @@
                 background: var(--color-ui-bg-button-hover);
             }
 
-            #gameUI {
-                position: relative; /* Allows for precise positioning of the skip button */
-            }
-
             #tileStats {
                 background: #fff;
                 font-size: 0.9rem;
@@ -144,8 +160,8 @@
             #tileStatsContent {
                 display: flex;
                 flex-direction: column;
-                gap: var(--spacing-unit); /* Add spacing between rows */
-                justify-content: flex-start; /* Align content at the start */
+                gap: var(--spacing-unit); /* Adds spacing between rows */
+                width: 100%; /* Ensure it spans the container */
             }
 
             /* Ensure all children are styled consistently */
@@ -153,17 +169,8 @@
                 display: flex;
                 justify-content: space-between; /* Align labels and values */
                 align-items: center;
+                width: 100%; /* Ensure rows fill the available width */
                 margin-bottom: var(--spacing-unit); /* Add spacing for clarity */
-            }
-
-            /* Style <strong> and <span> in tile stats */
-            #tileStatsContent strong {
-                font-weight: bold;
-                color: var(--color-text-secondary); /* Match existing text styling */
-            }
-
-            #tileStatsContent span {
-                color: var(--color-text-primary); /* Ensure values use primary color */
             }
 
             #actionHelp {
@@ -178,29 +185,6 @@
                 left: calc(var(--spacing-unit) * 2); /* Align to the left */
                 font-size: 1rem;
                 font-weight: bold;
-            }
-
-            #gameUI, #tileStats, #actionHelp {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
-                width: 100%;
-                padding: calc(var(--spacing-unit) * 2);
-                background: var(--color-ui-bg);
-                color: var(--color-text-primary);
-                border: 1px solid var(--border-color);
-                border-radius: var(--border-radius);
-                box-shadow: var(--box-shadow);
-                font-size: 0.9rem;
-                line-height: 1.4;
-                box-sizing: border-box;
-            }
-
-            #tileStats strong, #actionHelp strong {
-                display: block;
-                margin-bottom: var(--spacing-unit);
-                font-size: 1rem;
             }
 
             #tutorialOverlay {
@@ -270,7 +254,7 @@
             <div id="gameSidebar">
                 <!-- Skip and Reset Buttons -->
                 <div id="skipButtonContainer">
-                    <button id="skipToNextWeekBtn">Skip to Next Week</button>
+                    <button id="nextWeekBtn">Next Week</button>
                     <button id="resetPositionBtn">Reset Position</button>
                 </div>
 
@@ -308,6 +292,9 @@
                     6: Weed<br />
                     7: Harvest<br />
                     8: Clear<br />
+                </div>
+                <div id="inventory">
+
                 </div>
             </div>
         </div>
@@ -468,47 +455,29 @@
 
             function generateTileStatsUI() {
                 const contentContainer = document.getElementById("tileStatsContent");
+                contentContainer.innerHTML = ""; // Clear existing content
 
-                // Clear existing content
-                contentContainer.innerHTML = "";
+                // Use any tile as a reference for properties
+                const exampleTile = initGrid()[0][0];
 
-                // Example tile structure
-                const tile = {
-                    type: TILE_TYPE.EMPTY,
-                    isTilled: false,
-                    plant: null,
-                    weedLevel: 0,
-                    moisture: BASE_MOISTURE_START,
-                    moistureDecayRate: BASE_MOISTURE_DECAY,
-                    soilNutrients: { N: 50, P: 50, K: 50 },
-                };
-
-                // Iterate through tile properties
-                for (const key in tile) {
-                    if (typeof tile[key] === "object") {
-                        // Handle nested objects (e.g., soilNutrients)
-                        for (const subKey in tile[key]) {
-                            const subField = document.createElement("div");
-                            subField.innerHTML = `
-<strong>${subKey}:</strong>
-<span id="tile${capitalize(key)}${capitalize(subKey)}">N/A</span>
-`;
-                            contentContainer.appendChild(subField);
-                        }
+                Object.entries(exampleTile).forEach(([key, value]) => {
+                    if (typeof value === "object") {
+                        Object.keys(value).forEach((subKey) => {
+                            appendTileStat(contentContainer, `${key} ${subKey}`);
+                        });
                     } else {
-                        const field = document.createElement("div");
-                        field.innerHTML = `
-<strong>${capitalize(key)}:</strong>
-<span id="tile${capitalize(key)}">N/A</span>
-`;
-                        contentContainer.appendChild(field);
+                        appendTileStat(contentContainer, key);
                     }
-                }
+                });
             }
 
-            // Helper function to capitalize strings
-            function capitalize(str) {
-                return str.charAt(0).toUpperCase() + str.slice(1);
+            function appendTileStat(container, label) {
+                const field = document.createElement("div");
+                field.innerHTML = `
+${capitalize(label)}:
+<span id="tile${capitalize(label.replace(" ", ""))}">N/A</span>
+`;
+                container.appendChild(field);
             }
 
             // Helper function to capitalize strings
@@ -521,7 +490,7 @@
             function attachEventListeners() {
 
                 // Skip to next week button
-                document.getElementById("skipToNextWeekBtn").addEventListener("click", skipToNextWeek);
+                document.getElementById("nextWeekBtn").addEventListener("click", skipToNextWeek);
 
                 // Reset position button
                 document.getElementById("resetPositionBtn").addEventListener("click", resetPlayerPosition);
@@ -799,25 +768,13 @@
                 highlightTile(x, y); // Directly call highlightTile with the clicked coordinates
             });
             function highlightTile(x, y) {
-                if (x === null || y === null) {
-                    gameState.highlightedTile.x = null;
-                    gameState.highlightedTile.y = null;
-                    clearTileStats();
-                } else if (
-                    x >= 0 &&
-                    x < GRID_WIDTH &&
-                    y >= 0 &&
-                    y < GRID_HEIGHT &&
-                    (Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1 || (gameState.player.x === x && gameState.player.y === y))
-                ) {
-                    gameState.highlightedTile.x = x;
-                    gameState.highlightedTile.y = y;
+                if (isTileValid(x, y) && (isTileAdjacent(x, y) || isPlayerOnTile(x, y))) {
+                    gameState.highlightedTile = { x, y };
                     updateTileStats();
+                    render();
                 } else {
-                    console.log("Tile is not adjacent to the gameState.player.");
+                    console.log("Invalid tile for highlighting.");
                 }
-
-                render(); // Update the visual grid to reflect the highlight
             }
 
             /* TILE & GRID UPDATES */
@@ -1063,6 +1020,19 @@
                 }
             }
 
+            /* INVENTORY */
+
+            function updateInventoryDisplay() {
+                Object.entries(gameState.inventory).forEach(([category, items]) => {
+                    Object.entries(items).forEach(([item, quantity]) => {
+                        const element = document.getElementById(`inventory${capitalize(item)}`);
+                        if (element) {
+                            element.textContent = quantity;
+                        }
+                    });
+                });
+            }
+
             /* TUTORIAL OVERLAY */
 
             function showTutorial() {
@@ -1078,6 +1048,14 @@
             function getTargetTile() {
                 const { x, y } = gameState.highlightedTile.x !== null ? gameState.highlightedTile : gameState.player;
                 return gameState.grid[y][x];
+            }
+
+            function isTileValid(x, y) {
+                return x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT;
+            }
+
+            function isTileAdjacent(x, y) {
+                return Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1;
             }
 
         </script>
