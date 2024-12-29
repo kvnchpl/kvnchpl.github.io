@@ -1,7 +1,7 @@
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
-    
+
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
     const rows = document.querySelectorAll('#link-container .row');
@@ -23,7 +23,7 @@ window.onload = () => {
         .catch(error => console.error('Error loading images:', error));
 
     function initializeImageOverlay(imageList) {
-        
+
         let shuffledImages = [];
         let currentImageIndex = 0;
         let initialPositions = [];
@@ -42,6 +42,56 @@ window.onload = () => {
                 img.src = src;
             });
         };
+
+        // Function to load links dynamically
+        function loadLinks(url) {
+            fetch(url)
+                .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to load content");
+                }
+                return response.json();
+            })
+                .then(data => {
+                renderLinks(data);
+            })
+                .catch(error => {
+                console.error("Error loading links:", error);
+            });
+        }
+
+        // Function to render the links into the link-container
+        function renderLinks(data) {
+            data.forEach(item => {
+                const row = document.createElement("div");
+                row.classList.add("row");
+
+                const linkWrapper = document.createElement("div");
+                linkWrapper.classList.add("link-wrapper");
+
+                const link = document.createElement("a");
+                link.href = item.href;
+                link.textContent = item.label;
+                link.setAttribute("aria-label", item.label);
+
+                const subtitle = document.createElement("span");
+                subtitle.classList.add("subtitle");
+                subtitle.textContent = item.subtitle;
+
+                linkWrapper.appendChild(link);
+                linkWrapper.appendChild(subtitle);
+                row.appendChild(linkWrapper);
+
+                linkContainer.appendChild(row);
+            });
+        }
+
+        // Determine which JSON file to load based on the current page
+        const page = window.location.pathname.split("/").pop().replace(".html", "");
+        const jsonFile = `${page || "substation"}.json`;
+
+        // Load links dynamically from the corresponding JSON file
+        loadLinks(`https://kvnchpl.github.io/main/${jsonFile}`);
 
         const randomizeLinks = (rows) => {
             rows.forEach((row, index) => {
