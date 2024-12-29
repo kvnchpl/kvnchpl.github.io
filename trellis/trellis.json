@@ -1,7 +1,7 @@
 {
     "gameConfig": {
         "TILE_SIZE": 40,
-        "GRID_WIDTH": 20,
+        "GRID_WIDTH": 15,
         "GRID_HEIGHT": 15,
         "DAY_START": 0,
         "DAY_END": 720,

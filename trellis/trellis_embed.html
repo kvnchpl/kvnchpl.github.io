@@ -79,6 +79,8 @@
 
             canvas {
                 display: block;
+                width: var(--game-width);
+                height: var(--game-height);
                 background: var(--color-canvas-bg);
                 border: 2px solid var(--color-canvas-border);
             }
@@ -234,7 +236,7 @@
     <body>
         <div id="mainContent">
             <div id="gameContainer">
-                <canvas id="gameCanvas" width="600" height="600"></canvas>
+                <canvas id="gameCanvas"></canvas>
                 <div id="tutorialOverlay">
                     <p>
                         <strong>Welcome to Trellis!</strong><br /><br />
