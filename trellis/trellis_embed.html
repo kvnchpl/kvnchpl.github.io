@@ -577,8 +577,8 @@
                 gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
 
                 // Update the display
-                document.getElementById("yearDisplay").textContent = currentYear;
-                document.getElementById("seasonDisplay").textContent = currentSeason;
+                document.getElementById("yearDisplay").textContent = gameState.currentYear;
+                document.getElementById("seasonDisplay").textContent = gameState.currentSeason;
             }
 
             function updateBiodiversity() {
