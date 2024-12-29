@@ -486,17 +486,26 @@
                             }
 
                             function appendTileStat(container, label) {
-                            const field = document.createElement("div");
-                            field.innerHTML = `
-${capitalize(label)}:
-                            <span id="tile${capitalize(label.replace(" ", ""))}">N/A</span>
-                            `;
-container.appendChild(field);
+    if (typeof label !== "string") {
+        console.warn("Invalid label:", label);
+        label = String(label || "Unknown"); // Default to "Unknown" if label is null/undefined
+    }
+
+    const field = document.createElement("div");
+    field.innerHTML = `
+        ${capitalize(label)}:
+        <span id="tile${capitalize(label.replace(" ", ""))}">N/A</span>
+    `;
+    container.appendChild(field);
 }
 
 // Helper function to capitalize strings
 function capitalize(str) {
-return str.charAt(0).toUpperCase() + str.slice(1);
+    if (typeof str !== "string") {
+        console.warn("capitalize called with non-string:", str);
+        return String(str || "").toUpperCase(); // Fall back to a default string representation
+    }
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 /* EVENT LISTENERS */
