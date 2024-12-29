@@ -57,7 +57,7 @@ window.onload = () => {
                 return;
             }
             console.log("BASE_URL: " + BASE_URL);
-            console.log("IMAGE_LIST_URL: " + IMAGE_LIST_URL);
+            console.log("jsonFile: " + jsonFile);
             
             fetch(`${BASE_URL}${jsonFile}`)
                 .then(response => {
