@@ -267,7 +267,6 @@
                 <!-- Tile Stats -->
                 <div id="tileStats">
                     <strong>Tile Stats</strong><br />
-                    Click or use arrow keys to highlight a tile.
                 </div>
 
                 <!-- Action Help -->
@@ -433,9 +432,51 @@
             }
 
             function initializeUI() {
+                generateTileStatsUI();
                 updateYearAndSeason();
                 updateWeekDisplay();
                 updateBiodiversityDisplay();
+            }
+
+            function generateTileStatsUI() {
+                const statsContainer = document.getElementById("tileStats");
+
+                // Clear any existing content
+                statsContainer.innerHTML = "<strong>Tile Stats</strong><br>";
+
+                // Example tile to reference the default properties
+                const exampleTile = {
+                    type: TILE_TYPE.EMPTY,
+                    isTilled: false,
+                    plant: null,
+                    weedLevel: 0,
+                    moisture: BASE_MOISTURE_START,
+                    moistureDecayRate: BASE_MOISTURE_DECAY,
+                    soilNutrients: { N: 50, P: 50, K: 50 },
+                };
+
+                // Iterate through the keys of the example tile to generate UI fields
+                for (const key in exampleTile) {
+                    if (typeof exampleTile[key] === "object") {
+                        // Handle nested objects (e.g., soilNutrients)
+                        for (const subKey in exampleTile[key]) {
+                            statsContainer.innerHTML += `
+<div>
+<strong>${subKey}:</strong> <span id="tile${capitalize(key)}${capitalize(subKey)}">N/A</span>
+            </div>`;
+                        }
+                    } else {
+                        statsContainer.innerHTML += `
+<div>
+<strong>${capitalize(key)}:</strong> <span id="tile${capitalize(key)}">N/A</span>
+            </div>`;
+                    }
+                }
+            }
+
+            // Helper function to capitalize strings
+            function capitalize(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
             }
 
             /* EVENT LISTENERS */
@@ -707,7 +748,7 @@
                 gameState.highlightedTile = { x: gameState.player.x, y: gameState.player.y };
 
                 highlightTile(gameState.player.x, gameState.player.y);
-                displayTileStats(gameState.player.x, gameState.player.y);
+                updateTileStats();
                 render();
             }
 
@@ -732,10 +773,9 @@
                     y < GRID_HEIGHT &&
                     (Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1 || (gameState.player.x === x && gameState.player.y === y))
                 ) {
-                    // Allow highlighting if the tile is adjacent or the player's tile
                     gameState.highlightedTile.x = x;
                     gameState.highlightedTile.y = y;
-                    displayTileStats(x, y);
+                    updateTileStats();
                 } else {
                     console.log("Tile is not adjacent to the gameState.player.");
                 }
@@ -791,46 +831,30 @@
             }
 
             function updateTileStats() {
-                // Determine which tile to update stats for
-                if (gameState.highlightedTile.x !== null && gameState.highlightedTile.y !== null) {
-                    displayTileStats(gameState.highlightedTile.x, gameState.highlightedTile.y);
-                } else {
-                    displayTileStats(gameState.player.x, gameState.player.y);
-                }
-            }
-
-            function displayTileStats(x, y) {
-                if (!gameState.grid || gameState.grid.length === 0) {
-                    console.error("Grid not initialized yet!");
-                    clearTileStats();
-                    return;
-                }
-
-                if (x < 0 || y < 0 || x >= GRID_WIDTH || y >= GRID_HEIGHT) {
-                    console.error("Tile coordinates out of bounds:", x, y);
-                    clearTileStats();
-                    return;
-                }
-
+                const { x, y } = gameState.highlightedTile;
                 const tile = gameState.grid[y][x];
-                const statsContainer = document.getElementById("tileStats");
 
-                statsContainer.innerHTML = `
-<strong>Tile (${x}, ${y})</strong><br>
-Type: ${tile.type}<br>
-Tilled: ${tile.isTilled ? "Yes" : "No"}<br>
-Moisture: ${tile.moisture}<br>
-Nutrients: N=${tile.soilNutrients.N}, P=${tile.soilNutrients.P}, K=${tile.soilNutrients.K}<br>
-Plant: ${tile.plant ? tile.plant.type : "None"}
-`;
+                for (const key in tile) {
+                    if (typeof tile[key] === "object") {
+                        for (const subKey in tile[key]) {
+                            const element = document.getElementById(`tile${capitalize(key)}${capitalize(subKey)}`);
+                            if (element) {
+                                element.textContent = tile[key][subKey];
+                            }
+                        }
+                    } else {
+                        const element = document.getElementById(`tile${capitalize(key)}`);
+                        if (element) {
+                            element.textContent = tile[key] !== null ? tile[key] : "N/A";
+                        }
+                    }
+                }
             }
 
             function clearTileStats() {
                 const statsContainer = document.getElementById("tileStats");
-                statsContainer.innerHTML = `
-<strong>Tile Stats</strong><br>
-No tile highlighted.
-`;
+                const spans = statsContainer.querySelectorAll("span");
+                spans.forEach(span => (span.textContent = "N/A"));
             }
 
             /* UI UPDATES */
