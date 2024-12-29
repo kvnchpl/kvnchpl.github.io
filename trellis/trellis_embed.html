@@ -276,7 +276,6 @@
 
                 <!-- Tile Stats -->
                 <div id="tileStats">
-                    <strong>Tile Stats</strong>
                     <div id="tileStatsContent">
                     </div>
                 </div>
@@ -404,7 +403,7 @@
 
                 // Initialize grid
                 initGrid();
-                
+
                 console.log("Grid after initialization:", gameState.grid);
 
                 // Reset player position (ensures synchronization with grid)
@@ -421,8 +420,11 @@
             }
 
             function initGrid() {
-                // Fetch the tile template from TILE_CONFIG.stats
-                const defaultTile = JSON.parse(JSON.stringify(TILE_CONFIG.stats));
+                // Ensure gameData and tile configuration are loaded
+                if (!gameData || !gameData.tileConfig || !gameData.tileConfig.stats) {
+                    console.error("Tile configuration is missing in gameData.");
+                    return;
+                }
 
                 // Initialize the grid as a 2D array of tiles
                 const grid = [];
@@ -430,8 +432,8 @@
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     grid[row] = [];
                     for (let col = 0; col < GRID_WIDTH; col++) {
-                        // Create a copy of the default tile for each position
-                        const tile = JSON.parse(JSON.stringify(defaultTile));
+                        // Clone the default tile for each position
+                        const tile = structuredClone(gameData.tileConfig.stats);
 
                         // Assign the tile to the grid
                         grid[row][col] = tile;
@@ -441,7 +443,7 @@
                 // Assign the grid to the gameState
                 gameState.grid = grid;
 
-                console.log("Grid initialized with pre-defined tile objects:", gameState.grid);
+                console.log("Grid initialized using gameData:", gameState.grid);
             }
 
             function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
@@ -481,28 +483,35 @@
                 const contentContainer = document.getElementById("tileStatsContent");
                 contentContainer.innerHTML = ""; // Clear existing content
 
+                // Add a dynamic heading for Tile Stats with coordinates
+                const heading = document.createElement("strong");
+                heading.id = "tileStatsHeading";
+                heading.textContent = "Tile Stats"; // Default heading, coordinates will be added later
+                contentContainer.parentNode.insertBefore(heading, contentContainer);
+
                 Object.entries(TILE_STAT).forEach(([key, value]) => {
                     if (key === "SOIL_NUTRIENTS") {
                         Object.entries(value).forEach(([subKey]) => {
                             const label = DISPLAY_NAME[key]?.[subKey] || subKey;
                             const id = `tileSoilNutrients${capitalize(subKey)}`;
-console.log(`Generated ID for soil nutrient ${subKey}:`, id);
 appendTileStat(contentContainer, label, id);
 });
 } else {
 const label = DISPLAY_NAME[key] || capitalize(key.replace(/_/g, " "));
 const id = `tile${capitalize(key.replace(/_/g, ""))}`;
-console.log(`Generated ID for stat ${key}:`, id);
 appendTileStat(contentContainer, label, id);
 }
 });
+
+// Immediately update the stats for the highlighted tile
+updateTileStats();
 }
 
 function appendTileStat(container, label, id) {
 const field = document.createElement("div");
 field.innerHTML = `
-${capitalize(label)}:
-    <span id="${id}">N/A</span>
+                            ${capitalize(label)}:
+                            <span id="${id}">N/A</span>
                             `;
 container.appendChild(field);
 }
@@ -864,25 +873,24 @@ console.error("Tile stats update failed: Tile is undefined.");
 return;
 }
 
-console.log(`Updating tile stats for tile at (${x}, ${y}):`, tile);
+// Update the Tile Stats heading with coordinates
+const heading = document.getElementById("tileStatsHeading");
+if (heading) {
+heading.textContent = `Tile Stats (${x}, ${y})`;
+}
 
+// Update individual stats
 Object.entries(tile).forEach(([key, value]) => {
-
 if (key === "PLANT") {
 const element = document.getElementById("tilePlant");
-console.log("looking for elementID: tilePlant");
 if (element) {
 element.textContent = value ? value.type : "None";
-} else {
-console.warn(`No element found for PLANT stat.`);
 }
 } else if (key === "SOIL_NUTRIENTS") {
 Object.entries(value).forEach(([subKey, subValue]) => {
 const element = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
 if (element) {
 element.textContent = subValue ?? "N/A";
-} else {
-console.warn(`No element found for nutrient: ${subKey}`);
 }
 });
 } else {
@@ -893,8 +901,6 @@ element.textContent = value ? "Yes" : "No";
 } else {
 element.textContent = value ?? "N/A";
 }
-} else {
-console.warn(`No element found for stat: ${key}`);
 }
 }
 });
