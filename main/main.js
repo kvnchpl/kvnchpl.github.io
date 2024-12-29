@@ -162,3 +162,4 @@ window.onload = () => {
         linkContainer.style.visibility = 'visible';
         linkContainer.style.opacity = '1';
     };
+}
