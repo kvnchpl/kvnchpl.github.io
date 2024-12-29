@@ -16,6 +16,10 @@ window.onload = () => {
         return response.json();
     })
         .then(data => {
+        console.log('Fetched data:', data); // Log the fetched data
+        if (!data.imageList || !Array.isArray(data.imageList)) {
+            throw new Error('Invalid JSON structure: "imageList" key missing or not an array');
+        }
         const imageList = data.imageList;
 
         overlay.setAttribute('data-images', JSON.stringify(imageList));
@@ -23,7 +27,7 @@ window.onload = () => {
         initializeImageOverlay(imageList);
     })
         .catch(error => console.error('Error loading images:', error));
-
+    
     function initializeImageOverlay(imageList) {
 
         const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
