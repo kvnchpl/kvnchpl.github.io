@@ -56,6 +56,7 @@
     "plants": {
         "tomato": {
             "NAME": "Tomato",
+            "IS_MATURE": false,
             "GROWTH_TIME": 4,
             "PRODUCE_YIELD": 3,
             "MOISTURE_REQUIREMENT": 70,
@@ -68,6 +69,7 @@
         },
         "kale": {
             "NAME": "Kale",
+            "IS_MATURE": false,
             "GROWTH_TIME": 6,
             "PRODUCE_YIELD": 2,
             "MOISTURE_REQUIREMENT": 50,
@@ -80,6 +82,7 @@
         },
         "corn": {
             "NAME": "Corn",
+            "IS_MATURE": false,
             "GROWTH_TIME": 8,
             "PRODUCE_YIELD": 5,
             "MOISTURE_REQUIREMENT": 60,
@@ -92,6 +95,7 @@
         },
         "beans": {
             "NAME": "Beans",
+            "IS_MATURE": false,
             "GROWTH_TIME": 6,
             "PRODUCE_YIELD": 4,
             "MOISTURE_REQUIREMENT": 40,
