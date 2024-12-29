@@ -1,12 +1,10 @@
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
+    
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
     const rows = document.querySelectorAll('#link-container .row');
-    let shuffledImages = [];
-    let currentImageIndex = 0;
-    let initialPositions = [];
 
     fetch('https://kvnchpl.github.io/main/sky_images.json')
         .then(response => {
@@ -25,6 +23,10 @@ window.onload = () => {
         .catch(error => console.error('Error loading images:', error));
 
     function initializeImageOverlay(imageList) {
+        
+        let shuffledImages = [];
+        let currentImageIndex = 0;
+        let initialPositions = [];
 
         const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
