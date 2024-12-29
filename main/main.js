@@ -49,11 +49,11 @@ window.onload = () => {
         // Function to load links dynamically
         function loadLinks() {
             // Retrieve the full URL from the <meta> tag
-            const metaLinkList = document.querySelector('meta[name="link-list"]');
+            const metaLinkList = document.querySelector('meta[name="link-data"]');
             const jsonUrl = metaLinkList ? metaLinkList.getAttribute('content') : null;
 
             if (!jsonUrl) {
-                console.error("No JSON URL found in the <meta> tag with name='link-list'.");
+                console.error("No JSON URL found in the <meta> tag with name='link-data'.");
                 return;
             }
 
