@@ -16,7 +16,7 @@ window.onload = () => {
         return response.json();
     })
         .then(data => {
-        const imageList = data.images;
+        const imageList = data.imageList;
 
         overlay.setAttribute('data-images', JSON.stringify(imageList));
 
