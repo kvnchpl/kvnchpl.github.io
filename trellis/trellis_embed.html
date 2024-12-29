@@ -428,15 +428,17 @@
 
                 // Initialize the grid as a 2D array of tiles
                 const grid = [];
+                
+                console.log("gameData.tileConfig.stats: ", gameData.tileConfig.stats);
 
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     grid[row] = [];
                     for (let col = 0; col < GRID_WIDTH; col++) {
                         // Clone the default tile for each position
                         const tile = structuredClone(gameData.tileConfig.stats);
-
                         // Assign the tile to the grid
                         grid[row][col] = tile;
+                        console.log(`Tile initialized at (${row}, ${col}):`, tile);
                     }
                 }
 
@@ -823,14 +825,22 @@ function updateAllTiles() {
 for (let row = 0; row < GRID_HEIGHT; row++) {
 for (let col = 0; col < GRID_WIDTH; col++) {
 const tile = gameState.grid[row][col];
+const oldMoisture = tile.moisture;
 updateTileMoisture(tile);
+console.log(`Tile (${row}, ${col}) moisture: ${oldMoisture} -> ${tile.moisture}`);
 updateTilePlant(tile, row, col);
 }
 }
 }
 
 function updateTileMoisture(tile) {
-tile.moisture = Math.max(tile.moisture - tile.moistureDecayRate, 0);
+    if (tile.moisture !== undefined && tile.moistureDecayRate !== undefined) {
+        const oldMoisture = tile.moisture;
+        tile.moisture = Math.max(tile.moisture - tile.moistureDecayRate, 0);
+        console.log(`Tile moisture updated: ${oldMoisture} -> ${tile.moisture}`);
+    } else {
+        console.error("Moisture properties missing for tile:", tile);
+    }
 }
 
 function updateTilePlant(tile, row, col) {
@@ -868,6 +878,7 @@ function updateTileStats() {
 const { x, y } = gameState.highlightedTile;
 const tile = gameState.grid[y][x];
 
+
 if (!tile) {
 console.error("Tile stats update failed: Tile is undefined.");
 return;
@@ -894,6 +905,8 @@ element.textContent = subValue ?? "N/A";
 }
 });
 } else {
+console.log("key: ", key);
+console.log("value: ", value);
 const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
 if (element) {
 if (typeof value === "boolean") {
