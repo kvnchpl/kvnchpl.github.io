@@ -379,7 +379,8 @@
                 }
 
                 const { plants, timeCosts, gameConfig, tileConfig } = gameData;
-
+                
+                console.log("gameData loaded: ", gameData);
 
                 if (!plants || !tileConfig || !timeCosts || !gameConfig) {
                     console.error("JSON data is missing required sections:", gameData);
