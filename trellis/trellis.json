@@ -97,7 +97,7 @@
             "PEST_ATTRACTION": 5
         },
         "corn": {
-            "NAME": "Corn",
+            "NAME": "Corn2",
             "IS_MATURE": false,
             "AGE": 0,
             "GROWTH_TIME": 8,
