@@ -51,7 +51,7 @@
                 "P": "Phosphorus",
                 "K": "Potassium"
             }
-        },
+        }
     },
     "plants": {
         "tomato": {
