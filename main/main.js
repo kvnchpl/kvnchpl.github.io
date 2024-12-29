@@ -19,6 +19,7 @@ window.onload = () => {
         if (!Array.isArray(imageList)) {
             throw new Error('Invalid data format for JSON: Expected an array.');
         }
+        console.log("Data successfully parsed from JSON: ", imageList);
         overlay.setAttribute('data-images', JSON.stringify(imageList));
         initializeImageOverlay(imageList);
     })
@@ -64,6 +65,7 @@ window.onload = () => {
                 return response.json();
             })
                 .then(data => {
+                console.log("Data successfully parsed from JSON: ", data);
                 renderLinks(data);
             })
                 .catch(error => console.error("Error loading links:", error));
