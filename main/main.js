@@ -62,6 +62,12 @@ window.onload = () => {
 
         // Function to render the links into the link-container
         function renderLinks(data) {
+            // Helper function to convert month number to name
+            const monthNames = [
+                "January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+
             data.forEach(item => {
                 const row = document.createElement("div");
                 row.classList.add("row");
@@ -69,30 +75,77 @@ window.onload = () => {
                 const linkWrapper = document.createElement("div");
                 linkWrapper.classList.add("link-wrapper");
 
+                // Create and configure the link
                 const link = document.createElement("a");
                 link.href = item.href;
                 link.textContent = item.label;
                 link.setAttribute("aria-label", item.label);
 
-                const subtitle = document.createElement("span");
-                subtitle.classList.add("subtitle");
-                subtitle.textContent = item.subtitle;
+                // Determine whether to open in a new tab
+                const isExternal = link.href.startsWith("http") && !link.href.includes(window.location.hostname);
+                const openInNewTab = item.new_tab !== undefined ? item.new_tab : isExternal;
 
+                if (openInNewTab) {
+                    link.setAttribute("target", "_blank");
+                    link.setAttribute("rel", "noopener noreferrer");
+                }
+
+                // Dynamically build the subtitle based on available attributes
+                const subtitleParts = [];
+
+                // Add author and publication if available
+                if (item.author) subtitleParts.push(`By ${item.author}`);
+                if (item.publication) subtitleParts.push(item.publication);
+
+                // Handle publication_month (number to name or string as-is) and publication_year
+                let monthAndYear = "";
+                if (item.publication_month) {
+                    const month =
+                          typeof item.publication_month === "number"
+                    ? monthNames[item.publication_month - 1]
+                    : item.publication_month; // Use string as-is
+                    monthAndYear = month;
+                }
+                if (item.publication_year) {
+                    monthAndYear += ` ${item.publication_year}`;
+                }
+
+                // Append month and year as a single unit
+                if (monthAndYear) subtitleParts.push(monthAndYear);
+
+                // Combine subtitle parts into a single string with proper formatting
+                const subtitleText = subtitleParts.join(", ");
+
+                if (subtitleText) {
+                    const subtitle = document.createElement("span");
+                    subtitle.classList.add("subtitle");
+                    subtitle.textContent = subtitleText;
+                    linkWrapper.appendChild(subtitle);
+                }
+
+                // Apply any custom class specified in the JSON
+                if (item.class) {
+                    link.classList.add(item.class);
+                }
+
+                // Append the link and wrapper to the row
                 linkWrapper.appendChild(link);
-                linkWrapper.appendChild(subtitle);
                 row.appendChild(linkWrapper);
 
+                // Append the row to the link container
                 linkContainer.appendChild(row);
             });
         }
 
-        // Determine which JSON file to load based on the current page
+        // Usage Example:
         const page = window.location.pathname.split("/").pop().replace(".html", "");
         const jsonFile = `${page || "substation"}.json`;
 
         // Load links dynamically from the corresponding JSON file
-        loadLinks(`https://kvnchpl.github.io/main/${jsonFile}`);
-
+        fetch(`https://kvnchpl.github.io/main/${jsonFile}`)
+            .then(response => response.json())
+            .then(renderLinks)
+            .catch(error => console.error("Error loading links:", error));
         const randomizeLinks = (rows) => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector('.link-wrapper');

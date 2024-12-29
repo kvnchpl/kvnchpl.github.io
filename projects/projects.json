@@ -1,6 +1,50 @@
 [
-    { "href": "/projects/viewfinder", "label": "Viewfinder", "subtitle": "October 2024" },
-    { "href": "/projects/triptych", "label": "Triptych", "subtitle": "May 2024" },
-    { "href": "/projects/archipelago", "label": "Archipelago", "subtitle": "February 2024" },
-    ...
+  {
+    "href": "/projects/viewfinder",
+    "label": "Viewfinder",
+    "publication_month": 10,
+    "publication_year": 2024
+  },
+  {
+    "href": "/projects/triptych",
+    "label": "Triptych",
+    "publication_month": 5,
+    "publication_year": 2024
+  },
+  {
+    "href": "/projects/archipelago",
+    "label": "Archipelago",
+    "publication_month": 2,
+    "publication_year": 2024
+  },
+  {
+    "href": "/projects/intraface",
+    "label": "Intraface",
+    "publication_month": 8,
+    "publication_year": 2022
+  },
+  {
+    "href": "/projects/friday-night-never",
+    "label": "Friday Night Never",
+    "publication_month": 8,
+    "publication_year": 2022
+  },
+  {
+    "href": "/projects/dimensional-freedom",
+    "label": "Dimensional Freedom",
+    "publication_month": 5,
+    "publication_year": 2019
+  },
+  {
+    "href": "/projects/520-missing",
+    "label": "520 Missing",
+    "publication_month": 5,
+    "publication_year": 2019
+  },
+  {
+    "href": "/projects/truth-visions",
+    "label": "Truth Visions",
+    "publication_month": 3,
+    "publication_year": 2019
+  }
 ]

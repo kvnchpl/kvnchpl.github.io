@@ -1,6 +1,35 @@
 [
-    { "href": "/projects/viewfinder", "label": "Viewfinder", "subtitle": "October 2024" },
-    { "href": "/projects/triptych", "label": "Triptych", "subtitle": "May 2024" },
-    { "href": "/projects/archipelago", "label": "Archipelago", "subtitle": "February 2024" },
-    ...
+  {
+    "href": "/projects",
+    "label": "See what I’m working on"
+  },
+  {
+    "href": "https://kvnchpl-thoughts.tumblr.com/",
+    "label": "See what I’m thinking about",
+    "newTab": false
+  },
+  {
+    "href": "/writings",
+    "label": "See what I’m writing"
+  },
+  {
+    "href": "/readings",
+    "label": "See what I’m reading"
+  },
+  {
+    "href": "https://letterboxd.com/kvnchpl/",
+    "label": "See what I’m watching"
+  },
+  {
+    "href": "https://open.spotify.com/user/kevchap",
+    "label": "See what I’m listening to"
+  },
+  {
+    "href": "https://hydranthunt.com/",
+    "label": "Go hunting for hydrants"
+  },
+  {
+    "href": "/contact",
+    "label": "Say hi"
+  }
 ]

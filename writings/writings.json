@@ -1,6 +1,104 @@
 [
-  { "href": "/projects/viewfinder", "label": "Viewfinder", "subtitle": "October 2024" },
-  { "href": "/projects/triptych", "label": "Triptych", "subtitle": "May 2024" },
-  { "href": "/projects/archipelago", "label": "Archipelago", "subtitle": "February 2024" },
-  ...
+    {
+        "href": "/writings/cinder-block",
+        "label": "Cinder Block",
+        "publication_month": 7,
+        "publication_year": 2024
+    },
+    {
+        "href": "/writings/plight-of-center",
+        "label": "Plight of Center",
+        "publication_month": 4,
+        "publication_year": 2024
+    },
+    {
+        "href": "/writings/desire-path",
+        "label": "Desire Path",
+        "publication_month": 4,
+        "publication_year": 2024
+    },
+    {
+        "href": "/writings/sneeze",
+        "label": "Sneeze",
+        "publication_month": 3,
+        "publication_year": 2022
+    },
+    {
+        "href": "/writings/orchestra",
+        "label": "Orchestra",
+        "publication_month": 1,
+        "publication_year": 2024
+    },
+    {
+        "href": "/writings/pearly-mucus",
+        "label": "Pearly Mucus",
+        "publication_month": 12,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/belief-and-desire",
+        "label": "Belief & Desire",
+        "publication_month": 12,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/curse-of-soil",
+        "label": "Curse of Soil",
+        "publication_month": 12,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/cabbage",
+        "label": "Cabbage",
+        "publication_month": 10,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/close-all",
+        "label": "Close All",
+        "publication_month": 9,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/sweetness",
+        "label": "Sweetness",
+        "publication_month": 9,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/theme",
+        "label": "Theme",
+        "publication_month": 8,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/regenerate",
+        "label": "Regenerate",
+        "publication_month": 8,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/beach",
+        "label": "Beach",
+        "publication_month": 8,
+        "publication_year": 2023
+    },
+    {
+        "href": "/writings/album",
+        "label": "Album",
+        "publication_month": 5,
+        "publication_year": 2021
+    },
+    {
+        "href": "/writings/stack",
+        "label": "Stack",
+        "publication_month": 12,
+        "publication_year": 2020
+    },
+    {
+        "href": "/writings/diego",
+        "label": "Diego",
+        "publication_month": 10,
+        "publication_year": 2019
+    }
 ]
