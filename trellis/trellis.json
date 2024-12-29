@@ -8,31 +8,49 @@
         "PEST_OUTBREAK_CHANCE": 5,
         "BASE_MOISTURE_START": 50,
         "BASE_MOISTURE_DECAY": 2,
-        "REGION_NAME": "UPSTATE_NEW_YORK"
-    },
-    "tileTypes": {
-        "EMPTY": "Empty",
-        "PLOT": "Plot",
-        "PATH": "Path"
+        "REGION_NAME": "Upstate New York"
     },
     "timeCosts": {
         "TILL": 30,
-        "FERTILIZE": 15,
+        "FERTILIZE": 20,
         "PLANT": 20,
         "WATER": 10,
-        "MULCH": 10,
+        "MULCH": 15,
         "WEED": 15,
         "HARVEST": 20,
-        "CLEAR": 25
+        "CLEAR": 15
     },
-    "plants": {
-        "tomato": {
-            "GROWTH_TIME": 2,
-            "PRODUCE_YIELD": 3
+    "tileConfig": {
+        "types": {
+            "EMPTY": "empty",
+            "PLOT": "plot",
+            "PATH": "path"
         },
-        "kale": {
-            "GROWTH_TIME": 3,
-            "PRODUCE_YIELD": 2
+        "template": {
+            "type": "EMPTY",
+            "isTilled": false,
+            "plant": null,
+            "weedLevel": 0,
+            "moisture": 50,
+            "moistureDecayRate": 2,
+            "soilNutrients": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            }
+        },
+        "displayNames": {
+            "type": "Type",
+            "isTilled": "Tilled",
+            "plant": "Plant",
+            "weedLevel": "Weed Level",
+            "moisture": "Moisture",
+            "moistureDecayRate": "Moisture Decay Rate",
+            "soilNutrients": {
+                "N": "Nitrogen",
+                "P": "Phosphorus",
+                "K": "Potassium"
+            }
         }
     }
 }

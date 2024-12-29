@@ -457,14 +457,24 @@
                 const contentContainer = document.getElementById("tileStatsContent");
                 contentContainer.innerHTML = ""; // Clear existing content
 
-                // Use any tile as a reference for properties
-                const exampleTile = initGrid()[0][0];
+                // Example template tile for UI generation
+                const templateTile = {
+                    type: TILE_TYPE.EMPTY,
+                    isTilled: false,
+                    plant: null, // Represents no plant initially
+                    weedLevel: 0,
+                    moisture: BASE_MOISTURE_START,
+                    moistureDecayRate: BASE_MOISTURE_DECAY,
+                    soilNutrients: { N: 50, P: 50, K: 50 },
+                };
 
-                Object.entries(exampleTile).forEach(([key, value]) => {
-                    if (typeof value === "object") {
-                        Object.keys(value).forEach((subKey) => {
+                Object.entries(templateTile).forEach(([key, value]) => {
+                    if (typeof value === "object" && key === "soilNutrients") {
+                        Object.entries(value).forEach(([subKey]) => {
                             appendTileStat(contentContainer, `${key} ${subKey}`);
                         });
+                    } else if (key === "plant") {
+                        appendTileStat(contentContainer, "Plant");
                     } else {
                         appendTileStat(contentContainer, key);
                     }
@@ -828,21 +838,32 @@ ${capitalize(label)}:
                 const { x, y } = gameState.highlightedTile;
                 const tile = gameState.grid[y][x];
 
-                for (const key in tile) {
-                    if (typeof tile[key] === "object") {
-                        for (const subKey in tile[key]) {
-                            const element = document.getElementById(`tile${capitalize(key)}${capitalize(subKey)}`);
-                            if (element) {
-                                element.textContent = tile[key][subKey];
-                            }
-                        }
-                    } else {
-                        const element = document.getElementById(`tile${capitalize(key)}`);
-                        if (element) {
-                            element.textContent = tile[key] !== null ? tile[key] : "N/A";
-                        }
-                    }
+                if (!tile) {
+                console.error("Tile stats update failed: Tile is undefined.");
+                return;
                 }
+
+                Object.entries(tile).forEach(([key, value]) => {
+                if (key === "plant") {
+                // Handle plant specifically
+                const plantTypeElement = document.getElementById("tilePlantType");
+                if (plantTypeElement) {
+                plantTypeElement.textContent = value ? value.type : "None";
+            }
+            } else if (typeof value === "object") {
+                Object.entries(value).forEach(([subKey, subValue]) => {
+                    const element = document.getElementById(`tile${capitalize(key)}${capitalize(subKey)}`);
+                    if (element) {
+                        element.textContent = subValue ?? "N/A";
+                    }
+                });
+            } else {
+                const element = document.getElementById(`tile${capitalize(key)}`);
+                if (element) {
+                    element.textContent = value ?? "N/A";
+                }
+            }
+            });
             }
 
             function clearTileStats() {
