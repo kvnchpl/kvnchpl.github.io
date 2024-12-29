@@ -870,9 +870,9 @@ ${capitalize(label)}:
 
                 // Iterate over the tile's actual properties
                 Object.entries(tile).forEach(([key, value]) => {
-                    console.log("key: ", key);
-                    console.log("=== PLANT? ", key === PLANT);
-                    console.log("== PLANT? ", key == PLANT);
+                    console.log("key.NAME: ", key.NAME);
+                    console.log("=== PLANT? ", key.NAME === PLANT);
+                    console.log("== PLANT? ", key.NAME == PLANT);
                     if (key === "PLANT") {
                         const element = document.getElementById("tilePlant");
                         if (element) {
