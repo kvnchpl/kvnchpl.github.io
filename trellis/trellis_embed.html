@@ -866,13 +866,12 @@ ${capitalize(label)}:
 
                 // Iterate over the tile's actual properties
                 Object.entries(tile).forEach(([key, value]) => {
-                    if (key == "PLANT") {
+                    if (key === "PLANT") {
                         const element = document.getElementById("tilePLANT");
                         if (element) {
-                            const plantValue = value?.VALUE; // Safe navigation to check if VALUE exists
-                            element.textContent = plantValue
-                            ? PLANT[plantValue]?.NAME || "Unknown Plant"
-                            : "None";
+                            const plantName = value?.VALUE?.NAME;
+                            const displayName = plantName ? PLANT[plantName]?.NAME || "Unknown Plant" : "None";
+                            element.textContent = displayName;
                         }
                     } else if (key == "SOIL_NUTRIENTS") {
                         Object.entries(value || {}).forEach(([subKey, nutrientValue]) => {
@@ -986,7 +985,7 @@ ${capitalize(label)}:
                         IS_MATURE: false,
                         AGE: 0
                     };
-                    console.log(`Planted ${seedType} at (${player.x}, ${player.y})`);
+                    console.log(`Planted ${seedType} at (${gameState.player.x}, ${gameState.player.y})`);
                     advanceTime(TIME_COST.PLANT);
                     updateTileStats();
                 } else {
