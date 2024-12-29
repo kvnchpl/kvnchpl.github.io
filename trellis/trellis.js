@@ -154,7 +154,7 @@ function initializeUI() {
 
 function generateTileStatsUI() {
     const contentContainer = document.getElementById("tileStatsContent");
-    contentContainer.innerHTML = ""; // Clear existing content
+    contentContainer.textContent = ""; // Clear existing content
 
     // Add heading for Tile Stats
     const heading = document.createElement("strong");
@@ -182,10 +182,16 @@ function generateTileStatsUI() {
 
 function appendTileStat(container, label, id) {
     const field = document.createElement("div");
-    field.innerHTML = `
-${capitalize(label)}:
-<span id="${id}">N/A</span>
-`;
+
+    const labelNode = document.createElement("span");
+    labelNode.textContent = `${capitalize(label)}: `; // Add the label text
+    field.appendChild(labelNode);
+
+    const valueNode = document.createElement("span");
+    valueNode.id = id; // Set the ID for the value container
+    valueNode.textContent = "N/A"; // Default value
+    field.appendChild(valueNode);
+
     container.appendChild(field);
 }
 
@@ -662,6 +668,7 @@ function fertilizeTile() {
 // PLANT
 function plantSeed(seedType) {
     const tile = getTargetTile();
+
     if (!tile.IS_TILLED.VALUE) {
         console.log("Soil is not tilled. Cannot plant yet.");
         return;
@@ -670,21 +677,23 @@ function plantSeed(seedType) {
         console.log("There's already a plant here!");
         return;
     }
-    if (gameState.inventory.seeds[seedType] && gameState.inventory.seeds[seedType] > 0) {
-        // Use 1 seed
-        gameState.inventory.seeds[seedType]--;
-        // Create a new plant object
-        tile.PLANT.VALUE = {
-            NAME: seedType,
-            IS_MATURE: false,
-            AGE: 0
-        };
-        console.log(`Planted ${seedType} at (${gameState.player.x}, ${gameState.player.y})`);
-        advanceTime(TIME_COST.PLANT);
-        updateTileStats();
-    } else {
-        console.log(`No ${seedType} seeds left.`);
+
+    if (!gameState.inventory.seeds[seedType] || gameState.inventory.seeds[seedType] <= 0) {
+        console.warn(`No ${seedType} seeds left.`);
+        return;
     }
+
+    // Use 1 seed
+    gameState.inventory.seeds[seedType]--;
+    // Create a new plant object
+    tile.PLANT.VALUE = {
+        NAME: seedType,
+        IS_MATURE: false,
+        AGE: 0
+    };
+    console.log(`Planted ${seedType} at (${gameState.player.x}, ${gameState.player.y})`);
+    advanceTime(TIME_COST.PLANT);
+    updateTileStats();
 }
 
 // WATER
@@ -796,7 +805,14 @@ function getTargetTile() {
 }
 
 function isTileValid(x, y) {
-    return x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT;
+    return (
+        Number.isInteger(x) &&
+        Number.isInteger(y) &&
+        x >= 0 &&
+        x < GRID_WIDTH &&
+        y >= 0 &&
+        y < GRID_HEIGHT
+    );
 }
 
 function isTileAdjacent(x, y) {
