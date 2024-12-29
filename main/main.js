@@ -96,7 +96,7 @@ window.onload = () => {
 
                 // Determine whether to open in a new tab
                 const isExternal = link.href.startsWith("http") && !link.href.includes(window.location.hostname);
-                const openInNewTab = item.new_tab !== undefined ? item.new_tab : isExternal;
+                const openInNewTab = item.newTab !== undefined ? item.newTab : isExternal;
 
                 if (openInNewTab) {
                     link.setAttribute("target", "_blank");
