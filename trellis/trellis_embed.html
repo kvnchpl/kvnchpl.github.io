@@ -315,6 +315,7 @@
             let TIME_COST = {};
             let GROWTH_TIME = {};
             let PRODUCE_YIELD = {};
+            let PLANT = {};
 
             const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
             const WEEKS_PER_SEASON = 13;
@@ -438,12 +439,8 @@
                 Object.assign(TILE_STAT, tileConfig.stats);
 
                 // Assign plants and time costs
+                Object.assign(PLANT, plants);
                 Object.assign(TIME_COST, timeCosts);
-
-                for (const [plant, data] of Object.entries(plants)) {
-                    GROWTH_TIME[plant] = data.GROWTH_TIME;
-                    PRODUCE_YIELD[plant] = data.PRODUCE_YIELD;
-                }
             }
 
             function initializeUI() {
@@ -817,7 +814,7 @@ ${capitalize(label)}:
                 if (!tile.PLANT) return;
 
                 const plantName = tile.PLANT.NAME;
-                const plantData = gameData.plants[plantName];
+                const plantData = PLANT[plantName];
 
                 // Extract soil properties
                 const { N, P, K } = tile.SOIL_NUTRIENTS;
@@ -859,18 +856,20 @@ ${capitalize(label)}:
         heading.textContent = `Tile Stats (${x}, ${y})`;
     }
 
-    // Update individual stats
+    // Iterate over the tile's actual properties
     Object.entries(tile).forEach(([key, value]) => {
         if (key === "PLANT") {
             const element = document.getElementById("tilePlant");
             if (element) {
-                element.textContent = value ? gameData.plants[value.TYPE]?.NAME || "Unknown Plant" : "None";
+                element.textContent = value
+                    ? PLANT[value.NAME]?.DISPLAY_NAME || "Unknown Plant"
+                    : "None";
             }
         } else if (key === "SOIL_NUTRIENTS") {
-            Object.entries(value).forEach(([subKey, nutrient]) => {
-                const element = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
-                if (element) {
-                    element.textContent = nutrient ?? "N/A";
+            Object.entries(value || {}).forEach(([subKey, nutrientValue]) => {
+                const nutrientElement = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
+                if (nutrientElement) {
+                    nutrientElement.textContent = nutrientValue ?? "N/A";
                 }
             });
         } else {
