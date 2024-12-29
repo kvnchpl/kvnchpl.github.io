@@ -289,32 +289,21 @@
 
             /* GLOBALS */
 
-            // Game data loaded from external sources (e.g., trellis.json)
             let gameData = null;
 
-            // Core configuration values (populated dynamically during initialization)
             let TILE_SIZE, GRID_WIDTH, GRID_HEIGHT;
             let DAY_START, DAY_END;
             let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
             let REGION_NAME;
 
-            // Time and action costs
+            let TILE_TYPE = {};
             let TIME_COST = {};
             let GROWTH_TIME = {};
             let PRODUCE_YIELD = {};
 
-            // Constants for gameplay mechanics
-            const TILE_TYPE = {
-                PLOT: "Plot",
-                EMPTY: "Empty",
-                PATH: "Path",
-            };
-
             const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
             const WEEKS_PER_SEASON = 13;
             const WEEKS_PER_YEAR = 52;
-
-            /* GAME STATE */
 
             /* GAME STATE */
 
@@ -372,14 +361,16 @@
                     return;
                 }
 
-                const { plants, timeCosts, gameConfig } = gameData;
+                const { plants, timeCosts, gameConfig, tileTypes } = gameData;
 
                 console.log("Initialized game with plant data:", plants);
                 console.log("Action time costs:", timeCosts);
                 console.log("Core game config:", gameConfig);
+                console.log("Tile types:", tileTypes);
 
                 // Configure game constants
-                configureGameConstants(gameConfig, plants, timeCosts);
+                configureGameConstants(gameConfig, plants, timeCosts, tileTypes);
+
 
                 // Set default placeholder for player position
                 gameState.player.x = Math.floor(GRID_WIDTH / 2);
@@ -419,11 +410,23 @@
             }
 
             function configureGameConstants(gameConfig, plants, timeCosts) {
-                // Dynamically assign all properties from gameConfig and timeCosts
-                Object.assign(GAME_CONFIG, gameConfig);
+                Object.assign(
+                    {
+                        TILE_SIZE,
+                        GRID_WIDTH,
+                        GRID_HEIGHT,
+                        DAY_START,
+                        DAY_END,
+                        BASE_MOISTURE_START,
+                        BASE_MOISTURE_DECAY,
+                        REGION_NAME,
+                    },
+                    gameConfig
+                );
+
+                Object.assign(TILE_TYPE, tileTypes);
                 Object.assign(TIME_COST, timeCosts);
 
-                // Map plant data dynamically
                 GROWTH_TIME = {};
                 PRODUCE_YIELD = {};
                 for (const [plant, data] of Object.entries(plants)) {

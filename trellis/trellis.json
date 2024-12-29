@@ -10,6 +10,11 @@
         "BASE_MOISTURE_DECAY": 2,
         "REGION_NAME": "UPSTATE_NEW_YORK"
     },
+    "tileTypes": {
+        "EMPTY": "Empty",
+        "PLOT": "Plot",
+        "PATH": "Path"
+    },
     "timeCosts": {
         "TILL": 30,
         "FERTILIZE": 15,
