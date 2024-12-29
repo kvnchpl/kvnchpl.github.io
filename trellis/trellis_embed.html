@@ -364,7 +364,6 @@
                     return response.json();
                 })
                     .then(data => {
-                    console.log("Loaded JSON:", data);
                     gameData = data;   // Store the JSON data
                     initGame();        // Initialize the game after data is set
                 })
@@ -386,13 +385,6 @@
                     console.error("JSON data is missing required sections:", gameData);
                 }
 
-                console.log("Loaded game data:", gameData);
-
-                console.log("Initialized game with plant data:", plants);
-                console.log("Action time costs:", timeCosts);
-                console.log("Core game config:", gameConfig);
-                console.log("Tile types:", tileConfig);
-
                 // Configure game constants
                 configureGameConstants(gameConfig, plants, timeCosts, tileConfig);
 
@@ -403,8 +395,6 @@
 
                 // Initialize grid
                 initGrid();
-
-                console.log("Grid after initialization:", gameState.grid);
 
                 // Reset player position (ensures synchronization with grid)
                 resetPlayerPosition();
@@ -428,8 +418,6 @@
 
                 // Initialize the grid as a 2D array of tiles
                 const grid = [];
-                
-                console.log("gameData.tileConfig.stats: ", gameData.tileConfig.stats);
 
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     grid[row] = [];
@@ -443,8 +431,6 @@
 
                 // Assign the grid to the gameState
                 gameState.grid = grid;
-
-                console.log("Grid initialized using gameData:", gameState.grid);
             }
 
             function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
@@ -952,6 +938,10 @@ document.getElementById("biodiversityScore").textContent = gameState.biodiversit
 // TILL
 function tillSoil() {
 const tile = getTargetTile();
+
+console.log("tile: ", tile);
+console.log("tile.TYPE: ", tile.TYPE);
+console.log("comparing to: ", TILE_TYPE.EMPTY);
 
 if (tile.TYPE === TILE_TYPE.EMPTY) {
 tile.TYPE = TILE_TYPE.PLOT;
