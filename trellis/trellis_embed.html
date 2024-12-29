@@ -312,6 +312,8 @@
             let REGION_NAME;
 
             let TILE_TYPE = {};
+            let TILE_STATS = {};
+            let DISPLAY_NAMES = {};
             let TIME_COST = {};
             let GROWTH_TIME = {};
             let PRODUCE_YIELD = {};
@@ -376,15 +378,15 @@
                     return;
                 }
 
-                const { plants, timeCosts, gameConfig, tileTypes } = gameData;
+                const { plants, timeCosts, gameConfig, tileConfig } = gameData;
 
                 console.log("Initialized game with plant data:", plants);
                 console.log("Action time costs:", timeCosts);
                 console.log("Core game config:", gameConfig);
-                console.log("Tile types:", tileTypes);
+                console.log("Tile types:", tileConfig);
 
                 // Configure game constants
-                configureGameConstants(gameConfig, plants, timeCosts, tileTypes);
+                configureGameConstants(gameConfig, plants, timeCosts, tileConfig);
 
 
                 // Set default placeholder for player position
@@ -425,8 +427,8 @@
                 console.log("Grid initialized:", gameState.grid);
             }
 
-            function configureGameConstants(gameConfig, plants, timeCosts, tileTypes) {
-
+            function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
+                // Assign game configuration
                 TILE_SIZE = gameConfig.TILE_SIZE;
                 GRID_WIDTH = gameConfig.GRID_WIDTH;
                 GRID_HEIGHT = gameConfig.GRID_HEIGHT;
@@ -437,7 +439,12 @@
                 BASE_MOISTURE_DECAY = gameConfig.BASE_MOISTURE_DECAY;
                 REGION_NAME = gameConfig.REGION_NAME;
 
-                Object.assign(TILE_TYPE, tileTypes);
+                // Assign tile-related configuration
+                Object.assign(TILE_TYPE, tileConfig.types);
+                Object.assign(TILE_STATS, tileConfig.stats);
+                Object.assign(DISPLAY_NAMES, tileConfig.displayNames);
+
+                // Assign plants and time costs
                 Object.assign(TIME_COST, timeCosts);
 
                 for (const [plant, data] of Object.entries(plants)) {
@@ -452,31 +459,20 @@
                 updateWeekDisplay();
                 updateBiodiversityDisplay();
             }
-
+            
             function generateTileStatsUI() {
                 const contentContainer = document.getElementById("tileStatsContent");
                 contentContainer.innerHTML = ""; // Clear existing content
 
-                // Example template tile for UI generation
-                const templateTile = {
-                    type: TILE_TYPE.EMPTY,
-                    isTilled: false,
-                    plant: null, // Represents no plant initially
-                    weedLevel: 0,
-                    moisture: BASE_MOISTURE_START,
-                    moistureDecayRate: BASE_MOISTURE_DECAY,
-                    soilNutrients: { N: 50, P: 50, K: 50 },
-                };
-
-                Object.entries(templateTile).forEach(([key, value]) => {
+                Object.entries(TEMPLATE_TILE).forEach(([key, value]) => {
                     if (typeof value === "object" && key === "soilNutrients") {
                         Object.entries(value).forEach(([subKey]) => {
-                            appendTileStat(contentContainer, `${key} ${subKey}`);
+                            const label = DISPLAY_NAMES[key]?.[subKey] || subKey;
+                            appendTileStat(contentContainer, label);
                         });
-                    } else if (key === "plant") {
-                        appendTileStat(contentContainer, "Plant");
                     } else {
-                        appendTileStat(contentContainer, key);
+                        const label = DISPLAY_NAMES[key] || capitalize(key);
+                        appendTileStat(contentContainer, label);
                     }
                 });
             }
@@ -839,31 +835,31 @@ ${capitalize(label)}:
                 const tile = gameState.grid[y][x];
 
                 if (!tile) {
-                console.error("Tile stats update failed: Tile is undefined.");
-                return;
+                    console.error("Tile stats update failed: Tile is undefined.");
+                    return;
                 }
 
                 Object.entries(tile).forEach(([key, value]) => {
-                if (key === "plant") {
-                // Handle plant specifically
-                const plantTypeElement = document.getElementById("tilePlantType");
-                if (plantTypeElement) {
-                plantTypeElement.textContent = value ? value.type : "None";
-            }
-            } else if (typeof value === "object") {
-                Object.entries(value).forEach(([subKey, subValue]) => {
-                    const element = document.getElementById(`tile${capitalize(key)}${capitalize(subKey)}`);
-                    if (element) {
-                        element.textContent = subValue ?? "N/A";
+                    if (key === "plant") {
+                        // Handle plant specifically
+                        const plantTypeElement = document.getElementById("tilePlantType");
+                        if (plantTypeElement) {
+                            plantTypeElement.textContent = value ? value.type : "None";
+                        }
+                    } else if (typeof value === "object") {
+                        Object.entries(value).forEach(([subKey, subValue]) => {
+                            const element = document.getElementById(`tile${capitalize(key)}${capitalize(subKey)}`);
+                            if (element) {
+                                element.textContent = subValue ?? "N/A";
+                            }
+                        });
+                    } else {
+                        const element = document.getElementById(`tile${capitalize(key)}`);
+                        if (element) {
+                            element.textContent = value ?? "N/A";
+                        }
                     }
                 });
-            } else {
-                const element = document.getElementById(`tile${capitalize(key)}`);
-                if (element) {
-                    element.textContent = value ?? "N/A";
-                }
-            }
-            });
             }
 
             function clearTileStats() {
