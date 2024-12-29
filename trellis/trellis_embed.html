@@ -378,11 +378,6 @@
                 gameState.player.y = Math.floor(GRID_HEIGHT / 2);
 
                 // Initialize grid
-                
-                console.log("Configured constants:", {
-    GRID_WIDTH,
-    GRID_HEIGHT
-});
                 initGrid();
 
                 // Reset player position (ensures synchronization with grid)
@@ -418,20 +413,16 @@
             }
 
             function configureGameConstants(gameConfig, plants, timeCosts, tileTypes) {
-                Object.assign(
-                    {
-                        TILE_SIZE,
-                        GRID_WIDTH,
-                        GRID_HEIGHT,
-                        DAY_START,
-                        DAY_END,
-                        PEST_OUTBREAK_CHANCE,
-                        BASE_MOISTURE_START,
-                        BASE_MOISTURE_DECAY,
-                        REGION_NAME,
-                    },
-                    gameConfig
-                );
+
+                TILE_SIZE = gameConfig.TILE_SIZE;
+                GRID_WIDTH = gameConfig.GRID_WIDTH;
+                GRID_HEIGHT = gameConfig.GRID_HEIGHT;
+                DAY_START = gameConfig.DAY_START;
+                DAY_END = gameConfig.DAY_END;
+                PEST_OUTBREAK_CHANCE = gameConfig.PEST_OUTBREAK_CHANCE;
+                BASE_MOISTURE_START = gameConfig.BASE_MOISTURE_START;
+                BASE_MOISTURE_DECAY = gameConfig.BASE_MOISTURE_DECAY;
+                REGION_NAME = gameConfig.REGION_NAME;
 
                 Object.assign(TILE_TYPE, tileTypes);
                 Object.assign(TIME_COST, timeCosts);
@@ -551,8 +542,9 @@
             /* TIME & WEEK LOGIC */
 
             function advanceTime(minutes) {
-                currentTime += minutes;
-                if (currentTime >= DAY_END) {
+                gameState.currentTime += minutes; // Update gameState.currentTime instead of currentTime
+
+                if (gameState.currentTime >= DAY_END) {
                     skipToNextWeek();
                 } else {
                     updateTimeDisplay();
@@ -595,7 +587,7 @@
             }
 
             function recalculateBiodiversity() {
-                biodiversityScore = calculateBiodiversity();
+                gameState.biodiversityScore = calculateBiodiversity();
             }
 
             function calculateBiodiversity() {
@@ -876,7 +868,7 @@ No tile highlighted.
             }
 
             function updateBiodiversityDisplay() {
-                document.getElementById("biodiversityScore").textContent = biodiversityScore;
+                document.getElementById("biodiversityScore").textContent = gameState.biodiversityScore;
             }
 
             /* PLAYER ACTIONS */
