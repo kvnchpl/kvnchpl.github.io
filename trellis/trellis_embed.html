@@ -312,8 +312,8 @@
             let REGION_NAME;
 
             let TILE_TYPE = {};
-            let TILE_STATS = {};
-            let DISPLAY_NAMES = {};
+            let TILE_STAT = {};
+            let DISPLAY_NAME = {};
             let TIME_COST = {};
             let GROWTH_TIME = {};
             let PRODUCE_YIELD = {};
@@ -441,8 +441,8 @@
 
                 // Assign tile-related configuration
                 Object.assign(TILE_TYPE, tileConfig.types);
-                Object.assign(TILE_STATS, tileConfig.stats);
-                Object.assign(DISPLAY_NAMES, tileConfig.displayNames);
+                Object.assign(TILE_STAT, tileConfig.stats);
+                Object.assign(DISPLAY_NAME, tileConfig.displayNames);
 
                 // Assign plants and time costs
                 Object.assign(TIME_COST, timeCosts);
