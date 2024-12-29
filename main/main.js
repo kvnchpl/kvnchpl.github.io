@@ -1,3 +1,5 @@
+const BASE_URL = "https://kvnchpl.github.io/main/";
+const IMAGE_LIST_URL = "https://kvnchpl.github.io/main/sky_images.json";
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
@@ -6,18 +8,18 @@ window.onload = () => {
     const linkContainer = document.getElementById('link-container');
     const rows = document.querySelectorAll('#link-container .row');
 
-    fetch('https://kvnchpl.github.io/main/sky_images.json')
+    fetch(IMAGE_LIST_URL)
         .then(response => {
         if (!response.ok) {
             throw new Error('Failed to fetch images');
         }
-        return response.json();
+        return response.json(); // Returns the array directly
     })
-        .then(data => {
-        const imageList = data.imageList;
-
+        .then(imageList => {
+        if (!Array.isArray(imageList)) {
+            throw new Error('Invalid data format for JSON: Expected an array.');
+        }
         overlay.setAttribute('data-images', JSON.stringify(imageList));
-
         initializeImageOverlay(imageList);
     })
         .catch(error => console.error('Error loading images:', error));
@@ -44,20 +46,27 @@ window.onload = () => {
         };
 
         // Function to load links dynamically
-        function loadLinks(url) {
-            fetch(url)
+        function loadLinks(url = null) {
+            const linkContainer = document.getElementById('link-container');
+            // Use the provided URL or fallback to the data-json attribute
+            const jsonFile = url || linkContainer.getAttribute('data-json');
+
+            if (!jsonFile) {
+                console.error("No JSON file specified via parameter or data-json attribute.");
+                return;
+            }
+
+            fetch(`${BASE_URL}${jsonFile}`)
                 .then(response => {
                 if (!response.ok) {
-                    throw new Error("Failed to load content");
+                    throw new Error(`Failed to fetch ${jsonFile}`);
                 }
                 return response.json();
             })
                 .then(data => {
                 renderLinks(data);
             })
-                .catch(error => {
-                console.error("Error loading links:", error);
-            });
+                .catch(error => console.error("Error loading links:", error));
         }
 
         // Function to render the links into the link-container
@@ -137,15 +146,6 @@ window.onload = () => {
             });
         }
 
-        // Usage Example:
-        const page = window.location.pathname.split("/").pop().replace(".html", "");
-        const jsonFile = `${page || "substation"}.json`;
-
-        // Load links dynamically from the corresponding JSON file
-        fetch(`https://kvnchpl.github.io/main/${jsonFile}`)
-            .then(response => response.json())
-            .then(renderLinks)
-            .catch(error => console.error("Error loading links:", error));
         const randomizeLinks = (rows) => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector('.link-wrapper');
