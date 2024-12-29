@@ -140,6 +140,32 @@
                 font-size: 0.9rem;
             }
 
+            /* Adjust existing #tileStatsContent styles */
+            #tileStatsContent {
+                display: flex;
+                flex-direction: column;
+                gap: var(--spacing-unit); /* Add spacing between rows */
+                justify-content: flex-start; /* Align content at the start */
+            }
+
+            /* Ensure all children are styled consistently */
+            #tileStatsContent div {
+                display: flex;
+                justify-content: space-between; /* Align labels and values */
+                align-items: center;
+                margin-bottom: var(--spacing-unit); /* Add spacing for clarity */
+            }
+
+            /* Style <strong> and <span> in tile stats */
+            #tileStatsContent strong {
+                font-weight: bold;
+                color: var(--color-text-secondary); /* Match existing text styling */
+            }
+
+            #tileStatsContent span {
+                color: var(--color-text-primary); /* Ensure values use primary color */
+            }
+
             #actionHelp {
                 position: relative; /* Enable precise placement of the heading */
                 text-align: left; /* Align text consistently */
@@ -266,7 +292,9 @@
 
                 <!-- Tile Stats -->
                 <div id="tileStats">
-                    <strong>Tile Stats</strong><br />
+                    <strong>Tile Stats</strong>
+                    <div id="tileStatsContent">
+                    </div>
                 </div>
 
                 <!-- Action Help -->
@@ -439,13 +467,13 @@
             }
 
             function generateTileStatsUI() {
-                const statsContainer = document.getElementById("tileStats");
+                const contentContainer = document.getElementById("tileStatsContent");
 
-                // Clear any existing content
-                statsContainer.innerHTML = "<strong>Tile Stats</strong><br>";
+                // Clear existing content
+                contentContainer.innerHTML = "";
 
-                // Example tile to reference the default properties
-                const exampleTile = {
+                // Example tile structure
+                const tile = {
                     type: TILE_TYPE.EMPTY,
                     isTilled: false,
                     plant: null,
@@ -455,23 +483,32 @@
                     soilNutrients: { N: 50, P: 50, K: 50 },
                 };
 
-                // Iterate through the keys of the example tile to generate UI fields
-                for (const key in exampleTile) {
-                    if (typeof exampleTile[key] === "object") {
+                // Iterate through tile properties
+                for (const key in tile) {
+                    if (typeof tile[key] === "object") {
                         // Handle nested objects (e.g., soilNutrients)
-                        for (const subKey in exampleTile[key]) {
-                            statsContainer.innerHTML += `
-<div>
-<strong>${subKey}:</strong> <span id="tile${capitalize(key)}${capitalize(subKey)}">N/A</span>
-            </div>`;
+                        for (const subKey in tile[key]) {
+                            const subField = document.createElement("div");
+                            subField.innerHTML = `
+<strong>${subKey}:</strong>
+<span id="tile${capitalize(key)}${capitalize(subKey)}">N/A</span>
+`;
+                            contentContainer.appendChild(subField);
                         }
                     } else {
-                        statsContainer.innerHTML += `
-<div>
-<strong>${capitalize(key)}:</strong> <span id="tile${capitalize(key)}">N/A</span>
-            </div>`;
+                        const field = document.createElement("div");
+                        field.innerHTML = `
+<strong>${capitalize(key)}:</strong>
+<span id="tile${capitalize(key)}">N/A</span>
+`;
+                        contentContainer.appendChild(field);
                     }
                 }
+            }
+
+            // Helper function to capitalize strings
+            function capitalize(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
             }
 
             // Helper function to capitalize strings
