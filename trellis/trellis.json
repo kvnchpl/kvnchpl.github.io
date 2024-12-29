@@ -28,40 +28,40 @@
         },
         "stats": {
             "TYPE": {
-                "DISPLAY_NAME": "Type",
+                "NAME": "Type",
                 "VALUE": "Empty"
             },
             "IS_TILLED": {
-                "DISPLAY_NAME": "Tilled",
+                "NAME": "Tilled",
                 "VALUE": false
             },
             "PLANT": {
-                "DISPLAY_NAME": "Plant",
+                "NAME": "Plant",
                 "VALUE": null
             },
             "WEED_LEVEL": {
-                "DISPLAY_NAME": "Weed Level",
+                "NAME": "Weed Level",
                 "VALUE": "0"
             },
             "MOISTURE": {
-                "DISPLAY_NAME": "Moisture",
+                "NAME": "Moisture",
                 "VALUE": "50"
             },
             "MOISTURE_DECAY_RATE": {
-                "DISPLAY_NAME": "Moisture Decay Rate",
+                "NAME": "Moisture Decay Rate",
                 "VALUE": "2"
             },
             "SOIL_NUTRIENTS": {
                 "N": {
-                    "DISPLAY_NAME": "Nitrogen",
+                    "NAME": "Nitrogen",
                     "VALUE": "50"
                 },
                 "P": {
-                    "DISPLAY_NAME": "Phosphorus",
+                    "NAME": "Phosphorus",
                     "VALUE": "50"
                 },
                 "K": {
-                    "DISPLAY_NAME": "Potassium",
+                    "NAME": "Potassium",
                     "VALUE": "50"
                 }
             }
