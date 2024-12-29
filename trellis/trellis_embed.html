@@ -331,6 +331,7 @@
                 currentTime: 0, // Time in minutes past 7:00 AM
                 biodiversityScore: 0,
                 grid: [],
+                tileTemplate: null,
                 player: {
                     x: null,
                     y: null,
@@ -403,6 +404,8 @@
 
                 // Initialize grid
                 initGrid();
+                
+                console.log("Grid after initialization:", gameState.grid);
 
                 // Reset player position (ensures synchronization with grid)
                 resetPlayerPosition();
@@ -418,21 +421,27 @@
             }
 
             function initGrid() {
-                gameState.grid = Array.from(
-                    { length: GRID_HEIGHT },
-                    () =>
-                    Array.from({ length: GRID_WIDTH }, () => ({
-                        type: TILE_TYPE.EMPTY,
-                        isTilled: false,
-                        plant: null,
-                        weedLevel: 0,
-                        moisture: BASE_MOISTURE_START,
-                        moistureDecayRate: BASE_MOISTURE_DECAY,
-                        soilNutrients: { N: 50, P: 50, K: 50 },
-                    }))
-                );
+                // Fetch the tile template from TILE_CONFIG.stats
+                const defaultTile = JSON.parse(JSON.stringify(TILE_CONFIG.stats));
 
-                console.log("Grid initialized:", gameState.grid);
+                // Initialize the grid as a 2D array of tiles
+                const grid = [];
+
+                for (let row = 0; row < GRID_HEIGHT; row++) {
+                    grid[row] = [];
+                    for (let col = 0; col < GRID_WIDTH; col++) {
+                        // Create a copy of the default tile for each position
+                        const tile = JSON.parse(JSON.stringify(defaultTile));
+
+                        // Assign the tile to the grid
+                        grid[row][col] = tile;
+                    }
+                }
+
+                // Assign the grid to the gameState
+                gameState.grid = grid;
+
+                console.log("Grid initialized with pre-defined tile objects:", gameState.grid);
             }
 
             function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
@@ -476,36 +485,35 @@
                     if (key === "SOIL_NUTRIENTS") {
                         Object.entries(value).forEach(([subKey]) => {
                             const label = DISPLAY_NAME[key]?.[subKey] || subKey;
-                            appendTileStat(contentContainer, label);
-                        });
-                    } else {
-                        const label = DISPLAY_NAME[key] || capitalize(key.replace(/_/g, " "));
-                        appendTileStat(contentContainer, label);
-                    }
-                });
-            }
+                            const id = `tileSoilNutrients${capitalize(subKey)}`;
+console.log(`Generated ID for soil nutrient ${subKey}:`, id);
+appendTileStat(contentContainer, label, id);
+});
+} else {
+const label = DISPLAY_NAME[key] || capitalize(key.replace(/_/g, " "));
+const id = `tile${capitalize(key.replace(/_/g, ""))}`;
+console.log(`Generated ID for stat ${key}:`, id);
+appendTileStat(contentContainer, label, id);
+}
+});
+}
 
-                            function appendTileStat(container, label) {
-    if (typeof label !== "string") {
-        console.warn("Invalid label:", label);
-        label = String(label || "Unknown"); // Default to "Unknown" if label is null/undefined
-    }
-
-    const field = document.createElement("div");
-    field.innerHTML = `
-        ${capitalize(label)}:
-        <span id="tile${capitalize(label.replace(" ", ""))}">N/A</span>
-    `;
-    container.appendChild(field);
+function appendTileStat(container, label, id) {
+const field = document.createElement("div");
+field.innerHTML = `
+${capitalize(label)}:
+    <span id="${id}">N/A</span>
+                            `;
+container.appendChild(field);
 }
 
 // Helper function to capitalize strings
 function capitalize(str) {
-    if (typeof str !== "string") {
-        console.warn("capitalize called with non-string:", str);
-        return String(str || "").toUpperCase(); // Fall back to a default string representation
-    }
-    return str.charAt(0).toUpperCase() + str.slice(1);
+if (typeof str !== "string") {
+console.warn("capitalize called with non-string:", str);
+return String(str || "").toUpperCase(); // Fall back to a default string representation
+}
+return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 /* EVENT LISTENERS */
@@ -848,27 +856,48 @@ tile.plant.isMature = true;
 }
 
 function updateTileStats() {
-    const { x, y } = gameState.highlightedTile;
-    const tile = gameState.grid[y][x];
+const { x, y } = gameState.highlightedTile;
+const tile = gameState.grid[y][x];
 
-    if (!tile) {
-        console.error("Tile stats update failed: Tile is undefined.");
-        return;
-    }
+if (!tile) {
+console.error("Tile stats update failed: Tile is undefined.");
+return;
+}
 
-    Object.entries(tile).forEach(([key, value]) => {
-        if (key === "PLANT") {
-            document.getElementById("tilePlant").textContent = value ? value.type : "None";
-        } else if (key === "SOIL_NUTRIENTS") {
-            Object.entries(value).forEach(([subKey, subValue]) => {
-                const element = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
-                if (element) element.textContent = subValue ?? "N/A";
-            });
-        } else {
-            const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
-            if (element) element.textContent = value ?? "N/A";
-        }
-    });
+console.log(`Updating tile stats for tile at (${x}, ${y}):`, tile);
+
+Object.entries(tile).forEach(([key, value]) => {
+
+if (key === "PLANT") {
+const element = document.getElementById("tilePlant");
+console.log("looking for elementID: tilePlant");
+if (element) {
+element.textContent = value ? value.type : "None";
+} else {
+console.warn(`No element found for PLANT stat.`);
+}
+} else if (key === "SOIL_NUTRIENTS") {
+Object.entries(value).forEach(([subKey, subValue]) => {
+const element = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
+if (element) {
+element.textContent = subValue ?? "N/A";
+} else {
+console.warn(`No element found for nutrient: ${subKey}`);
+}
+});
+} else {
+const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
+if (element) {
+if (typeof value === "boolean") {
+element.textContent = value ? "Yes" : "No";
+} else {
+element.textContent = value ?? "N/A";
+}
+} else {
+console.warn(`No element found for stat: ${key}`);
+}
+}
+});
 }
 
 function clearTileStats() {
