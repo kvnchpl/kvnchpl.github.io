@@ -133,8 +133,7 @@ window.onload = () => {
         shuffledImages = shuffleArray([...imageList]);
         preloadImages(shuffledImages);
 
-        // Mobile: Display the first image in the shuffled list
-        const isMobile = () => window.innerWidth <= 768;
+        // Mobile: Display the first image in the shuffled list;
         if (isMobile()) {
             const initialImage = getNextImage();
             overlay.style.backgroundImage = `url(${initialImage})`;
