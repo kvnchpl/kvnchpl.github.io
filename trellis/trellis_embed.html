@@ -473,17 +473,17 @@
                 contentContainer.innerHTML = ""; // Clear existing content
 
                 Object.entries(TILE_STAT).forEach(([key, value]) => {
-                    if (typeof value === "object" && key === "soilNutrients") {
+                    if (key === "SOIL_NUTRIENTS") {
                         Object.entries(value).forEach(([subKey]) => {
                             const label = DISPLAY_NAME[key]?.[subKey] || subKey;
                             appendTileStat(contentContainer, label);
-                            });
-                            } else {
-                            const label = DISPLAY_NAME[key] || capitalize(key);
-                            appendTileStat(contentContainer, label);
-                            }
-                            });
-                            }
+                        });
+                    } else {
+                        const label = DISPLAY_NAME[key] || capitalize(key.replace(/_/g, " "));
+                        appendTileStat(contentContainer, label);
+                    }
+                });
+            }
 
                             function appendTileStat(container, label) {
     if (typeof label !== "string") {
@@ -848,35 +848,27 @@ tile.plant.isMature = true;
 }
 
 function updateTileStats() {
-const { x, y } = gameState.highlightedTile;
-const tile = gameState.grid[y][x];
+    const { x, y } = gameState.highlightedTile;
+    const tile = gameState.grid[y][x];
 
-if (!tile) {
-console.error("Tile stats update failed: Tile is undefined.");
-return;
-}
+    if (!tile) {
+        console.error("Tile stats update failed: Tile is undefined.");
+        return;
+    }
 
-Object.entries(tile).forEach(([key, value]) => {
-if (key === "plant") {
-// Handle plant specifically
-const plantTypeElement = document.getElementById("tilePlantType");
-if (plantTypeElement) {
-plantTypeElement.textContent = value ? value.type : "None";
-}
-} else if (typeof value === "object") {
-Object.entries(value).forEach(([subKey, subValue]) => {
-const element = document.getElementById(`tile${capitalize(key)}${capitalize(subKey)}`);
-if (element) {
-element.textContent = subValue ?? "N/A";
-}
-});
-} else {
-const element = document.getElementById(`tile${capitalize(key)}`);
-if (element) {
-element.textContent = value ?? "N/A";
-}
-}
-});
+    Object.entries(tile).forEach(([key, value]) => {
+        if (key === "PLANT") {
+            document.getElementById("tilePlant").textContent = value ? value.type : "None";
+        } else if (key === "SOIL_NUTRIENTS") {
+            Object.entries(value).forEach(([subKey, subValue]) => {
+                const element = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
+                if (element) element.textContent = subValue ?? "N/A";
+            });
+        } else {
+            const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
+            if (element) element.textContent = value ?? "N/A";
+        }
+    });
 }
 
 function clearTileStats() {
