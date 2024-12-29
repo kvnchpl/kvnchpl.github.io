@@ -51,6 +51,52 @@
                 "P": "Phosphorus",
                 "K": "Potassium"
             }
+        },
+    },
+    "plants": {
+        "tomato": {
+            "GROWTH_TIME": 4,
+            "PRODUCE_YIELD": 3,
+            "MOISTURE_REQUIREMENT": 70,
+            "NUTRIENT_USAGE": {
+                "N": 5,
+                "P": 4,
+                "K": 3
+            },
+            "PEST_ATTRACTION": 10
+        },
+        "kale": {
+            "GROWTH_TIME": 6,
+            "PRODUCE_YIELD": 2,
+            "MOISTURE_REQUIREMENT": 50,
+            "NUTRIENT_USAGE": {
+                "N": 4,
+                "P": 2,
+                "K": 1
+            },
+            "PEST_ATTRACTION": 5
+        },
+        "corn": {
+            "GROWTH_TIME": 8,
+            "PRODUCE_YIELD": 5,
+            "MOISTURE_REQUIREMENT": 60,
+            "NUTRIENT_USAGE": {
+                "N": 7,
+                "P": 6,
+                "K": 4
+            },
+            "PEST_ATTRACTION": 8
+        },
+        "beans": {
+            "GROWTH_TIME": 6,
+            "PRODUCE_YIELD": 4,
+            "MOISTURE_REQUIREMENT": 40,
+            "NUTRIENT_USAGE": {
+                "N": -3,
+                "P": 1,
+                "K": 1
+            },
+            "PEST_ATTRACTION": 4
         }
     }
 }
