@@ -29,7 +29,7 @@
         "stats": {
             "TYPE": {
                 "DISPLAY_NAME": "Type",
-                "VALUE": "EMPTY"
+                "VALUE": "empty"
             },
             "IS_TILLED": {
                 "DISPLAY_NAME": "Tilled",
