@@ -293,6 +293,7 @@
 
             let TILE_SIZE, GRID_WIDTH, GRID_HEIGHT;
             let DAY_START, DAY_END;
+            let PEST_OUTBREAK_CHANCE;
             let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
             let REGION_NAME;
 
@@ -377,6 +378,11 @@
                 gameState.player.y = Math.floor(GRID_HEIGHT / 2);
 
                 // Initialize grid
+                
+                console.log("Configured constants:", {
+    GRID_WIDTH,
+    GRID_HEIGHT
+});
                 initGrid();
 
                 // Reset player position (ensures synchronization with grid)
@@ -419,6 +425,7 @@
                         GRID_HEIGHT,
                         DAY_START,
                         DAY_END,
+                        PEST_OUTBREAK_CHANCE,
                         BASE_MOISTURE_START,
                         BASE_MOISTURE_DECAY,
                         REGION_NAME,
