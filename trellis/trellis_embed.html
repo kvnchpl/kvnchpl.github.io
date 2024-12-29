@@ -369,6 +369,7 @@
                 })
                     .then(data => {
                     gameData = data;   // Store the JSON data
+                    console.log("gameData loaded! \n", gameData);
                     initGame();        // Initialize the game after data is set
                 })
                     .catch(error => {
@@ -384,7 +385,7 @@
 
                 const { plants, timeCosts, gameConfig, tileConfig } = gameData;
 
-                console.log("gameData loaded: ", gameData);
+                
 
                 if (!plants || !tileConfig || !timeCosts || !gameConfig) {
                     console.error("JSON data is missing required sections:", gameData);
