@@ -27,26 +27,26 @@
             "PATH": "path"
         },
         "stats": {
-            "type": "EMPTY",
-            "isTilled": false,
-            "plant": null,
-            "weedLevel": 0,
-            "moisture": 50,
-            "moistureDecayRate": 2,
-            "soilNutrients": {
+            "TYPE": "EMPTY",
+            "IS_TILLED": false,
+            "PLANT": null,
+            "WEED_LEVEL": 0,
+            "MOISTURE": 50,
+            "MOISTURE_DECAY_RATE": 2,
+            "SOIL_NUTRIENTS": {
                 "N": 50,
                 "P": 50,
                 "K": 50
             }
         },
         "displayNames": {
-            "type": "Type",
-            "isTilled": "Tilled",
-            "plant": "Plant",
-            "weedLevel": "Weed Level",
-            "moisture": "Moisture",
-            "moistureDecayRate": "Moisture Decay Rate",
-            "soilNutrients": {
+            "TYPE": "Type",
+            "IS_TILLED": "Tilled?",
+            "PLANT": "Plant",
+            "WEED_LEVEL": "Weed Level",
+            "MOISTURE": "Moisture",
+            "MOISTURE_DECAY_RATE": "Moisture Decay Rate",
+            "SOIL_NUTRIENTS": {
                 "N": "Nitrogen",
                 "P": "Phosphorus",
                 "K": "Potassium"
