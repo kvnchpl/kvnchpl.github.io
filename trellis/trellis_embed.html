@@ -46,6 +46,8 @@
                 --tile-moisture-low: #c2b280;
                 --tile-plant-young: #7EC850;
                 --tile-plant-mature: #98FB98;
+                
+                --transition-default: background 0.3s ease;
             }
 
             .hidden {
@@ -224,7 +226,7 @@
                 cursor: pointer;
                 font-size: 1rem;
                 box-shadow: var(--box-shadow);
-                transition: background 0.3s ease;
+                transition: var(--transition-default);
             }
 
             #tutorialOverlay button:hover {
