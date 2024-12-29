@@ -27,29 +27,43 @@
             "PATH": "path"
         },
         "stats": {
-            "TYPE": "EMPTY",
-            "IS_TILLED": false,
-            "PLANT": null,
-            "WEED_LEVEL": 0,
-            "MOISTURE": 50,
-            "MOISTURE_DECAY_RATE": 2,
+            "TYPE": {
+                "DISPLAY_NAME": "Type",
+                "VALUE": "EMPTY"
+            },
+            "IS_TILLED": {
+                "DISPLAY_NAME": "Tilled",
+                "VALUE": false
+            },
+            "PLANT": {
+                "DISPLAY_NAME": "Type",
+                "VALUE": null
+            },
+            "WEED_LEVEL": {
+                "DISPLAY_NAME": "Weed Level",
+                "VALUE": "0"
+            },
+            "MOISTURE": {
+                "DISPLAY_NAME": "Moisture",
+                "VALUE": "50"
+            },
+            "MOISTURE_DECAY_RATE": {
+                "DISPLAY_NAME": "Moisture Decay Rate",
+                "VALUE": "2"
+            },
             "SOIL_NUTRIENTS": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            }
-        },
-        "displayNames": {
-            "TYPE": "Type",
-            "IS_TILLED": "Tilled",
-            "PLANT": "Plant",
-            "WEED_LEVEL": "Weed Level",
-            "MOISTURE": "Moisture",
-            "MOISTURE_DECAY_RATE": "Moisture Decay Rate",
-            "SOIL_NUTRIENTS": {
-                "N": "Nitrogen",
-                "P": "Phosphorus",
-                "K": "Potassium"
+                "N": {
+                    "DISPLAY_NAME": "Nitrogen",
+                    "VALUE": "50"
+                },
+                "P": {
+                    "DISPLAY_NAME": "Phosphorus",
+                    "VALUE": "50"
+                },
+                "K": {
+                    "DISPLAY_NAME": "Potassium",
+                    "VALUE": "50"
+                }
             }
         }
     },
