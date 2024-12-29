@@ -385,7 +385,7 @@
 
                 const { plants, timeCosts, gameConfig, tileConfig } = gameData;
 
-                
+
 
                 if (!plants || !tileConfig || !timeCosts || !gameConfig) {
                     console.error("JSON data is missing required sections:", gameData);
@@ -422,9 +422,13 @@
                 }
 
                 gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-                                            Array.from({ length: GRID_WIDTH }, () =>
-                                                       structuredClone(gameData.tileConfig.stats)
-                                                      )
+                                            Array.from({ length: GRID_WIDTH }, () => {
+                    const tile = structuredClone(gameData.tileConfig.stats);
+                    if (tile.PLANT === undefined) {
+                        tile.PLANT = { VALUE: null }; // Ensure PLANT is always an object with a VALUE key
+                    }
+                    return tile;
+                })
                                            );
             }
 
@@ -871,252 +875,249 @@ ${capitalize(label)}:
 
                 // Iterate over the tile's actual properties
                 Object.entries(tile).forEach(([key, value]) => {
-                    console.log("key: ", key);
-                    console.log("key.NAME: ", key.NAME);
-                    console.log("=== PLANT? ", key.NAME === PLANT);
-                    console.log("== PLANT? ", key.NAME == PLANT);
                     if (key === "PLANT") {
                         const element = document.getElementById("tilePlant");
                         if (element) {
-                            element.textContent = value.VALUE
-                                ? PLANT[value.NAME]?.NAME || "Unknown Plant"
+                            const plantValue = value?.VALUE; // Safe navigation to check if VALUE exists
+                            element.textContent = plantValue
+                            ? PLANT[plantValue]?.NAME || "Unknown Plant"
                             : "None";
                         }
-                        } else if (key === "SOIL_NUTRIENTS") {
-                            Object.entries(value || {}).forEach(([subKey, nutrientValue]) => {
+                    } else if (key === "SOIL_NUTRIENTS") {
+                        Object.entries(value || {}).forEach(([subKey, nutrientValue]) => {
                             const nutrientElement = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
-if (nutrientElement) {
-nutrientElement.textContent = nutrientValue.VALUE ?? "N/A";
-}
-});
-} else {
-const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
-if (element) {
-element.textContent =
-typeof value.VALUE === "boolean"
-? value.VALUE
-? "Yes"
-: "No"
-: value.VALUE !== null && value.VALUE !== undefined
-? value.VALUE
-: "N/A";
-}
-}
-});
-}
+                            if (nutrientElement) {
+                                nutrientElement.textContent = nutrientValue.VALUE ?? "N/A";
+                            }
+                        });
+                    } else {
+                        const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
+                        if (element) {
+                            element.textContent =
+                                typeof value.VALUE === "boolean"
+                                ? value.VALUE
+                                ? "Yes"
+                            : "No"
+                            : value.VALUE !== null && value.VALUE !== undefined
+                                ? value.VALUE
+                            : "N/A";
+                        }
+                    }
+                });
+            }
 
-function clearTileStats() {
-const statsContainer = document.getElementById("tileStats");
-const spans = statsContainer.querySelectorAll("span");
-spans.forEach(span => (span.textContent = "N/A"));
-}
+            function clearTileStats() {
+                const statsContainer = document.getElementById("tileStats");
+                const spans = statsContainer.querySelectorAll("span");
+                spans.forEach(span => (span.textContent = "N/A"));
+            }
 
-/* UI UPDATES */
+            /* UI UPDATES */
 
-function updateTimeDisplay() {
-const timeDisplay = document.getElementById("timeDisplay");
+            function updateTimeDisplay() {
+                const timeDisplay = document.getElementById("timeDisplay");
 
-// Convert gameState.currentTime (minutes since 7:00 AM) to HH:MM format
-let totalMinutes = gameState.currentTime;
-let hours = 7 + Math.floor(totalMinutes / 60);
-let minutes = totalMinutes % 60;
-let ampm = hours >= 12 ? "PM" : "AM";
+                // Convert gameState.currentTime (minutes since 7:00 AM) to HH:MM format
+                let totalMinutes = gameState.currentTime;
+                let hours = 7 + Math.floor(totalMinutes / 60);
+                let minutes = totalMinutes % 60;
+                let ampm = hours >= 12 ? "PM" : "AM";
 
-// Convert to 12-hour format
-if (hours > 12) hours -= 12;
-if (hours === 0) hours = 12;
+                // Convert to 12-hour format
+                if (hours > 12) hours -= 12;
+                if (hours === 0) hours = 12;
 
-const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
-timeDisplay.textContent = `Time: ${hours}:${formattedMinutes} ${ampm}`;
-}
+                const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+                timeDisplay.textContent = `Time: ${hours}:${formattedMinutes} ${ampm}`;
+            }
 
-function updateWeekDisplay() {
-document.getElementById("weekDisplay").textContent = "Week: " + gameState.currentWeek;
-}
+            function updateWeekDisplay() {
+                document.getElementById("weekDisplay").textContent = "Week: " + gameState.currentWeek;
+            }
 
-function updateBiodiversityDisplay() {
-document.getElementById("biodiversityScore").textContent = "Biodiversity: " + gameState.biodiversityScore;
-}
+            function updateBiodiversityDisplay() {
+                document.getElementById("biodiversityScore").textContent = "Biodiversity: " + gameState.biodiversityScore;
+            }
 
-/* PLAYER ACTIONS */
+            /* PLAYER ACTIONS */
 
-// TILL
-function tillSoil() {
-const tile = getTargetTile();
+            // TILL
+            function tillSoil() {
+                const tile = getTargetTile();
 
-if (tile.TYPE.VALUE == TILE_TYPE.EMPTY) {
-tile.TYPE.VALUE = TILE_TYPE.PLOT;
-tile.IS_TILLED.VALUE = true;
+                if (tile.TYPE.VALUE == TILE_TYPE.EMPTY) {
+                    tile.TYPE.VALUE = TILE_TYPE.PLOT;
+                    tile.IS_TILLED.VALUE = true;
 
-console.log("Soil tilled at:", tile);
-advanceTime(TIME_COST.TILL);
-updateTileStats();
-} else {
-console.log("Cannot till this tile.");
-}
-}
+                    console.log("Soil tilled at:", tile);
+                    advanceTime(TIME_COST.TILL);
+                    updateTileStats();
+                } else {
+                    console.log("Cannot till this tile.");
+                }
+            }
 
-// FERTILIZE
-function fertilizeTile() {
-const tile = getTargetTile();
+            // FERTILIZE
+            function fertilizeTile() {
+                const tile = getTargetTile();
 
-if (gameState.inventory.fertilizer > 0) {
-tile.SOIL_NUTRIENTS.N = Math.min(tile.SOIL_NUTRIENTS.N + 20, 100);
-tile.SOIL_NUTRIENTS.P = Math.min(tile.SOIL_NUTRIENTS.P + 10, 100);
-tile.SOIL_NUTRIENTS.K = Math.min(tile.SOIL_NUTRIENTS.K + 10, 100);
-gameState.inventory.fertilizer--;
+                if (gameState.inventory.fertilizer > 0) {
+                    tile.SOIL_NUTRIENTS.N = Math.min(tile.SOIL_NUTRIENTS.N + 20, 100);
+                    tile.SOIL_NUTRIENTS.P = Math.min(tile.SOIL_NUTRIENTS.P + 10, 100);
+                    tile.SOIL_NUTRIENTS.K = Math.min(tile.SOIL_NUTRIENTS.K + 10, 100);
+                    gameState.inventory.fertilizer--;
 
-console.log("Fertilized tile at:", tile);
-advanceTime(TIME_COST.FERTILIZE);
-updateTileStats();
-} else {
-console.log("No fertilizer left!");
-}
-}
+                    console.log("Fertilized tile at:", tile);
+                    advanceTime(TIME_COST.FERTILIZE);
+                    updateTileStats();
+                } else {
+                    console.log("No fertilizer left!");
+                }
+            }
 
-// PLANT
-function plantSeed(seedType) {
-const tile = getTargetTile();
-if (!tile.IS_TILLED) {
-console.log("Soil is not tilled. Cannot plant yet.");
-return;
-}
-if (tile.PLANT !== null) {
-console.log("There's already a plant here!");
-return;
-}
-if (gameState.inventory.seeds[seedType] && gameState.inventory.seeds[seedType] > 0) {
-// Use 1 seed
-gameState.inventory.seeds[seedType]--;
-// Create a new plant object
-tile.PLANT = {
-type: seedType,
-age: 0,
-isMature: false
-};
-console.log(`Planted ${seedType} at (${player.x}, ${player.y})`);
-advanceTime(TIME_COST.PLANT);
-updateTileStats();
-} else {
-console.log(`No ${seedType} seeds left.`);
-}
-}
+            // PLANT
+            function plantSeed(seedType) {
+                const tile = getTargetTile();
+                if (!tile.IS_TILLED) {
+                    console.log("Soil is not tilled. Cannot plant yet.");
+                    return;
+                }
+                if (tile.PLANT !== null) {
+                    console.log("There's already a plant here!");
+                    return;
+                }
+                if (gameState.inventory.seeds[seedType] && gameState.inventory.seeds[seedType] > 0) {
+                    // Use 1 seed
+                    gameState.inventory.seeds[seedType]--;
+                    // Create a new plant object
+                    tile.PLANT = {
+                        type: seedType,
+                        age: 0,
+                        isMature: false
+                    };
+                    console.log(`Planted ${seedType} at (${player.x}, ${player.y})`);
+                    advanceTime(TIME_COST.PLANT);
+                    updateTileStats();
+                } else {
+                    console.log(`No ${seedType} seeds left.`);
+                }
+            }
 
-// WATER
-function waterTile() {
-const tile = getTargetTile();
+            // WATER
+            function waterTile() {
+                const tile = getTargetTile();
 
-tile.MOISTURE = Math.min(tile.MOISTURE + 20, 100);
+                tile.MOISTURE = Math.min(tile.MOISTURE + 20, 100);
 
-console.log("Watered tile at:", tile);
-advanceTime(TIME_COST.WATER);
-updateTileStats();
-}
+                console.log("Watered tile at:", tile);
+                advanceTime(TIME_COST.WATER);
+                updateTileStats();
+            }
 
-// MULCH
-function mulchTile() {
-const tile = getTargetTile();
+            // MULCH
+            function mulchTile() {
+                const tile = getTargetTile();
 
-if (gameState.inventory.mulch > 0) {
-tile.MOISTURE_DECAY_RATE = Math.max(tile.MOISTURE_DECAY_RATE - 1, 0);
-gameState.inventory.mulch--;
+                if (gameState.inventory.mulch > 0) {
+                    tile.MOISTURE_DECAY_RATE = Math.max(tile.MOISTURE_DECAY_RATE - 1, 0);
+                    gameState.inventory.mulch--;
 
-console.log("Mulched tile at:", tile);
-advanceTime(TIME_COST.MULCH);
-updateTileStats();
-} else {
-console.log("No mulch left!");
-}
-}
+                    console.log("Mulched tile at:", tile);
+                    advanceTime(TIME_COST.MULCH);
+                    updateTileStats();
+                } else {
+                    console.log("No mulch left!");
+                }
+            }
 
-// WEED
-function weedTile() {
-const tile = getTargetTile();
+            // WEED
+            function weedTile() {
+                const tile = getTargetTile();
 
-if (tile.WEED_LEVEL > 0) {
-tile.WEED_LEVEL = 0;
+                if (tile.WEED_LEVEL > 0) {
+                    tile.WEED_LEVEL = 0;
 
-console.log("Weeds removed at:", tile);
-advanceTime(TIME_COST.WEED);
-updateTileStats();
-} else {
-console.log("No weeds here.");
-}
-}
+                    console.log("Weeds removed at:", tile);
+                    advanceTime(TIME_COST.WEED);
+                    updateTileStats();
+                } else {
+                    console.log("No weeds here.");
+                }
+            }
 
-// HARVEST
-function harvestPlant() {
-const tile = getTargetTile();
+            // HARVEST
+            function harvestPlant() {
+                const tile = getTargetTile();
 
-if (tile.PLANT && tile.PLANT.IS_MATURE) {
-const type = tile.PLANT.NAME;
-gameState.inventory.produce[type] = (gameState.inventory.produce[type] || 0) + PRODUCE_YIELD[type];
+                if (tile.PLANT && tile.PLANT.IS_MATURE) {
+                    const type = tile.PLANT.NAME;
+                    gameState.inventory.produce[type] = (gameState.inventory.produce[type] || 0) + PRODUCE_YIELD[type];
 
-console.log(`Harvested ${type} at:`, tile);
+                    console.log(`Harvested ${type} at:`, tile);
 
-tile.PLANT = null; // Remove the plant after harvesting
-tile.IS_TILLED = false; // Optionally revert to untilled
-advanceTime(TIME_COST.HARVEST);
-updateTileStats();
-} else {
-console.log("No mature plant to harvest here.");
-}
-}
+                    tile.PLANT = null; // Remove the plant after harvesting
+                    tile.IS_TILLED = false; // Optionally revert to untilled
+                    advanceTime(TIME_COST.HARVEST);
+                    updateTileStats();
+                } else {
+                    console.log("No mature plant to harvest here.");
+                }
+            }
 
-// CLEAR
-function clearPlot() {
-const tile = getTargetTile();
+            // CLEAR
+            function clearPlot() {
+                const tile = getTargetTile();
 
-if (tile.TYPE === TILE_TYPE.PLOT) {
-tile.TYPE = TILE_TYPE.EMPTY;
-tile.IS_TILLED = false;
-tile.PLANT = null;
+                if (tile.TYPE === TILE_TYPE.PLOT) {
+                    tile.TYPE = TILE_TYPE.EMPTY;
+                    tile.IS_TILLED = false;
+                    tile.PLANT = null;
 
-console.log("Plot cleared at:", tile);
-advanceTime(TIME_COST.CLEAR);
-updateTileStats();
-} else {
-console.log("This tile is not a plot.");
-}
-}
+                    console.log("Plot cleared at:", tile);
+                    advanceTime(TIME_COST.CLEAR);
+                    updateTileStats();
+                } else {
+                    console.log("This tile is not a plot.");
+                }
+            }
 
-/* INVENTORY */
+            /* INVENTORY */
 
-function updateInventoryDisplay() {
-Object.entries(gameState.inventory).forEach(([category, items]) => {
-Object.entries(items).forEach(([item, quantity]) => {
-const element = document.getElementById(`inventory${capitalize(item)}`);
-if (element) {
-element.textContent = quantity;
-}
-});
-});
-}
+            function updateInventoryDisplay() {
+                Object.entries(gameState.inventory).forEach(([category, items]) => {
+                    Object.entries(items).forEach(([item, quantity]) => {
+                        const element = document.getElementById(`inventory${capitalize(item)}`);
+                        if (element) {
+                            element.textContent = quantity;
+                        }
+                    });
+                });
+            }
 
-/* TUTORIAL OVERLAY */
+            /* TUTORIAL OVERLAY */
 
-function showTutorial() {
-document.getElementById("tutorialOverlay").classList.remove("hidden");
-}
+            function showTutorial() {
+                document.getElementById("tutorialOverlay").classList.remove("hidden");
+            }
 
-function hideTutorial() {
-document.getElementById("tutorialOverlay").classList.add("hidden");
-}
+            function hideTutorial() {
+                document.getElementById("tutorialOverlay").classList.add("hidden");
+            }
 
-/* UTILITY FUNCTIONS */
+            /* UTILITY FUNCTIONS */
 
-function getTargetTile() {
-const { x, y } = gameState.highlightedTile.x !== null ? gameState.highlightedTile : gameState.player;
-return gameState.grid[y][x];
-}
+            function getTargetTile() {
+                const { x, y } = gameState.highlightedTile.x !== null ? gameState.highlightedTile : gameState.player;
+                return gameState.grid[y][x];
+            }
 
-function isTileValid(x, y) {
-return x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT;
-}
+            function isTileValid(x, y) {
+                return x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT;
+            }
 
-function isTileAdjacent(x, y) {
-return Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1;
-}
+            function isTileAdjacent(x, y) {
+                return Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1;
+            }
 
         </script>
     </body>
