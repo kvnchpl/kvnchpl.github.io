@@ -790,7 +790,7 @@ ${capitalize(label)}:
                 highlightTile(x, y); // Directly call highlightTile with the clicked coordinates
             });
             function highlightTile(x, y) {
-                if (isTileValid(x, y) && (isTileAdjacent(x, y) || isPlayerOnTile(x, y))) {
+                if (isTileValid(x, y) && isTileAdjacent(x, y)) {
                     gameState.highlightedTile = { x, y };
                     updateTileStats();
                     render();
@@ -875,15 +875,15 @@ ${capitalize(label)}:
 
                 // Iterate over the tile's actual properties
                 Object.entries(tile).forEach(([key, value]) => {
-                    if (key === "PLANT") {
-                        const element = document.getElementById("tilePlant");
+                    if (key == "PLANT") {
+                        const element = document.getElementById("tilePLANT");
                         if (element) {
                             const plantValue = value?.VALUE; // Safe navigation to check if VALUE exists
                             element.textContent = plantValue
                             ? PLANT[plantValue]?.NAME || "Unknown Plant"
                             : "None";
                         }
-                    } else if (key === "SOIL_NUTRIENTS") {
+                    } else if (key == "SOIL_NUTRIENTS") {
                         Object.entries(value || {}).forEach(([subKey, nutrientValue]) => {
                             const nutrientElement = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
                             if (nutrientElement) {
