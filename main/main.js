@@ -47,34 +47,38 @@ window.onload = () => {
         };
 
         // Function to load links dynamically
-        function loadLinks(url = null) {
-            const linkContainer = document.getElementById('link-container');
-            // Use the provided URL or fallback to the data-json attribute
-            const jsonFile = url || linkContainer.getAttribute('data-json');
+        function loadLinks() {
+            // Retrieve the full URL from the <meta> tag
+            const metaLinkList = document.querySelector('meta[name="link-list"]');
+            const jsonUrl = metaLinkList ? metaLinkList.getAttribute('content') : null;
 
-            if (!jsonFile) {
-                console.error("No JSON file specified via parameter or data-json attribute.");
+            if (!jsonUrl) {
+                console.error("No JSON URL found in the <meta> tag with name='link-list'.");
                 return;
             }
-            console.log("BASE_URL: " + BASE_URL);
-            console.log("jsonFile: " + jsonFile);
-            
-            fetch(`${BASE_URL}${jsonFile}`)
+
+            // Fetch and render the link list
+            fetch(jsonUrl)
                 .then(response => {
                 if (!response.ok) {
-                    throw new Error(`Failed to fetch ${jsonFile}`);
+                    throw new Error(`Failed to fetch JSON from ${jsonUrl}`);
                 }
                 return response.json();
             })
                 .then(data => {
-                console.log("Data successfully parsed from JSON: ", data);
+                console.log("Data successfully parsed from JSON:", data);
                 renderLinks(data);
             })
-                .catch(error => console.error("Error loading links:", error));
+                .catch(error => console.error("Error loading link list:", error));
         }
 
         // Function to render the links into the link-container
         function renderLinks(data) {
+            if (!data || !Array.isArray(data) || data.length === 0) {
+                console.error("Invalid or empty data for rendering links:", data);
+                return;
+            }
+
             // Helper function to convert month number to name
             const monthNames = [
                 "January", "February", "March", "April", "May", "June",
@@ -82,6 +86,8 @@ window.onload = () => {
             ];
 
             data.forEach(item => {
+                console.log("Processing item:", item);
+
                 const row = document.createElement("div");
                 row.classList.add("row");
 
@@ -106,27 +112,22 @@ window.onload = () => {
                 // Dynamically build the subtitle based on available attributes
                 const subtitleParts = [];
 
-                // Add author and publication if available
                 if (item.author) subtitleParts.push(`By ${item.author}`);
                 if (item.publication) subtitleParts.push(item.publication);
 
-                // Handle publication_month (number to name or string as-is) and publication_year
                 let monthAndYear = "";
                 if (item.publication_month) {
-                    const month =
-                          typeof item.publication_month === "number"
+                    const month = typeof item.publication_month === "number"
                     ? monthNames[item.publication_month - 1]
-                    : item.publication_month; // Use string as-is
+                    : item.publication_month;
                     monthAndYear = month;
                 }
                 if (item.publication_year) {
                     monthAndYear += ` ${item.publication_year}`;
                 }
 
-                // Append month and year as a single unit
                 if (monthAndYear) subtitleParts.push(monthAndYear);
 
-                // Combine subtitle parts into a single string with proper formatting
                 const subtitleText = subtitleParts.join(", ");
 
                 if (subtitleText) {
@@ -136,18 +137,12 @@ window.onload = () => {
                     linkWrapper.appendChild(subtitle);
                 }
 
-                // Apply any custom class specified in the JSON
-                if (item.class) {
-                    link.classList.add(item.class);
-                }
-
-                // Append the link and wrapper to the row
                 linkWrapper.appendChild(link);
                 row.appendChild(linkWrapper);
-
-                // Append the row to the link container
-                linkContainer.appendChild(row);
+                document.getElementById('link-container').appendChild(row);
             });
+
+            console.log("Links rendered successfully.");
         }
 
         const randomizeLinks = (rows) => {
