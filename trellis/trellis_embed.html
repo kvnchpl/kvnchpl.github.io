@@ -395,21 +395,23 @@
             }
 
             function initGrid() {
-                gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-                                            Array.from({ length: GRID_WIDTH }, () => ({
-                    type: TILE_TYPE.EMPTY,
-                    isTilled: false,
-                    plant: null,
-                    weedLevel: 0,
-                    moisture: BASE_MOISTURE_START,
-                    soilNutrients: { N: 50, P: 50, K: 50 },
-                }))
-                                           );
+                gameState.grid = Array.from(
+                    { length: GRID_HEIGHT },
+                    () =>
+                    Array.from({ length: GRID_WIDTH }, () => ({
+                        type: TILE_TYPE.EMPTY,
+                        isTilled: false,
+                        plant: null,
+                        weedLevel: 0,
+                        moisture: BASE_MOISTURE_START,
+                        soilNutrients: { N: 50, P: 50, K: 50 },
+                    }))
+                );
 
                 console.log("Grid initialized:", gameState.grid);
             }
 
-            function configureGameConstants(gameConfig, plants, timeCosts) {
+            function configureGameConstants(gameConfig, plants, timeCosts, tileTypes) {
                 Object.assign(
                     {
                         TILE_SIZE,
@@ -427,8 +429,6 @@
                 Object.assign(TILE_TYPE, tileTypes);
                 Object.assign(TIME_COST, timeCosts);
 
-                GROWTH_TIME = {};
-                PRODUCE_YIELD = {};
                 for (const [plant, data] of Object.entries(plants)) {
                     GROWTH_TIME[plant] = data.GROWTH_TIME;
                     PRODUCE_YIELD[plant] = data.PRODUCE_YIELD;
