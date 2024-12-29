@@ -304,14 +304,14 @@
 
             const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
             const WEEKS_PER_SEASON = 13;
-            const WEEKS_PER_YEAR = 52;
+            const WEEKS_PER_YEAR = WEEKS_PER_SEASON * SEASONS.length;
 
             /* GAME STATE */
 
             const gameState = {
                 currentWeek: 1,
-                year: 1,
-                season: "Winter",
+                currentYear: 1,
+                currentSeason: "Winter",
                 currentTime: 0, // Time in minutes past 7:00 AM
                 biodiversityScore: 0,
                 grid: [],
@@ -384,8 +384,6 @@
                 resetPlayerPosition();
 
                 // Initialize UI
-                updateTimeState();
-                updateYearAndSeasonDisplay();
                 initializeUI();
 
                 // Show the tutorial overlay
@@ -405,6 +403,7 @@
                         plant: null,
                         weedLevel: 0,
                         moisture: BASE_MOISTURE_START,
+                        moistureDecayRate: BASE_MOISTURE_DECAY,
                         soilNutrients: { N: 50, P: 50, K: 50 },
                     }))
                 );
@@ -434,9 +433,8 @@
             }
 
             function initializeUI() {
-                updateTimeDisplay();
+                updateYearAndSeason();
                 updateWeekDisplay();
-                updateYearAndSeasonDisplay();
                 updateBiodiversityDisplay();
             }
 
@@ -558,16 +556,15 @@
                 gameState.currentTime = DAY_START;
 
                 // Update time state (year and season)
-                updateTimeState();
+                updateYearAndSeason();
 
                 // Perform weekly updates for tiles
                 updateAllTiles();
-                recalculateBiodiversity();
+                updateBiodiversity();
 
                 // Update UI
                 updateTimeDisplay();
                 updateWeekDisplay();
-                updateYearAndSeasonDisplay(gameState.year, gameState.season);
                 updateBiodiversityDisplay();
                 updateTileStats();
 
@@ -575,23 +572,18 @@
                 render();
             }
 
-            function updateTimeState() {
-                const WEEKS_PER_YEAR = 52;
-                const WEEKS_PER_SEASON = 13;
-                const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
+            function updateYearAndSeason() {
+                gameState.currentYear = Math.floor(gameState.currentWeek / weeksPerYear) + 1;
+                gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % weeksPerYear) / weeksPerSeason)];
 
-                // Calculate year and season
-                gameState.year = Math.floor((gameState.currentWeek - 1) / WEEKS_PER_YEAR) + 1;
-                const seasonIndex = Math.floor(((gameState.currentWeek - 1) % WEEKS_PER_YEAR) / WEEKS_PER_SEASON);
-                gameState.season = SEASONS[seasonIndex];
+                // Update the display
+                document.getElementById("yearDisplay").textContent = currentYear;
+                document.getElementById("seasonDisplay").textContent = currentSeason;
             }
 
-            function recalculateBiodiversity() {
-                gameState.biodiversityScore = calculateBiodiversity();
-            }
-
-            function calculateBiodiversity() {
+            function updateBiodiversity() {
                 const typesFound = new Set();
+
                 for (let row = 0; row < GRID_HEIGHT; row++) {
                     for (let col = 0; col < GRID_WIDTH; col++) {
                         const tile = gameState.grid[row][col];
@@ -600,7 +592,9 @@
                         }
                     }
                 }
-                return typesFound.size;
+
+                gameState.biodiversityScore = typesFound.size;
+                return gameState.biodiversityScore;
             }
 
             /* PLAYER MOVEMENT & CONTROLS */
@@ -856,11 +850,6 @@ No tile highlighted.
 
                 const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
                 timeDisplay.textContent = `${hours}:${formattedMinutes} ${ampm}`;
-            }
-
-            function updateYearAndSeasonDisplay() {
-                document.getElementById("yearDisplay").textContent = gameState.year;
-                document.getElementById("seasonDisplay").textContent = gameState.season;
             }
 
             function updateWeekDisplay() {
