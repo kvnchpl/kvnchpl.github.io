@@ -41,7 +41,7 @@
         },
         "displayNames": {
             "TYPE": "Type",
-            "IS_TILLED": "Tilled?",
+            "IS_TILLED": "Tilled",
             "PLANT": "Plant",
             "WEED_LEVEL": "Weed Level",
             "MOISTURE": "Moisture",

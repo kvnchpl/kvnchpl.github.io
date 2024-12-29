@@ -364,6 +364,7 @@
                     return response.json();
                 })
                     .then(data => {
+                    console.log("Loaded JSON:", data);
                     gameData = data;   // Store the JSON data
                     initGame();        // Initialize the game after data is set
                 })
@@ -379,7 +380,12 @@
                 }
 
                 const { plants, timeCosts, gameConfig, tileConfig } = gameData;
-                
+
+
+                if (!plants || !tileConfig || !timeCosts || !gameConfig) {
+                    console.error("JSON data is missing required sections:", gameData);
+                }
+
                 console.log("Loaded game data:", gameData);
 
                 console.log("Initialized game with plant data:", plants);
@@ -466,14 +472,14 @@
                 const contentContainer = document.getElementById("tileStatsContent");
                 contentContainer.innerHTML = ""; // Clear existing content
 
-                Object.entries(TEMPLATE_TILE).forEach(([key, value]) => {
+                Object.entries(TILE_STAT).forEach(([key, value]) => {
                     if (typeof value === "object" && key === "soilNutrients") {
                         Object.entries(value).forEach(([subKey]) => {
-                            const label = DISPLAY_NAMES[key]?.[subKey] || subKey;
+                            const label = DISPLAY_NAME[key]?.[subKey] || subKey;
                             appendTileStat(contentContainer, label);
                             });
                             } else {
-                            const label = DISPLAY_NAMES[key] || capitalize(key);
+                            const label = DISPLAY_NAME[key] || capitalize(key);
                             appendTileStat(contentContainer, label);
                             }
                             });
