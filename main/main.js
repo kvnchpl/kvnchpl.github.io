@@ -8,7 +8,6 @@ window.onload = () => {
     let currentImageIndex = 0;
     let initialPositions = [];
 
-    // Fetch image URLs from the JSON file
     fetch('https://kvnchpl.github.io/main/sky_images.json')
         .then(response => {
         if (!response.ok) {
@@ -19,26 +18,22 @@ window.onload = () => {
         .then(data => {
         const imageList = data.images;
 
-        // Populate the data-images attribute
         overlay.setAttribute('data-images', JSON.stringify(imageList));
 
-        // Initialize the overlay functionality
         initializeImageOverlay(imageList);
     })
         .catch(error => console.error('Error loading images:', error));
 
     function initializeImageOverlay(imageList) {
-        // Helper to shuffle array
+
         const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-        // Get the next image in sequence
         const getNextImage = () => {
             const nextImage = shuffledImages[currentImageIndex];
             currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
             return nextImage;
         };
 
-        // Preload images for better performance
         const preloadImages = (images) => {
             images.forEach((src) => {
                 const img = new Image();
@@ -46,17 +41,14 @@ window.onload = () => {
             });
         };
 
-        // Randomize link positions
         const randomizeLinks = (rows) => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector('.link-wrapper');
                 const link = row.querySelector('a');
 
-                // Alternate left/right arrow alignment
                 const isLeftArrow = index % 2 === 0;
                 row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
 
-                // Add arrows to the link text
                 link.textContent = isLeftArrow ? `←${link.textContent}` : `${link.textContent}→`;
 
                 if (!isMobile()) {
@@ -80,7 +72,6 @@ window.onload = () => {
             return initialPositions;
         };
 
-        // Debounce function
         const debounce = (func, wait) => {
             let timeout;
             return function (...args) {
@@ -90,7 +81,6 @@ window.onload = () => {
             };
         };
 
-        // Enable hover effects with sliding and image handling
         const enableHoverEffect = (rows, initialPositions, debounceTime) => {
             const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
                 const nextImage = getNextImage(); // Update the overlay image
@@ -140,7 +130,6 @@ window.onload = () => {
             });
         };
 
-        // Initialize shuffled images
         shuffledImages = shuffleArray([...imageList]);
         preloadImages(shuffledImages);
 
@@ -166,12 +155,10 @@ window.onload = () => {
             });
         }
 
-        // Desktop: Handle hover effects and randomized links
         const debounceTime = 200; // Adjust as needed
         initialPositions = randomizeLinks(rows); // Randomize link positions
         enableHoverEffect(rows, initialPositions, debounceTime); // Enable hover effects
 
-        // Final adjustments
         linkContainer.style.visibility = 'visible';
         linkContainer.style.opacity = '1';
     };
