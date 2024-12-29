@@ -22,14 +22,14 @@
     },
     "tileConfig": {
         "types": {
-            "EMPTY": "empty",
-            "PLOT": "plot",
-            "PATH": "path"
+            "EMPTY": "Empty",
+            "PLOT": "Plot",
+            "PATH": "Path"
         },
         "stats": {
             "TYPE": {
                 "DISPLAY_NAME": "Type",
-                "VALUE": "empty"
+                "VALUE": "Empty"
             },
             "IS_TILLED": {
                 "DISPLAY_NAME": "Tilled",
