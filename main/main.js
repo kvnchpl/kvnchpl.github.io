@@ -140,19 +140,6 @@ window.onload = () => {
         // Set the first image as the initial overlay background
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
-
-        // Mobile-specific logic for swipe and click events
-        if (isMobile()) {
-            detectSwipeAnyDirection(overlay, () => {
-                overlay.style.backgroundImage = `url(${getNextImage()})`;
-            });
-
-            document.addEventListener('click', (event) => {
-                const target = event.target;
-                if (target.closest('a')) return; // Allow links to navigate
-                overlay.style.backgroundImage = `url(${getNextImage()})`;
-            });
-        }
     })
         .catch((error) => {
         console.error('Error loading images:', error);
