@@ -119,6 +119,15 @@ window.onload = () => {
         });
     };
 
+    // Helper function to format publication dates
+    function formatDate(month, year) {
+        if (typeof month === 'number') {
+            const date = new Date(year, month - 1); // Convert month to zero-based index
+            return date.toLocaleString('default', { month: 'long', year: 'numeric' });
+        }
+        return `${month} ${year}`; // For cases like "Fall 1964"
+    }
+
     fetch(IMAGE_LIST_URL)
         .then((response) => {
         if (!response.ok) {
@@ -156,8 +165,16 @@ window.onload = () => {
             const link = document.createElement('a');
             link.href = linkItem.href;
             link.textContent = linkItem.label;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
+
+            // Determine target behavior
+            if (linkItem.newTab === false) {
+                link.target = '_self'; // Force open in same tab
+            } else if (linkItem.href.startsWith('http')) {
+                link.target = '_blank'; // Open external links in a new tab
+                link.rel = 'noopener noreferrer';
+            } else {
+                link.target = '_self'; // Open local links in the same tab
+            }
 
             wrapper.appendChild(link);
 
