@@ -214,22 +214,20 @@ window.onload = () => {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
 
-        // Initialize the isTopHalf variable based on the current scroll position
-        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        let isTopHalf = scrollTop < scrollHeight / 2; // Set initial value based on current position
+        let inBottomHalf = false; // Track if the user is in the bottom half
 
         // Scroll-based image cycling
         window.addEventListener('scroll', () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-            // Determine if user is in the top or bottom half
-            const inTopHalf = scrollTop < scrollHeight / 2;
+            // Check if the user is in the bottom half
+            const userInBottomHalf = scrollTop > scrollHeight / 2;
 
-            // Change image if transitioning between halves
-            if (inTopHalf !== isTopHalf) {
+            // Change image when transitioning between halves
+            if (userInBottomHalf !== inBottomHalf) {
                 overlay.style.backgroundImage = `url(${getNextImage()})`;
-                isTopHalf = inTopHalf;
+                inBottomHalf = userInBottomHalf;
             }
         });
 
