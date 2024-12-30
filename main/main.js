@@ -210,44 +210,32 @@ window.onload = () => {
         .catch((error) => console.error('Error loading links:', error));
 
     if (isMobile()) {
-        // Set the initial overlay image and make it visible
+        // Set the initial overlay image
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
 
-        function detectSwipeAnyDirection(element, onSwipe) {
-            let touchStartX = 0;
-            let touchStartY = 0;
-            let touchEndX = 0;
-            let touchEndY = 0;
+        let previousInterval = 0; // Track the last interval crossed
 
-            element.addEventListener('touchstart', (event) => {
-                touchStartX = event.changedTouches[0].screenX;
-                touchStartY = event.changedTouches[0].screenY;
-                event.preventDefault(); // Prevent scrolling
-            });
+        // Scroll-based image cycling
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-            element.addEventListener('touchend', (event) => {
-                touchEndX = event.changedTouches[0].screenX;
-                touchEndY = event.changedTouches[0].screenY;
-                event.preventDefault(); // Prevent scrolling
+            // Calculate the current scroll percentage
+            const scrollPercent = scrollTop / scrollHeight;
 
-                const swipeThreshold = 50; // Minimum swipe distance
-                const deltaX = touchEndX - touchStartX;
-                const deltaY = touchEndY - touchStartY;
+            // Determine the current interval (e.g., 0 to 3 for 1/4 intervals)
+            const totalIntervals = 4;
+            const currentInterval = Math.floor(scrollPercent * totalIntervals);
 
-                // Trigger action for any swipe that meets the threshold
-                if (Math.abs(deltaX) > swipeThreshold || Math.abs(deltaY) > swipeThreshold) {
-                    onSwipe();
-                }
-            });
-        }
-
-        // Attach swipe detection to the #image-overlay
-        detectSwipeAnyDirection(overlay, () => {
-            overlay.style.backgroundImage = `url(${getNextImage()})`;
+            // Change the image if the user crosses into a new interval
+            if (currentInterval !== previousInterval) {
+                overlay.style.backgroundImage = `url(${getNextImage()})`;
+                previousInterval = currentInterval;
+            }
         });
 
-        // Fallback: Change image on click for non-swipeable interactions
+        // Click-based image cycling
         overlay.addEventListener('click', () => {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
