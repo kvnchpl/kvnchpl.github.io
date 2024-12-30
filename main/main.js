@@ -196,6 +196,12 @@ window.onload = () => {
             if (linkItem.month && linkItem.year) {
                 subtitleParts.push(formatDate(linkItem.month, linkItem.year));
             }
+
+            // Ensure subtitles display for writings and projects
+            if (subtitleParts.length === 0 && linkItem.month && linkItem.year) {
+                subtitleParts.push(formatDate(linkItem.month, linkItem.year));
+            }
+
             if (subtitleParts.length > 0) {
                 const subtitle = document.createElement('span');
                 subtitle.className = 'subtitle';
