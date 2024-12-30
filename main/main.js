@@ -165,6 +165,16 @@ window.onload = () => {
     fetch(jsonUrl)
         .then((response) => response.json())
         .then((linkData) => {
+        // Helper function to configure link targets
+        const configureLinkTarget = (link, linkItem) => {
+            if (linkItem.newTab === false) {
+                link.target = '_self'; // Force open in the same tab
+            } else if (linkItem.href.startsWith('http')) {
+                link.target = '_blank'; // Open external links in a new tab
+                link.rel = 'noopener noreferrer';
+            }
+        };
+
         const rows = linkData.map((linkItem) => {
             const row = document.createElement('div');
             row.className = 'row';
@@ -175,16 +185,7 @@ window.onload = () => {
             const link = document.createElement('a');
             link.href = linkItem.href;
             link.textContent = linkItem.label;
-
-            // Determine target behavior
-            if (linkItem.newTab === false) {
-                link.target = '_self'; // Force open in same tab
-            } else if (linkItem.href.startsWith('http')) {
-                link.target = '_blank'; // Open external links in a new tab
-                link.rel = 'noopener noreferrer';
-            } else {
-                link.target = '_self'; // Open local links in the same tab
-            }
+            configureLinkTarget(link, linkItem); // Apply link target logic
 
             wrapper.appendChild(link);
 
@@ -212,4 +213,3 @@ window.onload = () => {
         enableHoverEffect(rows, initialPositions, 200);
     })
         .catch((error) => console.error('Error loading links:', error));
-};
