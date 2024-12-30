@@ -219,9 +219,12 @@ window.onload = () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-            // Calculate the interval index (0 for top half, 1 for bottom half)
-            const totalIntervals = 2;
-            const intervalIndex = Math.floor((scrollTop / scrollHeight) * totalIntervals);
+            // Calculate the interval index (0, 1, or 2)
+            const totalIntervals = 3; // Now we explicitly define 3 intervals
+            const intervalIndex = Math.min(
+                Math.floor((scrollTop / scrollHeight) * totalIntervals),
+                totalIntervals - 1 // Ensure the index doesn't exceed the last interval
+            );
 
             // Set the overlay image based on the interval index
             overlay.style.backgroundImage = `url(${shuffledImages[intervalIndex % shuffledImages.length]})`;
