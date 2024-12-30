@@ -136,8 +136,18 @@ window.onload = () => {
         return response.json();
     })
         .then((imageList) => {
-        shuffledImages = shuffleArray(imageList);
-        preloadImages(shuffledImages);
+        // Shuffle and preload logic moved inside this block
+        const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+
+        const preloadImages = (images) => {
+            images.forEach((src) => {
+                const img = new Image();
+                img.src = src;
+            });
+        };
+
+        shuffledImages = shuffleArray(imageList); // Shuffle images
+        preloadImages(shuffledImages); // Preload shuffled images
 
         if (isMobile()) {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
@@ -145,7 +155,7 @@ window.onload = () => {
 
             document.addEventListener('click', (event) => {
                 const target = event.target;
-                if (target.closest('a')) return;
+                if (target.closest('a')) return; // Allow links to navigate
                 overlay.style.backgroundImage = `url(${getNextImage()})`;
             });
         }
