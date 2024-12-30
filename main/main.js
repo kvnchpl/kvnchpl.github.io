@@ -231,9 +231,15 @@ window.onload = () => {
             }
         });
 
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.closest('a')) return; // Allow links to navigate
+            overlay.style.backgroundImage = `url(${getNextImage()})`;
+        });
+/*
         // Click-based image cycling
         overlay.addEventListener('click', () => {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
-        });
+        });*/
     }
 }
