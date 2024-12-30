@@ -153,13 +153,13 @@ window.onload = () => {
         .catch((error) => console.error('Error loading images:', error));
 
     fetch(IMAGE_LIST_URL)
-    .then((response) => {
+        .then((response) => {
         if (!response.ok) {
             throw new Error('Failed to fetch images');
         }
         return response.json();
     })
-    .then((imageList) => {
+        .then((imageList) => {
         const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
         const preloadImages = (images) => {
             images.forEach((src) => {
@@ -188,12 +188,16 @@ window.onload = () => {
             });
         }
     })
-    .catch((error) => {
+        .catch((error) => {
         console.error('Error loading images:', error);
     });
 
     if (isMobile()) {
-        
+        // Set the initial overlay image and make it visible
+        overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
+        overlay.style.opacity = '0.5';
+
+        // Detect swipes to change overlay image
         function detectSwipeAnyDirection(element, onSwipe) {
             let touchStartX = 0;
             let touchStartY = 0;
@@ -208,24 +212,19 @@ window.onload = () => {
             element.addEventListener('touchend', (event) => {
                 touchEndX = event.changedTouches[0].screenX;
                 touchEndY = event.changedTouches[0].screenY;
-                handleSwipe();
-            });
 
-            function handleSwipe() {
-                const swipeThreshold = 50; // Minimum distance for a swipe
+                const swipeThreshold = 50; // Minimum swipe distance
                 const deltaX = touchEndX - touchStartX;
                 const deltaY = touchEndY - touchStartY;
 
-                // Check if the swipe distance meets the threshold in any direction
+                // Trigger action for any swipe that meets the threshold
                 if (Math.abs(deltaX) > swipeThreshold || Math.abs(deltaY) > swipeThreshold) {
-                    onSwipe(); // Trigger the action for any swipe
+                    onSwipe();
                 }
-            }
+            });
         }
-        overlay.style.backgroundImage = `url(${getNextImage()})`;
-        overlay.style.opacity = '0.5';
 
-        // Detect swipes to change overlay image
+        // Attach swipe detection to overlay
         detectSwipeAnyDirection(overlay, () => {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
