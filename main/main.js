@@ -126,40 +126,6 @@ window.onload = () => {
         return response.json();
     })
         .then((imageList) => {
-        // Shuffle and preload logic moved inside this block
-        const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
-
-        const preloadImages = (images) => {
-            images.forEach((src) => {
-                const img = new Image();
-                img.src = src;
-            });
-        };
-
-        shuffledImages = shuffleArray(imageList); // Shuffle images
-        preloadImages(shuffledImages); // Preload shuffled images
-
-        if (isMobile()) {
-            overlay.style.backgroundImage = `url(${getNextImage()})`;
-            overlay.style.opacity = '0.5';
-
-            document.addEventListener('click', (event) => {
-                const target = event.target;
-                if (target.closest('a')) return; // Allow links to navigate
-                overlay.style.backgroundImage = `url(${getNextImage()})`;
-            });
-        }
-    })
-        .catch((error) => console.error('Error loading images:', error));
-
-    fetch(IMAGE_LIST_URL)
-        .then((response) => {
-        if (!response.ok) {
-            throw new Error('Failed to fetch images');
-        }
-        return response.json();
-    })
-        .then((imageList) => {
         const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
         const preloadImages = (images) => {
             images.forEach((src) => {
@@ -192,8 +158,56 @@ window.onload = () => {
         console.error('Error loading images:', error);
     });
 
-    linkContainer.style.visibility = 'visible';
-    linkContainer.style.opacity = '1';
+    fetch(jsonUrl)
+        .then((response) => response.json())
+        .then((linkData) => {
+        // Helper function to configure link targets
+        const configureLinkTarget = (link, linkItem) => {
+            if (linkItem.newTab === false) {
+                link.target = '_self'; // Force open in the same tab
+            } else if (linkItem.href.startsWith('http')) {
+                link.target = '_blank'; // Open external links in a new tab
+                link.rel = 'noopener noreferrer';
+            }
+        };
+
+        const rows = linkData.map((linkItem) => {
+            const row = document.createElement('div');
+            row.className = 'row';
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'link-wrapper';
+
+            const link = document.createElement('a');
+            link.href = linkItem.href;
+            link.textContent = linkItem.label;
+            configureLinkTarget(link, linkItem); // Apply link target logic
+
+            wrapper.appendChild(link);
+
+            // Add subtitle dynamically if applicable
+            const subtitleParts = [];
+            if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
+            if (linkItem.publication) subtitleParts.push(linkItem.publication);
+            if (linkItem.month && linkItem.year) subtitleParts.push(formatDate(linkItem.month, linkItem.year));
+
+            if (subtitleParts.length > 0) {
+                const subtitle = document.createElement('span');
+                subtitle.className = 'subtitle';
+                subtitle.textContent = subtitleParts.join(', ');
+                wrapper.appendChild(subtitle);
+            }
+
+            row.appendChild(wrapper);
+            linkContainer.appendChild(row);
+
+            return row;
+        });
+
+        initialPositions = randomizeLinks(rows);
+        enableHoverEffect(rows, initialPositions, 200);
+    })
+        .catch((error) => console.error('Error loading links:', error));
 
     if (isMobile()) {
         // Set the initial overlay image and make it visible
