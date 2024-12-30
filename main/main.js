@@ -75,7 +75,7 @@ window.onload = () => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.style.opacity = '1';
+            overlay.style.opacity = '0.5';
 
             rows.forEach((otherRow) => {
                 const otherWrapper = otherRow.querySelector('.link-wrapper');
@@ -132,7 +132,7 @@ window.onload = () => {
 
         if (isMobile()) {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
-            overlay.style.opacity = '1';
+            overlay.style.opacity = '0.5';
 
             document.addEventListener('click', (event) => {
                 const target = event.target;
