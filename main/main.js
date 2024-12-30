@@ -213,3 +213,4 @@ window.onload = () => {
         enableHoverEffect(rows, initialPositions, 200);
     })
         .catch((error) => console.error('Error loading links:', error));
+}
