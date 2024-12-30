@@ -214,24 +214,20 @@ window.onload = () => {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
 
-        let previousInterval = 0; // Track the last interval crossed
+        let isTopHalf = true; // Track whether the user is in the top or bottom half
 
         // Scroll-based image cycling
         window.addEventListener('scroll', () => {
             const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-            // Calculate the current scroll percentage
-            const scrollPercent = scrollTop / scrollHeight;
+            // Determine if user is in the top or bottom half
+            const inTopHalf = scrollTop < scrollHeight / 2;
 
-            // Determine the current interval
-            const totalIntervals = 2;
-            const currentInterval = Math.floor(scrollPercent * totalIntervals);
-
-            // Change the image if the user crosses into a new interval
-            if (currentInterval !== previousInterval) {
+            // Change image if transitioning between halves
+            if (inTopHalf !== isTopHalf) {
                 overlay.style.backgroundImage = `url(${getNextImage()})`;
-                previousInterval = currentInterval;
+                isTopHalf = inTopHalf;
             }
         });
 
