@@ -219,8 +219,17 @@ window.onload = () => {
             const scrollTop = Math.max(0, document.documentElement.scrollTop || document.body.scrollTop);
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
-            // Calculate the interval index (0, 1, or 2)
-            const totalIntervals = 3; // Define 3 intervals explicitly
+            // Dynamically adjust total intervals based on scrollable height
+            let totalIntervals;
+            if (scrollHeight < 800) {
+                totalIntervals = 2; // For short pages
+            } else if (scrollHeight < 1600) {
+                totalIntervals = 3; // For medium-length pages
+            } else {
+                totalIntervals = 4; // For long pages
+            }
+
+            // Calculate the interval index
             const intervalIndex = Math.min(
                 Math.floor((scrollTop / scrollHeight) * totalIntervals),
                 totalIntervals - 1 // Ensure the index doesn't exceed the last interval
