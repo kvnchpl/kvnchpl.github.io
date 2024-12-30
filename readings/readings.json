@@ -1,26 +1,26 @@
 [
-  {
-    "href": "https://www.e-flux.com/journal/10/61362/in-defense-of-the-poor-image/",
-    "label": "In Defense of the Poor Image",
-    "author": "Hito Steyerl",
-    "publication": "e-flux Journal",
-    "month": 11,
-    "year": 2009
-  },
-  {
-    "href": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf",
-    "label": "Notes on \"Camp\"",
-    "author": "Susan Sontag",
-    "publication": "Partisan Review",
-    "month": "Fall",
-    "year": 1964
-  },
-  {
-    "href": "https://theconvivialsociety.substack.com/p/lonely-surfaces-on-ai-generated-images",
-    "label": "Lonely Surfaces: On AI-generated Images",
-    "author": "L.M. Sacasas",
-    "publication": "The Convivial Society",
-    "month": 12,
-    "year": 2022
-  }
+    {
+        "href": "https://www.e-flux.com/journal/10/61362/in-defense-of-the-poor-image/",
+        "label": "In Defense of the Poor Image",
+        "author": "Hito Steyerl",
+        "publication": "e-flux Journal",
+        "month": 11,
+        "year": 2009
+    },
+    {
+        "href": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf",
+        "label": "Notes on \"Camp\"",
+        "author": "Susan Sontag",
+        "publication": "Partisan Review",
+        "month": "Fall",
+        "year": 1964
+    },
+    {
+        "href": "https://theconvivialsociety.substack.com/p/lonely-surfaces-on-ai-generated-images",
+        "label": "Lonely Surfaces: On AI-generated Images",
+        "author": "L.M. Sacasas",
+        "publication": "The Convivial Society",
+        "month": 12,
+        "year": 2022
+    }
 ]
