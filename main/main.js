@@ -214,7 +214,6 @@ window.onload = () => {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
 
-        // Detect swipes to change overlay image
         function detectSwipeAnyDirection(element, onSwipe) {
             let touchStartX = 0;
             let touchStartY = 0;
@@ -241,15 +240,13 @@ window.onload = () => {
             });
         }
 
-        // Attach swipe detection to overlay
+        // Attach swipe detection to the #image-overlay
         detectSwipeAnyDirection(overlay, () => {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
 
         // Fallback: Change image on click for non-swipeable interactions
-        document.addEventListener('click', (event) => {
-            const target = event.target;
-            if (target.closest('a')) return; // Allow links to navigate
+        overlay.addEventListener('click', () => {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
     }
