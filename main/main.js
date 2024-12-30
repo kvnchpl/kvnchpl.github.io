@@ -224,8 +224,8 @@ window.onload = () => {
             // Calculate the current scroll percentage
             const scrollPercent = scrollTop / scrollHeight;
 
-            // Determine the current interval (e.g., 0 to 3 for 1/4 intervals)
-            const totalIntervals = 4;
+            // Determine the current interval
+            const totalIntervals = 2;
             const currentInterval = Math.floor(scrollPercent * totalIntervals);
 
             // Change the image if the user crosses into a new interval
