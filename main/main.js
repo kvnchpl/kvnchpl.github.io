@@ -193,8 +193,8 @@ window.onload = () => {
             const subtitleParts = [];
             if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
             if (linkItem.publication) subtitleParts.push(linkItem.publication);
-            if (linkItem.publication_month && linkItem.publication_year) {
-                subtitleParts.push(formatDate(linkItem.publication_month, linkItem.publication_year));
+            if (linkItem.month && linkItem.year) {
+                subtitleParts.push(formatDate(linkItem.month, linkItem.year));
             }
             if (subtitleParts.length > 0) {
                 const subtitle = document.createElement('span');

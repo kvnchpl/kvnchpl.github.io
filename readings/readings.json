@@ -4,23 +4,23 @@
     "label": "In Defense of the Poor Image",
     "author": "Hito Steyerl",
     "publication": "e-flux Journal",
-    "publication_month": 11,
-    "publication_year": 2009
+    "month": 11,
+    "year": 2009
   },
   {
     "href": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf",
     "label": "Notes on \"Camp\"",
     "author": "Susan Sontag",
     "publication": "Partisan Review",
-    "publication_month": "Fall",
-    "publication_year": 1964
+    "month": "Fall",
+    "year": 1964
   },
   {
     "href": "https://theconvivialsociety.substack.com/p/lonely-surfaces-on-ai-generated-images",
     "label": "Lonely Surfaces: On AI-generated Images",
     "author": "L.M. Sacasas",
     "publication": "The Convivial Society",
-    "publication_month": 12,
-    "publication_year": 2022
+    "month": 12,
+    "year": 2022
   }
 ]
