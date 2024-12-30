@@ -1,167 +1,36 @@
 const BASE_URL = "https://kvnchpl.github.io/main/";
 const IMAGE_LIST_URL = "https://kvnchpl.github.io/main/sky_images.json";
+
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
-    const metaLinkList = document.querySelector('meta[name="link-data"]');
-    const jsonUrl = metaLinkList ? metaLinkList.getAttribute('content') : null;
+    const jsonUrl = document.querySelector("meta[name='link-data']").content;
 
     if (!jsonUrl) {
         console.error("No JSON URL found in the <meta> tag with name='link-data'.");
         return;
     }
 
-    // Function to shuffle the array of images
+    let shuffledImages = [];
+    let currentImageIndex = 0;
+    let initialPositions = [];
+
     const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-    // Preload images for smooth transitions
+    const getNextImage = () => {
+        const nextImage = shuffledImages[currentImageIndex];
+        currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
+        return nextImage;
+    };
+
     const preloadImages = (images) => {
         images.forEach((src) => {
             const img = new Image();
             img.src = src;
         });
     };
-
-    // Initialize image overlay
-    function initializeImageOverlay(imageList) {
-        let shuffledImages = [];
-        let currentImageIndex = 0;
-
-        const getNextImage = () => {
-            const nextImage = shuffledImages[currentImageIndex];
-            currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
-            return nextImage;
-        };
-
-        // Shuffle and preload images
-        shuffledImages = shuffleArray([...imageList]);
-        preloadImages(shuffledImages);
-
-        if (isMobile()) {
-            const initialImage = getNextImage();
-            overlay.style.backgroundImage = `url(${initialImage})`;
-            overlay.style.opacity = '0.5';
-
-            document.addEventListener('click', (event) => {
-                const target = event.target;
-
-                // Allow links to navigate
-                if (target.closest('a')) {
-                    console.log('Link clicked:', target.closest('a').href);
-                    return; // Let the link handle navigation
-                }
-
-                // Otherwise, cycle the image
-                const nextImage = getNextImage();
-                overlay.style.backgroundImage = `url(${nextImage})`;
-            });
-        }
-    }
-
-    // Fetch and handle sky_images.json
-    fetch(IMAGE_LIST_URL)
-        .then(response => {
-        if (!response.ok) {
-            throw new Error('Failed to fetch images');
-        }
-        return response.json(); // Returns the array directly
-    })
-        .then(imageList => {
-        if (!Array.isArray(imageList)) {
-            throw new Error('Invalid data format for sky images: Expected an array.');
-        }
-        console.log("Data successfully parsed from JSON: ", imageList);
-        overlay.setAttribute('data-images', JSON.stringify(imageList));
-        initializeImageOverlay(imageList); // Handle image logic
-    })
-        .catch(error => console.error('Error loading images:', error));
-
-    // Fetch and handle link data
-    function loadLinks() {
-        fetch(jsonUrl)
-            .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to fetch JSON from ${jsonUrl}`);
-            }
-            return response.json();
-        })
-            .then(data => {
-            console.log("Data successfully parsed from JSON:", data);
-            renderLinks(data);
-        })
-            .catch(error => console.error("Error loading link list:", error));
-    }
-
-    // Function to render the links
-    function renderLinks(data) {
-        if (!data || !Array.isArray(data) || data.length === 0) {
-            console.error("Invalid or empty data for rendering links:", data);
-            return;
-        }
-
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-
-        data.forEach(item => {
-            console.log("Processing item:", item);
-
-            const row = document.createElement("div");
-            row.classList.add("row");
-
-            const linkWrapper = document.createElement("div");
-            linkWrapper.classList.add("link-wrapper");
-
-            const link = document.createElement("a");
-            link.href = item.href;
-            link.textContent = item.label;
-            link.setAttribute("aria-label", item.label);
-
-            const isExternal = link.href.startsWith("http") && !link.href.includes(window.location.hostname);
-            const openInNewTab = item.newTab !== undefined ? item.newTab : isExternal;
-
-            if (openInNewTab) {
-                link.setAttribute("target", "_blank");
-                link.setAttribute("rel", "noopener noreferrer");
-            }
-
-            const subtitleParts = [];
-            if (item.author) subtitleParts.push(`By ${item.author}`);
-            if (item.publication) subtitleParts.push(item.publication);
-
-            let monthAndYear = "";
-            if (item.publication_month) {
-                const month = typeof item.publication_month === "number"
-                ? monthNames[item.publication_month - 1]
-                : item.publication_month;
-                monthAndYear = month;
-            }
-            if (item.publication_year) {
-                monthAndYear += ` ${item.publication_year}`;
-            }
-
-            if (monthAndYear) subtitleParts.push(monthAndYear);
-
-            const subtitleText = subtitleParts.join(", ");
-            if (subtitleText) {
-                const subtitle = document.createElement("span");
-                subtitle.classList.add("subtitle");
-                subtitle.textContent = subtitleText;
-                linkWrapper.appendChild(subtitle);
-            }
-
-            linkWrapper.appendChild(link);
-            row.appendChild(linkWrapper);
-            document.getElementById('link-container').appendChild(row);
-        });
-
-        console.log("Links rendered successfully.");
-    }
-
-    loadLinks(); // Trigger fetching and rendering of links
 
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
@@ -170,7 +39,6 @@ window.onload = () => {
 
             const isLeftArrow = index % 2 === 0;
             row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
-
             link.textContent = isLeftArrow ? `←${link.textContent}` : `${link.textContent}→`;
 
             if (!isMobile()) {
@@ -194,20 +62,20 @@ window.onload = () => {
         return initialPositions;
     };
 
-    const debounce = (func, wait) => {
-        let timeout;
-        return function (...args) {
-            const context = this;
-            clearTimeout(timeout);
-            timeout = setTimeout(() => func.apply(context, args), wait);
-        };
-    };
-
     const enableHoverEffect = (rows, initialPositions, debounceTime) => {
+        const debounce = (func, wait) => {
+            let timeout;
+            return function (...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), wait);
+            };
+        };
+
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
-            const nextImage = getNextImage(); // Update the overlay image
+            const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.style.opacity = '0.5';
+            overlay.style.opacity = '1';
 
             rows.forEach((otherRow) => {
                 const otherWrapper = otherRow.querySelector('.link-wrapper');
@@ -220,7 +88,6 @@ window.onload = () => {
                     otherWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
                 }
             });
-
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
@@ -230,7 +97,7 @@ window.onload = () => {
                 linkWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
             });
 
-            overlay.style.opacity = '0'; // Hide the overlay
+            overlay.style.opacity = '0';
         }, debounceTime);
 
         rows.forEach((row) => {
@@ -252,34 +119,55 @@ window.onload = () => {
         });
     };
 
-    shuffledImages = shuffleArray([...imageList]);
-    preloadImages(shuffledImages);
+    fetch(IMAGE_LIST_URL)
+        .then((response) => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch images');
+        }
+        return response.json();
+    })
+        .then((imageList) => {
+        shuffledImages = shuffleArray(imageList);
+        preloadImages(shuffledImages);
 
-    // Mobile: Display the first image in the shuffled list;
-    if (isMobile()) {
-        const initialImage = getNextImage();
-        overlay.style.backgroundImage = `url(${initialImage})`;
-        overlay.style.opacity = '0.5';
+        if (isMobile()) {
+            overlay.style.backgroundImage = `url(${getNextImage()})`;
+            overlay.style.opacity = '1';
 
-        document.addEventListener('click', (event) => {
-            const target = event.target;
+            document.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.closest('a')) return;
+                overlay.style.backgroundImage = `url(${getNextImage()})`;
+            });
+        }
+    })
+        .catch((error) => console.error('Error loading images:', error));
 
-            // Allow links to navigate
-            if (target.closest('a')) {
-                console.log('Link clicked:', target.closest('a').href);
-                return; // Let the link handle navigation
-            }
+    fetch(jsonUrl)
+        .then((response) => response.json())
+        .then((linkData) => {
+        const rows = linkData.map((linkItem) => {
+            const row = document.createElement('div');
+            row.className = 'row';
 
-            // Otherwise, cycle the image
-            const nextImage = getNextImage();
-            overlay.style.backgroundImage = `url(${nextImage})`;
+            const wrapper = document.createElement('div');
+            wrapper.className = 'link-wrapper';
+
+            const link = document.createElement('a');
+            link.href = linkItem.href;
+            link.textContent = linkItem.label;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+
+            wrapper.appendChild(link);
+            row.appendChild(wrapper);
+            linkContainer.appendChild(row);
+
+            return row;
         });
-    }
 
-    const debounceTime = 200; // Adjust as needed
-    initialPositions = randomizeLinks(rows); // Randomize link positions
-    enableHoverEffect(rows, initialPositions, debounceTime); // Enable hover effects
-
-    linkContainer.style.visibility = 'visible';
-    linkContainer.style.opacity = '1';
+        initialPositions = randomizeLinks(rows);
+        enableHoverEffect(rows, initialPositions, 200);
+    })
+        .catch((error) => console.error('Error loading links:', error));
 };
