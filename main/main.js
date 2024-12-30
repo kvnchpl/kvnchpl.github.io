@@ -223,11 +223,13 @@ window.onload = () => {
             element.addEventListener('touchstart', (event) => {
                 touchStartX = event.changedTouches[0].screenX;
                 touchStartY = event.changedTouches[0].screenY;
+                event.preventDefault(); // Prevent scrolling
             });
 
             element.addEventListener('touchend', (event) => {
                 touchEndX = event.changedTouches[0].screenX;
                 touchEndY = event.changedTouches[0].screenY;
+                event.preventDefault(); // Prevent scrolling
 
                 const swipeThreshold = 50; // Minimum swipe distance
                 const deltaX = touchEndX - touchStartX;
