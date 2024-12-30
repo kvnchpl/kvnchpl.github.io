@@ -192,6 +192,9 @@ window.onload = () => {
         console.error('Error loading images:', error);
     });
 
+    linkContainer.style.visibility = 'visible';
+    linkContainer.style.opacity = '1';
+
     if (isMobile()) {
         // Set the initial overlay image and make it visible
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
