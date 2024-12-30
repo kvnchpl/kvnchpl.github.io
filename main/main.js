@@ -202,4 +202,50 @@ window.onload = () => {
         enableHoverEffect(rows, initialPositions, 200);
     })
         .catch((error) => console.error('Error loading links:', error));
+
+    if (isMobile()) {
+        
+        function detectSwipeAnyDirection(element, onSwipe) {
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let touchEndX = 0;
+            let touchEndY = 0;
+
+            element.addEventListener('touchstart', (event) => {
+                touchStartX = event.changedTouches[0].screenX;
+                touchStartY = event.changedTouches[0].screenY;
+            });
+
+            element.addEventListener('touchend', (event) => {
+                touchEndX = event.changedTouches[0].screenX;
+                touchEndY = event.changedTouches[0].screenY;
+                handleSwipe();
+            });
+
+            function handleSwipe() {
+                const swipeThreshold = 50; // Minimum distance for a swipe
+                const deltaX = touchEndX - touchStartX;
+                const deltaY = touchEndY - touchStartY;
+
+                // Check if the swipe distance meets the threshold in any direction
+                if (Math.abs(deltaX) > swipeThreshold || Math.abs(deltaY) > swipeThreshold) {
+                    onSwipe(); // Trigger the action for any swipe
+                }
+            }
+        }
+        overlay.style.backgroundImage = `url(${getNextImage()})`;
+        overlay.style.opacity = '0.5';
+
+        // Detect swipes to change overlay image
+        detectSwipeAnyDirection(overlay, () => {
+            overlay.style.backgroundImage = `url(${getNextImage()})`;
+        });
+
+        // Fallback: Change image on click for non-swipeable interactions
+        document.addEventListener('click', (event) => {
+            const target = event.target;
+            if (target.closest('a')) return; // Allow links to navigate
+            overlay.style.backgroundImage = `url(${getNextImage()})`;
+        });
+    }
 }
