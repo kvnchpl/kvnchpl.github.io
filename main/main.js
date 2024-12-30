@@ -216,11 +216,11 @@ window.onload = () => {
 
         // Scroll-based image cycling
         window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollTop = Math.max(0, document.documentElement.scrollTop || document.body.scrollTop);
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
             // Calculate the interval index (0, 1, or 2)
-            const totalIntervals = 3; // Now we explicitly define 3 intervals
+            const totalIntervals = 3; // Define 3 intervals explicitly
             const intervalIndex = Math.min(
                 Math.floor((scrollTop / scrollHeight) * totalIntervals),
                 totalIntervals - 1 // Ensure the index doesn't exceed the last interval
