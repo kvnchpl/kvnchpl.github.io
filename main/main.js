@@ -214,6 +214,8 @@ window.onload = () => {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
 
+        let previousInterval = -1; // Track the last interval crossed
+
         // Scroll-based image cycling
         window.addEventListener('scroll', () => {
             const scrollTop = Math.max(0, document.documentElement.scrollTop || document.body.scrollTop);
@@ -229,14 +231,17 @@ window.onload = () => {
                 totalIntervals = 4; // For long pages
             }
 
-            // Calculate the interval index
-            const intervalIndex = Math.min(
+            // Calculate the current interval
+            const currentInterval = Math.min(
                 Math.floor((scrollTop / scrollHeight) * totalIntervals),
-                totalIntervals - 1 // Ensure the index doesn't exceed the last interval
+                totalIntervals - 1 // Ensure the interval index doesn't exceed bounds
             );
 
-            // Set the overlay image based on the interval index
-            overlay.style.backgroundImage = `url(${shuffledImages[intervalIndex % shuffledImages.length]})`;
+            // Change image if entering a new interval
+            if (currentInterval !== previousInterval) {
+                overlay.style.backgroundImage = `url(${getNextImage()})`;
+                previousInterval = currentInterval; // Update the last interval crossed
+            }
         });
 
         // Click-based image cycling
