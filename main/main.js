@@ -160,6 +160,21 @@ window.onload = () => {
             link.rel = 'noopener noreferrer';
 
             wrapper.appendChild(link);
+
+            // Add subtitle dynamically if applicable
+            const subtitleParts = [];
+            if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
+            if (linkItem.publication) subtitleParts.push(linkItem.publication);
+            if (linkItem.publication_month && linkItem.publication_year) {
+                subtitleParts.push(formatDate(linkItem.publication_month, linkItem.publication_year));
+            }
+            if (subtitleParts.length > 0) {
+                const subtitle = document.createElement('span');
+                subtitle.className = 'subtitle';
+                subtitle.textContent = subtitleParts.join(', ');
+                wrapper.appendChild(subtitle);
+            }
+
             row.appendChild(wrapper);
             linkContainer.appendChild(row);
 
