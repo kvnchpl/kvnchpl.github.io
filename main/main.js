@@ -1,4 +1,3 @@
-const BASE_URL = "https://kvnchpl.github.io/main/";
 const IMAGE_LIST_URL = "https://kvnchpl.github.io/main/sky_images.json";
 
 const isMobile = () => window.innerWidth <= 768;
@@ -17,19 +16,10 @@ window.onload = () => {
     let currentImageIndex = 0;
     let initialPositions = [];
 
-    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
-
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
         currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
         return nextImage;
-    };
-
-    const preloadImages = (images) => {
-        images.forEach((src) => {
-            const img = new Image();
-            img.src = src;
-        });
     };
 
     const randomizeLinks = (rows) => {
@@ -193,14 +183,7 @@ window.onload = () => {
             const subtitleParts = [];
             if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
             if (linkItem.publication) subtitleParts.push(linkItem.publication);
-            if (linkItem.month && linkItem.year) {
-                subtitleParts.push(formatDate(linkItem.month, linkItem.year));
-            }
-
-            // Ensure subtitles display for writings and projects
-            if (subtitleParts.length === 0 && linkItem.month && linkItem.year) {
-                subtitleParts.push(formatDate(linkItem.month, linkItem.year));
-            }
+            if (linkItem.month && linkItem.year) subtitleParts.push(formatDate(linkItem.month, linkItem.year));
 
             if (subtitleParts.length > 0) {
                 const subtitle = document.createElement('span');
