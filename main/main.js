@@ -3,6 +3,8 @@ const IMAGE_LIST_URL = "https://kvnchpl.github.io/main/sky_images.json";
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
+    const overlay = document.getElementById('image-overlay');
+    const linkContainer = document.getElementById('link-container');
     const metaLinkList = document.querySelector('meta[name="link-data"]');
     const jsonUrl = metaLinkList ? metaLinkList.getAttribute('content') : null;
 
@@ -11,87 +13,155 @@ window.onload = () => {
         return;
     }
 
-    fetch(jsonUrl)
-        .then(response => {
-        if (!response.ok) {
-            throw new Error(`Failed to fetch JSON from ${jsonUrl}`);
-        }
-        return response.json();
-    })
-        .then(data => {
-        console.log("Data successfully parsed from JSON:", data);
-        renderLinks(data);
-    })
-        .catch(error => console.error("Error loading link list:", error));
-}
+    // Function to shuffle the array of images
+    const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
 
-// Function to render the links
-function renderLinks(data) {
-    if (!data || !Array.isArray(data) || data.length === 0) {
-        console.error("Invalid or empty data for rendering links:", data);
-        return;
+    // Preload images for smooth transitions
+    const preloadImages = (images) => {
+        images.forEach((src) => {
+            const img = new Image();
+            img.src = src;
+        });
+    };
+
+    // Initialize image overlay
+    function initializeImageOverlay(imageList) {
+        let shuffledImages = [];
+        let currentImageIndex = 0;
+
+        const getNextImage = () => {
+            const nextImage = shuffledImages[currentImageIndex];
+            currentImageIndex = (currentImageIndex + 1) % shuffledImages.length; // Loop back to start
+            return nextImage;
+        };
+
+        // Shuffle and preload images
+        shuffledImages = shuffleArray([...imageList]);
+        preloadImages(shuffledImages);
+
+        if (isMobile()) {
+            const initialImage = getNextImage();
+            overlay.style.backgroundImage = `url(${initialImage})`;
+            overlay.style.opacity = '0.5';
+
+            document.addEventListener('click', (event) => {
+                const target = event.target;
+
+                // Allow links to navigate
+                if (target.closest('a')) {
+                    console.log('Link clicked:', target.closest('a').href);
+                    return; // Let the link handle navigation
+                }
+
+                // Otherwise, cycle the image
+                const nextImage = getNextImage();
+                overlay.style.backgroundImage = `url(${nextImage})`;
+            });
+        }
     }
 
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
+    // Fetch and handle sky_images.json
+    fetch(IMAGE_LIST_URL)
+        .then(response => {
+        if (!response.ok) {
+            throw new Error('Failed to fetch images');
+        }
+        return response.json(); // Returns the array directly
+    })
+        .then(imageList => {
+        if (!Array.isArray(imageList)) {
+            throw new Error('Invalid data format for sky images: Expected an array.');
+        }
+        console.log("Data successfully parsed from JSON: ", imageList);
+        overlay.setAttribute('data-images', JSON.stringify(imageList));
+        initializeImageOverlay(imageList); // Handle image logic
+    })
+        .catch(error => console.error('Error loading images:', error));
 
-    data.forEach(item => {
-        console.log("Processing item:", item);
+    // Fetch and handle link data
+    function loadLinks() {
+        fetch(jsonUrl)
+            .then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to fetch JSON from ${jsonUrl}`);
+            }
+            return response.json();
+        })
+            .then(data => {
+            console.log("Data successfully parsed from JSON:", data);
+            renderLinks(data);
+        })
+            .catch(error => console.error("Error loading link list:", error));
+    }
 
-        const row = document.createElement("div");
-        row.classList.add("row");
-
-        const linkWrapper = document.createElement("div");
-        linkWrapper.classList.add("link-wrapper");
-
-        const link = document.createElement("a");
-        link.href = item.href;
-        link.textContent = item.label;
-        link.setAttribute("aria-label", item.label);
-
-        const isExternal = link.href.startsWith("http") && !link.href.includes(window.location.hostname);
-        const openInNewTab = item.newTab !== undefined ? item.newTab : isExternal;
-
-        if (openInNewTab) {
-            link.setAttribute("target", "_blank");
-            link.setAttribute("rel", "noopener noreferrer");
+    // Function to render the links
+    function renderLinks(data) {
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            console.error("Invalid or empty data for rendering links:", data);
+            return;
         }
 
-        const subtitleParts = [];
-        if (item.author) subtitleParts.push(`By ${item.author}`);
-        if (item.publication) subtitleParts.push(item.publication);
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
 
-        let monthAndYear = "";
-        if (item.publication_month) {
-            const month = typeof item.publication_month === "number"
-            ? monthNames[item.publication_month - 1]
-            : item.publication_month;
-            monthAndYear = month;
-        }
-        if (item.publication_year) {
-            monthAndYear += ` ${item.publication_year}`;
-        }
+        data.forEach(item => {
+            console.log("Processing item:", item);
 
-        if (monthAndYear) subtitleParts.push(monthAndYear);
+            const row = document.createElement("div");
+            row.classList.add("row");
 
-        const subtitleText = subtitleParts.join(", ");
-        if (subtitleText) {
-            const subtitle = document.createElement("span");
-            subtitle.classList.add("subtitle");
-            subtitle.textContent = subtitleText;
-            linkWrapper.appendChild(subtitle);
-        }
+            const linkWrapper = document.createElement("div");
+            linkWrapper.classList.add("link-wrapper");
 
-        linkWrapper.appendChild(link);
-        row.appendChild(linkWrapper);
-        document.getElementById('link-container').appendChild(row);
-    });
+            const link = document.createElement("a");
+            link.href = item.href;
+            link.textContent = item.label;
+            link.setAttribute("aria-label", item.label);
 
-    console.log("Links rendered successfully.");
+            const isExternal = link.href.startsWith("http") && !link.href.includes(window.location.hostname);
+            const openInNewTab = item.newTab !== undefined ? item.newTab : isExternal;
 
-    loadLinks(); // Fetch and render links
+            if (openInNewTab) {
+                link.setAttribute("target", "_blank");
+                link.setAttribute("rel", "noopener noreferrer");
+            }
+
+            const subtitleParts = [];
+            if (item.author) subtitleParts.push(`By ${item.author}`);
+            if (item.publication) subtitleParts.push(item.publication);
+
+            let monthAndYear = "";
+            if (item.publication_month) {
+                const month = typeof item.publication_month === "number"
+                ? monthNames[item.publication_month - 1]
+                : item.publication_month;
+                monthAndYear = month;
+            }
+            if (item.publication_year) {
+                monthAndYear += ` ${item.publication_year}`;
+            }
+
+            if (monthAndYear) subtitleParts.push(monthAndYear);
+
+            const subtitleText = subtitleParts.join(", ");
+            if (subtitleText) {
+                const subtitle = document.createElement("span");
+                subtitle.classList.add("subtitle");
+                subtitle.textContent = subtitleText;
+                linkWrapper.appendChild(subtitle);
+            }
+
+            linkWrapper.appendChild(link);
+            row.appendChild(linkWrapper);
+            document.getElementById('link-container').appendChild(row);
+        });
+
+        console.log("Links rendered successfully.");
+    }
+
+    loadLinks(); // Trigger fetching and rendering of links
 
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
