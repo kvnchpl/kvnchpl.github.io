@@ -148,7 +148,8 @@ function initGrid() {
 function initializeUI() {
     populateSections();
     populateGameUI("gameUI", gameData.gameUI);
-    generateTileStatsUI();
+    populateTileStatsUI();
+    populateInventory("inventory", gameState.inventory);
     updateTimeDisplay();
     updateYearAndSeason();
     updateWeekDisplay();
@@ -270,7 +271,7 @@ function populateGameUI(containerId, data) {
     });
 }
 
-function generateTileStatsUI() {
+function populateTileStatsUI() {
     const contentContainer = document.getElementById("tileStats");
     contentContainer.innerHTML = ""; // Clear existing content
 
@@ -314,6 +315,22 @@ function capitalize(str) {
         return String(str || "").toUpperCase(); // Fall back to a default string representation
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function populateInventory(containerId, inventoryData) {
+    const container = document.getElementById(containerId);
+    if (!container || !inventoryData) {
+        console.warn(`Container or inventory data missing for ID: ${containerId}`);
+        return;
+    }
+
+    container.innerHTML = "<strong>Inventory</strong>";
+
+    Object.entries(inventoryData).forEach(([item, quantity]) => {
+        const itemDiv = document.createElement("div");
+        itemDiv.textContent = `${item}: ${quantity}`;
+        container.appendChild(itemDiv);
+    });
 }
 
 /* EVENT LISTENERS */
