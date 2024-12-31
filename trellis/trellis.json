@@ -54,16 +54,6 @@
         "BASE_MOISTURE_DECAY": 2,
         "REGION_NAME": "Upstate New York"
     },
-    "timeCosts": {
-        "TILL": 30,
-        "FERTILIZE": 20,
-        "PLANT": 20,
-        "WATER": 10,
-        "MULCH": 15,
-        "WEED": 15,
-        "HARVEST": 20,
-        "CLEAR": 15
-    },
     "tileConfig": {
         "types": {
             "EMPTY": "Empty",
@@ -110,6 +100,16 @@
                 }
             }
         }
+    },
+    "timeCosts": {
+        "TILL": 30,
+        "FERTILIZE": 20,
+        "PLANT": 20,
+        "WATER": 10,
+        "MULCH": 15,
+        "WEED": 15,
+        "HARVEST": 20,
+        "CLEAR": 15
     },
     "plants": {
         "tomato": {

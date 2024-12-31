@@ -2,8 +2,6 @@
 
 let gameData = null;
 
-let TUTORIAL_TEXT, SHORTCUT_TEXT;
-
 let TILE_SIZE, GRID_WIDTH, GRID_HEIGHT;
 let DAY_START, DAY_END;
 let PEST_OUTBREAK_CHANCE;
@@ -79,16 +77,16 @@ function initGame() {
         return;
     }
 
-    const { tutorial, buttonContainter, help, gameConfig, tileConfig, plants } = gameData;
+    const { gameConfig, tileConfig, timeCosts, plants } = gameData;
 
 
 
-    if (!tutorial || !buttonContainter || !help || !gameConfig || !tileConfig || !plants) {
+    if (!gameConfig || !tileConfig || !timeCosts || !plants) {
         console.error("JSON data is missing required sections:", gameData);
     }
 
     // Configure game constants
-    configureGameConstants(tutorial, buttonContainter, help, gameConfig, tileConfig, plants);
+    configureGameConstants(gameConfig, tileConfig, timeCosts, plants);
 
 
     // Set default placeholder for player position
@@ -111,10 +109,7 @@ function initGame() {
     attachEventListeners();
 }
 
-function configureGameConstants(tutorial, buttonContainter, help, gameConfig, tileConfig, plants) {
-    //Load text
-    TUTORIAL_TEXT = tutorial.content;
-    SHORTCUT_TEXT = help.content;
+function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
     
     // Assign game configuration
     TILE_SIZE = gameConfig.TILE_SIZE;
