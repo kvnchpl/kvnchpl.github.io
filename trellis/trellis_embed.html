@@ -12,19 +12,7 @@
             <div id="gameContainer">
                 <canvas id="gameCanvas"></canvas>
                 <div id="tutorialOverlay">
-                    <p>
-                        <strong>Welcome to Trellis!</strong><br /><br />
-                        In this game, your goal is to grow a thriving and sustainable garden by carefully managing your time and resources. 
-                        Use the <strong>arrow keys</strong> to move your character around the garden grid, and the <strong>WASD keys</strong> 
-                        to highlight adjacent tiles for inspection or actions.<br /><br />
-                        Each action—like tilling, planting, watering, or weeding—takes time, so plan your day wisely! 
-                        The day starts at 7:00 AM and ends at 7:00 PM, after which you'll automatically move to the next week. 
-                        You can also skip to the next week at any time.<br /><br />
-                        Success depends on maintaining soil health, encouraging biodiversity, and growing a variety of plants 
-                        without using harmful chemicals. Experiment, adapt, and enjoy the process of building a sustainable garden.<br /><br />
-                        Good luck, and happy gardening!
-                    </p>
-                    <button id="closeTutorialBtn">Close Tutorial</button>
+                    <button id="closeTutorialBtn"></button>
                 </div>
             </div>
             <div id="gameSidebar">
@@ -43,7 +31,7 @@
                         <span id="yearDisplay"></span>
                     </div>
                     <div>
-                        <span id="weekDisplay"></span> <span id="seasonDisplay"></span>
+                        <span id="weekDisplay"></span><span id="seasonDisplay"></span>
                     </div>
                     <div>
                         <span id="biodiversityScore"></span>
@@ -57,20 +45,10 @@
                 </div>
 
                 <!-- Action Help -->
-                <div id="actionHelp">
-                    <strong>Keyboard Shortcuts</strong><br />
-                    1: Till<br />
-                    2: Fertilize<br />
-                    3: Plant<br />
-                    4: Water<br />
-                    5: Mulch<br />
-                    6: Weed<br />
-                    7: Harvest<br />
-                    8: Clear<br />
-                </div>
-                <div id="inventory">
-
-                </div>
+                <div id="actionHelp"></div>
+                
+                <!-- Inventory -->
+                <div id="inventory"></div>
             </div>
         </div>
         <script src="https://kvnchpl.github.io/trellis/trellis.js"></script>
