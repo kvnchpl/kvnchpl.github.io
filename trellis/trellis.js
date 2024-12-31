@@ -238,6 +238,7 @@ function populateSections() {
     populateSection("tutorialOverlay", gameData.tutorial, false);
     populateSection("actionHelp", gameData.help, true);
     setupButtonContainer("buttonContainer", gameData.buttonContainer);
+    setupActions("actionsContainer", gameData.actions);
 }
 
 function populateSection(containerId, data, isList = false) {
