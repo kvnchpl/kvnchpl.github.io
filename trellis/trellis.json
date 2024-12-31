@@ -17,8 +17,8 @@
         "heading": "Game Controls",
         "buttons": [
             {
-                "id": "skipToNextWeekBtn",
-                "text": "Skip to Next Week",
+                "id": "nextWeekBtn",
+                "text": "Next Week",
                 "onClick": "skipToNextWeek"
             },
             {
