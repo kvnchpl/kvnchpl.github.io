@@ -1,4 +1,33 @@
 {
+    "tutorial": {
+        "heading": "Welcome to Trellis!",
+        "content": [
+            "In this game, your goal is to grow a thriving and sustainable garden by carefully managing your time and resources.",
+            "Use the <strong>arrow keys</strong> to move your character around the garden grid, and the <strong>WASD keys</strong> to highlight adjacent tiles for inspection or actions.",
+            "Each action—like tilling, planting, watering, or weeding—takes time, so plan your day wisely!",
+            "The day starts at 7:00 AM and ends at 7:00 PM, after which you'll automatically move to the next week.",
+            "You can also skip to the next week at any time.",
+            "Success depends on maintaining soil health, encouraging biodiversity, and growing a variety of plants without using harmful chemicals.",
+            "Experiment, adapt, and enjoy the process of building a sustainable garden.",
+            "Good luck, and happy gardening!"
+        ],
+        "closeButton": "Close Tutorial"
+    },
+    "help": {
+        "heading": "Keyboard Shortcuts",
+        "content": [
+            "Arrow Keys: Move Player",
+            "WASD: Highlight Adjacent Tile",
+            "1: Till",
+            "2: Fertilize",
+            "3: Plant",
+            "4: Water",
+            "5: Mulch",
+            "6: Weed",
+            "7: Harvest",
+            "8: Clear"
+        ]
+    },
     "gameConfig": {
         "TILE_SIZE": 40,
         "GRID_WIDTH": 15,

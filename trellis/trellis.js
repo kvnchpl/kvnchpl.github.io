@@ -145,11 +145,61 @@ function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
 }
 
 function initializeUI() {
+    populateTutorialAndHelp();
     generateTileStatsUI();
     updateTimeDisplay();
     updateYearAndSeason();
     updateWeekDisplay();
     updateBiodiversityDisplay();
+}
+
+function populateTutorialAndHelp() {
+    populateSection("tutorialOverlay", gameData.tutorial, false);
+    populateSection("actionHelp", gameData.help, true);
+}
+
+function populateSection(containerId, data, isList = false) {
+    const container = document.getElementById(containerId);
+    if (!container || !data) {
+        console.error(`Container or data missing for ID: ${containerId}`);
+        return;
+    }
+
+    container.innerHTML = ""; // Clear existing content
+
+    // Add heading if provided
+    if (data.heading) {
+        const heading = document.createElement("strong");
+        heading.textContent = data.heading;
+        container.appendChild(heading);
+    }
+
+    // Add content
+    if (isList) {
+        // Create a list for items
+        const list = document.createElement("ul");
+        data.content.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.textContent = item;
+            list.appendChild(listItem);
+        });
+        container.appendChild(list);
+    } else {
+        // Create paragraphs for each content item
+        data.content.forEach(paragraph => {
+            const p = document.createElement("p");
+            p.textContent = paragraph;
+            container.appendChild(p);
+        });
+    }
+
+    // Add button if provided
+    if (data.closeButton) {
+        const button = document.createElement("button");
+        button.id = "closeTutorialBtn"; // This is specific to the tutorial
+        button.textContent = data.closeButton;
+        container.appendChild(button);
+    }
 }
 
 function generateTileStatsUI() {
