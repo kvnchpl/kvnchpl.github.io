@@ -149,9 +149,7 @@ canvas {
 #gameUI > div {
     display: flex;
     justify-content: space-between;
-    padding: var(--spacing-unit);
     margin-bottom: var(--spacing-unit);
-    border-bottom: 1px solid var(--border-color);
 }
 
 #gameUI > div:last-child {
@@ -161,10 +159,8 @@ canvas {
 /* Adjust existing #tileStatsContent styles */
 #tileStats {
     /* background: #fff; */
-    font-size: 0.9rem;
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-unit); /* Adds spacing between rows */
 }
 
 /* Ensure all children are styled consistently */
