@@ -109,20 +109,6 @@ function initGame() {
     attachEventListeners();
 }
 
-function initGrid() {
-    if (!gameData || !gameData.tileConfig || !gameData.tileConfig.stats) {
-        console.error("Tile configuration is missing in gameData.");
-        return;
-    }
-
-    gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-                                Array.from({ length: GRID_WIDTH }, () => {
-        const tile = structuredClone(gameData.tileConfig.stats);
-        return tile;
-    })
-                               );
-}
-
 function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
     // Assign game configuration
     TILE_SIZE = gameConfig.TILE_SIZE;
@@ -142,6 +128,20 @@ function configureGameConstants(gameConfig, plants, timeCosts, tileConfig) {
     // Assign plants and time costs
     Object.assign(PLANT, plants);
     Object.assign(TIME_COST, timeCosts);
+}
+
+function initGrid() {
+    if (!gameData || !gameData.tileConfig || !gameData.tileConfig.stats) {
+        console.error("Tile configuration is missing in gameData.");
+        return;
+    }
+
+    gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
+                                Array.from({ length: GRID_WIDTH }, () => {
+        const tile = structuredClone(gameData.tileConfig.stats);
+        return tile;
+    })
+                               );
 }
 
 function initializeUI() {
