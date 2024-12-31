@@ -163,7 +163,10 @@ function setupButtonContainer(containerId, data) {
         return;
     }
 
-    container.innerHTML = ""; // Clear existing content
+    // Clear existing content
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     // Conditionally add heading if displayHeading is true
     if (data.displayHeading && data.heading) {
@@ -197,7 +200,10 @@ function setupActions(containerId, actions) {
         return;
     }
 
-    container.innerHTML = ""; // Clear existing content
+    // Clear existing content
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     // Add heading if needed
     if (actions.displayHeading && actions.heading) {
@@ -248,7 +254,10 @@ function populateSection(containerId, data, isList = false) {
         return;
     }
 
-    container.innerHTML = ""; // Clear existing content
+    // Clear existing content safely
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     // Conditionally add heading if displayHeading is true
     if (data.displayHeading && data.heading) {
@@ -290,7 +299,10 @@ function populateGameUI(containerId, data) {
         return;
     }
 
-    container.innerHTML = ""; // Clear existing content
+    // Clear existing content
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
     // Conditionally add heading if displayHeading is true
     if (data.displayHeading && data.heading) {
@@ -316,29 +328,48 @@ function populateGameUI(containerId, data) {
     });
 }
 
-function populateTileStatsUI() {
-    const contentContainer = document.getElementById("tileStats");
-    contentContainer.innerHTML = ""; // Clear existing content
+function populateTileStatsUI(containerId, tileStatsData) {
+    const container = document.getElementById(containerId);
+    if (!container || !tileStatsData) {
+        console.error(`Container or tileStats data missing for ID: ${containerId}`);
+        return;
+    }
 
-    // Add heading for Tile Stats
-    const heading = document.createElement("strong");
-    heading.id = "tileStatsHeading";
-    heading.textContent = "Tile Stats"; // Default heading, coordinates added by updateTileStats
-    contentContainer.appendChild(heading);
+    // Clear existing content
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
-    Object.entries(TILE_STAT).forEach(([key, value]) => {
-        if (key === "SOIL_NUTRIENTS") {
-            Object.entries(value).forEach(([subKey, nutrient]) => {
-                const label = nutrient.NAME || subKey;
-                const id = `tileSoilNutrients${capitalize(subKey)}`;
-                appendTileStat(contentContainer, label, id);
-            });
-        } else {
-            const label = value.NAME || capitalize(key.replace(/_/g, " "));
-            const id = `tile${capitalize(key.replace(/_/g, ""))}`;
-            appendTileStat(contentContainer, label, id);
-        }
+    // Add heading
+    if (tileStatsData.displayHeading && tileStatsData.heading) {
+        const heading = document.createElement("strong");
+        heading.id = "tileStatsHeading"; // Assign an ID for dynamic updates
+        heading.textContent = tileStatsData.heading;
+        container.appendChild(heading);
+    }
+
+    // Add stats fields
+    const statsContainer = document.createElement("div");
+    statsContainer.id = "tileStatsContent";
+
+    Object.entries(tileStatsData.fields).forEach(([key, field]) => {
+        const fieldContainer = document.createElement("div");
+
+        // Create label
+        const label = document.createElement("span");
+        label.textContent = `${field.label}: `;
+        fieldContainer.appendChild(label);
+
+        // Create value element
+        const value = document.createElement("span");
+        value.id = field.id; // Assign ID for dynamic updates
+        value.textContent = field.defaultValue || "N/A"; // Set default value
+        fieldContainer.appendChild(value);
+
+        statsContainer.appendChild(fieldContainer);
     });
+
+    container.appendChild(statsContainer);
 
     // Immediately update the stats for the highlighted tile
     updateTileStats();
@@ -346,10 +377,16 @@ function populateTileStatsUI() {
 
 function appendTileStat(container, label, id) {
     const field = document.createElement("div");
-    field.innerHTML = `
-${capitalize(label)}:
-<span id="${id}">N/A</span>
-`;
+
+    const labelSpan = document.createElement("span");
+    labelSpan.textContent = `${capitalize(label)}: `;
+    field.appendChild(labelSpan);
+
+    const valueSpan = document.createElement("span");
+    valueSpan.id = id;
+    valueSpan.textContent = "N/A"; // Default value
+    field.appendChild(valueSpan);
+
     container.appendChild(field);
 }
 
@@ -365,17 +402,28 @@ function capitalize(str) {
 function populateInventory(containerId, inventoryData) {
     const container = document.getElementById(containerId);
     if (!container || !inventoryData) {
-        console.warn(`Container or inventory data missing for ID: ${containerId}`);
+        console.error(`Container or inventory data missing for ID: ${containerId}`);
         return;
     }
 
-    container.innerHTML = "<strong>Inventory</strong>";
+    // Clear existing content
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
 
+    // Add heading
+    const heading = document.createElement("strong");
+    heading.textContent = "Inventory";
+    container.appendChild(heading);
+
+    // Create list for inventory items
+    const list = document.createElement("ul");
     Object.entries(inventoryData).forEach(([item, quantity]) => {
-        const itemDiv = document.createElement("div");
-        itemDiv.textContent = `${item}: ${quantity}`;
-        container.appendChild(itemDiv);
+        const listItem = document.createElement("li");
+        listItem.textContent = `${capitalize(item)}: ${quantity}`;
+        list.appendChild(listItem);
     });
+    container.appendChild(list);
 }
 
 /* EVENT LISTENERS */

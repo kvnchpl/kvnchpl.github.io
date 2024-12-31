@@ -34,11 +34,30 @@
         "heading": "Game UI",
         "displayHeading": false,
         "fields": [
-            { "id": "timeDisplay", "label": "Time", "value": "" },
-            { "id": "yearDisplay", "label": "Year", "value": "" },
-            { "id": "weekDisplay", "label": "Week", "value": "" },
-            { "id": "seasonDisplay", "label": "Season", "value": "" },
-            { "id": "biodiversityScore", "label": "Biodiversity", "value": "" }
+            {
+                "id": "timeDisplay",
+                "label": "Time",
+                "value": ""
+            },
+            {
+                "id": "yearDisplay",
+                "label": "Year",
+                "value": "" },
+            {
+                "id":　"weekDisplay",
+                "label": "Week",
+                "value": ""
+            },
+            {
+                "id": "seasonDisplay",
+                "label": "Season",
+                "value": ""
+            },
+            {
+                "id": "biodiversityScore",
+                "label": "Biodiversity",
+                "value": ""
+            }
         ]
     },
     "help": {
@@ -74,43 +93,53 @@
             "PLOT": "Plot",
             "PATH": "Path"
         },
-        "stats": {
-            "TYPE": {
-                "NAME": "Type",
-                "VALUE": "Empty"
-            },
-            "IS_TILLED": {
-                "NAME": "Tilled",
-                "VALUE": false
-            },
-            "PLANT": {
-                "NAME": "Plant",
-                "VALUE": null
-            },
-            "WEED_LEVEL": {
-                "NAME": "Weed Level",
-                "VALUE": "0"
-            },
-            "MOISTURE": {
-                "NAME": "Moisture",
-                "VALUE": "50"
-            },
-            "MOISTURE_DECAY_RATE": {
-                "NAME": "Moisture Decay Rate",
-                "VALUE": "2"
-            },
-            "SOIL_NUTRIENTS": {
-                "N": {
-                    "NAME": "Nitrogen",
-                    "VALUE": "50"
+        "tileStats": {
+            "displayHeading": true,
+            "heading": "Tile Stats",
+            "fields": {
+                "coordinates": {
+                    "id": "tileCoords", 
+                    "label": "Coordinates", 
+                    "defaultValue": "(0, 0)" 
                 },
-                "P": {
-                    "NAME": "Phosphorus",
-                    "VALUE": "50"
+                "type": {
+                    "id": "tileType",
+                    "label": "Type",
+                    "defaultValue": "Empty"
                 },
-                "K": {
-                    "NAME": "Potassium",
-                    "VALUE": "50"
+                "isTilled": {
+                    "id": "tileIsTilled",
+                    "label": "Tilled",
+                    "defaultValue": "No"
+                },
+                "plant": {
+                    "id": "tilePlant",
+                    "label": "Plant",
+                    "defaultValue": "None"
+                },
+                "weedLevel": {
+                    "id": "tileWeedLevel",
+                    "label": "Weed Level",
+                    "defaultValue": "0"
+                },
+                "moisture": {
+                    "id": "tileMoisture",
+                    "label": "Moisture",
+                    "defaultValue": "50"
+                },
+                "moistureDecayRate": {
+                    "id": "tileMoistureDecayRate",
+                    "label": "Moisture Decay Rate",
+                    "defaultValue": "2"
+                },
+                "soilNutrients": {
+                    "id": "tileSoilNutrients",
+                    "label": "Soil Nutrients",
+                    "defaultValue": {
+                        "nitrogren": 50,
+                        "phosphorus": 50,
+                        "potassium": 50
+                    }
                 }
             }
         }
@@ -119,14 +148,55 @@
         "heading": "Actions",
         "displayHeading": false,
         "buttons": [
-            { "id": "tillBtn", "text": "Till", "shortcut": "1", "onClick": "tillSoil" },
-            { "id": "fertilizeBtn", "text": "Fertilize", "shortcut": "2", "onClick": "fertilizeTile" },
-            { "id": "plantBtn", "text": "Plant", "shortcut": "3", "onClick": "plantSeed" },
-            { "id": "waterBtn", "text": "Water", "shortcut": "4", "onClick": "waterTile" },
-            { "id": "mulchBtn", "text": "Mulch", "shortcut": "5", "onClick": "mulchTile" },
-            { "id": "weedBtn", "text": "Weed", "shortcut": "6", "onClick": "weedTile" },
-            { "id": "harvestBtn", "text": "Harvest", "shortcut": "7", "onClick": "harvestPlant" },
-            { "id": "clearBtn", "text": "Clear", "shortcut": "8", "onClick": "clearPlot" }
+            {
+                "id": "tillBtn",
+                "text": "Till",
+                "shortcut": "1",
+                "onClick": "tillSoil"
+            },
+            {
+                "id": "fertilizeBtn",
+                "text": "Fertilize",
+                "shortcut": "2",
+                "onClick":
+                "fertilizeTile"
+            },
+            {
+                "id": "plantBtn",
+                "text": "Plant",
+                "shortcut": "3",
+                "onClick":　"plantSeed"
+            },
+            {
+                "id": "waterBtn",
+                "text": "Water",
+                "shortcut": "4",
+                "onClick": "waterTile"
+            },
+            {
+                "id": "mulchBtn",
+                "text": "Mulch",
+                "shortcut": "5",
+                "onClick": "mulchTile"
+            },
+            {
+                "id": "weedBtn",
+                "text": "Weed",
+                "shortcut": "6",
+                "onClick": "weedTile"
+            },
+            {
+                "id": "harvestBtn",
+                "text": "Harvest",
+                "shortcut": "7",
+                "onClick": "harvestPlant"
+            },
+            {
+                "id": "clearBtn",
+                "text": "Clear",
+                "shortcut": "8",
+                "onClick": "clearPlot"
+            }
         ]
     },
     "timeCosts": {
