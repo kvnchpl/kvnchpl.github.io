@@ -146,7 +146,7 @@ function initGrid() {
 
 function initializeUI() {
     populateTutorialAndHelp();
-    setupButtonContainer("skipButtonContainer", gameData.buttonContainer);
+    setupButtonContainer("buttonContainer", gameData.buttonContainer);
     generateTileStatsUI();
     updateTimeDisplay();
     updateYearAndSeason();
