@@ -91,28 +91,28 @@ canvas {
     box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
 }
 
-#gameSidebar > div {
+#gameSidebar {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 100%;
-    padding: calc(var(--spacing-unit) * 2);
+    gap: var(--spacing-unit);
+    width: var(--sidebar-width);
     background: var(--color-ui-bg);
-    color: var(--color-text-primary);
-    border: 1px solid var(--border-color);
+    padding: calc(var(--spacing-unit) * 2);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    font-size: 0.9rem;
-    line-height: 1.4;
     box-sizing: border-box;
-    margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
-#gameSidebar > div strong {
-    display: block;
-    margin-bottom: var(--spacing-unit);
-    font-size: 1rem;
+.sidebar-section {
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-container-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+#gameSidebar strong {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    font-size: 1.2rem;
 }
 
 #skipButtonContainer {
