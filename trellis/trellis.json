@@ -1,6 +1,7 @@
 {
     "tutorial": {
         "heading": "Welcome to Trellis!",
+        "displayHeading": true,
         "content": [
             "In this game, your goal is to grow a thriving and sustainable garden by carefully managing your time and resources.",
             "Use the <strong>arrow keys</strong> to move your character around the garden grid, and the <strong>WASD keys</strong> to highlight adjacent tiles for inspection or actions.",
@@ -15,6 +16,7 @@
     },
     "buttonContainer": {
         "heading": "Game Controls",
+        "displayHeading": false,
         "buttons": [
             {
                 "id": "nextWeekBtn",
@@ -30,6 +32,7 @@
     },
     "help": {
         "heading": "Keyboard Shortcuts",
+        "displayHeading": true,
         "content": [
             "Arrow Keys: Move Player",
             "WASD: Highlight Adjacent Tile",
