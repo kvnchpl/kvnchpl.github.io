@@ -115,7 +115,7 @@ canvas {
     font-size: 1.2rem;
 }
 
-#skipButtonContainer {
+#buttonContainer {
     display: flex;
     justify-content: space-between; /* Space out the buttons */
     align-items: center;
@@ -128,7 +128,7 @@ canvas {
     gap: calc(var(--spacing-unit) * 2); /* Add spacing between buttons */
 }
 
-#skipButtonContainer button {
+#buttonContainer button {
     background: var(--color-ui-bg-button);
     color: var(--color-text-primary);
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
@@ -142,7 +142,7 @@ canvas {
     max-width: 150px; /* Optional: Limit button width */
 }
 
-#skipButtonContainer button:hover {
+#buttonContainer button:hover {
     background: var(--color-ui-bg-button-hover);
 }
 
