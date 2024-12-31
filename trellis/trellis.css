@@ -160,7 +160,7 @@ canvas {
 
 /* Adjust existing #tileStatsContent styles */
 #tileStats {
-    background: #fff;
+    /* background: #fff; */
     font-size: 0.9rem;
     display: flex;
     flex-direction: column;
