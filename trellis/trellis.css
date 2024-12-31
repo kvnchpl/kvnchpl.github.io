@@ -121,7 +121,6 @@ canvas {
     align-items: center;
     margin-bottom: calc(var(--spacing-unit) * 2);
     padding: calc(var(--spacing-unit) * 2);
-    background: var(--color-ui-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
