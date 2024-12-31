@@ -13,6 +13,21 @@
         ],
         "closeButton": "Close Tutorial"
     },
+    "buttonContainer": {
+        "heading": "Game Controls",
+        "buttons": [
+            {
+                "id": "skipToNextWeekBtn",
+                "text": "Skip to Next Week",
+                "onClick": "skipToNextWeek"
+            },
+            {
+                "id": "resetPositionBtn",
+                "text": "Reset Position",
+                "onClick": "resetPlayerPosition"
+            }
+        ]
+    },
     "help": {
         "heading": "Keyboard Shortcuts",
         "content": [
