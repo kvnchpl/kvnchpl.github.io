@@ -165,7 +165,6 @@ canvas {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-unit); /* Adds spacing between rows */
-    width: 100%; /* Ensure it spans the container */
 }
 
 /* Ensure all children are styled consistently */
