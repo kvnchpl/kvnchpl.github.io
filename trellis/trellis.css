@@ -158,13 +158,10 @@ canvas {
     border-bottom: none;
 }
 
+/* Adjust existing #tileStatsContent styles */
 #tileStats {
     background: #fff;
     font-size: 0.9rem;
-}
-
-/* Adjust existing #tileStatsContent styles */
-#tileStatsContent {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-unit); /* Adds spacing between rows */
@@ -172,7 +169,7 @@ canvas {
 }
 
 /* Ensure all children are styled consistently */
-#tileStatsContent div {
+#tileStats div {
     display: flex;
     justify-content: space-between; /* Align labels and values */
     align-items: center;
