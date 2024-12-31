@@ -137,9 +137,10 @@ window.onload = () => {
         shuffledImages = shuffleArray(imageList);
         preloadImages(shuffledImages);
 
-        // Set the first image as the initial overlay background
-        overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-        overlay.style.opacity = '0.5';
+        if (isMobile()) {
+            overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
+            overlay.style.opacity = '0.5';
+        }
     })
         .catch((error) => {
         console.error('Error loading images:', error);
