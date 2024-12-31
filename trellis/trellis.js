@@ -146,8 +146,7 @@ function initGrid() {
 }
 
 function initializeUI() {
-    populateTutorialAndHelp();
-    setupButtonContainer("buttonContainer", gameData.buttonContainer);
+    populateSections();
     generateTileStatsUI();
     updateTimeDisplay();
     updateYearAndSeason();
@@ -164,8 +163,8 @@ function setupButtonContainer(containerId, data) {
 
     container.innerHTML = ""; // Clear existing content
 
-    // Add heading if provided
-    if (data.heading) {
+    // Conditionally add heading if displayHeading is true
+    if (data.displayHeading && data.heading) {
         const heading = document.createElement("strong");
         heading.textContent = data.heading;
         container.appendChild(heading);
@@ -178,7 +177,7 @@ function setupButtonContainer(containerId, data) {
         button.textContent = buttonData.text;
 
         // Attach click event listener if function exists
-        const handler = window[buttonData.onClick]; // Access global functions
+        const handler = window[buttonData.onClick];
         if (typeof handler === "function") {
             button.addEventListener("click", handler);
         } else {
@@ -189,9 +188,10 @@ function setupButtonContainer(containerId, data) {
     });
 }
 
-function populateTutorialAndHelp() {
+function populateSections() {
     populateSection("tutorialOverlay", gameData.tutorial, false);
     populateSection("actionHelp", gameData.help, true);
+    setupButtonContainer("buttonContainer", gameData.buttonContainer);
 }
 
 function populateSection(containerId, data, isList = false) {
@@ -203,8 +203,8 @@ function populateSection(containerId, data, isList = false) {
 
     container.innerHTML = ""; // Clear existing content
 
-    // Add heading if provided
-    if (data.heading) {
+    // Conditionally add heading if displayHeading is true
+    if (data.displayHeading && data.heading) {
         const heading = document.createElement("strong");
         heading.textContent = data.heading;
         container.appendChild(heading);
@@ -212,7 +212,6 @@ function populateSection(containerId, data, isList = false) {
 
     // Add content
     if (isList) {
-        // Create a list for items
         const list = document.createElement("ul");
         data.content.forEach(item => {
             const listItem = document.createElement("li");
@@ -221,7 +220,6 @@ function populateSection(containerId, data, isList = false) {
         });
         container.appendChild(list);
     } else {
-        // Create paragraphs for each content item
         data.content.forEach(paragraph => {
             const p = document.createElement("p");
             p.textContent = paragraph;
@@ -229,10 +227,10 @@ function populateSection(containerId, data, isList = false) {
         });
     }
 
-    // Add button if provided
+    // Add button if provided (specific to tutorial overlay)
     if (data.closeButton) {
         const button = document.createElement("button");
-        button.id = "closeTutorialBtn"; // This is specific to the tutorial
+        button.id = "closeTutorialBtn";
         button.textContent = data.closeButton;
         container.appendChild(button);
     }
