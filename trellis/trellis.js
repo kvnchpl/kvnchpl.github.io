@@ -110,7 +110,7 @@ function initGame() {
 }
 
 function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
-    
+
     // Assign game configuration
     TILE_SIZE = gameConfig.TILE_SIZE;
     GRID_WIDTH = gameConfig.GRID_WIDTH;
@@ -177,9 +177,12 @@ function setupButtonContainer(containerId, data) {
         button.id = buttonData.id;
         button.textContent = buttonData.text;
 
-        // Attach click event listener if provided
-        if (buttonData.onClick) {
-            button.addEventListener("click", buttonData.onClick);
+        // Attach click event listener if function exists
+        const handler = window[buttonData.onClick]; // Access global functions
+        if (typeof handler === "function") {
+            button.addEventListener("click", handler);
+        } else {
+            console.error(`Handler function '${buttonData.onClick}' not found for button ID '${buttonData.id}'`);
         }
 
         container.appendChild(button);
