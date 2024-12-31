@@ -30,6 +30,17 @@
             }
         ]
     },
+    "gameUI": {
+        "heading": "Game UI",
+        "displayHeading": false,
+        "fields": [
+            { "id": "timeDisplay", "label": "Time", "value": "" },
+            { "id": "yearDisplay", "label": "Year", "value": "" },
+            { "id": "weekDisplay", "label": "Week", "value": "" },
+            { "id": "seasonDisplay", "label": "Season", "value": "" },
+            { "id": "biodiversityScore", "label": "Biodiversity", "value": "" }
+        ]
+    },
     "help": {
         "heading": "Keyboard Shortcuts",
         "displayHeading": true,

@@ -147,6 +147,7 @@ function initGrid() {
 
 function initializeUI() {
     populateSections();
+    populateGameUI("gameUI", gameData.gameUI);
     generateTileStatsUI();
     updateTimeDisplay();
     updateYearAndSeason();
@@ -234,6 +235,39 @@ function populateSection(containerId, data, isList = false) {
         button.textContent = data.closeButton;
         container.appendChild(button);
     }
+}
+
+function populateGameUI(containerId, data) {
+    const container = document.getElementById(containerId);
+    if (!container || !data) {
+        console.error(`Container or data missing for ID: ${containerId}`);
+        return;
+    }
+
+    container.innerHTML = ""; // Clear existing content
+
+    // Conditionally add heading if displayHeading is true
+    if (data.displayHeading && data.heading) {
+        const heading = document.createElement("strong");
+        heading.textContent = data.heading;
+        container.appendChild(heading);
+    }
+
+    // Add fields dynamically
+    data.fields.forEach(field => {
+        const fieldContainer = document.createElement("div");
+
+        const label = document.createElement("span");
+        label.textContent = `${field.label}: `;
+        fieldContainer.appendChild(label);
+
+        const value = document.createElement("span");
+        value.id = field.id;
+        value.textContent = field.value || "N/A"; // Default to "N/A" if no value provided
+        fieldContainer.appendChild(value);
+
+        container.appendChild(fieldContainer);
+    });
 }
 
 function generateTileStatsUI() {

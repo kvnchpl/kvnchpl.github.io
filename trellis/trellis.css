@@ -146,6 +146,18 @@ canvas {
     background: var(--color-ui-bg-button-hover);
 }
 
+#gameUI > div {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+    border-bottom: 1px solid var(--border-color);
+}
+
+#gameUI > div:last-child {
+    border-bottom: none;
+}
+
 #tileStats {
     background: #fff;
     font-size: 0.9rem;
