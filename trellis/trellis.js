@@ -146,11 +146,43 @@ function initGrid() {
 
 function initializeUI() {
     populateTutorialAndHelp();
+    setupButtonContainer("skipButtonContainer", gameData.buttonContainer);
     generateTileStatsUI();
     updateTimeDisplay();
     updateYearAndSeason();
     updateWeekDisplay();
     updateBiodiversityDisplay();
+}
+
+function setupButtonContainer(containerId, data) {
+    const container = document.getElementById(containerId);
+    if (!container || !data) {
+        console.error(`Container or data missing for ID: ${containerId}`);
+        return;
+    }
+
+    container.innerHTML = ""; // Clear existing content
+
+    // Add heading if provided
+    if (data.heading) {
+        const heading = document.createElement("strong");
+        heading.textContent = data.heading;
+        container.appendChild(heading);
+    }
+
+    // Add button(s)
+    data.buttons.forEach(buttonData => {
+        const button = document.createElement("button");
+        button.id = buttonData.id;
+        button.textContent = buttonData.text;
+
+        // Attach click event listener if provided
+        if (buttonData.onClick) {
+            button.addEventListener("click", buttonData.onClick);
+        }
+
+        container.appendChild(button);
+    });
 }
 
 function populateTutorialAndHelp() {
