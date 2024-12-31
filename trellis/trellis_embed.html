@@ -2,25 +2,30 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>trellis</title>
-        <link rel="stylesheet" href="https://kvnchpl.github.io/main/main.css"/>
-        <link rel="stylesheet" href="https://kvnchpl.github.io/trellis/trellis.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Trellis - A gardening simulation game focusing on sustainability." />
+        <meta name="theme-color" content="#4CAF50" />
+        <title>Trellis</title>
+        <link rel="stylesheet" href="https://kvnchpl.github.io/main/main.css" />
+        <link rel="stylesheet" href="https://kvnchpl.github.io/trellis/trellis.css" />
     </head>
     <body>
-        <div id="mainContent">
-            <div id="gameContainer">
+        <main id="mainContent">
+            <section id="gameContainer">
                 <canvas id="gameCanvas"></canvas>
-                <div id="tutorialOverlay"></div>
-            </div>
-            <div id="gameSidebar">
-                <div id="buttonContainer"></div>
-                <div id="gameUI"></div>
-                <div id="tileStats"></div>
-                <div id="actionHelp"></div>
-                <div id="inventory"></div>
-            </div>
-        </div>
+                <div id="tutorialOverlay" class="hidden"></div>
+            </section>
+            <aside id="gameSidebar">
+                <section id="buttonContainer" class="sidebar-section"></section>
+                <section id="gameUI" class="sidebar-section"></section>
+                <section id="tileStats" class="sidebar-section"></section>
+                <section id="actionHelp" class="sidebar-section"></section>
+                <section id="inventory" class="sidebar-section"></section>
+            </aside>
+        </main>
+        <noscript>
+            <p>This game requires JavaScript to function. Please enable JavaScript and refresh the page.</p>
+        </noscript>
         <script src="https://kvnchpl.github.io/trellis/trellis.js"></script>
     </body>
 </html>
