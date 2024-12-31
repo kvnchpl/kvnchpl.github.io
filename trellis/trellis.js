@@ -271,7 +271,7 @@ function populateGameUI(containerId, data) {
 }
 
 function generateTileStatsUI() {
-    const contentContainer = document.getElementById("tileStatsContent");
+    const contentContainer = document.getElementById("tileStats");
     contentContainer.innerHTML = ""; // Clear existing content
 
     // Add heading for Tile Stats
