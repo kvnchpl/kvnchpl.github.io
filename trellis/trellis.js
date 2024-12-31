@@ -190,6 +190,50 @@ function setupButtonContainer(containerId, data) {
     });
 }
 
+function setupActions(containerId, actions) {
+    const container = document.getElementById(containerId);
+    if (!container || !actions) {
+        console.error(`Container or actions missing for ID: ${containerId}`);
+        return;
+    }
+
+    container.innerHTML = ""; // Clear existing content
+
+    // Add heading if needed
+    if (actions.displayHeading && actions.heading) {
+        const heading = document.createElement("strong");
+        heading.textContent = actions.heading;
+        container.appendChild(heading);
+    }
+
+    // Create buttons and bind events
+    actions.buttons.forEach(buttonData => {
+        const button = document.createElement("button");
+        button.id = buttonData.id;
+        button.textContent = buttonData.text;
+
+        // Attach click event listener
+        const handler = window[buttonData.onClick];
+        if (typeof handler === "function") {
+            button.addEventListener("click", handler);
+        } else {
+            console.error(`Handler function '${buttonData.onClick}' not found for button ID '${buttonData.id}'`);
+        }
+
+        // Bind keyboard shortcut
+        if (buttonData.shortcut) {
+            window.addEventListener("keydown", e => {
+                if (e.key === buttonData.shortcut) {
+                    e.preventDefault();
+                    button.click();
+                }
+            });
+        }
+
+        container.appendChild(button);
+    });
+}
+
 function populateSections() {
     populateSection("tutorialOverlay", gameData.tutorial, false);
     populateSection("actionHelp", gameData.help, true);
