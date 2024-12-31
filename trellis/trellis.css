@@ -145,6 +145,20 @@ canvas {
     background: var(--color-ui-bg-button-hover);
 }
 
+#actionsContainer button {
+    padding: var(--spacing-unit);
+    margin: var(--spacing-unit);
+    background: var(--color-ui-bg-button);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+
+#actionsContainer button:hover {
+    background: var(--color-ui-bg-button-hover);
+}
+
 #gameUI > div {
     display: flex;
     justify-content: space-between;

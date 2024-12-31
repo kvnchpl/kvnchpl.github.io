@@ -115,6 +115,20 @@
             }
         }
     },
+    "actions": {
+        "heading": "Actions",
+        "displayHeading": false,
+        "buttons": [
+            { "id": "tillBtn", "text": "Till", "shortcut": "1", "onClick": "tillSoil" },
+            { "id": "fertilizeBtn", "text": "Fertilize", "shortcut": "2", "onClick": "fertilizeTile" },
+            { "id": "plantBtn", "text": "Plant", "shortcut": "3", "onClick": "plantSeed" },
+            { "id": "waterBtn", "text": "Water", "shortcut": "4", "onClick": "waterTile" },
+            { "id": "mulchBtn", "text": "Mulch", "shortcut": "5", "onClick": "mulchTile" },
+            { "id": "weedBtn", "text": "Weed", "shortcut": "6", "onClick": "weedTile" },
+            { "id": "harvestBtn", "text": "Harvest", "shortcut": "7", "onClick": "harvestPlant" },
+            { "id": "clearBtn", "text": "Clear", "shortcut": "8", "onClick": "clearPlot" }
+        ]
+    },
     "timeCosts": {
         "TILL": 30,
         "FERTILIZE": 20,
