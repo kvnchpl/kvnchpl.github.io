@@ -37,6 +37,12 @@
     --tile-moisture-low: #c2b280;
     --tile-plant-young: #7EC850;
     --tile-plant-mature: #98FB98;
+
+    --transition-default: background 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
 }
 
 body {
@@ -66,6 +72,8 @@ body {
 
 canvas {
     display: block;
+    width: var(--game-width);
+    height: var(--game-height);
     background: var(--color-canvas-bg);
     border: 2px solid var(--color-canvas-border);
 }
@@ -84,52 +92,6 @@ canvas {
 }
 
 #gameSidebar > div {
-    margin-bottom: calc(var(--spacing-unit) * 2);
-}
-
-#gameUI {
-    position: relative; /* Allows for precise positioning of the skip button */
-}
-
-#gameUI button {
-    position: absolute;
-    top: calc(var(--spacing-unit) * 2); /* Position at the bottom of the section */
-    left: calc(var(--spacing-unit) * 2); /* Align to the right */
-    background: var(--color-ui-bg-button);
-    color: var(--color-text-primary);
-    border: none;
-    border-radius: var(--border-radius);
-    padding: calc(var(--spacing-unit) * 2);
-    cursor: pointer;
-    font-size: 1rem;
-    box-shadow: var(--box-shadow);
-    transition: background 0.3s ease;
-}
-
-#gameUI button:hover {
-    background: var(--color-ui-bg-button-hover);
-}
-
-#tileStats {
-    background: #fff;
-    font-size: 0.9rem;
-}
-
-#actionHelp {
-    position: relative; /* Enable precise placement of the heading */
-    text-align: left; /* Align text consistently */
-    font-size: 0.9rem;
-}
-
-#actionHelp em {
-    position: absolute;
-    top: calc(var(--spacing-unit) * 2); /* Align near the top of the section */
-    left: calc(var(--spacing-unit) * 2); /* Align to the left */
-    font-size: 1rem;
-    font-weight: bold;
-}
-
-#gameUI, #tileStats, #actionHelp {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -144,12 +106,80 @@ canvas {
     font-size: 0.9rem;
     line-height: 1.4;
     box-sizing: border-box;
+    margin-bottom: calc(var(--spacing-unit) * 2);
 }
 
-#tileStats strong, #actionHelp strong {
+#gameSidebar > div strong {
     display: block;
     margin-bottom: var(--spacing-unit);
     font-size: 1rem;
+}
+
+#skipButtonContainer {
+    display: flex;
+    justify-content: space-between; /* Space out the buttons */
+    align-items: center;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-ui-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    gap: calc(var(--spacing-unit) * 2); /* Add spacing between buttons */
+}
+
+#skipButtonContainer button {
+    background: var(--color-ui-bg-button);
+    color: var(--color-text-primary);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: var(--box-shadow);
+    transition: background 0.3s ease;
+    flex: 1; /* Equal width for both buttons */
+    max-width: 150px; /* Optional: Limit button width */
+}
+
+#skipButtonContainer button:hover {
+    background: var(--color-ui-bg-button-hover);
+}
+
+#tileStats {
+    background: #fff;
+    font-size: 0.9rem;
+}
+
+/* Adjust existing #tileStatsContent styles */
+#tileStatsContent {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-unit); /* Adds spacing between rows */
+    width: 100%; /* Ensure it spans the container */
+}
+
+/* Ensure all children are styled consistently */
+#tileStatsContent div {
+    display: flex;
+    justify-content: space-between; /* Align labels and values */
+    align-items: center;
+    width: 100%; /* Ensure rows fill the available width */
+    margin-bottom: var(--spacing-unit); /* Add spacing for clarity */
+}
+
+#actionHelp {
+    position: relative; /* Enable precise placement of the heading */
+    text-align: left; /* Align text consistently */
+    font-size: 0.9rem;
+}
+
+#actionHelp em {
+    position: absolute;
+    top: calc(var(--spacing-unit) * 2); /* Align near the top of the section */
+    left: calc(var(--spacing-unit) * 2); /* Align to the left */
+    font-size: 1rem;
+    font-weight: bold;
 }
 
 #tutorialOverlay {
@@ -187,7 +217,7 @@ canvas {
     cursor: pointer;
     font-size: 1rem;
     box-shadow: var(--box-shadow);
-    transition: background 0.3s ease;
+    transition: var(--transition-default);
 }
 
 #tutorialOverlay button:hover {
