@@ -110,39 +110,28 @@ function initGame() {
 }
 
 function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
-
     // Assign game configuration
-    TILE_SIZE = gameConfig.TILE_SIZE;
-    GRID_WIDTH = gameConfig.GRID_WIDTH;
-    GRID_HEIGHT = gameConfig.GRID_HEIGHT;
-    DAY_START = gameConfig.DAY_START;
-    DAY_END = gameConfig.DAY_END;
-    PEST_OUTBREAK_CHANCE = gameConfig.PEST_OUTBREAK_CHANCE;
-    BASE_MOISTURE_START = gameConfig.BASE_MOISTURE_START;
-    BASE_MOISTURE_DECAY = gameConfig.BASE_MOISTURE_DECAY;
-    REGION_NAME = gameConfig.REGION_NAME;
+    Object.assign(GAME_CONFIG, gameConfig);
 
-    // Assign tile-related configuration
-    Object.assign(TILE_TYPE, tileConfig.types);
-    Object.assign(TILE_STAT, tileConfig.stats);
+    // Assign tile configuration
+    Object.assign(TILE_TYPE, tileConfig.TYPES);
+    Object.assign(TILE_STAT, tileConfig.STATS);
 
-    // Assign plants and time costs
+    // Assign plant and time costs
     Object.assign(PLANT, plants);
     Object.assign(TIME_COST, timeCosts);
 }
 
 function initGrid() {
-    if (!gameData || !gameData.tileConfig || !gameData.tileConfig.stats) {
-        console.error("Tile configuration is missing in gameData.");
-        return;
-    }
-
     gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-                                Array.from({ length: GRID_WIDTH }, () => {
-        const tile = structuredClone(gameData.tileConfig.stats);
-        return tile;
-    })
-                               );
+        Array.from({ length: GRID_WIDTH }, () => {
+            const tile = {};
+            Object.entries(gameData.TILE_CONFIG.STATS).forEach(([key, config]) => {
+                tile[key] = structuredClone(config.DEFAULT_VALUE);
+            });
+            return tile;
+        })
+    );
 }
 
 function initializeUI() {
@@ -241,10 +230,11 @@ function setupActions(containerId, actions) {
 }
 
 function populateSections() {
-    populateSection("tutorialOverlay", gameData.tutorial, false);
-    populateSection("actionHelp", gameData.help, true);
-    setupButtonContainer("buttonContainer", gameData.buttonContainer);
-    setupActions("actionsContainer", gameData.actions);
+    const uiSections = gameData.UI;
+    populateTutorialOverlay(uiSections.TUTORIAL);
+    populateGameUI(uiSections.GAME_UI);
+    populateTileStatsUI(uiSections.TILE_STATS);
+    populateInventory(uiSections.INVENTORY);
 }
 
 function populateSection(containerId, data, isList = false) {
@@ -292,87 +282,55 @@ function populateSection(containerId, data, isList = false) {
     }
 }
 
-function populateGameUI(containerId, data) {
-    const container = document.getElementById(containerId);
-    if (!container || !data) {
-        console.error(`Container or data missing for ID: ${containerId}`);
-        return;
-    }
+function populateGameUI(gameUI) {
+    const container = document.getElementById("gameUI");
+    if (!container || !gameUI) return;
 
-    // Clear existing content
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-
-    // Conditionally add heading if displayHeading is true
-    if (data.displayHeading && data.heading) {
+    if (gameUI.DISPLAY_HEADING) {
         const heading = document.createElement("strong");
-        heading.textContent = data.heading;
+        heading.textContent = gameUI.HEADING;
         container.appendChild(heading);
     }
 
-    // Add fields dynamically
-    data.fields.forEach(field => {
-        const fieldContainer = document.createElement("div");
-
+    gameUI.FIELDS.forEach(field => {
+        const fieldRow = document.createElement("div");
         const label = document.createElement("span");
-        label.textContent = `${field.label}: `;
-        fieldContainer.appendChild(label);
+        label.textContent = field.LABEL;
 
         const value = document.createElement("span");
-        value.id = field.id;
-        value.textContent = field.value || "N/A"; // Default to "N/A" if no value provided
-        fieldContainer.appendChild(value);
+        value.id = field.ID;
+        value.textContent = field.DEFAULT_VALUE;
 
-        container.appendChild(fieldContainer);
+        fieldRow.appendChild(label);
+        fieldRow.appendChild(value);
+        container.appendChild(fieldRow);
     });
 }
 
-function populateTileStatsUI(containerId, tileStatsData) {
-    const container = document.getElementById(containerId);
-    if (!container || !tileStatsData) {
-        console.error(`Container or tileStats data missing for ID: ${containerId}`);
-        return;
-    }
+function populateTileStatsUI(tileStats) {
+    const container = document.getElementById("tileStats");
+    if (!container || !tileStats) return;
 
-    // Clear existing content
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-
-    // Add heading
-    if (tileStatsData.displayHeading && tileStatsData.heading) {
+    if (tileStats.DISPLAY_HEADING) {
         const heading = document.createElement("strong");
-        heading.id = "tileStatsHeading"; // Assign an ID for dynamic updates
-        heading.textContent = tileStatsData.heading;
+        heading.id = "tileStatsHeading";
+        heading.textContent = tileStats.HEADING;
         container.appendChild(heading);
     }
 
-    // Add stats fields
-    const statsContainer = document.createElement("div");
-    statsContainer.id = "tileStatsContent";
-
-    Object.entries(tileStatsData.fields).forEach(([key, field]) => {
-        const fieldContainer = document.createElement("div");
-
-        // Create label
+    Object.entries(tileStats.FIELDS).forEach(([key, field]) => {
+        const fieldRow = document.createElement("div");
         const label = document.createElement("span");
-        label.textContent = `${field.label}: `;
-        fieldContainer.appendChild(label);
+        label.textContent = field.LABEL;
 
-        // Create value element
         const value = document.createElement("span");
-        value.id = field.id; // Assign ID for dynamic updates
-        value.textContent = field.defaultValue || "N/A"; // Set default value
-        fieldContainer.appendChild(value);
+        value.id = field.ID;
+        value.textContent = field.DEFAULT_VALUE;
 
-        statsContainer.appendChild(fieldContainer);
+        fieldRow.appendChild(label);
+        fieldRow.appendChild(value);
+        container.appendChild(fieldRow);
     });
-
-    container.appendChild(statsContainer);
-
-    // Immediately update the stats for the highlighted tile
-    updateTileStats();
 }
 
 function appendTileStat(container, label, id) {
@@ -406,24 +364,29 @@ function populateInventory(containerId, inventoryData) {
         return;
     }
 
-    // Clear existing content
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 
-    // Add heading
     const heading = document.createElement("strong");
-    heading.textContent = "Inventory";
+    heading.textContent = gameData.UI.INVENTORY.HEADING;
     container.appendChild(heading);
 
-    // Create list for inventory items
-    const list = document.createElement("ul");
-    Object.entries(inventoryData).forEach(([item, quantity]) => {
-        const listItem = document.createElement("li");
-        listItem.textContent = `${capitalize(item)}: ${quantity}`;
-        list.appendChild(listItem);
+    Object.entries(inventoryData).forEach(([category, items]) => {
+        const categoryLabel = gameData.UI.INVENTORY.CATEGORIES[category]?.LABEL || capitalize(category);
+        const listItem = document.createElement("div");
+        listItem.textContent = `${categoryLabel}:`;
+
+        const itemList = document.createElement("ul");
+        Object.entries(items).forEach(([item, quantity]) => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${capitalize(item)}: ${quantity}`;
+            itemList.appendChild(listItem);
+        });
+
+        container.appendChild(listItem);
+        container.appendChild(itemList);
     });
-    container.appendChild(list);
 }
 
 /* EVENT LISTENERS */
@@ -780,41 +743,32 @@ function updateTileStats() {
         return;
     }
 
-    // Update the Tile Stats heading with coordinates
     const heading = document.getElementById("tileStatsHeading");
-    if (heading) {
-        heading.textContent = `Tile Stats (${x}, ${y})`;
-    }
+    if (heading) heading.textContent = `Tile Stats (${x}, ${y})`;
 
-    // Iterate over the tile's actual properties
-    Object.entries(tile).forEach(([key, value]) => {
-        if (key === "PLANT") {
-            const element = document.getElementById("tilePLANT");
-            if (element) {
-                const plantName = value?.VALUE?.NAME;
-                const displayName = plantName ? PLANT[plantName]?.NAME || "Unknown Plant" : "None";
-                element.textContent = displayName;
-            }
-        } else if (key == "SOIL_NUTRIENTS") {
-            Object.entries(value || {}).forEach(([subKey, nutrientValue]) => {
-                const nutrientElement = document.getElementById(`tileSoilNutrients${capitalize(subKey)}`);
-                if (nutrientElement) {
-                    nutrientElement.textContent = nutrientValue.VALUE ?? "N/A";
-                }
-            });
-        } else {
-            const element = document.getElementById(`tile${capitalize(key.replace(/_/g, ""))}`);
-            if (element) {
-                element.textContent =
-                    typeof value.VALUE === "boolean"
-                    ? value.VALUE
-                    ? "Yes"
-                : "No"
-                : value.VALUE !== null && value.VALUE !== undefined
-                    ? value.VALUE
-                : "N/A";
-            }
+    Object.entries(gameData.UI.TILE_STATS.FIELDS).forEach(([key, config]) => {
+        const element = document.getElementById(config.ID);
+        if (!element) {
+            console.warn(`Element with ID '${config.ID}' not found.`);
+            return;
         }
+
+        let value;
+        switch (config.TYPE) {
+            case "BOOLEAN":
+                value = tile[key]?.VALUE ? "Yes" : "No";
+                break;
+            case "NESTED":
+                value = config.FORMAT
+                    ? config.FORMAT.replace(/\{(\w+)\}/g, (_, match) => tile[key]?.VALUE[match] ?? "N/A")
+                    : tile[key]?.VALUE[config.KEY] ?? config.DEFAULT_VALUE;
+                break;
+            default:
+                value = tile[key]?.VALUE ?? config.DEFAULT_VALUE;
+                break;
+        }
+
+        element.textContent = value;
     });
 }
 

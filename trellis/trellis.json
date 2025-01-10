@@ -1,270 +1,200 @@
 {
-    "tutorial": {
-        "heading": "Welcome to Trellis!",
-        "displayHeading": true,
-        "content": [
-            "In this game, your goal is to grow a thriving and sustainable garden by carefully managing your time and resources.",
-            "Use the <strong>arrow keys</strong> to move your character around the garden grid, and the <strong>WASD keys</strong> to highlight adjacent tiles for inspection or actions.",
-            "Each action—like tilling, planting, watering, or weeding—takes time, so plan your day wisely!",
-            "The day starts at 7:00 AM and ends at 7:00 PM, after which you'll automatically move to the next week.",
-            "You can also skip to the next week at any time.",
-            "Success depends on maintaining soil health, encouraging biodiversity, and growing a variety of plants without using harmful chemicals.",
-            "Experiment, adapt, and enjoy the process of building a sustainable garden.",
-            "Good luck, and happy gardening!"
-        ],
-        "closeButton": "Close Tutorial"
+  "GAME_CONFIG": {
+    "TILE_SIZE": 40,
+    "GRID_WIDTH": 15,
+    "GRID_HEIGHT": 15,
+    "DAY_START": 0,
+    "DAY_END": 720,
+    "PEST_OUTBREAK_CHANCE": 5,
+    "BASE_MOISTURE_START": 50,
+    "BASE_MOISTURE_DECAY": 2,
+    "REGION_NAME": "Upstate New York"
+  },
+  "TILE_CONFIG": {
+    "TYPES": {
+      "EMPTY": "Empty",
+      "PLOT": "Plot",
+      "PATH": "Path"
     },
-    "buttonContainer": {
-        "heading": "Game Controls",
-        "displayHeading": false,
-        "buttons": [
-            {
-                "id": "nextWeekBtn",
-                "text": "Next Week",
-                "onClick": "skipToNextWeek"
-            },
-            {
-                "id": "resetPositionBtn",
-                "text": "Reset Position",
-                "onClick": "resetPlayerPosition"
-            }
-        ]
-    },
-    "gameUI": {
-        "heading": "Game UI",
-        "displayHeading": false,
-        "fields": [
-            {
-                "id": "timeDisplay",
-                "label": "Time",
-                "value": ""
-            },
-            {
-                "id": "yearDisplay",
-                "label": "Year",
-                "value": "" },
-            {
-                "id":　"weekDisplay",
-                "label": "Week",
-                "value": ""
-            },
-            {
-                "id": "seasonDisplay",
-                "label": "Season",
-                "value": ""
-            },
-            {
-                "id": "biodiversityScore",
-                "label": "Biodiversity",
-                "value": ""
-            }
-        ]
-    },
-    "help": {
-        "heading": "Keyboard Shortcuts",
-        "displayHeading": true,
-        "content": [
-            "Arrow Keys: Move Player",
-            "WASD: Highlight Adjacent Tile",
-            "1: Till",
-            "2: Fertilize",
-            "3: Plant",
-            "4: Water",
-            "5: Mulch",
-            "6: Weed",
-            "7: Harvest",
-            "8: Clear"
-        ]
-    },
-    "gameConfig": {
-        "TILE_SIZE": 40,
-        "GRID_WIDTH": 15,
-        "GRID_HEIGHT": 15,
-        "DAY_START": 0,
-        "DAY_END": 720,
-        "PEST_OUTBREAK_CHANCE": 5,
-        "BASE_MOISTURE_START": 50,
-        "BASE_MOISTURE_DECAY": 2,
-        "REGION_NAME": "Upstate New York"
-    },
-    "tileConfig": {
-        "types": {
-            "EMPTY": "Empty",
-            "PLOT": "Plot",
-            "PATH": "Path"
-        },
-        "tileStats": {
-            "displayHeading": true,
-            "heading": "Tile Stats",
-            "fields": {
-                "coordinates": {
-                    "id": "tileCoords", 
-                    "label": "Coordinates", 
-                    "defaultValue": "(0, 0)" 
-                },
-                "type": {
-                    "id": "tileType",
-                    "label": "Type",
-                    "defaultValue": "Empty"
-                },
-                "isTilled": {
-                    "id": "tileIsTilled",
-                    "label": "Tilled",
-                    "defaultValue": "No"
-                },
-                "plant": {
-                    "id": "tilePlant",
-                    "label": "Plant",
-                    "defaultValue": "None"
-                },
-                "weedLevel": {
-                    "id": "tileWeedLevel",
-                    "label": "Weed Level",
-                    "defaultValue": "0"
-                },
-                "moisture": {
-                    "id": "tileMoisture",
-                    "label": "Moisture",
-                    "defaultValue": "50"
-                },
-                "moistureDecayRate": {
-                    "id": "tileMoistureDecayRate",
-                    "label": "Moisture Decay Rate",
-                    "defaultValue": "2"
-                },
-                "soilNutrients": {
-                    "id": "tileSoilNutrients",
-                    "label": "Soil Nutrients",
-                    "defaultValue": {
-                        "nitrogren": 50,
-                        "phosphorus": 50,
-                        "potassium": 50
-                    }
-                }
-            }
+    "STATS": {
+      "TYPE": {
+        "LABEL": "Type",
+        "DEFAULT_VALUE": "Empty"
+      },
+      "IS_TILLED": {
+        "LABEL": "Tilled",
+        "TYPE": "BOOLEAN",
+        "DEFAULT_VALUE": false
+      },
+      "PLANT": {
+        "LABEL": "Plant",
+        "TYPE": "NESTED",
+        "DEFAULT_VALUE": "None",
+        "KEY": "NAME"
+      },
+      "WEED_LEVEL": {
+        "LABEL": "Weed Level",
+        "TYPE": "NUMBER",
+        "DEFAULT_VALUE": 0
+      },
+      "MOISTURE": {
+        "LABEL": "Moisture",
+        "TYPE": "NUMBER",
+        "DEFAULT_VALUE": 50
+      },
+      "MOISTURE_DECAY_RATE": {
+        "LABEL": "Moisture Decay Rate",
+        "TYPE": "NUMBER",
+        "DEFAULT_VALUE": 2
+      },
+      "SOIL_NUTRIENTS": {
+        "LABEL": "Soil Nutrients",
+        "TYPE": "NESTED",
+        "FORMAT": "N: {N}, P: {P}, K: {K}",
+        "DEFAULT_VALUE": {
+          "N": 50,
+          "P": 50,
+          "K": 50
         }
-    },
-    "actions": {
-        "heading": "Actions",
-        "displayHeading": false,
-        "buttons": [
-            {
-                "id": "tillBtn",
-                "text": "Till",
-                "shortcut": "1",
-                "onClick": "tillSoil"
-            },
-            {
-                "id": "fertilizeBtn",
-                "text": "Fertilize",
-                "shortcut": "2",
-                "onClick":
-                "fertilizeTile"
-            },
-            {
-                "id": "plantBtn",
-                "text": "Plant",
-                "shortcut": "3",
-                "onClick":　"plantSeed"
-            },
-            {
-                "id": "waterBtn",
-                "text": "Water",
-                "shortcut": "4",
-                "onClick": "waterTile"
-            },
-            {
-                "id": "mulchBtn",
-                "text": "Mulch",
-                "shortcut": "5",
-                "onClick": "mulchTile"
-            },
-            {
-                "id": "weedBtn",
-                "text": "Weed",
-                "shortcut": "6",
-                "onClick": "weedTile"
-            },
-            {
-                "id": "harvestBtn",
-                "text": "Harvest",
-                "shortcut": "7",
-                "onClick": "harvestPlant"
-            },
-            {
-                "id": "clearBtn",
-                "text": "Clear",
-                "shortcut": "8",
-                "onClick": "clearPlot"
-            }
-        ]
-    },
-    "timeCosts": {
-        "TILL": 30,
-        "FERTILIZE": 20,
-        "PLANT": 20,
-        "WATER": 10,
-        "MULCH": 15,
-        "WEED": 15,
-        "HARVEST": 20,
-        "CLEAR": 15
-    },
-    "plants": {
-        "tomato": {
-            "NAME": "Tomato",
-            "IS_MATURE": false,
-            "AGE": 0,
-            "GROWTH_TIME": 4,
-            "PRODUCE_YIELD": 3,
-            "MOISTURE_REQUIREMENT": 70,
-            "NUTRIENT_USAGE": {
-                "N": 5,
-                "P": 4,
-                "K": 3
-            },
-            "PEST_ATTRACTION": 10
-        },
-        "kale": {
-            "NAME": "Kale",
-            "IS_MATURE": false,
-            "AGE": 0,
-            "GROWTH_TIME": 6,
-            "PRODUCE_YIELD": 2,
-            "MOISTURE_REQUIREMENT": 50,
-            "NUTRIENT_USAGE": {
-                "N": 4,
-                "P": 2,
-                "K": 1
-            },
-            "PEST_ATTRACTION": 5
-        },
-        "corn": {
-            "NAME": "Corn2",
-            "IS_MATURE": false,
-            "AGE": 0,
-            "GROWTH_TIME": 8,
-            "PRODUCE_YIELD": 5,
-            "MOISTURE_REQUIREMENT": 60,
-            "NUTRIENT_USAGE": {
-                "N": 7,
-                "P": 6,
-                "K": 4
-            },
-            "PEST_ATTRACTION": 8
-        },
-        "beans": {
-            "NAME": "Beans",
-            "IS_MATURE": false,
-            "AGE": 0,
-            "GROWTH_TIME": 6,
-            "PRODUCE_YIELD": 4,
-            "MOISTURE_REQUIREMENT": 40,
-            "NUTRIENT_USAGE": {
-                "N": -3,
-                "P": 1,
-                "K": 1
-            },
-            "PEST_ATTRACTION": 4
-        }
+      }
     }
+  },
+  "TIME_COSTS": {
+    "TILL": 30,
+    "FERTILIZE": 20,
+    "PLANT": 20,
+    "WATER": 10,
+    "MULCH": 15,
+    "WEED": 15,
+    "HARVEST": 20,
+    "CLEAR": 15
+  },
+  "PLANTS": {
+    "TOMATO": {
+      "NAME": "Tomato",
+      "GROWTH_TIME": 4,
+      "YIELD": 3
+    },
+    "KALE": {
+      "NAME": "Kale",
+      "GROWTH_TIME": 3,
+      "YIELD": 2
+    },
+    "CORN": {
+      "NAME": "Corn",
+      "GROWTH_TIME": 5,
+      "YIELD": 4
+    },
+    "BEANS": {
+      "NAME": "Beans",
+      "GROWTH_TIME": 3,
+      "YIELD": 3
+    }
+  },
+  "UI": {
+    "TUTORIAL": {
+      "DISPLAY_HEADING": true,
+      "HEADING": "Welcome to Trellis!",
+      "CONTENT": [
+        "Use arrow keys to move your character.",
+        "Use WASD to select adjacent tiles.",
+        "Perform actions like tilling, planting, and harvesting to manage your garden."
+      ],
+      "CLOSE_BUTTON": "Close Tutorial"
+    },
+    "GAME_UI": {
+      "DISPLAY_HEADING": true,
+      "HEADING": "Game UI",
+      "FIELDS": [
+        {
+          "LABEL": "Time",
+          "ID": "timeDisplay",
+          "DEFAULT_VALUE": "7:00 AM"
+        },
+        {
+          "LABEL": "Week",
+          "ID": "weekDisplay",
+          "DEFAULT_VALUE": "1"
+        },
+        {
+          "LABEL": "Year",
+          "ID": "yearDisplay",
+          "DEFAULT_VALUE": "Year: 1"
+        },
+        {
+          "LABEL": "Season",
+          "ID": "seasonDisplay",
+          "DEFAULT_VALUE": "Winter"
+        },
+        {
+          "LABEL": "Biodiversity",
+          "ID": "biodiversityScore",
+          "DEFAULT_VALUE": "0"
+        }
+      ]
+    },
+    "TILE_STATS": {
+      "DISPLAY_HEADING": true,
+      "HEADING": "Tile Stats",
+      "FIELDS": {
+        "TYPE": {
+          "LABEL": "Type",
+          "ID": "tileType",
+          "DEFAULT_VALUE": "Empty"
+        },
+        "IS_TILLED": {
+          "LABEL": "Tilled",
+          "ID": "tileTilled",
+          "DEFAULT_VALUE": "False"
+        },
+        "PLANT": {
+          "LABEL": "Plant",
+          "ID": "tilePlant",
+          "DEFAULT_VALUE": "None"
+        },
+        "WEED_LEVEL": {
+          "LABEL": "Weed Level",
+          "ID": "tileWeedLevel",
+          "DEFAULT_VALUE": "0"
+        },
+        "MOISTURE": {
+          "LABEL": "Moisture",
+          "ID": "tileMoisture",
+          "DEFAULT_VALUE": "50"
+        },
+        "MOISTURE_DECAY_RATE": {
+          "LABEL": "Moisture Decay Rate",
+          "ID": "tileMoistureDecayRate",
+          "DEFAULT_VALUE": "2"
+        },
+        "SOIL_NUTRIENTS": {
+          "LABEL": "Soil Nutrients",
+          "ID": "tileSoilNutrients",
+          "DEFAULT_VALUE": "N: 50, P: 50, K: 50"
+        }
+      }
+    },
+    "INVENTORY": {
+      "DISPLAY_HEADING": true,
+      "HEADING": "Inventory",
+      "CATEGORIES": {
+        "SEEDS": {
+          "LABEL": "Seeds",
+          "DEFAULT_VALUE": 0
+        },
+        "PRODUCE": {
+          "LABEL": "Produce",
+          "DEFAULT_VALUE": 0
+        },
+        "FERTILIZER": {
+          "LABEL": "Fertilizer",
+          "DEFAULT_VALUE": 0
+        },
+        "MULCH": {
+          "LABEL": "Mulch",
+          "DEFAULT_VALUE": 0
+        }
+      }
+    }
+  }
 }
