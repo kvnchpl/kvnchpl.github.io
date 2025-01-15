@@ -189,10 +189,18 @@ function initGame() {
         populateSections(uiData);
 
         // Check DOM elements before attaching listeners
-        if (!document.getElementById("nextWeekBtn") || 
-            !document.getElementById("resetPositionBtn") || 
-            !document.getElementById("closeTutorialBtn")) {
-            console.error("Required buttons are not yet available in the DOM.");
+        if (!document.getElementById("nextWeekBtn")){
+            console.error("Required buttons are not yet available in the DOM1.");
+            return;
+        }
+
+        if  (!document.getElementById("resetPositionBtn")) {
+            console.error("Required buttons are not yet available in the DOM2.");
+            return;
+        }
+
+        if (!document.getElementById("closeTutorialBtn")) {
+            console.error("Required buttons are not yet available in the DOM3.");
             return;
         }
 
