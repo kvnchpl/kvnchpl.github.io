@@ -177,7 +177,6 @@ function initGame() {
         })
         );
 
-        console.log("Grid initialized successfully:", gameState.grid);
         render();
     }
 
@@ -228,7 +227,7 @@ function initGame() {
             console.error("Missing uiData.BUTTONS.");
             return;
         }
-        
+
         populateUISection("buttonContainer", uiData.BUTTONS);
     }
 
@@ -272,7 +271,10 @@ function initGame() {
                 container.appendChild(fieldRow);
             });
         }
-console.log(`containerId: '${containerId}', data: '${data}'`);
+
+        console.log("containerId: ", containerId);
+        console.log("data: ", data);
+
         // Populate buttons
         if (data.BUTTONS) {
             console.log("Rendering buttons:", data.BUTTONS);
