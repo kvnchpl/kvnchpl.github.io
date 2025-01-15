@@ -212,12 +212,12 @@ function initGame() {
     }
 
     function populateSections(uiData) {
-    populateUISection("tutorialOverlay", uiData.TUTORIAL);
-    populateUISection("gameUI", uiData.GAME_UI);
-    populateUISection("tileStats", uiData.TILE_STATS);
-    populateUISection("inventory", uiData.INVENTORY);
-    populateUISection("buttonContainer", uiData.BUTTONS);
-}
+        populateUISection("tutorialOverlay", uiData.TUTORIAL);
+        populateUISection("gameUI", uiData.GAME_UI);
+        populateUISection("tileStats", uiData.TILE_STATS);
+        populateUISection("inventory", uiData.INVENTORY);
+        populateUISection("buttonContainer", uiData.BUTTONS);
+    }
 
     function populateUISection(containerId, data) {
         const container = document.getElementById(containerId);
@@ -340,16 +340,16 @@ return str.charAt(0).toUpperCase() + str.slice(1);
 /* EVENT LISTENERS */
 
 function attachEventListeners() {
-    const nextWeekBtn = document.getElementById("nextWeekBtn");
-    const resetPositionBtn = document.getElementById("resetPositionBtn");
-    const closeTutorialBtn = document.getElementById("closeTutorialBtn");
+const nextWeekBtn = document.getElementById("nextWeekBtn");
+const resetPositionBtn = document.getElementById("resetPositionBtn");
+const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
-    if (nextWeekBtn) nextWeekBtn.addEventListener("click", skipToNextWeek);
-    if (resetPositionBtn) resetPositionBtn.addEventListener("click", resetPlayerPosition);
-    if (closeTutorialBtn) closeTutorialBtn.addEventListener("click", hideTutorial);
+if (nextWeekBtn) nextWeekBtn.addEventListener("click", skipToNextWeek);
+if (resetPositionBtn) resetPositionBtn.addEventListener("click", resetPlayerPosition);
+if (closeTutorialBtn) closeTutorialBtn.addEventListener("click", hideTutorial);
 
-    window.addEventListener("keydown", preventArrowKeyScroll);
-    window.addEventListener("keydown", handleKeyDown);
+window.addEventListener("keydown", preventArrowKeyScroll);
+window.addEventListener("keydown", handleKeyDown);
 }
 
 function preventArrowKeyScroll(e) {
@@ -882,12 +882,12 @@ console.log("This tile is not a plot.");
 /* INVENTORY */
 
 function updateInventory() {
-    const inventoryData = gameData.UI.INVENTORY;
-    if (inventoryData) {
-        updateUISection("inventory", inventoryData);
-    } else {
-        console.error("Inventory data is missing in UI.");
-    }
+const inventoryData = gameData.UI.INVENTORY;
+if (inventoryData) {
+updateUISection("inventory", inventoryData);
+} else {
+console.error("Inventory data is missing in UI.");
+}
 }
 
 /* TUTORIAL OVERLAY */
