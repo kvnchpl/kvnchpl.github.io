@@ -115,9 +115,6 @@ function initGame() {
 
                       // Show the tutorial overlay
                       showTutorial();
-
-                      // Attach event listeners
-                      attachEventListeners();
                       }
 
                       function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
