@@ -154,17 +154,32 @@ function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
 }
 
 function initGrid() {
+    if (!gameData.TILE_CONFIG || !gameData.TILE_CONFIG.TYPES) {
+        console.error("TILE_CONFIG or TILE_CONFIG.TYPES is missing:", gameData.TILE_CONFIG);
+        return;
+    }
+
+    // Initialize grid with default tiles
     gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-                                Array.from({ length: GRID_WIDTH }, () => {
-        const tile = {};
-        Object.entries(gameData.TILE_CONFIG.TYPES).forEach(([key, config]) => {
-            tile[key] = structuredClone(config?.DEFAULT_VALUE ?? {});
-                                        });
-                                        return tile;
-                                        })
-                                       );
-                                        render();
-                                        }
+        Array.from({ length: GRID_WIDTH }, () => {
+            // Create a default tile
+            const tile = structuredClone(gameData.TILE_CONFIG.TYPES.EMPTY);
+
+            // Initialize missing properties
+            tile.TYPE = { VALUE: "EMPTY" };
+            tile.MOISTURE = { VALUE: gameData.TILE_CONFIG.TYPES.EMPTY.MOISTURE };
+            tile.IS_TILLED = { VALUE: gameData.TILE_CONFIG.TYPES.EMPTY.IS_TILLED };
+            tile.PLANT = { VALUE: null };
+            tile.WEED_LEVEL = { VALUE: 0 };
+            tile.MOISTURE_DECAY_RATE = { VALUE: gameData.GAME_CONFIG.MOISTURE.DECAY };
+
+            return tile;
+        })
+    );
+
+    console.log("Grid initialized successfully:", gameState.grid);
+        render();
+}
 
                                         function initializeUI(uiData) {
                                         // Populate sections initially
