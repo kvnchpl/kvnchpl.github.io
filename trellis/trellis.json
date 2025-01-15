@@ -108,6 +108,26 @@
                 "K": 50
             },
             "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "SEEDS": {
+            "LABEL": "Seeds",
+            "ID": "inventorySeeds",
+            "DEFAULT_VALUE": 0
+        },
+        "PRODUCE": {
+            "LABEL": "Produce",
+            "ID": "inventoryProduce",
+            "DEFAULT_VALUE": 0
+        },
+        "FERTILIZER": {
+            "LABEL": "Fertilizer",
+            "ID": "inventoryFertilizer",
+            "DEFAULT_VALUE": 0
+        },
+        "MULCH": {
+            "LABEL": "Mulch",
+            "ID": "inventoryMulch",
+            "DEFAULT_VALUE": 0
         }
     },
     "UI": {
@@ -142,22 +162,11 @@
             ]
         },
         "INVENTORY": {
-            "SEEDS": {
-                "LABEL": "Seeds",
-                "DEFAULT_VALUE": 0
-            },
-            "PRODUCE": {
-                "LABEL": "Produce",
-                "DEFAULT_VALUE": 0
-            },
-            "FERTILIZER": {
-                "LABEL": "Fertilizer",
-                "DEFAULT_VALUE": 0
-            },
-            "MULCH": {
-                "LABEL": "Mulch",
-                "DEFAULT_VALUE": 0
-            }
+            "FIELDS": [
+                "SEEDS",
+                "PRODUCE",
+                "FERTILIZER",
+                "MULCH"]
         },
         "BUTTONS": {
             "NEXT_WEEK": {
