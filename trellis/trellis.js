@@ -17,6 +17,9 @@ let GROWTH_TIME = {};
 let PRODUCE_YIELD = {};
 let PLANT_DATA = {};
 
+
+const WEEKS_PER_SEASON, WEEKS_PER_YEAR, SEASONS;
+
 /* GAME STATE */
 
 const gameState = {
@@ -77,19 +80,20 @@ function initGame() {
 
     const {
         GAME_CONFIG: gameConfig,
+        CALENDAR_CONFIG: calendarConfig,
         TILE_CONFIG: tileConfig,
         TIME_COSTS: timeCosts,
         PLANTS: plants,
         UI: uiData
     } = gameData;
 
-    if (!gameConfig || !tileConfig || !timeCosts || !plants || !uiData) {
+    if (!gameConfig || !calendarConfig || !tileConfig || !timeCosts || !plants || !uiData) {
         console.error("JSON data is missing required sections:", gameData);
         return;
     }
 
     // Configure game constants
-    initializeConstants(gameConfig, tileConfig, timeCosts, plants);
+    initializeConstants(gameConfig, calendarConfig, tileConfig, timeCosts, plants);
 
 
     // Set default placeholder for player position
@@ -107,7 +111,7 @@ function initGame() {
                       showTutorial();
                       }
 
-                      function initializeConstants(gameConfig, tileConfig, timeCosts, plants) {
+                      function initializeConstants(gameConfig, calendarConfig, tileConfig, timeCosts, plants) {
                       if (!gameConfig || !tileConfig || !timeCosts || !plants) {
                       console.error("Missing configuration data:", { gameConfig, tileConfig, timeCosts, plants });
                       return;
@@ -123,6 +127,11 @@ function initGame() {
                       BASE_MOISTURE_DECAY = gameConfig.MOISTURE.DECAY;
                       PEST_OUTBREAK_CHANCE = gameConfig.PEST_OUTBREAK_CHANCE;
                       REGION_NAME = gameConfig.REGION;
+
+                      // Calendar-related constants
+                      WEEKS_PER_SEASON = calendarConfig.WEEKS_PER_SEASON;
+                      SEASONS = calendarConfig.SEASONS;
+                      WEEKS_PER_YEAR = WEEKS_PER_SEASON * SEASONS.length;
 
                       // Assign tile configuration
                       Object.assign(TILE_TYPE, tileConfig.TYPES);
@@ -183,8 +192,13 @@ function initGame() {
 
     function renderUISection(containerId, data) {
         const container = document.getElementById(containerId);
-        if (!container || !data) {
-            console.error(`Container or data missing for ID: ${containerId}`);
+        if (!container) {
+            console.warn(`Container with ID '${containerId}' not found in the DOM.`);
+            return;
+        }
+
+        if (!data) {
+            console.warn(`No data provided for container '${containerId}'.`);
             return;
         }
 
