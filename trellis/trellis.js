@@ -13,8 +13,7 @@ let TILE_STAT = {};
 let TIME_COST = {};
 let GROWTH_TIME = {};
 let PRODUCE_YIELD = {};
-let PLANT_DATA = {};s
-
+let PLANT_DATA = {};
 
 let WEEKS_PER_SEASON, WEEKS_PER_YEAR, SEASONS;
 
@@ -152,8 +151,8 @@ function initGrid() {
     const defaultTile = structuredClone(gameData.TILE_CONFIG.TYPES[defaultType]);
 
     gameState.grid = Array.from({
-            length: GRID_HEIGHT
-        }, () =>
+        length: GRID_HEIGHT
+    }, () =>
         Array.from({
             length: GRID_WIDTH
         }, () => {
