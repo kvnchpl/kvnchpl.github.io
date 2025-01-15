@@ -228,6 +228,7 @@ function initGame() {
             console.error("Missing uiData.BUTTONS.");
             return;
         }
+        console.log("uiData.BUTTONS: ",uiData.BUTTONS);
         populateUISection("buttonContainer", uiData.BUTTONS);
     }
 
