@@ -52,7 +52,7 @@ const gameState = {
 
 /* INITIALIZATION */
 
-window.onload = function() {
+window.onload = function () {
     const gameDataURL = document.querySelector('meta[name="game-data"]')?.content;
 
     if (!gameDataURL) {
