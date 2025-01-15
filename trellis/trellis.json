@@ -1,181 +1,200 @@
 {
-  "METADATA": {
-    "VERSION": "1.0",
-    "LAST_UPDATED": "2025-01-15",
-    "AUTHOR": "Game Developer",
-    "DESCRIPTION": "Configuration file for Trellis game."
-  },
-  "GAME_CONFIG": {
-    "GRID": {
-      "TILE_SIZE": 40,
-      "WIDTH": 15,
-      "HEIGHT": 15
+    "METADATA": {
+        "VERSION": "1.0",
+        "LAST_UPDATED": "2025-01-15",
+        "AUTHOR": "Game Developer",
+        "DESCRIPTION": "Configuration file for Trellis game."
     },
-    "TIME": {
-      "START": 0,
-      "END": 720
-    },
-    "MOISTURE": {
-      "START": 50,
-      "DECAY": 2
-    },
-    "PEST_OUTBREAK_CHANCE": 5,
-    "REGION": "Upstate New York"
-  },
-  "TILE_CONFIG": {
-    "TYPES": {
-      "EMPTY": {
-        "LABEL": "Empty",
-        "IS_TILLED": false,
-        "MOISTURE": 50
-      },
-      "PLOT": {
-        "LABEL": "Plot",
-        "IS_TILLED": true,
-        "MOISTURE": 50
-      },
-      "PATH": {
-        "LABEL": "Path",
-        "IS_TILLED": false,
-        "MOISTURE": 0
-      }
-    }
-  },
-  "TIME_COSTS": {
-    "TILL": 30,
-    "FERTILIZE": 20,
-    "PLANT": 20,
-    "WATER": 10,
-    "MULCH": 15,
-    "WEED": 15,
-    "HARVEST": 20,
-    "CLEAR": 15
-  },
-  "PLANTS": {
-    "TOMATO": {
-      "NAME": "Tomato",
-      "GROWTH_TIME": 4,
-      "YIELD": 3
-    },
-    "KALE": {
-      "NAME": "Kale",
-      "GROWTH_TIME": 3,
-      "YIELD": 2
-    },
-    "CORN": {
-      "NAME": "Corn",
-      "GROWTH_TIME": 5,
-      "YIELD": 4
-    },
-    "BEANS": {
-      "NAME": "Beans",
-      "GROWTH_TIME": 3,
-      "YIELD": 3
-    }
-  },
-  "FIELDS": {
-    "TIME": {
-      "LABEL": "Time",
-      "ID": "timeDisplay",
-      "DEFAULT_VALUE": "7:00 AM"
-    },
-    "WEEK": {
-      "LABEL": "Week",
-      "ID": "weekDisplay",
-      "DEFAULT_VALUE": "1"
-    },
-    "YEAR": {
-      "LABEL": "Year",
-      "ID": "yearDisplay",
-      "DEFAULT_VALUE": "Year: 1"
-    },
-    "SEASON": {
-      "LABEL": "Season",
-      "ID": "seasonDisplay",
-      "DEFAULT_VALUE": "Winter"
-    },
-    "BIODIVERSITY": {
-      "LABEL": "Biodiversity",
-      "ID": "biodiversityScore",
-      "DEFAULT_VALUE": "0"
-    }
-  },
-  "UI": {
-    "TUTORIAL": {
-      "DISPLAY_HEADING": true,
-      "HEADING": "Welcome to Trellis!",
-      "CONTENT": [
-        "Use arrow keys to move your character.",
-        "Use WASD to select adjacent tiles.",
-        "Perform actions like tilling, planting, and harvesting to manage your garden."
-      ],
-      "CLOSE_BUTTON": "Close Tutorial"
-    },
-    "GAME_UI": {
-      "FIELDS": [
-        "TIME",
-        "WEEK",
-        "YEAR",
-        "SEASON",
-        "BIODIVERSITY"
-      ]
-    },
-    "TILE_STATS": {
-      "FIELDS": [
-        {
-          "LABEL": "Type",
-          "ID": "tileType",
-          "DEFAULT_VALUE": "Empty"
+    "GAME_CONFIG": {
+        "GRID": {
+            "TILE_SIZE": 40,
+            "WIDTH": 15,
+            "HEIGHT": 15
         },
-        {
-          "LABEL": "Tilled",
-          "ID": "tileTilled",
-          "DEFAULT_VALUE": "No"
+        "TIME": {
+            "START": 0,
+            "END": 720
         },
-        {
-          "LABEL": "Plant",
-          "ID": "tilePlant",
-          "DEFAULT_VALUE": "None"
+        "MOISTURE": {
+            "START": 50,
+            "DECAY": 2
         },
-        {
-          "LABEL": "Weed Level",
-          "ID": "tileWeedLevel",
-          "DEFAULT_VALUE": "0"
-        },
-        {
-          "LABEL": "Moisture",
-          "ID": "tileMoisture",
-          "DEFAULT_VALUE": "50"
-        },
-        {
-          "LABEL": "Moisture Decay Rate",
-          "ID": "tileMoistureDecayRate",
-          "DEFAULT_VALUE": "2"
-        },
-        {
-          "LABEL": "Soil Nutrients",
-          "ID": "tileSoilNutrients",
-          "DEFAULT_VALUE": "N: 50, P: 50, K: 50"
+        "PEST_OUTBREAK_CHANCE": 5,
+        "REGION": "Upstate New York"
+    },
+    "TILE_CONFIG": {
+        "TYPES": {
+            "EMPTY": {
+                "LABEL": "Empty",
+                "IS_TILLED": false,
+                "MOISTURE": 50
+            },
+            "PLOT": {
+                "LABEL": "Plot",
+                "IS_TILLED": true,
+                "MOISTURE": 50
+            },
+            "PATH": {
+                "LABEL": "Path",
+                "IS_TILLED": false,
+                "MOISTURE": 0
+            }
         }
-      ]
     },
-    "INVENTORY": {
-      "SEEDS": {
+    "TIME_COSTS": {
+        "TILL": 30,
+        "FERTILIZE": 20,
+        "PLANT": 20,
+        "WATER": 10,
+        "MULCH": 15,
+        "WEED": 15,
+        "HARVEST": 20,
+        "CLEAR": 15
+    },
+    "PLANTS": {
+        "TOMATO": {
+            "NAME": "Tomato",
+            "GROWTH_TIME": 4,
+            "YIELD": 3
+        },
+        "KALE": {
+            "NAME": "Kale",
+            "GROWTH_TIME": 3,
+            "YIELD": 2
+        },
+        "CORN": {
+            "NAME": "Corn",
+            "GROWTH_TIME": 5,
+            "YIELD": 4
+        },
+        "BEANS": {
+            "NAME": "Beans",
+            "GROWTH_TIME": 3,
+            "YIELD": 3
+        }
+    },
+    "UI": {
+        "TUTORIAL": {
+            "DISPLAY_HEADING": true,
+            "HEADING": "Welcome to Trellis!",
+            "CONTENT": [
+                "Use arrow keys to move your character.",
+                "Use WASD to select adjacent tiles.",
+                "Perform actions like tilling, planting, and harvesting to manage your garden."
+            ],
+            "CLOSE_BUTTON": "Close Tutorial"
+        },
+        "GAME_UI": {
+            "FIELDS": [
+                "TIME",
+                "WEEK",
+                "YEAR",
+                "SEASON",
+                "BIODIVERSITY"
+            ]
+        },
+        "BUTTONS": {
+            "NEXT_WEEK": {
+                "LABEL": "Skip Week",
+                "ID": "nextWeekBtn",
+                "ON_CLICK": "skipToNextWeek"
+            },
+            "RESET_POSITION": {
+                "LABEL": "Reset Position",
+                "ID": "resetPositionBtn",
+                "ON_CLICK": "resetPlayerPosition"
+            }
+        },
+    },
+    "FIELDS": {
+        "TIME": {
+            "LABEL": "Time",
+            "ID": "timeDisplay",
+            "DEFAULT_VALUE": "7:00 AM"
+        },
+        "WEEK": {
+            "LABEL": "Week",
+            "ID": "weekDisplay",
+            "DEFAULT_VALUE": "1"
+        },
+        "YEAR": {
+            "LABEL": "Year",
+            "ID": "yearDisplay",
+            "DEFAULT_VALUE": "Year: 1"
+        },
+        "SEASON": {
+            "LABEL": "Season",
+            "ID": "seasonDisplay",
+            "DEFAULT_VALUE": "Winter"
+        },
+        "BIODIVERSITY": {
+            "LABEL": "Biodiversity",
+            "ID": "biodiversityScore",
+            "DEFAULT_VALUE": "0"
+        }
+    },
+},
+"TILE_STATS": {
+    "FIELDS": [
+        {
+            "LABEL": "Type",
+            "ID": "tileType",
+            "DEFAULT_VALUE": "Empty"
+        },
+        {
+            "LABEL": "Tilled",
+            "ID": "tileTilled",
+            "DEFAULT_VALUE": "No"
+        },
+        {
+            "LABEL": "Plant",
+            "ID": "tilePlant",
+            "DEFAULT_VALUE": "None"
+        },
+        {
+            "LABEL": "Weed Level",
+            "ID": "tileWeedLevel",
+            "DEFAULT_VALUE": "0"
+        },
+        {
+            "LABEL": "Moisture",
+            "ID": "tileMoisture",
+            "DEFAULT_VALUE": "50"
+        },
+        {
+            "LABEL": "Moisture Decay Rate",
+            "ID": "tileMoistureDecayRate",
+            "DEFAULT_VALUE": "2"
+        },
+        {
+            "LABEL": "Soil Nutrients",
+            "ID": "tileSoilNutrients",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        }
+    ]
+},
+"INVENTORY": {
+    "SEEDS": {
         "LABEL": "Seeds",
         "DEFAULT_VALUE": 0
-      },
-      "PRODUCE": {
+    },
+    "PRODUCE": {
         "LABEL": "Produce",
         "DEFAULT_VALUE": 0
-      },
-      "FERTILIZER": {
+    },
+    "FERTILIZER": {
         "LABEL": "Fertilizer",
         "DEFAULT_VALUE": 0
-      },
-      "MULCH": {
+    },
+    "MULCH": {
         "LABEL": "Mulch",
         "DEFAULT_VALUE": 0
-      }
     }
-  }
+}
+}
 }
