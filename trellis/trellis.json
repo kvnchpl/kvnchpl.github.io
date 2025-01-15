@@ -157,7 +157,11 @@
                 "Use WASD to select adjacent tiles.",
                 "Perform actions like tilling, planting, and harvesting to manage your garden."
             ],
-            "CLOSE_BUTTON": "Close Tutorial"
+            "BUTTON": {
+                "LABEL": "Close Tutorial",
+                "ID": "closeTutorialBtn",
+                "ON_CLICK": "hideTutorial"
+            }
         },
         "GAME_UI": {
             "FIELDS": [
@@ -190,8 +194,7 @@
         "BUTTONS": {
             "FIELDS": [
                 "NEXT_WEEK",
-                "RESET_POSITION",
-                "CLOSE_TUTORIAL"
+                "RESET_POSITION"
             ]
         }
     }

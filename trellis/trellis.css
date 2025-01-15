@@ -225,7 +225,7 @@ canvas {
     margin: 0; /* Remove default margin */
 }
 
-#tutorialOverlay button {
+.tutorial-button {
     background: var(--color-overlay-button-bg);
     color: var(--color-overlay-button-text);
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
@@ -237,7 +237,7 @@ canvas {
     transition: var(--transition-default);
 }
 
-#tutorialOverlay button:hover {
+.tutorial-button:hover {
     background: var(--color-overlay-bg);
     color: var(--color-overlay-text);
 }
