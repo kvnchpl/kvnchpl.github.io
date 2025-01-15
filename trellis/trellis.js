@@ -188,19 +188,13 @@ function initGame() {
         // Populate sections initially
         populateSections(uiData);
 
-        // Check DOM elements before attaching listeners
-        if (!document.getElementById("nextWeekBtn")){
-            console.error("Required buttons are not yet available in the DOM1.");
-            return;
-        }
+        // Check if buttons exist before attaching listeners
+        const nextWeekBtn = document.getElementById("nextWeekBtn");
+        const resetPositionBtn = document.getElementById("resetPositionBtn");
+        const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
-        if  (!document.getElementById("resetPositionBtn")) {
-            console.error("Required buttons are not yet available in the DOM2.");
-            return;
-        }
-
-        if (!document.getElementById("closeTutorialBtn")) {
-            console.error("Required buttons are not yet available in the DOM3.");
+        if (!nextWeekBtn || !resetPositionBtn || !closeTutorialBtn) {
+            console.error("Required buttons are not yet available in the DOM.");
             return;
         }
 
