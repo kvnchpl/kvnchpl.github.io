@@ -5,6 +5,34 @@
         "AUTHOR": "Game Developer",
         "DESCRIPTION": "Configuration file for Trellis game."
     },
+    "CALENDAR": {
+        "SEASONS": [
+            "Winter",
+            "Spring",
+            "Summer",
+            "Fall"
+        ],
+        "WEEKS_PER_SEASON": 13
+    },
+    "KEY_BINDINGS": {
+        "PLAYER_MOVE_UP": "ArrowUp",
+        "PLAYER_MOVE_DOWN": "ArrowDown",
+        "PLAYER_MOVE_LEFT": "ArrowLeft",
+        "PLAYER_MOVE_RIGHT": "ArrowRight",
+        "HIGHLIGHT_TILE_UP": "w",
+        "HIGHLIGHT_TILE_DOWN": "s",
+        "HIGHLIGHT_TILE_LEFT": "a",
+        "HIGHLIGHT_TILE_RIGHT": "d",
+        "RESET_HIGHLIGHT": "q",
+        "ACTION_TILL": "1",
+        "ACTION_FERTILIZE": "2",
+        "ACTION_PLANT": "3",
+        "ACTION_WATER": "4",
+        "ACTION_MULCH": "5",
+        "ACTION_WEED": "6",
+        "ACTION_HARVEST": "7",
+        "ACTION_CLEAR": "8"
+    },
     "GAME_CONFIG": {
         "GRID": {
             "TILE_SIZE": 40,
@@ -23,19 +51,23 @@
         "REGION": "Upstate New York"
     },
     "TILE_CONFIG": {
+        "DEFAULT_TYPE": "EMPTY",
         "TYPES": {
             "EMPTY": {
                 "LABEL": "Empty",
+                "COLOR": "--tile-default",
                 "IS_TILLED": false,
                 "MOISTURE": 50
             },
             "PLOT": {
                 "LABEL": "Plot",
+                "COLOR": "--tile-plot",
                 "IS_TILLED": true,
                 "MOISTURE": 50
             },
             "PATH": {
                 "LABEL": "Path",
+                "COLOR": "--tile-path",
                 "IS_TILLED": false,
                 "MOISTURE": 0
             }
