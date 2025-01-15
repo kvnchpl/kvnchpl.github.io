@@ -5,6 +5,27 @@
         "AUTHOR": "Game Developer",
         "DESCRIPTION": "Configuration file for Trellis game."
     },
+    "SECTION_TYPES": {
+        "HEADING": {
+            "TAG": "strong",
+            "PROPERTY": "HEADING",
+            "DEFAULT": "Default Heading"
+        },
+        "CONTENT": {
+            "TAG": "p",
+            "PROPERTY": "CONTENT"
+        },
+        "FIELDS": {
+            "TAG": "div",
+            "PROPERTY": "FIELDS",
+            "CLASS": "field-row"
+        },
+        "BUTTON": {
+            "TAG": "button",
+            "PROPERTY": "BUTTON",
+            "EVENT_PROPERTY": "ON_CLICK"
+        }
+    },
     "CALENDAR": {
         "SEASONS": [
             "Winter",

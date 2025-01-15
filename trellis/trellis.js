@@ -176,83 +176,37 @@ function initGame() {
             return;
         }
 
+        // Clear existing content
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
 
-        // Add heading
-        if (data.DISPLAY_HEADING) {
-            const heading = document.createElement("strong");
-            heading.textContent = data.HEADING;
-            container.appendChild(heading);
-        }
+        // Dynamically render sections based on SECTION_TYPES
+        Object.entries(gameData.SECTION_TYPES).forEach(([type, config]) => {
+            const property = data[config.PROPERTY];
+            if (!property) return;
 
-        // Populate content
-        if (data.CONTENT) {
-            const contentDiv = document.createElement("div");
-            data.CONTENT.forEach(line => {
-                const paragraph = document.createElement("p");
-                paragraph.textContent = line;
-                contentDiv.appendChild(paragraph);
-            });
-            container.appendChild(contentDiv);
-        }
-
-        // Add close button
-        if (data.BUTTON) {
-            const button = document.createElement("button");
-            button.id = data.BUTTON.ID;
-            button.textContent = data.BUTTON.LABEL;
-
-            const handler = window[data.BUTTON.ON_CLICK];
-            if (typeof handler === "function") {
-                button.addEventListener("click", handler);
-            } else {
-                console.error(`Handler function '${data.BUTTON.ON_CLICK}' not found.`);
-            }
-
-            container.appendChild(button);
-        }
-
-        // Populate fields
-        if (data.FIELDS) {
-            data.FIELDS.forEach(fieldKey => {
-                const field = safeGet(gameData, `FIELDS.${fieldKey}`, null);
-                if (!field) {
-                    console.warn(`Field '${fieldKey}' not found in FIELDS.`);
-                    return;
-                }
-
-                if (field.ON_CLICK) {
-                    // Create button
-                    const button = document.createElement("button");
-                    button.id = field.ID;
-                    button.textContent = field.LABEL;
-
-                    const handler = window[field.ON_CLICK];
-                    if (typeof handler === "function") {
-                        button.addEventListener("click", handler);
-                    } else {
-                        console.error(`Handler function '${field.ON_CLICK}' not found.`);
-                    }
-
-                    container.appendChild(button);
+            if (Array.isArray(property)) {
+                property.forEach(item => {
+                    createAndAppendElement(container, config.TAG, {
+                        textContent: typeof item === "string" ? item : null,
+                        className: config.CLASS || null,
+                    });
+                });
+            } else if (typeof property === "object" && config.EVENT_PROPERTY) {
+                const handler = window[property[config.EVENT_PROPERTY]];
+                const button = createAndAppendElement(container, config.TAG, {
+                    id: property.ID,
+                    textContent: property.LABEL,
+                    className: "ui-button",
+                });
+                if (typeof handler === "function") {
+                    button.addEventListener("click", handler);
                 } else {
-                    // Create field for other UI elements
-                    const fieldRow = document.createElement("div");
-                    const label = document.createElement("span");
-                    label.textContent = `${field.LABEL}: `;
-
-                    const value = document.createElement("span");
-                    value.id = field.ID;
-                    value.textContent = field.DEFAULT_VALUE;
-
-                    fieldRow.appendChild(label);
-                    fieldRow.appendChild(value);
-                    container.appendChild(fieldRow);
+                    console.error(`Handler function '${property[config.EVENT_PROPERTY]}' not found.`);
                 }
-            });
-        }
+            }
+        });
     }
 
     function updateUISection(containerId, data) {
@@ -915,21 +869,22 @@ console.warn(`Field '${fieldKey}' not found for container '${containerId}'.`);
 });
 }
 
-function renderFields(container, fields) {
-fields.forEach(fieldKey => {
-const fieldConfig = safeGet(gameData.FIELDS, fieldKey, null);
-if (fieldConfig) {
-const fieldRow = document.createElement("div");
-const label = document.createElement("span");
-label.textContent = `${fieldConfig.LABEL}: `;
+function createAndAppendElement(container, tagName, options = {}) {
+const { id, textContent, className, attributes, children } = options;
+const element = document.createElement(tagName);
 
-const value = document.createElement("span");
-value.id = fieldConfig.ID;
-value.textContent = fieldConfig.DEFAULT_VALUE;
+if (id) element.id = id;
+if (textContent) element.textContent = textContent;
+if (className) element.className = className;
 
-fieldRow.appendChild(label);
-fieldRow.appendChild(value);
-container.appendChild(fieldRow);
+if (attributes) {
+Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
 }
-});
+
+if (children) {
+children.forEach(child => element.appendChild(child));
+}
+
+container.appendChild(element);
+return element;
 }
