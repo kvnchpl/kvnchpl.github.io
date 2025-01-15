@@ -87,8 +87,11 @@ function initGame() {
         UI: uiData
     } = gameData;
 
-    if (!gameConfig || !calendarConfig || !tileConfig || !timeCosts || !plants || !uiData) {
-        console.error("JSON data is missing required sections:", gameData);
+    const requiredSections = ["GAME_CONFIG", "CALENDAR", "TILE_CONFIG", "TIME_COSTS", "PLANTS", "UI"];
+    const missingSections = requiredSections.filter(section => !gameData[section]);
+
+    if (missingSections.length > 0) {
+        console.error("JSON data is missing required sections:", { missingSections, gameData });
         return;
     }
 
