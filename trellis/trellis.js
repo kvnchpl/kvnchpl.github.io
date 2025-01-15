@@ -20,9 +20,9 @@ let WEEKS_PER_SEASON, WEEKS_PER_YEAR, SEASONS;
 /* GAME STATE */
 
 const gameState = {
-    currentWeek: 1,
-    currentYear: 1,
-    currentSeason: "Winter",
+    currentWeek: 0,
+    currentYear: 0,
+    currentSeason: "",
     currentTime: 0,
     biodiversityScore: 0,
     grid: [],
@@ -35,18 +35,7 @@ const gameState = {
         x: null,
         y: null,
     },
-    inventory: {
-        seeds: {
-            tomato: 5,
-            kale: 5,
-        },
-        produce: {
-            tomato: 0,
-            kale: 0,
-        },
-        fertilizer: 2,
-        mulch: 5,
-    },
+    inventory: {}
 };
 
 /* INITIALIZATION */
@@ -88,23 +77,25 @@ function initGame() {
         TILE_CONFIG: tileConfig,
         TIME_COSTS: timeCosts,
         PLANTS: plants,
-        UI: uiData
+        UI: uiData,
+        INVENTORY: inventoryData
     } = gameData;
 
     initializeConstants(gameConfig, calendarConfig, tileConfig, timeCosts, plants);
 
+    gameState.currentWeek = gameConfig.START_WEEK;
+    gameState.currentYear = gameConfig.START_YEAR;
+    gameState.currentSeason = gameConfig.START_SEASON;
+
     gameState.player.x = Math.floor(GRID_WIDTH / 2);
     gameState.player.y = Math.floor(GRID_HEIGHT / 2);
 
-    if (!tileConfig.TYPES) {
-        console.error("TILE_CONFIG.TYPES is missing or undefined:", tileConfig.TYPES);
-        return;
-    }
     initGrid();
 
     resetPlayerPosition();
 
     initializeUI(uiData);
+    initializeInventory(inventoryData);
 
     showTutorial();
 }
@@ -136,7 +127,6 @@ function initializeConstants(gameConfig, calendarConfig, tileConfig, timeCosts, 
     WEEKS_PER_YEAR = WEEKS_PER_SEASON * SEASONS.length;
 
     Object.assign(TILE_TYPE, tileConfig.TYPES);
-
     Object.assign(PLANT_DATA, plants);
     Object.assign(TIME_COST, timeCosts);
 }
@@ -182,12 +172,8 @@ function initializeUI(uiData) {
     }
 }
 
-function initializeSections(uiData) {
-    renderUISection("tutorialOverlay", uiData.TUTORIAL);
-    renderUISection("gameUI", uiData.GAME_UI);
-    renderUISection("tileStats", uiData.TILE_STATS);
-    renderUISection("inventory", uiData.INVENTORY);
-    renderUISection("buttonContainer", uiData.BUTTONS);
+function initializeInventory(inventoryData) {
+    gameState.inventory = inventoryData;
 }
 
 function renderUISection(containerId, data) {

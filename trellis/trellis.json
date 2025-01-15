@@ -75,7 +75,10 @@
             "DECAY": 2
         },
         "PEST_OUTBREAK_CHANCE": 5,
-        "REGION": "Upstate New York"
+        "REGION": "Upstate New York",
+        "START_WEEK": 1,
+        "START_YEAR": 1,
+        "START_SEASON": "Winter"
     },
     "TILE_CONFIG": {
         "DEFAULT_TYPE": "EMPTY",
