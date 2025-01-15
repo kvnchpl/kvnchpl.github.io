@@ -32,7 +32,7 @@
             "EVENT_PROPERTY": "ON_CLICK"
         }
     },
-    "CALENDAR": {
+    "CALENDAR_CONFIG": {
         "SEASONS": [
             "Winter",
             "Spring",
