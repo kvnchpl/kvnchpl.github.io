@@ -143,7 +143,7 @@ function initGame() {
                       Object.assign(TILE_TYPE, tileConfig.TYPES);
 
                       // Assign plant data and time costs
-                      Object.assign(PLANT, plants);
+                      Object.assign(PLANT_DATA, plants);
                       Object.assign(TIME_COST, timeCosts);
 
                       // Directly assign FIELDS from gameData
