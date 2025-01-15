@@ -451,28 +451,28 @@ function handleKeyDown(e) {
             highlightTile(gameState.player.x, gameState.player.y);
             return;
         case keyBindings.ACTION_TILL:
-            tillSoil();
+            handleTileAction('till', getTargetTile());
             break;
         case keyBindings.ACTION_FERTILIZE:
-            fertilizeTile();
+            handleTileAction('fertilize', getTargetTile());
             break;
         case keyBindings.ACTION_PLANT:
-            plantSeed("tomato");
+            handleTileAction('plant', getTargetTile(), { seedType: 'tomato' });
             break;
         case keyBindings.ACTION_WATER:
-            waterTile();
+            handleTileAction('water', getTargetTile());
             break;
         case keyBindings.ACTION_MULCH:
-            mulchTile();
+            handleTileAction('mulch', getTargetTile());
             break;
         case keyBindings.ACTION_WEED:
-            weedTile();
+            handleTileAction('weed', getTargetTile());
             break;
         case keyBindings.ACTION_HARVEST:
-            harvestPlant();
+            handleTileAction('harvest', getTargetTile());
             break;
         case keyBindings.ACTION_CLEAR:
-            clearPlot();
+            handleTileAction('clear', getTargetTile());
             break;
         default:
             console.warn(`Unhandled key press: '${e.key}'`);
@@ -798,9 +798,92 @@ function clearPlot() {
     }
 }
 
+function handleTileAction(action, tile, params = {}) {
+    switch (action) {
+        case 'till':
+            if (tile.TYPE.VALUE === TILE_TYPE.EMPTY) {
+                tile.TYPE.VALUE = TILE_TYPE.PLOT;
+                tile.IS_TILLED = true;
+                advanceTime(TIME_COST.TILL);
+            } else {
+                console.log("Cannot till this tile.");
+            }
+            break;
+        case 'fertilize':
+            if (tile.IS_TILLED && gameState.inventory.fertilizer > 0) {
+                tile.SOIL_NUTRIENTS.N += 10;
+                tile.SOIL_NUTRIENTS.P += 5;
+                tile.SOIL_NUTRIENTS.K += 5;
+                updateInventory('fertilizer', -1);
+                advanceTime(TIME_COST.FERTILIZE);
+            } else {
+                console.log("Cannot fertilize this tile.");
+            }
+            break;
+        case 'plant':
+            if (tile.IS_TILLED && !tile.PLANT_DATA.VALUE && gameState.inventory.seeds[params.seedType] > 0) {
+                tile.PLANT_DATA.VALUE = { NAME: params.seedType, AGE: 0, IS_MATURE: false };
+                updateInventory(`seeds.${params.seedType}`, -1);
+                advanceTime(TIME_COST.PLANT);
+            } else {
+                console.log("Cannot plant on this tile.");
+            }
+            break;
+        case 'water':
+            tile.MOISTURE.VALUE = Math.min(tile.MOISTURE.VALUE + 20, 100);
+            advanceTime(TIME_COST.WATER);
+            break;
+        case 'mulch':
+            if (tile.IS_TILLED && gameState.inventory.mulch > 0) {
+                tile.MOISTURE_DECAY_RATE = Math.max(tile.MOISTURE_DECAY_RATE - 1, 0);
+                updateInventory('mulch', -1);
+                advanceTime(TIME_COST.MULCH);
+            } else {
+                console.log("Cannot apply mulch to this tile.");
+            }
+            break;
+        case 'weed':
+            if (tile.WEED_LEVEL.VALUE > 0) {
+                tile.WEED_LEVEL.VALUE = 0;
+                advanceTime(TIME_COST.WEED);
+            } else {
+                console.log("No weeds to remove.");
+            }
+            break;
+        case 'harvest':
+            if (tile.PLANT_DATA.VALUE && tile.PLANT_DATA.VALUE.IS_MATURE) {
+                const plantType = tile.PLANT_DATA.VALUE.NAME;
+                const yieldAmount = PLANT_DATA[plantType].YIELD;
+                updateInventory(`produce.${plantType}`, yieldAmount);
+                tile.PLANT_DATA.VALUE = null;
+                tile.IS_TILLED = false;
+                advanceTime(TIME_COST.HARVEST);
+            } else {
+                console.log("No mature plant to harvest.");
+            }
+            break;
+        case 'clear':
+            if (tile.TYPE.VALUE === TILE_TYPE.PLOT) {
+                tile.TYPE.VALUE = TILE_TYPE.EMPTY;
+                tile.IS_TILLED = false;
+                tile.PLANT_DATA.VALUE = null;
+                advanceTime(TIME_COST.CLEAR);
+            } else {
+                console.log("This tile is not a plot.");
+            }
+            break;
+        default:
+            console.warn(`Unhandled tile action: '${action}'`);
+            break;
+    }
+    updateTileStats();
+    render();
+}
+
 /* INVENTORY */
 
-function updateInventory(category, itemKey, delta) {
+function updateInventory(item, delta) {
+    const [category, itemKey] = item.split('.');
     const inventoryCategory = gameState.inventory[category];
     if (!inventoryCategory || !(itemKey in inventoryCategory)) {
         console.error(`Inventory item '${itemKey}' not found in category '${category}'.`);
@@ -808,11 +891,7 @@ function updateInventory(category, itemKey, delta) {
     }
 
     inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
-    try {
-        updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
-    } catch (error) {
-        console.error(`Error updating field for '${category}.${itemKey}':`, error);
-    }
+    updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
 }
 
 /* TUTORIAL OVERLAY */
