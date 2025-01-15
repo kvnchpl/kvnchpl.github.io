@@ -185,29 +185,38 @@ function initGame() {
         // Populate sections initially
         populateSections(uiData);
 
-        // Check if buttons exist before attaching listeners
-        const nextWeekBtn = document.getElementById("nextWeekBtn");
-        const resetPositionBtn = document.getElementById("resetPositionBtn");
-        const closeTutorialBtn = document.getElementById("closeTutorialBtn");
+        // Debugging: Check button availability
+        console.log("Buttons in DOM after populateSections:", {
+            nextWeekBtn: !!document.getElementById("nextWeekBtn"),
+            resetPositionBtn: !!document.getElementById("resetPositionBtn"),
+            closeTutorialBtn: !!document.getElementById("closeTutorialBtn"),
+        });
 
-        if (!nextWeekBtn || !resetPositionBtn || !closeTutorialBtn) {
-            console.error("Required buttons are not yet available in the DOM.");
-            return;
-        }
+        // Delay attaching event listeners until the DOM is fully populated
+        setTimeout(() => {
+            const nextWeekBtn = document.getElementById("nextWeekBtn");
+            const resetPositionBtn = document.getElementById("resetPositionBtn");
+            const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
-        // Attach event listeners
-        attachEventListeners();
+            if (!nextWeekBtn || !resetPositionBtn || !closeTutorialBtn) {
+                console.error("Required buttons are not yet available in the DOM.");
+                return;
+            }
 
-        // Update dynamic content
-        updateUISection("gameUI", uiData.GAME_UI);
-        updateUISection("tileStats", uiData.TILE_STATS);
-        updateUISection("inventory", uiData.INVENTORY);
+            // Attach event listeners
+            attachEventListeners();
 
-        // Additional static updates
-        updateTimeDisplay();
-        updateYearAndSeason();
-        updateWeekDisplay();
-        updateBiodiversityDisplay();
+            // Update dynamic content
+            updateUISection("gameUI", uiData.GAME_UI);
+            updateUISection("tileStats", uiData.TILE_STATS);
+            updateUISection("inventory", uiData.INVENTORY);
+
+            // Additional static updates
+            updateTimeDisplay();
+            updateYearAndSeason();
+            updateWeekDisplay();
+            updateBiodiversityDisplay();
+        }, 0); // Defer execution to the next event loop
     }
 
     function populateSections(uiData) {
