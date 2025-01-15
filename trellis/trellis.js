@@ -143,8 +143,9 @@ function initGame() {
     }
 
     function initializeUI(uiData) {
-        // Populate sections initially
-        initializeSections(uiData);
+        Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
+            renderUISection(sectionData.CATEGORY.toLowerCase(), sectionData);
+        });
 
         // Attach event listeners
         attachUIEventListeners();
@@ -181,29 +182,27 @@ function initGame() {
             container.removeChild(container.firstChild);
         }
 
-        // Dynamically render sections based on SECTION_TYPES
-        Object.entries(gameData.SECTION_TYPES).forEach(([type, config]) => {
-            const property = data[config.PROPERTY];
-            if (!property) return;
+        // Iterate through FIELDS and render each based on SECTION_TYPES
+        Object.entries(data.FIELDS).forEach(([fieldKey, fieldData]) => {
+            const sectionType = gameData.SECTION_TYPES[fieldData.SECTION_TYPE];
+            if (!sectionType) {
+                console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
+                return;
+            }
 
-            if (Array.isArray(property)) {
-                property.forEach(item => {
-                    createAndAppendElement(container, config.TAG, {
-                        textContent: typeof item === "string" ? item : null,
-                        className: config.CLASS || null,
-                    });
-                });
-            } else if (typeof property === "object" && config.EVENT_PROPERTY) {
-                const handler = window[property[config.EVENT_PROPERTY]];
-                const button = createAndAppendElement(container, config.TAG, {
-                    id: property.ID,
-                    textContent: property.LABEL,
-                    className: "ui-button",
-                });
+            const element = createAndAppendElement(container, sectionType.TAG, {
+                id: fieldData.ID || `${containerId}-${fieldKey}`,
+                textContent: fieldData.LABEL || sectionType.DEFAULT || "Unnamed Field",
+                className: sectionType.CLASS || null,
+            });
+
+            // Bind event if applicable
+            if (sectionType.EVENT_PROPERTY && fieldData[sectionType.EVENT_PROPERTY]) {
+                const handler = window[fieldData[sectionType.EVENT_PROPERTY]];
                 if (typeof handler === "function") {
-                    button.addEventListener("click", handler);
+                    element.addEventListener("click", handler);
                 } else {
-                    console.error(`Handler function '${property[config.EVENT_PROPERTY]}' not found.`);
+                    console.error(`Handler function '${fieldData[sectionType.EVENT_PROPERTY]}' not found.`);
                 }
             }
         });
@@ -256,10 +255,7 @@ function attachUIEventListeners() {
 
 // Iterate over button fields defined in the JSON
 Object.entries(gameData.FIELDS).forEach(([key, field]) => {
-if (!field.ON_CLICK || typeof handler !== "function") {
-console.error(`Handler for '${fieldKey}' is missing or invalid.`);
-}
-if (field.ON_CLICK) {
+if (field.CATEGORY === "BUTTON_CONTAINER" && field.ON_CLICK) {
 const button = document.getElementById(field.ID);
 if (button) {
 const handler = window[field.ON_CLICK];
@@ -793,13 +789,15 @@ console.log("This tile is not a plot.");
 
 /* INVENTORY */
 
-function updateInventory(itemKey, delta) {
-if (gameState.inventory[itemKey] !== undefined) {
-gameState.inventory[itemKey] = Math.max(0, gameState.inventory[itemKey] + delta);
-updateField(itemKey.toUpperCase(), gameState.inventory[itemKey]);
-} else {
-console.error(`Failed to update inventory for '${itemKey}' with delta ${delta}.`);
+function updateInventory(category, itemKey, delta) {
+const inventoryCategory = gameState.inventory[category];
+if (!inventoryCategory || !(itemKey in inventoryCategory)) {
+console.error(`Inventory item '${itemKey}' not found in category '${category}'.`);
+return;
 }
+
+inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
+updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
 }
 
 /* TUTORIAL OVERLAY */
@@ -837,17 +835,17 @@ return undefined;
 }
 
 function updateField(fieldKey, value) {
-const field = gameData.FIELDS[fieldKey];
-if (!field) {
+const fieldConfig = gameData.FIELDS[fieldKey];
+if (!fieldConfig) {
 console.warn(`Field '${fieldKey}' not found in FIELDS.`);
 return;
 }
 
-const element = document.getElementById(field.ID);
+const element = document.getElementById(fieldConfig.ID);
 if (element) {
-element.textContent = `${field.LABEL}: ${value}`;
+element.textContent = `${fieldConfig.LABEL}: ${value}`;
 } else {
-console.warn(`Element with ID '${field.ID}' not found in the DOM.`);
+console.warn(`Element with ID '${fieldConfig.ID}' not found in the DOM.`);
 }
 }
 

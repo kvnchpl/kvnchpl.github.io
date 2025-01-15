@@ -9,20 +9,26 @@
         "HEADING": {
             "TAG": "strong",
             "PROPERTY": "HEADING",
-            "DEFAULT": "Default Heading"
+            "DEFAULT": "Default Heading",
+            "CLASS": null
         },
         "CONTENT": {
             "TAG": "p",
-            "PROPERTY": "CONTENT"
+            "PROPERTY": "CONTENT",
+            "DEFAULT": null,
+            "CLASS": null
         },
         "FIELDS": {
             "TAG": "div",
             "PROPERTY": "FIELDS",
+            "DEFAULT": null,
             "CLASS": "field-row"
         },
         "BUTTON": {
             "TAG": "button",
             "PROPERTY": "BUTTON",
+            "DEFAULT": null,
+            "CLASS": "ui-button",
             "EVENT_PROPERTY": "ON_CLICK"
         }
     },
@@ -126,33 +132,61 @@
             "YIELD": 3
         }
     },
+    "INVENTORY": {
+        "SEEDS": {
+            "TOMATO": 5,
+            "KALE": 5,
+            "CORN": 3,
+            "BEANS": 2
+        },
+        "PRODUCE": {
+            "TOMATO": 0,
+            "KALE": 0,
+            "CORN": 0,
+            "BEANS": 0
+        },
+        "FERTILIZER": 2,
+        "MULCH": 5
+    },
     "FIELDS": {
         "TIME": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "GAME_UI",
             "LABEL": "Time",
             "ID": "timeDisplay",
             "DEFAULT_VALUE": "7:00 AM"
         },
         "WEEK": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "GAME_UI",
             "LABEL": "Week",
             "ID": "weekDisplay",
             "DEFAULT_VALUE": "1"
         },
         "YEAR": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "GAME_UI",
             "LABEL": "Year",
             "ID": "yearDisplay",
             "DEFAULT_VALUE": "Year: 1"
         },
         "SEASON": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "GAME_UI",
             "LABEL": "Season",
             "ID": "seasonDisplay",
             "DEFAULT_VALUE": "Winter"
         },
         "BIODIVERSITY": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "GAME_UI",
             "LABEL": "Biodiversity",
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
         },
         "SOIL_NUTRIENTS": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "GAME_UI",
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "DEFAULT_VALUE": {
@@ -163,38 +197,52 @@
             "FORMAT": "N: {N}, P: {P}, K: {K}"
         },
         "SEEDS": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "INVENTORY",
             "LABEL": "Seeds",
             "ID": "inventorySeeds",
             "DEFAULT_VALUE": 0
         },
         "PRODUCE": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "INVENTORY",
             "LABEL": "Produce",
             "ID": "inventoryProduce",
             "DEFAULT_VALUE": 0
         },
         "FERTILIZER": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "INVENTORY",
             "LABEL": "Fertilizer",
             "ID": "inventoryFertilizer",
             "DEFAULT_VALUE": 0
         },
         "MULCH": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "INVENTORY",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
             "DEFAULT_VALUE": 0
         },
         "NEXT_WEEK": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "BUTTON_CONTAINER",
             "LABEL": "Skip Week",
             "ID": "nextWeekBtn",
             "DEFAULT_VALUE": "",
             "ON_CLICK": "skipToNextWeek"
         },
         "RESET_POSITION": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "BUTTON_CONTAINER",
             "LABEL": "Reset Position",
             "ID": "resetPositionBtn",
             "DEFAULT_VALUE": "",
             "ON_CLICK": "resetPlayerPosition"
         },
         "CLOSE_TUTORIAL": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "TUTORIAL",
             "LABEL": "Close Tutorial",
             "ID": "closeTutorialBtn",
             "DEFAULT_VALUE": "",
@@ -203,6 +251,7 @@
     },
     "UI": {
         "TUTORIAL": {
+            "CATEGORY": "OVERLAY",
             "DISPLAY_HEADING": true,
             "HEADING": "Welcome to Trellis!",
             "CONTENT": [
@@ -217,6 +266,7 @@
             }
         },
         "GAME_UI": {
+            "CATEGORY": "SIDEBAR",
             "FIELDS": [
                 "TIME",
                 "WEEK",
@@ -226,6 +276,7 @@
             ]
         },
         "TILE_STATS": {
+            "CATEGORY": "SIDEBAR",
             "FIELDS": [
                 "TYPE",
                 "IS_TILLED",
@@ -236,7 +287,8 @@
                 "SOIL_NUTRIENTS"
             ]
         },
-        "INVENTORY": {
+        "INVENTORY_DISPLAY": {
+            "CATEGORY": "SIDEBAR",
             "FIELDS": [
                 "SEEDS",
                 "PRODUCE",
@@ -245,6 +297,7 @@
             ]
         },
         "BUTTONS": {
+            "CATEGORY": "SIDEBAR",
             "FIELDS": [
                 "NEXT_WEEK",
                 "RESET_POSITION"
