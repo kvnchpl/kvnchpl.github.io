@@ -187,6 +187,33 @@ function initGame() {
     function initializeUI(uiData) {
         // Populate sections initially
         populateSections(uiData);
+        
+        function initializeUI(uiData) {
+    // Populate sections initially
+    populateSections(uiData);
+
+    // Check DOM elements before attaching listeners
+    if (!document.getElementById("nextWeekBtn") || 
+        !document.getElementById("resetPositionBtn") || 
+        !document.getElementById("closeTutorialBtn")) {
+        console.error("Required buttons are not yet available in the DOM.");
+        return;
+    }
+
+    // Attach event listeners
+    attachEventListeners();
+
+    // Update dynamic content
+    updateUISection("gameUI", uiData.GAME_UI);
+    updateUISection("tileStats", uiData.TILE_STATS);
+    updateUISection("inventory", uiData.INVENTORY);
+
+    // Additional static updates
+    updateTimeDisplay();
+    updateYearAndSeason();
+    updateWeekDisplay();
+    updateBiodiversityDisplay();
+}
 
         // Update dynamic content
         updateUISection("gameUI", uiData.GAME_UI);
@@ -268,31 +295,37 @@ function initGame() {
     }
 
     function updateUISection(containerId, data) {
-        const container = document.getElementById(containerId);
-        if (!container || !data) {
-            console.error(`Container or data missing for ID: ${containerId}`);
-            return;
-        }
-
-        if (!data.FIELDS || !gameData.FIELDS) {
-            console.error("FIELDS is missing in the provided data or gameData.");
-            return;
-        }
-
-        // Update field values dynamically
-        data.FIELDS.forEach(fieldKey => {
-            const field = gameData.FIELDS[fieldKey];
-            if (!field) {
-                console.warn(`Field '${fieldKey}' not found in FIELDS.`);
-                return;
-            }
-
-            const element = document.getElementById(field.ID);
-            if (element) {
-                element.textContent = field.VALUE ?? field.DEFAULT_VALUE;
-            }
-        });
+    const container = document.getElementById(containerId);
+    if (!container || !data) {
+        console.error(`Container or data missing for ID: ${containerId}`);
+        return;
     }
+
+    // Ensure FIELDS is defined in gameData
+    if (!gameData?.FIELDS) {
+        console.error("FIELDS is missing in gameData:", gameData);
+        return;
+    }
+
+    if (!data.FIELDS) {
+        console.error(`FIELDS is missing in the provided data for container ${containerId}.`);
+        return;
+    }
+
+    // Update field values dynamically
+    data.FIELDS.forEach(fieldKey => {
+        const field = gameData.FIELDS[fieldKey];
+        if (!field) {
+            console.warn(`Field '${fieldKey}' not found in FIELDS.`);
+            return;
+        }
+
+        const element = document.getElementById(field.ID);
+        if (element) {
+            element.textContent = field.VALUE ?? field.DEFAULT_VALUE;
+        }
+    });
+}
 
     function appendTileStat(container, label, id) {
         const field = document.createElement("div");
