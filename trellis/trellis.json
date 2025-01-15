@@ -1,61 +1,43 @@
 {
+  "METADATA": {
+    "VERSION": "1.0",
+    "LAST_UPDATED": "2025-01-15",
+    "AUTHOR": "Game Developer",
+    "DESCRIPTION": "Configuration file for Trellis game."
+  },
   "GAME_CONFIG": {
-    "TILE_SIZE": 40,
-    "GRID_WIDTH": 15,
-    "GRID_HEIGHT": 15,
-    "DAY_START": 0,
-    "DAY_END": 720,
+    "GRID": {
+      "TILE_SIZE": 40,
+      "WIDTH": 15,
+      "HEIGHT": 15
+    },
+    "TIME": {
+      "START": 0,
+      "END": 720
+    },
+    "MOISTURE": {
+      "START": 50,
+      "DECAY": 2
+    },
     "PEST_OUTBREAK_CHANCE": 5,
-    "BASE_MOISTURE_START": 50,
-    "BASE_MOISTURE_DECAY": 2,
-    "REGION_NAME": "Upstate New York"
+    "REGION": "Upstate New York"
   },
   "TILE_CONFIG": {
     "TYPES": {
-      "EMPTY": "Empty",
-      "PLOT": "Plot",
-      "PATH": "Path"
-    },
-    "STATS": {
-      "TYPE": {
-        "LABEL": "Type",
-        "DEFAULT_VALUE": "Empty"
+      "EMPTY": {
+        "LABEL": "Empty",
+        "IS_TILLED": false,
+        "MOISTURE": 50
       },
-      "IS_TILLED": {
-        "LABEL": "Tilled",
-        "TYPE": "BOOLEAN",
-        "DEFAULT_VALUE": false
+      "PLOT": {
+        "LABEL": "Plot",
+        "IS_TILLED": true,
+        "MOISTURE": 50
       },
-      "PLANT": {
-        "LABEL": "Plant",
-        "TYPE": "NESTED",
-        "DEFAULT_VALUE": "None",
-        "KEY": "NAME"
-      },
-      "WEED_LEVEL": {
-        "LABEL": "Weed Level",
-        "TYPE": "NUMBER",
-        "DEFAULT_VALUE": 0
-      },
-      "MOISTURE": {
-        "LABEL": "Moisture",
-        "TYPE": "NUMBER",
-        "DEFAULT_VALUE": 50
-      },
-      "MOISTURE_DECAY_RATE": {
-        "LABEL": "Moisture Decay Rate",
-        "TYPE": "NUMBER",
-        "DEFAULT_VALUE": 2
-      },
-      "SOIL_NUTRIENTS": {
-        "LABEL": "Soil Nutrients",
-        "TYPE": "NESTED",
-        "FORMAT": "N: {N}, P: {P}, K: {K}",
-        "DEFAULT_VALUE": {
-          "N": 50,
-          "P": 50,
-          "K": 50
-        }
+      "PATH": {
+        "LABEL": "Path",
+        "IS_TILLED": false,
+        "MOISTURE": 0
       }
     }
   },
@@ -91,6 +73,33 @@
       "YIELD": 3
     }
   },
+  "FIELDS": {
+    "TIME": {
+      "LABEL": "Time",
+      "ID": "timeDisplay",
+      "DEFAULT_VALUE": "7:00 AM"
+    },
+    "WEEK": {
+      "LABEL": "Week",
+      "ID": "weekDisplay",
+      "DEFAULT_VALUE": "1"
+    },
+    "YEAR": {
+      "LABEL": "Year",
+      "ID": "yearDisplay",
+      "DEFAULT_VALUE": "Year: 1"
+    },
+    "SEASON": {
+      "LABEL": "Season",
+      "ID": "seasonDisplay",
+      "DEFAULT_VALUE": "Winter"
+    },
+    "BIODIVERSITY": {
+      "LABEL": "Biodiversity",
+      "ID": "biodiversityScore",
+      "DEFAULT_VALUE": "0"
+    }
+  },
   "UI": {
     "TUTORIAL": {
       "DISPLAY_HEADING": true,
@@ -103,97 +112,69 @@
       "CLOSE_BUTTON": "Close Tutorial"
     },
     "GAME_UI": {
-      "DISPLAY_HEADING": true,
-      "HEADING": "Game UI",
       "FIELDS": [
-        {
-          "LABEL": "Time",
-          "ID": "timeDisplay",
-          "DEFAULT_VALUE": "7:00 AM"
-        },
-        {
-          "LABEL": "Week",
-          "ID": "weekDisplay",
-          "DEFAULT_VALUE": "1"
-        },
-        {
-          "LABEL": "Year",
-          "ID": "yearDisplay",
-          "DEFAULT_VALUE": "Year: 1"
-        },
-        {
-          "LABEL": "Season",
-          "ID": "seasonDisplay",
-          "DEFAULT_VALUE": "Winter"
-        },
-        {
-          "LABEL": "Biodiversity",
-          "ID": "biodiversityScore",
-          "DEFAULT_VALUE": "0"
-        }
+        "TIME",
+        "WEEK",
+        "YEAR",
+        "SEASON",
+        "BIODIVERSITY"
       ]
     },
     "TILE_STATS": {
-      "DISPLAY_HEADING": true,
-      "HEADING": "Tile Stats",
-      "FIELDS": {
-        "TYPE": {
+      "FIELDS": [
+        {
           "LABEL": "Type",
           "ID": "tileType",
           "DEFAULT_VALUE": "Empty"
         },
-        "IS_TILLED": {
+        {
           "LABEL": "Tilled",
           "ID": "tileTilled",
-          "DEFAULT_VALUE": "False"
+          "DEFAULT_VALUE": "No"
         },
-        "PLANT": {
+        {
           "LABEL": "Plant",
           "ID": "tilePlant",
           "DEFAULT_VALUE": "None"
         },
-        "WEED_LEVEL": {
+        {
           "LABEL": "Weed Level",
           "ID": "tileWeedLevel",
           "DEFAULT_VALUE": "0"
         },
-        "MOISTURE": {
+        {
           "LABEL": "Moisture",
           "ID": "tileMoisture",
           "DEFAULT_VALUE": "50"
         },
-        "MOISTURE_DECAY_RATE": {
+        {
           "LABEL": "Moisture Decay Rate",
           "ID": "tileMoistureDecayRate",
           "DEFAULT_VALUE": "2"
         },
-        "SOIL_NUTRIENTS": {
+        {
           "LABEL": "Soil Nutrients",
           "ID": "tileSoilNutrients",
           "DEFAULT_VALUE": "N: 50, P: 50, K: 50"
         }
-      }
+      ]
     },
     "INVENTORY": {
-      "DISPLAY_HEADING": true,
-      "HEADING": "Inventory",
-      "CATEGORIES": {
-        "SEEDS": {
-          "LABEL": "Seeds",
-          "DEFAULT_VALUE": 0
-        },
-        "PRODUCE": {
-          "LABEL": "Produce",
-          "DEFAULT_VALUE": 0
-        },
-        "FERTILIZER": {
-          "LABEL": "Fertilizer",
-          "DEFAULT_VALUE": 0
-        },
-        "MULCH": {
-          "LABEL": "Mulch",
-          "DEFAULT_VALUE": 0
-        }
+      "SEEDS": {
+        "LABEL": "Seeds",
+        "DEFAULT_VALUE": 0
+      },
+      "PRODUCE": {
+        "LABEL": "Produce",
+        "DEFAULT_VALUE": 0
+      },
+      "FERTILIZER": {
+        "LABEL": "Fertilizer",
+        "DEFAULT_VALUE": 0
+      },
+      "MULCH": {
+        "LABEL": "Mulch",
+        "DEFAULT_VALUE": 0
       }
     }
   }
