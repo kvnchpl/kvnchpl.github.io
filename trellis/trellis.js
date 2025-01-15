@@ -134,18 +134,20 @@ function initGame() {
 
                       function initGrid() {
                       const defaultType = gameData.TILE_CONFIG.DEFAULT_TYPE;
-                      const startGrid = gameData.TILE_CONFIG.START_GRID || [];
+                      const defaultTile = structuredClone(gameData.TILE_CONFIG.TYPES[defaultType]);
 
-                      gameState.grid = Array.from({ length: GRID_HEIGHT }, (row, y) =>
-        Array.from({ length: GRID_WIDTH }, (col, x) => {
-            const tileTypeKey = startGrid[y]?.[x] || defaultType;
-            const tileType = structuredClone(gameData.TILE_CONFIG.TYPES[tileTypeKey]);
+                      gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
+        Array.from({ length: GRID_WIDTH }, () => {
+            // Create a tile dynamically based on the default type
+            const tile = { TYPE: { VALUE: defaultType } };
 
-            return {
-            TYPE: { VALUE: tileTypeKey }, // Explicitly set the tile type
-                  ...tileType, // Dynamically include all properties from the tile type
-                  };
-                   })
+            // Iterate over the default tile's properties and assign dynamically
+            Object.entries(defaultTile).forEach(([key, value]) => {
+                tile[key] = structuredClone(value) ?? { VALUE: null };
+            });
+
+            return tile;
+        })
         );
 
         render();

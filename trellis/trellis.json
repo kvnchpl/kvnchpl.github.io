@@ -85,21 +85,17 @@
                 "COLOR": "--tile-default",
                 "IS_TILLED": false,
                 "MOISTURE": 50,
-                "PLANT_DATA": null
+                "PLANT_DATA": null,
+                "SOIL_NUTRIENTS": { "VALUE": { "N": 50, "P": 50, "K": 50 } }
             },
             "PLOT": {
                 "LABEL": "Plot",
                 "COLOR": "--tile-plot",
-                "IS_TILLED": true,
-                "MOISTURE": 50,
-                "PLANT_DATA": { "VALUE": null }
+                "IS_TILLED": true
             },
             "PATH": {
                 "LABEL": "Path",
-                "COLOR": "--tile-path",
-                "IS_TILLED": false,
-                "MOISTURE": 0,
-                "PLANT_DATA": null
+                "COLOR": "--tile-path"
             }
         }
     },
