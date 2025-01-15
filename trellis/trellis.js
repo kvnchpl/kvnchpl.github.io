@@ -78,8 +78,8 @@ window.onload = function() {
 };
 
 function initGame() {
-    if (!gameData || !gameData.GAME_CONFIG || !gameData.TILE_CONFIG) {
-        console.error("JSON data is missing required sections:", gameData);
+    if (!gameData) {
+        console.error("JSON game data is missing.");
         return;
     }
 
@@ -91,17 +91,6 @@ function initGame() {
         PLANTS: plants,
         UI: uiData
     } = gameData;
-
-    const requiredSections = ["GAME_CONFIG", "CALENDAR", "TILE_CONFIG", "TIME_COSTS", "PLANTS", "UI"];
-    const missingSections = requiredSections.filter(section => !gameData[section]);
-
-    if (missingSections.length > 0) {
-        console.error("JSON data is missing required sections:", {
-            missingSections,
-            gameData
-        });
-        return;
-    }
 
     // Configure game constants
     initializeConstants(gameConfig, calendarConfig, tileConfig, timeCosts, plants);
@@ -123,9 +112,10 @@ function initGame() {
 }
 
 function initializeConstants(gameConfig, calendarConfig, tileConfig, timeCosts, plants) {
-    if (!gameConfig || !tileConfig || !timeCosts || !plants) {
+    if (!gameConfig || !calendarConfig || !tileConfig || !timeCosts || !plants) {
         console.error("Missing configuration data:", {
             gameConfig,
+            calendarConfig,
             tileConfig,
             timeCosts,
             plants
