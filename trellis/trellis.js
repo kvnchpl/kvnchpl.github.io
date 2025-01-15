@@ -13,7 +13,7 @@ let TILE_STAT = {};
 let TIME_COST = {};
 let GROWTH_TIME = {};
 let PRODUCE_YIELD = {};
-let PLANT_DATA = {};
+let PLANT_DATA = {};s
 
 
 let WEEKS_PER_SEASON, WEEKS_PER_YEAR, SEASONS;
