@@ -128,6 +128,24 @@
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
             "DEFAULT_VALUE": 0
+        },
+        "NEXT_WEEK": {
+            "LABEL": "Skip Week",
+            "ID": "nextWeekBtn",
+            "DEFAULT_VALUE": "",
+            "ON_CLICK": "skipToNextWeek"
+        },
+        "RESET_POSITION": {
+            "LABEL": "Reset Position",
+            "ID": "resetPositionBtn",
+            "DEFAULT_VALUE": "",
+            "ON_CLICK": "resetPlayerPosition"
+        },
+        "CLOSE_TUTORIAL": {
+            "LABEL": "Close Tutorial",
+            "ID": "closeTutorialBtn",
+            "DEFAULT_VALUE": "",
+            "ON_CLICK": "hideTutorial"
         }
     },
     "UI": {
@@ -166,24 +184,15 @@
                 "SEEDS",
                 "PRODUCE",
                 "FERTILIZER",
-                "MULCH"]
+                "MULCH"
+            ]
         },
         "BUTTONS": {
-            "NEXT_WEEK": {
-                "LABEL": "Skip Week",
-                "ID": "nextWeekBtn",
-                "ON_CLICK": "skipToNextWeek"
-            },
-            "RESET_POSITION": {
-                "LABEL": "Reset Position",
-                "ID": "resetPositionBtn",
-                "ON_CLICK": "resetPlayerPosition"
-            },
-            "CLOSE_TUTORIAL": {
-                "LABEL": "Close Tutorial",
-                "ID": "closeTutorialBtn",
-                "ON_CLICK": "hideTutorial"
-            }
+            "FIELDS": [
+                "NEXT_WEEK",
+                "RESET_POSITION",
+                "CLOSE_TUTORIAL"
+            ]
         }
     }
 }
