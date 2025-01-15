@@ -74,8 +74,8 @@ function initGame() {
     const { CONFIG: config, UI: uiData, INVENTORY: inventoryData } = gameData;
 
     initializeConstants(config);
-    initializeGameState(config.GAME_CONFIG);
-    initializeGrid(config.TILE_CONFIG);
+    initializeGameState(config);
+    initializeGrid(config);
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
@@ -122,7 +122,8 @@ function initializeConstants(config) {
     });
 }
 
-function initializeGameState(gameConfig) {
+function initializeGameState(config) {
+    const { GAME_CONFIG: gameConfig } = config;
     gameState.currentWeek = gameConfig.START_WEEK;
     gameState.currentYear = gameConfig.START_YEAR;
     gameState.currentSeason = gameConfig.START_SEASON;
@@ -132,7 +133,8 @@ function initializeGameState(gameConfig) {
     gameState.player.y = Math.floor(GRID_HEIGHT / 2);
 }
 
-function initializeGrid(tileConfig) {
+function initializeGrid(config) {
+    const { TILE_CONFIG: tileConfig } = config;
     try {
         const defaultType = tileConfig.DEFAULT_TYPE;
         const defaultTile = structuredClone(tileConfig.TYPES[defaultType]);
@@ -157,12 +159,10 @@ function initializeUI(uiData) {
     try {
         Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
             renderUISection(sectionData.CATEGORY.toLowerCase(), sectionData);
+            updateUISection(sectionData.CATEGORY.toLowerCase(), sectionData);
         });
 
         attachUIEventListeners();
-        updateUISection("gameUI", uiData.GAME_UI);
-        updateUISection("tileStats", uiData.TILE_STATS);
-        updateUISection("inventory", uiData.INVENTORY);
         updateTimeDisplay();
         updateYearAndSeason();
         updateWeekDisplay();

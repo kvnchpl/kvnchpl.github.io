@@ -90,7 +90,13 @@
                     "IS_TILLED": false,
                     "MOISTURE": 50,
                     "PLANT_DATA": null,
-                    "SOIL_NUTRIENTS": { "VALUE": { "N": 50, "P": 50, "K": 50 } }
+                    "SOIL_NUTRIENTS": {
+                        "VALUE": {
+                            "N": 50,
+                            "P": 50,
+                            "K": 50
+                        }
+                    }
                 },
                 "PLOT": {
                     "LABEL": "Plot",
