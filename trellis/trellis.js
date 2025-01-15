@@ -228,8 +228,11 @@ function initGame() {
         // Populate fields
         if (data.FIELDS) {
             data.FIELDS.forEach(fieldKey => {
-                const field = safeGet(gameData.FIELDS, fieldKey, null);
-                if (!field) return;
+                const field = safeGet(gameData, `FIELDS.${fieldKey}`, null);
+                if (!field) {
+                    console.warn(`Field '${fieldKey}' not found in FIELDS.`);
+                    return;
+                }
 
                 const fieldRow = document.createElement("div");
                 const label = document.createElement("span");
@@ -271,16 +274,22 @@ function initGame() {
             return;
         }
 
+        if (!data.FIELDS || !gameData.FIELDS) {
+            console.error("FIELDS is missing in the provided data or gameData.");
+            return;
+        }
+
         // Update field values dynamically
         data.FIELDS.forEach(fieldKey => {
             const field = gameData.FIELDS[fieldKey];
-            if (!field) return;
+            if (!field) {
+                console.warn(`Field '${fieldKey}' not found in FIELDS.`);
+                return;
+            }
 
             const element = document.getElementById(field.ID);
             if (element) {
                 element.textContent = field.VALUE ?? field.DEFAULT_VALUE;
-            } else {
-                console.warn(`Element with ID '${field.ID}' not found in container '${containerId}'.`);
             }
         });
     }
