@@ -224,6 +224,10 @@ function initGame() {
         populateUISection("gameUI", uiData.GAME_UI);
         populateUISection("tileStats", uiData.TILE_STATS);
         populateUISection("inventory", uiData.INVENTORY);
+        if (!uiData.BUTTONS){
+            console.error("Missing uiData.BUTTONS.");
+            return;
+        }
         populateUISection("buttonContainer", uiData.BUTTONS);
     }
 
