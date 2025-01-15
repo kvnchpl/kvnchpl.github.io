@@ -169,6 +169,11 @@
                 "LABEL": "Reset Position",
                 "ID": "resetPositionBtn",
                 "ON_CLICK": "resetPlayerPosition"
+            },
+            "CLOSE_TUTORIAL": {
+                "LABEL": "Close Tutorial",
+                "ID": "closeTutorialBtn",
+                "ON_CLICK": "hideTutorial"
             }
         }
     }
