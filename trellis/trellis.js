@@ -561,7 +561,7 @@ function updateTilePlant(tile, row, col) {
 if (!tile.PLANT_DATA.VALUE) return;
 
 const plantName = tile.PLANT_DATA.VALUE.NAME;
-const plantData = PLANT[plantName];
+const plantData = PLANT_DATA[plantName];
 
 // Extract soil properties
 const { N, P, K } = tile.SOIL_NUTRIENTS;
@@ -752,13 +752,13 @@ function harvestPlant() {
 const { x, y } = gameState.highlightedTile;
 const tile = gameState.grid[y][x];
 
-if (!tile.plant || tile.plant.GROWTH_STAGE < PLANT[tile.plant.TYPE].GROWTH_TIME) {
+if (!tile.plant || tile.plant.GROWTH_STAGE < PLANT_DATA[tile.plant.TYPE].GROWTH_TIME) {
 console.log("No mature plant to harvest here.");
 return;
 }
 
 const plantType = tile.plant.TYPE;
-const yieldAmount = PLANT[plantType].YIELD;
+const yieldAmount = PLANT_DATA[plantType].YIELD;
 
 // Harvest the plant
 updateInventory(`produce.${plantType}`, yieldAmount);
