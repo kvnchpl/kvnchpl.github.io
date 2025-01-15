@@ -272,7 +272,7 @@ function initGame() {
                 container.appendChild(fieldRow);
             });
         }
-console.log("data.BUTTONS: ", data.BUTTONS);
+console.log("data: ", data);
         // Populate buttons
         if (data.BUTTONS) {
             console.log("Rendering buttons:", data.BUTTONS);
