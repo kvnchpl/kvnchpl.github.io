@@ -253,42 +253,35 @@ function initGame() {
                     return;
                 }
 
-                const fieldRow = document.createElement("div");
-                const label = document.createElement("span");
-                label.textContent = `${field.LABEL}: `;
+                if (field.ON_CLICK) {
+                    // Create button
+                    const button = document.createElement("button");
+                    button.id = field.ID;
+                    button.textContent = field.LABEL;
 
-                const value = document.createElement("span");
-                value.id = field.ID;
-                value.textContent = field.DEFAULT_VALUE;
+                    const handler = window[field.ON_CLICK];
+                    if (typeof handler === "function") {
+                        button.addEventListener("click", handler);
+                    } else {
+                        console.error(`Handler function '${field.ON_CLICK}' not found.`);
+                    }
 
-                fieldRow.appendChild(label);
-                fieldRow.appendChild(value);
-                container.appendChild(fieldRow);
-            });
-        }
-
-        console.log("containerId: ", containerId);
-        console.log("data: ", data);
-
-        // Populate buttons
-        if (data.BUTTONS) {
-            console.log("Rendering buttons:", data.BUTTONS);
-            Object.values(data.BUTTONS).forEach(buttonConfig => {
-                const button = document.createElement("button");
-                button.id = buttonConfig.ID;
-                button.textContent = buttonConfig.LABEL;
-
-                const handler = window[buttonConfig.ON_CLICK];
-                if (typeof handler === "function") {
-                    button.addEventListener("click", handler);
+                    container.appendChild(button);
                 } else {
-                    console.error(`Handler function '${buttonConfig.ON_CLICK}' not found.`);
+                    // Create field for other UI elements
+                    const fieldRow = document.createElement("div");
+                    const label = document.createElement("span");
+                    label.textContent = `${field.LABEL}: `;
+
+                    const value = document.createElement("span");
+                    value.id = field.ID;
+                    value.textContent = field.DEFAULT_VALUE;
+
+                    fieldRow.appendChild(label);
+                    fieldRow.appendChild(value);
+                    container.appendChild(fieldRow);
                 }
-
-                container.appendChild(button);
             });
-
-            console.log("Buttons added to container:", containerId);
         }
     }
 
