@@ -228,7 +228,7 @@ function initGame() {
             console.error("Missing uiData.BUTTONS.");
             return;
         }
-        console.log("uiData.BUTTONS: ",uiData.BUTTONS);
+        
         populateUISection("buttonContainer", uiData.BUTTONS);
     }
 
@@ -272,7 +272,7 @@ function initGame() {
                 container.appendChild(fieldRow);
             });
         }
-
+console.log("data.BUTTONS: ", data.BUTTONS);
         // Populate buttons
         if (data.BUTTONS) {
             console.log("Rendering buttons:", data.BUTTONS);
