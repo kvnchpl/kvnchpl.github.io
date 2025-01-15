@@ -208,6 +208,33 @@ function initGame() {
             container.appendChild(heading);
         }
 
+        // Populate content
+        if (data.CONTENT) {
+            const contentDiv = document.createElement("div");
+            data.CONTENT.forEach(line => {
+                const paragraph = document.createElement("p");
+                paragraph.textContent = line;
+                contentDiv.appendChild(paragraph);
+            });
+            container.appendChild(contentDiv);
+        }
+
+        // Add close button
+        if (data.BUTTON) {
+            const button = document.createElement("button");
+            button.id = data.BUTTON.ID;
+            button.textContent = data.BUTTON.LABEL;
+
+            const handler = window[data.BUTTON.ON_CLICK];
+            if (typeof handler === "function") {
+                button.addEventListener("click", handler);
+            } else {
+                console.error(`Handler function '${data.BUTTON.ON_CLICK}' not found.`);
+            }
+
+            container.appendChild(button);
+        }
+
         // Populate fields
         if (data.FIELDS) {
             data.FIELDS.forEach(fieldKey => {
@@ -301,11 +328,9 @@ function initGame() {
     function attachUIEventListeners() {
         const nextWeekBtn = document.getElementById("nextWeekBtn");
         const resetPositionBtn = document.getElementById("resetPositionBtn");
-        const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
         if (nextWeekBtn) nextWeekBtn.addEventListener("click", skipToNextWeek);
         if (resetPositionBtn) resetPositionBtn.addEventListener("click", resetPlayerPosition);
-        if (closeTutorialBtn) closeTutorialBtn.addEventListener("click", hideTutorial);
 
         window.addEventListener("keydown", preventArrowKeyScroll);
         window.addEventListener("keydown", handleKeyDown);
