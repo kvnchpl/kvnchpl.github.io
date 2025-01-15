@@ -73,39 +73,6 @@
             "YIELD": 3
         }
     },
-    "UI": {
-        "TUTORIAL": {
-            "DISPLAY_HEADING": true,
-            "HEADING": "Welcome to Trellis!",
-            "CONTENT": [
-                "Use arrow keys to move your character.",
-                "Use WASD to select adjacent tiles.",
-                "Perform actions like tilling, planting, and harvesting to manage your garden."
-            ],
-            "CLOSE_BUTTON": "Close Tutorial"
-        },
-        "GAME_UI": {
-            "FIELDS": [
-                "TIME",
-                "WEEK",
-                "YEAR",
-                "SEASON",
-                "BIODIVERSITY"
-            ]
-        },
-        "BUTTONS": {
-            "NEXT_WEEK": {
-                "LABEL": "Skip Week",
-                "ID": "nextWeekBtn",
-                "ON_CLICK": "skipToNextWeek"
-            },
-            "RESET_POSITION": {
-                "LABEL": "Reset Position",
-                "ID": "resetPositionBtn",
-                "ON_CLICK": "resetPlayerPosition"
-            }
-        },
-    },
     "FIELDS": {
         "TIME": {
             "LABEL": "Time",
@@ -131,42 +98,8 @@
             "LABEL": "Biodiversity",
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
-        }
-    },
-},
-"TILE_STATS": {
-    "FIELDS": [
-        {
-            "LABEL": "Type",
-            "ID": "tileType",
-            "DEFAULT_VALUE": "Empty"
         },
-        {
-            "LABEL": "Tilled",
-            "ID": "tileTilled",
-            "DEFAULT_VALUE": "No"
-        },
-        {
-            "LABEL": "Plant",
-            "ID": "tilePlant",
-            "DEFAULT_VALUE": "None"
-        },
-        {
-            "LABEL": "Weed Level",
-            "ID": "tileWeedLevel",
-            "DEFAULT_VALUE": "0"
-        },
-        {
-            "LABEL": "Moisture",
-            "ID": "tileMoisture",
-            "DEFAULT_VALUE": "50"
-        },
-        {
-            "LABEL": "Moisture Decay Rate",
-            "ID": "tileMoistureDecayRate",
-            "DEFAULT_VALUE": "2"
-        },
-        {
+        "SOIL_NUTRIENTS": {
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "DEFAULT_VALUE": {
@@ -176,25 +109,67 @@
             },
             "FORMAT": "N: {N}, P: {P}, K: {K}"
         }
-    ]
-},
-"INVENTORY": {
-    "SEEDS": {
-        "LABEL": "Seeds",
-        "DEFAULT_VALUE": 0
     },
-    "PRODUCE": {
-        "LABEL": "Produce",
-        "DEFAULT_VALUE": 0
-    },
-    "FERTILIZER": {
-        "LABEL": "Fertilizer",
-        "DEFAULT_VALUE": 0
-    },
-    "MULCH": {
-        "LABEL": "Mulch",
-        "DEFAULT_VALUE": 0
+    "UI": {
+        "TUTORIAL": {
+            "DISPLAY_HEADING": true,
+            "HEADING": "Welcome to Trellis!",
+            "CONTENT": [
+                "Use arrow keys to move your character.",
+                "Use WASD to select adjacent tiles.",
+                "Perform actions like tilling, planting, and harvesting to manage your garden."
+            ],
+            "CLOSE_BUTTON": "Close Tutorial"
+        },
+        "GAME_UI": {
+            "FIELDS": [
+                "TIME",
+                "WEEK",
+                "YEAR",
+                "SEASON",
+                "BIODIVERSITY"
+            ]
+        },
+        "TILE_STATS": {
+            "FIELDS": [
+                "TYPE",
+                "IS_TILLED",
+                "PLANT",
+                "WEED_LEVEL",
+                "MOISTURE",
+                "MOISTURE_DECAY_RATE",
+                "SOIL_NUTRIENTS"
+            ]
+        },
+        "INVENTORY": {
+            "SEEDS": {
+                "LABEL": "Seeds",
+                "DEFAULT_VALUE": 0
+            },
+            "PRODUCE": {
+                "LABEL": "Produce",
+                "DEFAULT_VALUE": 0
+            },
+            "FERTILIZER": {
+                "LABEL": "Fertilizer",
+                "DEFAULT_VALUE": 0
+            },
+            "MULCH": {
+                "LABEL": "Mulch",
+                "DEFAULT_VALUE": 0
+            }
+        },
+        "BUTTONS": {
+            "NEXT_WEEK": {
+                "LABEL": "Skip Week",
+                "ID": "nextWeekBtn",
+                "ON_CLICK": "skipToNextWeek"
+            },
+            "RESET_POSITION": {
+                "LABEL": "Reset Position",
+                "ID": "resetPositionBtn",
+                "ON_CLICK": "resetPlayerPosition"
+            }
+        }
     }
-}
-}
 }

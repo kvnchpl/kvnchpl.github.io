@@ -192,40 +192,40 @@ function populateUISection(containerId, data) {
         return;
     }
 
-    // Clear existing content
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
 
-    // Add heading if DISPLAY_HEADING is true
+    // Add heading
     if (data.DISPLAY_HEADING) {
         const heading = document.createElement("strong");
         heading.textContent = data.HEADING;
         container.appendChild(heading);
     }
 
-    // Add fields or buttons dynamically
+    // Populate fields
     if (data.FIELDS) {
         data.FIELDS.forEach(fieldKey => {
-            const field = safeGet(gameData, `FIELDS.${fieldKey}`, null);
+            const field = safeGet(gameData.FIELDS, fieldKey, null);
             if (!field) return;
 
             const fieldRow = document.createElement("div");
             const label = document.createElement("span");
             label.textContent = `${field.LABEL}: `;
-            fieldRow.appendChild(label);
 
             const value = document.createElement("span");
             value.id = field.ID;
             value.textContent = field.DEFAULT_VALUE;
-            fieldRow.appendChild(value);
 
+            fieldRow.appendChild(label);
+            fieldRow.appendChild(value);
             container.appendChild(fieldRow);
         });
     }
 
+    // Populate buttons
     if (data.BUTTONS) {
-        Object.entries(data.BUTTONS).forEach(([key, buttonConfig]) => {
+        Object.values(data.BUTTONS).forEach(buttonConfig => {
             const button = document.createElement("button");
             button.id = buttonConfig.ID;
             button.textContent = buttonConfig.LABEL;
@@ -645,14 +645,19 @@ function updateTileStats() {
     const heading = document.getElementById("tileStatsHeading");
     if (heading) heading.textContent = `Tile Stats (${x}, ${y})`;
 
-    Object.entries(gameData.UI.TILE_STATS.FIELDS).forEach(([key, fieldConfig]) => {
-        const element = document.getElementById(fieldConfig.ID);
-        if (!element) return;
+    gameData.UI.TILE_STATS.FIELDS.forEach(fieldKey => {
+        const fieldConfig = safeGet(gameData.FIELDS, fieldKey, null);
+        if (!fieldConfig) return;
 
-        const value = safeGet(tile, `${key}.VALUE`, fieldConfig.DEFAULT_VALUE);
-        element.textContent = value;
+        const element = document.getElementById(fieldConfig.ID);
+        if (element) {
+            let value = safeGet(tile, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
+            if (fieldConfig.FORMAT && typeof value === "object") {
+                value = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, match) => value[match] ?? "N/A");
+            }
+            element.textContent = value;
+        }
     });
-}
 }
 
 function clearTileStats() {
