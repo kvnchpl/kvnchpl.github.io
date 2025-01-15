@@ -184,38 +184,20 @@ function initGame() {
         // Populate sections initially
         initializeSections(uiData);
 
-        // Debugging: Check button availability
-        console.log("Buttons in DOM after initializeSections:", {
-            nextWeekBtn: !!document.getElementById("nextWeekBtn"),
-            resetPositionBtn: !!document.getElementById("resetPositionBtn"),
-            closeTutorialBtn: !!document.getElementById("closeTutorialBtn"),
-        });
+        // Attach event listeners
+        attachUIEventListeners();
 
-        // Delay attaching event listeners until the DOM is fully populated
-        setTimeout(() => {
-            const nextWeekBtn = document.getElementById("nextWeekBtn");
-            const resetPositionBtn = document.getElementById("resetPositionBtn");
-            const closeTutorialBtn = document.getElementById("closeTutorialBtn");
+        // Update dynamic content
+        updateUISection("gameUI", uiData.GAME_UI);
+        updateUISection("tileStats", uiData.TILE_STATS);
+        updateUISection("inventory", uiData.INVENTORY);
 
-            if (!nextWeekBtn || !resetPositionBtn || !closeTutorialBtn) {
-                console.error("Required buttons are not yet available in the DOM.");
-                return;
-            }
+        // Additional static updates
+        updateTimeDisplay();
+        updateYearAndSeason();
+        updateWeekDisplay();
+        updateBiodiversityDisplay();
 
-            // Attach event listeners
-            attachUIEventListeners();
-
-            // Update dynamic content
-            updateUISection("gameUI", uiData.GAME_UI);
-            updateUISection("tileStats", uiData.TILE_STATS);
-            updateUISection("inventory", uiData.INVENTORY);
-
-            // Additional static updates
-            updateTimeDisplay();
-            updateYearAndSeason();
-            updateWeekDisplay();
-            updateBiodiversityDisplay();
-        }, 0); // Defer execution to the next event loop
     }
 
     function initializeSections(uiData) {
