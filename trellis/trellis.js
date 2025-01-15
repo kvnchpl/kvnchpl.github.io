@@ -133,12 +133,21 @@ function initGame() {
                       }
 
                       function initGrid() {
-                      const defaultType = gameData.TILE_CONFIG.DEFAULT_TYPE || "EMPTY";
-                      const defaultTile = structuredClone(gameData.TILE_CONFIG.TYPES[defaultType]);
+                      const defaultType = gameData.TILE_CONFIG.DEFAULT_TYPE;
+                      const startGrid = gameData.TILE_CONFIG.START_GRID || [];
 
-                      gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-        Array.from({ length: GRID_WIDTH }, () => ({ ...defaultTile, TYPE: { VALUE: defaultType } }))
+                      gameState.grid = Array.from({ length: GRID_HEIGHT }, (row, y) =>
+        Array.from({ length: GRID_WIDTH }, (col, x) => {
+            const tileTypeKey = startGrid[y]?.[x] || defaultType;
+            const tileType = structuredClone(gameData.TILE_CONFIG.TYPES[tileTypeKey]);
+
+            return {
+            TYPE: { VALUE: tileTypeKey }, // Explicitly set the tile type
+                  ...tileType, // Dynamically include all properties from the tile type
+                  };
+                   })
         );
+
         render();
     }
 
