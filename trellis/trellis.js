@@ -72,17 +72,22 @@ window.onload = function() {
 };
 
 function initGame() {
-    if (!gameData) {
-        console.error("Game data not loaded yet!");
+    if (!gameData || !gameData.GAME_CONFIG || !gameData.TILE_CONFIG) {
+        console.error("JSON data is missing required sections:", gameData);
         return;
     }
 
-    const { gameConfig, tileConfig, timeCosts, plants } = gameData;
+    const {
+        GAME_CONFIG: gameConfig,
+        TILE_CONFIG: tileConfig,
+        TIME_COSTS: timeCosts,
+        PLANTS: plants,
+        UI: uiData
+    } = gameData;
 
-
-
-    if (!gameConfig || !tileConfig || !timeCosts || !plants) {
+    if (!gameConfig || !tileConfig || !timeCosts || !plants || !uiData) {
         console.error("JSON data is missing required sections:", gameData);
+        return;
     }
 
     // Configure game constants
@@ -100,7 +105,7 @@ function initGame() {
     resetPlayerPosition();
 
     // Initialize UI
-    initializeUI();
+    initializeUI(uiData);
 
     // Show the tutorial overlay
     showTutorial();
@@ -110,6 +115,16 @@ function initGame() {
 }
 
 function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
+    if (!gameConfig || !tileConfig || !timeCosts || !plants) {
+        console.error("configureGameConstants received invalid arguments:", {
+            gameConfig,
+            tileConfig,
+            timeCosts,
+            plants
+        });
+        return;
+    }
+
     // Assign game configuration
     TILE_SIZE = gameConfig.GRID.TILE_SIZE;
     GRID_WIDTH = gameConfig.GRID.WIDTH;
@@ -142,6 +157,7 @@ function initGrid() {
         return tile;
     })
                                );
+    render();
 }
 
 function initializeUI() {
