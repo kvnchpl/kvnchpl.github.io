@@ -270,6 +270,7 @@ function initGame() {
 
         // Populate buttons
         if (data.BUTTONS) {
+            console.log("Rendering buttons:", data.BUTTONS);
             Object.values(data.BUTTONS).forEach(buttonConfig => {
                 const button = document.createElement("button");
                 button.id = buttonConfig.ID;
@@ -284,6 +285,8 @@ function initGame() {
 
                 container.appendChild(button);
             });
+
+            console.log("Buttons added to container:", containerId);
         }
     }
 
