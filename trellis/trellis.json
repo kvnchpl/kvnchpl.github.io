@@ -92,7 +92,7 @@
                 "COLOR": "--tile-plot",
                 "IS_TILLED": true,
                 "MOISTURE": 50,
-                "PLANT_DATA": null
+                "PLANT_DATA": { "VALUE": null }
             },
             "PATH": {
                 "LABEL": "Path",
