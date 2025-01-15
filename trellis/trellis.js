@@ -146,24 +146,12 @@ function initGrid() {
         const defaultType = gameData.TILE_CONFIG.DEFAULT_TYPE;
         const defaultTile = structuredClone(gameData.TILE_CONFIG.TYPES[defaultType]);
 
-        gameState.grid = Array.from({
-            length: GRID_HEIGHT
-        }, () =>
-            Array.from({
-                length: GRID_WIDTH
-            }, () => {
-                const tile = {
-                    TYPE: {
-                        VALUE: defaultType
-                    }
-                };
-
-                Object.entries(defaultTile).forEach(([key, value]) => {
-                    tile[key] = structuredClone(value) ?? {
-                        VALUE: null
-                    };
-                });
-
+        gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
+            Array.from({ length: GRID_WIDTH }, () => {
+                const tile = { TYPE: { VALUE: defaultType } };
+                for (const [key, value] of Object.entries(defaultTile)) {
+                    tile[key] = structuredClone(value) ?? { VALUE: null };
+                }
                 return tile;
             })
         );
@@ -283,19 +271,19 @@ function capitalize(str) {
 /* EVENT LISTENERS */
 
 function attachUIEventListeners() {
-    Object.entries(gameData.FIELDS).forEach(([key, field]) => {
-        if (field.CATEGORY === "BUTTON_CONTAINER" && field.ON_CLICK) {
-            const button = document.getElementById(field.ID);
-            if (button) {
-                const handler = window[field.ON_CLICK];
-                if (typeof handler === "function") {
-                    button.addEventListener("click", handler);
-                } else {
-                    console.error(`Handler function '${field.ON_CLICK}' not found.`);
-                }
-            } else {
-                console.warn(`Button with ID '${field.ID}' not found in the DOM.`);
-            }
+    const buttons = document.querySelectorAll("[data-on-click]");
+    const handlers = {};
+
+    buttons.forEach(button => {
+        const handlerName = button.dataset.onClick;
+        if (!handlers[handlerName]) {
+            handlers[handlerName] = window[handlerName];
+        }
+        const handler = handlers[handlerName];
+        if (typeof handler === "function") {
+            button.addEventListener("click", handler);
+        } else {
+            console.error(`Handler function '${handlerName}' not found.`);
         }
     });
 
@@ -316,53 +304,55 @@ function render() {
     const ctx = canvas.getContext("2d");
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
     drawGrid(ctx);
 }
 
 function drawGrid(context) {
+    const tileStyles = {
+        default: getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim(),
+        moistureHigh: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim(),
+        moistureLow: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-low").trim(),
+        tilled: getComputedStyle(document.documentElement).getPropertyValue("--tile-tilled").trim(),
+        plantMature: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim(),
+        plantYoung: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim(),
+        highlight: getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim(),
+        player: getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim(),
+        border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
+    };
+
     for (let row = 0; row < GRID_HEIGHT; row++) {
         for (let col = 0; col < GRID_WIDTH; col++) {
             const tile = gameState.grid[row][col];
+            let tileColor = tileStyles.default;
 
-            let tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim();
-
-            const tileColorVar = gameData.TILE_CONFIG.TYPES[tile.TYPE.VALUE]?.COLOR || "--tile-default";
-            tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileColorVar).trim();
+            const tileType = gameData.TILE_CONFIG.TYPES[tile.TYPE.VALUE];
+            if (tileType && tileType.COLOR) {
+                tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
+            }
 
             if (tile.MOISTURE.VALUE > 70) {
-                tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim();
+                tileColor = tileStyles.moistureHigh;
             } else if (tile.MOISTURE.VALUE < 30) {
-                tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-low").trim();
+                tileColor = tileStyles.moistureLow;
             }
 
             if (tile.IS_TILLED) {
-                tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-tilled").trim();
+                tileColor = tileStyles.tilled;
             }
 
             if (tile.PLANT_DATA.VALUE) {
-                if (tile.PLANT_DATA.VALUE.IS_MATURE) {
-                    tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim();
-                } else {
-                    tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim();
-                }
+                tileColor = tile.PLANT_DATA.VALUE.IS_MATURE ? tileStyles.plantMature : tileStyles.plantYoung;
             }
 
             context.fillStyle = tileColor;
             context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
-            if (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) {
-                context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim();
-                context.lineWidth = 3;
-                context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-            } else {
-                context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim();
-                context.lineWidth = 1;
-                context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-            }
+            context.strokeStyle = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? tileStyles.highlight : tileStyles.border;
+            context.lineWidth = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? 3 : 1;
+            context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
 
             if (row === gameState.player.y && col === gameState.player.x) {
-                context.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim();
+                context.strokeStyle = tileStyles.player;
                 context.lineWidth = 3;
                 context.strokeRect(col * TILE_SIZE + 1, row * TILE_SIZE + 1, TILE_SIZE - 2, TILE_SIZE - 2);
             }
@@ -563,19 +553,9 @@ function updateAllTiles() {
     for (let row = 0; row < GRID_HEIGHT; row++) {
         for (let col = 0; col < GRID_WIDTH; col++) {
             const tile = gameState.grid[row][col];
-            const oldMoisture = tile.MOISTURE;
             updateTileMoisture(tile);
             updateTilePlant(tile, row, col);
         }
-    }
-}
-
-function updateTileMoisture(tile) {
-    if (tile.MOISTURE.VALUE !== undefined && tile.MOISTURE_DECAY_RATE.VALUE !== undefined) {
-        const oldMoisture = tile.MOISTURE.VALUE;
-        tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - tile.MOISTURE_DECAY_RATE.VALUE, 0);
-    } else {
-        console.error("Moisture properties missing for tile:", tile);
     }
 }
 
@@ -585,11 +565,7 @@ function updateTilePlant(tile, row, col) {
     const plantName = tile.PLANT_DATA.VALUE.NAME;
     const plantData = PLANT_DATA[plantName];
 
-    const {
-        N,
-        P,
-        K
-    } = tile.SOIL_NUTRIENTS;
+    const { N, P, K } = tile.SOIL_NUTRIENTS;
     const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
     const sufficientMoisture = tile.MOISTURE.VALUE >= 40;
 
