@@ -1,6 +1,6 @@
 /* GLOBALS */
 
-const JSON_URL = "https://kvnchpl.github.io/trellis/trellis.json";
+const GAME_DATA_URL = "https://kvnchpl.github.io/trellis/trellis.json";
 
 let gameData = null;
 
@@ -15,7 +15,7 @@ let TILE_STAT = {};
 let TIME_COST = {};
 let GROWTH_TIME = {};
 let PRODUCE_YIELD = {};
-let PLANT = {};
+let PLANT_DATA = {};
 
 const SEASONS = ["Winter", "Spring", "Summer", "Fall"];
 const WEEKS_PER_SEASON = 13;
@@ -56,7 +56,7 @@ const gameState = {
 /* INITIALIZATION */
 
 window.onload = function() {
-    fetch(JSON_URL)
+    fetch(GAME_DATA_URL)
         .then(response => {
         if (!response.ok) {
             throw new Error("Failed to load trellis.json: " + response.status);
@@ -93,7 +93,7 @@ function initGame() {
     }
 
     // Configure game constants
-    configureGameConstants(gameConfig, tileConfig, timeCosts, plants);
+    initializeConstants(gameConfig, tileConfig, timeCosts, plants);
 
 
     // Set default placeholder for player position
@@ -117,9 +117,9 @@ function initGame() {
                       showTutorial();
                       }
 
-                      function configureGameConstants(gameConfig, tileConfig, timeCosts, plants) {
+                      function initializeConstants(gameConfig, tileConfig, timeCosts, plants) {
                       if (!gameConfig || !tileConfig || !timeCosts || !plants) {
-                      console.error("configureGameConstants received invalid arguments:", {
+                      console.error("initializeConstants received invalid arguments:", {
                       gameConfig,
                       tileConfig,
                       timeCosts,
@@ -169,7 +169,7 @@ function initGame() {
             tile.TYPE = { VALUE: "EMPTY" };
             tile.MOISTURE = { VALUE: gameData.TILE_CONFIG.TYPES.EMPTY.MOISTURE };
             tile.IS_TILLED = { VALUE: gameData.TILE_CONFIG.TYPES.EMPTY.IS_TILLED };
-            tile.PLANT = { VALUE: null };
+            tile.PLANT_DATA = { VALUE: null };
             tile.WEED_LEVEL = { VALUE: 0 };
             tile.MOISTURE_DECAY_RATE = { VALUE: gameData.GAME_CONFIG.MOISTURE.DECAY };
 
@@ -182,10 +182,10 @@ function initGame() {
 
     function initializeUI(uiData) {
         // Populate sections initially
-        populateSections(uiData);
+        initializeSections(uiData);
 
         // Debugging: Check button availability
-        console.log("Buttons in DOM after populateSections:", {
+        console.log("Buttons in DOM after initializeSections:", {
             nextWeekBtn: !!document.getElementById("nextWeekBtn"),
             resetPositionBtn: !!document.getElementById("resetPositionBtn"),
             closeTutorialBtn: !!document.getElementById("closeTutorialBtn"),
@@ -203,7 +203,7 @@ function initGame() {
             }
 
             // Attach event listeners
-            attachEventListeners();
+            attachUIEventListeners();
 
             // Update dynamic content
             updateUISection("gameUI", uiData.GAME_UI);
@@ -218,15 +218,15 @@ function initGame() {
         }, 0); // Defer execution to the next event loop
     }
 
-    function populateSections(uiData) {
-        populateUISection("tutorialOverlay", uiData.TUTORIAL);
-        populateUISection("gameUI", uiData.GAME_UI);
-        populateUISection("tileStats", uiData.TILE_STATS);
-        populateUISection("inventory", uiData.INVENTORY);
-        populateUISection("buttonContainer", uiData.BUTTONS);
+    function initializeSections(uiData) {
+        renderUISection("tutorialOverlay", uiData.TUTORIAL);
+        renderUISection("gameUI", uiData.GAME_UI);
+        renderUISection("tileStats", uiData.TILE_STATS);
+        renderUISection("inventory", uiData.INVENTORY);
+        renderUISection("buttonContainer", uiData.BUTTONS);
     }
 
-    function populateUISection(containerId, data) {
+    function renderUISection(containerId, data) {
         const container = document.getElementById(containerId);
         if (!container || !data) {
             console.error(`Container or data missing for ID: ${containerId}`);
@@ -345,7 +345,7 @@ return str.charAt(0).toUpperCase() + str.slice(1);
 
 /* EVENT LISTENERS */
 
-function attachEventListeners() {
+function attachUIEventListeners() {
 const nextWeekBtn = document.getElementById("nextWeekBtn");
 const resetPositionBtn = document.getElementById("resetPositionBtn");
 const closeTutorialBtn = document.getElementById("closeTutorialBtn");
@@ -405,8 +405,8 @@ tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-
 }
 
 // Plant growth stage colors
-if (tile.PLANT.VALUE) {
-if (tile.PLANT.VALUE.IS_MATURE) {
+if (tile.PLANT_DATA.VALUE) {
+if (tile.PLANT_DATA.VALUE.IS_MATURE) {
 tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim();
 } else {
 tileColor = getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim();
@@ -487,8 +487,8 @@ const typesFound = new Set();
 for (let row = 0; row < GRID_HEIGHT; row++) {
 for (let col = 0; col < GRID_WIDTH; col++) {
 const tile = gameState.grid[row][col];
-if (tile.PLANT.VALUE) {
-typesFound.add(tile.PLANT.VALUE.NAME);
+if (tile.PLANT_DATA.VALUE) {
+typesFound.add(tile.PLANT_DATA.VALUE.NAME);
 }
 }
 }
@@ -653,9 +653,9 @@ console.error("Moisture properties missing for tile:", tile);
 }
 
 function updateTilePlant(tile, row, col) {
-if (!tile.PLANT.VALUE) return;
+if (!tile.PLANT_DATA.VALUE) return;
 
-const plantName = tile.PLANT.VALUE.NAME;
+const plantName = tile.PLANT_DATA.VALUE.NAME;
 const plantData = PLANT[plantName];
 
 // Extract soil properties
@@ -665,7 +665,7 @@ const sufficientMoisture = tile.MOISTURE.VALUE >= 40;
 
 // Grow plant if conditions are sufficient
 if (sufficientNutrients && sufficientMoisture) {
-tile.PLANT.VALUE.AGE += 1;
+tile.PLANT_DATA.VALUE.AGE += 1;
 } else {
 console.log(`Plant at (${row}, ${col}) is growing slowly due to poor conditions.`);
 }
@@ -678,8 +678,8 @@ tile.SOIL_NUTRIENTS.K.VALUE = Math.max(K - 5, 0);
 }
 
 // Check if the plant is mature
-if (tile.PLANT.VALUE.AGE >= plantData.growthTime) {
-tile.PLANT.VALUE.IS_MATURE = true;
+if (tile.PLANT_DATA.VALUE.AGE >= plantData.growthTime) {
+tile.PLANT_DATA.VALUE.IS_MATURE = true;
 }
 }
 
@@ -786,7 +786,7 @@ if (!tile.IS_TILLED.VALUE) {
 console.log("Soil is not tilled. Cannot plant yet.");
 return;
 }
-if (tile.PLANT.VALUE !== null) {
+if (tile.PLANT_DATA.VALUE !== null) {
 console.log("There's already a plant here!");
 return;
 }
@@ -794,13 +794,13 @@ if (gameState.inventory.seeds[seedType] && gameState.inventory.seeds[seedType] >
 // Use 1 seed
 gameState.inventory.seeds[seedType]--;
 // Create a new plant object
-tile.PLANT.VALUE = {
+tile.PLANT_DATA.VALUE = {
 NAME: seedType,
 IS_MATURE: false,
 AGE: 0
 };
 console.log(`Planted ${seedType} at (${gameState.player.x}, ${gameState.player.y})`);
-advanceTime(TIME_COST.PLANT);
+advanceTime(TIME_COST.PLANT_DATA);
 updateTileStats();
 } else {
 console.log(`No ${seedType} seeds left.`);
@@ -853,13 +853,13 @@ console.log("No weeds here.");
 function harvestPlant() {
 const tile = getTargetTile();
 
-if (tile.PLANT.VALUE && tile.PLANT.VALUE.IS_MATURE) {
-const type = tile.PLANT.VALUE.NAME;
+if (tile.PLANT_DATA.VALUE && tile.PLANT_DATA.VALUE.IS_MATURE) {
+const type = tile.PLANT_DATA.VALUE.NAME;
 gameState.inventory.produce[type] = (gameState.inventory.produce[type] || 0) + PRODUCE_YIELD[type];
 
 console.log(`Harvested ${type} at:`, tile);
 
-tile.PLANT.VALUE = null; // Remove the plant after harvesting
+tile.PLANT_DATA.VALUE = null; // Remove the plant after harvesting
 tile.IS_TILLED.VALUE = false; // Optionally revert to untilled
 advanceTime(TIME_COST.HARVEST);
 updateTileStats();
@@ -875,7 +875,7 @@ const tile = getTargetTile();
 if (tile.TYPE.VALUE === TILE_TYPE.PLOT) {
 tile.TYPE.VALUE = TILE_TYPE.EMPTY;
 tile.IS_TILLED.VALUE = false;
-tile.PLANT.VALUE = null;
+tile.PLANT_DATA.VALUE = null;
 
 console.log("Plot cleared at:", tile);
 advanceTime(TIME_COST.CLEAR);
