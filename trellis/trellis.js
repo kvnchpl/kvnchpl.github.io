@@ -257,20 +257,6 @@ function appendTileStat(container, label, id) {
     container.appendChild(field);
 }
 
-function capitalize(str) {
-    if (typeof str !== "string") {
-        console.warn("capitalize called with non-string:", str);
-        return String(str || "").toUpperCase();
-    }
-    return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function toCamelCase(str) {
-    return str
-        .toLowerCase()
-        .replace(/[-_](.)/g, (match, group1) => group1.toUpperCase());
-}
-
 /* EVENT LISTENERS */
 
 function attachUIEventListeners() {
@@ -1020,4 +1006,18 @@ function createAndAppendElement(container, tagName, options = {}) {
         console.error(`Error creating and appending element '${tagName}':`, error);
         return null;
     }
+}
+
+function capitalize(str) {
+    if (typeof str !== "string") {
+        console.warn("capitalize called with non-string:", str);
+        return String(str || "").toUpperCase();
+    }
+    return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function toCamelCase(str) {
+    return str
+        .toLowerCase()
+        .replace(/[-_](.)/g, (match, group1) => group1.toUpperCase());
 }
