@@ -250,8 +250,11 @@ function updateUISection(containerId, data) {
 
     if (!data.FIELDS) return;
 
+    console.log(`A) Updating UI section: '${containerId}' with data: ${data}.`);
+
     data.FIELDS.forEach(fieldKey => {
         const value = gameState[fieldKey] ?? gameData.FIELDS[fieldKey]?.DEFAULT_VALUE;
+        console.log(`B) Updating field '${fieldKey}' with value: ${value}.`);
         updateField(fieldKey, value);
     });
 }
