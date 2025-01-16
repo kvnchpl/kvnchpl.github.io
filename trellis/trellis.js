@@ -198,6 +198,11 @@ function renderUISection(containerId, data) {
         container.removeChild(container.firstChild);
     }
 
+    if (!data.FIELDS) {
+        console.warn(`No fields provided for container '${containerId}'.`);
+        return;
+    }
+
     Object.entries(data.FIELDS).forEach(([fieldKey, fieldData]) => {
         const sectionType = gameData.SECTION_TYPES[fieldData.SECTION_TYPE];
         if (!sectionType) {
