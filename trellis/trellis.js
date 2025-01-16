@@ -163,8 +163,8 @@ function initializeUI(uiData) {
                 return;
             }
             console.log(`Rendering UI section: ${sectionData.CONTAINER}`);
-            renderUISection(toCamelCase(sectionData.CONTAINER), sectionData);
-            updateUISection(toCamelCase(sectionData.CONTAINER), sectionData);
+            renderUISection(sectionData.CONTAINER, sectionData);
+            updateUISection(sectionData.CONTAINER, sectionData);
         });
 
         attachUIEventListeners();
