@@ -312,7 +312,7 @@ function drawGrid(context) {
             const tile = gameState.grid[row][col];
             let tileColor = tileStyles.default;
 
-            const tileType = gameData.TILE_CONFIG.TYPES[tile.TYPE.VALUE];
+            const tileType = gameData.CONFIG.TILE_CONFIG.TYPES[tile.TYPE.VALUE];
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
             }
