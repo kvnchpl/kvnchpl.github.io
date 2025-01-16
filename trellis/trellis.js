@@ -163,8 +163,8 @@ function initializeUI(uiData) {
                 return;
             }
             console.log(`Rendering UI section: ${sectionData.CONTAINER}`);
-            renderUISection(sectionData.CONTAINER.toLowerCase(), sectionData);
-            updateUISection(sectionData.CONTAINER.toLowerCase(), sectionData);
+            renderUISection(toCamelCase(sectionData.CONTAINER), sectionData);
+            updateUISection(toCamelCase(sectionData.CONTAINER), sectionData);
         });
 
         attachUIEventListeners();
@@ -263,6 +263,12 @@ function capitalize(str) {
         return String(str || "").toUpperCase();
     }
     return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function toCamelCase(str) {
+    return str
+        .toLowerCase()
+        .replace(/[-_](.)/g, (match, group1) => group1.toUpperCase());
 }
 
 /* EVENT LISTENERS */
