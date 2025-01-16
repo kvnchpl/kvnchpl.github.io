@@ -203,18 +203,27 @@ function renderUISection(containerId, data) {
         return;
     }
 
-    Object.entries(data.FIELDS).forEach(([fieldKey, fieldData]) => {
+    data.FIELDS.forEach(fieldKey => {
+        const fieldData = gameData.FIELDS[fieldKey];
+        if (!fieldData) {
+            console.warn(`Field data for key '${fieldKey}' not found.`);
+            return;
+        }
+
         const sectionType = gameData.SECTION_TYPES[fieldData.SECTION_TYPE];
         if (!sectionType) {
             console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
             return;
         }
 
-        const element = createAndAppendElement(container, sectionType.TAG, {
-            id: fieldData.ID || `${containerId}-${fieldKey}`,
-            textContent: fieldData.LABEL || sectionType.DEFAULT || "Unnamed Field",
-            className: sectionType.CLASS || null,
-        });
+        const element = document.createElement(sectionType.TAG);
+        element.id = fieldData.ID || `${containerId}-${fieldKey}`;
+        element.textContent = fieldData.LABEL || sectionType.DEFAULT || "Unnamed Field";
+        if (sectionType.CLASS) {
+            element.className = sectionType.CLASS;
+        }
+
+        container.appendChild(element);
 
         if (sectionType.EVENT_PROPERTY && fieldData[sectionType.EVENT_PROPERTY]) {
             const handler = window[fieldData[sectionType.EVENT_PROPERTY]];
