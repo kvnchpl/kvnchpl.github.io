@@ -158,11 +158,6 @@ function initializeGrid(config) {
 function initializeUI(uiData) {
     try {
         Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
-            if (!sectionData.CONTAINER) {
-                console.warn(`UI section '${sectionKey}' is missing a CONTAINER property.`);
-                return;
-            }
-            console.log(`Rendering UI section: ${sectionData.CONTAINER}`);
             renderUISection(sectionData.CONTAINER, sectionData);
             updateUISection(sectionData.CONTAINER, sectionData);
         });
