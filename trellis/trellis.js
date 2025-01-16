@@ -124,9 +124,9 @@ function initializeConstants(config) {
 
 function initializeGameState(config) {
     const { GAME_CONFIG: gameConfig } = config;
-    gameState.currentWeek = gameConfig.START_WEEK;
-    gameState.currentYear = gameConfig.START_YEAR;
-    gameState.currentSeason = gameConfig.START_SEASON;
+    gameState.currentWeek = gameConfig.DEFAULT_WEEK;
+    gameState.currentYear = gameConfig.DEFAULT_YEAR;
+    gameState.currentSeason = gameConfig.DEFAULT_SEASON;
     gameState.currentTime = DAY_START;
 
     gameState.player.x = Math.floor(GRID_WIDTH / 2);
