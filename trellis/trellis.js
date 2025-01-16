@@ -949,7 +949,7 @@ function updateField(fieldKey, value) {
     try {
         const fieldElement = document.getElementById(fieldKey);
         if (!fieldElement) {
-            console.error(`Field element with key '${fieldKey}' not found.`);
+            console.error(`Field element with key '${fieldKey}' not found to update to ${fieldKey}.`);
             return;
         }
         fieldElement.textContent = value;
