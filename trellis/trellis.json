@@ -261,7 +261,7 @@
     },
     "UI": {
         "TUTORIAL": {
-            "CATEGORY": "OVERLAY",
+            "CONTAINER": "tutorialOverlay",
             "DISPLAY_HEADING": true,
             "HEADING": "Welcome to Trellis!",
             "CONTENT": [
@@ -276,7 +276,7 @@
             }
         },
         "GAME_UI": {
-            "CATEGORY": "SIDEBAR",
+            "CONTAINER": "gameUI",
             "FIELDS": [
                 "TIME",
                 "WEEK",
@@ -286,7 +286,7 @@
             ]
         },
         "TILE_STATS": {
-            "CATEGORY": "SIDEBAR",
+            "CONTAINER": "tileStats",
             "FIELDS": [
                 "TYPE",
                 "IS_TILLED",
@@ -298,7 +298,7 @@
             ]
         },
         "INVENTORY_DISPLAY": {
-            "CATEGORY": "SIDEBAR",
+            "CONTAINER": "inventory",
             "FIELDS": [
                 "SEEDS",
                 "PRODUCE",
@@ -307,7 +307,7 @@
             ]
         },
         "BUTTONS": {
-            "CATEGORY": "SIDEBAR",
+            "CONTAINER": "buttonContainer",
             "FIELDS": [
                 "NEXT_WEEK",
                 "RESET_POSITION"
