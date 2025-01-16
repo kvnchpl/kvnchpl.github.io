@@ -158,8 +158,8 @@ function initializeGrid(config) {
 function initializeUI(uiData) {
     try {
         Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
-            renderUISection(sectionData.CATEGORY.toLowerCase(), sectionData);
-            updateUISection(sectionData.CATEGORY.toLowerCase(), sectionData);
+            renderUISection(sectionData.CONTAINER.toLowerCase(), sectionData);
+            updateUISection(sectionData.CONTAINER.toLowerCase(), sectionData);
         });
 
         attachUIEventListeners();
