@@ -224,8 +224,13 @@ function renderUISection(containerId, data) {
 
 function updateUISection(containerId, data) {
     const container = document.getElementById(containerId);
-    if (!container || !data) {
-        console.error(`Container or data missing for ID: ${containerId}`);
+    if (!container) {
+        console.error(`Container missing for ID: ${containerId}`);
+        return;
+    }
+
+    if (!data) {
+        console.error(`Data missing for ID: ${containerId}`);
         return;
     }
 
