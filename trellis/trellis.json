@@ -103,9 +103,9 @@
                     "PLANT_DATA": null,
                     "SOIL_NUTRIENTS": {
                         "VALUE": {
-                            "N": 50,
-                            "P": 50,
-                            "K": 50
+                            "NITROGEN": 50,
+                            "PHOSPHORUS": 50,
+                            "POTASSIUM": 50
                         }
                     }
                 },
@@ -227,7 +227,7 @@
         "TILE_IS_TILLED": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
-            "LABEL": "Is Tilled",
+            "LABEL": "Tilled",
             "ID": "tileIsTilled",
             "DEFAULT_VALUE": "False",
             "FORMAT": "{IS_TILLED}"
