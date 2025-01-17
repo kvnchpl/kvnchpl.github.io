@@ -394,12 +394,13 @@ function updateUISection(containerId, data) {
         let value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
         console.log(`B) Updating field '${fieldData.ID}' with value:`, value);
 
-        if (fieldData.FORMAT && typeof value === "object") {
-            Object.entries(value).forEach(([key, val]) => {
-                const formattedValue = fieldData.FORMAT.replace(/\{(\w+)\}/g, (_, k) => val[k] ?? '');
-                updateField(`${fieldData.ID}-${key}`, formattedValue);
-            });
+        if (fieldData.SUBFIELDS) {
+            updateSubfields(fieldData.SUBFIELDS, value);
         } else {
+            if (typeof value === "object") {
+                console.warn(`Skipping update for field '${fieldData.ID}' because it has subfields.`);
+                return;
+            }
             updateField(fieldData.ID, value);
         }
     });
@@ -414,6 +415,11 @@ function updateField(fieldId, value) {
     const fieldElement = document.getElementById(fieldId);
     if (!fieldElement) {
         console.error(`Field element with ID '${fieldId}' not found. Cannot update to value: ${value}`);
+        return;
+    }
+
+    if (typeof value === "object") {
+        console.warn(`Skipping update for field '${fieldId}' because the value is an object.`);
         return;
     }
 
