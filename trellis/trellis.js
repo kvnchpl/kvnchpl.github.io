@@ -301,28 +301,31 @@ function renderUISection(containerId, data) {
     });
 }
 
-function renderSubfields(container, subfields, sectionType, defaultValues, level = 1) {
+function renderSubfields(container, subfields, defaultValues, level = 1) {
     Object.entries(subfields).forEach(([key, subfieldData]) => {
         const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
             className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS,
-            style: `--level: ${level};`
+            style: `--level: ${level};`,
         });
-        const labelType = gameData.UI_COMPONENTS.LABEL;
-        const subfieldLabelElement = createElement(labelType.TAG, {
-            className: labelType.CLASS,
-            textContent: `${subfieldData.LABEL}: `
+
+        const labelElement = createElement(gameData.UI_COMPONENTS.LABEL.TAG, {
+            className: gameData.UI_COMPONENTS.LABEL.CLASS,
+            textContent: `${subfieldData.LABEL}: `,
         });
-        const subfieldValueElement = createElement(sectionType.TAG, {
+
+        const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
             id: subfieldData.ID,
-            className: sectionType.CLASS,
-            textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE
+            className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
+            textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE,
         });
-        subfieldContainer.appendChild(subfieldLabelElement);
-        subfieldContainer.appendChild(subfieldValueElement);
+
+        subfieldContainer.appendChild(labelElement);
+        subfieldContainer.appendChild(valueElement);
         container.appendChild(subfieldContainer);
 
+        // If the subfield has nested subfields, recursively render them
         if (subfieldData.SUBFIELDS) {
-            renderSubfields(container, subfieldData.SUBFIELDS, sectionType, subfieldData.DEFAULT_VALUE, level + 1);
+            renderSubfields(subfieldContainer, subfieldData.SUBFIELDS, defaultValues[key], level + 1);
         }
     });
 }
