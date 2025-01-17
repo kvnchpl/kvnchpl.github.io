@@ -255,7 +255,7 @@ function updateUISection(containerId, data) {
         }
 
         const value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
-        console.log(`B) Updating field '${fieldKey}' with value: ${value}.`);
+        console.log(`B) Updating field '${fieldKey}' with value: ${JSON.stringify(value, null, 2)}`);
         updateField(fieldData.ID, value);
     });
 }
