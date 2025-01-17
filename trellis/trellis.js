@@ -138,44 +138,39 @@ function initializeGameState(config) {
 
 function initializeGrid(config) {
     const { TILE_CONFIG: tileConfig } = config;
-    try {
-        const defaultType = tileConfig.DEFAULT_TYPE;
-        const defaultTile = structuredClone(tileConfig.TYPES[defaultType]);
 
-        gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-            Array.from({ length: GRID_WIDTH }, () => {
-                const tile = { TYPE: { VALUE: defaultType } };
-                for (const [key, value] of Object.entries(defaultTile)) {
-                    tile[key] = structuredClone(value) ?? { VALUE: null };
-                }
-                return tile;
-            })
-        );
-        render();
-    } catch (error) {
-        console.error("Error initializing grid:", error);
-        throw error;
-    }
+    const defaultType = tileConfig.DEFAULT_TYPE;
+    const defaultTile = structuredClone(tileConfig.TYPES[defaultType]);
+
+    gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
+        Array.from({ length: GRID_WIDTH }, () => {
+            const tile = { TYPE: { VALUE: defaultType } };
+            for (const [key, value] of Object.entries(defaultTile)) {
+                tile[key] = structuredClone(value) ?? { VALUE: null };
+            }
+            return tile;
+        })
+    );
+    render();
 }
 
 function initializeUI(uiData) {
-    try {
-        Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
-            renderUISection(sectionData.CONTAINER, sectionData);
-            updateUISection(sectionData.CONTAINER, sectionData);
-        });
-
-        attachUIEventListeners();
-        attachCanvasEventListeners();
-        
-        updateTimeDisplay();
-        updateYearAndSeason();
-        updateWeekDisplay();
-        updateBiodiversityDisplay();
-    } catch (error) {
-        console.error("Error initializing UI:", error);
-        throw error;
+    if (!uiData) {
+        console.error("UI data is missing.");
+        return;
     }
+    Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
+        renderUISection(sectionData.CONTAINER, sectionData);
+        updateUISection(sectionData.CONTAINER, sectionData);
+    });
+
+    attachUIEventListeners();
+    attachCanvasEventListeners();
+
+    updateTimeDisplay();
+    updateYearAndSeason();
+    updateWeekDisplay();
+    updateBiodiversityDisplay();
 }
 
 function initializeInventory(inventoryData) {
@@ -245,6 +240,19 @@ function drawGrid(context) {
     }
 }
 
+function createElement(tag, options = {}) {
+    const element = document.createElement(tag);
+    if (options.id) element.id = options.id;
+    if (options.className) element.className = options.className;
+    if (options.textContent) element.textContent = options.textContent;
+    if (options.attributes) {
+        for (const [key, value] of Object.entries(options.attributes)) {
+            element.setAttribute(key, value);
+        }
+    }
+    return element;
+}
+
 function renderUISection(containerId, data) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -279,17 +287,18 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const fieldContainer = document.createElement("div");
-        fieldContainer.className = "field-container";
+        const fieldContainer = createElement("div", { className: "field-container" });
 
-        const labelElement = document.createElement("span");
-        labelElement.className = "field-label";
-        labelElement.textContent = `${fieldData.LABEL}: `;
+        const labelElement = createElement("span", {
+            className: "field-label",
+            textContent: `${fieldData.LABEL}: `
+        });
 
-        const valueElement = document.createElement(sectionType.TAG);
-        valueElement.id = fieldData.ID || `${containerId}-${fieldKey}`;
-        valueElement.className = sectionType.CLASS || "field-value";
-        valueElement.textContent = fieldData.DEFAULT_VALUE;
+        const valueElement = createElement(sectionType.TAG, {
+            id: fieldData.ID || `${containerId}-${fieldKey}`,
+            className: sectionType.CLASS || "field-value",
+            textContent: fieldData.DEFAULT_VALUE
+        });
 
         fieldContainer.appendChild(labelElement);
         fieldContainer.appendChild(valueElement);
@@ -337,16 +346,16 @@ function updateUISection(containerId, data) {
 }
 
 function updateField(fieldId, value) {
-    try {
-        const fieldElement = document.getElementById(fieldId);
-        if (!fieldElement) {
-            console.error(`Field element with key '${fieldId}' not found to update to ${value}.`);
-            return;
-        }
-        fieldElement.textContent = value;
-    } catch (error) {
-        console.error(`Error updating field '${fieldId}':`, error);
+    if (!fieldId) {
+        console.error("Field ID is missing.");
+        return;
     }
+    const fieldElement = document.getElementById(fieldId);
+    if (!fieldElement) {
+        console.error(`Field element with ID '${fieldId}' not found. Cannot update to value: ${value}`);
+        return;
+    }
+    fieldElement.textContent = value;
 }
 
 function updateStatsFromFields(fields, sourceData, containerId) {
@@ -355,30 +364,17 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         console.error(`Container element with id '${containerId}' not found.`);
         return;
     }
-
     fields.forEach(fieldKey => {
         const fieldConfig = safeGet(gameData.FIELDS, fieldKey, null);
         if (!fieldConfig) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
         }
-
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
-
         if (fieldConfig.FORMAT && typeof value === "object") {
-            try {
-                value = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, key) => value[key] ?? '');
-            } catch (error) {
-                console.error(`Error formatting value for '${fieldKey}':`, error);
-                return;
-            }
+            value = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, key) => value[key] ?? '');
         }
-
-        try {
-            updateField(fieldConfig.ID, value);
-        } catch (error) {
-            console.error(`Error updating field '${fieldKey}' with value '${value}':`, error);
-        }
+        updateField(fieldConfig.ID, value);
     });
 }
 
@@ -595,28 +591,22 @@ function updateBiodiversity() {
 /* PLAYER MOVEMENT & CONTROLS */
 
 function resetPlayerPosition() {
-    try {
-        if (!gameState.grid || gameState.grid.length === 0) {
-            console.error("Cannot reset player position: grid not initialized.");
-            return;
-        }
-
-        gameState.player.x = Math.floor(GRID_WIDTH / 2);
-        gameState.player.y = Math.floor(GRID_HEIGHT / 2);
-
-        gameState.highlightedTile = {
-            x: gameState.player.x,
-            y: gameState.player.y
-        };
-
-        highlightTile(gameState.player.x, gameState.player.y);
-        updateTileStats();
-        render();
-    } catch (error) {
-        console.error("Error resetting player position:", error);
-        throw error;
+    if (!gameState.grid || gameState.grid.length === 0) {
+        console.error("Cannot reset player position: grid not initialized.");
+        return;
     }
 
+    gameState.player.x = Math.floor(GRID_WIDTH / 2);
+    gameState.player.y = Math.floor(GRID_HEIGHT / 2);
+
+    gameState.highlightedTile = {
+        x: gameState.player.x,
+        y: gameState.player.y
+    };
+
+    highlightTile(gameState.player.x, gameState.player.y);
+    updateTileStats();
+    render();
 }
 
 function highlightTile(x, y) {
@@ -982,21 +972,11 @@ function updateInventory(item, delta) {
 /* TUTORIAL OVERLAY */
 
 function showTutorial() {
-    try {
-        document.getElementById("tutorialOverlay").classList.remove("hidden");
-    } catch (error) {
-        console.error("Error showing tutorial:", error);
-        throw error;
-    }
+    document.getElementById("tutorialOverlay").classList.remove("hidden");
 }
 
 function hideTutorial() {
-    try {
-        document.getElementById("tutorialOverlay").classList.add("hidden");
-    } catch (error) {
-        console.error("Error hiding tutorial:", error);
-        throw error;
-    }
+    document.getElementById("tutorialOverlay").classList.add("hidden");
 }
 
 /* UTILITY FUNCTIONS */
@@ -1028,34 +1008,30 @@ function safeGet(obj, path, defaultValue = undefined) {
 }
 
 function createAndAppendElement(container, tagName, options = {}) {
-    try {
-        const {
-            id,
-            textContent,
-            className,
-            attributes,
-            children
-        } = options;
-        const element = document.createElement(tagName);
-
-        if (id) element.id = id;
-        if (textContent) element.textContent = textContent;
-        if (className) element.className = className;
-
-        if (attributes) {
-            Object.entries(attributes).forEach(([key, value]) => element.setAttribute(key, value));
+    const element = document.createElement(tagName);
+    if (options.id) element.id = options.id;
+    if (options.className) element.className = options.className;
+    if (options.textContent) element.textContent = options.textContent;
+    if (options.attributes) {
+        for (const [key, value] of Object.entries(options.attributes)) {
+            element.setAttribute(key, value);
         }
-
-        if (children) {
-            children.forEach(child => element.appendChild(child));
-        }
-
-        container.appendChild(element);
-        return element;
-    } catch (error) {
-        console.error(`Error creating and appending element '${tagName}':`, error);
-        return null;
     }
+    container.appendChild(element);
+    return element;
+}
+
+function createElement(tag, options = {}) {
+    const element = document.createElement(tag);
+    if (options.id) element.id = options.id;
+    if (options.className) element.className = options.className;
+    if (options.textContent) element.textContent = options.textContent;
+    if (options.attributes) {
+        for (const [key, value] of Object.entries(options.attributes)) {
+            element.setAttribute(key, value);
+        }
+    }
+    return element;
 }
 
 function capitalize(str) {
