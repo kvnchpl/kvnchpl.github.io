@@ -323,7 +323,7 @@ function renderSubfields(container, subfields, defaultValues, level = 1) {
         subfieldContainer.appendChild(valueElement);
         container.appendChild(subfieldContainer);
 
-        // If the subfield has nested subfields, recursively render them
+        // Recursively render nested subfields
         if (subfieldData.SUBFIELDS) {
             renderSubfields(subfieldContainer, subfieldData.SUBFIELDS, defaultValues[key], level + 1);
         }
