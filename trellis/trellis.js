@@ -305,38 +305,50 @@ function renderUISection(containerId, data) {
             className: "field-container"
         });
 
-        let valueElement;
         if (sectionType.TAG === "button") {
-            valueElement = createElement(sectionType.TAG, {
+            const buttonElement = createElement(sectionType.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: sectionType.CLASS || "field-value",
                 textContent: fieldData.LABEL
             });
+            fieldContainer.appendChild(buttonElement);
         } else {
             const labelElement = createElement("span", {
                 className: "field-label",
                 textContent: `${fieldData.LABEL}: `
             });
-            let initialValue = fieldData.DEFAULT_VALUE;
-            if (fieldData.FORMAT && typeof initialValue === "object") {
-                initialValue = fieldData.FORMAT.replace(/\{(\w+)\}/g, (_, key) => initialValue[key] ?? '');
-            }
-            valueElement = createElement(sectionType.TAG, {
-                id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: sectionType.CLASS || "field-value",
-                textContent: initialValue
-            });
-
             fieldContainer.appendChild(labelElement);
+
+            if (typeof fieldData.DEFAULT_VALUE === "object") {
+                Object.entries(fieldData.DEFAULT_VALUE).forEach(([key, value]) => {
+                    const nestedLabelElement = createElement("span", {
+                        className: "field-label",
+                        textContent: `${key}: `
+                    });
+                    const nestedValueElement = createElement(sectionType.TAG, {
+                        id: `${fieldData.ID}-${key}`,
+                        className: sectionType.CLASS || "field-value",
+                        textContent: value
+                    });
+                    fieldContainer.appendChild(nestedLabelElement);
+                    fieldContainer.appendChild(nestedValueElement);
+                });
+            } else {
+                const valueElement = createElement(sectionType.TAG, {
+                    id: fieldData.ID || `${containerId}-${fieldKey}`,
+                    className: sectionType.CLASS || "field-value",
+                    textContent: fieldData.DEFAULT_VALUE
+                });
+                fieldContainer.appendChild(valueElement);
+            }
         }
 
-        fieldContainer.appendChild(valueElement);
         container.appendChild(fieldContainer);
 
         if (sectionType.EVENT_PROPERTY && fieldData[sectionType.EVENT_PROPERTY]) {
             const handler = window[fieldData[sectionType.EVENT_PROPERTY]];
             if (typeof handler === "function") {
-                valueElement.addEventListener("click", handler);
+                fieldContainer.addEventListener("click", handler);
             } else {
                 console.error(`Handler function '${fieldData[sectionType.EVENT_PROPERTY]}' not found.`);
             }
@@ -404,9 +416,13 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         }
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
         if (fieldConfig.FORMAT && typeof value === "object") {
-            value = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, key) => value[key] ?? '');
+            Object.entries(value).forEach(([key, val]) => {
+                const formattedValue = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, k) => val[k] ?? '');
+                updateField(`${fieldConfig.ID}-${key}`, formattedValue);
+            });
+        } else {
+            updateField(fieldConfig.ID, value);
         }
-        updateField(fieldConfig.ID, value);
     });
 }
 
