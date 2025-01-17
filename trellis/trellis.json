@@ -5,33 +5,7 @@
         "AUTHOR": "Game Developer",
         "DESCRIPTION": "Configuration file for Trellis game."
     },
-    "SECTION_TYPES": {
-        "HEADING": {
-            "TAG": "strong",
-            "PROPERTY": "HEADING",
-            "DEFAULT": "Default Heading",
-            "CLASS": null
-        },
-        "CONTENT": {
-            "TAG": "p",
-            "PROPERTY": "CONTENT",
-            "DEFAULT": null,
-            "CLASS": null
-        },
-        "FIELD_CONTAINER": {
-            "TAG": "div",
-            "CLASS": "field-container"
-        },
-        "FIELDS": {
-            "TAG": "div",
-            "PROPERTY": "FIELDS",
-            "DEFAULT": null,
-            "CLASS": "field-row"
-        },
-        "LABEL": {
-            "TAG": "span",
-            "CLASS": "field-label"
-        },
+    "UI_COMPONENTS": {
         "BUTTON_CONTAINER": {
             "TAG": "div",
             "CLASS": "button-container"
@@ -39,14 +13,35 @@
         "BUTTON": {
             "TAG": "button",
             "CLASS": "ui-button"
+        },
+        "LABEL": {
+            "TAG": "span",
+            "CLASS": "field-label"
+        },
+        "FIELD_CONTAINER": {
+            "TAG": "div",
+            "CLASS": "field-container"
+        },
+        "FIELD_LABEL": {
+            "TAG": "span",
+            "CLASS": "field-label"
+        },
+        "FIELD_VALUE": {
+            "TAG": "span",
+            "CLASS": "field-value"
+        },
+        "SUBFIELD_CONTAINER": {
+            "TAG": "div",
+            "CLASS": "subfield-container"
+        },
+        "HEADING": {
+            "TAG": "h2",
+            "CLASS": "section-heading"
+        },
+        "CONTENT": {
+            "TAG": "p",
+            "CLASS": "section-content"
         }
-    },
-    "UI_CLASSES": {
-        "FIELD_CONTAINER": "field-container",
-        "FIELD_LABEL": "field-label",
-        "FIELD_VALUE": "field-value",
-        "SUBFIELD_CONTAINER": "subfield-container",
-        "UI_BUTTON": "ui-button"
     },
     "CONFIG": {
         "CALENDAR_CONFIG": {
