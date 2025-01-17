@@ -542,33 +542,13 @@ function handleKeyDown(e) {
         case keyBindings.RESET_HIGHLIGHT:
             highlightTile(gameState.player.x, gameState.player.y);
             return;
-        case keyBindings.ACTION_TILL:
-            handleTileAction('till', getTargetTile());
-            break;
-        case keyBindings.ACTION_FERTILIZE:
-            handleTileAction('fertilize', getTargetTile());
-            break;
-        case keyBindings.ACTION_PLANT:
-            handleTileAction('plant', getTargetTile(), {
-                seedType: 'tomato'
-            });
-            break;
-        case keyBindings.ACTION_WATER:
-            handleTileAction('water', getTargetTile());
-            break;
-        case keyBindings.ACTION_MULCH:
-            handleTileAction('mulch', getTargetTile());
-            break;
-        case keyBindings.ACTION_WEED:
-            handleTileAction('weed', getTargetTile());
-            break;
-        case keyBindings.ACTION_HARVEST:
-            handleTileAction('harvest', getTargetTile());
-            break;
-        case keyBindings.ACTION_CLEAR:
-            handleTileAction('clear', getTargetTile());
-            break;
         default:
+            const actionKey = Object.keys(keyBindings).find(key => keyBindings[key] === e.key);
+            if (actionKey && actionKey.startsWith("ACTION_")) {
+                const action = actionKey.replace("ACTION_", "").toLowerCase();
+                handleTileAction(action, getTargetTile());
+                return;
+            }
             console.warn(`Unhandled key press: '${e.key}'`);
             break;
     }
@@ -773,10 +753,7 @@ function updateTilePlant(tile, row, col) {
 }
 
 function updateTileStats() {
-    const {
-        x,
-        y
-    } = gameState.highlightedTile;
+    const { x, y } = gameState.highlightedTile;
     const tile = gameState.grid[y][x];
 
     if (!tile) {
@@ -784,13 +761,7 @@ function updateTileStats() {
         return;
     }
 
-    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, "tileStats");
-}
-
-function clearTileStats() {
-    const statsContainer = document.getElementById("tileStats");
-    const spans = statsContainer.querySelectorAll("span");
-    spans.forEach(span => (span.textContent = "N/A"));
+    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.SECTION_TYPES.TILE_STATS.CONTAINER);
 }
 
 /* UI UPDATES */
@@ -819,35 +790,29 @@ function updateBiodiversityDisplay() {
 /* PLAYER ACTIONS */
 
 function handleTileAction(action, tile, params = {}) {
-    switch (action) {
-        case 'till':
-            tillSoil(tile);
-            break;
-        case 'fertilize':
-            fertilizeTile(tile);
-            break;
-        case 'plant':
-            plantSeed(tile, params.seedType);
-            break;
-        case 'water':
-            waterTile(tile);
-            break;
-        case 'mulch':
-            mulchTile(tile);
-            break;
-        case 'weed':
-            weedTile(tile);
-            break;
-        case 'harvest':
-            harvestPlant(tile);
-            break;
-        case 'clear':
-            clearPlot(tile);
-            break;
-        default:
-            console.warn(`Unhandled tile action: '${action}'`);
-            break;
+    const actions = gameData.ACTIONS;
+    const actionConfig = actions[action.toUpperCase()];
+
+    if (!actionConfig) {
+        console.warn(`Unhandled tile action: '${action}'`);
+        return;
     }
+
+    const functionName = actionConfig.FUNCTION;
+    const functionParams = actionConfig.PARAMS || {};
+    const timeCost = actionConfig.TIME_COST;
+
+    const actionFunction = window[functionName];
+
+    if (typeof actionFunction !== "function") {
+        console.error(`Function '${functionName}' not found for action '${action}'`);
+        return;
+    }
+
+    actionFunction(tile, { ...params, ...functionParams });
+
+    // Deduct time cost from the game state
+    gameState.currentTime += timeCost;
 
     updateTileStats();
     render();
