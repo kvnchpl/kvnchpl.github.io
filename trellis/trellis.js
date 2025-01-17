@@ -719,23 +719,17 @@ function updateTimeDisplay() {
     const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes} ${ampm}`;
 
     const timeField = gameData.FIELDS.TIME;
-    const timeLabel = timeField.LABEL;
-    const timeText = `${timeLabel}: ${formattedTime}`;
-    updateField(timeField.ID, timeText);
+    updateField(timeField.ID, formattedTime);
 }
 
 function updateWeekDisplay() {
     const weekField = gameData.FIELDS.WEEK;
-    const weekLabel = weekField.LABEL;
-    const weekText = `${weekLabel}: ${gameState.currentWeek}`;
-    updateField(weekField.ID, weekText);
+    updateField(weekField.ID, gameState.currentWeek);
 }
 
 function updateBiodiversityDisplay() {
     const biodiversityField = gameData.FIELDS.BIODIVERSITY;
-    const biodiversityLabel = biodiversityField.LABEL;
-    const biodiversityText = `${biodiversityLabel}: ${gameState.biodiversityScore}`;
-    updateField(biodiversityField.ID, biodiversityText);
+    updateField(biodiversityField.ID, gameState.biodiversityScore);
 }
 
 /* PLAYER ACTIONS */
