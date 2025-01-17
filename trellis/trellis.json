@@ -145,35 +145,35 @@
     "FIELDS": {
         "TIME": {
             "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GAME_UI",
+            "CATEGORY": "GLOBAL_STATS",
             "LABEL": "Time",
             "ID": "timeDisplay",
             "DEFAULT_VALUE": "7:00 AM"
         },
         "WEEK": {
             "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GAME_UI",
+            "CATEGORY": "GLOBAL_STATS",
             "LABEL": "Week",
             "ID": "weekDisplay",
             "DEFAULT_VALUE": "1"
         },
         "YEAR": {
             "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GAME_UI",
+            "CATEGORY": "GLOBAL_STATS",
             "LABEL": "Year",
             "ID": "yearDisplay",
             "DEFAULT_VALUE": "1"
         },
         "SEASON": {
             "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GAME_UI",
+            "CATEGORY": "GLOBAL_STATS",
             "LABEL": "Season",
             "ID": "seasonDisplay",
             "DEFAULT_VALUE": "Winter"
         },
         "BIODIVERSITY": {
             "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GAME_UI",
+            "CATEGORY": "GLOBAL_STATS",
             "LABEL": "Biodiversity",
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
@@ -308,8 +308,8 @@
                 "CLOSE_TUTORIAL"
             ]
         },
-        "GAME_UI": {
-            "CONTAINER": "gameUI",
+        "GLOBAL_STATS": {
+            "CONTAINER": "globalStats",
             "FIELDS": [
                 "TIME",
                 "WEEK",
