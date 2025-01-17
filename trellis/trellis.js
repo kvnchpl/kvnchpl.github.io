@@ -377,7 +377,6 @@ function updateUISection(containerId, data) {
         console.log(`B) Updating field '${fieldData.ID}' with value:`, value);
         
         if (fieldData.FORMAT && typeof value === "object") {
-            console.dir(value);
             Object.entries(value).forEach(([key, val]) => {
                 const formattedValue = fieldData.FORMAT.replace(/\{(\w+)\}/g, (_, k) => val[k] ?? '');
                 updateField(`${fieldData.ID}-${key}`, formattedValue);
