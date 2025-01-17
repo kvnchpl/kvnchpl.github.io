@@ -113,6 +113,13 @@ function initializeConstants(config) {
     Object.assign(gameState, {
         regionName: config.GAME_CONFIG.REGION,
         pestOutbreakChance: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
+        tileType: config.TILE_CONFIG.TYPES,
+        tileStat: config.TILE_CONFIG.STATS || {},
+        actions: config.ACTIONS,
+        plantData: config.PLANTS,
+        weeksPerSeason: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
+        seasons: config.CALENDAR_CONFIG.SEASONS,
+        weeksPerYear: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length
     });
 }
 
@@ -193,11 +200,11 @@ function drawGrid(context) {
         border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
     };
 
-    for (let row = 0; row < GRID_HEIGHT; row++) {
-        for (let col = 0; col < GRID_WIDTH; col++) {
-            const tile = gameState.grid[row][col];
+    for (let row = 0; row < gameState.grid.height; row++) {
+        for (let col = 0; col < gameState.grid.width; col++) {
+            const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
-            const tileType = gameData.CONFIG.TILE_CONFIG.TYPES[tile.TYPE.VALUE];
+            const tileType = gameState.tileType[tile.TYPE.VALUE];
 
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
@@ -215,16 +222,16 @@ function drawGrid(context) {
             }
 
             context.fillStyle = tileColor;
-            context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            context.fillRect(col * gameState.grid.tileSize, row * gameState.grid.tileSize, gameState.grid.tileSize, gameState.grid.tileSize);
 
-            context.strokeStyle = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? tileStyles.highlight : tileStyles.border;
-            context.lineWidth = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? 3 : 1;
-            context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+            context.strokeStyle = (row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x) ? tileStyles.highlight : tileStyles.border;
+            context.lineWidth = (row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x) ? 3 : 1;
+            context.strokeRect(col * gameState.grid.tileSize, row * gameState.grid.tileSize, gameState.grid.tileSize, gameState.grid.tileSize);
 
-            if (row === gameState.player.y && col === gameState.player.x) {
+            if (row === gameState.player.position.y && col === gameState.player.position.x) {
                 context.strokeStyle = tileStyles.player;
                 context.lineWidth = 3;
-                context.strokeRect(col * TILE_SIZE + 1, row * TILE_SIZE + 1, TILE_SIZE - 2, TILE_SIZE - 2);
+                context.strokeRect(col * gameState.grid.tileSize + 1, row * gameState.grid.tileSize + 1, gameState.grid.tileSize - 2, gameState.grid.tileSize - 2);
             }
         }
     }
@@ -491,38 +498,38 @@ function preventKeyBindingScroll(e) {
 }
 
 function handleKeyDown(e) {
-    let newX = gameState.player.x;
-    let newY = gameState.player.y;
+    let newX = gameState.player.position.x;
+    let newY = gameState.player.position.y;
 
-    const keyBindings = gameData.KEY_BINDINGS;
+    const keyBindings = gameData.CONFIG.KEY_BINDINGS;
 
     switch (e.key) {
         case keyBindings.PLAYER_MOVE_UP:
-            newY = gameState.player.y - 1;
+            newY = gameState.player.position.y - 1;
             break;
         case keyBindings.PLAYER_MOVE_DOWN:
-            newY = gameState.player.y + 1;
+            newY = gameState.player.position.y + 1;
             break;
         case keyBindings.PLAYER_MOVE_LEFT:
-            newX = gameState.player.x - 1;
+            newX = gameState.player.position.x - 1;
             break;
         case keyBindings.PLAYER_MOVE_RIGHT:
-            newX = gameState.player.x + 1;
+            newX = gameState.player.position.x + 1;
             break;
         case keyBindings.HIGHLIGHT_TILE_UP:
-            highlightTile(gameState.highlightedTile.x, gameState.highlightedTile.y - 1);
+            highlightTile(gameState.grid.highlightedTile.x, gameState.grid.highlightedTile.y - 1);
             return;
         case keyBindings.HIGHLIGHT_TILE_DOWN:
-            highlightTile(gameState.highlightedTile.x, gameState.highlightedTile.y + 1);
+            highlightTile(gameState.grid.highlightedTile.x, gameState.grid.highlightedTile.y + 1);
             return;
         case keyBindings.HIGHLIGHT_TILE_LEFT:
-            highlightTile(gameState.highlightedTile.x - 1, gameState.highlightedTile.y);
+            highlightTile(gameState.grid.highlightedTile.x - 1, gameState.grid.highlightedTile.y);
             return;
         case keyBindings.HIGHLIGHT_TILE_RIGHT:
-            highlightTile(gameState.highlightedTile.x + 1, gameState.highlightedTile.y);
+            highlightTile(gameState.grid.highlightedTile.x + 1, gameState.grid.highlightedTile.y);
             return;
         case keyBindings.RESET_HIGHLIGHT:
-            highlightTile(gameState.player.x, gameState.player.y);
+            highlightTile(gameState.player.position.x, gameState.player.position.y);
             return;
         default:
             const actionKey = Object.keys(keyBindings).find(key => keyBindings[key] === e.key);
@@ -535,18 +542,18 @@ function handleKeyDown(e) {
             break;
     }
 
-    if (newX !== gameState.player.x || newY !== gameState.player.y) {
+    if (newX !== gameState.player.position.x || newY !== gameState.player.position.y) {
         if (
             newX >= 0 &&
-            newX < GRID_WIDTH &&
+            newX < gameState.grid.width &&
             newY >= 0 &&
-            newY < GRID_HEIGHT &&
-            gameState.grid[newY][newX].TYPE.VALUE !== TILE_TYPE.PLOT
+            newY < gameState.grid.height &&
+            gameState.grid.tiles[newY][newX].TYPE.VALUE !== gameState.tileType.PLOT
         ) {
-            gameState.player.x = newX;
-            gameState.player.y = newY;
+            gameState.player.position.x = newX;
+            gameState.player.position.y = newY;
 
-            highlightTile(gameState.player.x, gameState.player.y);
+            highlightTile(gameState.player.position.x, gameState.player.position.y);
 
             render();
         } else {
@@ -615,8 +622,8 @@ function skipToNextWeek() {
 }
 
 function updateYearAndSeason() {
-    gameState.calendar.currentYear = Math.floor(gameState.calendar.currentWeek / WEEKS_PER_YEAR) + 1;
-    gameState.calendar.currentSeason = SEASONS[Math.floor((gameState.calendar.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
+    gameState.calendar.currentYear = Math.floor(gameState.calendar.currentWeek / gameState.weeksPerYear) + 1;
+    gameState.calendar.currentSeason = gameState.seasons[Math.floor((gameState.calendar.currentWeek % gameState.weeksPerYear) / gameState.weeksPerSeason)];
 
     const yearField = gameData.FIELDS.YEAR;
     updateField(yearField.ID, gameState.calendar.currentYear);
@@ -628,43 +635,43 @@ function updateYearAndSeason() {
 function updateBiodiversity() {
     const typesFound = new Set();
 
-    for (let row = 0; row < GRID_HEIGHT; row++) {
-        for (let col = 0; col < GRID_WIDTH; col++) {
-            const tile = gameState.grid[row][col];
+    for (let row = 0; row < gameState.grid.height; row++) {
+        for (let col = 0; col < gameState.grid.width; col++) {
+            const tile = gameState.grid.tiles[row][col];
             if (tile.PLANT_DATA.VALUE) {
                 typesFound.add(tile.PLANT_DATA.VALUE.NAME);
             }
         }
     }
 
-    gameState.biodiversityScore = typesFound.size;
-    return gameState.biodiversityScore;
+    gameState.scores.biodiversity = typesFound.size;
+    return gameState.scores.biodiversity;
 }
 
 /* PLAYER MOVEMENT & CONTROLS */
 
 function resetPlayerPosition() {
-    if (!gameState.grid || gameState.grid.length === 0) {
+    if (!gameState.grid.tiles || gameState.grid.tiles.length === 0) {
         console.error("Cannot reset player position: grid not initialized.");
         return;
     }
 
-    gameState.player.x = Math.floor(GRID_WIDTH / 2);
-    gameState.player.y = Math.floor(GRID_HEIGHT / 2);
+    gameState.player.position.x = Math.floor(gameState.grid.width / 2);
+    gameState.player.position.y = Math.floor(gameState.grid.height / 2);
 
-    gameState.highlightedTile = {
-        x: gameState.player.x,
-        y: gameState.player.y
+    gameState.grid.highlightedTile = {
+        x: gameState.player.position.x,
+        y: gameState.player.position.y
     };
 
-    highlightTile(gameState.player.x, gameState.player.y);
+    highlightTile(gameState.player.position.x, gameState.player.position.y);
     updateTileStats();
     render();
 }
 
 function highlightTile(x, y) {
     if (isTileValid(x, y) && isTileAdjacent(x, y)) {
-        gameState.highlightedTile = {
+        gameState.grid.highlightedTile = {
             x,
             y
         };
@@ -678,9 +685,9 @@ function highlightTile(x, y) {
 /* TILE & GRID UPDATES */
 
 function updateAllTiles() {
-    for (let row = 0; row < GRID_HEIGHT; row++) {
-        for (let col = 0; col < GRID_WIDTH; col++) {
-            const tile = gameState.grid[row][col];
+    for (let row = 0; row < gameState.grid.height; row++) {
+        for (let col = 0; col < gameState.grid.width; col++) {
+            const tile = gameState.grid.tiles[row][col];
             updateTileMoisture(tile);
             updateTilePlant(tile, row, col);
         }
@@ -693,7 +700,7 @@ function updateTileMoisture(tile) {
         return;
     }
 
-    tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - BASE_MOISTURE_DECAY, 0);
+    tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - gameState.baseMoistureDecay, 0);
     if (tile.MOISTURE_DECAY_RATE) {
         tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - tile.MOISTURE_DECAY_RATE, 0);
     }
@@ -707,13 +714,9 @@ function updateTilePlant(tile, row, col) {
         return;
     }
     const plantName = tile.PLANT_DATA.VALUE.NAME;
-    const plantData = PLANT_DATA[plantName];
+    const plantData = gameState.plantData[plantName];
 
-    const {
-        N,
-        P,
-        K
-    } = tile.SOIL_NUTRIENTS;
+    const { N, P, K } = tile.SOIL_NUTRIENTS;
     const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
     const sufficientMoisture = tile.MOISTURE.VALUE >= 40;
 
@@ -729,14 +732,14 @@ function updateTilePlant(tile, row, col) {
         tile.SOIL_NUTRIENTS.K.VALUE = Math.max(K - 5, 0);
     }
 
-    if (tile.PLANT_DATA.VALUE.AGE >= plantData.growthTime) {
+    if (tile.PLANT_DATA.VALUE.AGE >= plantData.GROWTH_TIME) {
         tile.PLANT_DATA.VALUE.IS_MATURE = true;
     }
 }
 
 function updateTileStats() {
-    const { x, y } = gameState.highlightedTile;
-    const tile = gameState.grid[y][x];
+    const { x, y } = gameState.grid.highlightedTile;
+    const tile = gameState.grid.tiles[y][x];
 
     if (!tile) {
         console.error(`Tile at (${x}, ${y}) is undefined.`);
@@ -766,13 +769,13 @@ function updateWeekDisplay() {
 
 function updateBiodiversityDisplay() {
     const biodiversityField = gameData.FIELDS.BIODIVERSITY;
-    updateField(biodiversityField.ID, gameState.biodiversityScore);
+    updateField(biodiversityField.ID, gameState.scores.biodiversity);
 }
 
 /* PLAYER ACTIONS */
 
 function handleTileAction(action, tile, params = {}) {
-    const actions = gameData.ACTIONS;
+    const actions = gameState.actions;
     const actionConfig = actions[action.toUpperCase()];
 
     if (!actionConfig) {
