@@ -988,7 +988,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         }
 
         try {
-            updateField(fieldKey, value);
+            updateField(fieldConfig.ID, value);
         } catch (error) {
             console.error(`Error updating field '${fieldKey}' with value '${value}':`, error);
         }
