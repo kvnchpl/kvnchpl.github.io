@@ -664,9 +664,25 @@ function updateAllTiles() {
     }
 }
 
-function updateTilePlant(tile, row, col) {
-    if (!tile.PLANT_DATA.VALUE) return;
+function updateTileMoisture(tile) {
+    if (!tile.MOISTURE || !tile.MOISTURE.VALUE) {
+        console.warn("Tile moisture data is missing.");
+        return;
+    }
 
+    tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - BASE_MOISTURE_DECAY, 0);
+    if (tile.MOISTURE_DECAY_RATE) {
+        tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - tile.MOISTURE_DECAY_RATE, 0);
+    }
+
+    tile.MOISTURE.VALUE = Math.min(tile.MOISTURE.VALUE, 100);
+}
+
+function updateTilePlant(tile, row, col) {
+    if (!tile.PLANT_DATA || !tile.PLANT_DATA.VALUE) {
+        console.warn(`Plant data missing for tile at (${row}, ${col}).`);
+        return;
+    }
     const plantName = tile.PLANT_DATA.VALUE.NAME;
     const plantData = PLANT_DATA[plantName];
 
