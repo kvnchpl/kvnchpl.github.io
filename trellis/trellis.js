@@ -585,14 +585,10 @@ function updateYearAndSeason() {
     gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
 
     const yearField = gameData.FIELDS.YEAR;
-    const yearLabel = yearField.LABEL;
-    const yearText = `${yearLabel}: ${gameState.currentYear}`;
-    updateField(yearField.ID, yearText);
+    updateField(yearField.ID, gameState.currentYear);
 
     const seasonField = gameData.FIELDS.SEASON;
-    const seasonLabel = seasonField.LABEL;
-    const seasonText = `${seasonLabel}: ${gameState.currentSeason}`;
-    updateField(seasonField.ID, seasonText);
+    updateField(seasonField.ID, gameState.currentSeason);
 }
 
 function updateBiodiversity() {
