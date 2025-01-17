@@ -159,14 +159,19 @@ canvas {
     background: var(--color-ui-bg-button-hover);
 }
 
-#gameUI > div {
+.field-container {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: var(--spacing-unit);
+    align-items: center;
+    margin-bottom: 5px;
 }
 
-#gameUI > div:last-child {
-    border-bottom: none;
+.field-label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.field-value {
+    flex-grow: 1;
 }
 
 /* Adjust existing #tileStatsContent styles */

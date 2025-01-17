@@ -211,19 +211,26 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const element = document.createElement(sectionType.TAG);
-        element.id = fieldData.ID || `${containerId}-${fieldKey}`;
-        element.textContent = fieldData.LABEL || sectionType.DEFAULT || "Unnamed Field";
-        if (sectionType.CLASS) {
-            element.className = sectionType.CLASS;
-        }
+        const fieldContainer = document.createElement("div");
+        fieldContainer.className = "field-container";
 
-        container.appendChild(element);
+        const labelElement = document.createElement("span");
+        labelElement.className = "field-label";
+        labelElement.textContent = `${fieldData.LABEL}: `;
+
+        const valueElement = document.createElement(sectionType.TAG);
+        valueElement.id = fieldData.ID || `${containerId}-${fieldKey}`;
+        valueElement.className = sectionType.CLASS || "field-value";
+        valueElement.textContent = fieldData.DEFAULT_VALUE;
+
+        fieldContainer.appendChild(labelElement);
+        fieldContainer.appendChild(valueElement);
+        container.appendChild(fieldContainer);
 
         if (sectionType.EVENT_PROPERTY && fieldData[sectionType.EVENT_PROPERTY]) {
             const handler = window[fieldData[sectionType.EVENT_PROPERTY]];
             if (typeof handler === "function") {
-                element.addEventListener("click", handler);
+                valueElement.addEventListener("click", handler);
             } else {
                 console.error(`Handler function '${fieldData[sectionType.EVENT_PROPERTY]}' not found.`);
             }
@@ -950,16 +957,16 @@ function safeGet(obj, path, defaultValue = undefined) {
     }, obj) ?? defaultValue;
 }
 
-function updateField(fieldKey, value) {
+function updateField(fieldId, value) {
     try {
-        const fieldElement = document.getElementById(fieldKey);
+        const fieldElement = document.getElementById(fieldId);
         if (!fieldElement) {
-            console.error(`Field element with key '${fieldKey}' not found to update to ${value}.`);
+            console.error(`Field element with key '${fieldId}' not found to update to ${value}.`);
             return;
         }
         fieldElement.textContent = value;
     } catch (error) {
-        console.error(`Error updating field '${fieldKey}':`, error);
+        console.error(`Error updating field '${fieldId}':`, error);
     }
 }
 
