@@ -320,9 +320,10 @@ function renderUISection(containerId, data) {
             fieldContainer.appendChild(labelElement);
 
             if (typeof fieldData.DEFAULT_VALUE === "object") {
+                container.appendChild(fieldContainer); // Append the parent field container first
                 Object.entries(fieldData.DEFAULT_VALUE).forEach(([key, value]) => {
                     const nestedFieldContainer = createElement("div", {
-                        className: "field-container"
+                        className: "field-container nested-field-container"
                     });
                     const nestedLabelElement = createElement("span", {
                         className: "field-label",
@@ -335,8 +336,9 @@ function renderUISection(containerId, data) {
                     });
                     nestedFieldContainer.appendChild(nestedLabelElement);
                     nestedFieldContainer.appendChild(nestedValueElement);
-                    fieldContainer.appendChild(nestedFieldContainer);
+                    container.appendChild(nestedFieldContainer); // Append each nested field container separately
                 });
+                return; // Skip appending the parent field container again
             } else {
                 const valueElement = createElement(sectionType.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
@@ -348,15 +350,6 @@ function renderUISection(containerId, data) {
         }
 
         container.appendChild(fieldContainer);
-
-        if (sectionType.EVENT_PROPERTY && fieldData[sectionType.EVENT_PROPERTY]) {
-            const handler = window[fieldData[sectionType.EVENT_PROPERTY]];
-            if (typeof handler === "function") {
-                fieldContainer.addEventListener("click", handler);
-            } else {
-                console.error(`Handler function '${fieldData[sectionType.EVENT_PROPERTY]}' not found.`);
-            }
-        }
     });
 }
 
