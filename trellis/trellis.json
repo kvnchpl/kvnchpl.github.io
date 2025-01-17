@@ -259,28 +259,32 @@
             "CATEGORY": "INVENTORY",
             "LABEL": "Seeds",
             "ID": "inventorySeeds",
-            "DEFAULT_VALUE": 0
+            "DEFAULT_VALUE": 0,
+            "FORMAT": "{SEEDS}"
         },
         "PRODUCE": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Produce",
             "ID": "inventoryProduce",
-            "DEFAULT_VALUE": 0
+            "DEFAULT_VALUE": 0,
+            "FORMAT": "{PRODUCE}"
         },
         "FERTILIZER": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Fertilizer",
             "ID": "inventoryFertilizer",
-            "DEFAULT_VALUE": 0
+            "DEFAULT_VALUE": 0,
+            "FORMAT": "{FERTILIZER}"
         },
         "MULCH": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
-            "DEFAULT_VALUE": 0
+            "DEFAULT_VALUE": 0,
+            "FORMAT": "{MULCH}"
         },
         "NEXT_WEEK": {
             "SECTION_TYPE": "BUTTON",
