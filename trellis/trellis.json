@@ -140,22 +140,6 @@
                 "GROWTH_TIME": 3,
                 "YIELD": 3
             }
-        },
-        "INVENTORY": {
-            "SEEDS": {
-                "TOMATO": 5,
-                "KALE": 5,
-                "CORN": 3,
-                "BEANS": 2
-            },
-            "PRODUCE": {
-                "TOMATO": 0,
-                "KALE": 0,
-                "CORN": 0,
-                "BEANS": 0
-            },
-            "FERTILIZER": 2,
-            "MULCH": 5
         }
     },
     "FIELDS": {
@@ -362,5 +346,21 @@
                 "RESET_POSITION"
             ]
         }
+    },
+    "INVENTORY": {
+        "SEEDS": {
+            "TOMATO": 5,
+            "KALE": 5,
+            "CORN": 3,
+            "BEANS": 2
+        },
+        "PRODUCE": {
+            "TOMATO": 0,
+            "KALE": 0,
+            "CORN": 0,
+            "BEANS": 0
+        },
+        "FERTILIZER": 2,
+        "MULCH": 5
     }
 }
