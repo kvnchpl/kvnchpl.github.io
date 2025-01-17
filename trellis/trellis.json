@@ -199,72 +199,42 @@
             "CATEGORY": "TILE_STATS",
             "LABEL": "Type",
             "ID": "tileType",
-            "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "DEFAULT_VALUE": "Empty"
         },
         "TILE_IS_TILLED": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Is Tilled",
             "ID": "tileIsTilled",
-            "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "DEFAULT_VALUE": "False"
         },
         "TILE_PLANT": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Plant",
             "ID": "tilePlant",
-            "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "DEFAULT_VALUE": "None"
         },
         "TILE_WEED_LEVEL": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "WeedLevel",
             "ID": "tileWeedLevel",
-            "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "DEFAULT_VALUE": "0"
         },
         "TILE_MOISTURE": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Moisture",
             "ID": "tileMoisture",
-            "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "DEFAULT_VALUE": "50"
         },
         "TILE_MOISTURE_DECAY": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Moisture Decay Rate",
             "ID": "tileMoistureDecay",
-            "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
-            },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "DEFAULT_VALUE": "2"
         },
         "TILE_SOIL_NUTRIENTS": {
             "SECTION_TYPE": "FIELDS",
