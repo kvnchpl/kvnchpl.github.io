@@ -95,7 +95,7 @@ function initGame() {
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
-    showTutorial();
+    showTutorial(); //test
 }
 
 function initializeConstants(config) {
