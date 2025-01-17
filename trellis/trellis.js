@@ -294,31 +294,31 @@ function renderUISection(containerId, data) {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
 
-        if (containerId === ui.BUTTON_CONTAINER.CONTAINER || containerId === ui.ACTIONS_CONTAINER.CONTAINER) {
+        if (
+            containerId === gameData.UI.BUTTON_CONTAINER.CONTAINER ||
+            containerId === gameData.UI.ACTIONS_CONTAINER.CONTAINER
+        ) {
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: uiComponents.BUTTON.CLASS,
-                textContent: `${fieldData.LABEL} (${fieldData.TIME_COST})`
+                textContent: `${fieldData.LABEL} (${fieldData.TIME_COST || ""})`
             });
             buttonElement.dataset.onClick = fieldData.FUNCTION;
             fieldContainer.appendChild(buttonElement);
         } else {
-            const labelType = uiComponents.LABEL;
-            console.log(`Rendering field: '${fieldData.LABEL}' with type: '${labelType.TAG}'`);
-            const labelElement = createElement(labelType.TAG, {
-                className: labelType.CLASS,
+            const labelElement = createElement(uiComponents.LABEL.TAG, {
+                className: uiComponents.LABEL.CLASS,
                 textContent: `${fieldData.LABEL}: `
             });
             fieldContainer.appendChild(labelElement);
-
             if (fieldData.SUBFIELDS) {
-                container.appendChild(fieldContainer); // Append the parent field container first
+                container.appendChild(fieldContainer);
                 renderSubfields(container, fieldData.SUBFIELDS, sectionType, fieldData.DEFAULT_VALUE, 1);
-                return; // Skip appending the parent field container again
+                return;
             } else {
-                const valueElement = createElement(sectionType.TAG, {
+                const valueElement = createElement(uiComponents.FIELD_VALUE.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
-                    className: sectionType.CLASS || uiComponents.FIELD_VALUE.CLASS,
+                    className: uiComponents.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE
                 });
                 fieldContainer.appendChild(valueElement);
