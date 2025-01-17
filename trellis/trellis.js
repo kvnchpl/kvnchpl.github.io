@@ -876,21 +876,13 @@ function hideTutorial() {
 /* UTILITY FUNCTIONS */
 
 function getTargetTile() {
-    const {
-        x,
-        y
-    } = gameState.highlightedTile.x !== null ? gameState.highlightedTile : gameState.player;
+    const { x, y } = gameState.highlightedTile.x !== null ?
+        gameState.highlightedTile : gameState.player;
     if (x === null || y === null) {
-        console.error("Target tile coordinates are invalid:", {
-            x,
-            y
-        });
+        console.error("Target tile coordinates are invalid:", { x, y });
         return null;
     }
-    return {
-        x,
-        y
-    };
+    return { x, y };
 }
 
 function isTileValid(x, y) {
