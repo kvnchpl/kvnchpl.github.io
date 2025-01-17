@@ -96,6 +96,11 @@ function initializeGameData(config) {
         SEASONS: config.CALENDAR_CONFIG.SEASONS,
         WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
         REGION_NAME: config.GAME_CONFIG.REGION_NAME,
+        PEST_OUTBREAK_CHANCE: config.PEST_OUTBREAK_CHANCE,
+        TILE_TYPE: config.TILE_CONFIG.TYPES,            
+        TILE_STATS: config.TILE_CONFIG.STATS || {}, 
+        ACTIONS: config.ACTIONS,        
+        PLANT_DATA: config.PLANTS, 
     });
 }
 
