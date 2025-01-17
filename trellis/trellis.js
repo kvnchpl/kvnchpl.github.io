@@ -269,10 +269,26 @@ function renderUISection(containerId, data) {
         return;
     }
 
-    const uiClasses = gameData.UI_CLASSES;
-
     while (container.firstChild) {
         container.removeChild(container.firstChild);
+    }
+
+    if (data.HEADING) {
+        const headingType = gameData.UI_COMPONENTS.HEADING;
+        const headingElement = createElement(headingType.TAG, {
+            className: headingType.CLASS,
+            textContent: data.HEADING
+        });
+        container.appendChild(headingElement);
+    }
+
+    if (data.CONTENT) {
+        const contentType = gameData.UI_COMPONENTS.CONTENT;
+        const contentElement = createElement(contentType.TAG, {
+            className: contentType.CLASS,
+            textContent: data.CONTENT
+        });
+        container.appendChild(contentElement);
     }
 
     data.FIELDS.forEach(fieldKey => {
@@ -282,29 +298,29 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const sectionType = gameData.SECTION_TYPES[fieldData.SECTION_TYPE] || gameData.SECTION_TYPES.BUTTON;
+        const sectionType = gameData.UI_COMPONENTS[fieldData.SECTION_TYPE] || gameData.UI_COMPONENTS.BUTTON;
         if (!sectionType) {
             console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
             return;
         }
 
-        const fieldContainer = createElement(gameData.SECTION_TYPES.FIELD_CONTAINER.TAG, {
-            className: uiClasses.FIELD_CONTAINER
+        const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
+            className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS
         });
 
-        if (sectionType.TAG === gameData.SECTION_TYPES.BUTTON.TAG) {
+        if (sectionType.TAG === gameData.UI_COMPONENTS.BUTTON.TAG) {
             const label = `${fieldData.LABEL} (${fieldData.TIME_COST})`;
             const buttonElement = createElement(sectionType.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: sectionType.CLASS || uiClasses.UI_BUTTON,
+                className: sectionType.CLASS,
                 textContent: label
             });
             buttonElement.dataset.onClick = fieldData.FUNCTION;
             fieldContainer.appendChild(buttonElement);
         } else {
-            const labelType = gameData.SECTION_TYPES.LABEL;
+            const labelType = gameData.UI_COMPONENTS.LABEL;
             const labelElement = createElement(labelType.TAG, {
-                className: labelType.CLASS || uiClasses.FIELD_LABEL,
+                className: labelType.CLASS,
                 textContent: `${fieldData.LABEL}: `
             });
             fieldContainer.appendChild(labelElement);
@@ -316,7 +332,7 @@ function renderUISection(containerId, data) {
             } else {
                 const valueElement = createElement(sectionType.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
-                    className: sectionType.CLASS || uiClasses.FIELD_VALUE,
+                    className: sectionType.CLASS,
                     textContent: fieldData.DEFAULT_VALUE
                 });
                 fieldContainer.appendChild(valueElement);
@@ -328,21 +344,19 @@ function renderUISection(containerId, data) {
 }
 
 function renderSubfields(container, subfields, sectionType, defaultValues, level = 1) {
-    const uiClasses = gameData.UI_CLASSES;
-
     Object.entries(subfields).forEach(([key, subfieldData]) => {
-        const subfieldContainer = createElement(sectionType.TAG, {
-            className: `${uiClasses.FIELD_CONTAINER} ${uiClasses.SUBFIELD_CONTAINER}`,
+        const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
+            className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS,
             style: `--level: ${level};`
         });
-        const labelType = gameData.SECTION_TYPES.LABEL;
+        const labelType = gameData.UI_COMPONENTS.LABEL;
         const subfieldLabelElement = createElement(labelType.TAG, {
-            className: labelType.CLASS || uiClasses.FIELD_LABEL,
+            className: labelType.CLASS,
             textContent: `${subfieldData.LABEL}: `
         });
         const subfieldValueElement = createElement(sectionType.TAG, {
             id: subfieldData.ID,
-            className: sectionType.CLASS || uiClasses.FIELD_VALUE,
+            className: sectionType.CLASS,
             textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE
         });
         subfieldContainer.appendChild(subfieldLabelElement);
@@ -445,9 +459,9 @@ function updateSubfields(subfields, values) {
 }
 
 function appendTileStat(container, label, id) {
-    const sectionType = gameData.SECTION_TYPES.FIELD_CONTAINER;
-    const labelType = gameData.SECTION_TYPES.LABEL;
-    const valueType = gameData.SECTION_TYPES.VALUE;
+    const sectionType = gameData.UI_COMPONENTS.FIELD_CONTAINER;
+    const labelType = gameData.UI_COMPONENTS.LABEL;
+    const valueType = gameData.UI_COMPONENTS.VALUE;
     const uiClasses = gameData.UI_CLASSES;
 
     const field = createElement(sectionType.TAG, {
@@ -753,7 +767,7 @@ function updateTileStats() {
         return;
     }
 
-    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.SECTION_TYPES.TILE_STATS.CONTAINER);
+    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.UI_COMPONENTS.TILE_STATS.CONTAINER);
 }
 
 /* UI UPDATES */
