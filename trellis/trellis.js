@@ -415,6 +415,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
         }
+        
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
         if (fieldConfig.SUBFIELDS) {
             Object.entries(fieldConfig.SUBFIELDS).forEach(([key, subfieldConfig]) => {
