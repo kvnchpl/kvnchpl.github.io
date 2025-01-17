@@ -158,11 +158,16 @@ canvas {
 
 /* FIELD CONTAINERS */
 
-.field-container {
+.field-container,
+.subfield-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
+}
+
+.subfield-container {
+    padding-left: calc(var(--spacing-unit) * var(--level));
 }
 
 .field-label {
@@ -174,11 +179,6 @@ canvas {
 .field-value {
     flex-grow: 1;
     text-align: right;
-    margin-left: auto;
-}
-
-.subfield-container {
-    padding-left: calc(var(--spacing-unit) * var(--level));
 }
 
 /* TUTORIAL OVERLAY */
