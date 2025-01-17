@@ -87,7 +87,7 @@
                 "DECAY": 2
             },
             "PEST_OUTBREAK_CHANCE": 5,
-            "REGION": "Test Region",
+            "REGION_NAME": "Test Region",
             "DEFAULT_WEEK": 1,
             "DEFAULT_YEAR": 1,
             "DEFAULT_SEASON": "Winter"
@@ -98,16 +98,7 @@
                 "EMPTY": {
                     "LABEL": "Empty",
                     "COLOR": "--tile-default",
-                    "IS_TILLED": false,
-                    "MOISTURE": 50,
-                    "PLANT_DATA": null,
-                    "SOIL_NUTRIENTS": {
-                        "VALUE": {
-                            "NITROGEN": 50,
-                            "PHOSPHORUS": 50,
-                            "POTASSIUM": 50
-                        }
-                    }
+                    "IS_TILLED": false
                 },
                 "PLOT": {
                     "LABEL": "Plot",
@@ -118,7 +109,8 @@
                     "LABEL": "Path",
                     "COLOR": "--tile-path"
                 }
-            }
+            },
+            "DEFAULT_PEST_OUTBREAK_CHANCE": 5
         },
         "ACTIONS": {
             "TILL": {
