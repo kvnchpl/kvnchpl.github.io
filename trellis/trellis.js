@@ -584,8 +584,15 @@ function updateYearAndSeason() {
     gameState.currentYear = Math.floor(gameState.currentWeek / WEEKS_PER_YEAR) + 1;
     gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
 
-    updateField("YEAR", "Year: " + gameState.currentYear);
-    updateField("SEASON", gameState.currentSeason);
+    const yearField = gameData.FIELDS.YEAR;
+    const yearLabel = yearField.LABEL;
+    const yearText = `${yearLabel}: ${gameState.currentYear}`;
+    updateField(yearField.ID, yearText);
+
+    const seasonField = gameData.FIELDS.SEASON;
+    const seasonLabel = seasonField.LABEL;
+    const seasonText = `${seasonLabel}: ${gameState.currentSeason}`;
+    updateField(seasonField.ID, seasonText);
 }
 
 function updateBiodiversity() {
@@ -711,15 +718,24 @@ function updateTimeDisplay() {
     const ampm = totalMinutes < 720 ? "AM" : "PM";
     const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes} ${ampm}`;
 
-    updateField("timeDisplay", formattedTime);
+    const timeField = gameData.FIELDS.TIME;
+    const timeLabel = timeField.LABEL;
+    const timeText = `${timeLabel}: ${formattedTime}`;
+    updateField(timeField.ID, timeText);
 }
 
 function updateWeekDisplay() {
-    document.getElementById("weekDisplay").textContent = "Week: " + gameState.currentWeek;
+    const weekField = gameData.FIELDS.WEEK;
+    const weekLabel = weekField.LABEL;
+    const weekText = `${weekLabel}: ${gameState.currentWeek}`;
+    updateField(weekField.ID, weekText);
 }
 
 function updateBiodiversityDisplay() {
-    document.getElementById("biodiversityScore").textContent = "Biodiversity: " + gameState.biodiversityScore;
+    const biodiversityField = gameData.FIELDS.BIODIVERSITY;
+    const biodiversityLabel = biodiversityField.LABEL;
+    const biodiversityText = `${biodiversityLabel}: ${gameState.biodiversityScore}`;
+    updateField(biodiversityField.ID, biodiversityText);
 }
 
 /* PLAYER ACTIONS */
