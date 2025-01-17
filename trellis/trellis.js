@@ -2,42 +2,38 @@
 
 let gameData = null;
 
-let TILE_SIZE, GRID_WIDTH, GRID_HEIGHT;
-let DAY_START, DAY_END;
-let PEST_OUTBREAK_CHANCE;
-let BASE_MOISTURE_START, BASE_MOISTURE_DECAY;
-let REGION_NAME;
-
-let TILE_TYPE = {};
-let TILE_STAT = {};
-
-let ACTIONS = {};
-
-let PLANT_DATA = {};
-let GROWTH_TIME = {};
-let PRODUCE_YIELD = {};
-
-let WEEKS_PER_SEASON, WEEKS_PER_YEAR, SEASONS;
-
-/* GAME STATE */
-
 const gameState = {
-    currentWeek: 0,
-    currentYear: 0,
-    currentSeason: "",
-    currentTime: 0,
-    biodiversityScore: 0,
-    grid: [],
-    tileTemplate: null,
+    time: {
+        currentTime: 0,
+        dayStart: 420,
+        dayEnd: 1140,
+    },
+    calendar: {
+        currentWeek: 1,
+        currentYear: 1,
+        currentSeason: "Winter",
+        weeksPerSeason: 13,
+        weeksPerYear: 52,
+        seasons: ["Winter", "Spring", "Summer", "Fall"],
+    },
+    grid: {
+        width: 15,
+        height: 15,
+        tileSize: 40,
+        tiles: [], // 2D array of tiles
+        highlightedTile: { x: null, y: null },
+    },
     player: {
-        x: null,
-        y: null,
+        position: { x: null, y: null },
+        inventory: {
+            seeds: { tomato: 5, kale: 5, corn: 3, beans: 2 },
+            fertilizer: 2,
+            mulch: 5,
+        },
     },
-    highlightedTile: {
-        x: null,
-        y: null,
+    scores: {
+        biodiversity: 0,
     },
-    inventory: {}
 };
 
 /* INITIALIZATION */
@@ -50,18 +46,18 @@ window.onload = function () {
     }
 
     fetch(gameDataURL)
-        .then(response => {
+        .then((response) => {
             if (!response.ok) {
                 throw new Error(`Failed to load game data from ${gameDataURL}: ${response.status}`);
             }
             return response.json();
         })
-        .then(data => {
+        .then((data) => {
             gameData = data;
             console.log("Game data loaded successfully:\n", gameData);
             initGame();
         })
-        .catch(error => {
+        .catch((error) => {
             console.error("Error fetching game data:", error);
         });
 };
@@ -72,11 +68,7 @@ function initGame() {
         return;
     }
 
-    const {
-        CONFIG: config,
-        UI: uiData,
-        INVENTORY: inventoryData
-    } = gameData;
+    const { CONFIG: config, UI: uiData, INVENTORY: inventoryData } = gameData;
 
     if (!config) {
         console.error("Config data is missing.");
@@ -101,64 +93,62 @@ function initGame() {
 }
 
 function initializeConstants(config) {
-    Object.assign(gameData, config);
+    Object.assign(gameState.time, {
+        dayStart: config.GAME_CONFIG.TIME.START,
+        dayEnd: config.GAME_CONFIG.TIME.END,
+    });
+
+    Object.assign(gameState.calendar, {
+        weeksPerSeason: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
+        seasons: config.CALENDAR_CONFIG.SEASONS,
+        weeksPerYear: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
+    });
+
+    Object.assign(gameState.grid, {
+        width: config.GAME_CONFIG.GRID.WIDTH,
+        height: config.GAME_CONFIG.GRID.HEIGHT,
+        tileSize: config.GAME_CONFIG.GRID.TILE_SIZE,
+    });
 
     Object.assign(gameState, {
-        TILE_SIZE: config.GAME_CONFIG.GRID.TILE_SIZE,
-        GRID_WIDTH: config.GAME_CONFIG.GRID.WIDTH,
-        GRID_HEIGHT: config.GAME_CONFIG.GRID.HEIGHT,
-        DAY_START: config.GAME_CONFIG.TIME.START,
-        DAY_END: config.GAME_CONFIG.TIME.END,
-        BASE_MOISTURE_START: config.GAME_CONFIG.MOISTURE.START,
-        BASE_MOISTURE_DECAY: config.GAME_CONFIG.MOISTURE.DECAY,
-        PEST_OUTBREAK_CHANCE: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
-        REGION_NAME: config.GAME_CONFIG.REGION,
-        TILE_TYPE: config.TILE_CONFIG.TYPES,
-        TILE_STAT: config.TILE_CONFIG.STATS || {},
-        ACTIONS: config.ACTIONS,
-        PLANT_DATA: config.PLANTS,
-        WEEKS_PER_SEASON: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
-        SEASONS: config.CALENDAR_CONFIG.SEASONS,
-        WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length
+        regionName: config.GAME_CONFIG.REGION,
+        pestOutbreakChance: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
     });
-    console.dir(SEASONS);
 }
 
 function initializeGameState(config) {
-    const { GAME_CONFIG: gameConfig } = config;
-
-    Object.assign(gameState, {
-        currentWeek: gameConfig.DEFAULT_WEEK,
-        currentYear: gameConfig.DEFAULT_YEAR,
-        currentSeason: gameConfig.DEFAULT_SEASON,
-        currentTime: DAY_START,
-        player: {
-            x: Math.floor(GRID_WIDTH / 2),
-            y: Math.floor(GRID_HEIGHT / 2)
-        },
-        highlightedTile: {
-            x: Math.floor(GRID_WIDTH / 2),
-            y: Math.floor(GRID_HEIGHT / 2)
-        }
+    Object.assign(gameState.time, {
+        currentTime: config.GAME_CONFIG.TIME.START,
     });
+
+    Object.assign(gameState.calendar, {
+        currentWeek: config.GAME_CONFIG.DEFAULT_WEEK,
+        currentYear: config.GAME_CONFIG.DEFAULT_YEAR,
+        currentSeason: config.GAME_CONFIG.DEFAULT_SEASON,
+    });
+
+    gameState.grid.tiles = Array.from({ length: gameState.grid.height }, () =>
+        Array.from({ length: gameState.grid.width }, () => {
+            const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
+            return structuredClone(config.TILE_CONFIG.TYPES[defaultType]);
+        })
+    );
+
+    gameState.player.position = {
+        x: Math.floor(gameState.grid.width / 2),
+        y: Math.floor(gameState.grid.height / 2),
+    };
+
+    gameState.grid.highlightedTile = { ...gameState.player.position };
 }
 
 function initializeGrid(config) {
-    const { TILE_CONFIG: tileConfig } = config;
-
-    const defaultType = tileConfig.DEFAULT_TYPE;
-    const defaultTile = structuredClone(tileConfig.TYPES[defaultType]);
-
-    gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
-        Array.from({ length: GRID_WIDTH }, () => {
-            const tile = {
-                TYPE: { VALUE: defaultType }
-            };
-            Object.assign(tile, structuredClone(defaultTile));
-            return tile;
+    gameState.grid.tiles = Array.from({ length: gameState.grid.height }, () =>
+        Array.from({ length: gameState.grid.width }, () => {
+            const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
+            return structuredClone(config.TILE_CONFIG.TYPES[defaultType]);
         })
     );
-    render();
 }
 
 function initializeUI(uiData) {
@@ -177,7 +167,7 @@ function initializeUI(uiData) {
 }
 
 function initializeInventory(inventoryData) {
-    gameState.inventory = inventoryData;
+    Object.assign(gameState.player.inventory, inventoryData);
 }
 
 /* RENDERING */
@@ -597,9 +587,9 @@ function detachCanvasEventListeners() {
 /* TIME & WEEK LOGIC */
 
 function advanceTime(minutes) {
-    gameState.currentTime += minutes;
+    gameState.time.currentTime += minutes;
 
-    if (gameState.currentTime >= DAY_END) {
+    if (gameState.time.currentTime >= DAY_END) {
         skipToNextWeek();
     } else {
         updateTimeDisplay();
@@ -608,8 +598,8 @@ function advanceTime(minutes) {
 }
 
 function skipToNextWeek() {
-    gameState.currentWeek++;
-    gameState.currentTime = DAY_START;
+    gameState.calendar.currentWeek++;
+    gameState.time.currentTime = DAY_START;
 
     updateYearAndSeason();
 
@@ -625,14 +615,14 @@ function skipToNextWeek() {
 }
 
 function updateYearAndSeason() {
-    gameState.currentYear = Math.floor(gameState.currentWeek / WEEKS_PER_YEAR) + 1;
-    gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
+    gameState.calendar.currentYear = Math.floor(gameState.calendar.currentWeek / WEEKS_PER_YEAR) + 1;
+    gameState.calendar.currentSeason = SEASONS[Math.floor((gameState.calendar.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
 
     const yearField = gameData.FIELDS.YEAR;
-    updateField(yearField.ID, gameState.currentYear);
+    updateField(yearField.ID, gameState.calendar.currentYear);
 
     const seasonField = gameData.FIELDS.SEASON;
-    updateField(seasonField.ID, gameState.currentSeason);
+    updateField(seasonField.ID, gameState.calendar.currentSeason);
 }
 
 function updateBiodiversity() {
@@ -759,7 +749,7 @@ function updateTileStats() {
 /* UI UPDATES */
 
 function updateTimeDisplay() {
-    const totalMinutes = gameState.currentTime;
+    const totalMinutes = gameState.time.currentTime;
     const hours = Math.floor(totalMinutes / 60) % 12 || 12;
     const minutes = totalMinutes % 60;
     const ampm = totalMinutes < 720 ? "AM" : "PM";
@@ -771,7 +761,7 @@ function updateTimeDisplay() {
 
 function updateWeekDisplay() {
     const weekField = gameData.FIELDS.WEEK;
-    updateField(weekField.ID, gameState.currentWeek);
+    updateField(weekField.ID, gameState.calendar.currentWeek);
 }
 
 function updateBiodiversityDisplay() {
@@ -804,7 +794,7 @@ function handleTileAction(action, tile, params = {}) {
     actionFunction(tile, { ...params, ...functionParams });
 
     // Deduct time cost from the game state
-    gameState.currentTime += timeCost;
+    gameState.time.currentTime += timeCost;
 
     updateTileStats();
     render();
