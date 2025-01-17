@@ -304,7 +304,6 @@
     "UI": {
         "TUTORIAL": {
             "CONTAINER": "tutorialOverlay",
-            "DISPLAY_HEADING": true,
             "HEADING": "Welcome to Trellis!",
             "CONTENT": [
                 "Use arrow keys to move your character.",
