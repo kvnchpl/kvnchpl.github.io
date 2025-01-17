@@ -321,6 +321,9 @@ function renderUISection(containerId, data) {
 
             if (typeof fieldData.DEFAULT_VALUE === "object") {
                 Object.entries(fieldData.DEFAULT_VALUE).forEach(([key, value]) => {
+                    const nestedFieldContainer = createElement("div", {
+                        className: "field-container"
+                    });
                     const nestedLabelElement = createElement("span", {
                         className: "field-label",
                         textContent: `${key}: `
@@ -330,8 +333,9 @@ function renderUISection(containerId, data) {
                         className: sectionType.CLASS || "field-value",
                         textContent: value
                     });
-                    fieldContainer.appendChild(nestedLabelElement);
-                    fieldContainer.appendChild(nestedValueElement);
+                    nestedFieldContainer.appendChild(nestedLabelElement);
+                    nestedFieldContainer.appendChild(nestedValueElement);
+                    fieldContainer.appendChild(nestedFieldContainer);
                 });
             } else {
                 const valueElement = createElement(sectionType.TAG, {
