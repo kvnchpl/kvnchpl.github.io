@@ -97,23 +97,15 @@ function initializeGameData(config) {
         WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
         REGION_NAME: config.GAME_CONFIG.REGION_NAME,
         PEST_OUTBREAK_CHANCE: config.PEST_OUTBREAK_CHANCE,
-        TILE_TYPE: config.TILE_CONFIG.TYPES,            
-        TILE_STATS: config.TILE_CONFIG.STATS || {}, 
-        ACTIONS: config.ACTIONS,        
-        PLANT_DATA: config.PLANTS, 
+        TILE_TYPE: config.TILE_CONFIG.TYPES,
+        TILE_STATS: config.TILE_CONFIG.STATS || {},
+        ACTIONS: config.ACTIONS,
+        PLANT_DATA: config.PLANTS,
     });
 }
 
 // Assign dynamic fields to gameState
 function initializeGameState(config) {
-    Object.assign(gameState, {
-        pestOutbreakChance: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
-        tileType: config.TILE_CONFIG.TYPES,
-        tileStat: config.TILE_CONFIG.STATS || {},
-        actions: config.ACTIONS,
-        plantData: config.PLANTS,
-    });
-
     Object.assign(gameState.time, {
         currentTime: config.GAME_CONFIG.TIME.START,
     });
@@ -187,7 +179,7 @@ function drawGrid(context) {
         for (let col = 0; col < gameData.GRID_WIDTH; col++) {
             const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
-            const tileType = tile.TYPE.VALUE;
+            const tileType = gameData.TILE_TYPE[tile.TYPE.VALUE];
 
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
@@ -697,7 +689,7 @@ function updateTilePlant(tile, row, col) {
         return;
     }
     const plantName = tile.PLANT_DATA.VALUE.NAME;
-    const plantData = gameState.plantData[plantName];
+    const plantData = gameData.PLANT_DATA[plantName];
 
     const { N, P, K } = tile.SOIL_NUTRIENTS;
     const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
@@ -759,7 +751,7 @@ function updateBiodiversityDisplay() {
 
 function handleTileAction(action, tile, params = {}) {
     const actions = gameState.actions;
-    const actionConfig = actions[action.toUpperCase()];
+    const actionConfig = gameData.ACTIONS[action.toUpperCase()];
 
     if (!actionConfig) {
         console.warn(`Unhandled tile action: '${action}'`);
