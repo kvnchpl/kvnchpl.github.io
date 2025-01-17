@@ -46,7 +46,7 @@ window.onload = function () {
         console.error("Game data URL is not defined in the HTML <meta> tag.");
         return;
     }
-    
+
     fetch(gameDataURL)
         .then(response => {
             if (!response.ok) {
@@ -711,7 +711,7 @@ function updateTimeDisplay() {
     const ampm = totalMinutes < 720 ? "AM" : "PM";
     const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes} ${ampm}`;
 
-    updateField("TIME", formattedTime);
+    updateField("timeDisplay", formattedTime);
 }
 
 function updateWeekDisplay() {
