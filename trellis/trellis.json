@@ -121,15 +121,42 @@
                 }
             }
         },
-        "TIME_COSTS": {
-            "TILL": 30,
-            "FERTILIZE": 20,
-            "PLANT": 20,
-            "WATER": 10,
-            "MULCH": 15,
-            "WEED": 15,
-            "HARVEST": 20,
-            "CLEAR": 15
+        "ACTIONS": {
+            "TILL": {
+                "FUNCTION": "tillSoil",
+                "TIME_COST": 30
+            },
+            "FERTILIZE": {
+                "FUNCTION": "fertilizeTile",
+                "TIME_COST": 20
+            },
+            "PLANT": {
+                "FUNCTION": "plantSeed",
+                "TIME_COST": 20,
+                "PARAMS": {
+                    "seedType": "tomato"
+                }
+            },
+            "WATER": {
+                "FUNCTION": "waterTile",
+                "TIME_COST": 10
+            },
+            "MULCH": {
+                "FUNCTION": "mulchTile",
+                "TIME_COST": 15
+            },
+            "WEED": {
+                "FUNCTION": "weedTile",
+                "TIME_COST": 15
+            },
+            "HARVEST": {
+                "FUNCTION": "harvestPlant",
+                "TIME_COST": 20
+            },
+            "CLEAR": {
+                "FUNCTION": "clearPlot",
+                "TIME_COST": 15
+            }
         },
         "PLANTS": {
             "TOMATO": {
