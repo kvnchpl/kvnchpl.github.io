@@ -332,7 +332,7 @@ function renderUISection(containerId, data) {
                     const subfieldValueElement = createElement(sectionType.TAG, {
                         id: subfieldData.ID,
                         className: sectionType.CLASS || "field-value",
-                        textContent: subfieldData.DEFAULT_VALUE
+                        textContent: fieldData.DEFAULT_VALUE[key] || subfieldData.DEFAULT_VALUE
                     });
                     subfieldContainer.appendChild(subfieldLabelElement);
                     subfieldContainer.appendChild(subfieldValueElement);
