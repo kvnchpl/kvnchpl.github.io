@@ -121,6 +121,7 @@ function initializeConstants(config) {
         SEASONS: config.CALENDAR_CONFIG.SEASONS,
         WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length
     });
+    console.dir(SEASONS);
 }
 
 function initializeGameState(config) {
