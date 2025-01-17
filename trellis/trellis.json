@@ -232,11 +232,27 @@
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "DEFAULT_VALUE": {
-                "Nitrogen": 50,
-                "Phosphorus": 50,
-                "Potassium": 50
+                "N": 50,
+                "P": 50,
+                "K": 50
             },
-            "FORMAT": "N: {N}, P: {P}, K: {K}"
+            "SUBFIELDS": {
+                "Nitrogren": {
+                    "LABEL": "Nitrogen",
+                    "ID": "tileSoilNutrients-Nitrogen",
+                    "DEFAULT_VALUE": 50
+                },
+                "Phosphorus": {
+                    "LABEL": "Phosphorus",
+                    "ID": "tileSoilNutrients-Phosphorus",
+                    "DEFAULT_VALUE": 50
+                },
+                "Potassium": {
+                    "LABEL": "Potassium",
+                    "ID": "tileSoilNutrients-Potassium",
+                    "DEFAULT_VALUE": 50
+                }
+            }
         },
         "SEEDS": {
             "SECTION_TYPE": "FIELDS",
