@@ -88,38 +88,41 @@ function initializeConstants(config) {
         return;
     }
 
-    Object.entries(config).forEach(([key, value]) => {
-        switch (key) {
-            case 'GAME_CONFIG':
-                TILE_SIZE = value.GRID.TILE_SIZE;
-                GRID_WIDTH = value.GRID.WIDTH;
-                GRID_HEIGHT = value.GRID.HEIGHT;
-                DAY_START = value.TIME.START;
-                DAY_END = value.TIME.END;
-                BASE_MOISTURE_START = value.MOISTURE.START;
-                BASE_MOISTURE_DECAY = value.MOISTURE.DECAY;
-                PEST_OUTBREAK_CHANCE = value.PEST_OUTBREAK_CHANCE;
-                REGION_NAME = value.REGION;
-                break;
-            case 'CALENDAR_CONFIG':
-                WEEKS_PER_SEASON = value.WEEKS_PER_SEASON;
-                SEASONS = value.SEASONS;
-                WEEKS_PER_YEAR = WEEKS_PER_SEASON * SEASONS.length;
-                break;
-            case 'TILE_CONFIG':
-                Object.assign(TILE_TYPE, value.TYPES);
-                break;
-            case 'TIME_COSTS':
-                Object.assign(TIME_COST, value);
-                break;
-            case 'PLANTS':
-                Object.assign(PLANT_DATA, value);
-                break;
-            default:
-                console.warn(`Unhandled configuration category: '${key}'`);
-                break;
-        }
-    });
+    initializeGameConfig(config.GAME_CONFIG);
+    initializeCalendarConfig(config.CALENDAR_CONFIG);
+    initializeTileConfig(config.TILE_CONFIG);
+    initializeTimeCosts(config.TIME_COSTS);
+    initializePlants(config.PLANTS);
+}
+
+function initializeGameConfig(gameConfig) {
+    TILE_SIZE = gameConfig.GRID.TILE_SIZE;
+    GRID_WIDTH = gameConfig.GRID.WIDTH;
+    GRID_HEIGHT = gameConfig.GRID.HEIGHT;
+    DAY_START = gameConfig.TIME.START;
+    DAY_END = gameConfig.TIME.END;
+    BASE_MOISTURE_START = gameConfig.MOISTURE.START;
+    BASE_MOISTURE_DECAY = gameConfig.MOISTURE.DECAY;
+    PEST_OUTBREAK_CHANCE = gameConfig.PEST_OUTBREAK_CHANCE;
+    REGION_NAME = gameConfig.REGION;
+}
+
+function initializeCalendarConfig(calendarConfig) {
+    WEEKS_PER_SEASON = calendarConfig.WEEKS_PER_SEASON;
+    SEASONS = calendarConfig.SEASONS;
+    WEEKS_PER_YEAR = WEEKS_PER_SEASON * SEASONS.length;
+}
+
+function initializeTileConfig(tileConfig) {
+    Object.assign(TILE_TYPE, tileConfig.TYPES);
+}
+
+function initializeTimeCosts(timeCosts) {
+    Object.assign(TIME_COST, timeCosts);
+}
+
+function initializePlants(plants) {
+    Object.assign(PLANT_DATA, plants);
 }
 
 function initializeGameState(config) {
@@ -513,13 +516,26 @@ function attachCanvasEventListeners() {
         return;
     }
 
-    canvas.addEventListener("click", (e) => {
+    const handleClick = (e) => {
         const rect = canvas.getBoundingClientRect();
         const x = Math.floor((e.clientX - rect.left) / TILE_SIZE);
         const y = Math.floor((e.clientY - rect.top) / TILE_SIZE);
 
         highlightTile(x, y);
-    });
+    };
+
+    canvas.addEventListener("click", handleClick);
+
+    // Store the handler to remove it later if needed
+    canvas._handleClick = handleClick;
+}
+
+function detachCanvasEventListeners() {
+    const canvas = document.getElementById("gameCanvas");
+    if (canvas && canvas._handleClick) {
+        canvas.removeEventListener("click", canvas._handleClick);
+        delete canvas._handleClick;
+    }
 }
 
 /* TIME & WEEK LOGIC */
