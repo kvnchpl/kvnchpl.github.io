@@ -168,6 +168,10 @@ canvas {
     text-align: right;
 }
 
+.nested-field-container {
+    padding-left: calc(var(--spacing-unit) * 2);
+}
+
 /* TUTORIAL OVERLAY */
 
 #tutorialOverlay {
