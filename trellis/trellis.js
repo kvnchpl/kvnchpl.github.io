@@ -245,12 +245,18 @@ function updateUISection(containerId, data) {
 
     if (!data.FIELDS) return;
 
-    console.log(`A) Updating UI section: '${containerId}' with data: ${data}.`);
+    console.log(`A) Updating UI section: '${containerId}' with data:`, data);
 
     data.FIELDS.forEach(fieldKey => {
-        const value = gameState[fieldKey] ?? gameData.FIELDS[fieldKey]?.DEFAULT_VALUE;
+        const fieldData = gameData.FIELDS[fieldKey];
+        if (!fieldData) {
+            console.warn(`Field data for key '${fieldKey}' not found.`);
+            return;
+        }
+
+        const value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
         console.log(`B) Updating field '${fieldKey}' with value: ${value}.`);
-        updateField(fieldKey, value);
+        updateField(fieldData.ID, value);
     });
 }
 
