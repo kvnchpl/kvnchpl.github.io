@@ -102,7 +102,7 @@ function initializeConstants(config) {
     initializeGameConfig(config.GAME_CONFIG);
     initializeCalendarConfig(config.CALENDAR_CONFIG);
     initializeTileConfig(config.TILE_CONFIG);
-    initializeTimeCosts(config.TIME_COSTS);
+    initializeActions(config.ACTIONS);
     initializePlants(config.PLANTS);
 }
 
@@ -128,8 +128,8 @@ function initializeTileConfig(tileConfig) {
     Object.assign(TILE_TYPE, tileConfig.TYPES);
 }
 
-function initializeTimeCosts(timeCosts) {
-    Object.assign(TIME_COST, timeCosts);
+function initializeActions(actions) {
+    Object.assign(gameData.ACTIONS, actions);
 }
 
 function initializePlants(plants) {
