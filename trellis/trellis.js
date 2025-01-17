@@ -304,17 +304,28 @@ function renderUISection(containerId, data) {
         const fieldContainer = createElement("div", {
             className: "field-container"
         });
-        const labelElement = createElement("span", {
-            className: "field-label",
-            textContent: `${fieldData.LABEL}: `
-        });
-        const valueElement = createElement(sectionType.TAG, {
-            id: fieldData.ID || `${containerId}-${fieldKey}`,
-            className: sectionType.CLASS || "field-value",
-            textContent: fieldData.DEFAULT_VALUE
-        });
 
-        fieldContainer.appendChild(labelElement);
+        let valueElement;
+        if (sectionType.TAG === "button") {
+            valueElement = createElement(sectionType.TAG, {
+                id: fieldData.ID || `${containerId}-${fieldKey}`,
+                className: sectionType.CLASS || "field-value",
+                textContent: fieldData.LABEL
+            });
+        } else {
+            const labelElement = createElement("span", {
+                className: "field-label",
+                textContent: `${fieldData.LABEL}: `
+            });
+            valueElement = createElement(sectionType.TAG, {
+                id: fieldData.ID || `${containerId}-${fieldKey}`,
+                className: sectionType.CLASS || "field-value",
+                textContent: fieldData.DEFAULT_VALUE
+            });
+
+            fieldContainer.appendChild(labelElement);
+        }
+
         fieldContainer.appendChild(valueElement);
         container.appendChild(fieldContainer);
 
