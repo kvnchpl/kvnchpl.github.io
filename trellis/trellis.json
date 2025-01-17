@@ -363,6 +363,26 @@
                 "CLOSE_TUTORIAL"
             ]
         },
+        "BUTTON_CONTAINER": {
+            "CONTAINER": "buttonContainer",
+            "FIELDS": [
+                "NEXT_WEEK",
+                "RESET_POSITION"
+            ]
+        },
+        "ACTION_CONTAINER": {
+            "CONTAINER": "actionsContainer",
+            "FIELDS": [
+                "TILL",
+                "FERTILIZE",
+                "PLANT",
+                "WATER",
+                "MULCH",
+                "WEED",
+                "HARVEST",
+                "CLEAR"
+            ]
+        },
         "GLOBAL_STATS": {
             "CONTAINER": "globalStats",
             "FIELDS": [
@@ -392,13 +412,6 @@
                 "PRODUCE",
                 "FERTILIZER",
                 "MULCH"
-            ]
-        },
-        "BUTTONS": {
-            "CONTAINER": "buttonContainer",
-            "FIELDS": [
-                "NEXT_WEEK",
-                "RESET_POSITION"
             ]
         }
     },

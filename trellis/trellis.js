@@ -292,13 +292,13 @@ function renderUISection(containerId, data) {
     }
 
     data.FIELDS.forEach(fieldKey => {
-        const fieldData = gameData.FIELDS[fieldKey];
+        const fieldData = gameData.FIELDS[fieldKey] || gameData.ACTIONS[fieldKey];
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
         }
 
-        const sectionType = gameData.SECTION_TYPES[fieldData.SECTION_TYPE];
+        const sectionType = gameData.SECTION_TYPES[fieldData.SECTION_TYPE] || gameData.SECTION_TYPES.BUTTON;
         if (!sectionType) {
             console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
             return;
@@ -309,11 +309,13 @@ function renderUISection(containerId, data) {
         });
 
         if (sectionType.TAG === gameData.SECTION_TYPES.BUTTON.TAG) {
+            const label = `${fieldData.LABEL} (${fieldData.TIME_COST})`;
             const buttonElement = createElement(sectionType.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: sectionType.CLASS || uiClasses.FIELD_VALUE,
-                textContent: fieldData.LABEL
+                textContent: label
             });
+            buttonElement.dataset.onClick = fieldData.FUNCTION;
             fieldContainer.appendChild(buttonElement);
         } else {
             const labelType = gameData.SECTION_TYPES.LABEL;
@@ -391,7 +393,7 @@ function updateUISection(containerId, data) {
 
         let value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
         console.log(`B) Updating field '${fieldData.ID}' with value:`, value);
-        
+
         if (fieldData.FORMAT && typeof value === "object") {
             Object.entries(value).forEach(([key, val]) => {
                 const formattedValue = fieldData.FORMAT.replace(/\{(\w+)\}/g, (_, k) => val[k] ?? '');
@@ -431,7 +433,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
         }
-        
+
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
         if (fieldConfig.SUBFIELDS) {
             updateSubfields(fieldConfig.SUBFIELDS, value);
