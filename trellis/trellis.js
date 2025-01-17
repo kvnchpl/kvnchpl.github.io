@@ -288,6 +288,7 @@ function renderUISection(containerId, data) {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
+
     data.FIELDS.forEach(fieldKey => {
         const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
@@ -321,23 +322,7 @@ function renderUISection(containerId, data) {
 
             if (fieldData.SUBFIELDS) {
                 container.appendChild(fieldContainer); // Append the parent field container first
-                Object.entries(fieldData.SUBFIELDS).forEach(([key, subfieldData]) => {
-                    const subfieldContainer = createElement("div", {
-                        className: "field-container subfield-container"
-                    });
-                    const subfieldLabelElement = createElement("span", {
-                        className: "field-label",
-                        textContent: `${subfieldData.LABEL}: `
-                    });
-                    const subfieldValueElement = createElement(sectionType.TAG, {
-                        id: subfieldData.ID,
-                        className: sectionType.CLASS || "field-value",
-                        textContent: fieldData.DEFAULT_VALUE[key] || subfieldData.DEFAULT_VALUE
-                    });
-                    subfieldContainer.appendChild(subfieldLabelElement);
-                    subfieldContainer.appendChild(subfieldValueElement);
-                    container.appendChild(subfieldContainer); // Append each subfield container separately
-                });
+                renderSubfields(container, fieldData.SUBFIELDS, sectionType, fieldData.DEFAULT_VALUE);
                 return; // Skip appending the parent field container again
             } else {
                 const valueElement = createElement(sectionType.TAG, {
@@ -350,6 +335,30 @@ function renderUISection(containerId, data) {
         }
 
         container.appendChild(fieldContainer);
+    });
+}
+
+function renderSubfields(container, subfields, sectionType, defaultValues) {
+    Object.entries(subfields).forEach(([key, subfieldData]) => {
+        const subfieldContainer = createElement("div", {
+            className: "field-container subfield-container"
+        });
+        const subfieldLabelElement = createElement("span", {
+            className: "field-label",
+            textContent: `${subfieldData.LABEL}: `
+        });
+        const subfieldValueElement = createElement(sectionType.TAG, {
+            id: subfieldData.ID,
+            className: sectionType.CLASS || "field-value",
+            textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE
+        });
+        subfieldContainer.appendChild(subfieldLabelElement);
+        subfieldContainer.appendChild(subfieldValueElement);
+        container.appendChild(subfieldContainer);
+
+        if (subfieldData.SUBFIELDS) {
+            renderSubfields(container, subfieldData.SUBFIELDS, sectionType, subfieldData.DEFAULT_VALUE);
+        }
     });
 }
 
@@ -418,12 +427,20 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
         if (fieldConfig.SUBFIELDS) {
-            Object.entries(fieldConfig.SUBFIELDS).forEach(([key, subfieldConfig]) => {
-                const subfieldValue = safeGet(value, key, subfieldConfig.DEFAULT_VALUE);
-                updateField(subfieldConfig.ID, subfieldValue);
-            });
+            updateSubfields(fieldConfig.SUBFIELDS, value);
         } else {
             updateField(fieldConfig.ID, value);
+        }
+    });
+}
+
+function updateSubfields(subfields, values) {
+    Object.entries(subfields).forEach(([key, subfieldConfig]) => {
+        const subfieldValue = safeGet(values, key, subfieldConfig.DEFAULT_VALUE);
+        updateField(subfieldConfig.ID, subfieldValue);
+
+        if (subfieldConfig.SUBFIELDS) {
+            updateSubfields(subfieldConfig.SUBFIELDS, subfieldValue);
         }
     });
 }
