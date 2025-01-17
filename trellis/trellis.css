@@ -1,30 +1,17 @@
 :root {
     --body-bg: #f0f0f0;
-    --font-family: Arial, sans-serif;
-
     --color-text-primary: #fff;
     --color-text-secondary: #000;
     --color-ui-bg: #333;
     --color-ui-bg-button: #555;
     --color-ui-bg-button-hover: #777;
-
     --color-container-bg: #ccc;
     --color-canvas-bg: #eee;
     --color-canvas-border: #999;
-
     --color-overlay-bg: rgba(0, 0, 0, 0.7);
     --color-overlay-text: #fff;
     --color-overlay-button-bg: #aaa;
     --color-overlay-button-text: #000;
-
-    --game-width: 600px;
-    --game-height: 600px;
-    --sidebar-width: 300px;
-
-    --spacing-unit: 0.5rem;
-    --border-radius: 5px;
-    --border-color: #ccc;
-    --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 
     --tile-default: #77dd77;
     --tile-empty: #e0e0e0;
@@ -38,8 +25,21 @@
     --tile-plant-young: #7EC850;
     --tile-plant-mature: #98FB98;
 
+    --game-width: 600px;
+    --game-height: 600px;
+    --sidebar-width: 300px;
+
+    --spacing-unit: 0.5rem;
+    --border-radius: 5px;
+    --border-color: #ccc;
+    --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+
+    --font-family: Arial, sans-serif;
+
     --transition-default: background 0.3s ease;
 }
+
+/* GLOBAL STYLES */
 
 .hidden {
     display: none !important;
@@ -51,15 +51,17 @@ body {
     background: var(--body-bg);
 }
 
+/* LAYOUT AND CONTAINERS */
+
 #mainContent {
     display: flex;
-    justify-content: center; /* Center the entire content horizontally */
-    align-items: flex-start; /* Align the game container and sidebar at the top */
-    margin: 0 auto; /* Center the entire layout within the viewport */
-    gap: calc(var(--spacing-unit) * 4); /* Space between game container and sidebar */
-    max-width: calc(var(--game-width) + var(--sidebar-width) + var(--spacing-unit) * 4); /* Constrain total width */
-    padding: calc(var(--spacing-unit) * 4) 0; /* Add some vertical padding */
-    box-sizing: border-box; /* Ensure padding is included in width calculations */
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 auto;
+    gap: calc(var(--spacing-unit) * 4);
+    max-width: calc(var(--game-width) + var(--sidebar-width) + var(--spacing-unit) * 4);
+    padding: calc(var(--spacing-unit) * 4) 0;
+    box-sizing: border-box;
 }
 
 #gameContainer {
@@ -67,7 +69,7 @@ body {
     width: var(--game-width);
     height: var(--game-height);
     background: var(--color-container-bg);
-    box-shadow: var(--box-shadow); /* Add shadow for visual distinction */
+    box-shadow: var(--box-shadow);
 }
 
 canvas {
@@ -76,19 +78,6 @@ canvas {
     height: var(--game-height);
     background: var(--color-canvas-bg);
     border: 2px solid var(--color-canvas-border);
-}
-
-#gameSidebar {
-    display: flex;
-    flex-direction: column;
-    width: var(--sidebar-width); /* Defined in global variables */
-    background: #f9f9f9;
-    padding: calc(var(--spacing-unit) * 2);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    overflow: hidden; /* Prevent content overflow */
-    box-sizing: border-box; /* Ensure padding doesn’t cause overflow */
 }
 
 #gameSidebar {
@@ -115,19 +104,34 @@ canvas {
     font-size: 1.2rem;
 }
 
+.sidebar-section {
+    padding: calc(var(--spacing-unit) * 2);
+    background: var(--color-container-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+}
+
+#gameSidebar strong {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    font-size: 1.2rem;
+}
+
+/* BUTTONS AND ACTIONS */
+
 #buttonContainer {
     display: flex;
-    justify-content: space-between; /* Space out the buttons */
+    justify-content: space-between;
     align-items: center;
     margin-bottom: calc(var(--spacing-unit) * 2);
     padding: calc(var(--spacing-unit) * 2);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    gap: calc(var(--spacing-unit) * 2); /* Add spacing between buttons */
+    gap: calc(var(--spacing-unit) * 2);
 }
 
-#buttonContainer button {
+#buttonContainer button,
+#actionsContainer button {
     background: var(--color-ui-bg-button);
     color: var(--color-text-primary);
     padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
@@ -136,28 +140,15 @@ canvas {
     cursor: pointer;
     font-size: 1rem;
     box-shadow: var(--box-shadow);
-    transition: background 0.3s ease;
-    flex: 1; /* Equal width for both buttons */
-    max-width: 150px; /* Optional: Limit button width */
+    transition: var(--transition-default);
 }
 
-#buttonContainer button:hover {
-    background: var(--color-ui-bg-button-hover);
-}
-
-#actionsContainer button {
-    padding: var(--spacing-unit);
-    margin: var(--spacing-unit);
-    background: var(--color-ui-bg-button);
-    color: var(--color-text-primary);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-}
-
+#buttonContainer button:hover,
 #actionsContainer button:hover {
     background: var(--color-ui-bg-button-hover);
 }
+
+/* FIELD CONTAINERS */
 
 .field-container {
     display: flex;
@@ -174,60 +165,48 @@ canvas {
     flex-grow: 1;
 }
 
+/* TILE STATS */
+
 /* Adjust existing #tileStatsContent styles */
 #tileStats {
-    /* background: #fff; */
     display: flex;
     flex-direction: column;
 }
 
-/* Ensure all children are styled consistently */
 #tileStats div {
     display: flex;
-    justify-content: space-between; /* Align labels and values */
+    justify-content: space-between;
     align-items: center;
-    width: 100%; /* Ensure rows fill the available width */
-    margin-bottom: var(--spacing-unit); /* Add spacing for clarity */
+    width: 100%;
+    margin-bottom: var(--spacing-unit);
 }
 
-#actionHelp {
-    position: relative; /* Enable precise placement of the heading */
-    text-align: left; /* Align text consistently */
-    font-size: 0.9rem;
-}
-
-#actionHelp em {
-    position: absolute;
-    top: calc(var(--spacing-unit) * 2); /* Align near the top of the section */
-    left: calc(var(--spacing-unit) * 2); /* Align to the left */
-    font-size: 1rem;
-    font-weight: bold;
-}
+/* TUTORIAL OVERLAY */
 
 #tutorialOverlay {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Match the game container width */
-    height: 100%; /* Match the game container height */
+    width: 100%;
+    height: 100%;
     background: var(--color-overlay-bg);
     color: var(--color-overlay-text);
     display: flex;
-    flex-direction: column; /* Stack content vertically */
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: calc(var(--spacing-unit) * 4);
     z-index: 5;
-    box-sizing: border-box; /* Include padding in size calculations */
-    gap: calc(var(--spacing-unit) * 2); /* Space between paragraph and button */
+    box-sizing: border-box;
+    gap: calc(var(--spacing-unit) * 2);
 }
 
 #tutorialOverlay p {
     font-size: 1rem;
     line-height: 1.5;
-    max-width: 80%; /* Constrain paragraph width for readability */
-    margin: 0; /* Remove default margin */
+    max-width: 80%;
+    margin: 0;
 }
 
 .tutorial-button {
