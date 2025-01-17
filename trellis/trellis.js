@@ -269,26 +269,11 @@ function renderUISection(containerId, data) {
         return;
     }
 
+    const uiComponents = gameData.UI_COMPONENTS;
+    const ui = gameData.UI;
+
     while (container.firstChild) {
         container.removeChild(container.firstChild);
-    }
-
-    if (data.HEADING) {
-        const headingType = gameData.UI_COMPONENTS.HEADING;
-        const headingElement = createElement(headingType.TAG, {
-            className: headingType.CLASS,
-            textContent: data.HEADING
-        });
-        container.appendChild(headingElement);
-    }
-
-    if (data.CONTENT) {
-        const contentType = gameData.UI_COMPONENTS.CONTENT;
-        const contentElement = createElement(contentType.TAG, {
-            className: contentType.CLASS,
-            textContent: data.CONTENT
-        });
-        container.appendChild(contentElement);
     }
 
     data.FIELDS.forEach(fieldKey => {
@@ -298,27 +283,26 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const sectionType = gameData.UI_COMPONENTS[fieldData.SECTION_TYPE] || gameData.UI_COMPONENTS.BUTTON;
+        const sectionType = uiComponents[fieldData.SECTION_TYPE] || uiComponents.BUTTON;
         if (!sectionType) {
             console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
             return;
         }
 
-        const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
-            className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS
+        const fieldContainer = createElement(uiComponents.BUTTON_CONTAINER.TAG, {
+            className: uiComponents.FIELD_CONTAINER.CLASS
         });
 
-        if (sectionType.TAG === gameData.UI_COMPONENTS.BUTTON.TAG) {
-            const label = `${fieldData.LABEL} (${fieldData.TIME_COST})`;
-            const buttonElement = createElement(sectionType.TAG, {
+        if (containerId === ui.BUTTON_CONTAINER.CONTAINER || containerId === ui.ACTIONS_CONTAINER.CONTAINER) {
+            const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: sectionType.CLASS,
-                textContent: label
+                className: uiComponents.BUTTON.CLASS,
+                textContent: `${fieldData.LABEL} (${fieldData.TIME_COST})`
             });
             buttonElement.dataset.onClick = fieldData.FUNCTION;
             fieldContainer.appendChild(buttonElement);
         } else {
-            const labelType = gameData.UI_COMPONENTS.LABEL;
+            const labelType = uiComponents.LABEL;
             const labelElement = createElement(labelType.TAG, {
                 className: labelType.CLASS,
                 textContent: `${fieldData.LABEL}: `
@@ -332,7 +316,7 @@ function renderUISection(containerId, data) {
             } else {
                 const valueElement = createElement(sectionType.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
-                    className: sectionType.CLASS,
+                    className: sectionType.CLASS || uiComponents.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE
                 });
                 fieldContainer.appendChild(valueElement);
