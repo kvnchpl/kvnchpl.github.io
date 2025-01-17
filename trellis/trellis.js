@@ -303,6 +303,7 @@ function renderUISection(containerId, data) {
             fieldContainer.appendChild(buttonElement);
         } else {
             const labelType = uiComponents.LABEL;
+            console.log(`Rendering field: '${fieldData.LABEL}' with type: '${labelType.TAG}'`);
             const labelElement = createElement(labelType.TAG, {
                 className: labelType.CLASS,
                 textContent: `${fieldData.LABEL}: `
