@@ -194,9 +194,81 @@
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
         },
-        "SOIL_NUTRIENTS": {
+        "TILE_TYPE": {
             "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GAME_UI",
+            "CATEGORY": "TILE_STATS",
+            "LABEL": "Type",
+            "ID": "tileType",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "TILE_IS_TILLED": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "TILE_STATS",
+            "LABEL": "Is Tilled",
+            "ID": "tileIsTilled",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "TILE_PLANT": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "TILE_STATS",
+            "LABEL": "Plant",
+            "ID": "tilePlant",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "TILE_WEED_LEVEL": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "TILE_STATS",
+            "LABEL": "WeedLevel",
+            "ID": "tileWeedLevel",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "TILE_MOISTURE": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "TILE_STATS",
+            "LABEL": "Moisture",
+            "ID": "tileMoisture",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "TILE_MOISTURE_DECAY": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "TILE_STATS",
+            "LABEL": "Moisture Decay Rate",
+            "ID": "tileMoistureDecay",
+            "DEFAULT_VALUE": {
+                "N": 50,
+                "P": 50,
+                "K": 50
+            },
+            "FORMAT": "N: {N}, P: {P}, K: {K}"
+        },
+        "TILE_SOIL_NUTRIENTS": {
+            "SECTION_TYPE": "FIELDS",
+            "CATEGORY": "TILE_STATS",
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "DEFAULT_VALUE": {
@@ -278,39 +350,39 @@
         "GAME_UI": {
             "CONTAINER": "gameUI",
             "FIELDS": [
-                "TIME",
-                "WEEK",
-                "YEAR",
-                "SEASON",
-                "BIODIVERSITY"
+                "timeDisplay",
+                "weekDisplay",
+                "yearDisplay",
+                "seasonDisplay",
+                "biodiversityScore"
             ]
         },
         "TILE_STATS": {
             "CONTAINER": "tileStats",
             "FIELDS": [
-                "TYPE",
-                "IS_TILLED",
-                "PLANT",
-                "WEED_LEVEL",
-                "MOISTURE",
-                "MOISTURE_DECAY_RATE",
-                "SOIL_NUTRIENTS"
+                "tileType",
+                "tileIsTilled",
+                "tilePlant",
+                "tileWeedLevel",
+                "tileMoisture",
+                "tileMoistureDecay",
+                "tileSoilNutrients"
             ]
         },
         "INVENTORY_DISPLAY": {
             "CONTAINER": "inventory",
             "FIELDS": [
-                "SEEDS",
-                "PRODUCE",
-                "FERTILIZER",
-                "MULCH"
+                "inventorySeeds",
+                "inventoryProduce",
+                "inventoryFertilizer",
+                "inventoryMulch"
             ]
         },
         "BUTTONS": {
             "CONTAINER": "buttonContainer",
             "FIELDS": [
-                "NEXT_WEEK",
-                "RESET_POSITION"
+                "nextWeekBtn",
+                "resetPositionBtn"
             ]
         }
     }
