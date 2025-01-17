@@ -415,9 +415,11 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         }
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
         if (fieldConfig.FORMAT && typeof value === "object") {
+            const formattedValue = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, k) => value[k] ?? '');
+            updateField(fieldConfig.ID, formattedValue);
+        } else if (typeof value === "object") {
             Object.entries(value).forEach(([key, val]) => {
-                const formattedValue = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, k) => val[k] ?? '');
-                updateField(`${fieldConfig.ID}-${key}`, formattedValue);
+                updateField(`${fieldConfig.ID}-${key}`, val);
             });
         } else {
             updateField(fieldConfig.ID, value);
