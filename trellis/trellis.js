@@ -163,6 +163,8 @@ function initializeUI(uiData) {
         });
 
         attachUIEventListeners();
+        attachCanvasEventListeners();
+        
         updateTimeDisplay();
         updateYearAndSeason();
         updateWeekDisplay();
@@ -175,6 +177,69 @@ function initializeUI(uiData) {
 
 function initializeInventory(inventoryData) {
     gameState.inventory = inventoryData;
+}
+
+/* RENDERING */
+
+function render() {
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawGrid(ctx);
+}
+
+function drawGrid(context) {
+    const tileStyles = {
+        default: getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim(),
+        moistureHigh: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim(),
+        moistureLow: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-low").trim(),
+        tilled: getComputedStyle(document.documentElement).getPropertyValue("--tile-tilled").trim(),
+        plantMature: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim(),
+        plantYoung: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim(),
+        highlight: getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim(),
+        player: getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim(),
+        border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
+    };
+
+    for (let row = 0; row < GRID_HEIGHT; row++) {
+        for (let col = 0; col < GRID_WIDTH; col++) {
+            const tile = gameState.grid[row][col];
+            let tileColor = tileStyles.default;
+
+            const tileType = gameData.CONFIG.TILE_CONFIG.TYPES[tile.TYPE.VALUE];
+            if (tileType && tileType.COLOR) {
+                tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
+            }
+
+            if (tile.MOISTURE.VALUE > 70) {
+                tileColor = tileStyles.moistureHigh;
+            } else if (tile.MOISTURE.VALUE < 30) {
+                tileColor = tileStyles.moistureLow;
+            }
+
+            if (tile.IS_TILLED) {
+                tileColor = tileStyles.tilled;
+            }
+
+            if (tile.PLANT_DATA.VALUE) {
+                tileColor = tile.PLANT_DATA.VALUE.IS_MATURE ? tileStyles.plantMature : tileStyles.plantYoung;
+            }
+
+            context.fillStyle = tileColor;
+            context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+
+            context.strokeStyle = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? tileStyles.highlight : tileStyles.border;
+            context.lineWidth = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? 3 : 1;
+            context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
+
+            if (row === gameState.player.y && col === gameState.player.x) {
+                context.strokeStyle = tileStyles.player;
+                context.lineWidth = 3;
+                context.strokeRect(col * TILE_SIZE + 1, row * TILE_SIZE + 1, TILE_SIZE - 2, TILE_SIZE - 2);
+            }
+        }
+    }
 }
 
 function renderUISection(containerId, data) {
@@ -268,6 +333,52 @@ function updateUISection(containerId, data) {
     });
 }
 
+function updateField(fieldId, value) {
+    try {
+        const fieldElement = document.getElementById(fieldId);
+        if (!fieldElement) {
+            console.error(`Field element with key '${fieldId}' not found to update to ${value}.`);
+            return;
+        }
+        fieldElement.textContent = value;
+    } catch (error) {
+        console.error(`Error updating field '${fieldId}':`, error);
+    }
+}
+
+function updateStatsFromFields(fields, sourceData, containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.error(`Container element with id '${containerId}' not found.`);
+        return;
+    }
+
+    fields.forEach(fieldKey => {
+        const fieldConfig = safeGet(gameData.FIELDS, fieldKey, null);
+        if (!fieldConfig) {
+            console.error(`Field configuration for '${fieldKey}' not found.`);
+            return;
+        }
+
+        let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
+
+        if (fieldConfig.FORMAT && typeof value === "object") {
+            try {
+                value = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, key) => value[key] ?? '');
+            } catch (error) {
+                console.error(`Error formatting value for '${fieldKey}':`, error);
+                return;
+            }
+        }
+
+        try {
+            updateField(fieldConfig.ID, value);
+        } catch (error) {
+            console.error(`Error updating field '${fieldKey}' with value '${value}':`, error);
+        }
+    });
+}
+
 function appendTileStat(container, label, id) {
     const field = document.createElement("div");
 
@@ -311,125 +422,6 @@ function preventArrowKeyScroll(e) {
         e.preventDefault();
     }
 }
-
-/* RENDERING */
-
-function render() {
-    const canvas = document.getElementById("gameCanvas");
-    const ctx = canvas.getContext("2d");
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawGrid(ctx);
-}
-
-function drawGrid(context) {
-    const tileStyles = {
-        default: getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim(),
-        moistureHigh: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim(),
-        moistureLow: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-low").trim(),
-        tilled: getComputedStyle(document.documentElement).getPropertyValue("--tile-tilled").trim(),
-        plantMature: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim(),
-        plantYoung: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim(),
-        highlight: getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim(),
-        player: getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim(),
-        border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
-    };
-
-    for (let row = 0; row < GRID_HEIGHT; row++) {
-        for (let col = 0; col < GRID_WIDTH; col++) {
-            const tile = gameState.grid[row][col];
-            let tileColor = tileStyles.default;
-
-            const tileType = gameData.CONFIG.TILE_CONFIG.TYPES[tile.TYPE.VALUE];
-            if (tileType && tileType.COLOR) {
-                tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
-            }
-
-            if (tile.MOISTURE.VALUE > 70) {
-                tileColor = tileStyles.moistureHigh;
-            } else if (tile.MOISTURE.VALUE < 30) {
-                tileColor = tileStyles.moistureLow;
-            }
-
-            if (tile.IS_TILLED) {
-                tileColor = tileStyles.tilled;
-            }
-
-            if (tile.PLANT_DATA.VALUE) {
-                tileColor = tile.PLANT_DATA.VALUE.IS_MATURE ? tileStyles.plantMature : tileStyles.plantYoung;
-            }
-
-            context.fillStyle = tileColor;
-            context.fillRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-
-            context.strokeStyle = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? tileStyles.highlight : tileStyles.border;
-            context.lineWidth = (row === gameState.highlightedTile.y && col === gameState.highlightedTile.x) ? 3 : 1;
-            context.strokeRect(col * TILE_SIZE, row * TILE_SIZE, TILE_SIZE, TILE_SIZE);
-
-            if (row === gameState.player.y && col === gameState.player.x) {
-                context.strokeStyle = tileStyles.player;
-                context.lineWidth = 3;
-                context.strokeRect(col * TILE_SIZE + 1, row * TILE_SIZE + 1, TILE_SIZE - 2, TILE_SIZE - 2);
-            }
-        }
-    }
-}
-
-/* TIME & WEEK LOGIC */
-
-function advanceTime(minutes) {
-    gameState.currentTime += minutes;
-
-    if (gameState.currentTime >= DAY_END) {
-        skipToNextWeek();
-    } else {
-        updateTimeDisplay();
-        render();
-    }
-}
-
-function skipToNextWeek() {
-    gameState.currentWeek++;
-    gameState.currentTime = DAY_START;
-
-    updateYearAndSeason();
-
-    updateAllTiles();
-    updateBiodiversity();
-
-    updateTimeDisplay();
-    updateWeekDisplay();
-    updateBiodiversityDisplay();
-    updateTileStats();
-
-    render();
-}
-
-function updateYearAndSeason() {
-    gameState.currentYear = Math.floor(gameState.currentWeek / WEEKS_PER_YEAR) + 1;
-    gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
-
-    updateField("YEAR", "Year: " + gameState.currentYear);
-    updateField("SEASON", gameState.currentSeason);
-}
-
-function updateBiodiversity() {
-    const typesFound = new Set();
-
-    for (let row = 0; row < GRID_HEIGHT; row++) {
-        for (let col = 0; col < GRID_WIDTH; col++) {
-            const tile = gameState.grid[row][col];
-            if (tile.PLANT_DATA.VALUE) {
-                typesFound.add(tile.PLANT_DATA.VALUE.NAME);
-            }
-        }
-    }
-
-    gameState.biodiversityScore = typesFound.size;
-    return gameState.biodiversityScore;
-}
-
-/* PLAYER MOVEMENT & CONTROLS */
 
 function handleKeyDown(e) {
     let newX = gameState.player.x;
@@ -514,6 +506,78 @@ function handleKeyDown(e) {
     }
 }
 
+function attachCanvasEventListeners() {
+    const canvas = document.getElementById("gameCanvas");
+    if (!canvas) {
+        console.error("Canvas element not found.");
+        return;
+    }
+
+    canvas.addEventListener("click", (e) => {
+        const rect = canvas.getBoundingClientRect();
+        const x = Math.floor((e.clientX - rect.left) / TILE_SIZE);
+        const y = Math.floor((e.clientY - rect.top) / TILE_SIZE);
+
+        highlightTile(x, y);
+    });
+}
+
+/* TIME & WEEK LOGIC */
+
+function advanceTime(minutes) {
+    gameState.currentTime += minutes;
+
+    if (gameState.currentTime >= DAY_END) {
+        skipToNextWeek();
+    } else {
+        updateTimeDisplay();
+        render();
+    }
+}
+
+function skipToNextWeek() {
+    gameState.currentWeek++;
+    gameState.currentTime = DAY_START;
+
+    updateYearAndSeason();
+
+    updateAllTiles();
+    updateBiodiversity();
+
+    updateTimeDisplay();
+    updateWeekDisplay();
+    updateBiodiversityDisplay();
+    updateTileStats();
+
+    render();
+}
+
+function updateYearAndSeason() {
+    gameState.currentYear = Math.floor(gameState.currentWeek / WEEKS_PER_YEAR) + 1;
+    gameState.currentSeason = SEASONS[Math.floor((gameState.currentWeek % WEEKS_PER_YEAR) / WEEKS_PER_SEASON)];
+
+    updateField("YEAR", "Year: " + gameState.currentYear);
+    updateField("SEASON", gameState.currentSeason);
+}
+
+function updateBiodiversity() {
+    const typesFound = new Set();
+
+    for (let row = 0; row < GRID_HEIGHT; row++) {
+        for (let col = 0; col < GRID_WIDTH; col++) {
+            const tile = gameState.grid[row][col];
+            if (tile.PLANT_DATA.VALUE) {
+                typesFound.add(tile.PLANT_DATA.VALUE.NAME);
+            }
+        }
+    }
+
+    gameState.biodiversityScore = typesFound.size;
+    return gameState.biodiversityScore;
+}
+
+/* PLAYER MOVEMENT & CONTROLS */
+
 function resetPlayerPosition() {
     try {
         if (!gameState.grid || gameState.grid.length === 0) {
@@ -538,16 +602,6 @@ function resetPlayerPosition() {
     }
 
 }
-
-document.getElementById("gameCanvas").addEventListener("click", (e) => {
-    const canvas = e.target;
-    const rect = canvas.getBoundingClientRect();
-
-    const x = Math.floor((e.clientX - rect.left) / TILE_SIZE);
-    const y = Math.floor((e.clientY - rect.top) / TILE_SIZE);
-
-    highlightTile(x, y);
-});
 
 function highlightTile(x, y) {
     if (isTileValid(x, y) && isTileAdjacent(x, y)) {
@@ -955,52 +1009,6 @@ function safeGet(obj, path, defaultValue = undefined) {
         }
         return undefined;
     }, obj) ?? defaultValue;
-}
-
-function updateField(fieldId, value) {
-    try {
-        const fieldElement = document.getElementById(fieldId);
-        if (!fieldElement) {
-            console.error(`Field element with key '${fieldId}' not found to update to ${value}.`);
-            return;
-        }
-        fieldElement.textContent = value;
-    } catch (error) {
-        console.error(`Error updating field '${fieldId}':`, error);
-    }
-}
-
-function updateStatsFromFields(fields, sourceData, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) {
-        console.error(`Container element with id '${containerId}' not found.`);
-        return;
-    }
-
-    fields.forEach(fieldKey => {
-        const fieldConfig = safeGet(gameData.FIELDS, fieldKey, null);
-        if (!fieldConfig) {
-            console.error(`Field configuration for '${fieldKey}' not found.`);
-            return;
-        }
-
-        let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
-
-        if (fieldConfig.FORMAT && typeof value === "object") {
-            try {
-                value = fieldConfig.FORMAT.replace(/\{(\w+)\}/g, (_, key) => value[key] ?? '');
-            } catch (error) {
-                console.error(`Error formatting value for '${fieldKey}':`, error);
-                return;
-            }
-        }
-
-        try {
-            updateField(fieldConfig.ID, value);
-        } catch (error) {
-            console.error(`Error updating field '${fieldKey}' with value '${value}':`, error);
-        }
-    });
 }
 
 function createAndAppendElement(container, tagName, options = {}) {
