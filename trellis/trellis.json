@@ -237,17 +237,17 @@
                 "Potassium": 50
             },
             "SUBFIELDS": {
-                "Nitrogren": {
+                "NITROGEN": {
                     "LABEL": "Nitrogen",
                     "ID": "tileSoilNutrients-Nitrogen",
                     "DEFAULT_VALUE": 50
                 },
-                "Phosphorus": {
+                "PHOSPHORUS": {
                     "LABEL": "Phosphorus",
                     "ID": "tileSoilNutrients-Phosphorus",
                     "DEFAULT_VALUE": 50
                 },
-                "Potassium": {
+                "POTASSIUM": {
                     "LABEL": "Potassium",
                     "ID": "tileSoilNutrients-Potassium",
                     "DEFAULT_VALUE": 50
