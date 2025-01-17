@@ -10,10 +10,12 @@ let REGION_NAME;
 
 let TILE_TYPE = {};
 let TILE_STAT = {};
-let TIME_COST = {};
+
+let ACTIONS = {};
+
+let PLANT_DATA = {};
 let GROWTH_TIME = {};
 let PRODUCE_YIELD = {};
-let PLANT_DATA = {};
 
 let WEEKS_PER_SEASON, WEEKS_PER_YEAR, SEASONS;
 
@@ -99,41 +101,26 @@ function initGame() {
 }
 
 function initializeConstants(config) {
-    initializeGameConfig(config.GAME_CONFIG);
-    initializeCalendarConfig(config.CALENDAR_CONFIG);
-    initializeTileConfig(config.TILE_CONFIG);
-    initializeActions(config.ACTIONS);
-    initializePlants(config.PLANTS);
-}
+    Object.assign(gameData, config);
 
-function initializeGameConfig(gameConfig) {
-    TILE_SIZE = gameConfig.GRID.TILE_SIZE;
-    GRID_WIDTH = gameConfig.GRID.WIDTH;
-    GRID_HEIGHT = gameConfig.GRID.HEIGHT;
-    DAY_START = gameConfig.TIME.START;
-    DAY_END = gameConfig.TIME.END;
-    BASE_MOISTURE_START = gameConfig.MOISTURE.START;
-    BASE_MOISTURE_DECAY = gameConfig.MOISTURE.DECAY;
-    PEST_OUTBREAK_CHANCE = gameConfig.PEST_OUTBREAK_CHANCE;
-    REGION_NAME = gameConfig.REGION;
-}
-
-function initializeCalendarConfig(calendarConfig) {
-    WEEKS_PER_SEASON = calendarConfig.WEEKS_PER_SEASON;
-    SEASONS = calendarConfig.SEASONS;
-    WEEKS_PER_YEAR = WEEKS_PER_SEASON * SEASONS.length;
-}
-
-function initializeTileConfig(tileConfig) {
-    Object.assign(TILE_TYPE, tileConfig.TYPES);
-}
-
-function initializeActions(actions) {
-    Object.assign(gameData.ACTIONS, actions);
-}
-
-function initializePlants(plants) {
-    Object.assign(PLANT_DATA, plants);
+    Object.assign(gameState, {
+        TILE_SIZE: config.GAME_CONFIG.GRID.TILE_SIZE,
+        GRID_WIDTH: config.GAME_CONFIG.GRID.WIDTH,
+        GRID_HEIGHT: config.GAME_CONFIG.GRID.HEIGHT,
+        DAY_START: config.GAME_CONFIG.TIME.START,
+        DAY_END: config.GAME_CONFIG.TIME.END,
+        BASE_MOISTURE_START: config.GAME_CONFIG.MOISTURE.START,
+        BASE_MOISTURE_DECAY: config.GAME_CONFIG.MOISTURE.DECAY,
+        PEST_OUTBREAK_CHANCE: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
+        REGION_NAME: config.GAME_CONFIG.REGION,
+        TILE_TYPE: config.TILE_CONFIG.TYPES,
+        TILE_STAT: config.TILE_CONFIG.STATS || {},
+        ACTIONS: config.ACTIONS,
+        PLANT_DATA: config.PLANTS,
+        WEEKS_PER_SEASON: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
+        SEASONS: config.CALENDAR_CONFIG.SEASONS,
+        WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length
+    });
 }
 
 function initializeGameState(config) {
@@ -830,7 +817,7 @@ function tillSoil(tile) {
     if (tile.TYPE.VALUE === TILE_TYPE.EMPTY) {
         tile.TYPE.VALUE = TILE_TYPE.PLOT;
         tile.IS_TILLED = true;
-        advanceTime(TIME_COST.TILL);
+        advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
         console.log("Cannot till this tile.");
     }
@@ -842,7 +829,7 @@ function fertilizeTile(tile) {
         tile.SOIL_NUTRIENTS.P += 5;
         tile.SOIL_NUTRIENTS.K += 5;
         updateInventory('fertilizer', -1);
-        advanceTime(TIME_COST.FERTILIZE);
+        advanceTime(gameData.CONFIG.ACTIONS.FERTILIZE.TIME_COST);
     } else {
         console.log("Cannot fertilize this tile.");
     }
@@ -856,7 +843,7 @@ function plantSeed(tile, seedType = "tomato") {
             IS_MATURE: false
         };
         updateInventory(`seeds.${seedType}`, -1);
-        advanceTime(TIME_COST.PLANT);
+        advanceTime(gameData.CONFIG.ACTIONS.PLANT.TIME_COST);
     } else {
         console.log("Cannot plant on this tile.");
     }
@@ -864,14 +851,14 @@ function plantSeed(tile, seedType = "tomato") {
 
 function waterTile(tile) {
     tile.MOISTURE.VALUE = Math.min(tile.MOISTURE.VALUE + 20, 100);
-    advanceTime(TIME_COST.WATER);
+    advanceTime(gameData.CONFIG.ACTIONS.WATER.TIME_COST);
 }
 
 function mulchTile(tile) {
     if (tile.IS_TILLED && gameState.inventory.mulch > 0) {
         tile.MOISTURE_DECAY_RATE = Math.max(tile.MOISTURE_DECAY_RATE - 1, 0);
         updateInventory('mulch', -1);
-        advanceTime(TIME_COST.MULCH);
+        advanceTime(gameData.CONFIG.ACTIONS.MULCH.TIME_COST);
     } else {
         console.log("Cannot apply mulch to this tile.");
     }
@@ -880,7 +867,7 @@ function mulchTile(tile) {
 function weedTile(tile) {
     if (tile.WEED_LEVEL.VALUE > 0) {
         tile.WEED_LEVEL.VALUE = 0;
-        advanceTime(TIME_COST.WEED);
+        advanceTime(gameData.CONFIG.ACTIONS.WEED.TIME_COST);
     } else {
         console.log("No weeds to remove.");
     }
@@ -893,7 +880,7 @@ function harvestPlant(tile) {
         updateInventory(`produce.${plantType}`, yieldAmount);
         tile.PLANT_DATA.VALUE = null;
         tile.IS_TILLED = false;
-        advanceTime(TIME_COST.HARVEST);
+        advanceTime(gameData.CONFIG.ACTIONS.HARVEST.TIME_COST);
     } else {
         console.log("No mature plant to harvest.");
     }
@@ -904,7 +891,7 @@ function clearPlot(tile) {
         tile.TYPE.VALUE = TILE_TYPE.EMPTY;
         tile.IS_TILLED = false;
         tile.PLANT_DATA.VALUE = null;
-        advanceTime(TIME_COST.CLEAR);
+        advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
     } else {
         console.log("This tile is not a plot.");
     }
