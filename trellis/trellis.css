@@ -152,6 +152,7 @@ canvas {
 
 .field-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
 }
@@ -159,15 +160,16 @@ canvas {
 .field-label {
     font-weight: bold;
     margin-right: 5px;
+    text-align: left;
 }
 
 .field-value {
     flex-grow: 1;
+    text-align: right;
 }
 
 /* TILE STATS */
 
-/* Adjust existing #tileStatsContent styles */
 #tileStats {
     display: flex;
     flex-direction: column;
