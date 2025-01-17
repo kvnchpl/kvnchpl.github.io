@@ -167,7 +167,7 @@ canvas {
 }
 
 .subfield-container {
-    padding-left: calc(var(--spacing-unit) * var(--level));
+    padding-left: calc(var(--spacing-unit) * var(--level, 1));
 }
 
 .field-label {
