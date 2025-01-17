@@ -319,24 +319,24 @@ function renderUISection(containerId, data) {
             });
             fieldContainer.appendChild(labelElement);
 
-            if (typeof fieldData.DEFAULT_VALUE === "object") {
+            if (fieldData.SUBFIELDS) {
                 container.appendChild(fieldContainer); // Append the parent field container first
-                Object.entries(fieldData.DEFAULT_VALUE).forEach(([key, value]) => {
-                    const nestedFieldContainer = createElement("div", {
-                        className: "field-container nested-field-container"
+                Object.entries(fieldData.SUBFIELDS).forEach(([key, subfieldData]) => {
+                    const subfieldContainer = createElement("div", {
+                        className: "field-container subfield-container"
                     });
-                    const nestedLabelElement = createElement("span", {
+                    const subfieldLabelElement = createElement("span", {
                         className: "field-label",
-                        textContent: `${key}: `
+                        textContent: `${subfieldData.LABEL}: `
                     });
-                    const nestedValueElement = createElement(sectionType.TAG, {
-                        id: `${fieldData.ID}-${key}`,
+                    const subfieldValueElement = createElement(sectionType.TAG, {
+                        id: subfieldData.ID,
                         className: sectionType.CLASS || "field-value",
-                        textContent: value
+                        textContent: subfieldData.DEFAULT_VALUE
                     });
-                    nestedFieldContainer.appendChild(nestedLabelElement);
-                    nestedFieldContainer.appendChild(nestedValueElement);
-                    container.appendChild(nestedFieldContainer); // Append each nested field container separately
+                    subfieldContainer.appendChild(subfieldLabelElement);
+                    subfieldContainer.appendChild(subfieldValueElement);
+                    container.appendChild(subfieldContainer); // Append each subfield container separately
                 });
                 return; // Skip appending the parent field container again
             } else {
@@ -416,9 +416,10 @@ function updateStatsFromFields(fields, sourceData, containerId) {
             return;
         }
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
-        if (typeof value === "object") {
-            Object.entries(value).forEach(([key, val]) => {
-                updateField(`${fieldConfig.ID}-${key}`, val);
+        if (fieldConfig.SUBFIELDS) {
+            Object.entries(fieldConfig.SUBFIELDS).forEach(([key, subfieldConfig]) => {
+                const subfieldValue = safeGet(value, key, subfieldConfig.DEFAULT_VALUE);
+                updateField(subfieldConfig.ID, subfieldValue);
             });
         } else {
             updateField(fieldConfig.ID, value);

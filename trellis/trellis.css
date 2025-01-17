@@ -168,7 +168,7 @@ canvas {
     text-align: right;
 }
 
-.nested-field-container {
+.subfield-container {
     padding-left: calc(var(--spacing-unit) * 2);
 }
 
