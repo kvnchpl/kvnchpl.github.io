@@ -364,7 +364,10 @@ function updateUISection(containerId, data) {
             return;
         }
 
-        const value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
+        let value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
+        if (fieldData.FORMAT && typeof value === "object") {
+            value = fieldData.FORMAT.replace(/\{(\w+)\}/g, (_, key) => value[key] ?? '');
+        }
         console.log(`B) Updating field '${fieldKey}' with value:`);
         console.dir(value);
         updateField(fieldData.ID, value);
