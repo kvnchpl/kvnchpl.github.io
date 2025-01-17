@@ -5,21 +5,13 @@ let gameData = null;
 const gameState = {
     time: {
         currentTime: 0,
-        dayStart: 420,
-        dayEnd: 1140,
     },
     calendar: {
         currentWeek: 1,
         currentYear: 1,
         currentSeason: "Winter",
-        weeksPerSeason: 13,
-        weeksPerYear: 52,
-        seasons: ["Winter", "Spring", "Summer", "Fall"],
     },
     grid: {
-        width: 15,
-        height: 15,
-        tileSize: 40,
         tiles: [], // 2D array of tiles
         highlightedTile: { x: null, y: null },
     },
@@ -83,7 +75,7 @@ function initGame() {
         return;
     }
 
-    initializeConstants(config);
+    initializeGameData(config);
     initializeGameState(config);
     initializeGrid(config);
     initializeUI(uiData);
@@ -92,38 +84,30 @@ function initGame() {
     showTutorial();
 }
 
-function initializeConstants(config) {
-    Object.assign(gameState.time, {
+// Static fields in gameData
+function initializeGameData(config) {
+    Object.assign(gameData, {
         dayStart: config.GAME_CONFIG.TIME.START,
         dayEnd: config.GAME_CONFIG.TIME.END,
-    });
-
-    Object.assign(gameState.calendar, {
+        tileSize: config.GAME_CONFIG.GRID.TILE_SIZE,
+        gridWidth: config.GAME_CONFIG.GRID.WIDTH,
         weeksPerSeason: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
         seasons: config.CALENDAR_CONFIG.SEASONS,
         weeksPerYear: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
-    });
-
-    Object.assign(gameState.grid, {
-        width: config.GAME_CONFIG.GRID.WIDTH,
-        height: config.GAME_CONFIG.GRID.HEIGHT,
-        tileSize: config.GAME_CONFIG.GRID.TILE_SIZE,
-    });
-
-    Object.assign(gameState, {
         regionName: config.GAME_CONFIG.REGION,
+    });
+}
+
+// Dynamic fields in gameState
+function initializeGameState(config) {
+    Object.assign(gameState, {
         pestOutbreakChance: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
         tileType: config.TILE_CONFIG.TYPES,
         tileStat: config.TILE_CONFIG.STATS || {},
         actions: config.ACTIONS,
         plantData: config.PLANTS,
-        weeksPerSeason: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
-        seasons: config.CALENDAR_CONFIG.SEASONS,
-        weeksPerYear: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length
     });
-}
 
-function initializeGameState(config) {
     Object.assign(gameState.time, {
         currentTime: config.GAME_CONFIG.TIME.START,
     });
@@ -275,7 +259,7 @@ function renderUISection(containerId, data) {
     }
 
     data.FIELDS.forEach(fieldKey => {
-        const fieldData = gameData.FIELDS[fieldKey] || gameData.ACTIONS[fieldKey];
+        const fieldData = gameData.FIELDS[fieldKey] || gameData.CONFIG.ACTIONS[fieldKey];
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
