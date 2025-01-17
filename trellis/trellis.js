@@ -126,13 +126,20 @@ function initializeConstants(config) {
 function initializeGameState(config) {
     const { GAME_CONFIG: gameConfig } = config;
 
-    gameState.currentWeek = gameConfig.DEFAULT_WEEK;
-    gameState.currentYear = gameConfig.DEFAULT_YEAR;
-    gameState.currentSeason = gameConfig.DEFAULT_SEASON;
-    gameState.currentTime = DAY_START;
-
-    gameState.player.x = Math.floor(GRID_WIDTH / 2);
-    gameState.player.y = Math.floor(GRID_HEIGHT / 2);
+    Object.assign(gameState, {
+        currentWeek: gameConfig.DEFAULT_WEEK,
+        currentYear: gameConfig.DEFAULT_YEAR,
+        currentSeason: gameConfig.DEFAULT_SEASON,
+        currentTime: DAY_START,
+        player: {
+            x: Math.floor(GRID_WIDTH / 2),
+            y: Math.floor(GRID_HEIGHT / 2)
+        },
+        highlightedTile: {
+            x: Math.floor(GRID_WIDTH / 2),
+            y: Math.floor(GRID_HEIGHT / 2)
+        }
+    });
 }
 
 function initializeGrid(config) {
@@ -141,22 +148,12 @@ function initializeGrid(config) {
     const defaultType = tileConfig.DEFAULT_TYPE;
     const defaultTile = structuredClone(tileConfig.TYPES[defaultType]);
 
-    gameState.grid = Array.from({
-        length: GRID_HEIGHT
-    }, () =>
-        Array.from({
-            length: GRID_WIDTH
-        }, () => {
+    gameState.grid = Array.from({ length: GRID_HEIGHT }, () =>
+        Array.from({ length: GRID_WIDTH }, () => {
             const tile = {
-                TYPE: {
-                    VALUE: defaultType
-                }
+                TYPE: { VALUE: defaultType }
             };
-            for (const [key, value] of Object.entries(defaultTile)) {
-                tile[key] = structuredClone(value) ?? {
-                    VALUE: null
-                };
-            }
+            Object.assign(tile, structuredClone(defaultTile));
             return tile;
         })
     );
