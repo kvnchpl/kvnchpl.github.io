@@ -317,10 +317,14 @@ function renderUISection(containerId, data) {
                 className: "field-label",
                 textContent: `${fieldData.LABEL}: `
             });
+            let initialValue = fieldData.DEFAULT_VALUE;
+            if (fieldData.FORMAT && typeof initialValue === "object") {
+                initialValue = fieldData.FORMAT.replace(/\{(\w+)\}/g, (_, key) => initialValue[key] ?? '');
+            }
             valueElement = createElement(sectionType.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: sectionType.CLASS || "field-value",
-                textContent: fieldData.DEFAULT_VALUE
+                textContent: initialValue
             });
 
             fieldContainer.appendChild(labelElement);
