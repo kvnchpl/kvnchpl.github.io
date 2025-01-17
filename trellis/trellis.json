@@ -178,7 +178,7 @@
             "CATEGORY": "GAME_UI",
             "LABEL": "Year",
             "ID": "yearDisplay",
-            "DEFAULT_VALUE": "Year: 1"
+            "DEFAULT_VALUE": "1"
         },
         "SEASON": {
             "SECTION_TYPE": "FIELDS",
@@ -199,42 +199,48 @@
             "CATEGORY": "TILE_STATS",
             "LABEL": "Type",
             "ID": "tileType",
-            "DEFAULT_VALUE": "Empty"
+            "DEFAULT_VALUE": "Empty",
+            "FORMAT": "{LABEL}"
         },
         "TILE_IS_TILLED": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Is Tilled",
             "ID": "tileIsTilled",
-            "DEFAULT_VALUE": "False"
+            "DEFAULT_VALUE": "False",
+            "FORMAT": "{IS_TILLED}"
         },
         "TILE_PLANT": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Plant",
             "ID": "tilePlant",
-            "DEFAULT_VALUE": "None"
+            "DEFAULT_VALUE": "None",
+            "FORMAT": "{NAME}"
         },
         "TILE_WEED_LEVEL": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
-            "LABEL": "WeedLevel",
+            "LABEL": "Weed Level",
             "ID": "tileWeedLevel",
-            "DEFAULT_VALUE": "0"
+            "DEFAULT_VALUE": "0",
+            "FORMAT": "{WEED_LEVEL}"
         },
         "TILE_MOISTURE": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Moisture",
             "ID": "tileMoisture",
-            "DEFAULT_VALUE": "50"
+            "DEFAULT_VALUE": "50",
+            "FORMAT": "{MOISTURE}"
         },
         "TILE_MOISTURE_DECAY": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "TILE_STATS",
             "LABEL": "Moisture Decay Rate",
             "ID": "tileMoistureDecay",
-            "DEFAULT_VALUE": "2"
+            "DEFAULT_VALUE": "2",
+            "FORMAT": "{MOISTURE_DECAY}"
         },
         "TILE_SOIL_NUTRIENTS": {
             "SECTION_TYPE": "FIELDS",
