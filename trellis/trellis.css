@@ -35,6 +35,8 @@
     --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 
     --font-family: Arial, sans-serif;
+    --font-size-default: 1rem;
+    --font-size-strong: 1.2rem;
 
     --transition-default: background 0.3s ease;
 }
@@ -101,7 +103,7 @@ canvas {
 
 #gameSidebar strong {
     margin-bottom: calc(var(--spacing-unit) / 2);
-    font-size: 1.2rem;
+    font-size: var(--font-size-strong);
 }
 
 .sidebar-section {
@@ -113,7 +115,7 @@ canvas {
 
 #gameSidebar strong {
     margin-bottom: calc(var(--spacing-unit) / 2);
-    font-size: 1.2rem;
+    font-size: var(--font-size-strong);
 }
 
 /* BUTTONS AND ACTIONS */
@@ -144,7 +146,7 @@ canvas {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: var(--font-size-default);
     box-shadow: var(--box-shadow);
     transition: var(--transition-default);
 }
@@ -200,8 +202,7 @@ canvas {
 }
 
 #tutorialOverlay p {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: var(--font-size-default);
     max-width: 80%;
     margin: 0;
 }
@@ -213,7 +214,7 @@ canvas {
     border: none;
     border-radius: var(--border-radius);
     cursor: pointer;
-    font-size: 1rem;
+    font-size: var(--font-size-default);
     box-shadow: var(--box-shadow);
     transition: var(--transition-default);
 }
