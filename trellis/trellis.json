@@ -18,31 +18,35 @@
             "DEFAULT": null,
             "CLASS": null
         },
+        "FIELD_CONTAINER": {
+            "TAG": "div",
+            "CLASS": "field-container"
+        },
         "FIELDS": {
             "TAG": "div",
             "PROPERTY": "FIELDS",
             "DEFAULT": null,
             "CLASS": "field-row"
         },
-        "BUTTON": {
-            "TAG": "button",
-            "PROPERTY": "BUTTON",
-            "DEFAULT": null,
-            "CLASS": "ui-button",
-            "EVENT_PROPERTY": "ON_CLICK"
-        },
         "LABEL": {
             "TAG": "span",
-            "PROPERTY": "LABEL",
-            "DEFAULT": null,
             "CLASS": "field-label"
+        },
+        "BUTTON_CONTAINER": {
+            "TAG": "div",
+            "CLASS": "button-container"
+        },
+        "BUTTON": {
+            "TAG": "button",
+            "CLASS": "ui-button"
         }
     },
     "UI_CLASSES": {
         "FIELD_CONTAINER": "field-container",
         "FIELD_LABEL": "field-label",
         "FIELD_VALUE": "field-value",
-        "SUBFIELD_CONTAINER": "subfield-container"
+        "SUBFIELD_CONTAINER": "subfield-container",
+        "UI_BUTTON": "ui-button"
     },
     "CONFIG": {
         "CALENDAR_CONFIG": {

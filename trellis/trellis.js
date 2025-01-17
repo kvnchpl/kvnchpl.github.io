@@ -288,7 +288,7 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const fieldContainer = createElement(sectionType.TAG, {
+        const fieldContainer = createElement(gameData.SECTION_TYPES.FIELD_CONTAINER.TAG, {
             className: uiClasses.FIELD_CONTAINER
         });
 
@@ -296,7 +296,7 @@ function renderUISection(containerId, data) {
             const label = `${fieldData.LABEL} (${fieldData.TIME_COST})`;
             const buttonElement = createElement(sectionType.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: sectionType.CLASS || uiClasses.FIELD_VALUE,
+                className: sectionType.CLASS || uiClasses.UI_BUTTON,
                 textContent: label
             });
             buttonElement.dataset.onClick = fieldData.FUNCTION;
