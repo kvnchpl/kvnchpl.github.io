@@ -169,7 +169,7 @@ canvas {
 }
 
 .subfield-container {
-    padding-left: calc(var(--spacing-unit) * 2);
+    padding-left: calc(var(--spacing-unit) * var(--level));
 }
 
 /* TUTORIAL OVERLAY */

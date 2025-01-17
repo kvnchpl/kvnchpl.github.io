@@ -322,7 +322,7 @@ function renderUISection(containerId, data) {
 
             if (fieldData.SUBFIELDS) {
                 container.appendChild(fieldContainer); // Append the parent field container first
-                renderSubfields(container, fieldData.SUBFIELDS, sectionType, fieldData.DEFAULT_VALUE);
+                renderSubfields(container, fieldData.SUBFIELDS, sectionType, fieldData.DEFAULT_VALUE, 1);
                 return; // Skip appending the parent field container again
             } else {
                 const valueElement = createElement(sectionType.TAG, {
@@ -338,10 +338,11 @@ function renderUISection(containerId, data) {
     });
 }
 
-function renderSubfields(container, subfields, sectionType, defaultValues) {
+function renderSubfields(container, subfields, sectionType, defaultValues, level = 1) {
     Object.entries(subfields).forEach(([key, subfieldData]) => {
         const subfieldContainer = createElement("div", {
-            className: "field-container subfield-container"
+            className: "field-container subfield-container",
+            style: `--level: ${level};`
         });
         const subfieldLabelElement = createElement("span", {
             className: "field-label",
@@ -357,7 +358,7 @@ function renderSubfields(container, subfields, sectionType, defaultValues) {
         container.appendChild(subfieldContainer);
 
         if (subfieldData.SUBFIELDS) {
-            renderSubfields(container, subfieldData.SUBFIELDS, sectionType, subfieldData.DEFAULT_VALUE);
+            renderSubfields(container, subfieldData.SUBFIELDS, sectionType, subfieldData.DEFAULT_VALUE, level + 1);
         }
     });
 }
