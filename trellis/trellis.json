@@ -369,7 +369,7 @@
                 "RESET_POSITION"
             ]
         },
-        "ACTION_CONTAINER": {
+        "ACTIONS_CONTAINER": {
             "CONTAINER": "actionsContainer",
             "FIELDS": [
                 "TILL",
