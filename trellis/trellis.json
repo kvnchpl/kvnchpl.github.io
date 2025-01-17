@@ -232,9 +232,9 @@
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "DEFAULT_VALUE": {
-                "N": 50,
-                "P": 50,
-                "K": 50
+                "Nitrogen": 50,
+                "Phosphorus": 50,
+                "Potassium": 50
             },
             "FORMAT": "N: {N}, P: {P}, K: {K}"
         },
