@@ -168,21 +168,6 @@ canvas {
     text-align: right;
 }
 
-/* TILE STATS */
-
-#tileStats {
-    display: flex;
-    flex-direction: column;
-}
-
-#tileStats div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: var(--spacing-unit);
-}
-
 /* TUTORIAL OVERLAY */
 
 #tutorialOverlay {
