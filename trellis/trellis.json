@@ -68,8 +68,8 @@
                 "HEIGHT": 15
             },
             "TIME": {
-                "START": 0,
-                "END": 720
+                "START": 420,
+                "END": 1140
             },
             "MOISTURE": {
                 "START": 50,
