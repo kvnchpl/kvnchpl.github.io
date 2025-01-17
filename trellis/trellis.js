@@ -84,21 +84,22 @@ function initGame() {
     showTutorial();
 }
 
-// Static fields in gameData
+// Assign static fields from JSON config to gameData
 function initializeGameData(config) {
     Object.assign(gameData, {
-        dayStart: config.GAME_CONFIG.TIME.START,
-        dayEnd: config.GAME_CONFIG.TIME.END,
-        tileSize: config.GAME_CONFIG.GRID.TILE_SIZE,
-        gridWidth: config.GAME_CONFIG.GRID.WIDTH,
-        weeksPerSeason: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
-        seasons: config.CALENDAR_CONFIG.SEASONS,
-        weeksPerYear: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
-        regionName: config.GAME_CONFIG.REGION,
+        DAY_START: config.GAME_CONFIG.TIME.START,
+        Day_END: config.GAME_CONFIG.TIME.END,
+        TILE_SIZE: config.GAME_CONFIG.GRID.TILE_SIZE,
+        GRID_WIDTH: config.GAME_CONFIG.GRID.WIDTH,
+        GRID_HEIGHT: config.GAME_CONFIG.GRID.HEIGHT,
+        WEEKS_PER_SEASON: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
+        SEASONS: config.CALENDAR_CONFIG.SEASONS,
+        WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
+        REGION_NAME: config.GAME_CONFIG.REGION_NAME,
     });
 }
 
-// Dynamic fields in gameState
+// Assign dynamic fields to gameState
 function initializeGameState(config) {
     Object.assign(gameState, {
         pestOutbreakChance: config.GAME_CONFIG.PEST_OUTBREAK_CHANCE,
@@ -118,24 +119,17 @@ function initializeGameState(config) {
         currentSeason: config.GAME_CONFIG.DEFAULT_SEASON,
     });
 
-    gameState.grid.tiles = Array.from({ length: gameState.grid.height }, () =>
-        Array.from({ length: gameState.grid.width }, () => {
-            const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
-            return structuredClone(config.TILE_CONFIG.TYPES[defaultType]);
-        })
-    );
-
     gameState.player.position = {
-        x: Math.floor(gameState.grid.width / 2),
-        y: Math.floor(gameState.grid.height / 2),
+        x: Math.floor(gameData.gridWidth / 2),
+        y: Math.floor(gameData.gridHeight / 2),
     };
 
     gameState.grid.highlightedTile = { ...gameState.player.position };
 }
 
 function initializeGrid(config) {
-    gameState.grid.tiles = Array.from({ length: gameState.grid.height }, () =>
-        Array.from({ length: gameState.grid.width }, () => {
+    gameState.grid.tiles = Array.from({ length: gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT }, () =>
+        Array.from({ length: gameData.CONFIG.GAME_CONFIG.GRID.WIDTH }, () => {
             const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
             return structuredClone(config.TILE_CONFIG.TYPES[defaultType]);
         })
@@ -184,11 +178,11 @@ function drawGrid(context) {
         border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
     };
 
-    for (let row = 0; row < gameState.grid.height; row++) {
-        for (let col = 0; col < gameState.grid.width; col++) {
+    for (let row = 0; row < gameData.GRID_HEIGHT; row++) {
+        for (let col = 0; col < gameData.GRID_WIDTH; col++) {
             const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
-            const tileType = gameState.tileType[tile.TYPE.VALUE];
+            const tileType = tile.TYPE.VALUE;
 
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
@@ -606,8 +600,8 @@ function skipToNextWeek() {
 }
 
 function updateYearAndSeason() {
-    gameState.calendar.currentYear = Math.floor(gameState.calendar.currentWeek / gameState.weeksPerYear) + 1;
-    gameState.calendar.currentSeason = gameState.seasons[Math.floor((gameState.calendar.currentWeek % gameState.weeksPerYear) / gameState.weeksPerSeason)];
+    gameState.calendar.currentYear = Math.floor(gameState.calendar.currentWeek / gameData.WEEKS_PER_YEAR) + 1;
+    gameState.calendar.currentSeason = gameData.SEASONS[Math.floor((gameState.calendar.currentWeek % gameData.WEEKS_PER_YEAR) / gameData.WEEKS_PER_SEASON)];
 
     const yearField = gameData.FIELDS.YEAR;
     updateField(yearField.ID, gameState.calendar.currentYear);
