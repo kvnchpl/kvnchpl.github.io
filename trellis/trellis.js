@@ -289,7 +289,7 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const fieldContainer = createElement(uiComponents.BUTTON_CONTAINER.TAG, {
+        const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
 
