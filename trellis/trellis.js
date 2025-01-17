@@ -285,6 +285,8 @@ function renderUISection(containerId, data) {
         return;
     }
 
+    const uiClasses = gameData.UI_CLASSES;
+
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
@@ -302,20 +304,21 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const fieldContainer = createElement("div", {
-            className: "field-container"
+        const fieldContainer = createElement(sectionType.TAG, {
+            className: uiClasses.FIELD_CONTAINER
         });
 
-        if (sectionType.TAG === "button") {
+        if (sectionType.TAG === gameData.SECTION_TYPES.BUTTON.TAG) {
             const buttonElement = createElement(sectionType.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: sectionType.CLASS || "field-value",
+                className: sectionType.CLASS || uiClasses.FIELD_VALUE,
                 textContent: fieldData.LABEL
             });
             fieldContainer.appendChild(buttonElement);
         } else {
-            const labelElement = createElement("span", {
-                className: "field-label",
+            const labelType = gameData.SECTION_TYPES.LABEL;
+            const labelElement = createElement(labelType.TAG, {
+                className: labelType.CLASS || uiClasses.FIELD_LABEL,
                 textContent: `${fieldData.LABEL}: `
             });
             fieldContainer.appendChild(labelElement);
@@ -327,7 +330,7 @@ function renderUISection(containerId, data) {
             } else {
                 const valueElement = createElement(sectionType.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
-                    className: sectionType.CLASS || "field-value",
+                    className: sectionType.CLASS || uiClasses.FIELD_VALUE,
                     textContent: fieldData.DEFAULT_VALUE
                 });
                 fieldContainer.appendChild(valueElement);
@@ -339,18 +342,21 @@ function renderUISection(containerId, data) {
 }
 
 function renderSubfields(container, subfields, sectionType, defaultValues, level = 1) {
+    const uiClasses = gameData.UI_CLASSES;
+
     Object.entries(subfields).forEach(([key, subfieldData]) => {
-        const subfieldContainer = createElement("div", {
-            className: "field-container subfield-container",
+        const subfieldContainer = createElement(sectionType.TAG, {
+            className: `${uiClasses.FIELD_CONTAINER} ${uiClasses.SUBFIELD_CONTAINER}`,
             style: `--level: ${level};`
         });
-        const subfieldLabelElement = createElement("span", {
-            className: "field-label",
+        const labelType = gameData.SECTION_TYPES.LABEL;
+        const subfieldLabelElement = createElement(labelType.TAG, {
+            className: labelType.CLASS || uiClasses.FIELD_LABEL,
             textContent: `${subfieldData.LABEL}: `
         });
         const subfieldValueElement = createElement(sectionType.TAG, {
             id: subfieldData.ID,
-            className: sectionType.CLASS || "field-value",
+            className: sectionType.CLASS || uiClasses.FIELD_VALUE,
             textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE
         });
         subfieldContainer.appendChild(subfieldLabelElement);
@@ -447,15 +453,26 @@ function updateSubfields(subfields, values) {
 }
 
 function appendTileStat(container, label, id) {
-    const field = document.createElement("div");
-    const labelSpan = document.createElement("span");
+    const sectionType = gameData.SECTION_TYPES.FIELD_CONTAINER;
+    const labelType = gameData.SECTION_TYPES.LABEL;
+    const valueType = gameData.SECTION_TYPES.VALUE;
+    const uiClasses = gameData.UI_CLASSES;
 
-    labelSpan.textContent = `${capitalize(label)}: `;
+    const field = createElement(sectionType.TAG, {
+        className: sectionType.CLASS || uiClasses.FIELD_CONTAINER
+    });
+
+    const labelSpan = createElement(labelType.TAG, {
+        className: labelType.CLASS || uiClasses.FIELD_LABEL,
+        textContent: `${capitalize(label)}: `
+    });
     field.appendChild(labelSpan);
 
-    const valueSpan = document.createElement("span");
-    valueSpan.id = id;
-    valueSpan.textContent = "N/A";
+    const valueSpan = createElement(valueType.TAG, {
+        id: id,
+        className: valueType.CLASS || uiClasses.FIELD_VALUE,
+        textContent: "N/A"
+    });
     field.appendChild(valueSpan);
 
     container.appendChild(field);
@@ -480,12 +497,13 @@ function attachUIEventListeners() {
         }
     });
 
-    window.addEventListener("keydown", preventArrowKeyScroll);
+    window.addEventListener("keydown", preventKeyBindingScroll);
     window.addEventListener("keydown", handleKeyDown);
 }
 
-function preventArrowKeyScroll(e) {
-    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+function preventKeyBindingScroll(e) {
+    const keyBindings = gameData.KEY_BINDINGS;
+    if (Object.values(keyBindings).includes(e.key)) {
         e.preventDefault();
     }
 }

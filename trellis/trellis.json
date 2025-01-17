@@ -30,7 +30,19 @@
             "DEFAULT": null,
             "CLASS": "ui-button",
             "EVENT_PROPERTY": "ON_CLICK"
+        },
+        "LABEL": {
+            "TAG": "span",
+            "PROPERTY": "LABEL",
+            "DEFAULT": null,
+            "CLASS": "field-label"
         }
+    },
+    "UI_CLASSES": {
+        "FIELD_CONTAINER": "field-container",
+        "FIELD_LABEL": "field-label",
+        "FIELD_VALUE": "field-value",
+        "SUBFIELD_CONTAINER": "subfield-container"
     },
     "CONFIG": {
         "CALENDAR_CONFIG": {
