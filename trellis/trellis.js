@@ -275,6 +275,11 @@ function renderUISection(containerId, data) {
                 className: uiComponents.BUTTON.CLASS,
                 textContent: `${fieldData.LABEL} (${fieldData.TIME_COST || ""})`
             });
+            console.log("Rendering button:", fieldData);
+            buttonElement.dataset.onClick = fieldData.FUNCTION;
+            if (!fieldData.FUNCTION) {
+                console.error(`No function assigned to button ${fieldData.ID}`);
+            }
             buttonElement.dataset.onClick = fieldData.FUNCTION;
             fieldContainer.appendChild(buttonElement);
         } else {
