@@ -460,7 +460,7 @@ function attachUIEventListeners() {
         if (typeof handler === "function") {
             button.addEventListener("click", handler);
         } else {
-            console.error(`Handler function '${handlerName}' not found.`);
+            console.error(`Handler function '${handlerName}' not found for button:`, button);
         }
     });
 
