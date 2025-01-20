@@ -517,8 +517,6 @@ function handleKeyDown(e) {
     let newX = gameState.player.position.x;
     let newY = gameState.player.position.y;
 
-    console.log(`Player position: (${newX}, ${newY})`);
-
     const keyBindings = gameData.CONFIG.KEY_BINDINGS;
 
     switch (e.key) {
