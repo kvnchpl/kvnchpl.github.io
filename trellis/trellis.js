@@ -971,12 +971,6 @@ function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function toCamelCase(str) {
-    return str
-        .toLowerCase()
-        .replace(/[-_](.)/g, (match, group1) => group1.toUpperCase());
-}
-
 function trackButtonMutations(buttonId) {
     const button = document.getElementById(buttonId);
     if (!button) {
