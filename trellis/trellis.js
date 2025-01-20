@@ -276,11 +276,11 @@ function renderUISection(containerId, data) {
                 textContent: `${fieldData.LABEL} (${fieldData.TIME_COST || ""})`
             });
             console.log("Rendering button:", fieldData);
-            buttonElement.dataset.onClick = fieldData.FUNCTION;
-            if (!fieldData.FUNCTION) {
+            buttonElement.dataset.onClick = fieldData.ON_CLICK;
+            if (!fieldData.ON_CLICK) {
                 console.error(`No function assigned to button ${fieldData.ID}`);
             }
-            buttonElement.dataset.onClick = fieldData.FUNCTION;
+            buttonElement.dataset.onClick = fieldData.ON_CLICK;
             fieldContainer.appendChild(buttonElement);
         } else {
             const labelElement = createElement(uiComponents.LABEL.TAG, {
@@ -766,7 +766,7 @@ function handleTileAction(action, tile, params = {}) {
         return;
     }
 
-    const functionName = actionConfig.FUNCTION;
+    const functionName = actionConfig.ON_CLICK;
     const functionParams = actionConfig.PARAMS || {};
     const timeCost = actionConfig.TIME_COST;
 
@@ -894,7 +894,7 @@ function hideTutorial() {
     document.getElementById("tutorialOverlay").classList.add("hidden");
 }
 
-/* UTILITY FUNCTIONS */
+/* UTILITY ON_CLICKS */
 
 function getTargetTile() {
     const { x, y } = gameState.highlightedTile.x !== null ?
