@@ -346,34 +346,6 @@
                 }
             }
         },
-        "INVENTORY_SEEDS": {
-            "SECTION_TYPE": "FIELD_LABEL",
-            "CONTAINER": "inventory",
-            "LABEL": "Seeds",
-            "ID": "inventorySeeds",
-            "SUBFIELDS": {
-                "TOMATO": {
-                    "LABEL": "Tomato",
-                    "ID": "seedsTomato",
-                    "DEFAULT_VALUE": 5
-                },
-                "KALE": {
-                    "LABEL": "Kale",
-                    "ID": "seedsKale",
-                    "DEFAULT_VALUE": 5
-                },
-                "CORN": {
-                    "LABEL": "Corn",
-                    "ID": "seedsCorn",
-                    "DEFAULT_VALUE": 3
-                },
-                "BEANS": {
-                    "LABEL": "Beans",
-                    "ID": "seedsBeans",
-                    "DEFAULT_VALUE": 2
-                }
-            }
-        },
         "INVENTORY_PRODUCE": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "inventory",
@@ -475,7 +447,6 @@
         "INVENTORY_DISPLAY": {
             "CONTAINER": "inventory",
             "FIELDS": [
-                "INVENTORY_SEEDS",
                 "INVENTORY_PRODUCE",
                 "INVENTORY_FERTILIZER",
                 "INVENTORY_MULCH"
@@ -483,12 +454,6 @@
         }
     },
     "INVENTORY": {
-        "SEEDS": {
-            "TOMATO": 5,
-            "KALE": 5,
-            "CORN": 3,
-            "BEANS": 2
-        },
         "PRODUCE": {
             "TOMATO": 0,
             "KALE": 0,
