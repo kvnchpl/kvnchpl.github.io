@@ -253,54 +253,60 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        // Get UI component configuration for the field's SECTION_TYPE
-        const componentConfig = gameData.UI_COMPONENTS[fieldData.SECTION_TYPE];
-        if (!componentConfig) {
-            console.warn(`UI component config for '${fieldData.SECTION_TYPE}' not found.`);
-            return;
-        }
-
-        // Create the main field container
-        const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
-            className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
-        });
-
-        // Create the field label or button
-        const element = createElement(componentConfig.TAG, {
-            id: fieldData.ID || `${containerId}-${fieldKey}`,
-            className: componentConfig.CLASS,
-            textContent: fieldData.LABEL || fieldData.DEFAULT_VALUE || "",
-        });
-
-        // Special handling for buttons
-        if (fieldData.SECTION_TYPE === "BUTTON" && fieldData.ON_CLICK) {
-            element.dataset.onClick = fieldData.ON_CLICK;
-            element.addEventListener("click", () => {
-                const handler = window[fieldData.ON_CLICK];
-                if (typeof handler === "function") {
-                    handler();
-                } else {
-                    console.error(`Handler function '${fieldData.ON_CLICK}' not found.`);
-                }
+        // Handle BUTTON section type
+        if (fieldData.SECTION_TYPE === "BUTTON") {
+            const button = createElement("button", {
+                id: fieldData.ID || `${containerId}-${fieldKey}`,
+                className: gameData.UI_COMPONENTS.BUTTON.CLASS,
+                textContent: fieldData.LABEL, // Use LABEL as the button text
             });
+
+            // Attach the click handler
+            if (fieldData.ON_CLICK) {
+                button.addEventListener("click", () => {
+                    const handler = window[fieldData.ON_CLICK];
+                    if (typeof handler === "function") {
+                        handler();
+                    } else {
+                        console.error(`Handler function '${fieldData.ON_CLICK}' not found.`);
+                    }
+                });
+            }
+
+            container.appendChild(button);
         }
 
-        // Append the label or button to the container
-        fieldContainer.appendChild(element);
+        // Handle FIELD_LABEL section type
+        else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
+            const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
+                className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
+            });
 
-        // Add value element for non-button fields
-        if (fieldData.SECTION_TYPE !== "BUTTON" && fieldData.DEFAULT_VALUE) {
+            // Create the label
+            const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
+                className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
+                textContent: fieldData.LABEL, // Use LABEL for the label text
+            });
+
+            // Create the value
             const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
-                id: `${fieldData.ID}-value`,
+                id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-                textContent: fieldData.DEFAULT_VALUE,
+                textContent: fieldData.DEFAULT_VALUE, // Use DEFAULT_VALUE for the value text
             });
+
+            // Append label and value to the field container
+            fieldContainer.appendChild(labelElement);
             fieldContainer.appendChild(valueElement);
+
+            // Append the field container to the main container
+            container.appendChild(fieldContainer);
         }
 
-        // Append the entire field container to the main container
-        container.appendChild(fieldContainer);
-
+        // Handle unknown section types
+        else {
+            console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
+        }
         // Handle nested subfields, if any
         if (fieldData.SUBFIELDS) {
             renderSubfields(fieldContainer, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
