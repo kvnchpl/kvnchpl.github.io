@@ -249,7 +249,7 @@ function renderUISection(containerId, data) {
     }
 
     data.FIELDS.forEach(fieldKey => {
-        const fieldData = gameData.FIELDS[fieldKey] || gameData.CONFIG.ACTIONS[fieldKey];
+        const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
