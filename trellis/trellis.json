@@ -379,14 +379,14 @@
             "CONTAINER": "inventory",
             "LABEL": "Fertilizer",
             "ID": "inventoryFertilizer",
-            "DEFAULT_VALUE": 0
+            "DEFAULT_VALUE": 100
         },
         "INVENTORY_MULCH": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "inventory",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
-            "DEFAULT_VALUE": 0
+            "DEFAULT_VALUE": 100
         }
     },
     "UI": {
