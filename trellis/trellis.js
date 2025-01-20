@@ -285,7 +285,7 @@ function renderUISection(containerId, data) {
             // Create the label
             const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
                 className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-                textContent: fieldData.LABEL, // Use LABEL for the label text
+                textContent: `${fieldData.LABEL}: `, // Use LABEL for the label text
             });
 
             // Create the value
