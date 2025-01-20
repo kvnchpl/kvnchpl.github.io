@@ -277,8 +277,8 @@ function renderUISection(containerId, data) {
             buttonElement.dataset.onClick = fieldData.ON_CLICK;
             fieldContainer.appendChild(buttonElement);
         } else {
-            const labelElement = createElement(uiComponents.LABEL.TAG, {
-                className: uiComponents.LABEL.CLASS,
+            const labelElement = createElement(uiComponents.FIELD_LABEL.TAG, {
+                className: uiComponents.FIELD_LABEL.CLASS,
                 textContent: `${fieldData.LABEL}: `
             });
             fieldContainer.appendChild(labelElement);
