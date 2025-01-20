@@ -247,10 +247,10 @@ function renderUISection(containerId, data) {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    console.log("Rendering UI section with container ID: " + containerId);
+    console.log("A) Rendering UI section with container ID: " + containerId);
     data.FIELDS.forEach(fieldKey => {
         const fieldData = gameData.FIELDS[fieldKey];
-        console.log("Rendering field with key '" + fieldKey + "'.");
+        console.log("B) Rendering field with key '" + fieldKey + "'.");
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
@@ -265,10 +265,10 @@ function renderUISection(containerId, data) {
         const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
-        console.log("Rendering field with sectionType '" + sectionType + "'.");
+        console.log("C) Rendering field with sectionType '" + sectionType + "'.");
         console.dir(fieldData);
         if (fieldData.SECTION_TYPE === uiComponents.BUTTON.TAG) {
-            console.log("Rendering button with key '" + fieldKey + "'.");
+            console.log("D1) Rendering button with key '" + fieldKey + "'.");
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: uiComponents.BUTTON.CLASS,
@@ -281,7 +281,7 @@ function renderUISection(containerId, data) {
             buttonElement.dataset.onClick = fieldData.ON_CLICK;
             fieldContainer.appendChild(buttonElement);
         } else {
-            console.log("Rendering field with key '" + fieldKey + "'.");
+            console.log("D2) Rendering field with key '" + fieldKey + "'.");
             const labelElement = createElement(uiComponents.LABEL.TAG, {
                 className: uiComponents.LABEL.CLASS,
                 textContent: `${fieldData.LABEL}: `
