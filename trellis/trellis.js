@@ -948,8 +948,7 @@ function createElement(tag, options = {}) {
             element.setAttribute(key, value);
         }
     }
-
-    console.log("Created element:", element.outerHTML); // Log created element
+    
     return element;
 }
 
