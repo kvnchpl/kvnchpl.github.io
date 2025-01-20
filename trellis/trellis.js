@@ -259,7 +259,7 @@ function renderUISection(containerId, data) {
             const button = createElement("button", {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL, // Set LABEL as button text
+                textContent: fieldData.LABEL || "Button", // Set LABEL as button text
             });
 
             // Attach the click handler
