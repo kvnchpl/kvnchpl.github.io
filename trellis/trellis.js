@@ -669,7 +669,7 @@ function highlightTile(x, y) {
         updateTileStats();
         render();
     } else {
-        console.log("Invalid tile for highlighting.");
+        console.log("Cannot highlight tile at:", { x, y });
     }
 }
 
