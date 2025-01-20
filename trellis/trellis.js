@@ -246,6 +246,7 @@ function renderUISection(containerId, data) {
         container.removeChild(container.firstChild);
     }
 
+    // Loop through each field and render its UI
     data.FIELDS.forEach((fieldKey) => {
         const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
@@ -253,12 +254,12 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        // Handle BUTTON section type
         if (fieldData.SECTION_TYPE === "BUTTON") {
+            // Handle BUTTON section type
             const button = createElement("button", {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL, // Use LABEL as the button text
+                textContent: fieldData.LABEL, // Set LABEL as button text
             });
 
             // Attach the click handler
@@ -274,10 +275,8 @@ function renderUISection(containerId, data) {
             }
 
             container.appendChild(button);
-        }
-
-        // Handle FIELD_LABEL section type
-        else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
+        } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
+            // Handle FIELD_LABEL section type
             const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
                 className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
             });
@@ -285,22 +284,12 @@ function renderUISection(containerId, data) {
             // Create the label
             const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
                 className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-                textContent: `${fieldData.LABEL}: `, // Use LABEL for the label text
-            });
-
-            // Create the value
-            const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
-                id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-                textContent: fieldData.DEFAULT_VALUE, // Use DEFAULT_VALUE for the value text
+                textContent: `${fieldData.LABEL}:`, // Set LABEL for the field
             });
 
             fieldContainer.appendChild(labelElement);
 
-            if (fieldData.SUBFIELDS) {
-                // Render subfields instead of a single value
-                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, 1);
-            } else {
+            if (!fieldData.SUBFIELDS) {
                 // Render the default value if there are no subfields
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
@@ -310,11 +299,14 @@ function renderUISection(containerId, data) {
                 fieldContainer.appendChild(valueElement);
             }
 
+            // Append the parent's field container
             container.appendChild(fieldContainer);
-        }
 
-        // Handle unknown section types
-        else {
+            // If subfields exist, render them after the parent container
+            if (fieldData.SUBFIELDS) {
+                renderSubfields(container, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, 1);
+            }
+        } else {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
         }
     });
@@ -324,27 +316,29 @@ function renderSubfields(container, subfields, defaultValues, level = 1) {
     Object.entries(subfields).forEach(([key, subfieldData]) => {
         const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
             className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS,
-            style: `--level: ${level};`,
+            style: `--level: ${level};`, // Optional styling for hierarchy
         });
 
         const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
             className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-            textContent: `${subfieldData.LABEL}: `,
+            textContent: `${subfieldData.LABEL}:`, // Use LABEL for subfield
         });
 
         const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
             id: subfieldData.ID,
             className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-            textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE,
+            textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE, // Display the default value for the subfield
         });
 
         subfieldContainer.appendChild(labelElement);
         subfieldContainer.appendChild(valueElement);
+
+        // Append the subfield container after the parent container
         container.appendChild(subfieldContainer);
 
         // Recursively render nested subfields
         if (subfieldData.SUBFIELDS) {
-            renderSubfields(subfieldContainer, subfieldData.SUBFIELDS, defaultValues[key], level + 1);
+            renderSubfields(container, subfieldData.SUBFIELDS, defaultValues[key], level + 1);
         }
     });
 }
