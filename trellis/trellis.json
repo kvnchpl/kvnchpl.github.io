@@ -328,11 +328,6 @@
             "CATEGORY": "tileStats",
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
-            "DEFAULT_VALUE": {
-                "Nitrogen": 50,
-                "Phosphorus": 50,
-                "Potassium": 50
-            },
             "SUBFIELDS": {
                 "NITROGEN": {
                     "LABEL": "Nitrogen",
