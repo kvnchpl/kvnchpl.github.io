@@ -140,6 +140,10 @@ function initializeUI(uiData) {
         updateUISection(sectionData.CONTAINER, sectionData);
     });
 
+    trackButtonMutations("closeTutorialBtn");
+    trackButtonMutations("nextWeekBtn");
+    trackButtonMutations("resetPlayerBtn");
+
     attachUIEventListeners();
     attachCanvasEventListeners();
 
@@ -297,7 +301,7 @@ function renderUISection(containerId, data) {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
         }
     });
-    
+
     const observer = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
             if (mutation.type === "childList" || mutation.type === "characterData") {
@@ -973,4 +977,20 @@ function toCamelCase(str) {
     return str
         .toLowerCase()
         .replace(/[-_](.)/g, (match, group1) => group1.toUpperCase());
+}
+
+function trackButtonMutations(buttonId) {
+    const button = document.getElementById(buttonId);
+    if (!button) {
+        console.error(`Button with ID '${buttonId}' not found.`);
+        return;
+    }
+
+    const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            console.log("Button Mutation Observed:", mutation);
+        }
+    });
+
+    observer.observe(button, { childList: true, subtree: true, characterData: true });
 }
