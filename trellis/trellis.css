@@ -83,8 +83,8 @@ canvas {
 }
 
 #gameSidebar {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--spacing-unit);
     width: var(--sidebar-width);
     background: var(--color-ui-bg);
