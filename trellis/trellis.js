@@ -213,21 +213,6 @@ function drawGrid(context) {
     }
 }
 
-function createElement(tag, options = {}) {
-    const element = document.createElement(tag);
-
-    if (options.id) element.id = options.id;
-    if (options.className) element.className = options.className;
-    if (options.textContent) element.textContent = options.textContent;
-    if (options.attributes) {
-        for (const [key, value] of Object.entries(options.attributes)) {
-            element.setAttribute(key, value);
-        }
-    }
-
-    return element;
-}
-
 function renderUISection(containerId, data) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -256,13 +241,13 @@ function renderUISection(containerId, data) {
         }
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
-            console.log("A) Rendering button with label:", fieldData.LABEL);
+            console.log("Rendering button with label:", fieldData.LABEL); // Confirm LABEL
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL || "Button",
+                textContent: fieldData.LABEL || "Button", // Set LABEL or fallback
             });
-
+        
             // Attach the click handler
             if (fieldData.ON_CLICK) {
                 button.addEventListener("click", () => {
@@ -274,8 +259,8 @@ function renderUISection(containerId, data) {
                     }
                 });
             }
-
-            container.appendChild(button);
+        
+            container.appendChild(button); // Append button to its container
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
             // Handle FIELD_LABEL section type
             const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
@@ -947,11 +932,12 @@ function createAndAppendElement(container, tagName, options = {}) {
 function createElement(tag, options = {}) {
     const element = document.createElement(tag);
 
-    console.log(`B) Creating element with tag: ${tag} and options:`, options);
     if (options.id) element.id = options.id;
     if (options.className) element.className = options.className;
-    if (options.textContent !== undefined) { // Explicitly check for undefined
+    if (options.textContent !== undefined) { // Ensure textContent is explicitly set
         element.textContent = options.textContent;
+    } else {
+        console.warn(`No textContent provided for element with tag: ${tag} and id: ${options.id}`);
     }
     if (options.attributes) {
         for (const [key, value] of Object.entries(options.attributes)) {
@@ -959,6 +945,7 @@ function createElement(tag, options = {}) {
         }
     }
 
+    console.log("Created element:", element.outerHTML); // Log created element
     return element;
 }
 
