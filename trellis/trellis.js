@@ -257,6 +257,7 @@ function renderUISection(containerId, data) {
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
             // Handle BUTTON section type
+            console.log("Rendering button:", fieldData);
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
