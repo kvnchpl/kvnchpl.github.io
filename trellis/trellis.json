@@ -89,7 +89,6 @@
             "DEFAULT_SEASON": "Winter"
         },
         "TILE_CONFIG": {
-            "DEFAULT_TYPE": "EMPTY",
             "TYPES": {
                 "EMPTY": {
                     "LABEL": "Empty",
@@ -106,6 +105,7 @@
                     "COLOR": "--tile-path"
                 }
             },
+            "DEFAULT_TYPE": "EMPTY",
             "DEFAULT_PEST_OUTBREAK_CHANCE": 5
         },
         "ACTIONS": {
