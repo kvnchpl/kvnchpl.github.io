@@ -266,10 +266,7 @@ function renderUISection(containerId, data) {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
 
-        if (
-            containerId === gameData.UI.BUTTON_CONTAINER.CONTAINER ||
-            containerId === gameData.UI.ACTIONS_CONTAINER.CONTAINER
-        ) {
+        if (fieldData.SECTION_TYPE === "BUTTON") {
             console.log("Rendering button: " + fieldData + " with fieldKey '" + fieldKey + "'.");
 
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
