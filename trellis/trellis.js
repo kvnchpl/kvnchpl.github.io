@@ -270,7 +270,7 @@ function renderUISection(containerId, data) {
             containerId === gameData.UI.BUTTON_CONTAINER.CONTAINER ||
             containerId === gameData.UI.ACTIONS_CONTAINER.CONTAINER
         ) {
-            console.log("Rendering button:", fieldData);
+            console.log("Rendering button: " + fieldData + " with fieldKey '" + fieldKey + "'.");
 
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
