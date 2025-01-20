@@ -722,7 +722,7 @@ function updateTileStats() {
         return;
     }
 
-    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.UI_COMPONENTS.FIELD_CONTAINER);
+    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.UI.TILE_STATS.CONTAINER);
 }
 
 /* UI UPDATES */
