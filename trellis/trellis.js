@@ -256,11 +256,11 @@ function renderUISection(containerId, data) {
         }
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
-            // Handle BUTTON section type
+            console.log("Rendering button with label:", fieldData.LABEL);
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL || "Button", // Set LABEL as button text
+                textContent: fieldData.LABEL || "Button",
             });
 
             // Attach the click handler
