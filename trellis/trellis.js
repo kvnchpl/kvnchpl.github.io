@@ -947,6 +947,7 @@ function createAndAppendElement(container, tagName, options = {}) {
 function createElement(tag, options = {}) {
     const element = document.createElement(tag);
 
+    console.log(`Creating element with tag: ${tag} and options:`, options);
     if (options.id) element.id = options.id;
     if (options.className) element.className = options.className;
     if (options.textContent !== undefined) { // Explicitly check for undefined
