@@ -693,13 +693,20 @@ function resetPlayerPosition() {
 }
 
 function highlightTile(x, y) {
-    if (isTileValid(x, y) && isTileAdjacent(x, y)) {
-        gameState.grid.highlightedTile = { x, y };
-        updateTileStats();
-        render();
-    } else {
+    if (!isTileValid(x, y)) {
         console.log("Cannot highlight tile at:", { x, y });
+        return;
     }
+
+    if (!isTileAdjacent(x, y)) {
+        console.log("Cannot highlight tile at:", { x, y }, "as it is not adjacent.");
+        return;
+    }
+
+    gameState.grid.highlightedTile = { x, y };
+
+    updateTileStats();
+    render();
 }
 
 /* TILE & GRID UPDATES */
