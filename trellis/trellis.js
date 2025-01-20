@@ -283,7 +283,6 @@ function renderUISection(containerId, data) {
             });
 
             // Create the label
-            console.log("Rendering field label:", fieldData.LABEL);
             const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
                 className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
                 textContent: `${fieldData.LABEL}:`, // Set LABEL for the field
@@ -297,7 +296,6 @@ function renderUISection(containerId, data) {
                 renderSubfields(container, fieldData.SUBFIELDS, 1);
             } else if (fieldData.DEFAULT_VALUE !== undefined) {
                 // Render the default value if no subfields exist
-                console.log("Rendering default value for field:", fieldData.DEFAULT_VALUE);
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
                     id: fieldData.ID,
                     className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
