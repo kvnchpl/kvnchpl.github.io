@@ -243,7 +243,6 @@ function renderUISection(containerId, data) {
     }
 
     const uiComponents = gameData.UI_COMPONENTS;
-    const ui = gameData.UI;
 
     while (container.firstChild) {
         container.removeChild(container.firstChild);
@@ -266,7 +265,7 @@ function renderUISection(containerId, data) {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
 
-        if (fieldData.SECTION_TYPE === "BUTTON") {
+        if (fieldData.SECTION_TYPE === capitalize(uiComponents.BUTTON.TAG)) {
             console.log("Rendering button: " + fieldData + " with fieldKey '" + fieldKey + "'.");
 
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
