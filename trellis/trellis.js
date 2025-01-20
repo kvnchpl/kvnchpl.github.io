@@ -253,18 +253,26 @@ function renderUISection(containerId, data) {
             return;
         }
 
+        // Get UI component configuration for the field's SECTION_TYPE
         const componentConfig = gameData.UI_COMPONENTS[fieldData.SECTION_TYPE];
         if (!componentConfig) {
             console.warn(`UI component config for '${fieldData.SECTION_TYPE}' not found.`);
             return;
         }
 
+        // Create the main field container
+        const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
+            className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
+        });
+
+        // Create the field label or button
         const element = createElement(componentConfig.TAG, {
             id: fieldData.ID || `${containerId}-${fieldKey}`,
             className: componentConfig.CLASS,
             textContent: fieldData.LABEL || fieldData.DEFAULT_VALUE || "",
         });
 
+        // Special handling for buttons
         if (fieldData.SECTION_TYPE === "BUTTON" && fieldData.ON_CLICK) {
             element.dataset.onClick = fieldData.ON_CLICK;
             element.addEventListener("click", () => {
@@ -277,11 +285,25 @@ function renderUISection(containerId, data) {
             });
         }
 
-        container.appendChild(element);
+        // Append the label or button to the container
+        fieldContainer.appendChild(element);
 
-        // Handle subfields recursively if they exist
+        // Add value element for non-button fields
+        if (fieldData.SECTION_TYPE !== "BUTTON" && fieldData.DEFAULT_VALUE) {
+            const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
+                id: `${fieldData.ID}-value`,
+                className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
+                textContent: fieldData.DEFAULT_VALUE,
+            });
+            fieldContainer.appendChild(valueElement);
+        }
+
+        // Append the entire field container to the main container
+        container.appendChild(fieldContainer);
+
+        // Handle nested subfields, if any
         if (fieldData.SUBFIELDS) {
-            renderSubfields(container, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
+            renderSubfields(fieldContainer, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
         }
     });
 }
