@@ -75,6 +75,8 @@ function initGame() {
         return;
     }
 
+    console.log("Loaded inventory seed game data:", gameData.FIELDS.INVENTORY_SEEDS);
+
     initializeGameData(config);
     initializeGameState(config);
     initializeGrid(config);
