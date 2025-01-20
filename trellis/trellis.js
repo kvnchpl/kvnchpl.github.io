@@ -142,7 +142,7 @@ function initializeUI(uiData) {
 
     trackButtonMutations("closeTutorialBtn");
     trackButtonMutations("nextWeekBtn");
-    trackButtonMutations("resetPlayerBtn");
+    trackButtonMutations("resetPositionBtn");
 
     attachUIEventListeners();
     attachCanvasEventListeners();
