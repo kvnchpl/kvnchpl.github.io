@@ -140,10 +140,6 @@ function initializeUI(uiData) {
         updateUISection(sectionData.CONTAINER, sectionData);
     });
 
-    trackButtonMutations("closeTutorialBtn");
-    trackButtonMutations("nextWeekBtn");
-    trackButtonMutations("resetPositionBtn");
-
     attachUIEventListeners();
     attachCanvasEventListeners();
 
@@ -245,14 +241,13 @@ function renderUISection(containerId, data) {
         }
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
-            console.log("Rendering button with label:", fieldData.LABEL); // Confirm LABEL
+            console.log("Rendering button with label:", fieldData.LABEL);
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL || "Button", // Set LABEL or fallback
+                textContent: fieldData.LABEL || "Button",
             });
         
-            // Attach the click handler
             if (fieldData.ON_CLICK) {
                 button.addEventListener("click", () => {
                     const handler = window[fieldData.ON_CLICK];
@@ -264,7 +259,10 @@ function renderUISection(containerId, data) {
                 });
             }
         
-            container.appendChild(button); // Append button to its container
+            container.appendChild(button);
+        
+            // Add mutation tracking
+            trackButtonMutations(fieldData.ID);
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
             // Handle FIELD_LABEL section type
             const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
@@ -989,6 +987,12 @@ function trackButtonMutations(buttonId) {
     const observer = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
             console.log("Button Mutation Observed:", mutation);
+            console.log("Mutation details:", {
+                mutationType: mutation.type,
+                removedNodes: mutation.removedNodes,
+                addedNodes: mutation.addedNodes,
+                target: mutation.target.outerHTML,
+            });
         }
     });
 
