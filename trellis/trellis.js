@@ -88,7 +88,7 @@ function initGame() {
 function initializeGameData(config) {
     Object.assign(gameData, {
         DAY_START: config.GAME_CONFIG.TIME.START,
-        Day_END: config.GAME_CONFIG.TIME.END,
+        DAY_END: config.GAME_CONFIG.TIME.END,
         TILE_SIZE: config.GAME_CONFIG.GRID.TILE_SIZE,
         GRID_WIDTH: config.GAME_CONFIG.GRID.WIDTH,
         GRID_HEIGHT: config.GAME_CONFIG.GRID.HEIGHT,
@@ -575,7 +575,7 @@ function detachCanvasEventListeners() {
 function advanceTime(minutes) {
     gameState.time.currentTime += minutes;
 
-    if (gameState.time.currentTime >= DAY_END) {
+    if (gameState.time.currentTime >= gameData.DAY_END) {
         skipToNextWeek();
     } else {
         updateTimeDisplay();
@@ -585,7 +585,7 @@ function advanceTime(minutes) {
 
 function skipToNextWeek() {
     gameState.calendar.currentWeek++;
-    gameState.time.currentTime = DAY_START;
+    gameState.time.currentTime = gameData.DAY_START;
 
     updateYearAndSeason();
 
