@@ -178,7 +178,6 @@
             "CATEGORY": "buttonContainer",
             "LABEL": "Skip Week",
             "ID": "nextWeekBtn",
-            "DEFAULT_VALUE": "",
             "ON_CLICK": "skipToNextWeek"
         },
         "RESET_POSITION": {
@@ -186,7 +185,6 @@
             "CATEGORY": "buttonContainer",
             "LABEL": "Reset Position",
             "ID": "resetPositionBtn",
-            "DEFAULT_VALUE": "",
             "ON_CLICK": "resetPlayerPosition"
         },
         "CLOSE_TUTORIAL": {
@@ -194,7 +192,6 @@
             "CATEGORY": "tutorialOverlay",
             "LABEL": "Close Tutorial",
             "ID": "closeTutorialBtn",
-            "DEFAULT_VALUE": "",
             "ON_CLICK": "hideTutorial"
         },
         "TILL": {
