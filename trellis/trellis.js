@@ -250,7 +250,6 @@ function renderUISection(containerId, data) {
     
     data.FIELDS.forEach(fieldKey => {
         const fieldData = gameData.FIELDS[fieldKey];
-        console.log("B) Rendering field with key '" + fieldKey + "'.");
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
