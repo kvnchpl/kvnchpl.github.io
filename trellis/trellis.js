@@ -147,6 +147,11 @@ function initializeGrid(config) {
             return structuredClone(gameData.TILE_TYPES[defaultType]);
         })
     );
+    canvas.width = gameData.GRID_WIDTH * gameData.TILE_SIZE;
+    canvas.height = gameData.GRID_HEIGHT * gameData.TILE_SIZE;
+
+    // Render the grid
+    render();
 }
 
 function initializeUI(uiData) {
