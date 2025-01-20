@@ -129,7 +129,7 @@ function initializeGameState(config) {
 function initializeGrid(config) {
     gameState.grid.tiles = Array.from({ length: gameData.GRID_WIDTH }, () =>
         Array.from({ length: gameData.GRID_WIDTH }, () => {
-            const defaultType = gameData.TILE_TYPES.DEFAULT_TYPE;
+            const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
             return structuredClone(gameData.TILE_TYPES[defaultType]);
         })
     );
