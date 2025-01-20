@@ -533,16 +533,16 @@ function handleKeyDown(e) {
             newX += 1;
             break;
         case keyBindings.HIGHLIGHT_TILE_UP:
-            highlightTile(gameState.grid.highlightedTile.x, gameState.grid.highlightedTile.y - 1);
+            highlightTile(gameState.player.position.x, gameState.player.position.y - 1);
             return;
         case keyBindings.HIGHLIGHT_TILE_DOWN:
-            highlightTile(gameState.grid.highlightedTile.x, gameState.grid.highlightedTile.y + 1);
+            highlightTile(gameState.player.position.x, gameState.player.position.y + 1);
             return;
         case keyBindings.HIGHLIGHT_TILE_LEFT:
-            highlightTile(gameState.grid.highlightedTile.x - 1, gameState.grid.highlightedTile.y);
+            highlightTile(gameState.player.position.x - 1, gameState.player.position.y);
             return;
         case keyBindings.HIGHLIGHT_TILE_RIGHT:
-            highlightTile(gameState.grid.highlightedTile.x + 1, gameState.grid.highlightedTile.y);
+            highlightTile(gameState.player.position.x + 1, gameState.player.position.y);
             return;
         case keyBindings.RESET_HIGHLIGHT:
             highlightTile(gameState.player.position.x, gameState.player.position.y);
