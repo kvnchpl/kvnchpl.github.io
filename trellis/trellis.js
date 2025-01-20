@@ -838,7 +838,7 @@ function tillSoil(tile) {
         return;
     }
     if (capitalize(tile.LABEL) === gameData.TILE_TYPES.EMPTY.LABEL) {
-        tile.LABEL = gameDataTILE_TYPES.PLOT.LABEL;
+        tile.LABEL = gameData.TILE_TYPES.PLOT.LABEL;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
