@@ -91,10 +91,22 @@
         "TILE_CONFIG": {
             "TYPES": {
                 "EMPTY": {
-                    "MOISTURE": 50,
                     "LABEL": "Empty",
                     "COLOR": "--tile-default",
-                    "IS_TILLED": false
+                    "IS_TILLED": false,
+                    "MOISTURE": 50,
+                    "SOIL_NUTRIENTS": {
+                        "NITROGEN": 50,
+                        "PHOSPHORUS": 50,
+                        "POTASSIUM": 50
+                    },
+                    "PLANT_DATA": {
+                        "NAME": "None",
+                        "GROWTH_TIME": 0,
+                        "YIELD": 0
+                    },
+                    "WEED_LEVEL": 0,
+                    "IS_PEST_INFESTED": false
                 },
                 "PLOT": {
                     "LABEL": "Plot",
