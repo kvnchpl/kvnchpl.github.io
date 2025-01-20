@@ -91,6 +91,7 @@
         "TILE_CONFIG": {
             "TYPES": {
                 "EMPTY": {
+                    "MOISTURE": 50,
                     "LABEL": "Empty",
                     "COLOR": "--tile-default",
                     "IS_TILLED": false
