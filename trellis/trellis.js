@@ -692,10 +692,7 @@ function resetPlayerPosition() {
 
 function highlightTile(x, y) {
     if (isTileValid(x, y) && isTileAdjacent(x, y)) {
-        gameState.grid.highlightedTile = {
-            x,
-            y
-        };
+        gameState.grid.highlightedTile = { x, y };
         updateTileStats();
         render();
     } else {
