@@ -255,7 +255,7 @@ function renderUISection(containerId, data) {
             return;
         }
 
-        const sectionType = uiComponents[fieldData.SECTION_TYPE] || uiComponents.BUTTON;
+        const sectionType = uiComponents[fieldData.SECTION_TYPE];
         if (!sectionType) {
             console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
             return;
@@ -264,7 +264,7 @@ function renderUISection(containerId, data) {
         const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
-        console.log("Rendering field with sectionType '" + sectionType.TAG + "'.");
+        console.log("Rendering field with sectionType '" + sectionType + "'.");
         console.dir(fieldData);
         if (fieldData.SECTION_TYPE === uiComponents.BUTTON.TAG) {
 
