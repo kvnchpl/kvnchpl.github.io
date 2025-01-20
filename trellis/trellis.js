@@ -562,6 +562,8 @@ function handleKeyDown(e) {
         gameState.player.position.x = newX;
         gameState.player.position.y = newY;
 
+        gameState.grid.highlightedTile = { x: newX, y: newY };
+
         highlightTile(newX, newY);
         render();
     } else {
