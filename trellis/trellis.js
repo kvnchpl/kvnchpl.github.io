@@ -136,6 +136,7 @@ function initializeGrid(config) {
 }
 
 function initializeUI(uiData) {
+    Object.assign(gameData.UI, uiData);
     Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
         renderUISection(sectionData.CONTAINER, sectionData);
         updateUISection(sectionData.CONTAINER, sectionData);
