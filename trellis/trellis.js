@@ -303,6 +303,8 @@ function renderUISection(containerId, data) {
                     textContent: fieldData.DEFAULT_VALUE,
                 });
                 fieldContainer.appendChild(valueElement);
+            } else {
+                console.warn(`No default value provided for field '${fieldKey}'.`);
             }
         } else {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
