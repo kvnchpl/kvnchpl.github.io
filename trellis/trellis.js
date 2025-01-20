@@ -241,7 +241,6 @@ function renderUISection(containerId, data) {
         }
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
-            console.log("Rendering button with label:", fieldData.LABEL);
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
@@ -261,9 +260,6 @@ function renderUISection(containerId, data) {
             }
 
             container.appendChild(button);
-
-            // Start observing mutations
-            trackButtonMutations(fieldData.ID);
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
             // Handle FIELD_LABEL section type
             const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
@@ -960,25 +956,4 @@ function capitalize(str) {
     }
 
     return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
-function trackButtonMutations(buttonId) {
-    const button = document.getElementById(buttonId);
-    if (!button) {
-        console.error(`Button with ID '${buttonId}' not found.`);
-        return;
-    }
-    const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-            console.log("Mutation observed:", {
-                mutationType: mutation.type,
-                target: mutation.target.outerHTML,
-                parentNode: mutation.target.parentNode.outerHTML,
-                removedNodes: mutation.removedNodes,
-                addedNodes: mutation.addedNodes,
-            });
-        }
-    });
-
-    observer.observe(button, { childList: true, subtree: true, characterData: true });
 }
