@@ -294,7 +294,13 @@ function renderUISection(containerId, data) {
                 button.addEventListener("click", () => {
                     const handler = window[fieldData.ON_CLICK];
                     if (typeof handler === "function") {
-                        handler();
+                        const { x, y } = gameState.grid.highlightedTile;
+                        const tile = gameState.grid.tiles[y]?.[x]; // Safely retrieve the tile
+                        if (!tile) {
+                            console.error("Invalid tile selected.");
+                            return;
+                        }
+                        handler(tile); // Pass the tile to the handler
                     } else {
                         console.error(`Handler function '${fieldData.ON_CLICK}' not found.`);
                     }
@@ -832,7 +838,7 @@ function tillSoil(tile) {
         return;
     }
     if (capitalize(tile.LABEL) === TILE_TYPES.EMPTY.LABEL) {
-        capitalize(tile.LABEL) = TILE_TYPES.PLOT.LABEL;
+        tile.LABEL = TILE_TYPES.PLOT.LABEL;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
