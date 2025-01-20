@@ -242,64 +242,47 @@ function renderUISection(containerId, data) {
         return;
     }
 
-    const uiComponents = gameData.UI_COMPONENTS;
-
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    
-    data.FIELDS.forEach(fieldKey => {
+
+    data.FIELDS.forEach((fieldKey) => {
         const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
         }
 
-        const sectionType = uiComponents[fieldData.SECTION_TYPE];
-        if (!sectionType) {
-            console.warn(`Section type '${fieldData.SECTION_TYPE}' not found for field '${fieldKey}'.`);
+        const componentConfig = gameData.UI_COMPONENTS[fieldData.SECTION_TYPE];
+        if (!componentConfig) {
+            console.warn(`UI component config for '${fieldData.SECTION_TYPE}' not found.`);
             return;
         }
 
-        const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
-            className: uiComponents.FIELD_CONTAINER.CLASS
+        const element = createElement(componentConfig.TAG, {
+            id: fieldData.ID || `${containerId}-${fieldKey}`,
+            className: componentConfig.CLASS,
+            textContent: fieldData.LABEL || fieldData.DEFAULT_VALUE || "",
         });
-        console.log("Rendering field:", fieldData);
-        console.log("With section type:", sectionType);
-        console.log("In container:", container);
-        if (fieldData.SECTION_TYPE === capitalize(uiComponents.BUTTON.TAG)) {
-            const buttonElement = createElement(uiComponents.BUTTON.TAG, {
-                id: fieldData.ID || `${containerId}-${fieldKey}`,
-                className: uiComponents.BUTTON.CLASS,
-                textContent: `${fieldData.LABEL} (${fieldData.TIME_COST || ""})`
+
+        if (fieldData.SECTION_TYPE === "BUTTON" && fieldData.ON_CLICK) {
+            element.dataset.onClick = fieldData.ON_CLICK;
+            element.addEventListener("click", () => {
+                const handler = window[fieldData.ON_CLICK];
+                if (typeof handler === "function") {
+                    handler();
+                } else {
+                    console.error(`Handler function '${fieldData.ON_CLICK}' not found.`);
+                }
             });
-            buttonElement.dataset.onClick = fieldData.ON_CLICK;
-            if (!fieldData.ON_CLICK) {
-                console.error(`No function assigned to button ${fieldData.ID}`);
-            }
-            buttonElement.dataset.onClick = fieldData.ON_CLICK;
-            fieldContainer.appendChild(buttonElement);
-        } else {
-            const labelElement = createElement(uiComponents.FIELD_LABEL.TAG, {
-                className: uiComponents.FIELD_LABEL.CLASS,
-                textContent: `${fieldData.LABEL}: `
-            });
-            fieldContainer.appendChild(labelElement);
-            if (fieldData.SUBFIELDS) {
-                container.appendChild(fieldContainer);
-                renderSubfields(container, fieldData.SUBFIELDS, sectionType, fieldData.DEFAULT_VALUE, 1);
-                return;
-            } else {
-                const valueElement = createElement(uiComponents.FIELD_VALUE.TAG, {
-                    id: fieldData.ID || `${containerId}-${fieldKey}`,
-                    className: uiComponents.FIELD_VALUE.CLASS,
-                    textContent: fieldData.DEFAULT_VALUE
-                });
-                fieldContainer.appendChild(valueElement);
-            }
         }
 
-        container.appendChild(fieldContainer);
+        container.appendChild(element);
+
+        // Handle subfields recursively if they exist
+        if (fieldData.SUBFIELDS) {
+            renderSubfields(container, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
+        }
     });
 }
 
