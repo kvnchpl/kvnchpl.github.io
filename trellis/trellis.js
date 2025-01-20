@@ -248,6 +248,7 @@ function renderUISection(containerId, data) {
                 textContent: fieldData.LABEL || "Button",
             });
         
+            // Attach click handler
             if (fieldData.ON_CLICK) {
                 button.addEventListener("click", () => {
                     const handler = window[fieldData.ON_CLICK];
@@ -261,7 +262,7 @@ function renderUISection(containerId, data) {
         
             container.appendChild(button);
         
-            // Add mutation tracking
+            // Start observing mutations
             trackButtonMutations(fieldData.ID);
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
             // Handle FIELD_LABEL section type
@@ -980,8 +981,7 @@ function trackButtonMutations(buttonId) {
 
     const observer = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
-            console.log("Button Mutation Observed:", mutation);
-            console.log("Mutation details:", {
+            console.log("Mutation observed:", {
                 mutationType: mutation.type,
                 removedNodes: mutation.removedNodes,
                 addedNodes: mutation.addedNodes,
