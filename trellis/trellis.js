@@ -28,7 +28,7 @@ const gameState = {
     player: {
         position: { x: null, y: null },
         inventory: {
-            produce: {},
+            produce: [],
             fertilizer: 0,
             mulch: 0,
         },
