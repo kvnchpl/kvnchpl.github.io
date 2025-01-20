@@ -300,20 +300,6 @@ function renderUISection(containerId, data) {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
         }
     });
-
-    const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-            console.log("Mutation observed:", {
-                mutationType: mutation.type,
-                target: mutation.target.outerHTML,
-                parentNode: mutation.target.parentNode.outerHTML,
-                removedNodes: mutation.removedNodes,
-                addedNodes: mutation.addedNodes,
-            });
-        }
-    });
-
-    observer.observe(button, { childList: true, subtree: true, characterData: true });
 }
 
 function renderSubfields(container, subfields, defaultValues, level = 1) {
@@ -981,4 +967,17 @@ function trackButtonMutations(buttonId) {
         console.error(`Button with ID '${buttonId}' not found.`);
         return;
     }
+    const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            console.log("Mutation observed:", {
+                mutationType: mutation.type,
+                target: mutation.target.outerHTML,
+                parentNode: mutation.target.parentNode.outerHTML,
+                removedNodes: mutation.removedNodes,
+                addedNodes: mutation.addedNodes,
+            });
+        }
+    });
+
+    observer.observe(button, { childList: true, subtree: true, characterData: true });
 }
