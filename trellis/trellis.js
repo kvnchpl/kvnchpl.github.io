@@ -344,23 +344,24 @@ function updateUISection(containerId, data) {
         return;
     }
 
-    data.FIELDS.forEach(fieldKey => {
-        const fieldData = gameData.FIELDS[fieldKey];
-        if (!fieldData) {
-            console.warn(`Field data for key '${fieldKey}' not found.`);
+    Object.entries(data.FIELDS).forEach(([fieldKey, fieldData]) => {
+        const fieldElement = document.getElementById(fieldData.ID);
+        if (!fieldElement) {
+            console.warn(`Field element with ID '${fieldData.ID}' not found.`);
             return;
         }
 
-        let value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
-        if (fieldData.SUBFIELDS) {
-            updateSubfields(fieldData.SUBFIELDS, value);
-        } else {
-            if (typeof value === "object") {
-                console.warn(`Skipping update for field '${fieldData.ID}' because it has subfields.`);
-                return;
+        // Handle button updates
+        if (fieldData.SECTION_TYPE === "BUTTON") {
+            if (fieldData.LABEL) {
+                fieldElement.textContent = fieldData.LABEL; // Always preserve LABEL
             }
-            console.log(`Updating field '${fieldData.ID}' to value:`, value);
-            updateField(fieldData.ID, value);
+        } else {
+            // Update other field types (e.g., FIELD_LABEL)
+            const newValue = fieldData.DEFAULT_VALUE || "";
+            if (newValue !== undefined) {
+                fieldElement.textContent = newValue;
+            }
         }
     });
 }
