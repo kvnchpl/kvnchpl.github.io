@@ -257,7 +257,6 @@ function renderUISection(containerId, data) {
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
             // Handle BUTTON section type
-            console.log("Rendering button:", fieldData);
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
@@ -950,7 +949,9 @@ function createElement(tag, options = {}) {
 
     if (options.id) element.id = options.id;
     if (options.className) element.className = options.className;
-    if (options.textContent) element.textContent = options.textContent;
+    if (options.textContent !== undefined) { // Explicitly check for undefined
+        element.textContent = options.textContent;
+    }
     if (options.attributes) {
         for (const [key, value] of Object.entries(options.attributes)) {
             element.setAttribute(key, value);
