@@ -6,11 +6,11 @@
         "DESCRIPTION": "Configuration file for Trellis game."
     },
     "UI_COMPONENTS": {
-        "buttonContainer": {
+        "BUTTON_CONTAINER": {
             "TAG": "div",
             "CLASS": "button-container"
         },
-        "button": {
+        "BUTTON": {
             "TAG": "button",
             "CLASS": "ui-button"
         },
