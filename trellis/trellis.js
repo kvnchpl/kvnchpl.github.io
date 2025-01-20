@@ -74,7 +74,7 @@ function initGame() {
         console.error("Inventory data is missing.");
         return;
     }
-    
+
     initializeGameData(config);
     initializeGameState(config);
     initializeGrid(config);
@@ -101,6 +101,7 @@ function initializeGameData(config) {
         TILE_STATS: config.TILE_CONFIG.STATS || {},
         ACTIONS: config.ACTIONS,
         PLANT_DATA: config.PLANTS,
+        KEY_BINDINGS: config.KEY_BINDINGS,
     });
 }
 
