@@ -97,7 +97,7 @@ function initializeGameData(config) {
         WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
         REGION_NAME: config.GAME_CONFIG.REGION_NAME,
         PEST_OUTBREAK_CHANCE: config.PEST_OUTBREAK_CHANCE,
-        TILE_TYPE: config.TILE_CONFIG.TYPES,
+        TILE_TYPES: config.TILE_CONFIG.TYPES,
         TILE_STATS: config.TILE_CONFIG.STATS || {},
         ACTIONS: config.ACTIONS,
         PLANT_DATA: config.PLANTS,
@@ -126,10 +126,10 @@ function initializeGameState(config) {
 }
 
 function initializeGrid(config) {
-    gameState.grid.tiles = Array.from({ length: gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT }, () =>
-        Array.from({ length: gameData.CONFIG.GAME_CONFIG.GRID.WIDTH }, () => {
+    gameState.grid.tiles = Array.from({ length: gameData.GRID_WIDTH }, () =>
+        Array.from({ length: gameData.GRID_WIDTH }, () => {
             const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
-            return structuredClone(config.TILE_CONFIG.TYPES[defaultType]);
+            return structuredClone(gameData.TILE_TYPES[defaultType]);
         })
     );
 }
@@ -180,7 +180,7 @@ function drawGrid(context) {
         for (let col = 0; col < gameData.GRID_WIDTH; col++) {
             const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
-            const tileType = gameData.TILE_TYPE[tile.TYPE.VALUE];
+            const tileType = gameData.TILE_TYPES[tile.TYPE.VALUE];
 
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
@@ -779,8 +779,8 @@ function handleTileAction(action, tile, params = {}) {
 }
 
 function tillSoil(tile) {
-    if (tile.TYPE.VALUE === TILE_TYPE.EMPTY) {
-        tile.TYPE.VALUE = TILE_TYPE.PLOT;
+    if (tile.TYPE.VALUE === TILE_TYPES.EMPTY) {
+        tile.TYPE.VALUE = TILE_TYPES.PLOT;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
@@ -851,8 +851,8 @@ function harvestPlant(tile) {
 }
 
 function clearPlot(tile) {
-    if (tile.TYPE.VALUE === TILE_TYPE.PLOT) {
-        tile.TYPE.VALUE = TILE_TYPE.EMPTY;
+    if (tile.TYPE.VALUE === TILE_TYPES.PLOT) {
+        tile.TYPE.VALUE = TILE_TYPES.EMPTY;
         tile.IS_TILLED = false;
         tile.PLANT_DATA.VALUE = null;
         advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
