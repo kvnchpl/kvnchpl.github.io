@@ -959,7 +959,7 @@ function isTileAdjacent(x, y) {
     console.log(`Comparing player position: (${gameState.player.position.x}, ${gameState.player.position.y}) with tile: (${x}, ${y})`);
     const delta = Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y);
     console.log("Calculated delta:", delta);
-    return delta;
+    return delta <= 1;
 }
 
 function safeGet(obj, path, defaultValue = undefined) {
