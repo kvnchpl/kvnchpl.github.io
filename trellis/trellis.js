@@ -346,8 +346,6 @@ function updateUISection(containerId, data) {
         return;
     }
 
-    console.log(`A) Updating UI section: '${containerId}' with data:`, data);
-
     data.FIELDS.forEach(fieldKey => {
         const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
@@ -356,8 +354,6 @@ function updateUISection(containerId, data) {
         }
 
         let value = gameState[fieldKey] ?? fieldData.DEFAULT_VALUE;
-        console.log(`B) Updating field '${fieldData.ID}' with value:`, value);
-
         if (fieldData.SUBFIELDS) {
             updateSubfields(fieldData.SUBFIELDS, value);
         } else {
