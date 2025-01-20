@@ -173,6 +173,86 @@
         }
     },
     "FIELDS": {
+        "NEXT_WEEK": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "BUTTON_CONTAINER",
+            "LABEL": "Skip Week",
+            "ID": "nextWeekBtn",
+            "DEFAULT_VALUE": "",
+            "ON_CLICK": "skipToNextWeek"
+        },
+        "RESET_POSITION": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "BUTTON_CONTAINER",
+            "LABEL": "Reset Position",
+            "ID": "resetPositionBtn",
+            "DEFAULT_VALUE": "",
+            "ON_CLICK": "resetPlayerPosition"
+        },
+        "CLOSE_TUTORIAL": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "TUTORIAL",
+            "LABEL": "Close Tutorial",
+            "ID": "closeTutorialBtn",
+            "DEFAULT_VALUE": "",
+            "ON_CLICK": "hideTutorial"
+        },
+        "TILL": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Till",
+            "ID": "tillBtn",
+            "ON_CLICK": "tillSoil"
+        },
+        "FERTILIZE": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Fertilize",
+            "ID": "fertilizeBtn",
+            "ON_CLICK": "fertilizeTile"
+        },
+        "PLANT": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Plant",
+            "ID": "plantBtn",
+            "ON_CLICK": "plantSeed"
+        },
+        "WATER": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Water",
+            "ID": "waterBtn",
+            "ON_CLICK": "waterTile"
+        },
+        "MULCH": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Mulch",
+            "ID": "mulchBtn",
+            "ON_CLICK": "mulchTile"
+        },
+        "WEED": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Weed",
+            "ID": "weedBtn",
+            "ON_CLICK": "weedTile"
+        },
+        "HARVEST": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Harvest",
+            "ID": "harvestBtn",
+            "ON_CLICK": "harvestPlant"
+        },
+        "CLEAR": {
+            "SECTION_TYPE": "BUTTON",
+            "CATEGORY": "ACTIONS_CONTAINER",
+            "LABEL": "Clear",
+            "ID": "clearBtn",
+            "ON_CLICK": "clearPlot"
+        },
         "TIME": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "GLOBAL_STATS",
@@ -284,7 +364,7 @@
                 }
             }
         },
-        "SEEDS": {
+        "INVENTORY_SEEDS": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Seeds",
@@ -292,7 +372,7 @@
             "DEFAULT_VALUE": 0,
             "FORMAT": "{SEEDS}"
         },
-        "PRODUCE": {
+        "INVENTORY_PRODUCE": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Produce",
@@ -300,7 +380,7 @@
             "DEFAULT_VALUE": 0,
             "FORMAT": "{PRODUCE}"
         },
-        "FERTILIZER": {
+        "INVENTORY_FERTILIZER": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Fertilizer",
@@ -308,37 +388,13 @@
             "DEFAULT_VALUE": 0,
             "FORMAT": "{FERTILIZER}"
         },
-        "MULCH": {
+        "INVENTORY_MULCH": {
             "SECTION_TYPE": "FIELDS",
             "CATEGORY": "INVENTORY",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
             "DEFAULT_VALUE": 0,
             "FORMAT": "{MULCH}"
-        },
-        "NEXT_WEEK": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "BUTTON_CONTAINER",
-            "LABEL": "Skip Week",
-            "ID": "nextWeekBtn",
-            "DEFAULT_VALUE": "",
-            "ON_CLICK": "skipToNextWeek"
-        },
-        "RESET_POSITION": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "BUTTON_CONTAINER",
-            "LABEL": "Reset Position",
-            "ID": "resetPositionBtn",
-            "DEFAULT_VALUE": "",
-            "ON_CLICK": "resetPlayerPosition"
-        },
-        "CLOSE_TUTORIAL": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "TUTORIAL",
-            "LABEL": "Close Tutorial",
-            "ID": "closeTutorialBtn",
-            "DEFAULT_VALUE": "",
-            "ON_CLICK": "hideTutorial"
         }
     },
     "UI": {
