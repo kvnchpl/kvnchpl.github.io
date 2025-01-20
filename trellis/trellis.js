@@ -147,8 +147,8 @@ function initializeGrid(config) {
             return structuredClone(gameData.TILE_TYPES[defaultType]);
         })
     );
-    canvas.width = gameData.GRID_WIDTH * gameData.TILE_SIZE;
-    canvas.height = gameData.GRID_HEIGHT * gameData.TILE_SIZE;
+
+    
 
     // Render the grid
     render();
@@ -179,6 +179,9 @@ function initializeInventory(inventoryData) {
 function render() {
     const canvas = document.getElementById("gameCanvas");
     const ctx = canvas.getContext("2d");
+
+    canvas.width = gameData.GRID_WIDTH * gameData.TILE_SIZE;
+    canvas.height = gameData.GRID_HEIGHT * gameData.TILE_SIZE;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawGrid(ctx);
