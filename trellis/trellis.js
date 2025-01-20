@@ -304,6 +304,9 @@ function renderUISection(containerId, data) {
                     className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE,
                 });
+                if (!valueElement) {
+                    console.error(`Failed to create value element for field '${fieldData.ID}'.`);
+                }
                 fieldContainer.appendChild(valueElement);
             } else {
                 console.warn(`No default value provided for field '${fieldKey}'.`);
