@@ -331,17 +331,14 @@
             "SUBFIELDS": {
                 "NITROGEN": {
                     "LABEL": "Nitrogen",
-                    "ID": "tileSoilNutrients-Nitrogen",
                     "DEFAULT_VALUE": 50
                 },
                 "PHOSPHORUS": {
                     "LABEL": "Phosphorus",
-                    "ID": "tileSoilNutrients-Phosphorus",
                     "DEFAULT_VALUE": 50
                 },
                 "POTASSIUM": {
                     "LABEL": "Potassium",
-                    "ID": "tileSoilNutrients-Potassium",
                     "DEFAULT_VALUE": 50
                 }
             }
@@ -351,14 +348,48 @@
             "CATEGORY": "inventory",
             "LABEL": "Seeds",
             "ID": "inventorySeeds",
-            "DEFAULT_VALUE": 0
+            "SUBFIELDS": {
+                "TOMATO": {
+                    "LABEL": "Tomato",
+                    "DEFAULT_VALUE": 5
+                },
+                "KALE": {
+                    "LABEL": "Kale",
+                    "DEFAULT_VALUE": 5
+                },
+                "CORN": {
+                    "LABEL": "Corn",
+                    "DEFAULT_VALUE": 3
+                },
+                "BEANS": {
+                    "LABEL": "Beans",
+                    "DEFAULT_VALUE": 2
+                }
+            }
         },
         "INVENTORY_PRODUCE": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CATEGORY": "inventory",
             "LABEL": "Produce",
             "ID": "inventoryProduce",
-            "DEFAULT_VALUE": 0
+            "SUBFIELDS": {
+                "TOMATO": {
+                    "LABEL": "Tomato",
+                    "DEFAULT_VALUE": 0
+                },
+                "KALE": {
+                    "LABEL": "Kale",
+                    "DEFAULT_VALUE": 0
+                },
+                "CORN": {
+                    "LABEL": "Corn",
+                    "DEFAULT_VALUE": 0
+                },
+                "BEANS": {
+                    "LABEL": "Beans",
+                    "DEFAULT_VALUE": 0
+                }
+            }
         },
         "INVENTORY_FERTILIZER": {
             "SECTION_TYPE": "FIELD_LABEL",

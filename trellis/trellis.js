@@ -12,18 +12,19 @@ const gameState = {
         currentSeason: "Winter",
     },
     grid: {
-        tiles: [], // 2D array of tiles
+        tiles: [],
         highlightedTile: { x: null, y: null },
     },
     player: {
         position: { x: null, y: null },
         inventory: {
-            seeds: { tomato: 5, kale: 5, corn: 3, beans: 2 },
-            fertilizer: 2,
-            mulch: 5,
+            seeds: {},
+            produce: {},
+            fertilizer: 0,
+            mulch: 0,
         },
     },
-    scores: {
+    score: {
         biodiversity: 0,
     },
 };
@@ -636,8 +637,8 @@ function updateBiodiversity() {
         }
     }
 
-    gameState.scores.biodiversity = typesFound.size;
-    return gameState.scores.biodiversity;
+    gameState.score.biodiversity = typesFound.size;
+    return gameState.score.biodiversity;
 }
 
 /* PLAYER MOVEMENT & CONTROLS */
@@ -761,7 +762,7 @@ function updateWeekDisplay() {
 
 function updateBiodiversityDisplay() {
     const biodiversityField = gameData.FIELDS.BIODIVERSITY;
-    updateField(biodiversityField.ID, gameState.scores.biodiversity);
+    updateField(biodiversityField.ID, gameState.score.biodiversity);
 }
 
 /* PLAYER ACTIONS */
