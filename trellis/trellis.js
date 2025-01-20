@@ -295,17 +295,22 @@ function renderUISection(containerId, data) {
                 textContent: fieldData.DEFAULT_VALUE, // Use DEFAULT_VALUE for the value text
             });
 
-            // Append label and value to the field container
             fieldContainer.appendChild(labelElement);
-            fieldContainer.appendChild(valueElement);
 
-            // Append the field container to the main container
-            container.appendChild(fieldContainer);
-
-            // Handle nested subfields, if any
             if (fieldData.SUBFIELDS) {
+                // Render subfields instead of a single value
                 renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, 1);
+            } else {
+                // Render the default value if there are no subfields
+                const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
+                    id: fieldData.ID || `${containerId}-${fieldKey}`,
+                    className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
+                    textContent: fieldData.DEFAULT_VALUE,
+                });
+                fieldContainer.appendChild(valueElement);
             }
+
+            container.appendChild(fieldContainer);
         }
 
         // Handle unknown section types
