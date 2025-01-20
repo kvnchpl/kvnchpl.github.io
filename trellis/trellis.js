@@ -359,6 +359,7 @@ function updateUISection(containerId, data) {
                 console.warn(`Skipping update for field '${fieldData.ID}' because it has subfields.`);
                 return;
             }
+            console.log(`Updating field '${fieldData.ID}' to value:`, value);
             updateField(fieldData.ID, value);
         }
     });
