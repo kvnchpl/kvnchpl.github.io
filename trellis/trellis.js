@@ -304,7 +304,7 @@ function renderUISection(containerId, data) {
 
             // Handle nested subfields, if any
             if (fieldData.SUBFIELDS) {
-                renderSubfields(fieldContainer, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
+                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, 1);
             }
         }
 
