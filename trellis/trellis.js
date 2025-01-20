@@ -693,13 +693,8 @@ function resetPlayerPosition() {
 }
 
 function highlightTile(x, y) {
-    if (!isTileValid(x, y)) {
+    if (!isTileValid(x, y) || !isTileAdjacent(x, y)) {  
         console.log("Cannot highlight tile at:", { x, y });
-        return;
-    }
-
-    if (!isTileAdjacent(x, y)) {
-        console.log("Cannot highlight tile at:", { x, y }, "as it is not adjacent.");
         return;
     }
 
@@ -954,10 +949,7 @@ function isTileValid(x, y) {
 }
 
 function isTileAdjacent(x, y) {
-    console.log(`Comparing player position: (${gameState.player.position.x}, ${gameState.player.position.y}) with tile: (${x}, ${y})`);
-    const delta = Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y);
-    console.log("Calculated delta:", delta);
-    return delta <= 1;
+    return Math.abs(gameState.player.position.x - x) + Math.abs(gameState.player.position.y - y) <= 1;
 }
 
 function safeGet(obj, path, defaultValue = undefined) {
