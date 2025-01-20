@@ -75,24 +75,10 @@ function initGame() {
         return;
     }
 
-    // Initialize core components
     initializeGameData(config);
     initializeGameState(config);
 
-    // Initialize grid and ensure rendering is triggered
     initializeGrid(config);
-    if (gameState.grid.tiles.length === 0) {
-        console.error("Grid failed to initialize.");
-        return;
-    }
-
-    console.log("Grid initialized:", gameState.grid);
-    
-    const canvas = document.getElementById("gameCanvas");
-    if (!canvas) {
-        console.error("Canvas not found.");
-        return;
-    }
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
@@ -148,9 +134,6 @@ function initializeGrid(config) {
         })
     );
 
-    
-
-    // Render the grid
     render();
 }
 
@@ -178,7 +161,15 @@ function initializeInventory(inventoryData) {
 
 function render() {
     const canvas = document.getElementById("gameCanvas");
+    if (!canvas) {
+        console.error("Canvas not found.");
+        return;
+    }
     const ctx = canvas.getContext("2d");
+    if (!ctx) {
+        console.error("Failed to get canvas rendering context.");
+        return;
+    }
 
     canvas.width = gameData.GRID_WIDTH * gameData.TILE_SIZE;
     canvas.height = gameData.GRID_HEIGHT * gameData.TILE_SIZE;
