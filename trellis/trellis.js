@@ -264,6 +264,9 @@ function renderUISection(containerId, data) {
         const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
+        console.log("Rendering field:", fieldData);
+        console.log("With section type:", sectionType);
+        console.log("In field container:", fieldContainer);
         if (fieldData.SECTION_TYPE === uiComponents.BUTTON.TAG) {
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
