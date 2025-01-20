@@ -812,7 +812,7 @@ function handleTileAction(action, tile, params = {}) {
         return;
     }
 
-    const functionName = actionConfig.ON_CLICK;
+    const functionName = actionConfig.FUNCTION;
     const functionParams = actionConfig.PARAMS || {};
     const timeCost = actionConfig.TIME_COST;
 
