@@ -260,7 +260,7 @@ function renderUISection(containerId, data) {
         if (fieldData.SECTION_TYPE === "BUTTON") {
             // Handle BUTTON section type
             const button = createElement("button", {
-                id: fieldData.ID || `${containerId}-${fieldKey}`,
+                id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
                 textContent: fieldData.LABEL || "Button", // Set LABEL as button text
             });
@@ -301,7 +301,7 @@ function renderUISection(containerId, data) {
                 // Render the default value if no subfields exist
                 console.log("Rendering default value for field:", fieldData.DEFAULT_VALUE);
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
-                    id: fieldData.ID || `${containerId}-${fieldKey}`,
+                    id: fieldData.ID,
                     className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE,
                 });
