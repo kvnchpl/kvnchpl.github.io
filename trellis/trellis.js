@@ -521,16 +521,16 @@ function handleKeyDown(e) {
 
     switch (e.key) {
         case keyBindings.PLAYER_MOVE_UP:
-            newY = gameState.player.position.y - 1;
+            newY -= 1;
             break;
         case keyBindings.PLAYER_MOVE_DOWN:
-            newY = gameState.player.position.y + 1;
+            newY += 1;
             break;
         case keyBindings.PLAYER_MOVE_LEFT:
-            newX = gameState.player.position.x - 1;
+            newX -= 1;
             break;
         case keyBindings.PLAYER_MOVE_RIGHT:
-            newX = gameState.player.position.x + 1;
+            newX += 1;
             break;
         case keyBindings.HIGHLIGHT_TILE_UP:
             highlightTile(gameState.grid.highlightedTile.x, gameState.grid.highlightedTile.y - 1);
@@ -558,23 +558,14 @@ function handleKeyDown(e) {
             break;
     }
 
-    if (newX !== gameState.player.position.x || newY !== gameState.player.position.y) {
-        if (
-            newX >= 0 &&
-            newX < gameState.grid.width &&
-            newY >= 0 &&
-            newY < gameState.grid.height &&
-            gameState.grid.tiles[newY][newX].TYPE.VALUE !== gameState.tileType.PLOT
-        ) {
-            gameState.player.position.x = newX;
-            gameState.player.position.y = newY;
+    if (isTileValid(newX, newY)) {
+        gameState.player.position.x = newX;
+        gameState.player.position.y = newY;
 
-            highlightTile(gameState.player.position.x, gameState.player.position.y);
-
-            render();
-        } else {
-            console.log("Cannot move onto this tile!");
-        }
+        highlightTile(newX, newY);
+        render();
+    } else {
+        console.log("Cannot move onto this tile!");
     }
 }
 
