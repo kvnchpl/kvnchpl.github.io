@@ -182,7 +182,7 @@ function drawGrid(context) {
         for (let col = 0; col < gameData.GRID_WIDTH; col++) {
             const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
-            const tileType = gameData.TILE_TYPES[tile.TYPE.VALUE];
+            const tileType = gameData.TILE_TYPES[capitalize(tile.LABEL)];
 
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
@@ -781,8 +781,8 @@ function handleTileAction(action, tile, params = {}) {
 }
 
 function tillSoil(tile) {
-    if (tile.TYPE.VALUE === TILE_TYPES.EMPTY) {
-        tile.TYPE.VALUE = TILE_TYPES.PLOT;
+    if (capitalize(tile.LABEL) === TILE_TYPES.EMPTY) {
+        capitalize(tile.LABEL) = TILE_TYPES.PLOT;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
@@ -853,8 +853,8 @@ function harvestPlant(tile) {
 }
 
 function clearPlot(tile) {
-    if (tile.TYPE.VALUE === TILE_TYPES.PLOT) {
-        tile.TYPE.VALUE = TILE_TYPES.EMPTY;
+    if (capitalize(tile.LABEL) === TILE_TYPES.PLOT) {
+        capitalize(tile.LABEL) = TILE_TYPES.EMPTY;
         tile.IS_TILLED = false;
         tile.PLANT_DATA.VALUE = null;
         advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
