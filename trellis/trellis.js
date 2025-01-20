@@ -973,8 +973,8 @@ function hideTutorial() {
 /* UTILITY ON_CLICKS */
 
 function getTargetTile() {
-    const { x, y } = gameState.highlightedTile.x !== null ?
-        gameState.highlightedTile : gameState.player;
+    const { x, y } = gameState.grid.highlightedTile.x !== null ?
+        gameState.grid.highlightedTile : gameState.player;
     if (x === null || y === null) {
         console.error("Target tile coordinates are invalid:", { x, y });
         return null;
