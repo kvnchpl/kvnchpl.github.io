@@ -264,9 +264,9 @@ function renderUISection(containerId, data) {
         const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
-
+        console.log("Rendering field with sectionType '" + sectionType.TAG + "'.");
+        console.dir(fieldData);
         if (fieldData.SECTION_TYPE === capitalize(uiComponents.BUTTON.TAG)) {
-            console.log("Rendering button: " + fieldData + " with fieldKey '" + fieldKey + "'.");
 
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
