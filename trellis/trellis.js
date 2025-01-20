@@ -826,6 +826,10 @@ function handleTileAction(action, tile, params = {}) {
 }
 
 function tillSoil(tile) {
+    if (!tile) {
+        console.error("Invalid tile provided to tillSoil.");
+        return;
+    }
     if (capitalize(tile.LABEL) === TILE_TYPES.EMPTY.LABEL) {
         capitalize(tile.LABEL) = TILE_TYPES.PLOT.LABEL;
         tile.IS_TILLED = true;
