@@ -179,6 +179,7 @@ function render() {
 }
 
 function drawGrid(context) {
+    // Get tile styles from CSS variables
     const tileStyles = {
         default: getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim(),
         moistureHigh: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim(),
@@ -188,43 +189,66 @@ function drawGrid(context) {
         plantYoung: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim(),
         highlight: getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim(),
         player: getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim(),
-        border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
+        border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim(),
     };
-
-    console.log("Tile styles:", tileStyles);
 
     for (let row = 0; row < gameData.GRID_HEIGHT; row++) {
         for (let col = 0; col < gameData.GRID_WIDTH; col++) {
             const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
-            const tileType = gameData.TILE_TYPES[capitalize(tile.LABEL)];
 
+            const tileType = gameData.TILE_TYPES[tile.LABEL];
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
             }
-            if (tile.MOISTURE.VALUE > 70) {
+            if (tile.MOISTURE?.VALUE > 70) {
                 tileColor = tileStyles.moistureHigh;
-            } else if (tile.MOISTURE.VALUE < 30) {
+            } else if (tile.MOISTURE?.VALUE < 30) {
                 tileColor = tileStyles.moistureLow;
             }
             if (tile.IS_TILLED) {
                 tileColor = tileStyles.tilled;
             }
-            if (tile.PLANT_DATA.VALUE) {
-                tileColor = tile.PLANT_DATA.VALUE.IS_MATURE ? tileStyles.plantMature : tileStyles.plantYoung;
+            if (tile.PLANT_DATA?.VALUE) {
+                tileColor = tile.PLANT_DATA.VALUE.IS_MATURE
+                    ? tileStyles.plantMature
+                    : tileStyles.plantYoung;
             }
 
             context.fillStyle = tileColor;
-            context.fillRect(col * gameState.grid.tileSize, row * gameState.grid.tileSize, gameState.grid.tileSize, gameState.grid.tileSize);
+            context.fillRect(
+                col * gameData.TILE_SIZE,
+                row * gameData.TILE_SIZE,
+                gameData.TILE_SIZE,
+                gameData.TILE_SIZE
+            );
 
-            context.strokeStyle = (row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x) ? tileStyles.highlight : tileStyles.border;
-            context.lineWidth = (row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x) ? 3 : 1;
-            context.strokeRect(col * gameState.grid.tileSize, row * gameState.grid.tileSize, gameState.grid.tileSize, gameState.grid.tileSize);
+            context.strokeStyle =
+                row === gameState.grid.highlightedTile.y &&
+                    col === gameState.grid.highlightedTile.x
+                    ? tileStyles.highlight
+                    : tileStyles.border;
+            context.lineWidth =
+                row === gameState.grid.highlightedTile.y &&
+                    col === gameState.grid.highlightedTile.x
+                    ? 3
+                    : 1;
+            context.strokeRect(
+                col * gameData.TILE_SIZE,
+                row * gameData.TILE_SIZE,
+                gameData.TILE_SIZE,
+                gameData.TILE_SIZE
+            );
 
             if (row === gameState.player.position.y && col === gameState.player.position.x) {
                 context.strokeStyle = tileStyles.player;
                 context.lineWidth = 3;
-                context.strokeRect(col * gameState.grid.tileSize + 1, row * gameState.grid.tileSize + 1, gameState.grid.tileSize - 2, gameState.grid.tileSize - 2);
+                context.strokeRect(
+                    col * gameData.TILE_SIZE + 1,
+                    row * gameData.TILE_SIZE + 1,
+                    gameData.TILE_SIZE - 2,
+                    gameData.TILE_SIZE - 2
+                );
             }
         }
     }
@@ -976,7 +1000,7 @@ function createElement(tag, options = {}) {
             element.setAttribute(key, value);
         }
     }
-    
+
     return element;
 }
 
