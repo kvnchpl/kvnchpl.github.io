@@ -633,15 +633,29 @@ function resetPlayerPosition() {
         return;
     }
 
-    gameState.player.position.x = Math.floor(gameState.grid.width / 2);
-    gameState.player.position.y = Math.floor(gameState.grid.height / 2);
+    const gridWidth = gameData.GRID_WIDTH;
+    const gridHeight = gameData.GRID_HEIGHT;
 
-    gameState.grid.highlightedTile = {
-        x: gameState.player.position.x,
-        y: gameState.player.position.y
-    };
+    // Ensure positions are within bounds
+    gameState.player.position.x = Math.floor(gridWidth / 2) || 0;
+    gameState.player.position.y = Math.floor(gridHeight / 2) || 0;
 
-    highlightTile(gameState.player.position.x, gameState.player.position.y);
+    const { x, y } = gameState.player.position;
+
+    if (x < 0 || x >= gridWidth || y < 0 || y >= gridHeight) {
+        console.error(`Invalid player position after reset: (${x}, ${y})`);
+        return;
+    }
+
+    gameState.grid.highlightedTile = { x, y };
+
+    const tile = gameState.grid.tiles[y]?.[x];
+    if (!tile) {
+        console.error(`Highlighted tile at (${x}, ${y}) is invalid.`);
+        return;
+    }
+
+    highlightTile(x, y);
     updateTileStats();
     render();
 }
