@@ -294,7 +294,7 @@ function renderUISection(containerId, data) {
             // Render subfields if they exist
             if (fieldData.SUBFIELDS) {
                 renderSubfields(container, fieldData.SUBFIELDS, 1);
-            } else if (fieldData.DEFAULT_VALUE) {
+            } else if (fieldData.DEFAULT_VALUE !== undefined) {
                 // Render the default value if no subfields exist
                 console.log("Rendering default value for field:", fieldData.DEFAULT_VALUE);
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
