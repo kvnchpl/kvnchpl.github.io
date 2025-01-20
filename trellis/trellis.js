@@ -270,12 +270,13 @@ function renderUISection(containerId, data) {
             containerId === gameData.UI.BUTTON_CONTAINER.CONTAINER ||
             containerId === gameData.UI.ACTIONS_CONTAINER.CONTAINER
         ) {
+            console.log("Rendering button:", fieldData);
+
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: uiComponents.BUTTON.CLASS,
                 textContent: `${fieldData.LABEL} (${fieldData.TIME_COST || ""})`
             });
-            console.log("Rendering button:", fieldData);
             buttonElement.dataset.onClick = fieldData.ON_CLICK;
             if (!fieldData.ON_CLICK) {
                 console.error(`No function assigned to button ${fieldData.ID}`);
