@@ -565,7 +565,15 @@ function handleKeyDown(e) {
             break;
     }
 
-    if (isTileValid(newX, newY) && isTileAdjacent(newX, newY)) {
+    if (isTileValid(newX, newY)) {
+        const targetTile = gameState.grid.tiles[newY]?.[newX];
+
+        // Prevent movement onto a PLOT
+        if (targetTile?.TYPE === gameData.TILE_TYPES.PLOT.TYPE) {
+            console.log("Cannot move onto a PLOT tile.");
+            return;
+        }
+
         gameState.player.position.x = newX;
         gameState.player.position.y = newY;
 
