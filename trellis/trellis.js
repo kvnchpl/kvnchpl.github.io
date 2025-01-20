@@ -256,7 +256,7 @@ function renderUISection(containerId, data) {
         }
 
         if (fieldData.SECTION_TYPE === "BUTTON") {
-            console.log("Rendering button with label:", fieldData.LABEL);
+            console.log("A) Rendering button with label:", fieldData.LABEL);
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
@@ -947,7 +947,7 @@ function createAndAppendElement(container, tagName, options = {}) {
 function createElement(tag, options = {}) {
     const element = document.createElement(tag);
 
-    console.log(`Creating element with tag: ${tag} and options:`, options);
+    console.log(`B) Creating element with tag: ${tag} and options:`, options);
     if (options.id) element.id = options.id;
     if (options.className) element.className = options.className;
     if (options.textContent !== undefined) { // Explicitly check for undefined
