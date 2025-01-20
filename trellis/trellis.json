@@ -171,161 +171,161 @@
     "FIELDS": {
         "NEXT_WEEK": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "buttonContainer",
+            "CONTAINER": "buttonContainer",
             "LABEL": "Skip Week",
             "ID": "nextWeekBtn",
             "ON_CLICK": "skipToNextWeek"
         },
         "RESET_POSITION": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "buttonContainer",
+            "CONTAINER": "buttonContainer",
             "LABEL": "Reset Position",
             "ID": "resetPositionBtn",
             "ON_CLICK": "resetPlayerPosition"
         },
         "CLOSE_TUTORIAL": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "tutorialOverlay",
+            "CONTAINER": "tutorialOverlay",
             "LABEL": "Close Tutorial",
             "ID": "closeTutorialBtn",
             "ON_CLICK": "hideTutorial"
         },
         "TILL": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Till",
             "ID": "tillBtn",
             "ON_CLICK": "tillSoil"
         },
         "FERTILIZE": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Fertilize",
             "ID": "fertilizeBtn",
             "ON_CLICK": "fertilizeTile"
         },
         "PLANT": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Plant",
             "ID": "plantBtn",
             "ON_CLICK": "plantSeed"
         },
         "WATER": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Water",
             "ID": "waterBtn",
             "ON_CLICK": "waterTile"
         },
         "MULCH": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Mulch",
             "ID": "mulchBtn",
             "ON_CLICK": "mulchTile"
         },
         "WEED": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Weed",
             "ID": "weedBtn",
             "ON_CLICK": "weedTile"
         },
         "HARVEST": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Harvest",
             "ID": "harvestBtn",
             "ON_CLICK": "harvestPlant"
         },
         "CLEAR": {
             "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "actionsContainer",
+            "CONTAINER": "actionsContainer",
             "LABEL": "Clear",
             "ID": "clearBtn",
             "ON_CLICK": "clearPlot"
         },
         "TIME": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "globalStats",
+            "CONTAINER": "globalStats",
             "LABEL": "Time",
             "ID": "timeDisplay",
             "DEFAULT_VALUE": "7:00 AM"
         },
         "WEEK": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "globalStats",
+            "CONTAINER": "globalStats",
             "LABEL": "Week",
             "ID": "weekDisplay",
             "DEFAULT_VALUE": "1"
         },
         "YEAR": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "globalStats",
+            "CONTAINER": "globalStats",
             "LABEL": "Year",
             "ID": "yearDisplay",
             "DEFAULT_VALUE": "1"
         },
         "SEASON": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "globalStats",
+            "CONTAINER": "globalStats",
             "LABEL": "Season",
             "ID": "seasonDisplay",
             "DEFAULT_VALUE": "Winter"
         },
         "BIODIVERSITY": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "globalStats",
+            "CONTAINER": "globalStats",
             "LABEL": "Biodiversity",
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
         },
         "TILE_TYPE": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Type",
             "ID": "tileType",
             "DEFAULT_VALUE": "Empty"
         },
         "TILE_IS_TILLED": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Tilled",
             "ID": "tileIsTilled",
             "DEFAULT_VALUE": "False"
         },
         "TILE_PLANT": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Plant",
             "ID": "tilePlant",
             "DEFAULT_VALUE": "None"
         },
         "TILE_WEED_LEVEL": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Weed Level",
             "ID": "tileWeedLevel",
             "DEFAULT_VALUE": "0"
         },
         "TILE_MOISTURE": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Moisture",
             "ID": "tileMoisture",
             "DEFAULT_VALUE": "50"
         },
         "TILE_MOISTURE_DECAY": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Moisture Decay Rate",
             "ID": "tileMoistureDecay",
             "DEFAULT_VALUE": "2"
         },
         "TILE_SOIL_NUTRIENTS": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "tileStats",
+            "CONTAINER": "tileStats",
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "SUBFIELDS": {
@@ -345,7 +345,7 @@
         },
         "INVENTORY_SEEDS": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "inventory",
+            "CONTAINER": "inventory",
             "LABEL": "Seeds",
             "ID": "inventorySeeds",
             "SUBFIELDS": {
@@ -369,7 +369,7 @@
         },
         "INVENTORY_PRODUCE": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "inventory",
+            "CONTAINER": "inventory",
             "LABEL": "Produce",
             "ID": "inventoryProduce",
             "SUBFIELDS": {
@@ -393,14 +393,14 @@
         },
         "INVENTORY_FERTILIZER": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "inventory",
+            "CONTAINER": "inventory",
             "LABEL": "Fertilizer",
             "ID": "inventoryFertilizer",
             "DEFAULT_VALUE": 0
         },
         "INVENTORY_MULCH": {
             "SECTION_TYPE": "FIELD_LABEL",
-            "CATEGORY": "inventory",
+            "CONTAINER": "inventory",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
             "DEFAULT_VALUE": 0
