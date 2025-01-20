@@ -14,10 +14,6 @@
             "TAG": "button",
             "CLASS": "ui-button"
         },
-        "LABEL": {
-            "TAG": "span",
-            "CLASS": "field-label"
-        },
         "FIELD_CONTAINER": {
             "TAG": "div",
             "CLASS": "field-container"
