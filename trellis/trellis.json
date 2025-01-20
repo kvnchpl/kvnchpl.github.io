@@ -331,14 +331,17 @@
             "SUBFIELDS": {
                 "NITROGEN": {
                     "LABEL": "Nitrogen",
+                    "ID": "nutrientsNitrogen",
                     "DEFAULT_VALUE": 50
                 },
                 "PHOSPHORUS": {
                     "LABEL": "Phosphorus",
+                    "ID": "nutrientsPhosphorus",
                     "DEFAULT_VALUE": 50
                 },
                 "POTASSIUM": {
                     "LABEL": "Potassium",
+                    "ID": "nutrientsPotassium",
                     "DEFAULT_VALUE": 50
                 }
             }
@@ -351,18 +354,22 @@
             "SUBFIELDS": {
                 "TOMATO": {
                     "LABEL": "Tomato",
+                    "ID": "seedsTomato",
                     "DEFAULT_VALUE": 5
                 },
                 "KALE": {
                     "LABEL": "Kale",
+                    "ID": "seedsKale",
                     "DEFAULT_VALUE": 5
                 },
                 "CORN": {
                     "LABEL": "Corn",
+                    "ID": "seedsCorn",
                     "DEFAULT_VALUE": 3
                 },
                 "BEANS": {
                     "LABEL": "Beans",
+                    "ID": "seedsBeans",
                     "DEFAULT_VALUE": 2
                 }
             }
@@ -375,18 +382,22 @@
             "SUBFIELDS": {
                 "TOMATO": {
                     "LABEL": "Tomato",
+                    "ID": "produceTomato",
                     "DEFAULT_VALUE": 0
                 },
                 "KALE": {
                     "LABEL": "Kale",
+                    "ID": "produceKale",
                     "DEFAULT_VALUE": 0
                 },
                 "CORN": {
                     "LABEL": "Corn",
+                    "ID": "produceCorn",
                     "DEFAULT_VALUE": 0
                 },
                 "BEANS": {
                     "LABEL": "Beans",
+                    "ID": "produceBeans",
                     "DEFAULT_VALUE": 0
                 }
             }
