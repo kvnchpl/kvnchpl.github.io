@@ -75,10 +75,24 @@ function initGame() {
         return;
     }
 
+    // Initialize core components
     initializeGameData(config);
     initializeGameState(config);
+
+    // Initialize grid and ensure rendering is triggered
     initializeGrid(config);
+    if (gameState.grid.tiles.length === 0) {
+        console.error("Grid failed to initialize.");
+        return;
+    }
+
     console.log("Grid initialized:", gameState.grid);
+    
+    const canvas = document.getElementById("gameCanvas");
+    if (!canvas) {
+        console.error("Canvas not found.");
+        return;
+    }
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
@@ -177,6 +191,8 @@ function drawGrid(context) {
         player: getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim(),
         border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim()
     };
+
+    console.log("Tile styles:", tileStyles);
 
     for (let row = 0; row < gameData.GRID_HEIGHT; row++) {
         for (let col = 0; col < gameData.GRID_WIDTH; col++) {
