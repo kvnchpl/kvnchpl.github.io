@@ -388,7 +388,7 @@
         }
     },
     "UI": {
-        "tutorialOverlay": {
+        "TUTORIAL_OVERLAY": {
             "CONTAINER": "tutorialOverlay",
             "HEADING": "Welcome to Trellis!",
             "CONTENT": [
@@ -400,14 +400,14 @@
                 "CLOSE_TUTORIAL"
             ]
         },
-        "buttonContainer": {
+        "BUTTON_CONTAINER": {
             "CONTAINER": "buttonContainer",
             "FIELDS": [
                 "NEXT_WEEK",
                 "RESET_POSITION"
             ]
         },
-        "actionsContainer": {
+        "ACTIONS_CONTAINER": {
             "CONTAINER": "actionsContainer",
             "FIELDS": [
                 "TILL",
@@ -420,7 +420,7 @@
                 "CLEAR"
             ]
         },
-        "globalStats": {
+        "GLOBAL_STATS": {
             "CONTAINER": "globalStats",
             "FIELDS": [
                 "TIME",
@@ -430,7 +430,7 @@
                 "BIODIVERSITY"
             ]
         },
-        "tileStats": {
+        "TILE_STATS": {
             "CONTAINER": "tileStats",
             "FIELDS": [
                 "TILE_TYPE",
