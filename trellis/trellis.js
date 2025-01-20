@@ -247,7 +247,7 @@ function renderUISection(containerId, data) {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-    console.log("A) Rendering UI section with container ID: " + containerId);
+    
     data.FIELDS.forEach(fieldKey => {
         const fieldData = gameData.FIELDS[fieldKey];
         console.log("B) Rendering field with key '" + fieldKey + "'.");
@@ -265,10 +265,7 @@ function renderUISection(containerId, data) {
         const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
             className: uiComponents.FIELD_CONTAINER.CLASS
         });
-        console.log("C) Rendering field with sectionType '" + sectionType + "'.");
-        console.dir(fieldData);
         if (fieldData.SECTION_TYPE === uiComponents.BUTTON.TAG) {
-            console.log("D1) Rendering button with key '" + fieldKey + "'.");
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: uiComponents.BUTTON.CLASS,
@@ -281,7 +278,6 @@ function renderUISection(containerId, data) {
             buttonElement.dataset.onClick = fieldData.ON_CLICK;
             fieldContainer.appendChild(buttonElement);
         } else {
-            console.log("D2) Rendering field with key '" + fieldKey + "'.");
             const labelElement = createElement(uiComponents.LABEL.TAG, {
                 className: uiComponents.LABEL.CLASS,
                 textContent: `${fieldData.LABEL}: `
