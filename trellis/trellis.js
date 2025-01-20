@@ -1,5 +1,15 @@
 /* GLOBALS */
 
+const observer = new MutationObserver((mutationsList) => {
+    for (const mutation of mutationsList) {
+        if (mutation.type === "childList" || mutation.type === "characterData") {
+            console.log("DOM Mutation observed:", mutation);
+        }
+    }
+});
+
+observer.observe(container, { childList: true, subtree: true, characterData: true });
+
 let gameData = null;
 
 const gameState = {
