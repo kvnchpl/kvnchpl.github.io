@@ -91,7 +91,7 @@
         "TILE_CONFIG": {
             "TYPES": {
                 "EMPTY": {
-                    "LABEL": "Empty",
+                    "TYPE": "EMPTY",
                     "COLOR": "--tile-default",
                     "IS_TILLED": false,
                     "MOISTURE": 50,
@@ -109,12 +109,12 @@
                     "IS_PEST_INFESTED": false
                 },
                 "PLOT": {
-                    "LABEL": "Plot",
+                    "TYPE": "PLOT",
                     "COLOR": "--tile-plot",
                     "IS_TILLED": true
                 },
                 "PATH": {
-                    "LABEL": "Path",
+                    "TYPE": "PATH",
                     "COLOR": "--tile-path"
                 }
             },

@@ -198,7 +198,7 @@ function drawGrid(context) {
             const tile = gameState.grid.tiles[row][col];
             let tileColor = tileStyles.default;
 
-            const tileType = gameData.TILE_TYPES[tile.LABEL];
+            const tileType = gameData.TILE_TYPES[tile.TYPE];
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
             }
@@ -837,8 +837,8 @@ function tillSoil(tile) {
         console.error("Invalid tile provided to tillSoil.");
         return;
     }
-    if (capitalize(tile.LABEL) === gameData.TILE_TYPES.EMPTY.LABEL) {
-        tile.LABEL = gameData.TILE_TYPES.PLOT.LABEL;
+    if (tile.TYPE === gameData.TILE_TYPES.EMPTY.TYPE) {
+        tile.TYPE = gameData.TILE_TYPES.PLOT.TYPE;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
@@ -936,8 +936,8 @@ function clearPlot(tile) {
         console.error("Invalid tile provided to clearPlot.");
         return;
     }
-    if (capitalize(tile.LABEL) === TILE_TYPES.PLOT.LABEL) {
-        capitalize(tile.LABEL) = TILE_TYPES.EMPTY.LABEL;
+    if (capitalize(tile.TYPE) === TILE_TYPES.PLOT.TYPE) {
+        capitalize(tile.TYPE) = TILE_TYPES.EMPTY.TYPE;
         tile.IS_TILLED = false;
         tile.PLANT_DATA.VALUE = null;
         advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
