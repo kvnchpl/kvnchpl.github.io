@@ -837,8 +837,8 @@ function tillSoil(tile) {
         console.error("Invalid tile provided to tillSoil.");
         return;
     }
-    if (capitalize(tile.LABEL) === TILE_TYPES.EMPTY.LABEL) {
-        tile.LABEL = TILE_TYPES.PLOT.LABEL;
+    if (capitalize(tile.LABEL) === gameData.TILE_TYPES.EMPTY.LABEL) {
+        tile.LABEL = gameDataTILE_TYPES.PLOT.LABEL;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
