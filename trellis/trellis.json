@@ -6,11 +6,11 @@
         "DESCRIPTION": "Configuration file for Trellis game."
     },
     "UI_COMPONENTS": {
-        "BUTTON_CONTAINER": {
+        "buttonContainer": {
             "TAG": "div",
             "CLASS": "button-container"
         },
-        "BUTTON": {
+        "button": {
             "TAG": "button",
             "CLASS": "ui-button"
         },
@@ -174,171 +174,165 @@
     },
     "FIELDS": {
         "NEXT_WEEK": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "BUTTON_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "buttonContainer",
             "LABEL": "Skip Week",
             "ID": "nextWeekBtn",
             "DEFAULT_VALUE": "",
             "ON_CLICK": "skipToNextWeek"
         },
         "RESET_POSITION": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "BUTTON_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "buttonContainer",
             "LABEL": "Reset Position",
             "ID": "resetPositionBtn",
             "DEFAULT_VALUE": "",
             "ON_CLICK": "resetPlayerPosition"
         },
         "CLOSE_TUTORIAL": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "TUTORIAL",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "tutorialOverlay",
             "LABEL": "Close Tutorial",
             "ID": "closeTutorialBtn",
             "DEFAULT_VALUE": "",
             "ON_CLICK": "hideTutorial"
         },
         "TILL": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Till",
             "ID": "tillBtn",
             "ON_CLICK": "tillSoil"
         },
         "FERTILIZE": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Fertilize",
             "ID": "fertilizeBtn",
             "ON_CLICK": "fertilizeTile"
         },
         "PLANT": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Plant",
             "ID": "plantBtn",
             "ON_CLICK": "plantSeed"
         },
         "WATER": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Water",
             "ID": "waterBtn",
             "ON_CLICK": "waterTile"
         },
         "MULCH": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Mulch",
             "ID": "mulchBtn",
             "ON_CLICK": "mulchTile"
         },
         "WEED": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Weed",
             "ID": "weedBtn",
             "ON_CLICK": "weedTile"
         },
         "HARVEST": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Harvest",
             "ID": "harvestBtn",
             "ON_CLICK": "harvestPlant"
         },
         "CLEAR": {
-            "SECTION_TYPE": "BUTTON",
-            "CATEGORY": "ACTIONS_CONTAINER",
+            "SECTION_TYPE": "button",
+            "CATEGORY": "actionsContainer",
             "LABEL": "Clear",
             "ID": "clearBtn",
             "ON_CLICK": "clearPlot"
         },
         "TIME": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GLOBAL_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "globalStats",
             "LABEL": "Time",
             "ID": "timeDisplay",
             "DEFAULT_VALUE": "7:00 AM"
         },
         "WEEK": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GLOBAL_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "globalStats",
             "LABEL": "Week",
             "ID": "weekDisplay",
             "DEFAULT_VALUE": "1"
         },
         "YEAR": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GLOBAL_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "globalStats",
             "LABEL": "Year",
             "ID": "yearDisplay",
             "DEFAULT_VALUE": "1"
         },
         "SEASON": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GLOBAL_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "globalStats",
             "LABEL": "Season",
             "ID": "seasonDisplay",
             "DEFAULT_VALUE": "Winter"
         },
         "BIODIVERSITY": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "GLOBAL_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "globalStats",
             "LABEL": "Biodiversity",
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
         },
         "TILE_TYPE": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Type",
             "ID": "tileType",
-            "DEFAULT_VALUE": "Empty",
-            "FORMAT": "{LABEL}"
+            "DEFAULT_VALUE": "Empty"
         },
         "TILE_IS_TILLED": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Tilled",
             "ID": "tileIsTilled",
-            "DEFAULT_VALUE": "False",
-            "FORMAT": "{IS_TILLED}"
+            "DEFAULT_VALUE": "False"
         },
         "TILE_PLANT": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Plant",
             "ID": "tilePlant",
-            "DEFAULT_VALUE": "None",
-            "FORMAT": "{NAME}"
+            "DEFAULT_VALUE": "None"
         },
         "TILE_WEED_LEVEL": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Weed Level",
             "ID": "tileWeedLevel",
-            "DEFAULT_VALUE": "0",
-            "FORMAT": "{WEED_LEVEL}"
+            "DEFAULT_VALUE": "0"
         },
         "TILE_MOISTURE": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Moisture",
             "ID": "tileMoisture",
-            "DEFAULT_VALUE": "50",
-            "FORMAT": "{MOISTURE}"
+            "DEFAULT_VALUE": "50"
         },
         "TILE_MOISTURE_DECAY": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Moisture Decay Rate",
             "ID": "tileMoistureDecay",
-            "DEFAULT_VALUE": "2",
-            "FORMAT": "{MOISTURE_DECAY}"
+            "DEFAULT_VALUE": "2"
         },
         "TILE_SOIL_NUTRIENTS": {
-            "SECTION_TYPE": "FIELDS",
-            "CATEGORY": "TILE_STATS",
+            "SECTION_TYPE": "field",
+            "CATEGORY": "tileStats",
             "LABEL": "Soil Nutrients",
             "ID": "tileSoilNutrients",
             "DEFAULT_VALUE": {
@@ -365,40 +359,36 @@
             }
         },
         "INVENTORY_SEEDS": {
-            "SECTION_TYPE": "FIELDS",
+            "SECTION_TYPE": "field",
             "CATEGORY": "INVENTORY",
             "LABEL": "Seeds",
             "ID": "inventorySeeds",
-            "DEFAULT_VALUE": 0,
-            "FORMAT": "{SEEDS}"
+            "DEFAULT_VALUE": 0
         },
         "INVENTORY_PRODUCE": {
-            "SECTION_TYPE": "FIELDS",
+            "SECTION_TYPE": "field",
             "CATEGORY": "INVENTORY",
             "LABEL": "Produce",
             "ID": "inventoryProduce",
-            "DEFAULT_VALUE": 0,
-            "FORMAT": "{PRODUCE}"
+            "DEFAULT_VALUE": 0
         },
         "INVENTORY_FERTILIZER": {
-            "SECTION_TYPE": "FIELDS",
+            "SECTION_TYPE": "field",
             "CATEGORY": "INVENTORY",
             "LABEL": "Fertilizer",
             "ID": "inventoryFertilizer",
-            "DEFAULT_VALUE": 0,
-            "FORMAT": "{FERTILIZER}"
+            "DEFAULT_VALUE": 0
         },
         "INVENTORY_MULCH": {
-            "SECTION_TYPE": "FIELDS",
+            "SECTION_TYPE": "field",
             "CATEGORY": "INVENTORY",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
-            "DEFAULT_VALUE": 0,
-            "FORMAT": "{MULCH}"
+            "DEFAULT_VALUE": 0
         }
     },
     "UI": {
-        "TUTORIAL": {
+        "tutorialOverlay": {
             "CONTAINER": "tutorialOverlay",
             "HEADING": "Welcome to Trellis!",
             "CONTENT": [
@@ -410,14 +400,14 @@
                 "CLOSE_TUTORIAL"
             ]
         },
-        "BUTTON_CONTAINER": {
+        "buttonContainer": {
             "CONTAINER": "buttonContainer",
             "FIELDS": [
                 "NEXT_WEEK",
                 "RESET_POSITION"
             ]
         },
-        "ACTIONS_CONTAINER": {
+        "actionsContainer": {
             "CONTAINER": "actionsContainer",
             "FIELDS": [
                 "TILL",
@@ -430,7 +420,7 @@
                 "CLEAR"
             ]
         },
-        "GLOBAL_STATS": {
+        "globalStats": {
             "CONTAINER": "globalStats",
             "FIELDS": [
                 "TIME",
@@ -440,7 +430,7 @@
                 "BIODIVERSITY"
             ]
         },
-        "TILE_STATS": {
+        "tileStats": {
             "CONTAINER": "tileStats",
             "FIELDS": [
                 "TILE_TYPE",
