@@ -301,15 +301,16 @@ function renderUISection(containerId, data) {
 
             // Append the field container to the main container
             container.appendChild(fieldContainer);
+
+            // Handle nested subfields, if any
+            if (fieldData.SUBFIELDS) {
+                renderSubfields(fieldContainer, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
+            }
         }
 
         // Handle unknown section types
         else {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
-        }
-        // Handle nested subfields, if any
-        if (fieldData.SUBFIELDS) {
-            renderSubfields(fieldContainer, fieldData.SUBFIELDS, componentConfig, fieldData.DEFAULT_VALUE, 1);
         }
     });
 }
