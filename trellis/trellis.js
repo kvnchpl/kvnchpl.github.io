@@ -560,8 +560,8 @@ function attachCanvasEventListeners() {
 
     const handleClick = (e) => {
         const rect = canvas.getBoundingClientRect();
-        const x = Math.floor((e.clientX - rect.left) / TILE_SIZE);
-        const y = Math.floor((e.clientY - rect.top) / TILE_SIZE);
+        const x = Math.floor((e.clientX - rect.left) / gameData.TILE_SIZE);
+        const y = Math.floor((e.clientY - rect.top) / gameData.TILE_SIZE);
 
         highlightTile(x, y);
     };
