@@ -27,7 +27,7 @@
 
     --game-width: 600px;
     --game-height: 600px;
-    --sidebar-width: 300px;
+    --sidebar-width: 400px;
 
     --spacing-unit: 0.5rem;
     --border-radius: 5px;
@@ -99,6 +99,10 @@ canvas {
     background: var(--color-container-bg);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
+}
+
+.sidebar-section.full-width {
+    grid-column: span 2;
 }
 
 #gameSidebar strong {
