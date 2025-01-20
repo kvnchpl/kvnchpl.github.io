@@ -78,6 +78,7 @@ function initGame() {
     initializeGameData(config);
     initializeGameState(config);
     initializeGrid(config);
+    console.log("Grid initialized:", gameState.grid);
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
