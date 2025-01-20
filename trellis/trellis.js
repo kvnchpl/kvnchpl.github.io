@@ -247,7 +247,7 @@ function renderUISection(containerId, data) {
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
                 textContent: fieldData.LABEL || "Button",
             });
-        
+
             // Attach click handler
             if (fieldData.ON_CLICK) {
                 button.addEventListener("click", () => {
@@ -259,9 +259,9 @@ function renderUISection(containerId, data) {
                     }
                 });
             }
-        
+
             container.appendChild(button);
-        
+
             // Start observing mutations
             trackButtonMutations(fieldData.ID);
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
@@ -303,14 +303,17 @@ function renderUISection(containerId, data) {
 
     const observer = new MutationObserver((mutationsList) => {
         for (const mutation of mutationsList) {
-            if (mutation.type === "childList" || mutation.type === "characterData") {
-                console.log("DOM Mutation observed:", mutation);
-            }
+            console.log("Mutation observed:", {
+                mutationType: mutation.type,
+                target: mutation.target.outerHTML,
+                parentNode: mutation.target.parentNode.outerHTML,
+                removedNodes: mutation.removedNodes,
+                addedNodes: mutation.addedNodes,
+            });
         }
     });
-    
-    observer.observe(container, { childList: true, subtree: true, characterData: true });
-    
+
+    observer.observe(button, { childList: true, subtree: true, characterData: true });
 }
 
 function renderSubfields(container, subfields, defaultValues, level = 1) {
@@ -978,17 +981,4 @@ function trackButtonMutations(buttonId) {
         console.error(`Button with ID '${buttonId}' not found.`);
         return;
     }
-
-    const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-            console.log("Mutation observed:", {
-                mutationType: mutation.type,
-                removedNodes: mutation.removedNodes,
-                addedNodes: mutation.addedNodes,
-                target: mutation.target.outerHTML,
-            });
-        }
-    });
-
-    observer.observe(button, { childList: true, subtree: true, characterData: true });
 }
