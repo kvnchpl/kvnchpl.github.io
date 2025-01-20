@@ -517,6 +517,8 @@ function handleKeyDown(e) {
     let newX = gameState.player.position.x;
     let newY = gameState.player.position.y;
 
+    console.log(`Player position: (${newX}, ${newY})`);
+
     const keyBindings = gameData.CONFIG.KEY_BINDINGS;
 
     switch (e.key) {
@@ -558,7 +560,7 @@ function handleKeyDown(e) {
             break;
     }
 
-    if (isTileValid(newX, newY)) {
+    if (isTileValid(newX, newY) && isTileAdjacent(newX, newY)) {
         gameState.player.position.x = newX;
         gameState.player.position.y = newY;
 
@@ -954,7 +956,7 @@ function isTileValid(x, y) {
 }
 
 function isTileAdjacent(x, y) {
-    console.log(gameState.player.x, gameState.player.y, x, y);
+    console.log(`Comparing player position: (${gameState.player.position.x}, ${gameState.player.position.y}) with tile: (${x}, ${y})`);
     const delta = Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y);
     console.log("Calculated delta:", delta);
     return delta;
