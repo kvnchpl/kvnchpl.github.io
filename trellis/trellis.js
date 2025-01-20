@@ -1,15 +1,5 @@
 /* GLOBALS */
 
-const observer = new MutationObserver((mutationsList) => {
-    for (const mutation of mutationsList) {
-        if (mutation.type === "childList" || mutation.type === "characterData") {
-            console.log("DOM Mutation observed:", mutation);
-        }
-    }
-});
-
-observer.observe(container, { childList: true, subtree: true, characterData: true });
-
 let gameData = null;
 
 const gameState = {
@@ -307,6 +297,17 @@ function renderUISection(containerId, data) {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
         }
     });
+    
+    const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            if (mutation.type === "childList" || mutation.type === "characterData") {
+                console.log("DOM Mutation observed:", mutation);
+            }
+        }
+    });
+    
+    observer.observe(container, { childList: true, subtree: true, characterData: true });
+    
 }
 
 function renderSubfields(container, subfields, defaultValues, level = 1) {
