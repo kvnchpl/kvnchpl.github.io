@@ -310,8 +310,8 @@ function renderSubfields(container, subfields, defaultValues, level = 1) {
             style: `--level: ${level};`,
         });
 
-        const labelElement = createElement(gameData.UI_COMPONENTS.LABEL.TAG, {
-            className: gameData.UI_COMPONENTS.LABEL.CLASS,
+        const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
+            className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
             textContent: `${subfieldData.LABEL}: `,
         });
 
