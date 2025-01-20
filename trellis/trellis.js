@@ -840,6 +840,10 @@ function tillSoil(tile) {
 }
 
 function fertilizeTile(tile) {
+    if(!tile) {
+        console.error("Invalid tile provided to fertilizeTile.");
+        return;
+    }  
     if (tile.IS_TILLED && gameState.inventory.fertilizer > 0) {
         tile.SOIL_NUTRIENTS.N += 10;
         tile.SOIL_NUTRIENTS.P += 5;
@@ -852,6 +856,10 @@ function fertilizeTile(tile) {
 }
 
 function plantSeed(tile, seedType = "tomato") {
+    if (!tile) {
+        console.error("Invalid tile provided to plantSeed.");
+        return;
+    }
     if (tile.IS_TILLED && !tile.PLANT_DATA.VALUE) {
         tile.PLANT_DATA.VALUE = {
             NAME: seedType,
@@ -865,11 +873,19 @@ function plantSeed(tile, seedType = "tomato") {
 }
 
 function waterTile(tile) {
+    if(!tile) {
+        console.error("Invalid tile provided to waterTile.");
+        return;
+    }
     tile.MOISTURE.VALUE = Math.min(tile.MOISTURE.VALUE + 20, 100);
     advanceTime(gameData.CONFIG.ACTIONS.WATER.TIME_COST);
 }
 
 function mulchTile(tile) {
+    if (!tile) {
+        console.error("Invalid tile provided to mulchTile.");
+        return;
+    }
     if (tile.IS_TILLED && gameState.inventory.mulch > 0) {
         tile.MOISTURE_DECAY_RATE = Math.max(tile.MOISTURE_DECAY_RATE - 1, 0);
         updateInventory('mulch', -1);
@@ -880,6 +896,9 @@ function mulchTile(tile) {
 }
 
 function weedTile(tile) {
+    if (!tile) {
+        console.error("Invalid tile provided to weedTile.");
+    }
     if (tile.WEED_LEVEL.VALUE > 0) {
         tile.WEED_LEVEL.VALUE = 0;
         advanceTime(gameData.CONFIG.ACTIONS.WEED.TIME_COST);
@@ -889,6 +908,10 @@ function weedTile(tile) {
 }
 
 function harvestPlant(tile) {
+    if (!tile) {
+        console.error("Invalid tile provided to harvestPlant.");
+        return
+    }
     if (tile.PLANT_DATA.VALUE && tile.PLANT_DATA.VALUE.IS_MATURE) {
         const plantType = tile.PLANT_DATA.VALUE.NAME;
         const yieldAmount = PLANT_DATA[plantType].YIELD;
@@ -902,6 +925,10 @@ function harvestPlant(tile) {
 }
 
 function clearPlot(tile) {
+    if (!tile) {
+        console.error("Invalid tile provided to clearPlot.");
+        return;
+    }
     if (capitalize(tile.LABEL) === TILE_TYPES.PLOT.LABEL) {
         capitalize(tile.LABEL) = TILE_TYPES.EMPTY.LABEL;
         tile.IS_TILLED = false;
