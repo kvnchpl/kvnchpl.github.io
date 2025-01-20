@@ -119,8 +119,8 @@ function initializeGameState(config) {
     });
 
     gameState.player.position = {
-        x: Math.floor(gameData.gridWidth / 2),
-        y: Math.floor(gameData.gridHeight / 2),
+        x: Math.floor(gameData.GRID_WIDTH / 2),
+        y: Math.floor(gameData.GRID_HEIGHT / 2),
     };
 
     gameState.grid.highlightedTile = { ...gameState.player.position };
@@ -899,7 +899,7 @@ function getTargetTile() {
 }
 
 function isTileValid(x, y) {
-    return x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT;
+    return x >= 0 && x < gameData.GRID_WIDTH && y >= 0 && y < gameData.GRID_HEIGHT;
 }
 
 function isTileAdjacent(x, y) {
