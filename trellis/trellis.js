@@ -288,23 +288,19 @@ function renderUISection(containerId, data) {
             });
 
             fieldContainer.appendChild(labelElement);
+            container.appendChild(fieldContainer);
 
-            if (!fieldData.SUBFIELDS) {
-                // Render the default value if there are no subfields
+            // Render subfields if they exist
+            if (fieldData.SUBFIELDS) {
+                renderSubfields(container, fieldData.SUBFIELDS, 1);
+            } else if (fieldData.DEFAULT_VALUE) {
+                // Render the default value if no subfields exist
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
                     id: fieldData.ID || `${containerId}-${fieldKey}`,
                     className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE,
                 });
                 fieldContainer.appendChild(valueElement);
-            }
-
-            // Append the parent's field container
-            container.appendChild(fieldContainer);
-
-            // If subfields exist, render them after the parent container
-            if (fieldData.SUBFIELDS) {
-                renderSubfields(container, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, 1);
             }
         } else {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
