@@ -268,7 +268,7 @@ function renderUISection(containerId, data) {
         console.log("Rendering field with sectionType '" + sectionType + "'.");
         console.dir(fieldData);
         if (fieldData.SECTION_TYPE === uiComponents.BUTTON.TAG) {
-
+            console.log("Rendering button with key '" + fieldKey + "'.");
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,
                 className: uiComponents.BUTTON.CLASS,
@@ -281,6 +281,7 @@ function renderUISection(containerId, data) {
             buttonElement.dataset.onClick = fieldData.ON_CLICK;
             fieldContainer.appendChild(buttonElement);
         } else {
+            console.log("Rendering field with key '" + fieldKey + "'.");
             const labelElement = createElement(uiComponents.LABEL.TAG, {
                 className: uiComponents.LABEL.CLASS,
                 textContent: `${fieldData.LABEL}: `
