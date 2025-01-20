@@ -954,7 +954,9 @@ function isTileValid(x, y) {
 }
 
 function isTileAdjacent(x, y) {
-    return Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y) <= 1;
+    const delta = Math.abs(gameState.player.x - x) + Math.abs(gameState.player.y - y);
+    console.log("Calculated delta:", delta);
+    return delta;
 }
 
 function safeGet(obj, path, defaultValue = undefined) {
