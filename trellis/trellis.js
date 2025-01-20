@@ -18,7 +18,6 @@ const gameState = {
     player: {
         position: { x: null, y: null },
         inventory: {
-            seeds: {},
             produce: {},
             fertilizer: 0,
             mulch: 0,
@@ -75,9 +74,7 @@ function initGame() {
         console.error("Inventory data is missing.");
         return;
     }
-
-    console.log("Loaded inventory seed game data:", gameData.FIELDS.INVENTORY_SEEDS);
-
+    
     initializeGameData(config);
     initializeGameState(config);
     initializeGrid(config);
@@ -819,13 +816,12 @@ function fertilizeTile(tile) {
 }
 
 function plantSeed(tile, seedType = "tomato") {
-    if (tile.IS_TILLED && !tile.PLANT_DATA.VALUE && gameState.inventory.seeds[seedType] > 0) {
+    if (tile.IS_TILLED && !tile.PLANT_DATA.VALUE) {
         tile.PLANT_DATA.VALUE = {
             NAME: seedType,
             AGE: 0,
             IS_MATURE: false
         };
-        updateInventory(`seeds.${seedType}`, -1);
         advanceTime(gameData.CONFIG.ACTIONS.PLANT.TIME_COST);
     } else {
         console.log("Cannot plant on this tile.");
