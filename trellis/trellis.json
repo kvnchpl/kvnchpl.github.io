@@ -452,7 +452,7 @@
             ]
         }
     },
-    "inventory": {
+    "INVENTORY": {
         "SEEDS": {
             "TOMATO": 5,
             "KALE": 5,
