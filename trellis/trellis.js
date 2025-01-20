@@ -266,7 +266,7 @@ function renderUISection(containerId, data) {
         });
         console.log("Rendering field with sectionType '" + sectionType.TAG + "'.");
         console.dir(fieldData);
-        if (fieldData.SECTION_TYPE === capitalize(uiComponents.BUTTON.TAG)) {
+        if (fieldData.SECTION_TYPE === uiComponents.BUTTON.TAG) {
 
             const buttonElement = createElement(uiComponents.BUTTON.TAG, {
                 id: fieldData.ID || `${containerId}-${fieldKey}`,

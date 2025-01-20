@@ -360,28 +360,28 @@
         },
         "INVENTORY_SEEDS": {
             "SECTION_TYPE": "field",
-            "CATEGORY": "INVENTORY",
+            "CATEGORY": "inventory",
             "LABEL": "Seeds",
             "ID": "inventorySeeds",
             "DEFAULT_VALUE": 0
         },
         "INVENTORY_PRODUCE": {
             "SECTION_TYPE": "field",
-            "CATEGORY": "INVENTORY",
+            "CATEGORY": "inventory",
             "LABEL": "Produce",
             "ID": "inventoryProduce",
             "DEFAULT_VALUE": 0
         },
         "INVENTORY_FERTILIZER": {
             "SECTION_TYPE": "field",
-            "CATEGORY": "INVENTORY",
+            "CATEGORY": "inventory",
             "LABEL": "Fertilizer",
             "ID": "inventoryFertilizer",
             "DEFAULT_VALUE": 0
         },
         "INVENTORY_MULCH": {
             "SECTION_TYPE": "field",
-            "CATEGORY": "INVENTORY",
+            "CATEGORY": "inventory",
             "LABEL": "Mulch",
             "ID": "inventoryMulch",
             "DEFAULT_VALUE": 0
@@ -452,7 +452,7 @@
             ]
         }
     },
-    "INVENTORY": {
+    "inventory": {
         "SEEDS": {
             "TOMATO": 5,
             "KALE": 5,
