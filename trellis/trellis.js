@@ -247,9 +247,10 @@ function renderUISection(containerId, data) {
     while (container.firstChild) {
         container.removeChild(container.firstChild);
     }
-
+    console.log("Rendering UI section with container ID: " + containerId);
     data.FIELDS.forEach(fieldKey => {
         const fieldData = gameData.FIELDS[fieldKey];
+        console.log("Rendering field with key '" + fieldKey + "'.");
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
             return;
