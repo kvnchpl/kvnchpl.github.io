@@ -476,7 +476,7 @@ function appendTileStat(container, label, id) {
 
     const labelSpan = createElement(labelType.TAG, {
         className: labelType.CLASS || uiClasses.FIELD_LABEL,
-        textContent: `${capitalize(label)}: `
+        textContent: `${label}: `
     });
     field.appendChild(labelSpan);
 
@@ -936,8 +936,8 @@ function clearPlot(tile) {
         console.error("Invalid tile provided to clearPlot.");
         return;
     }
-    if (capitalize(tile.TYPE) === TILE_TYPES.PLOT.TYPE) {
-        capitalize(tile.TYPE) = TILE_TYPES.EMPTY.TYPE;
+    if (tile.TYPE === TILE_TYPES.PLOT.TYPE) {
+        tile.TYPE = TILE_TYPES.EMPTY.TYPE;
         tile.IS_TILLED = false;
         tile.PLANT_DATA.VALUE = null;
         advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
@@ -1032,13 +1032,4 @@ function createElement(tag, options = {}) {
     }
 
     return element;
-}
-
-function capitalize(str) {
-    if (typeof str !== "string") {
-        console.warn("capitalize called with non-string:", str);
-        return String(str || "").toUpperCase();
-    }
-
-    return str.charAt(0).toUpperCase() + str.slice(1);
 }
