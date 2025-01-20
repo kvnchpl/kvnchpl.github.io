@@ -781,8 +781,8 @@ function handleTileAction(action, tile, params = {}) {
 }
 
 function tillSoil(tile) {
-    if (capitalize(tile.LABEL) === TILE_TYPES.EMPTY) {
-        capitalize(tile.LABEL) = TILE_TYPES.PLOT;
+    if (capitalize(tile.LABEL) === TILE_TYPES.EMPTY.LABEL) {
+        capitalize(tile.LABEL) = TILE_TYPES.PLOT.LABEL;
         tile.IS_TILLED = true;
         advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
     } else {
@@ -853,8 +853,8 @@ function harvestPlant(tile) {
 }
 
 function clearPlot(tile) {
-    if (capitalize(tile.LABEL) === TILE_TYPES.PLOT) {
-        capitalize(tile.LABEL) = TILE_TYPES.EMPTY;
+    if (capitalize(tile.LABEL) === TILE_TYPES.PLOT.LABEL) {
+        capitalize(tile.LABEL) = TILE_TYPES.EMPTY.LABEL;
         tile.IS_TILLED = false;
         tile.PLANT_DATA.VALUE = null;
         advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
