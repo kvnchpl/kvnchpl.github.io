@@ -433,10 +433,10 @@
         "INVENTORY_DISPLAY": {
             "CONTAINER": "inventory",
             "FIELDS": [
-                "SEEDS",
-                "PRODUCE",
-                "FERTILIZER",
-                "MULCH"
+                "INVENTORY_SEEDS",
+                "INVENTORY_PRODUCE",
+                "INVENTORY_FERTILIZER",
+                "INVENTORY_MULCH"
             ]
         }
     },
