@@ -818,6 +818,8 @@ function handleTileAction(action, tile, params = {}) {
 
     const actionFunction = window[functionName];
 
+    console.log(`Handling action '${action}' on tile:`, tile);
+
     if (typeof actionFunction !== "function") {
         console.error(`Function '${functionName}' not found for action '${action}'`);
         return;
