@@ -715,7 +715,7 @@ function resetPlayerPosition() {
 }
 
 function highlightTile(x, y) {
-    if (!isTileValid(x, y) || !isTileAdjacent(x, y)) {  
+    if (!isTileValid(x, y) || !isTileAdjacent(x, y)) {
         console.log("Cannot highlight tile at:", { x, y });
         return;
     }
@@ -865,10 +865,10 @@ function tillSoil(tile) {
 }
 
 function fertilizeTile(tile) {
-    if(!tile) {
+    if (!tile) {
         console.error("Invalid tile provided to fertilizeTile.");
         return;
-    }  
+    }
     if (tile.IS_TILLED && gameState.inventory.fertilizer > 0) {
         tile.SOIL_NUTRIENTS.N += 10;
         tile.SOIL_NUTRIENTS.P += 5;
@@ -898,7 +898,7 @@ function plantSeed(tile, seedType = "tomato") {
 }
 
 function waterTile(tile) {
-    if(!tile) {
+    if (!tile) {
         console.error("Invalid tile provided to waterTile.");
         return;
     }
@@ -983,11 +983,13 @@ function updateInventory(item, delta) {
 function showTutorial() {
     gameState.ui.isTutorialActive = true;
     document.getElementById(gameData.UI.TUTORIAL_OVERLAY.CONTAINER).classList.remove("hidden");
+    toggleButtons(false);
 }
 
 function hideTutorial() {
     gameState.ui.isTutorialActive = false;
     document.getElementById(gameData.UI.TUTORIAL_OVERLAY.CONTAINER).classList.add("hidden");
+    toggleButtons(true);
 }
 
 /* UTILITY ON_CLICKS */
@@ -1052,4 +1054,11 @@ function createElement(tag, options = {}) {
     }
 
     return element;
+}
+
+function toggleButtons(enable) {
+    const buttons = document.querySelectorAll(`button:not(#${gameData.FIELDS.CLOSE_TUTORIAL.ID})`);
+    buttons.forEach(button => {
+        button.disabled = !enable;
+    });
 }
