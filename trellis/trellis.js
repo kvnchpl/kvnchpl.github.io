@@ -292,7 +292,28 @@ function initializeUI(uiData) {
 }
 
 function initializeInventory(inventoryData) {
-    Object.assign(gameState.player.inventory, inventoryData);
+    // Populate player inventory from gameData.INVENTORY
+    gameState.player.inventory = { ...inventoryData };
+    console.log("Initialized inventory:", gameState.player.inventory);
+
+    // Optionally, update UI to reflect the initial inventory state
+    updateInventoryUI();
+}
+
+function updateInventoryUI() {
+    const inventoryFields = gameData.UI.INVENTORY_DISPLAY.FIELDS;
+    inventoryFields.forEach(fieldKey => {
+        const fieldData = gameData.FIELDS[fieldKey];
+        if (fieldData.SUBFIELDS) {
+            Object.entries(fieldData.SUBFIELDS).forEach(([key, subFieldData]) => {
+                const value = gameState.player.inventory.produce[key] || subFieldData.DEFAULT_VALUE;
+                updateField(subFieldData.ID, value);
+            });
+        } else {
+            const value = gameState.player.inventory[fieldData.ID] || fieldData.DEFAULT_VALUE;
+            updateField(fieldData.ID, value);
+        }
+    });
 }
 
 /* RENDERING */
