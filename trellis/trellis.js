@@ -495,19 +495,16 @@ function appendTileStat(container, label, id) {
 /* EVENT LISTENERS */
 
 function attachUIEventListeners() {
-    const buttons = document.querySelectorAll("[data-on-click]");
-    const handlers = {};
-
-    buttons.forEach(button => {
+    document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-on-click]");
+        if (!button) return;
+    
         const handlerName = button.dataset.onClick;
-        if (!handlers[handlerName]) {
-            handlers[handlerName] = window[handlerName];
-        }
-        const handler = handlers[handlerName];
+        const handler = window[handlerName];
         if (typeof handler === "function") {
-            button.addEventListener("click", handler);
+            handler();
         } else {
-            console.error(`Handler function '${handlerName}' not found for button:`, button);
+            console.error(`Handler function '${handlerName}' not found for button: `, button);
         }
     });
 
