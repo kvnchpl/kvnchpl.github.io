@@ -39,13 +39,19 @@ class Tile {
     }
 
     highlight() {
-        const { x, y } = gameState.grid.highlightedTile;
-
-        if (this.x === x && this.y === y) {
-            console.log(`Tile at (${x}, ${y}) is already highlighted.`);
-            return;
+        const prevTile = gameState.grid.highlightedTile;
+        if (prevTile) {
+            const prevTileElement = document.querySelector(`#tile-${prevTile.y}-${prevTile.x}`);
+            if (prevTileElement) {
+                prevTileElement.classList.remove("highlighted");
+            }
         }
-
+    
+        const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
+        if (tileElement) {
+            tileElement.classList.add("highlighted");
+        }
+    
         gameState.grid.highlightedTile = { x: this.x, y: this.y };
     }
     
