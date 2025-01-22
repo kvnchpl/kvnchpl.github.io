@@ -135,7 +135,7 @@ function initializeGrid(config) {
             return structuredClone(gameData.TILE_TYPES[defaultType]);
         })
     );
-    
+
     console.log("Initialized grid: ", gameState.grid);
     render();
 }
@@ -184,15 +184,15 @@ function render() {
 function drawGrid(context) {
     // Get tile styles from CSS variables
     const tileStyles = {
-        default: getComputedStyle(document.documentElement).getPropertyValue("--tile-default").trim(),
-        moistureHigh: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-high").trim(),
-        moistureLow: getComputedStyle(document.documentElement).getPropertyValue("--tile-moisture-low").trim(),
-        tilled: getComputedStyle(document.documentElement).getPropertyValue("--tile-tilled").trim(),
-        plantMature: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-mature").trim(),
-        plantYoung: getComputedStyle(document.documentElement).getPropertyValue("--tile-plant-young").trim(),
-        highlight: getComputedStyle(document.documentElement).getPropertyValue("--tile-highlight").trim(),
-        player: getComputedStyle(document.documentElement).getPropertyValue("--tile-player").trim(),
-        border: getComputedStyle(document.documentElement).getPropertyValue("--color-canvas-border").trim(),
+        default: getCSSVariable("--tile-default"),
+        moistureHigh: getCSSVariable("--tile-moisture-high"),
+        moistureLow: getCSSVariable("--tile-moisture-low"),
+        tilled: getCSSVariable("--tile-tilled"),
+        plantMature: getCSSVariable("--tile-plant-mature"),
+        plantYoung: getCSSVariable("--tile-plant-young"),
+        highlight: getCSSVariable("--tile-highlight"),
+        player: getCSSVariable("--tile-player"),
+        border: getCSSVariable("--color-canvas-border"),
     };
 
     for (let row = 0; row < gameData.GRID_HEIGHT; row++) {
@@ -1060,4 +1060,8 @@ function toggleButtons(enable) {
     buttons.forEach(button => {
         button.disabled = !enable;
     });
+}
+
+function getCSSVariable(name) {
+    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
