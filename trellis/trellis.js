@@ -38,6 +38,17 @@ class Tile {
         Object.assign(this, data);
     }
 
+    highlight() {
+        const { x, y } = gameState.grid.highlightedTile;
+
+        if (this.x === x && this.y === y) {
+            console.log(`Tile at (${x}, ${y}) is already highlighted.`);
+            return;
+        }
+
+        gameState.grid.highlightedTile = { x: this.x, y: this.y };
+    }
+    
     till() {
         if (this.TYPE === gameData.TILE_TYPES.EMPTY.TYPE) {
             this.TYPE = gameData.TILE_TYPES.PLOT.TYPE;
