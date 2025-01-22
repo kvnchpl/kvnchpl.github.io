@@ -26,6 +26,9 @@ const gameState = {
     score: {
         biodiversity: 0,
     },
+    ui: {
+        isTutorialActive: true,
+    }
 };
 
 /* INITIALIZATION */
@@ -286,7 +289,7 @@ function renderUISection(containerId, data) {
             const button = createElement("button", {
                 id: fieldData.ID,
                 className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL || "Button",
+                textContent: fieldData.LABEL,
             });
 
             // Attach click handler
@@ -521,6 +524,8 @@ function preventKeyBindingScroll(e) {
 }
 
 function handleKeyDown(e) {
+    if (gameState.ui.isTutorialActive) return;
+
     let newX = gameState.player.position.x;
     let newY = gameState.player.position.y;
 
@@ -594,6 +599,8 @@ function attachCanvasEventListeners() {
     }
 
     const handleClick = (e) => {
+        if (gameState.ui.isTutorialActive) return;
+
         const rect = canvas.getBoundingClientRect();
         const x = Math.floor((e.clientX - rect.left) / gameData.TILE_SIZE);
         const y = Math.floor((e.clientY - rect.top) / gameData.TILE_SIZE);
@@ -974,11 +981,13 @@ function updateInventory(item, delta) {
 /* TUTORIAL OVERLAY */
 
 function showTutorial() {
-    document.getElementById("tutorialOverlay").classList.remove("hidden");
+    gameState.ui.isTutorialActive = true;
+    document.getElementById(gameData.UI.TUTORIAL_OVERLAY.CONTAINER).classList.remove("hidden");
 }
 
 function hideTutorial() {
-    document.getElementById("tutorialOverlay").classList.add("hidden");
+    gameState.ui.isTutorialActive = false;
+    document.getElementById(gameData.UI.TUTORIAL_OVERLAY.CONTAINER).classList.add("hidden");
 }
 
 /* UTILITY ON_CLICKS */
