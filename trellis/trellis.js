@@ -94,7 +94,7 @@ class Tile {
     mulch() {
         if (this.IS_TILLED && gameState.inventory.mulch > 0) {
             this.MOISTURE_DECAY_RATE = Math.max(this.MOISTURE_DECAY_RATE - 1, 0);
-            updateInventory('mulch', -1);
+            Inventory.update('mulch', -1);
         }
     }
 
@@ -108,7 +108,10 @@ class Tile {
         if (this.PLANT_DATA.VALUE && this.PLANT_DATA.VALUE.IS_MATURE) {
             const plantType = this.PLANT_DATA.VALUE.NAME;
             const yieldAmount = PLANT_DATA[plantType].YIELD;
-            updateInventory(`produce.${plantType}`, yieldAmount);
+            if (yieldAmount > 0) {
+                Inventory.update(`produce.${plantType}`, yieldAmount); // Add harvested yield
+                console.log(`Harvested ${yieldAmount} ${plantType}(s).`);
+            }
             this.PLANT_DATA.VALUE = null;
             this.IS_TILLED = false;
         }
@@ -147,6 +150,7 @@ class Inventory {
 
         inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
         updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
+        updateInventoryUI();
     }
 }
 
@@ -873,9 +877,7 @@ function highlightTile(x, y) {
     }
 
     const tile = new Tile(gameState.grid.tiles[y][x]);
-    tile.highlight(); // Example method
-    gameState.grid.highlightedTile = { x, y };
-
+    tile.highlight();
     updateTileStats();
 }
 
