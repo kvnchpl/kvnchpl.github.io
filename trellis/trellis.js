@@ -80,9 +80,7 @@ function initGame() {
 
     initializeGameData(config);
     initializeGameState(config);
-
     initializeGrid(config);
-    console.log("Initialized grid: ", gameState.grid);
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
@@ -137,7 +135,8 @@ function initializeGrid(config) {
             return structuredClone(gameData.TILE_TYPES[defaultType]);
         })
     );
-
+    
+    console.log("Initialized grid: ", gameState.grid);
     render();
 }
 
