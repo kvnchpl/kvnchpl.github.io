@@ -31,6 +31,129 @@ const gameState = {
     }
 };
 
+/* CLASSES */
+
+class Tile {
+    constructor(data) {
+        Object.assign(this, data);
+    }
+
+    till() {
+        if (this.TYPE === gameData.TILE_TYPES.EMPTY.TYPE) {
+            this.TYPE = gameData.TILE_TYPES.PLOT.TYPE;
+            this.IS_TILLED = true;
+        }
+    }
+
+    fertilize() {
+        if (this.IS_TILLED && gameState.player.inventory.fertilizer > 0) {
+            this.SOIL_NUTRIENTS.N += 10;
+            this.SOIL_NUTRIENTS.P += 5;
+            this.SOIL_NUTRIENTS.K += 5;
+            Inventory.update('fertilizer', -1);
+        }
+    }
+
+    plant(seedType = "tomato") {
+        if (this.IS_TILLED && !this.PLANT_DATA.VALUE) {
+            this.PLANT_DATA.VALUE = {
+                NAME: seedType,
+                AGE: 0,
+                IS_MATURE: false
+            };
+        }
+
+    }
+
+    water() {
+        this.MOISTURE.VALUE = Math.min(this.MOISTURE.VALUE + 20, 100);
+    }
+
+    mulch() {
+        if (this.IS_TILLED && gameState.inventory.mulch > 0) {
+            this.MOISTURE_DECAY_RATE = Math.max(this.MOISTURE_DECAY_RATE - 1, 0);
+            updateInventory('mulch', -1);
+        }
+    }
+
+    weed() {
+        if (this.WEED_LEVEL.VALUE > 0) {
+            this.WEED_LEVEL.VALUE = 0;
+        }
+    }
+
+    harvest() {
+        if (this.PLANT_DATA.VALUE && this.PLANT_DATA.VALUE.IS_MATURE) {
+            const plantType = this.PLANT_DATA.VALUE.NAME;
+            const yieldAmount = PLANT_DATA[plantType].YIELD;
+            updateInventory(`produce.${plantType}`, yieldAmount);
+            this.PLANT_DATA.VALUE = null;
+            this.IS_TILLED = false;
+        }
+    }
+
+    clear() {
+        if (this.TYPE === TILE_TYPES.PLOT.TYPE) {
+            this.TYPE = TILE_TYPES.EMPTY.TYPE;
+            this.IS_TILLED = false;
+            this.PLANT_DATA.VALUE = null;
+        }
+    }
+
+    updateMoisture(decayRate) {
+        if (!this.MOISTURE) return;
+        this.MOISTURE.VALUE = Math.max(this.MOISTURE.VALUE - decayRate, 0);
+    }
+
+    growPlant(conditions) {
+        if (!this.PLANT_DATA || !this.PLANT_DATA.VALUE) return;
+        const { N, P, K } = this.SOIL_NUTRIENTS;
+        if (conditions.isSufficient(N, P, K, this.MOISTURE.VALUE)) {
+            this.PLANT_DATA.VALUE.AGE++;
+        }
+    }
+}
+
+class Inventory {
+    static update(item, delta) {
+        const [category, itemKey] = item.split('.');
+        const inventoryCategory = gameState.player.inventory[category];
+        if (!inventoryCategory || !(itemKey in inventoryCategory)) {
+            console.error(`Inventory item '${itemKey}' not found in category '${category}'.`);
+            return;
+        }
+
+        inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
+        updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
+    }
+}
+
+class Tutorial {
+    constructor(overlayId) {
+        this.overlay = document.getElementById(overlayId);
+        this.isActive = true;
+    }
+
+    show() {
+        this.isActive = true;
+        this.overlay.classList.remove("hidden");
+        toggleButtons(false);
+    }
+
+    hide() {
+        this.isActive = false;
+        this.overlay.classList.add("hidden");
+        toggleButtons(true);
+    }
+
+    toggleButtons(enable) {
+        const buttons = document.querySelectorAll(`button:not(#${gameData.FIELDS.CLOSE_TUTORIAL.ID})`);
+        buttons.forEach(button => {
+            button.disabled = !enable;
+        });
+    }
+}
+
 /* INITIALIZATION */
 
 window.onload = function () {
@@ -48,9 +171,9 @@ window.onload = function () {
             return response.json();
         })
         .then((data) => {
-            gameData = data;     
+            gameData = data;
             try {
-                validateGameData(gameData);
+                
                 initGame();
             } catch (error) {
                 console.error(error.message);
@@ -67,6 +190,8 @@ function initGame() {
         console.error("JSON game data is missing.");
         return;
     }
+    validateGameData(gameData);
+    validateKeyBindings(gameData.CONFIG.KEY_BINDINGS);
 
     const { CONFIG: config, UI: uiData, INVENTORY: inventoryData } = gameData;
 
@@ -76,7 +201,8 @@ function initGame() {
     initializeUI(uiData);
     initializeInventory(inventoryData);
 
-    showTutorial();
+    const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY.CONTAINER);
+    tutorial.show();
 }
 
 // Assign static fields from JSON config to gameData
@@ -124,7 +250,7 @@ function initializeGrid(config) {
     gameState.grid.tiles = Array.from({ length: gameData.GRID_WIDTH }, () =>
         Array.from({ length: gameData.GRID_WIDTH }, () => {
             const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
-            return structuredClone(gameData.TILE_TYPES[defaultType]);
+            return new Tile(structuredClone(gameData.TILE_TYPES[defaultType]));
         })
     );
 
@@ -512,13 +638,15 @@ function preventKeyBindingScroll(e) {
 }
 
 function handleKeyDown(e) {
-    if (gameState.ui.isTutorialActive) return;
+    if (gameState.ui.isTutorialActive) return; // Disable input during tutorial
 
-    let newX = gameState.player.position.x;
-    let newY = gameState.player.position.y;
-
+    const { player, grid } = gameState;
     const keyBindings = gameData.CONFIG.KEY_BINDINGS;
 
+    let newX = player.position.x;
+    let newY = player.position.y;
+
+    // Handle movement keys
     switch (e.key) {
         case keyBindings.PLAYER_MOVE_UP:
             newY -= 1;
@@ -533,21 +661,22 @@ function handleKeyDown(e) {
             newX += 1;
             break;
         case keyBindings.HIGHLIGHT_TILE_UP:
-            highlightTile(gameState.player.position.x, gameState.player.position.y - 1);
+            highlightTile(player.position.x, player.position.y - 1);
             return;
         case keyBindings.HIGHLIGHT_TILE_DOWN:
-            highlightTile(gameState.player.position.x, gameState.player.position.y + 1);
+            highlightTile(player.position.x, player.position.y + 1);
             return;
         case keyBindings.HIGHLIGHT_TILE_LEFT:
-            highlightTile(gameState.player.position.x - 1, gameState.player.position.y);
+            highlightTile(player.position.x - 1, player.position.y);
             return;
         case keyBindings.HIGHLIGHT_TILE_RIGHT:
-            highlightTile(gameState.player.position.x + 1, gameState.player.position.y);
+            highlightTile(player.position.x + 1, player.position.y);
             return;
         case keyBindings.RESET_HIGHLIGHT:
-            highlightTile(gameState.player.position.x, gameState.player.position.y);
+            highlightTile(player.position.x, player.position.y);
             return;
         default:
+            // Handle tile action keys
             const actionKey = Object.keys(keyBindings).find(key => keyBindings[key] === e.key);
             if (actionKey && actionKey.startsWith("ACTION_")) {
                 const action = actionKey.replace("ACTION_", "").toLowerCase();
@@ -558,19 +687,16 @@ function handleKeyDown(e) {
             break;
     }
 
+    // Validate new position and update player
     if (isTileValid(newX, newY)) {
-        const targetTile = gameState.grid.tiles[newY]?.[newX];
-
-        // Prevent movement onto a PLOT
+        const targetTile = grid.tiles[newY]?.[newX];
         if (targetTile?.TYPE === gameData.TILE_TYPES.PLOT.TYPE) {
             console.log("Cannot move onto a PLOT tile.");
             return;
         }
 
-        gameState.player.position.x = newX;
-        gameState.player.position.y = newY;
-
-        gameState.grid.highlightedTile = { x: newX, y: newY };
+        player.position = { x: newX, y: newY };
+        grid.highlightedTile = { x: newX, y: newY };
 
         highlightTile(newX, newY);
         render();
@@ -636,8 +762,6 @@ function skipToNextWeek() {
     updateWeekDisplay();
     updateBiodiversityDisplay();
     updateTileStats();
-
-    render();
 }
 
 function updateYearAndSeason() {
@@ -699,7 +823,6 @@ function resetPlayerPosition() {
 
     highlightTile(x, y);
     updateTileStats();
-    render();
 }
 
 function highlightTile(x, y) {
@@ -708,65 +831,23 @@ function highlightTile(x, y) {
         return;
     }
 
+    const tile = new Tile(gameState.grid.tiles[y][x]);
+    tile.highlight(); // Example method
     gameState.grid.highlightedTile = { x, y };
 
     updateTileStats();
-    render();
 }
 
 /* TILE & GRID UPDATES */
 
 function updateAllTiles() {
-    for (let row = 0; row < gameState.grid.height; row++) {
-        for (let col = 0; col < gameState.grid.width; col++) {
-            const tile = gameState.grid.tiles[row][col];
-            updateTileMoisture(tile);
-            updateTilePlant(tile, row, col);
-        }
-    }
-}
-
-function updateTileMoisture(tile) {
-    if (!tile.MOISTURE || !tile.MOISTURE.VALUE) {
-        console.warn("Tile moisture data is missing.");
-        return;
-    }
-
-    tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - gameState.baseMoistureDecay, 0);
-    if (tile.MOISTURE_DECAY_RATE) {
-        tile.MOISTURE.VALUE = Math.max(tile.MOISTURE.VALUE - tile.MOISTURE_DECAY_RATE, 0);
-    }
-
-    tile.MOISTURE.VALUE = Math.min(tile.MOISTURE.VALUE, 100);
-}
-
-function updateTilePlant(tile, row, col) {
-    if (!tile.PLANT_DATA || !tile.PLANT_DATA.VALUE) {
-        console.warn(`Plant data missing for tile at (${row}, ${col}).`);
-        return;
-    }
-    const plantName = tile.PLANT_DATA.VALUE.NAME;
-    const plantData = gameData.PLANT_DATA[plantName];
-
-    const { N, P, K } = tile.SOIL_NUTRIENTS;
-    const sufficientNutrients = N >= 30 && P >= 20 && K >= 20;
-    const sufficientMoisture = tile.MOISTURE.VALUE >= 40;
-
-    if (sufficientNutrients && sufficientMoisture) {
-        tile.PLANT_DATA.VALUE.AGE += 1;
-    } else {
-        console.log(`Plant at (${row}, ${col}) is growing slowly due to poor conditions.`);
-    }
-
-    if (sufficientNutrients) {
-        tile.SOIL_NUTRIENTS.N.VALUE = Math.max(N - 10, 0);
-        tile.SOIL_NUTRIENTS.P.VALUE = Math.max(P - 5, 0);
-        tile.SOIL_NUTRIENTS.K.VALUE = Math.max(K - 5, 0);
-    }
-
-    if (tile.PLANT_DATA.VALUE.AGE >= plantData.GROWTH_TIME) {
-        tile.PLANT_DATA.VALUE.IS_MATURE = true;
-    }
+    gameState.grid.tiles.forEach(row => {
+        row.forEach(tileData => {
+            const tile = new Tile(tileData);
+            tile.updateMoisture(gameState.baseMoistureDecay);
+            tile.growPlant({ isSufficient: checkConditions });
+        });
+    });
 }
 
 function updateTileStats() {
@@ -779,6 +860,7 @@ function updateTileStats() {
     }
 
     updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.UI.TILE_STATS.CONTAINER);
+    render();
 }
 
 /* UI UPDATES */
@@ -806,150 +888,30 @@ function updateBiodiversityDisplay() {
 
 /* PLAYER ACTIONS */
 
-function handleTileAction(action, tile, params = {}) {
-    const actions = gameState.actions;
-    const actionConfig = gameData.ACTIONS[action.toUpperCase()];
-
-    if (!actionConfig) {
-        console.warn(`Unhandled tile action: '${action}'`);
+function handleTileAction(action, targetTile) {
+    if (!targetTile) {
+        console.error("Invalid target tile.");
         return;
     }
 
-    const functionName = actionConfig.FUNCTION;
-    const functionParams = actionConfig.PARAMS || {};
-    const timeCost = actionConfig.TIME_COST;
+    const { x, y } = targetTile;
+    const tileData = gameState.grid.tiles[y][x];
+    const tile = new Tile(tileData);
 
-    const actionFunction = window[functionName];
-
-    console.log(`Handling action '${action}' on tile:`, tile);
-    console.log(`Calling function '${functionName}' with params:`, { ...params, ...functionParams });
-
-    if (typeof actionFunction !== "function") {
-        console.error(`Function '${functionName}' not found for action '${action}'`);
-        return;
+    if (typeof tile[action] === "function") {
+        try {
+            tile[action]();
+            const timeCost = gameData.CONFIG.ACTIONS[action.toUpperCase()]?.TIME_COST;
+        } catch (error) {
+            console.error(`Error executing action '${action}' on tile at (${x}, ${y}):`, error);
+        }
+    } else {
+        console.warn(`Invalid action '${action}' for Tile. Ensure it is implemented.`);
     }
 
-    actionFunction(tile, { ...params, ...functionParams });
-
-    // Deduct time cost from the game state
-    gameState.time.currentTime += timeCost;
+    gameState.grid.tiles[y][x] = { ...tile };
 
     updateTileStats();
-    render();
-}
-
-function tillSoil(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to tillSoil.");
-        return;
-    }
-    if (tile.TYPE === gameData.TILE_TYPES.EMPTY.TYPE) {
-        tile.TYPE = gameData.TILE_TYPES.PLOT.TYPE;
-        tile.IS_TILLED = true;
-        advanceTime(gameData.CONFIG.ACTIONS.TILL.TIME_COST);
-    } else {
-        console.log("Cannot till this tile.");
-    }
-}
-
-function fertilizeTile(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to fertilizeTile.");
-        return;
-    }
-    if (tile.IS_TILLED && gameState.inventory.fertilizer > 0) {
-        tile.SOIL_NUTRIENTS.N += 10;
-        tile.SOIL_NUTRIENTS.P += 5;
-        tile.SOIL_NUTRIENTS.K += 5;
-        updateInventory('fertilizer', -1);
-        advanceTime(gameData.CONFIG.ACTIONS.FERTILIZE.TIME_COST);
-    } else {
-        console.log("Cannot fertilize this tile.");
-    }
-}
-
-function plantSeed(tile, seedType = "tomato") {
-    if (!tile) {
-        console.error("Invalid tile provided to plantSeed.");
-        return;
-    }
-    if (tile.IS_TILLED && !tile.PLANT_DATA.VALUE) {
-        tile.PLANT_DATA.VALUE = {
-            NAME: seedType,
-            AGE: 0,
-            IS_MATURE: false
-        };
-        advanceTime(gameData.CONFIG.ACTIONS.PLANT.TIME_COST);
-    } else {
-        console.log("Cannot plant on this tile.");
-    }
-}
-
-function waterTile(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to waterTile.");
-        return;
-    }
-    tile.MOISTURE.VALUE = Math.min(tile.MOISTURE.VALUE + 20, 100);
-    advanceTime(gameData.CONFIG.ACTIONS.WATER.TIME_COST);
-}
-
-function mulchTile(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to mulchTile.");
-        return;
-    }
-    if (tile.IS_TILLED && gameState.inventory.mulch > 0) {
-        tile.MOISTURE_DECAY_RATE = Math.max(tile.MOISTURE_DECAY_RATE - 1, 0);
-        updateInventory('mulch', -1);
-        advanceTime(gameData.CONFIG.ACTIONS.MULCH.TIME_COST);
-    } else {
-        console.log("Cannot apply mulch to this tile.");
-    }
-}
-
-function weedTile(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to weedTile.");
-    }
-    if (tile.WEED_LEVEL.VALUE > 0) {
-        tile.WEED_LEVEL.VALUE = 0;
-        advanceTime(gameData.CONFIG.ACTIONS.WEED.TIME_COST);
-    } else {
-        console.log("No weeds to remove.");
-    }
-}
-
-function harvestPlant(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to harvestPlant.");
-        return
-    }
-    if (tile.PLANT_DATA.VALUE && tile.PLANT_DATA.VALUE.IS_MATURE) {
-        const plantType = tile.PLANT_DATA.VALUE.NAME;
-        const yieldAmount = PLANT_DATA[plantType].YIELD;
-        updateInventory(`produce.${plantType}`, yieldAmount);
-        tile.PLANT_DATA.VALUE = null;
-        tile.IS_TILLED = false;
-        advanceTime(gameData.CONFIG.ACTIONS.HARVEST.TIME_COST);
-    } else {
-        console.log("No mature plant to harvest.");
-    }
-}
-
-function clearPlot(tile) {
-    if (!tile) {
-        console.error("Invalid tile provided to clearPlot.");
-        return;
-    }
-    if (tile.TYPE === TILE_TYPES.PLOT.TYPE) {
-        tile.TYPE = TILE_TYPES.EMPTY.TYPE;
-        tile.IS_TILLED = false;
-        tile.PLANT_DATA.VALUE = null;
-        advanceTime(gameData.CONFIG.ACTIONS.CLEAR.TIME_COST);
-    } else {
-        console.log("This tile is not a plot.");
-    }
 }
 
 /* INVENTORY */
@@ -969,15 +931,11 @@ function updateInventory(item, delta) {
 /* TUTORIAL OVERLAY */
 
 function showTutorial() {
-    gameState.ui.isTutorialActive = true;
-    document.getElementById(gameData.UI.TUTORIAL_OVERLAY.CONTAINER).classList.remove("hidden");
-    toggleButtons(false);
+    tutorial.show();
 }
 
 function hideTutorial() {
-    gameState.ui.isTutorialActive = false;
-    document.getElementById(gameData.UI.TUTORIAL_OVERLAY.CONTAINER).classList.add("hidden");
-    toggleButtons(true);
+    tutorial.hide();
 }
 
 /* UTILITY */
@@ -989,6 +947,19 @@ function validateGameData(data) {
             throw new Error(`Missing required field: ${field}`);
         }
     }
+}
+
+function validateKeyBindings(bindings) {
+    const requiredKeys = [
+        "PLAYER_MOVE_UP", "PLAYER_MOVE_DOWN", "PLAYER_MOVE_LEFT", "PLAYER_MOVE_RIGHT",
+        "HIGHLIGHT_TILE_UP", "HIGHLIGHT_TILE_DOWN", "HIGHLIGHT_TILE_LEFT", "HIGHLIGHT_TILE_RIGHT",
+        "RESET_HIGHLIGHT"
+    ];
+    requiredKeys.forEach(key => {
+        if (!bindings[key]) {
+            console.warn(`Missing key binding: ${key}`);
+        }
+    });
 }
 
 function getTargetTile() {
@@ -1051,13 +1022,6 @@ function createElement(tag, options = {}) {
     }
 
     return element;
-}
-
-function toggleButtons(enable) {
-    const buttons = document.querySelectorAll(`button:not(#${gameData.FIELDS.CLOSE_TUTORIAL.ID})`);
-    buttons.forEach(button => {
-        button.disabled = !enable;
-    });
 }
 
 function getCSSVariable(name) {
