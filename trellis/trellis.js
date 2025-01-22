@@ -18,7 +18,12 @@ const gameState = {
     player: {
         position: { x: null, y: null },
         inventory: {
-            produce: [],
+            produce: {
+                tomato: 0,
+                kale: 0,
+                corn: 0,
+                beans: 0,
+            },
             fertilizer: 0,
             mulch: 0,
         },
@@ -46,15 +51,15 @@ class Tile {
                 prevTileElement.classList.remove("highlighted");
             }
         }
-    
+
         const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
         if (tileElement) {
             tileElement.classList.add("highlighted");
         }
-    
+
         gameState.grid.highlightedTile = { x: this.x, y: this.y };
     }
-    
+
     till() {
         if (this.TYPE === gameData.TILE_TYPES.EMPTY.TYPE) {
             this.TYPE = gameData.TILE_TYPES.PLOT.TYPE;
@@ -190,7 +195,7 @@ window.onload = function () {
         .then((data) => {
             gameData = data;
             try {
-                
+
                 initGame();
             } catch (error) {
                 console.error(error.message);
@@ -292,11 +297,9 @@ function initializeUI(uiData) {
 }
 
 function initializeInventory(inventoryData) {
-    // Populate player inventory from gameData.INVENTORY
     gameState.player.inventory = { ...inventoryData };
     console.log("Initialized inventory:", gameState.player.inventory);
 
-    // Optionally, update UI to reflect the initial inventory state
     updateInventoryUI();
 }
 
