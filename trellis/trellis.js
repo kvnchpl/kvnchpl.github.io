@@ -48,9 +48,14 @@ window.onload = function () {
             return response.json();
         })
         .then((data) => {
-            gameData = data;
+            gameData = data;     
+            try {
+                validateGameData(gameData);
+                initGame();
+            } catch (error) {
+                console.error(error.message);
+            }
             console.log("Game data loaded successfully:\n", gameData);
-            initGame();
         })
         .catch((error) => {
             console.error("Error fetching game data:", error);
@@ -64,19 +69,6 @@ function initGame() {
     }
 
     const { CONFIG: config, UI: uiData, INVENTORY: inventoryData } = gameData;
-
-    if (!config) {
-        console.error("Config data is missing.");
-        return;
-    }
-    if (!uiData) {
-        console.error("UI data is missing.");
-        return;
-    }
-    if (!inventoryData) {
-        console.error("Inventory data is missing.");
-        return;
-    }
 
     initializeGameData(config);
     initializeGameState(config);
@@ -498,7 +490,7 @@ function attachUIEventListeners() {
     document.addEventListener("click", (event) => {
         const button = event.target.closest("[data-on-click]");
         if (!button) return;
-    
+
         const handlerName = button.dataset.onClick;
         const handler = window[handlerName];
         if (typeof handler === "function") {
@@ -988,7 +980,16 @@ function hideTutorial() {
     toggleButtons(true);
 }
 
-/* UTILITY ON_CLICKS */
+/* UTILITY */
+
+function validateGameData(data) {
+    const requiredFields = ["CONFIG", "UI", "INVENTORY"];
+    for (const field of requiredFields) {
+        if (!data[field]) {
+            throw new Error(`Missing required field: ${field}`);
+        }
+    }
+}
 
 function getTargetTile() {
     const { x, y } = gameState.grid.highlightedTile.x !== null ?
