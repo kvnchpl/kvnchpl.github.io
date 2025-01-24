@@ -998,10 +998,14 @@ function parseAndAdjustRGB(baseColor, adjustments) {
 
 function calculateAdjustments(tile) {
     return Object.entries(gameData.TILE_CONFIG.RGB_ADJUSTMENTS).reduce((adjustments, [key, config]) => {
-        const scale = eval(config.SCALE); // Dynamically evaluate scale
-        adjustments.r += (config.r || 0) * scale;
-        adjustments.g += (config.g || 0) * scale;
-        adjustments.b += (config.b || 0) * scale;
+        try {
+            const scale = eval(config.SCALE); // Dynamically evaluate scale
+            adjustments.r += (config.r || 0) * scale;
+            adjustments.g += (config.g || 0) * scale;
+            adjustments.b += (config.b || 0) * scale;
+        } catch (error) {
+            console.warn(`Failed to calculate adjustment for '${key}':`, error);
+        }
         return adjustments;
     }, { r: 0, g: 0, b: 0 });
 }
