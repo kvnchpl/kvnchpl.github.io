@@ -95,22 +95,24 @@
             "DEFAULT_SEASON": "Winter"
         },
         "TILE_CONFIG": {
+            "DEFAULTS": {
+                "MOISTURE": 50,
+                "SOIL_NUTRIENTS": {
+                    "NITROGEN": 50,
+                    "PHOSPHORUS": 50,
+                    "POTASSIUM": 50
+                },
+                "PLANT_DATA": {
+                    "NAME": "None",
+                    "GROWTH_TIME": 0,
+                    "YIELD": 0
+                },
+                "WEED_LEVEL": 0,
+                "IS_PEST_INFESTED": false
+            },
             "TYPES": {
                 "EMPTY": {
-                    "IS_TILLED": false,
-                    "MOISTURE": 50,
-                    "SOIL_NUTRIENTS": {
-                        "NITROGEN": 50,
-                        "PHOSPHORUS": 50,
-                        "POTASSIUM": 50
-                    },
-                    "PLANT_DATA": {
-                        "NAME": "None",
-                        "GROWTH_TIME": 0,
-                        "YIELD": 0
-                    },
-                    "WEED_LEVEL": 0,
-                    "IS_PEST_INFESTED": false
+                    "IS_TILLED": false
                 },
                 "PLOT": {
                     "IS_TILLED": true
@@ -119,385 +121,382 @@
                     "IS_TILLED": false
                 }
             },
-            "DEFAULT_TYPE" : "EMPTY",
+            "DEFAULT_TYPE": "EMPTY",
             "DEFAULT_STYLE": "--tile-default",
             "PLAYER_STYLE": "--tile-player",
             "HIGHLIGHT_STYLE": "--tile-highlight",
-            "BORDER_STYLE": "--color-canvas-border"
-        },
-        "RGB_ADJUSTMENTS": {
-            "MOISTURE": {
-                "r": 40,
-                "g": 40,
-                "b": 0
-            },
-            "PLANT_MATURITY": {
-                "r": 0,
-                "g": 30,
-                "b": 50
-            },
-            "TILLED": {
-                "r": -20,
-                "g": 0,
-                "b": 0
+            "BORDER_STYLE": "--color-canvas-border",
+            "RGB_ADJUSTMENTS": {
+                "MOISTURE": {
+                    "r": 40,
+                    "g": 40,
+                    "b": 0
+                },
+                "PLANT_MATURITY": {
+                    "r": 0,
+                    "g": 30,
+                    "b": 50
+                },
+                "TILLED": {
+                    "r": -20,
+                    "g": 0,
+                    "b": 0
+                }
             }
         },
-        "DEFAULT_TYPE": "EMPTY",
-        "DEFAULT_PEST_OUTBREAK_CHANCE": 5
-    },
-    "ACTIONS": {
-        "TILL": {
-            "FUNCTION": "tillSoil",
-            "TIME_COST": 30
-        },
-        "FERTILIZE": {
-            "FUNCTION": "fertilizeTile",
-            "TIME_COST": 20
-        },
-        "PLANT": {
-            "FUNCTION": "plantSeed",
-            "TIME_COST": 20,
-            "PARAMS": {
-                "seedType": "tomato"
+        "ACTIONS": {
+            "TILL": {
+                "FUNCTION": "tillSoil",
+                "TIME_COST": 30
+            },
+            "FERTILIZE": {
+                "FUNCTION": "fertilizeTile",
+                "TIME_COST": 20
+            },
+            "PLANT": {
+                "FUNCTION": "plantSeed",
+                "TIME_COST": 20,
+                "PARAMS": {
+                    "seedType": "tomato"
+                }
+            },
+            "WATER": {
+                "FUNCTION": "waterTile",
+                "TIME_COST": 10
+            },
+            "MULCH": {
+                "FUNCTION": "mulchTile",
+                "TIME_COST": 15
+            },
+            "WEED": {
+                "FUNCTION": "weedTile",
+                "TIME_COST": 15
+            },
+            "HARVEST": {
+                "FUNCTION": "harvestPlant",
+                "TIME_COST": 20
+            },
+            "CLEAR": {
+                "FUNCTION": "clearPlot",
+                "TIME_COST": 15
             }
         },
-        "WATER": {
-            "FUNCTION": "waterTile",
-            "TIME_COST": 10
-        },
-        "MULCH": {
-            "FUNCTION": "mulchTile",
-            "TIME_COST": 15
-        },
-        "WEED": {
-            "FUNCTION": "weedTile",
-            "TIME_COST": 15
-        },
-        "HARVEST": {
-            "FUNCTION": "harvestPlant",
-            "TIME_COST": 20
-        },
-        "CLEAR": {
-            "FUNCTION": "clearPlot",
-            "TIME_COST": 15
-        }
-    },
-    "PLANTS": {
-        "TOMATO": {
-            "NAME": "Tomato",
-            "GROWTH_TIME": 4,
-            "YIELD": 3
-        },
-        "KALE": {
-            "NAME": "Kale",
-            "GROWTH_TIME": 3,
-            "YIELD": 2
-        },
-        "CORN": {
-            "NAME": "Corn",
-            "GROWTH_TIME": 5,
-            "YIELD": 4
-        },
-        "BEANS": {
-            "NAME": "Beans",
-            "GROWTH_TIME": 3,
-            "YIELD": 3
-        }
-    }
-},
-"FIELDS": {
-    "NEXT_WEEK": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "buttonContainer",
-        "LABEL": "Skip Week",
-        "ID": "nextWeekBtn",
-        "ON_CLICK": "skipToNextWeek"
-    },
-    "RESET_POSITION": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "buttonContainer",
-        "LABEL": "Reset Position",
-        "ID": "resetPositionBtn",
-        "ON_CLICK": "resetPlayerPosition"
-    },
-    "CLOSE_TUTORIAL": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "tutorialOverlay",
-        "LABEL": "Close Tutorial",
-        "ID": "closeTutorialBtn",
-        "ON_CLICK": "hideTutorial"
-    },
-    "TILL": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Till",
-        "ID": "tillBtn",
-        "ON_CLICK": "tillSoil"
-    },
-    "FERTILIZE": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Fertilize",
-        "ID": "fertilizeBtn",
-        "ON_CLICK": "fertilizeTile"
-    },
-    "PLANT": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Plant",
-        "ID": "plantBtn",
-        "ON_CLICK": "plantSeed"
-    },
-    "WATER": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Water",
-        "ID": "waterBtn",
-        "ON_CLICK": "waterTile"
-    },
-    "MULCH": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Mulch",
-        "ID": "mulchBtn",
-        "ON_CLICK": "mulchTile"
-    },
-    "WEED": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Weed",
-        "ID": "weedBtn",
-        "ON_CLICK": "weedTile"
-    },
-    "HARVEST": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Harvest",
-        "ID": "harvestBtn",
-        "ON_CLICK": "harvestPlant"
-    },
-    "CLEAR": {
-        "SECTION_TYPE": "BUTTON",
-        "CONTAINER": "actionsContainer",
-        "LABEL": "Clear",
-        "ID": "clearBtn",
-        "ON_CLICK": "clearPlot"
-    },
-    "TIME": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "globalStats",
-        "LABEL": "Time",
-        "ID": "timeDisplay",
-        "DEFAULT_VALUE": "7:00 AM"
-    },
-    "WEEK": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "globalStats",
-        "LABEL": "Week",
-        "ID": "weekDisplay",
-        "DEFAULT_VALUE": "1"
-    },
-    "YEAR": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "globalStats",
-        "LABEL": "Year",
-        "ID": "yearDisplay",
-        "DEFAULT_VALUE": "1"
-    },
-    "SEASON": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "globalStats",
-        "LABEL": "Season",
-        "ID": "seasonDisplay",
-        "DEFAULT_VALUE": "Winter"
-    },
-    "BIODIVERSITY": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "globalStats",
-        "LABEL": "Biodiversity",
-        "ID": "biodiversityScore",
-        "DEFAULT_VALUE": "0"
-    },
-    "TILE_TYPE": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Type",
-        "ID": "tileType",
-        "DEFAULT_VALUE": "Empty"
-    },
-    "TILE_IS_TILLED": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Tilled",
-        "ID": "tileIsTilled",
-        "DEFAULT_VALUE": "False"
-    },
-    "TILE_PLANT": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Plant",
-        "ID": "tilePlant",
-        "DEFAULT_VALUE": "None"
-    },
-    "TILE_WEED_LEVEL": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Weed Level",
-        "ID": "tileWeedLevel",
-        "DEFAULT_VALUE": "0"
-    },
-    "TILE_MOISTURE": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Moisture",
-        "ID": "tileMoisture",
-        "DEFAULT_VALUE": "50"
-    },
-    "TILE_MOISTURE_DECAY": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Moisture Decay Rate",
-        "ID": "tileMoistureDecay",
-        "DEFAULT_VALUE": "2"
-    },
-    "TILE_SOIL_NUTRIENTS": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "tileStats",
-        "LABEL": "Soil Nutrients",
-        "ID": "tileSoilNutrients",
-        "SUBFIELDS": {
-            "NITROGEN": {
-                "LABEL": "Nitrogen",
-                "ID": "nutrientsNitrogen",
-                "DEFAULT_VALUE": 50
-            },
-            "PHOSPHORUS": {
-                "LABEL": "Phosphorus",
-                "ID": "nutrientsPhosphorus",
-                "DEFAULT_VALUE": 50
-            },
-            "POTASSIUM": {
-                "LABEL": "Potassium",
-                "ID": "nutrientsPotassium",
-                "DEFAULT_VALUE": 50
-            }
-        }
-    },
-    "INVENTORY_PRODUCE": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "inventory",
-        "LABEL": "Produce",
-        "ID": "inventoryProduce",
-        "SUBFIELDS": {
+        "PLANTS": {
             "TOMATO": {
-                "LABEL": "Tomato",
-                "ID": "produceTomato",
-                "DEFAULT_VALUE": 0
+                "NAME": "Tomato",
+                "GROWTH_TIME": 4,
+                "YIELD": 3
             },
             "KALE": {
-                "LABEL": "Kale",
-                "ID": "produceKale",
-                "DEFAULT_VALUE": 0
+                "NAME": "Kale",
+                "GROWTH_TIME": 3,
+                "YIELD": 2
             },
             "CORN": {
-                "LABEL": "Corn",
-                "ID": "produceCorn",
-                "DEFAULT_VALUE": 0
+                "NAME": "Corn",
+                "GROWTH_TIME": 5,
+                "YIELD": 4
             },
             "BEANS": {
-                "LABEL": "Beans",
-                "ID": "produceBeans",
-                "DEFAULT_VALUE": 0
+                "NAME": "Beans",
+                "GROWTH_TIME": 3,
+                "YIELD": 3
             }
         }
     },
-    "INVENTORY_FERTILIZER": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "inventory",
-        "LABEL": "Fertilizer",
-        "ID": "inventoryFertilizer",
-        "DEFAULT_VALUE": 100
+    "FIELDS": {
+        "NEXT_WEEK": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "buttonContainer",
+            "LABEL": "Skip Week",
+            "ID": "nextWeekBtn",
+            "ON_CLICK": "skipToNextWeek"
+        },
+        "RESET_POSITION": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "buttonContainer",
+            "LABEL": "Reset Position",
+            "ID": "resetPositionBtn",
+            "ON_CLICK": "resetPlayerPosition"
+        },
+        "CLOSE_TUTORIAL": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "tutorialOverlay",
+            "LABEL": "Close Tutorial",
+            "ID": "closeTutorialBtn",
+            "ON_CLICK": "hideTutorial"
+        },
+        "TILL": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Till",
+            "ID": "tillBtn",
+            "ON_CLICK": "tillSoil"
+        },
+        "FERTILIZE": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Fertilize",
+            "ID": "fertilizeBtn",
+            "ON_CLICK": "fertilizeTile"
+        },
+        "PLANT": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Plant",
+            "ID": "plantBtn",
+            "ON_CLICK": "plantSeed"
+        },
+        "WATER": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Water",
+            "ID": "waterBtn",
+            "ON_CLICK": "waterTile"
+        },
+        "MULCH": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Mulch",
+            "ID": "mulchBtn",
+            "ON_CLICK": "mulchTile"
+        },
+        "WEED": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Weed",
+            "ID": "weedBtn",
+            "ON_CLICK": "weedTile"
+        },
+        "HARVEST": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Harvest",
+            "ID": "harvestBtn",
+            "ON_CLICK": "harvestPlant"
+        },
+        "CLEAR": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "actionsContainer",
+            "LABEL": "Clear",
+            "ID": "clearBtn",
+            "ON_CLICK": "clearPlot"
+        },
+        "TIME": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "globalStats",
+            "LABEL": "Time",
+            "ID": "timeDisplay",
+            "DEFAULT_VALUE": "7:00 AM"
+        },
+        "WEEK": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "globalStats",
+            "LABEL": "Week",
+            "ID": "weekDisplay",
+            "DEFAULT_VALUE": "1"
+        },
+        "YEAR": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "globalStats",
+            "LABEL": "Year",
+            "ID": "yearDisplay",
+            "DEFAULT_VALUE": "1"
+        },
+        "SEASON": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "globalStats",
+            "LABEL": "Season",
+            "ID": "seasonDisplay",
+            "DEFAULT_VALUE": "Winter"
+        },
+        "BIODIVERSITY": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "globalStats",
+            "LABEL": "Biodiversity",
+            "ID": "biodiversityScore",
+            "DEFAULT_VALUE": "0"
+        },
+        "TILE_TYPE": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Type",
+            "ID": "tileType",
+            "DEFAULT_VALUE": "Empty"
+        },
+        "TILE_IS_TILLED": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Tilled",
+            "ID": "tileIsTilled",
+            "DEFAULT_VALUE": "False"
+        },
+        "TILE_PLANT": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Plant",
+            "ID": "tilePlant",
+            "DEFAULT_VALUE": "None"
+        },
+        "TILE_WEED_LEVEL": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Weed Level",
+            "ID": "tileWeedLevel",
+            "DEFAULT_VALUE": "0"
+        },
+        "TILE_MOISTURE": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Moisture",
+            "ID": "tileMoisture",
+            "DEFAULT_VALUE": "50"
+        },
+        "TILE_MOISTURE_DECAY": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Moisture Decay Rate",
+            "ID": "tileMoistureDecay",
+            "DEFAULT_VALUE": "2"
+        },
+        "TILE_SOIL_NUTRIENTS": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Soil Nutrients",
+            "ID": "tileSoilNutrients",
+            "SUBFIELDS": {
+                "NITROGEN": {
+                    "LABEL": "Nitrogen",
+                    "ID": "nutrientsNitrogen",
+                    "DEFAULT_VALUE": 50
+                },
+                "PHOSPHORUS": {
+                    "LABEL": "Phosphorus",
+                    "ID": "nutrientsPhosphorus",
+                    "DEFAULT_VALUE": 50
+                },
+                "POTASSIUM": {
+                    "LABEL": "Potassium",
+                    "ID": "nutrientsPotassium",
+                    "DEFAULT_VALUE": 50
+                }
+            }
+        },
+        "INVENTORY_PRODUCE": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "inventory",
+            "LABEL": "Produce",
+            "ID": "inventoryProduce",
+            "SUBFIELDS": {
+                "TOMATO": {
+                    "LABEL": "Tomato",
+                    "ID": "produceTomato",
+                    "DEFAULT_VALUE": 0
+                },
+                "KALE": {
+                    "LABEL": "Kale",
+                    "ID": "produceKale",
+                    "DEFAULT_VALUE": 0
+                },
+                "CORN": {
+                    "LABEL": "Corn",
+                    "ID": "produceCorn",
+                    "DEFAULT_VALUE": 0
+                },
+                "BEANS": {
+                    "LABEL": "Beans",
+                    "ID": "produceBeans",
+                    "DEFAULT_VALUE": 0
+                }
+            }
+        },
+        "INVENTORY_FERTILIZER": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "inventory",
+            "LABEL": "Fertilizer",
+            "ID": "inventoryFertilizer",
+            "DEFAULT_VALUE": 100
+        },
+        "INVENTORY_MULCH": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "inventory",
+            "LABEL": "Mulch",
+            "ID": "inventoryMulch",
+            "DEFAULT_VALUE": 100
+        }
     },
-    "INVENTORY_MULCH": {
-        "SECTION_TYPE": "FIELD_LABEL",
-        "CONTAINER": "inventory",
-        "LABEL": "Mulch",
-        "ID": "inventoryMulch",
-        "DEFAULT_VALUE": 100
+    "UI": {
+        "TUTORIAL_OVERLAY": {
+            "CONTAINER": "tutorialOverlay",
+            "HEADING": "Welcome to Trellis!",
+            "CONTENT": [
+                "Use arrow keys to move your character.",
+                "Use WASD to select adjacent tiles.",
+                "Perform actions like tilling, planting, and harvesting to manage your garden."
+            ],
+            "FIELDS": [
+                "CLOSE_TUTORIAL"
+            ]
+        },
+        "BUTTON_CONTAINER": {
+            "CONTAINER": "buttonContainer",
+            "FIELDS": [
+                "NEXT_WEEK",
+                "RESET_POSITION"
+            ]
+        },
+        "ACTIONS_CONTAINER": {
+            "CONTAINER": "actionsContainer",
+            "FIELDS": [
+                "TILL",
+                "FERTILIZE",
+                "PLANT",
+                "WATER",
+                "MULCH",
+                "WEED",
+                "HARVEST",
+                "CLEAR"
+            ]
+        },
+        "GLOBAL_STATS": {
+            "CONTAINER": "globalStats",
+            "FIELDS": [
+                "TIME",
+                "WEEK",
+                "YEAR",
+                "SEASON",
+                "BIODIVERSITY"
+            ]
+        },
+        "TILE_STATS": {
+            "CONTAINER": "tileStats",
+            "FIELDS": [
+                "TILE_TYPE",
+                "TILE_IS_TILLED",
+                "TILE_PLANT",
+                "TILE_WEED_LEVEL",
+                "TILE_MOISTURE",
+                "TILE_MOISTURE_DECAY",
+                "TILE_SOIL_NUTRIENTS"
+            ]
+        },
+        "INVENTORY_DISPLAY": {
+            "CONTAINER": "inventory",
+            "FIELDS": [
+                "INVENTORY_PRODUCE",
+                "INVENTORY_FERTILIZER",
+                "INVENTORY_MULCH"
+            ]
+        }
+    },
+    "INVENTORY": {
+        "PRODUCE": {
+            "TOMATO": 0,
+            "KALE": 0,
+            "CORN": 0,
+            "BEANS": 0
+        },
+        "FERTILIZER": 2,
+        "MULCH": 5
     }
-},
-"UI": {
-    "TUTORIAL_OVERLAY": {
-        "CONTAINER": "tutorialOverlay",
-        "HEADING": "Welcome to Trellis!",
-        "CONTENT": [
-            "Use arrow keys to move your character.",
-            "Use WASD to select adjacent tiles.",
-            "Perform actions like tilling, planting, and harvesting to manage your garden."
-        ],
-        "FIELDS": [
-            "CLOSE_TUTORIAL"
-        ]
-    },
-    "BUTTON_CONTAINER": {
-        "CONTAINER": "buttonContainer",
-        "FIELDS": [
-            "NEXT_WEEK",
-            "RESET_POSITION"
-        ]
-    },
-    "ACTIONS_CONTAINER": {
-        "CONTAINER": "actionsContainer",
-        "FIELDS": [
-            "TILL",
-            "FERTILIZE",
-            "PLANT",
-            "WATER",
-            "MULCH",
-            "WEED",
-            "HARVEST",
-            "CLEAR"
-        ]
-    },
-    "GLOBAL_STATS": {
-        "CONTAINER": "globalStats",
-        "FIELDS": [
-            "TIME",
-            "WEEK",
-            "YEAR",
-            "SEASON",
-            "BIODIVERSITY"
-        ]
-    },
-    "TILE_STATS": {
-        "CONTAINER": "tileStats",
-        "FIELDS": [
-            "TILE_TYPE",
-            "TILE_IS_TILLED",
-            "TILE_PLANT",
-            "TILE_WEED_LEVEL",
-            "TILE_MOISTURE",
-            "TILE_MOISTURE_DECAY",
-            "TILE_SOIL_NUTRIENTS"
-        ]
-    },
-    "INVENTORY_DISPLAY": {
-        "CONTAINER": "inventory",
-        "FIELDS": [
-            "INVENTORY_PRODUCE",
-            "INVENTORY_FERTILIZER",
-            "INVENTORY_MULCH"
-        ]
-    }
-},
-"INVENTORY": {
-    "PRODUCE": {
-        "TOMATO": 0,
-        "KALE": 0,
-        "CORN": 0,
-        "BEANS": 0
-    },
-    "FERTILIZER": 2,
-    "MULCH": 5
-}
 }

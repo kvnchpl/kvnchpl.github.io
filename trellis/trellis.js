@@ -145,20 +145,22 @@ class Tile {
 class TileService {
     static createTile(typeKey) {
         const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
+        const defaults = gameData.TILE_CONFIG.DEFAULTS;
         if (!typeConfig) {
             console.error(`Tile type '${typeKey}' not found.`);
             return null;
         }
-        return new Tile({ ...typeConfig, TYPE: typeKey });
+        return new Tile({ ...structuredClone(defaults), ...structuredClone(typeConfig), TYPE: typeKey });
     }
 
     static updateTile(tile, typeKey) {
         const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
+        const defaults = gameData.TILE_CONFIG.DEFAULTS;
         if (!typeConfig) {
             console.error(`Tile type '${typeKey}' not found.`);
             return;
         }
-        Object.assign(tile, { ...typeConfig, TYPE: typeKey });
+        Object.assign(tile, { ...structuredClone(defaults), ...structuredClone(typeConfig), TYPE: typeKey });
     }
 
     static getTypeConfig(typeKey) {
