@@ -273,7 +273,7 @@ function render() {
 function drawGrid(context) {
     const tileStyles = gameData.TILE_CONFIG.STYLES;
     const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
-    const tileSize = g2ameData.GAME_CONFIG.GRID.TILE_SIZE;
+    const tileSize = gameData.GAME_CONFIG.GRID.TILE_SIZE;
 
     for (let row = 0; row < gameState.grid.tiles.length; row++) {
         for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
