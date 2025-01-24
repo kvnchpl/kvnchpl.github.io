@@ -11,7 +11,7 @@ class GameState {
             currentSeason: config.GAME_CONFIG.DEFAULT_SEASON,
         };
         this.grid = {
-            tiles: this.initializeGrid(config),
+            tiles: this.initGrid(config),
             highlightedTile: { x: null, y: null },
         };
         this.player = {
@@ -29,7 +29,7 @@ class GameState {
         };
     }
 
-    initializeGrid(config) {
+    initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
         return Array.from({ length: HEIGHT }, () =>
             Array.from({ length: WIDTH }, () => new Tile(config.TILE_CONFIG.TYPES.EMPTY))
@@ -63,9 +63,7 @@ class Tile {
 
     fertilize() {
         if (this.IS_TILLED && gameState.player.inventory.fertilizer > 0) {
-            this.SOIL_NUTRIENTS.N += 10;
-            this.SOIL_NUTRIENTS.P += 5;
-            this.SOIL_NUTRIENTS.K += 5;
+            this.updateSoilNutrients({ N: 10, P: 5, K: 5 });
             Inventory.update('fertilizer', -1);
         }
     }
@@ -122,6 +120,12 @@ class Tile {
     updateMoisture(decayRate) {
         if (!this.MOISTURE) return;
         this.MOISTURE.VALUE = Math.max(this.MOISTURE.VALUE - decayRate, 0);
+    }
+
+    updateSoilNutrients({ N, P, K }) {
+        this.SOIL_NUTRIENTS.N += N;
+        this.SOIL_NUTRIENTS.P += P;
+        this.SOIL_NUTRIENTS.K += K;
     }
 
     growPlant(conditions) {
