@@ -31,21 +31,21 @@ class GameState {
 
     initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
-        const emptyType = gameData.TILE_CONFIG.TYPES.EMPTY.TYPE;
-
+        const defaultTypeKey = gameData.TILE_CONFIG.DEFAULT_TYPE;
+    
         return Array.from({ length: HEIGHT }, () =>
-            Array.from({ length: WIDTH }, () => TileService.createTile(emptyType))
+            Array.from({ length: WIDTH }, () => TileService.createTile(defaultTypeKey))
         );
     }
 }
 
 class Tile {
     constructor(data) {
-        Object.assign(this, structuredClone(data));
+        Object.assign(this, data);
     }
 
     isType(typeKey) {
-        return this.TYPE === TileService.getTypeConfig(typeKey)?.TYPE;
+        return this.TYPE === typeKey;
     }
 
     setType(typeKey) {
@@ -146,19 +146,19 @@ class TileService {
     static createTile(typeKey) {
         const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
         if (!typeConfig) {
-            console.error(`Tile type '${typeKey}' not found in configuration.`);
+            console.error(`Tile type '${typeKey}' not found.`);
             return null;
         }
-        return new Tile(structuredClone(typeConfig));
+        return new Tile({ ...typeConfig, TYPE: typeKey });
     }
 
     static updateTile(tile, typeKey) {
         const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
         if (!typeConfig) {
-            console.error(`Tile type '${typeKey}' not found in configuration.`);
+            console.error(`Tile type '${typeKey}' not found.`);
             return;
         }
-        Object.assign(tile, structuredClone(typeConfig));
+        Object.assign(tile, { ...typeConfig, TYPE: typeKey });
     }
 
     static getTypeConfig(typeKey) {
@@ -321,8 +321,8 @@ function drawGrid(context) {
             // Draw the border (highlight if highlighted, otherwise default)
             context.strokeStyle =
                 row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x
-                ? getCSSVariable(tileConfig.HIGHLIGHT_STYLE)
-                : getCSSVariable(tileConfig.BORDER_STYLE);
+                    ? getCSSVariable(tileConfig.HIGHLIGHT_STYLE)
+                    : getCSSVariable(tileConfig.BORDER_STYLE);
 
             context.lineWidth = row === gameState.grid.highlightedTile.y &&
                 col === gameState.grid.highlightedTile.x

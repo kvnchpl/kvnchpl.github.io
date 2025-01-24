@@ -119,6 +119,7 @@
                     "IS_TILLED": false
                 }
             },
+            "DEFAULT_TYPE" : "EMPTY",
             "DEFAULT_STYLE": "--tile-default",
             "PLAYER_STYLE": "--tile-player",
             "HIGHLIGHT_STYLE": "--tile-highlight",
