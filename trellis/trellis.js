@@ -232,12 +232,15 @@ class Tutorial {
 
 async function initGame(gameData) {
     try {
-        TileService.initializeDefaults(gameData.TILE_CONFIG.DEFAULTS, gameData.TILE_CONFIG.TYPES);
+        
+        TileService.initializeDefaults(gameData.CONFIG.TILE_CONFIG.DEFAULTS, gameData.CONFIG.TILE_CONFIG.TYPES);
         TileService.initializeStyles();
 
         window.gameState = new GameState(gameData.CONFIG);
         const inventory = new Inventory(gameData.INVENTORY);
         const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
+
+
 
         if (tutorial.overlay) {
             tutorial.show();
