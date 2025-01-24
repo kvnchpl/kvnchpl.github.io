@@ -31,7 +31,7 @@ class GameState {
 
     initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
-        const emptyType = gameData.TILE_CONFIG.TYPE_KEYS.EMPTY;
+        const emptyType = gameData.TILE_CONFIG.TYPES.EMPTY.TYPE;
     
         return Array.from({ length: HEIGHT }, () =>
             Array.from({ length: WIDTH }, () => TileService.createTile(emptyType))
@@ -65,8 +65,8 @@ class Tile {
     }
 
     till() {
-        if (this.isType(gameData.TILE_CONFIG.TYPE_KEYS.EMPTY)) {
-            this.setType(gameData.TILE_CONFIG.TYPE_KEYS.PLOT);
+        if (this.isType(gameData.TILE_CONFIG.TYPES.EMPTY.TYPE)) {
+            this.setType(gameData.TILE_CONFIG.TYPES.PLOT.TYPE);
         }
     }
 
@@ -119,7 +119,7 @@ class Tile {
     }
 
     clear() {
-        this.setType(gameData.TILE_CONFIG.TYPE_KEYS.EMPTY);
+        this.setType(gameData.TILE_CONFIG.TYPES.EMPTY.TYPE);
     }
 
     updateMoisture(decayRate) {
@@ -680,7 +680,7 @@ function handlePlayerMovement(direction) {
 
     if (isTileValid(newX, newY)) {
         const targetTile = gameState.grid.tiles[newY]?.[newX];
-        const plotType = gameData.TILE_CONFIG.TYPE_KEYS.PLOT;
+        const plotType = gameData.TILE_CONFIG.TYPES.PLOT.TYPE;
 
         if (!targetTile.isType(plotType)) {
             gameState.player.position = { x: newX, y: newY };
