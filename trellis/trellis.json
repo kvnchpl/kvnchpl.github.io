@@ -171,17 +171,20 @@
                 "MOISTURE": {
                     "r": 40,
                     "g": 40,
-                    "b": 0
+                    "b": 0,
+                    "SCALE": "MOISTURE.VALUE / 100"
                 },
                 "PLANT_MATURITY": {
                     "r": 0,
                     "g": 30,
-                    "b": 50
+                    "b": 50,
+                    "SCALE": "PLANT_DATA.VALUE.AGE / PLANT_DATA.GROWTH_TIME"
                 },
                 "TILLED": {
                     "r": -20,
                     "g": 0,
-                    "b": 0
+                    "b": 0,
+                    "SCALE": "IS_TILLED ? 1 : 0"
                 }
             }
         },
