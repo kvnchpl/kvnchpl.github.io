@@ -244,14 +244,15 @@ function render() {
 function drawGrid(context) {
     const tileStyles = gameData.TILE_CONFIG.STYLES;
     const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
+    const tileSize = g2ameData.GAME_CONFIG.GRID.TILE_SIZE;
 
     for (let row = 0; row < gameState.grid.tiles.length; row++) {
         for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
             const tile = gameState.grid.tiles[row][col];
 
-            // Get the base color from the tile type or default
+            // Determine the base color from the tile's TYPE or default
             const baseColor = getCSSVariable(
-                gameData.TILE_CONFIG.TYPES[tile.TYPE]?.COLOR || tileStyles.DEFAULT
+                tileStyles[tile.TYPE] || tileStyles.DEFAULT
             );
 
             // Initialize adjustments
@@ -284,10 +285,10 @@ function drawGrid(context) {
             // Draw the tile
             context.fillStyle = finalColor;
             context.fillRect(
-                col * gameData.GAME_CONFIG.GRID.TILE_SIZE,
-                row * gameData.GAME_CONFIG.GRID.TILE_SIZE,
-                gameData.GAME_CONFIG.GRID.TILE_SIZE,
-                gameData.GAME_CONFIG.GRID.TILE_SIZE
+                col * tileSize,
+                row * tileSize,
+                tileSize,
+                tileSize
             );
 
             // Draw the border (highlight if highlighted, otherwise default)
@@ -302,21 +303,21 @@ function drawGrid(context) {
                 : 1;
 
             context.strokeRect(
-                col * gameData.GAME_CONFIG.GRID.TILE_SIZE,
-                row * gameData.GAME_CONFIG.GRID.TILE_SIZE,
-                gameData.GAME_CONFIG.GRID.TILE_SIZE,
-                gameData.GAME_CONFIG.GRID.TILE_SIZE
+                col * tileSize,
+                row * tileSize,
+                tileSize,
+                tileSize
             );
 
             // Draw the player marker if the player is on this tile
             if (row === gameState.player.position.y && col === gameState.player.position.x) {
                 context.fillStyle = getCSSVariable("--tile-player");
-                const padding = gameData.GAME_CONFIG.GRID.TILE_SIZE * 0.2; // Shrink player marker a bit
+                const padding = tileSize * 0.2; // Shrink player marker a bit
                 context.fillRect(
-                    col * gameData.GAME_CONFIG.GRID.TILE_SIZE + padding,
-                    row * gameData.GAME_CONFIG.GRID.TILE_SIZE + padding,
-                    gameData.GAME_CONFIG.GRID.TILE_SIZE - padding * 2,
-                    gameData.GAME_CONFIG.GRID.TILE_SIZE - padding * 2
+                    col * tileSize + padding,
+                    row * tileSize + padding,
+                    tileSize - padding * 2,
+                    tileSize - padding * 2
                 );
             }
         }
