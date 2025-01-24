@@ -92,7 +92,6 @@
             "TYPES": {
                 "EMPTY": {
                     "TYPE": "EMPTY",
-                    "COLOR": "--tile-default",
                     "IS_TILLED": false,
                     "MOISTURE": 50,
                     "SOIL_NUTRIENTS": {
@@ -110,15 +109,16 @@
                 },
                 "PLOT": {
                     "TYPE": "PLOT",
-                    "COLOR": "--tile-plot",
                     "IS_TILLED": true
                 },
                 "PATH": {
                     "TYPE": "PATH",
-                    "COLOR": "--tile-path"
                 }
             },
             "STYLES": {
+                "EMPTY": "--tile-empty",
+                "PLOT": "--tile-plot",
+                "PATH": "--tile-path",
                 "DEFAULT": "--tile-default",
                 "PLAYER": "--tile-player",
                 "HIGHLIGHT": "--tile-highlight",
