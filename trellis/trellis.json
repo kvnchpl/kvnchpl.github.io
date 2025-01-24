@@ -94,6 +94,11 @@
             "DEFAULT_SEASON": "Winter"
         },
         "TILE_CONFIG": {
+            "TYPE_KEYS": {
+                "EMPTY": "EMPTY",
+                "PLOT": "PLOT",
+                "PATH": "PATH"
+            },
             "TYPES": {
                 "EMPTY": {
                     "TYPE": "EMPTY",

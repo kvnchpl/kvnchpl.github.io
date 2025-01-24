@@ -31,8 +31,10 @@ class GameState {
 
     initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
+        const emptyType = gameData.TILE_CONFIG.TYPE_KEYS.EMPTY;
+    
         return Array.from({ length: HEIGHT }, () =>
-            Array.from({ length: WIDTH }, () => new Tile(config.TILE_CONFIG.TYPES.EMPTY))
+            Array.from({ length: WIDTH }, () => TileService.createTile(emptyType))
         );
     }
 }
@@ -43,18 +45,11 @@ class Tile {
     }
 
     isType(typeKey) {
-        const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
-        return typeConfig && this.TYPE === typeConfig.TYPE;
+        return this.TYPE === TileService.getTypeConfig(typeKey)?.TYPE;
     }
 
-    // Change the tile type and update its properties
     setType(typeKey) {
-        const newTypeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
-        if (newTypeConfig) {
-            Object.assign(this, structuredClone(newTypeConfig));
-        } else {
-            console.error(`Invalid tile type: '${typeKey}'`);
-        }
+        TileService.updateTile(this, typeKey);
     }
 
     highlight(gameState) {
@@ -70,8 +65,8 @@ class Tile {
     }
 
     till() {
-        if (this.isType("EMPTY")) {
-            this.setType("PLOT");
+        if (this.isType(gameData.TILE_CONFIG.TYPE_KEYS.EMPTY)) {
+            this.setType(gameData.TILE_CONFIG.TYPE_KEYS.PLOT);
         }
     }
 
@@ -124,7 +119,7 @@ class Tile {
     }
 
     clear() {
-        this.setType("EMPTY");
+        this.setType(gameData.TILE_CONFIG.TYPE_KEYS.EMPTY);
     }
 
     updateMoisture(decayRate) {
@@ -144,6 +139,30 @@ class Tile {
         if (conditions.isSufficient(N, P, K, this.MOISTURE.VALUE)) {
             this.PLANT_DATA.VALUE.AGE++;
         }
+    }
+}
+
+class TileService {
+    static createTile(typeKey) {
+        const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
+        if (!typeConfig) {
+            console.error(`Tile type '${typeKey}' not found in configuration.`);
+            return null;
+        }
+        return new Tile(structuredClone(typeConfig));
+    }
+
+    static updateTile(tile, typeKey) {
+        const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
+        if (!typeConfig) {
+            console.error(`Tile type '${typeKey}' not found in configuration.`);
+            return;
+        }
+        Object.assign(tile, structuredClone(typeConfig));
+    }
+
+    static getTypeConfig(typeKey) {
+        return gameData.TILE_CONFIG.TYPES[typeKey] || null;
     }
 }
 
@@ -661,7 +680,9 @@ function handlePlayerMovement(direction) {
 
     if (isTileValid(newX, newY)) {
         const targetTile = gameState.grid.tiles[newY]?.[newX];
-        if (targetTile?.TYPE !== gameData.TILE_CONFIG.TYPES.PLOT.TYPE) {
+        const plotType = gameData.TILE_CONFIG.TYPE_KEYS.PLOT;
+
+        if (!targetTile.isType(plotType)) {
             gameState.player.position = { x: newX, y: newY };
             highlightTile(newX, newY);
             render();
