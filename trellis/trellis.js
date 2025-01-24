@@ -252,23 +252,25 @@ function drawGrid(context) {
             // Initialize adjustments
             let adjustments = { r: 0, g: 0, b: 0 };
 
-            // Add adjustments for tile properties
+            // Retrieve RGB adjustments dynamically
+            const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
+
             if (tile.MOISTURE?.VALUE > 70) {
-                adjustments.g += 40; // Increase green for high moisture
+                adjustments = applyAdjustments(adjustments, rgbAdjustments.MOISTURE_HIGH);
             } else if (tile.MOISTURE?.VALUE < 30) {
-                adjustments.r += 40; // Increase red for low moisture
+                adjustments = applyAdjustments(adjustments, rgbAdjustments.MOISTURE_LOW);
             }
 
             if (tile.PLANT_DATA?.VALUE) {
                 if (tile.PLANT_DATA.VALUE.IS_MATURE) {
-                    adjustments.b += 50; // Add blue for mature plants
+                    adjustments = applyAdjustments(adjustments, rgbAdjustments.PLANT_MATURE);
                 } else {
-                    adjustments.g += 30; // Add green for young plants
+                    adjustments = applyAdjustments(adjustments, rgbAdjustments.PLANT_YOUNG);
                 }
             }
 
             if (tile.IS_TILLED) {
-                adjustments.r -= 20; // Slightly darken red for tilled tiles
+                adjustments = applyAdjustments(adjustments, rgbAdjustments.TILLED);
             }
 
             // Generate the final color
@@ -954,4 +956,12 @@ function parseAndAdjustRGB(baseColor, adjustments) {
 
     // Return adjusted RGB as a CSS color
     return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
+}
+
+function applyAdjustments(base, adjustments) {
+    return {
+        r: base.r + (adjustments.r || 0),
+        g: base.g + (adjustments.g || 0),
+        b: base.b + (adjustments.b || 0),
+    };
 }
