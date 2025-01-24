@@ -304,15 +304,6 @@ function drawGrid(context) {
     }
 }
 
-function precomputeTileStyles() {
-    return {
-        EMPTY: getCSSVariable("--tile-empty"),
-        PLOT: getCSSVariable("--tile-plot"),
-        PATH: getCSSVariable("--tile-path"),
-        DEFAULT: getCSSVariable("--tile-default"),
-    };
-}
-
 function renderUISection(containerId, data) {
     const container = document.getElementById(containerId);
     if (!container) {
