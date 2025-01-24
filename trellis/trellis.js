@@ -242,84 +242,74 @@ function render() {
 }
 
 function drawGrid(context) {
-    // Get tile styles from CSS variables
-    const tileStyle = precomputeTileStyles();
-
-    for (let row = 0; row < gameData.GRID_HEIGHT; row++) {
-        for (let col = 0; col < gameData.GRID_WIDTH; col++) {
+    for (let row = 0; row < gameState.grid.tiles.length; row++) {
+        for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
             const tile = gameState.grid.tiles[row][col];
-            let tileColor = tileStyle.default;
 
-            const tileType = gameData.TILE_TYPES[tile.TYPE];
-            if (tileType && tileType.COLOR) {
-                tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
-            }
+            // Determine the base color from the tile type
+            const baseColor = getCSSVariable(gameData.TILE_CONFIG.TYPES[tile.TYPE]?.COLOR || "--tile-default");
+
+            // Initialize adjustments
+            let adjustments = { r: 0, g: 0, b: 0 };
+
+            // Add adjustments for tile properties
             if (tile.MOISTURE?.VALUE > 70) {
-                tileColor = tileStyle.moistureHigh;
+                adjustments.g += 40; // Increase green for high moisture
             } else if (tile.MOISTURE?.VALUE < 30) {
-                tileColor = tileStyle.moistureLow;
-            }
-            if (tile.IS_TILLED) {
-                tileColor = tileStyle.tilled;
-            }
-            if (tile.PLANT_DATA?.VALUE) {
-                tileColor = tile.PLANT_DATA.VALUE.IS_MATURE
-                    ? tileStyle.plantMature
-                    : tileStyle.plantYoung;
+                adjustments.r += 40; // Increase red for low moisture
             }
 
-            context.fillStyle = tileColor;
+            if (tile.PLANT_DATA?.VALUE) {
+                if (tile.PLANT_DATA.VALUE.IS_MATURE) {
+                    adjustments.b += 50; // Add blue for mature plants
+                } else {
+                    adjustments.g += 30; // Add green for young plants
+                }
+            }
+
+            if (tile.IS_TILLED) {
+                adjustments.r -= 20; // Slightly darken red for tilled tiles
+            }
+
+            // Generate the final color
+            const finalColor = parseAndAdjustRGB(baseColor, adjustments);
+
+            // Draw the tile
+            context.fillStyle = finalColor;
             context.fillRect(
-                col * gameData.TILE_SIZE,
-                row * gameData.TILE_SIZE,
-                gameData.TILE_SIZE,
-                gameData.TILE_SIZE
+                col * gameData.GAME_CONFIG.GRID.TILE_SIZE,
+                row * gameData.GAME_CONFIG.GRID.TILE_SIZE,
+                gameData.GAME_CONFIG.GRID.TILE_SIZE,
+                gameData.GAME_CONFIG.GRID.TILE_SIZE
             );
 
+            // Draw the border (highlighted tiles have different styles)
             context.strokeStyle =
-                row === gameState.grid.highlightedTile.y &&
-                    col === gameState.grid.highlightedTile.x
-                    ? tileStyle.highlight
-                    : tileStyle.border;
-            context.lineWidth =
-                row === gameState.grid.highlightedTile.y &&
-                    col === gameState.grid.highlightedTile.x
+                row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x
+                    ? getCSSVariable("--tile-highlight")
+                    : getCSSVariable("--color-canvas-border");
+
+            context.lineWidth = row === gameState.grid.highlightedTile.y &&
+                col === gameState.grid.highlightedTile.x
                     ? 3
                     : 1;
-            context.strokeRect(
-                col * gameData.TILE_SIZE,
-                row * gameData.TILE_SIZE,
-                gameData.TILE_SIZE,
-                gameData.TILE_SIZE
-            );
 
-            if (row === gameState.player.position.y && col === gameState.player.position.x) {
-                context.strokeStyle = tileStyle.player;
-                context.lineWidth = 3;
-                context.strokeRect(
-                    col * gameData.TILE_SIZE + 1,
-                    row * gameData.TILE_SIZE + 1,
-                    gameData.TILE_SIZE - 2,
-                    gameData.TILE_SIZE - 2
-                );
-            }
+            context.strokeRect(
+                col * gameData.GAME_CONFIG.GRID.TILE_SIZE,
+                row * gameData.GAME_CONFIG.GRID.TILE_SIZE,
+                gameData.GAME_CONFIG.GRID.TILE_SIZE,
+                gameData.GAME_CONFIG.GRID.TILE_SIZE
+            );
         }
     }
 }
 
 function precomputeTileStyles() {
     return {
-        EMPTY: { fillColor: getCSSVariable("--tile-default"), borderColor: getCSSVariable("--color-canvas-border") },
-        PLOT: { fillColor: getCSSVariable("--tile-plot"), borderColor: getCSSVariable("--color-canvas-border") },
+        EMPTY: getCSSVariable("--tile-empty"),
+        PLOT: getCSSVariable("--tile-plot"),
+        PATH: getCSSVariable("--tile-path"),
         DEFAULT: getCSSVariable("--tile-default"),
-        MOISTURE_HIGH: getCSSVariable("--tile-moisture-high"),
-        MOISTURE_LOW: getCSSVariable("--tile-moisture-low"),
-        TILLED: getCSSVariable("--tile-tilled"),
-        PLANT_MATURE: getCSSVariable("--tile-plant-mature"),
-        PLANT_YOUNG: getCSSVariable("--tile-plant-young"),
-        HIGHLIGHT: getCSSVariable("--tile-highlight"),
-        PLAYER: getCSSVariable("--tile-player"),
-        BORDER: getCSSVariable("--color-canvas-border"),
     };
 }
 
@@ -940,4 +930,25 @@ function createElement(tag, options = {}) {
 
 function getCSSVariable(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function parseAndAdjustRGB(baseColor, adjustments) {
+    // Convert hex to RGB
+    const hexToRgb = (hex) => {
+        const bigint = parseInt(hex.slice(1), 16);
+        return [bigint >> 16, (bigint >> 8) & 255, bigint & 255];
+    };
+
+    // Clamp RGB values between 0 and 255
+    const clamp = (value) => Math.max(0, Math.min(255, value));
+
+    const [r, g, b] = hexToRgb(baseColor);
+
+    // Apply adjustments and clamp the results
+    const adjustedR = clamp(r + (adjustments.r || 0));
+    const adjustedG = clamp(g + (adjustments.g || 0));
+    const adjustedB = clamp(b + (adjustments.b || 0));
+
+    // Return adjusted RGB as a CSS color
+    return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
 }
