@@ -118,6 +118,12 @@
                     "COLOR": "--tile-path"
                 }
             },
+            "STYLES": {
+                "DEFAULT": "--tile-default",
+                "PLAYER": "--tile-player",
+                "HIGHLIGHT": "--tile-highlight",
+                "BORDER": "--color-canvas-border"
+            },
             "RGB_ADJUSTMENTS": {
                 "MOISTURE": {
                     "r": 40,
