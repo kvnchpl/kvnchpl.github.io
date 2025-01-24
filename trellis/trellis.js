@@ -32,7 +32,7 @@ class GameState {
     initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
         const defaultTypeKey = gameData.TILE_CONFIG.DEFAULT_TYPE;
-    
+
         return Array.from({ length: HEIGHT }, () =>
             Array.from({ length: WIDTH }, () => TileService.createTile(defaultTypeKey))
         );
@@ -689,7 +689,7 @@ function handleTileHighlight(direction) {
     }
 }
 
-function handleTileAction(action) {
+function handleTileAction(actionKey) {
     const { x, y } = gameState.grid.highlightedTile;
     const tile = gameState.grid.tiles[y]?.[x];
 
@@ -698,13 +698,18 @@ function handleTileAction(action) {
         return;
     }
 
-    if (typeof tile[action] === "function") {
-        tile[action]();
-        const timeCost = gameData.CONFIG.ACTIONS[action.toUpperCase()]?.TIME_COST || 0;
-        advanceTime(timeCost);
+    const actionConfig = gameData.CONFIG.ACTIONS[actionKey.toUpperCase()];
+    if (!actionConfig) {
+        console.warn(`Action '${actionKey}' not found in configuration.`);
+        return;
+    }
+
+    if (typeof tile[actionKey] === "function") {
+        tile[actionKey](actionConfig.PARAMS || {});
+        advanceTime(actionConfig.TIME_COST || 0);
         render();
     } else {
-        console.warn(`Action '${action}' is not valid for the tile.`);
+        console.warn(`Action '${actionKey}' is not implemented for the tile.`);
     }
 }
 
@@ -997,17 +1002,39 @@ function parseAndAdjustRGB(baseColor, adjustments) {
 }
 
 function calculateAdjustments(tile) {
-    return Object.entries(gameData.TILE_CONFIG.RGB_ADJUSTMENTS).reduce((adjustments, [key, config]) => {
-        try {
-            const scale = eval(config.SCALE); // Dynamically evaluate scale
-            adjustments.r += (config.r || 0) * scale;
-            adjustments.g += (config.g || 0) * scale;
-            adjustments.b += (config.b || 0) * scale;
-        } catch (error) {
-            console.warn(`Failed to calculate adjustment for '${key}':`, error);
+    const adjustments = { r: 0, g: 0, b: 0 };
+
+    for (const [key, config] of Object.entries(gameData.TILE_CONFIG.RGB_ADJUSTMENTS)) {
+        const { SCALE, r = 0, g = 0, b = 0 } = config;
+
+        if (!SCALE || !SCALE.PATH) continue;
+
+        // Resolve the value from the tile using the path
+        const value = resolvePath(tile, SCALE.PATH);
+
+        // Handle scaling
+        let scale = 0;
+        if (SCALE.CONDITION !== undefined) {
+            scale = value === SCALE.CONDITION ? 1 : 0;
+        } else if (SCALE.DIVISOR) {
+            const divisor = typeof SCALE.DIVISOR === "string"
+                ? resolvePath(tile, SCALE.DIVISOR.split("."))
+                : SCALE.DIVISOR;
+
+            if (divisor) {
+                scale = value / divisor;
+            }
+        } else {
+            scale = value;
         }
-        return adjustments;
-    }, { r: 0, g: 0, b: 0 });
+
+        // Apply adjustments
+        adjustments.r += r * scale;
+        adjustments.g += g * scale;
+        adjustments.b += b * scale;
+    }
+
+    return adjustments;
 }
 
 function applyAdjustments(base, adjustments) {
@@ -1016,4 +1043,8 @@ function applyAdjustments(base, adjustments) {
         g: base.g + (adjustments.g || 0),
         b: base.b + (adjustments.b || 0),
     };
+}
+
+function resolvePath(obj, path) {
+    return path.reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : null), obj);
 }

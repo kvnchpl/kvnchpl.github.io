@@ -172,56 +172,66 @@
                     "r": 40,
                     "g": 40,
                     "b": 0,
-                    "SCALE": "MOISTURE.VALUE / 100"
+                    "SCALE": {
+                        "PATH": [
+                            "MOISTURE",
+                            "VALUE"
+                        ],
+                        "DIVISOR": 100
+                    }
                 },
                 "PLANT_MATURITY": {
                     "r": 0,
                     "g": 30,
                     "b": 50,
-                    "SCALE": "PLANT_DATA.VALUE.AGE / PLANT_DATA.GROWTH_TIME"
+                    "SCALE": {
+                        "PATH": [
+                            "PLANT_DATA",
+                            "VALUE",
+                            "AGE"
+                        ],
+                        "DIVISOR": "PLANT_DATA.GROWTH_TIME"
+                    }
                 },
                 "TILLED": {
                     "r": -20,
                     "g": 0,
                     "b": 0,
-                    "SCALE": "IS_TILLED ? 1 : 0"
+                    "SCALE": {
+                        "PATH": [
+                            "IS_TILLED"
+                        ],
+                        "CONDITION": true
+                    }
                 }
             }
         },
         "ACTIONS": {
             "TILL": {
-                "FUNCTION": "tillSoil",
                 "TIME_COST": 30
             },
             "FERTILIZE": {
-                "FUNCTION": "fertilizeTile",
                 "TIME_COST": 20
             },
             "PLANT": {
-                "FUNCTION": "plantSeed",
                 "TIME_COST": 20,
                 "PARAMS": {
                     "seedType": "tomato"
                 }
             },
             "WATER": {
-                "FUNCTION": "waterTile",
                 "TIME_COST": 10
             },
             "MULCH": {
-                "FUNCTION": "mulchTile",
                 "TIME_COST": 15
             },
             "WEED": {
-                "FUNCTION": "weedTile",
                 "TIME_COST": 15
             },
             "HARVEST": {
-                "FUNCTION": "harvestPlant",
                 "TIME_COST": 20
             },
             "CLEAR": {
-                "FUNCTION": "clearPlot",
                 "TIME_COST": 15
             }
         },
