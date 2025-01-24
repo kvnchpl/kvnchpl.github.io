@@ -223,3 +223,20 @@ canvas {
     background: var(--color-overlay-bg);
     color: var(--color-overlay-text);
 }
+
+@media (max-width: 768px) {
+    #mainContent {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #gameContainer,
+    #gameSidebar {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #gameSidebar {
+        grid-template-columns: 1fr; /* Single column on smaller screens */
+    }
+}
