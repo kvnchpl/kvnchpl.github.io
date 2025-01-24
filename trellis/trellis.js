@@ -616,21 +616,24 @@ function preventKeyBindingScroll(e) {
 }
 
 function handleKeyDown(e) {
-    if (gameState.ui.isTutorialActive) return; // Disable input during tutorial
+    const keyConfig = gameData.CONFIG.KEY_BINDINGS[e.key];
+    if (!keyConfig) {
+        console.warn(`Unhandled key: '${e.key}'`);
+        return;
+    }
 
-    const { PLAYER_MOVE, HIGHLIGHT_TILE, ACTIONS } = gameData.CONFIG.KEY_BINDINGS;
-
-    if (Object.values(PLAYER_MOVE).includes(e.key)) {
-        const direction = Object.keys(PLAYER_MOVE).find(key => PLAYER_MOVE[key] === e.key).toLowerCase();
-        handlePlayerMovement(direction);
-    } else if (Object.values(HIGHLIGHT_TILE).includes(e.key)) {
-        const direction = Object.keys(HIGHLIGHT_TILE).find(key => HIGHLIGHT_TILE[key] === e.key).toLowerCase();
-        handleTileHighlight(direction);
-    } else if (Object.values(ACTIONS).includes(e.key)) {
-        const action = Object.keys(ACTIONS).find(key => ACTIONS[key] === e.key).toLowerCase();
-        performTileAction(action);
-    } else {
-        console.warn(`Unknown action for key: '${e.key}'`);
+    switch (keyConfig.TYPE) {
+        case "PLAYER_MOVE":
+            handlePlayerMovement(keyConfig.DIRECTION.toLowerCase());
+            break;
+        case "HIGHLIGHT_TILE":
+            handleTileHighlight(keyConfig.DIRECTION.toLowerCase());
+            break;
+        case "ACTION":
+            handleTileAction(keyConfig.ACTION.toLowerCase());
+            break;
+        default:
+            console.warn(`Unknown key type: '${keyConfig.TYPE}'`);
     }
 }
 
