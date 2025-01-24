@@ -271,8 +271,8 @@ function render() {
 }
 
 function drawGrid(context) {
-    const tileStyles = gameData.TILE_CONFIG.STYLES;
-    const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
+    const tileConfig = gameData.TILE_CONFIG;
+    const rgbAdjustments = tileConfig.RGB_ADJUSTMENTS;
     const tileSize = gameData.GAME_CONFIG.GRID.TILE_SIZE;
 
     for (let row = 0; row < gameState.grid.tiles.length; row++) {
@@ -280,9 +280,7 @@ function drawGrid(context) {
             const tile = gameState.grid.tiles[row][col];
 
             // Determine the base color from the tile's TYPE or default
-            const baseColor = getCSSVariable(
-                tileStyles[tile.TYPE] || tileStyles.DEFAULT
-            );
+            const baseColor = getTileStyle(tile.TYPE);
 
             // Initialize adjustments
             let adjustments = { r: 0, g: 0, b: 0 };
@@ -323,8 +321,8 @@ function drawGrid(context) {
             // Draw the border (highlight if highlighted, otherwise default)
             context.strokeStyle =
                 row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x
-                    ? getCSSVariable(tileStyles.HIGHLIGHT)
-                    : getCSSVariable(tileStyles.BORDER);
+                ? getCSSVariable(tileConfig.HIGHLIGHT_STYLE)
+                : getCSSVariable(tileConfig.BORDER_STYLE);
 
             context.lineWidth = row === gameState.grid.highlightedTile.y &&
                 col === gameState.grid.highlightedTile.x
@@ -340,7 +338,7 @@ function drawGrid(context) {
 
             // Draw the player marker if the player is on this tile
             if (row === gameState.player.position.y && col === gameState.player.position.x) {
-                context.fillStyle = getCSSVariable("--tile-player");
+                context.fillStyle = getCSSVariable(tileConfig.PLAYER_STYLE);
                 const padding = tileSize * 0.2; // Shrink player marker a bit
                 context.fillRect(
                     col * tileSize + padding,
@@ -985,6 +983,12 @@ function createElement(tag, options = {}) {
 
 function getCSSVariable(name) {
     return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+function getTileStyle(typeKey) {
+    // Derive style from the type key (e.g., "EMPTY" -> "--tile-empty")
+    const cssVariable = `--tile-${typeKey.toLowerCase()}`;
+    return getCSSVariable(cssVariable) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
 }
 
 function parseAndAdjustRGB(baseColor, adjustments) {
