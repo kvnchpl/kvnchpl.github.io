@@ -300,6 +300,18 @@ function drawGrid(context) {
                 gameData.GAME_CONFIG.GRID.TILE_SIZE,
                 gameData.GAME_CONFIG.GRID.TILE_SIZE
             );
+
+            // Draw the player marker if the player is on this tile
+            if (row === gameState.player.position.y && col === gameState.player.position.x) {
+                context.fillStyle = getCSSVariable("--tile-player");
+                const padding = gameData.GAME_CONFIG.GRID.TILE_SIZE * 0.2; // Shrink player marker a bit
+                context.fillRect(
+                    col * gameData.GAME_CONFIG.GRID.TILE_SIZE + padding,
+                    row * gameData.GAME_CONFIG.GRID.TILE_SIZE + padding,
+                    gameData.GAME_CONFIG.GRID.TILE_SIZE - padding * 2,
+                    gameData.GAME_CONFIG.GRID.TILE_SIZE - padding * 2
+                );
+            }
         }
     }
 }
