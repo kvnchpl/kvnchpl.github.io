@@ -243,39 +243,29 @@ function render() {
 
 function drawGrid(context) {
     // Get tile styles from CSS variables
-    const tileStyles = {
-        default: getCSSVariable("--tile-default"),
-        moistureHigh: getCSSVariable("--tile-moisture-high"),
-        moistureLow: getCSSVariable("--tile-moisture-low"),
-        tilled: getCSSVariable("--tile-tilled"),
-        plantMature: getCSSVariable("--tile-plant-mature"),
-        plantYoung: getCSSVariable("--tile-plant-young"),
-        highlight: getCSSVariable("--tile-highlight"),
-        player: getCSSVariable("--tile-player"),
-        border: getCSSVariable("--color-canvas-border"),
-    };
+    const tileStyle = precomputeTileStyles();
 
     for (let row = 0; row < gameData.GRID_HEIGHT; row++) {
         for (let col = 0; col < gameData.GRID_WIDTH; col++) {
             const tile = gameState.grid.tiles[row][col];
-            let tileColor = tileStyles.default;
+            let tileColor = tileStyle.default;
 
             const tileType = gameData.TILE_TYPES[tile.TYPE];
             if (tileType && tileType.COLOR) {
                 tileColor = getComputedStyle(document.documentElement).getPropertyValue(tileType.COLOR).trim();
             }
             if (tile.MOISTURE?.VALUE > 70) {
-                tileColor = tileStyles.moistureHigh;
+                tileColor = tileStyle.moistureHigh;
             } else if (tile.MOISTURE?.VALUE < 30) {
-                tileColor = tileStyles.moistureLow;
+                tileColor = tileStyle.moistureLow;
             }
             if (tile.IS_TILLED) {
-                tileColor = tileStyles.tilled;
+                tileColor = tileStyle.tilled;
             }
             if (tile.PLANT_DATA?.VALUE) {
                 tileColor = tile.PLANT_DATA.VALUE.IS_MATURE
-                    ? tileStyles.plantMature
-                    : tileStyles.plantYoung;
+                    ? tileStyle.plantMature
+                    : tileStyle.plantYoung;
             }
 
             context.fillStyle = tileColor;
@@ -289,8 +279,8 @@ function drawGrid(context) {
             context.strokeStyle =
                 row === gameState.grid.highlightedTile.y &&
                     col === gameState.grid.highlightedTile.x
-                    ? tileStyles.highlight
-                    : tileStyles.border;
+                    ? tileStyle.highlight
+                    : tileStyle.border;
             context.lineWidth =
                 row === gameState.grid.highlightedTile.y &&
                     col === gameState.grid.highlightedTile.x
@@ -304,7 +294,7 @@ function drawGrid(context) {
             );
 
             if (row === gameState.player.position.y && col === gameState.player.position.x) {
-                context.strokeStyle = tileStyles.player;
+                context.strokeStyle = tileStyle.player;
                 context.lineWidth = 3;
                 context.strokeRect(
                     col * gameData.TILE_SIZE + 1,
@@ -315,6 +305,22 @@ function drawGrid(context) {
             }
         }
     }
+}
+
+function precomputeTileStyles() {
+    return {
+        EMPTY: { fillColor: getCSSVariable("--tile-default"), borderColor: getCSSVariable("--color-canvas-border") },
+        PLOT: { fillColor: getCSSVariable("--tile-plot"), borderColor: getCSSVariable("--color-canvas-border") },
+        DEFAULT: getCSSVariable("--tile-default"),
+        MOISTURE_HIGH: getCSSVariable("--tile-moisture-high"),
+        MOISTURE_LOW: getCSSVariable("--tile-moisture-low"),
+        TILLED: getCSSVariable("--tile-tilled"),
+        PLANT_MATURE: getCSSVariable("--tile-plant-mature"),
+        PLANT_YOUNG: getCSSVariable("--tile-plant-young"),
+        HIGHLIGHT: getCSSVariable("--tile-highlight"),
+        PLAYER: getCSSVariable("--tile-player"),
+        BORDER: getCSSVariable("--color-canvas-border"),
+    };
 }
 
 function renderUISection(containerId, data) {
