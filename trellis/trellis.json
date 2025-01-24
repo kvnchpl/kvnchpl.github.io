@@ -112,7 +112,7 @@
                     "IS_TILLED": true
                 },
                 "PATH": {
-                    "TYPE": "PATH",
+                    "TYPE": "PATH"
                 }
             },
             "STYLES": {
