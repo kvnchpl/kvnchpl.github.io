@@ -213,8 +213,6 @@ window.onload = async () => {
 
         const gameData = await response.json();
 
-        validateGameData(gameData);
-
         const initializedComponents = await initGame(gameData);
         console.log("Game successfully initialized!", initializedComponents);
     } catch (error) {
@@ -871,15 +869,6 @@ function updateInventory(item, delta) {
 }
 
 /* UTILITY */
-
-function validateGameData(data) {
-    const requiredFields = ["CONFIG", "INVENTORY", "UI"];
-    for (const field of requiredFields) {
-        if (!data[field]) {
-            throw new Error(`Missing required field: ${field}`);
-        }
-    }
-}
 
 function getTargetTile() {
     const { x, y } = gameState.grid.highlightedTile.x !== null ?
