@@ -32,7 +32,7 @@ class GameState {
     initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
         const emptyType = gameData.TILE_CONFIG.TYPES.EMPTY.TYPE;
-    
+
         return Array.from({ length: HEIGHT }, () =>
             Array.from({ length: WIDTH }, () => TileService.createTile(emptyType))
         );
@@ -618,41 +618,20 @@ function preventKeyBindingScroll(e) {
 function handleKeyDown(e) {
     if (gameState.ui.isTutorialActive) return; // Disable input during tutorial
 
-    const keyBindings = gameData.CONFIG.KEY_BINDINGS;
-    const prefixes = keyBindings.PREFIXES;
+    const { PLAYER_MOVE, HIGHLIGHT_TILE, ACTIONS } = gameData.CONFIG.KEY_BINDINGS;
 
-    // Find the key-action mapping dynamically
-    const keyAction = Object.entries(keyBindings).find(([action, key]) => key === e.key);
-
-    if (!keyAction) {
-        console.warn(`Unhandled key press: '${e.key}'`);
-        return;
-    }
-
-    const [actionKey] = keyAction;
-
-    // Handle player movement
-    if (actionKey.startsWith(prefixes.PLAYER_MOVE)) {
-        const direction = actionKey.replace(prefixes.PLAYER_MOVE, "").toLowerCase();
+    if (Object.values(PLAYER_MOVE).includes(e.key)) {
+        const direction = Object.keys(PLAYER_MOVE).find(key => PLAYER_MOVE[key] === e.key).toLowerCase();
         handlePlayerMovement(direction);
-        return;
-    }
-
-    // Handle tile highlighting
-    if (actionKey.startsWith(prefixes.HIGHLIGHT_TILE)) {
-        const direction = actionKey.replace(prefixes.HIGHLIGHT_TILE, "").toLowerCase();
+    } else if (Object.values(HIGHLIGHT_TILE).includes(e.key)) {
+        const direction = Object.keys(HIGHLIGHT_TILE).find(key => HIGHLIGHT_TILE[key] === e.key).toLowerCase();
         handleTileHighlight(direction);
-        return;
-    }
-
-    // Handle tile actions
-    if (actionKey.startsWith(prefixes.ACTION)) {
-        const action = actionKey.replace(prefixes.ACTION, "").toLowerCase();
+    } else if (Object.values(ACTIONS).includes(e.key)) {
+        const action = Object.keys(ACTIONS).find(key => ACTIONS[key] === e.key).toLowerCase();
         performTileAction(action);
-        return;
+    } else {
+        console.warn(`Unknown action for key: '${e.key}'`);
     }
-
-    console.warn(`Unknown action for key: '${e.key}'`);
 }
 
 function handlePlayerMovement(direction) {
