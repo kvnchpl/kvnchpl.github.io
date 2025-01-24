@@ -50,28 +50,69 @@
             "WEEKS_PER_SEASON": 13
         },
         "KEY_BINDINGS": {
-            "PLAYER_MOVE": {
-                "UP": "ArrowUp",
-                "DOWN": "ArrowDown",
-                "LEFT": "ArrowLeft",
-                "RIGHT": "ArrowRight"
+            "ArrowUp": {
+                "TYPE": "PLAYER_MOVE",
+                "DIRECTION": "UP"
             },
-            "HIGHLIGHT_TILE": {
-                "UP": "w",
-                "DOWN": "s",
-                "LEFT": "a",
-                "RIGHT": "d",
-                "RESET": "q"
+            "ArrowDown": {
+                "TYPE": "PLAYER_MOVE",
+                "DIRECTION": "DOWN"
             },
-            "ACTION": {
-                "TILL": "1",
-                "FERTILIZE": "2",
-                "PLANT": "3",
-                "WATER": "4",
-                "MULCH": "5",
-                "WEED": "6",
-                "HARVEST": "7",
-                "CLEAR": "8"
+            "ArrowLeft": {
+                "TYPE": "PLAYER_MOVE",
+                "DIRECTION": "LEFT"
+            },
+            "ArrowRight": {
+                "TYPE": "PLAYER_MOVE",
+                "DIRECTION": "RIGHT"
+            },
+            "w": {
+                "TYPE": "HIGHLIGHT_TILE",
+                "DIRECTION": "UP"
+            },
+            "s": {
+                "TYPE": "HIGHLIGHT_TILE",
+                "DIRECTION": "DOWN"
+            },
+            "a": {
+                "TYPE": "HIGHLIGHT_TILE",
+                "DIRECTION": "LEFT"
+            },
+            "d": {
+                "TYPE": "HIGHLIGHT_TILE",
+                "DIRECTION": "RIGHT"
+            },
+            "1": {
+                "TYPE": "ACTION",
+                "ACTION": "TILL"
+            },
+            "2": {
+                "TYPE": "ACTION",
+                "ACTION": "FERTILIZE"
+            },
+            "3": {
+                "TYPE": "ACTION",
+                "ACTION": "PLANT"
+            },
+            "4": {
+                "TYPE": "ACTION",
+                "ACTION": "WATER"
+            },
+            "5": {
+                "TYPE": "ACTION",
+                "ACTION": "MULCH"
+            },
+            "6": {
+                "TYPE": "ACTION",
+                "ACTION": "WEED"
+            },
+            "7": {
+                "TYPE": "ACTION",
+                "ACTION": "HARVEST"
+            },
+            "8": {
+                "TYPE": "ACTION",
+                "ACTION": "CLEAR"
             }
         },
         "GAME_CONFIG": {
