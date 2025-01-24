@@ -284,29 +284,8 @@ function drawGrid(context) {
             // Determine the base color from the tile's TYPE or default
             const baseColor = getTileStyle(tile.TYPE);
 
-            // Initialize adjustments
-            let adjustments = { r: 0, g: 0, b: 0 };
-
-            // Scaled moisture adjustment
-            if (tile.MOISTURE?.VALUE !== undefined) {
-                const moistureScale = tile.MOISTURE.VALUE / 100; // Scale 0–1
-                adjustments.r += rgbAdjustments.MOISTURE.r * (1 - moistureScale); // More red for low moisture
-                adjustments.g += rgbAdjustments.MOISTURE.g * moistureScale; // More green for high moisture
-            }
-
-            // Scaled plant maturity adjustment
-            if (tile.PLANT_DATA?.VALUE) {
-                const plantAge = tile.PLANT_DATA.VALUE.AGE || 0;
-                const growthTime = gameData.PLANTS[tile.PLANT_DATA.VALUE.NAME]?.GROWTH_TIME || 1;
-                const maturityScale = Math.min(plantAge / growthTime, 1); // Scale 0–1
-                adjustments.r += rgbAdjustments.PLANT_MATURITY.r * maturityScale;
-                adjustments.g += rgbAdjustments.PLANT_MATURITY.g * maturityScale;
-                adjustments.b += rgbAdjustments.PLANT_MATURITY.b * maturityScale;
-            }
-
-            if (tile.IS_TILLED) {
-                adjustments = applyAdjustments(adjustments, rgbAdjustments.TILLED);
-            }
+            // Calculate adjustments dynamically
+            const adjustments = calculateAdjustments(tile);
 
             // Generate the final color
             const finalColor = parseAndAdjustRGB(baseColor, adjustments);
@@ -1015,6 +994,16 @@ function parseAndAdjustRGB(baseColor, adjustments) {
 
     // Return adjusted RGB as a CSS color
     return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
+}
+
+function calculateAdjustments(tile) {
+    return Object.entries(gameData.TILE_CONFIG.RGB_ADJUSTMENTS).reduce((adjustments, [key, config]) => {
+        const scale = eval(config.SCALE); // Dynamically evaluate scale
+        adjustments.r += (config.r || 0) * scale;
+        adjustments.g += (config.g || 0) * scale;
+        adjustments.b += (config.b || 0) * scale;
+        return adjustments;
+    }, { r: 0, g: 0, b: 0 });
 }
 
 function applyAdjustments(base, adjustments) {
