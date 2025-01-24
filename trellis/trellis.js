@@ -599,68 +599,129 @@ function preventKeyBindingScroll(e) {
 function handleKeyDown(e) {
     if (gameState.ui.isTutorialActive) return; // Disable input during tutorial
 
-    const { player, grid } = gameState;
     const keyBindings = gameData.CONFIG.KEY_BINDINGS;
 
-    let newX = player.position.x;
-    let newY = player.position.y;
+    // Dynamically find the key-action mapping
+    const keyAction = Object.entries(keyBindings).find(([action, key]) => key === e.key);
 
-    // Handle movement keys
-    switch (e.key) {
-        case keyBindings.PLAYER_MOVE_UP:
-            newY -= 1;
-            break;
-        case keyBindings.PLAYER_MOVE_DOWN:
-            newY += 1;
-            break;
-        case keyBindings.PLAYER_MOVE_LEFT:
-            newX -= 1;
-            break;
-        case keyBindings.PLAYER_MOVE_RIGHT:
-            newX += 1;
-            break;
-        case keyBindings.HIGHLIGHT_TILE_UP:
-            highlightTile(player.position.x, player.position.y - 1);
-            return;
-        case keyBindings.HIGHLIGHT_TILE_DOWN:
-            highlightTile(player.position.x, player.position.y + 1);
-            return;
-        case keyBindings.HIGHLIGHT_TILE_LEFT:
-            highlightTile(player.position.x - 1, player.position.y);
-            return;
-        case keyBindings.HIGHLIGHT_TILE_RIGHT:
-            highlightTile(player.position.x + 1, player.position.y);
-            return;
-        case keyBindings.RESET_HIGHLIGHT:
-            highlightTile(player.position.x, player.position.y);
-            return;
-        default:
-            // Handle tile action keys
-            const actionKey = Object.keys(keyBindings).find(key => keyBindings[key] === e.key);
-            if (actionKey && actionKey.startsWith("ACTION_")) {
-                const action = actionKey.replace("ACTION_", "").toLowerCase();
-                handleTileAction(action, getTargetTile());
-                return;
-            }
-            console.warn(`Unhandled key press: '${e.key}'`);
-            break;
+    if (!keyAction) {
+        console.warn(`Unhandled key press: '${e.key}'`);
+        return;
     }
 
-    // Validate new position and update player
-    if (isTileValid(newX, newY)) {
-        const targetTile = grid.tiles[newY]?.[newX];
-        if (targetTile?.TYPE === gameData.TILE_TYPES.PLOT.TYPE) {
-            console.log("Cannot move onto a PLOT tile.");
+    const [actionKey] = keyAction;
+
+    // Handle player movement
+    if (actionKey.startsWith("PLAYER_MOVE")) {
+        const direction = actionKey.replace("PLAYER_MOVE_", "").toLowerCase();
+        handlePlayerMovement(direction);
+        return;
+    }
+
+    // Handle tile highlighting
+    if (actionKey.startsWith("HIGHLIGHT_TILE")) {
+        const direction = actionKey.replace("HIGHLIGHT_TILE_", "").toLowerCase();
+        handleTileHighlight(direction);
+        return;
+    }
+
+    // Handle tile actions
+    if (actionKey.startsWith("ACTION_")) {
+        const action = actionKey.replace("ACTION_", "").toLowerCase();
+        handleTileAction(action);
+        return;
+    }
+
+    console.warn(`Unknown action for key: '${e.key}'`);
+}
+
+function handlePlayerMovement(direction) {
+    const { x, y } = gameState.player.position;
+    let newX = x;
+    let newY = y;
+
+    switch (direction) {
+        case "up":
+            newY -= 1;
+            break;
+        case "down":
+            newY += 1;
+            break;
+        case "left":
+            newX -= 1;
+            break;
+        case "right":
+            newX += 1;
+            break;
+        default:
+            console.warn(`Unknown movement direction: '${direction}'`);
             return;
+    }
+
+    if (isTileValid(newX, newY)) {
+        const targetTile = gameState.grid.tiles[newY]?.[newX];
+        if (targetTile?.TYPE !== gameData.TILE_CONFIG.TYPES.PLOT.TYPE) {
+            gameState.player.position = { x: newX, y: newY };
+            highlightTile(newX, newY);
+            render();
+        } else {
+            console.log("Cannot move onto a PLOT tile.");
         }
+    } else {
+        console.log("Invalid move. Out of bounds.");
+    }
+}
 
-        player.position = { x: newX, y: newY };
-        grid.highlightedTile = { x: newX, y: newY };
+function handleTileHighlight(direction) {
+    const { x, y } = gameState.grid.highlightedTile;
+    let newX = x;
+    let newY = y;
 
+    switch (direction) {
+        case "up":
+            newY -= 1;
+            break;
+        case "down":
+            newY += 1;
+            break;
+        case "left":
+            newX -= 1;
+            break;
+        case "right":
+            newX += 1;
+            break;
+        case "reset":
+            newX = gameState.player.position.x;
+            newY = gameState.player.position.y;
+            break;
+        default:
+            console.warn(`Unknown highlight direction: '${direction}'`);
+            return;
+    }
+
+    if (isTileValid(newX, newY)) {
         highlightTile(newX, newY);
+    } else {
+        console.log("Cannot highlight invalid tile:", { x: newX, y: newY });
+    }
+}
+
+function handleTileAction(action) {
+    const { x, y } = gameState.grid.highlightedTile;
+    const tile = gameState.grid.tiles[y]?.[x];
+
+    if (!tile) {
+        console.error("Invalid target tile for action.");
+        return;
+    }
+
+    if (typeof tile[action] === "function") {
+        tile[action]();
+        const timeCost = gameData.CONFIG.ACTIONS[action.toUpperCase()]?.TIME_COST || 0;
+        advanceTime(timeCost);
         render();
     } else {
-        console.log("Cannot move onto this tile!");
+        console.warn(`Action '${action}' is not valid for the tile.`);
     }
 }
 
@@ -841,34 +902,6 @@ function updateWeekDisplay() {
 function updateBiodiversityDisplay() {
     const biodiversityField = gameData.FIELDS.BIODIVERSITY;
     updateField(biodiversityField.ID, gameState.score.biodiversity);
-}
-
-/* PLAYER ACTIONS */
-
-function handleTileAction(action, targetTile) {
-    if (!targetTile) {
-        console.error("Invalid target tile.");
-        return;
-    }
-
-    const { x, y } = targetTile;
-    const tileData = gameState.grid.tiles[y][x];
-    const tile = new Tile(tileData);
-
-    if (typeof tile[action] === "function") {
-        try {
-            tile[action]();
-            const timeCost = gameData.CONFIG.ACTIONS[action.toUpperCase()]?.TIME_COST;
-        } catch (error) {
-            console.error(`Error executing action '${action}' on tile at (${x}, ${y}):`, error);
-        }
-    } else {
-        console.warn(`Invalid action '${action}' for Tile. Ensure it is implemented.`);
-    }
-
-    gameState.grid.tiles[y][x] = { ...tile };
-
-    updateTileStats();
 }
 
 /* INVENTORY */
