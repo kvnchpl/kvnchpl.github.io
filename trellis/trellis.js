@@ -42,6 +42,21 @@ class Tile {
         Object.assign(this, structuredClone(data));
     }
 
+    isType(typeKey) {
+        const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
+        return typeConfig && this.TYPE === typeConfig.TYPE;
+    }
+
+    // Change the tile type and update its properties
+    setType(typeKey) {
+        const newTypeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
+        if (newTypeConfig) {
+            Object.assign(this, structuredClone(newTypeConfig));
+        } else {
+            console.error(`Invalid tile type: '${typeKey}'`);
+        }
+    }
+
     highlight(gameState) {
         const prevTile = gameState.grid.highlightedTile;
         if (prevTile) {
@@ -55,9 +70,8 @@ class Tile {
     }
 
     till() {
-        if (this.TYPE === gameData.TILE_TYPES.EMPTY.TYPE) {
-            this.TYPE = gameData.TILE_TYPES.PLOT.TYPE;
-            this.IS_TILLED = true;
+        if (this.isType("EMPTY")) {
+            this.setType("PLOT");
         }
     }
 
@@ -110,11 +124,7 @@ class Tile {
     }
 
     clear() {
-        if (this.TYPE === TILE_TYPES.PLOT.TYPE) {
-            this.TYPE = TILE_TYPES.EMPTY.TYPE;
-            this.IS_TILLED = false;
-            this.PLANT_DATA.VALUE = null;
-        }
+        this.setType("EMPTY");
     }
 
     updateMoisture(decayRate) {
