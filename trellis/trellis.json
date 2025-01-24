@@ -119,24 +119,14 @@
                 }
             },
             "RGB_ADJUSTMENTS": {
-                "MOISTURE_HIGH": {
-                    "r": 0,
+                "MOISTURE": {
+                    "r": 40,
                     "g": 40,
                     "b": 0
                 },
-                "MOISTURE_LOW": {
-                    "r": 40,
-                    "g": 0,
-                    "b": 0
-                },
-                "PLANT_YOUNG": {
+                "PLANT_MATURITY": {
                     "r": 0,
                     "g": 30,
-                    "b": 0
-                },
-                "PLANT_MATURE": {
-                    "r": 0,
-                    "g": 0,
                     "b": 50
                 },
                 "TILLED": {

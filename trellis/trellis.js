@@ -242,6 +242,8 @@ function render() {
 }
 
 function drawGrid(context) {
+    const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
+
     for (let row = 0; row < gameState.grid.tiles.length; row++) {
         for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
             const tile = gameState.grid.tiles[row][col];
@@ -255,18 +257,21 @@ function drawGrid(context) {
             // Retrieve RGB adjustments dynamically
             const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
 
-            if (tile.MOISTURE?.VALUE > 70) {
-                adjustments = applyAdjustments(adjustments, rgbAdjustments.MOISTURE_HIGH);
-            } else if (tile.MOISTURE?.VALUE < 30) {
-                adjustments = applyAdjustments(adjustments, rgbAdjustments.MOISTURE_LOW);
+            // Scaled moisture adjustment
+            if (tile.MOISTURE?.VALUE !== undefined) {
+                const moistureScale = tile.MOISTURE.VALUE / 100; // Scale 0–1
+                adjustments.r += rgbAdjustments.MOISTURE.r * (1 - moistureScale); // More red for low moisture
+                adjustments.g += rgbAdjustments.MOISTURE.g * moistureScale; // More green for high moisture
             }
 
+            // Scaled plant maturity adjustment
             if (tile.PLANT_DATA?.VALUE) {
-                if (tile.PLANT_DATA.VALUE.IS_MATURE) {
-                    adjustments = applyAdjustments(adjustments, rgbAdjustments.PLANT_MATURE);
-                } else {
-                    adjustments = applyAdjustments(adjustments, rgbAdjustments.PLANT_YOUNG);
-                }
+                const plantAge = tile.PLANT_DATA.VALUE.AGE || 0;
+                const growthTime = gameData.PLANTS[tile.PLANT_DATA.VALUE.NAME]?.GROWTH_TIME || 1;
+                const maturityScale = Math.min(plantAge / growthTime, 1); // Scale 0–1
+                adjustments.r += rgbAdjustments.PLANT_MATURITY.r * maturityScale;
+                adjustments.g += rgbAdjustments.PLANT_MATURITY.g * maturityScale;
+                adjustments.b += rgbAdjustments.PLANT_MATURITY.b * maturityScale;
             }
 
             if (tile.IS_TILLED) {
