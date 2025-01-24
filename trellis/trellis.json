@@ -66,7 +66,12 @@
             "ACTION_MULCH": "5",
             "ACTION_WEED": "6",
             "ACTION_HARVEST": "7",
-            "ACTION_CLEAR": "8"
+            "ACTION_CLEAR": "8",
+            "PREFIXES": {
+                "PLAYER_MOVE": "PLAYER_MOVE_",
+                "HIGHLIGHT_TILE": "HIGHLIGHT_TILE_",
+                "ACTION": "ACTION_"
+            }
         },
         "GAME_CONFIG": {
             "GRID": {

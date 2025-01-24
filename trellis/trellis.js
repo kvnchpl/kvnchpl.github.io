@@ -600,8 +600,9 @@ function handleKeyDown(e) {
     if (gameState.ui.isTutorialActive) return; // Disable input during tutorial
 
     const keyBindings = gameData.CONFIG.KEY_BINDINGS;
+    const prefixes = keyBindings.PREFIXES;
 
-    // Dynamically find the key-action mapping
+    // Find the key-action mapping dynamically
     const keyAction = Object.entries(keyBindings).find(([action, key]) => key === e.key);
 
     if (!keyAction) {
@@ -612,23 +613,23 @@ function handleKeyDown(e) {
     const [actionKey] = keyAction;
 
     // Handle player movement
-    if (actionKey.startsWith("PLAYER_MOVE")) {
-        const direction = actionKey.replace("PLAYER_MOVE_", "").toLowerCase();
+    if (actionKey.startsWith(prefixes.PLAYER_MOVE)) {
+        const direction = actionKey.replace(prefixes.PLAYER_MOVE, "").toLowerCase();
         handlePlayerMovement(direction);
         return;
     }
 
     // Handle tile highlighting
-    if (actionKey.startsWith("HIGHLIGHT_TILE")) {
-        const direction = actionKey.replace("HIGHLIGHT_TILE_", "").toLowerCase();
+    if (actionKey.startsWith(prefixes.HIGHLIGHT_TILE)) {
+        const direction = actionKey.replace(prefixes.HIGHLIGHT_TILE, "").toLowerCase();
         handleTileHighlight(direction);
         return;
     }
 
     // Handle tile actions
-    if (actionKey.startsWith("ACTION_")) {
-        const action = actionKey.replace("ACTION_", "").toLowerCase();
-        handleTileAction(action);
+    if (actionKey.startsWith(prefixes.ACTION)) {
+        const action = actionKey.replace(prefixes.ACTION, "").toLowerCase();
+        performTileAction(action);
         return;
     }
 
