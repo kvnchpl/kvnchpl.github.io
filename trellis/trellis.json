@@ -50,27 +50,28 @@
             "WEEKS_PER_SEASON": 13
         },
         "KEY_BINDINGS": {
-            "PLAYER_MOVE_UP": "ArrowUp",
-            "PLAYER_MOVE_DOWN": "ArrowDown",
-            "PLAYER_MOVE_LEFT": "ArrowLeft",
-            "PLAYER_MOVE_RIGHT": "ArrowRight",
-            "HIGHLIGHT_TILE_UP": "w",
-            "HIGHLIGHT_TILE_DOWN": "s",
-            "HIGHLIGHT_TILE_LEFT": "a",
-            "HIGHLIGHT_TILE_RIGHT": "d",
-            "RESET_HIGHLIGHT": "q",
-            "ACTION_TILL": "1",
-            "ACTION_FERTILIZE": "2",
-            "ACTION_PLANT": "3",
-            "ACTION_WATER": "4",
-            "ACTION_MULCH": "5",
-            "ACTION_WEED": "6",
-            "ACTION_HARVEST": "7",
-            "ACTION_CLEAR": "8",
-            "PREFIXES": {
-                "PLAYER_MOVE": "PLAYER_MOVE_",
-                "HIGHLIGHT_TILE": "HIGHLIGHT_TILE_",
-                "ACTION": "ACTION_"
+            "PLAYER_MOVE": {
+                "UP": "ArrowUp",
+                "DOWN": "ArrowDown",
+                "LEFT": "ArrowLeft",
+                "RIGHT": "ArrowRight"
+            },
+            "HIGHLIGHT_TILE": {
+                "UP": "w",
+                "DOWN": "s",
+                "LEFT": "a",
+                "RIGHT": "d",
+                "RESET": "q"
+            },
+            "ACTION": {
+                "TILL": "1",
+                "FERTILIZE": "2",
+                "PLANT": "3",
+                "WATER": "4",
+                "MULCH": "5",
+                "WEED": "6",
+                "HARVEST": "7",
+                "CLEAR": "8"
             }
         },
         "GAME_CONFIG": {
