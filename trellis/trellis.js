@@ -65,8 +65,11 @@ class Tile {
     }
 
     till() {
-        if (this.isType(gameData.TILE_CONFIG.TYPES.EMPTY.TYPE)) {
-            this.setType(gameData.TILE_CONFIG.TYPES.PLOT.TYPE);
+        const emptyKey = gameData.TILE_CONFIG.DEFAULT_TYPE; // Dynamically reference the default type
+        const plotKey = Object.keys(gameData.TILE_CONFIG.TYPES).find(key => gameData.TILE_CONFIG.TYPES[key].IS_TILLED);
+
+        if (this.isType(emptyKey) && plotKey) {
+            this.setType(plotKey);
         }
     }
 
@@ -119,7 +122,8 @@ class Tile {
     }
 
     clear() {
-        this.setType(gameData.TILE_CONFIG.TYPES.EMPTY.TYPE);
+        const defaultType = gameData.TILE_CONFIG.DEFAULT_TYPE;
+        this.setType(defaultType);
     }
 
     updateMoisture(decayRate) {
@@ -146,20 +150,24 @@ class TileService {
     static createTile(typeKey) {
         const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
         const defaults = gameData.TILE_CONFIG.DEFAULTS;
+
         if (!typeConfig) {
             console.error(`Tile type '${typeKey}' not found.`);
             return null;
         }
+
         return new Tile({ ...structuredClone(defaults), ...structuredClone(typeConfig), TYPE: typeKey });
     }
 
     static updateTile(tile, typeKey) {
         const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
         const defaults = gameData.TILE_CONFIG.DEFAULTS;
+
         if (!typeConfig) {
             console.error(`Tile type '${typeKey}' not found.`);
             return;
         }
+
         Object.assign(tile, { ...structuredClone(defaults), ...structuredClone(typeConfig), TYPE: typeKey });
     }
 
@@ -273,31 +281,20 @@ function render() {
 }
 
 function drawGrid(context) {
-    const tileConfig = gameData.TILE_CONFIG;
-    const rgbAdjustments = tileConfig.RGB_ADJUSTMENTS;
     const tileSize = gameData.GAME_CONFIG.GRID.TILE_SIZE;
+    const defaultBorderStyle = gameData.TILE_CONFIG.BORDER_STYLE;
+    const highlightStyle = gameData.TILE_CONFIG.HIGHLIGHT_STYLE;
 
     for (let row = 0; row < gameState.grid.tiles.length; row++) {
         for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
             const tile = gameState.grid.tiles[row][col];
-
-            // Determine the base color from the tile's TYPE or default
             const baseColor = getTileStyle(tile.TYPE);
 
-            // Calculate adjustments dynamically
             const adjustments = calculateAdjustments(tile);
-
-            // Generate the final color
             const finalColor = parseAndAdjustRGB(baseColor, adjustments);
 
-            // Draw the tile
             context.fillStyle = finalColor;
-            context.fillRect(
-                col * tileSize,
-                row * tileSize,
-                tileSize,
-                tileSize
-            );
+            context.fillRect(col * tileSize, row * tileSize, tileSize, tileSize);
 
             // Draw the border (highlight if highlighted, otherwise default)
             context.strokeStyle =
@@ -316,6 +313,12 @@ function drawGrid(context) {
                 tileSize,
                 tileSize
             );
+
+            const isHighlighted = tile === gameState.grid.highlightedTile;
+            context.strokeStyle = isHighlighted
+                ? getCSSVariable(highlightStyle)
+                : getCSSVariable(defaultBorderStyle);
+            context.strokeRect(col * tileSize, row * tileSize, tileSize, tileSize);
 
             // Draw the player marker if the player is on this tile
             if (row === gameState.player.position.y && col === gameState.player.position.x) {
