@@ -147,32 +147,45 @@ class Tile {
 }
 
 class TileService {
-    static createTile(typeKey) {
-        const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
-        const defaults = gameData.TILE_CONFIG.DEFAULTS;
+    static defaults = {};
+    static types = {};
+    static styles = new Map();
 
+    static initializeDefaults(defaults, types) {
+        this.defaults = structuredClone(defaults);
+        this.types = structuredClone(types);
+    }
+
+    static initializeStyles() {
+        Object.keys(this.types).forEach((typeKey) => {
+            const cssVariable = `--tile-${typeKey.toLowerCase()}`;
+            const style = getCSSVariable(cssVariable) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
+            this.styles.set(typeKey, style);
+        });
+
+        console.log("Tile styles initialized:", this.styles);
+    }
+
+    static createTile(typeKey) {
+        const typeConfig = this.types[typeKey];
         if (!typeConfig) {
             console.error(`Tile type '${typeKey}' not found.`);
             return null;
         }
-
-        return new Tile({ ...structuredClone(defaults), ...structuredClone(typeConfig), TYPE: typeKey });
+        return new Tile({ ...this.defaults, ...typeConfig, TYPE: typeKey });
     }
 
     static updateTile(tile, typeKey) {
-        const typeConfig = gameData.TILE_CONFIG.TYPES[typeKey];
-        const defaults = gameData.TILE_CONFIG.DEFAULTS;
-
+        const typeConfig = this.types[typeKey];
         if (!typeConfig) {
             console.error(`Tile type '${typeKey}' not found.`);
             return;
         }
-
-        Object.assign(tile, { ...structuredClone(defaults), ...structuredClone(typeConfig), TYPE: typeKey });
+        Object.assign(tile, { ...this.defaults, ...typeConfig, TYPE: typeKey });
     }
 
     static getTypeConfig(typeKey) {
-        return gameData.TILE_CONFIG.TYPES[typeKey] || null;
+        return this.types[typeKey] || null;
     }
 }
 
@@ -219,6 +232,9 @@ class Tutorial {
 
 async function initGame(gameData) {
     try {
+        TileService.initializeDefaults(gameData.TILE_CONFIG.DEFAULTS, gameData.TILE_CONFIG.TYPES);
+        TileService.initializeStyles();
+
         window.gameState = new GameState(gameData.CONFIG);
         const inventory = new Inventory(gameData.INVENTORY);
         const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
@@ -978,9 +994,7 @@ function getCSSVariable(name) {
 }
 
 function getTileStyle(typeKey) {
-    // Derive style from the type key (e.g., "EMPTY" -> "--tile-empty")
-    const cssVariable = `--tile-${typeKey.toLowerCase()}`;
-    return getCSSVariable(cssVariable) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
+    return TileService.styles.get(typeKey) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
 }
 
 function parseAndAdjustRGB(baseColor, adjustments) {
