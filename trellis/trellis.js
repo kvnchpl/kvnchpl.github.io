@@ -242,20 +242,20 @@ function render() {
 }
 
 function drawGrid(context) {
+    const tileStyles = gameData.TILE_CONFIG.STYLES;
     const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
 
     for (let row = 0; row < gameState.grid.tiles.length; row++) {
         for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
             const tile = gameState.grid.tiles[row][col];
 
-            // Determine the base color from the tile type
-            const baseColor = getCSSVariable(gameData.TILE_CONFIG.TYPES[tile.TYPE]?.COLOR || "--tile-default");
+            // Get the base color from the tile type or default
+            const baseColor = getCSSVariable(
+                gameData.TILE_CONFIG.TYPES[tile.TYPE]?.COLOR || tileStyles.DEFAULT
+            );
 
             // Initialize adjustments
             let adjustments = { r: 0, g: 0, b: 0 };
-
-            // Retrieve RGB adjustments dynamically
-            const rgbAdjustments = gameData.TILE_CONFIG.RGB_ADJUSTMENTS;
 
             // Scaled moisture adjustment
             if (tile.MOISTURE?.VALUE !== undefined) {
@@ -290,16 +290,16 @@ function drawGrid(context) {
                 gameData.GAME_CONFIG.GRID.TILE_SIZE
             );
 
-            // Draw the border (highlighted tiles have different styles)
+            // Draw the border (highlight if highlighted, otherwise default)
             context.strokeStyle =
                 row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x
-                    ? getCSSVariable("--tile-highlight")
-                    : getCSSVariable("--color-canvas-border");
+                    ? getCSSVariable(tileStyles.HIGHLIGHT)
+                    : getCSSVariable(tileStyles.BORDER);
 
             context.lineWidth = row === gameState.grid.highlightedTile.y &&
                 col === gameState.grid.highlightedTile.x
-                    ? 3
-                    : 1;
+                ? 3
+                : 1;
 
             context.strokeRect(
                 col * gameData.GAME_CONFIG.GRID.TILE_SIZE,
