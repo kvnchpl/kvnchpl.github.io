@@ -176,7 +176,7 @@ class Tutorial {
 
 async function initGame(gameData) {
     try {
-        const gameState = new GameState(gameData.CONFIG);
+        window.gameState = new GameState(gameData.CONFIG);
         const inventory = new Inventory(gameData.INVENTORY);
         const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
 
@@ -864,16 +864,6 @@ function updateInventory(item, delta) {
 
     inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
     updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
-}
-
-/* TUTORIAL OVERLAY */
-
-function showTutorial() {
-    tutorial.show();
-}
-
-function hideTutorial() {
-    tutorial.hide();
 }
 
 /* UTILITY */
