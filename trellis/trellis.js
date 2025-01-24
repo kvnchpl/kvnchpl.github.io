@@ -1,62 +1,56 @@
-/* GLOBALS */
-
-let gameData = null;
-
-const gameState = {
-    time: {
-        currentTime: 0,
-    },
-    calendar: {
-        currentWeek: 1,
-        currentYear: 1,
-        currentSeason: "Winter",
-    },
-    grid: {
-        tiles: [],
-        highlightedTile: { x: null, y: null },
-    },
-    player: {
-        position: { x: null, y: null },
-        inventory: {
-            produce: {
-                tomato: 0,
-                kale: 0,
-                corn: 0,
-                beans: 0,
-            },
-            fertilizer: 0,
-            mulch: 0,
-        },
-    },
-    score: {
-        biodiversity: 0,
-    },
-    ui: {
-        isTutorialActive: true,
-    }
-};
-
 /* CLASSES */
+
+class GameState {
+    constructor(config) {
+        this.time = {
+            currentTime: config.GAME_CONFIG.TIME.START,
+        };
+        this.calendar = {
+            currentWeek: config.GAME_CONFIG.DEFAULT_WEEK,
+            currentYear: config.GAME_CONFIG.DEFAULT_YEAR,
+            currentSeason: config.GAME_CONFIG.DEFAULT_SEASON,
+        };
+        this.grid = {
+            tiles: this.initializeGrid(config),
+            highlightedTile: { x: null, y: null },
+        };
+        this.player = {
+            position: {
+                x: Math.floor(config.GAME_CONFIG.GRID.WIDTH / 2),
+                y: Math.floor(config.GAME_CONFIG.GRID.HEIGHT / 2),
+            },
+            inventory: structuredClone(config.INVENTORY),
+        };
+        this.score = {
+            biodiversity: 0,
+        };
+        this.ui = {
+            isTutorialActive: true,
+        };
+    }
+
+    initializeGrid(config) {
+        const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
+        return Array.from({ length: HEIGHT }, () =>
+            Array.from({ length: WIDTH }, () => new Tile(config.TILE_CONFIG.TYPES.EMPTY))
+        );
+    }
+}
 
 class Tile {
     constructor(data) {
-        Object.assign(this, data);
+        Object.assign(this, structuredClone(data));
     }
 
-    highlight() {
+    highlight(gameState) {
         const prevTile = gameState.grid.highlightedTile;
         if (prevTile) {
-            const prevTileElement = document.querySelector(`#tile-${prevTile.y}-${prevTile.x}`);
-            if (prevTileElement) {
-                prevTileElement.classList.remove("highlighted");
-            }
+            document
+                .querySelector(`#tile-${prevTile.y}-${prevTile.x}`)
+                ?.classList.remove("highlighted");
         }
-
         const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
-        if (tileElement) {
-            tileElement.classList.add("highlighted");
-        }
-
+        tileElement?.classList.add("highlighted");
         gameState.grid.highlightedTile = { x: this.x, y: this.y };
     }
 
@@ -140,188 +134,89 @@ class Tile {
 }
 
 class Inventory {
-    static update(item, delta) {
-        const [category, itemKey] = item.split('.');
-        const inventoryCategory = gameState.player.inventory[category];
-        if (!inventoryCategory || !(itemKey in inventoryCategory)) {
-            console.error(`Inventory item '${itemKey}' not found in category '${category}'.`);
-            return;
-        }
+    constructor(data) {
+        this.items = structuredClone(data);
+    }
 
-        inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
-        updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
-        updateInventoryUI();
+    update(itemPath, delta) {
+        const [category, key] = itemPath.split(".");
+        if (this.items[category] && this.items[category][key] !== undefined) {
+            this.items[category][key] = Math.max(0, this.items[category][key] + delta);
+            this.updateUI(category, key, this.items[category][key]);
+        } else {
+            console.error(`Invalid inventory item: ${itemPath}`);
+        }
+    }
+
+    updateUI(category, key, value) {
+        const fieldId = `produce${key.charAt(0).toUpperCase() + key.slice(1)}`;
+        document.getElementById(fieldId).textContent = value;
     }
 }
 
 class Tutorial {
-    constructor(overlayId) {
-        this.overlay = document.getElementById(overlayId);
+    constructor(overlayData) {
+        this.overlayId = overlayData.CONTAINER;
+        this.overlay = document.getElementById(this.overlayId);
         this.isActive = true;
     }
 
     show() {
         this.isActive = true;
         this.overlay.classList.remove("hidden");
-        toggleButtons(false);
     }
 
     hide() {
         this.isActive = false;
         this.overlay.classList.add("hidden");
-        toggleButtons(true);
-    }
-
-    toggleButtons(enable) {
-        const buttons = document.querySelectorAll(`button:not(#${gameData.FIELDS.CLOSE_TUTORIAL.ID})`);
-        buttons.forEach(button => {
-            button.disabled = !enable;
-        });
     }
 }
 
 /* INITIALIZATION */
 
-window.onload = function () {
+async function initGame(gameData) {
+    try {
+        const gameState = new GameState(gameData.CONFIG);
+        const inventory = new Inventory(gameData.INVENTORY);
+        const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
+
+        if (tutorial.overlay) {
+            tutorial.show();
+        } else {
+            console.warn("Tutorial overlay not found. Skipping tutorial setup.");
+        }
+
+        console.log("Game initialized with:", gameState, inventory, tutorial);
+
+        return { gameState, inventory, tutorial };
+    } catch (error) {
+        console.error("Error during game initialization:", error);
+        throw error;
+    }
+}
+
+window.onload = async () => {
     const gameDataURL = document.querySelector('meta[name="game-data"]')?.content;
     if (!gameDataURL) {
         console.error("Game data URL is not defined in the HTML <meta> tag.");
         return;
     }
-
-    fetch(gameDataURL)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error(`Failed to load game data from ${gameDataURL}: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then((data) => {
-            gameData = data;
-            try {
-
-                initGame();
-            } catch (error) {
-                console.error(error.message);
-            }
-            console.log("Game data loaded successfully:\n", gameData);
-        })
-        .catch((error) => {
-            console.error("Error fetching game data:", error);
-        });
-};
-
-function initGame() {
-    if (!gameData) {
-        console.error("JSON game data is missing.");
-        return;
-    }
-    validateGameData(gameData);
-    validateKeyBindings(gameData.CONFIG.KEY_BINDINGS);
-
-    const { CONFIG: config, UI: uiData, INVENTORY: inventoryData } = gameData;
-
-    initializeGameData(config);
-    initializeGameState(config);
-    initializeGrid(config);
-    initializeUI(uiData);
-    initializeInventory(inventoryData);
-
-    const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY.CONTAINER);
-    tutorial.show();
-}
-
-// Assign static fields from JSON config to gameData
-function initializeGameData(config) {
-    Object.assign(gameData, {
-        DAY_START: config.GAME_CONFIG.TIME.START,
-        DAY_END: config.GAME_CONFIG.TIME.END,
-        TILE_SIZE: config.GAME_CONFIG.GRID.TILE_SIZE,
-        GRID_WIDTH: config.GAME_CONFIG.GRID.WIDTH,
-        GRID_HEIGHT: config.GAME_CONFIG.GRID.HEIGHT,
-        WEEKS_PER_SEASON: config.CALENDAR_CONFIG.WEEKS_PER_SEASON,
-        SEASONS: config.CALENDAR_CONFIG.SEASONS,
-        WEEKS_PER_YEAR: config.CALENDAR_CONFIG.WEEKS_PER_SEASON * config.CALENDAR_CONFIG.SEASONS.length,
-        REGION_NAME: config.GAME_CONFIG.REGION_NAME,
-        PEST_OUTBREAK_CHANCE: config.PEST_OUTBREAK_CHANCE,
-        TILE_TYPES: config.TILE_CONFIG.TYPES,
-        TILE_STATS: config.TILE_CONFIG.STATS || {},
-        ACTIONS: config.ACTIONS,
-        PLANT_DATA: config.PLANTS,
-        KEY_BINDINGS: config.KEY_BINDINGS,
-    });
-}
-
-// Assign dynamic fields to gameState
-function initializeGameState(config) {
-    Object.assign(gameState.time, {
-        currentTime: config.GAME_CONFIG.TIME.START,
-    });
-
-    Object.assign(gameState.calendar, {
-        currentWeek: config.GAME_CONFIG.DEFAULT_WEEK,
-        currentYear: config.GAME_CONFIG.DEFAULT_YEAR,
-        currentSeason: config.GAME_CONFIG.DEFAULT_SEASON,
-    });
-
-    gameState.player.position = {
-        x: Math.floor(gameData.GRID_WIDTH / 2),
-        y: Math.floor(gameData.GRID_HEIGHT / 2),
-    };
-
-    gameState.grid.highlightedTile = { ...gameState.player.position };
-}
-
-function initializeGrid(config) {
-    gameState.grid.tiles = Array.from({ length: gameData.GRID_WIDTH }, () =>
-        Array.from({ length: gameData.GRID_WIDTH }, () => {
-            const defaultType = config.TILE_CONFIG.DEFAULT_TYPE;
-            return new Tile(structuredClone(gameData.TILE_TYPES[defaultType]));
-        })
-    );
-
-    console.log("Initialized grid: ", gameState.grid);
-    render();
-}
-
-function initializeUI(uiData) {
-    Object.assign(gameData.UI, uiData);
-    Object.entries(uiData).forEach(([sectionKey, sectionData]) => {
-        renderUISection(sectionData.CONTAINER, sectionData);
-        updateUISection(sectionData.CONTAINER, sectionData);
-    });
-
-    attachUIEventListeners();
-    attachCanvasEventListeners();
-
-    updateTimeDisplay();
-    updateYearAndSeason();
-    updateWeekDisplay();
-    updateBiodiversityDisplay();
-}
-
-function initializeInventory(inventoryData) {
-    gameState.player.inventory = { ...inventoryData };
-    console.log("Initialized inventory:", gameState.player.inventory);
-
-    updateInventoryUI();
-}
-
-function updateInventoryUI() {
-    const inventoryFields = gameData.UI.INVENTORY_DISPLAY.FIELDS;
-    inventoryFields.forEach(fieldKey => {
-        const fieldData = gameData.FIELDS[fieldKey];
-        if (fieldData.SUBFIELDS) {
-            Object.entries(fieldData.SUBFIELDS).forEach(([key, subFieldData]) => {
-                const value = gameState.player.inventory.produce[key] || subFieldData.DEFAULT_VALUE;
-                updateField(subFieldData.ID, value);
-            });
-        } else {
-            const value = gameState.player.inventory[fieldData.ID] || fieldData.DEFAULT_VALUE;
-            updateField(fieldData.ID, value);
+    try {
+        const response = await fetch(gameDataURL);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch game data: ${response.status} ${response.statusText}`);
         }
-    });
-}
+
+        const gameData = await response.json();
+
+        validateGameData(gameData);
+
+        const initializedComponents = await initGame(gameData);
+        console.log("Game successfully initialized!", initializedComponents);
+    } catch (error) {
+        console.error("Error during game loading or initialization:", error);
+    }
+};
 
 /* RENDERING */
 
@@ -984,25 +879,12 @@ function hideTutorial() {
 /* UTILITY */
 
 function validateGameData(data) {
-    const requiredFields = ["CONFIG", "UI", "INVENTORY"];
+    const requiredFields = ["CONFIG", "INVENTORY", "UI"];
     for (const field of requiredFields) {
         if (!data[field]) {
             throw new Error(`Missing required field: ${field}`);
         }
     }
-}
-
-function validateKeyBindings(bindings) {
-    const requiredKeys = [
-        "PLAYER_MOVE_UP", "PLAYER_MOVE_DOWN", "PLAYER_MOVE_LEFT", "PLAYER_MOVE_RIGHT",
-        "HIGHLIGHT_TILE_UP", "HIGHLIGHT_TILE_DOWN", "HIGHLIGHT_TILE_LEFT", "HIGHLIGHT_TILE_RIGHT",
-        "RESET_HIGHLIGHT"
-    ];
-    requiredKeys.forEach(key => {
-        if (!bindings[key]) {
-            console.warn(`Missing key binding: ${key}`);
-        }
-    });
 }
 
 function getTargetTile() {
