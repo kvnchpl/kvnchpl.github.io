@@ -97,7 +97,6 @@
         "TILE_CONFIG": {
             "TYPES": {
                 "EMPTY": {
-                    "TYPE": "EMPTY",
                     "IS_TILLED": false,
                     "MOISTURE": 50,
                     "SOIL_NUTRIENTS": {
@@ -114,11 +113,10 @@
                     "IS_PEST_INFESTED": false
                 },
                 "PLOT": {
-                    "TYPE": "PLOT",
                     "IS_TILLED": true
                 },
                 "PATH": {
-                    "TYPE": "PATH"
+                    "IS_TILLED": false
                 }
             },
             "DEFAULT_STYLE": "--tile-default",
