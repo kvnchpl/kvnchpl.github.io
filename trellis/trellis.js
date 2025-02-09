@@ -437,6 +437,20 @@ function renderUISection(uiSection, gameData) {
             }
 
             container.appendChild(fieldContainer);
+        } else if (fieldData.SECTION_TYPE === "HEADING") {
+            const headingElement = createElement(gameData.UI_COMPONENTS.HEADING.TAG, {
+                id: fieldData.ID,
+                className: gameData.UI_COMPONENTS.HEADING.CLASS,
+                textContent: fieldData.LABEL,
+            });
+            container.appendChild(headingElement);
+        } else if (fieldData.SECTION_TYPE === "CONTENT") {
+            const contentElement = createElement(gameData.UI_COMPONENTS.CONTENT.TAG, {
+                id: fieldData.ID,
+                className: gameData.UI_COMPONENTS.CONTENT.CLASS,
+                textContent: fieldData.LABEL,
+            });
+            container.appendChild(contentElement);
         } else {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
         }
