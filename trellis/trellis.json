@@ -259,6 +259,25 @@
         }
     },
     "FIELDS": {
+        "TUTORIAL_HEADING": {
+            "SECTION_TYPE": "HEADING",
+            "CONTAINER": "tutorialOverlay",
+            "LABEL": "Welcome to Trellis!",
+            "ID": "tutorialHeading"
+        },
+        "TUTORIAL_CONTENT": {
+            "SECTION_TYPE": "CONTENT",
+            "CONTAINER": "tutorialOverlay",
+            "LABEL": "Use arrow keys to move your character. Use WASD to select adjacent tiles. Perform actions like tilling, planting, and harvesting to manage your garden.",
+            "ID": "tutorialContent"
+        },
+        "CLOSE_TUTORIAL": {
+            "SECTION_TYPE": "BUTTON",
+            "CONTAINER": "tutorialOverlay",
+            "LABEL": "Close Tutorial",
+            "ID": "closeTutorialBtn",
+            "ON_CLICK": "hideTutorial"
+        },
         "NEXT_WEEK": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "buttonContainer",
@@ -272,13 +291,6 @@
             "LABEL": "Reset Position",
             "ID": "resetPositionBtn",
             "ON_CLICK": "resetPlayerPosition"
-        },
-        "CLOSE_TUTORIAL": {
-            "SECTION_TYPE": "BUTTON",
-            "CONTAINER": "tutorialOverlay",
-            "LABEL": "Close Tutorial",
-            "ID": "closeTutorialBtn",
-            "ON_CLICK": "hideTutorial"
         },
         "TILL": {
             "SECTION_TYPE": "BUTTON",
@@ -482,13 +494,9 @@
     "UI": {
         "TUTORIAL_OVERLAY": {
             "CONTAINER": "tutorialOverlay",
-            "HEADING": "Welcome to Trellis!",
-            "CONTENT": [
-                "Use arrow keys to move your character.",
-                "Use WASD to select adjacent tiles.",
-                "Perform actions like tilling, planting, and harvesting to manage your garden."
-            ],
             "FIELDS": [
+                "TUTORIAL_HEADING",
+                "TUTORIAL_CONTENT",
                 "CLOSE_TUTORIAL"
             ]
         },
