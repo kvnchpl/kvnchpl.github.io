@@ -2,6 +2,7 @@
 
 class GameState {
     constructor(config) {
+        this.config = config;
         this.time = {
             currentTime: config.GAME_CONFIG.TIME.START,
         };
@@ -31,7 +32,7 @@ class GameState {
 
     initGrid(config) {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
-        const defaultTypeKey = gameData.TILE_CONFIG.DEFAULT_TYPE;
+        const defaultTypeKey = config.TILE_CONFIG.DEFAULT_TYPE;
 
         return Array.from({ length: HEIGHT }, () =>
             Array.from({ length: WIDTH }, () => TileService.createTile(defaultTypeKey))
@@ -232,15 +233,12 @@ class Tutorial {
 
 async function initGame(gameData) {
     try {
-        
         TileService.initializeDefaults(gameData.CONFIG.TILE_CONFIG.DEFAULTS, gameData.CONFIG.TILE_CONFIG.TYPES);
         TileService.initializeStyles();
 
-        window.gameState = new GameState(gameData.CONFIG);
+        window.gameState = new GameState(gameData.CONFIG); // Pass gameData.CONFIG instead of gameData
         const inventory = new Inventory(gameData.INVENTORY);
         const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
-
-
 
         if (tutorial.overlay) {
             tutorial.show();
