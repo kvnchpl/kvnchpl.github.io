@@ -236,9 +236,26 @@ async function initGame(gameData) {
         TileService.initializeDefaults(gameData.CONFIG.TILE_CONFIG.DEFAULTS, gameData.CONFIG.TILE_CONFIG.TYPES);
         TileService.initializeStyles();
 
-        window.gameState = new GameState(gameData.CONFIG); // Pass gameData.CONFIG instead of gameData
+        window.gameState = new GameState(gameData.CONFIG);
         const inventory = new Inventory(gameData.INVENTORY);
         const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
+
+        // Render UI sections
+        renderUISection('buttonContainer', gameData.UI.BUTTON_CONTAINER);
+        renderUISection('actionsContainer', gameData.UI.ACTIONS_CONTAINER);
+        renderUISection('globalStats', gameData.UI.GLOBAL_STATS);
+        renderUISection('tileStats', gameData.UI.TILE_STATS);
+        renderUISection('inventory', gameData.UI.INVENTORY_DISPLAY);
+
+        // Attach event listeners
+        attachUIEventListeners();
+        attachCanvasEventListeners();
+
+        // Update UI with initial values
+        updateTimeDisplay();
+        updateWeekDisplay();
+        updateBiodiversityDisplay();
+        updateTileStats();
 
         if (tutorial.overlay) {
             tutorial.show();
