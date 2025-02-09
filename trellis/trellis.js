@@ -240,12 +240,10 @@ async function initGame(gameData) {
         const inventory = new Inventory(gameData.INVENTORY);
         const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
 
-        // Render UI sections
-        renderUISection('buttonContainer', gameData.UI.BUTTON_CONTAINER, gameData.UI_COMPONENTS);
-        renderUISection('actionsContainer', gameData.UI.ACTIONS_CONTAINER, gameData.UI_COMPONENTS);
-        renderUISection('globalStats', gameData.UI.GLOBAL_STATS, gameData.UI_COMPONENTS);
-        renderUISection('tileStats', gameData.UI.TILE_STATS, gameData.UI_COMPONENTS);
-        renderUISection('inventory', gameData.UI.INVENTORY_DISPLAY, gameData.UI_COMPONENTS);
+        // Iterate through all UI sections and render them
+        Object.values(gameData.UI).forEach(uiSection => {
+            renderUISection(uiSection, gameData);
+        });
 
         // Attach event listeners
         attachUIEventListeners();
@@ -369,17 +367,18 @@ function drawGrid(context) {
     }
 }
 
-function renderUISection(containerId, data, uiComponents) {
+function renderUISection(uiSection, gameData) {
+    const containerId = uiSection.CONTAINER;
     const container = document.getElementById(containerId);
     if (!container) {
         console.warn(`Container with ID '${containerId}' not found in the DOM.`);
         return;
     }
-    if (!data) {
+    if (!uiSection) {
         console.warn(`No data provided for container '${containerId}'.`);
         return;
     }
-    if (!data.FIELDS) {
+    if (!uiSection.FIELDS) {
         console.warn(`No fields provided for container '${containerId}'.`);
         return;
     }
@@ -388,7 +387,7 @@ function renderUISection(containerId, data, uiComponents) {
         container.removeChild(container.firstChild);
     }
 
-    data.FIELDS.forEach((fieldKey) => {
+    uiSection.FIELDS.forEach((fieldKey) => {
         const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
             console.warn(`Field data for key '${fieldKey}' not found.`);
@@ -398,7 +397,7 @@ function renderUISection(containerId, data, uiComponents) {
         if (fieldData.SECTION_TYPE === "BUTTON") {
             const button = createElement("button", {
                 id: fieldData.ID,
-                className: uiComponents.BUTTON.CLASS,
+                className: gameData.UI_COMPONENTS.BUTTON.CLASS,
                 textContent: fieldData.LABEL,
             });
 
@@ -415,23 +414,23 @@ function renderUISection(containerId, data, uiComponents) {
 
             container.appendChild(button);
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
-            const fieldContainer = createElement(uiComponents.FIELD_CONTAINER.TAG, {
-                className: uiComponents.FIELD_CONTAINER.CLASS,
+            const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
+                className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
             });
 
-            const labelElement = createElement(uiComponents.FIELD_LABEL.TAG, {
-                className: uiComponents.FIELD_LABEL.CLASS,
+            const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
+                className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
                 textContent: `${fieldData.LABEL}:`,
             });
 
             fieldContainer.appendChild(labelElement);
 
             if (fieldData.SUBFIELDS) {
-                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, uiComponents);
+                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, gameData);
             } else {
-                const valueElement = createElement(uiComponents.FIELD_VALUE.TAG, {
+                const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
                     id: fieldData.ID,
-                    className: uiComponents.FIELD_VALUE.CLASS,
+                    className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE,
                 });
                 fieldContainer.appendChild(valueElement);
@@ -444,21 +443,21 @@ function renderUISection(containerId, data, uiComponents) {
     });
 }
 
-function renderSubfields(container, subfields, defaultValues, uiComponents, level = 1) {
+function renderSubfields(container, subfields, defaultValues, gameData, level = 1) {
     Object.entries(subfields).forEach(([key, subfieldData]) => {
-        const subfieldContainer = createElement(uiComponents.SUBFIELD_CONTAINER.TAG, {
-            className: uiComponents.SUBFIELD_CONTAINER.CLASS,
+        const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
+            className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS,
             style: `--level: ${level};`, // Optional styling for hierarchy
         });
 
-        const labelElement = createElement(uiComponents.FIELD_LABEL.TAG, {
-            className: uiComponents.FIELD_LABEL.CLASS,
+        const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
+            className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
             textContent: `${subfieldData.LABEL}:`, // Use LABEL for subfield
         });
 
-        const valueElement = createElement(uiComponents.FIELD_VALUE.TAG, {
+        const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
             id: subfieldData.ID,
-            className: uiComponents.FIELD_VALUE.CLASS,
+            className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
             textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE, // Display the default value for the subfield
         });
 
@@ -470,7 +469,7 @@ function renderSubfields(container, subfields, defaultValues, uiComponents, leve
 
         // Recursively render nested subfields
         if (subfieldData.SUBFIELDS) {
-            renderSubfields(container, subfieldData.SUBFIELDS, defaultValues[key], uiComponents, level + 1);
+            renderSubfields(container, subfieldData.SUBFIELDS, defaultValues[key], gameData, level + 1);
         }
     });
 }
