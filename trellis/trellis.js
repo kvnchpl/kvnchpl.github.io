@@ -388,7 +388,6 @@ function renderUISection(containerId, data) {
         container.removeChild(container.firstChild);
     }
 
-    // Loop through each field and render its UI
     data.FIELDS.forEach((fieldKey) => {
         const fieldData = gameData.FIELDS[fieldKey];
         if (!fieldData) {
@@ -403,18 +402,11 @@ function renderUISection(containerId, data) {
                 textContent: fieldData.LABEL,
             });
 
-            // Attach click handler
             if (fieldData.ON_CLICK) {
                 button.addEventListener("click", () => {
                     const handler = window[fieldData.ON_CLICK];
                     if (typeof handler === "function") {
-                        const { x, y } = gameState.grid.highlightedTile;
-                        const tile = gameState.grid.tiles[y]?.[x]; // Safely retrieve the tile
-                        if (!tile) {
-                            console.error("Invalid tile selected.");
-                            return;
-                        }
-                        handler(tile); // Pass the tile to the handler
+                        handler();
                     } else {
                         console.error(`Handler function '${fieldData.ON_CLICK}' not found.`);
                     }
@@ -423,37 +415,29 @@ function renderUISection(containerId, data) {
 
             container.appendChild(button);
         } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
-            // Handle FIELD_LABEL section type
             const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
                 className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
             });
 
-            // Create the label
             const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
                 className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-                textContent: `${fieldData.LABEL}:`, // Set LABEL for the field
+                textContent: `${fieldData.LABEL}:`,
             });
 
             fieldContainer.appendChild(labelElement);
-            container.appendChild(fieldContainer);
 
-            // Render subfields if they exist
             if (fieldData.SUBFIELDS) {
-                renderSubfields(container, fieldData.SUBFIELDS, 1);
-            } else if (fieldData.DEFAULT_VALUE !== undefined) {
-                // Render the default value if no subfields exist
+                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE);
+            } else {
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
                     id: fieldData.ID,
                     className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
                     textContent: fieldData.DEFAULT_VALUE,
                 });
-                if (!valueElement) {
-                    console.error(`Failed to create value element for field '${fieldData.ID}'.`);
-                }
                 fieldContainer.appendChild(valueElement);
-            } else {
-                console.warn(`No default value provided for field '${fieldKey}'.`);
             }
+
+            container.appendChild(fieldContainer);
         } else {
             console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
         }
