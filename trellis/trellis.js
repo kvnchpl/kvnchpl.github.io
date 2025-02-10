@@ -261,9 +261,9 @@ async function initGame(gameData) {
             console.warn("Tutorial overlay not found. Skipping tutorial setup.");
         }
 
-        console.log("Game initialized with:", gameState, inventory, tutorial);
+        console.log("Game initialized with:", window.gameState, inventory, tutorial);
 
-        return { gameState, inventory, tutorial };
+        return { gameState: window.gameState, inventory, tutorial };
     } catch (error) {
         console.error("Error during game initialization:", error);
         throw error;
@@ -282,9 +282,9 @@ window.onload = async () => {
             throw new Error(`Failed to fetch game data: ${response.status} ${response.statusText}`);
         }
 
-        const gameData = await response.json();
+        window.gameData = await response.json(); // Assign the fetched gameData to the global window object
 
-        const initializedComponents = await initGame(gameData);
+        const initializedComponents = await initGame(window.gameData);
         console.log("Game successfully initialized!", initializedComponents);
     } catch (error) {
         console.error("Error during game loading or initialization:", error);
@@ -305,21 +305,21 @@ function render() {
         return;
     }
 
-    canvas.width = gameData.GRID_WIDTH * gameData.TILE_SIZE;
-    canvas.height = gameData.GRID_HEIGHT * gameData.TILE_SIZE;
+    canvas.width = window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH * window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
+    canvas.height = window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT * window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawGrid(ctx);
 }
 
 function drawGrid(context) {
-    const tileSize = gameData.GAME_CONFIG.GRID.TILE_SIZE;
-    const defaultBorderStyle = gameData.TILE_CONFIG.BORDER_STYLE;
-    const highlightStyle = gameData.TILE_CONFIG.HIGHLIGHT_STYLE;
+    const tileSize = window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
+    const defaultBorderStyle = window.gameData.TILE_CONFIG.BORDER_STYLE;
+    const highlightStyle = window.gameData.TILE_CONFIG.HIGHLIGHT_STYLE;
 
-    for (let row = 0; row < gameState.grid.tiles.length; row++) {
-        for (let col = 0; col < gameState.grid.tiles[row].length; col++) {
-            const tile = gameState.grid.tiles[row][col];
+    for (let row = 0; row < window.gameState.grid.tiles.length; row++) {
+        for (let col = 0; col < window.gameState.grid.tiles[row].length; col++) {
+            const tile = window.gameState.grid.tiles[row][col];
             const baseColor = getTileStyle(tile.TYPE);
 
             const adjustments = calculateAdjustments(tile);
@@ -330,12 +330,12 @@ function drawGrid(context) {
 
             // Draw the border (highlight if highlighted, otherwise default)
             context.strokeStyle =
-                row === gameState.grid.highlightedTile.y && col === gameState.grid.highlightedTile.x
-                    ? getCSSVariable(tileConfig.HIGHLIGHT_STYLE)
-                    : getCSSVariable(tileConfig.BORDER_STYLE);
+                row === window.gameState.grid.highlightedTile.y && col === window.gameState.grid.highlightedTile.x
+                    ? getCSSVariable(highlightStyle)
+                    : getCSSVariable(defaultBorderStyle);
 
-            context.lineWidth = row === gameState.grid.highlightedTile.y &&
-                col === gameState.grid.highlightedTile.x
+            context.lineWidth = row === window.gameState.grid.highlightedTile.y &&
+                col === window.gameState.grid.highlightedTile.x
                 ? 3
                 : 1;
 
@@ -346,15 +346,9 @@ function drawGrid(context) {
                 tileSize
             );
 
-            const isHighlighted = tile === gameState.grid.highlightedTile;
-            context.strokeStyle = isHighlighted
-                ? getCSSVariable(highlightStyle)
-                : getCSSVariable(defaultBorderStyle);
-            context.strokeRect(col * tileSize, row * tileSize, tileSize, tileSize);
-
             // Draw the player marker if the player is on this tile
-            if (row === gameState.player.position.y && col === gameState.player.position.x) {
-                context.fillStyle = getCSSVariable(tileConfig.PLAYER_STYLE);
+            if (row === window.gameState.player.position.y && col === window.gameState.player.position.x) {
+                context.fillStyle = getCSSVariable(window.gameData.TILE_CONFIG.PLAYER_STYLE);
                 const padding = tileSize * 0.2; // Shrink player marker a bit
                 context.fillRect(
                     col * tileSize + padding,
@@ -906,24 +900,24 @@ function updateTileStats() {
 /* UI UPDATES */
 
 function updateTimeDisplay() {
-    const totalMinutes = gameState.time.currentTime;
+    const totalMinutes = window.gameState.time.currentTime;
     const hours = Math.floor(totalMinutes / 60) % 12 || 12;
     const minutes = totalMinutes % 60;
     const ampm = totalMinutes < 720 ? "AM" : "PM";
     const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes} ${ampm}`;
 
-    const timeField = gameData.FIELDS.TIME;
+    const timeField = window.gameData.FIELDS.TIME;
     updateField(timeField.ID, formattedTime);
 }
 
 function updateWeekDisplay() {
-    const weekField = gameData.FIELDS.WEEK;
-    updateField(weekField.ID, gameState.calendar.currentWeek);
+    const weekField = window.gameData.FIELDS.WEEK;
+    updateField(weekField.ID, window.gameState.calendar.currentWeek);
 }
 
 function updateBiodiversityDisplay() {
-    const biodiversityField = gameData.FIELDS.BIODIVERSITY;
-    updateField(biodiversityField.ID, gameState.score.biodiversity);
+    const biodiversityField = window.gameData.FIELDS.BIODIVERSITY;
+    updateField(biodiversityField.ID, window.gameState.score.biodiversity);
 }
 
 /* INVENTORY */
