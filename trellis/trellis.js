@@ -692,9 +692,10 @@ function handlePlayerMovement(direction) {
 }
 
 function handleTileHighlight(direction) {
-    const { x, y } = window.gameState.grid.highlightedTile;
-    let newX = x;
-    let newY = y;
+    const playerX = window.gameState.player.position.x;
+    const playerY = window.gameState.player.position.y;
+    let newX = playerX;
+    let newY = playerY;
 
     switch (direction) {
         case "up":
