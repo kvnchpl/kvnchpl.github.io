@@ -543,8 +543,8 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) {
             return;
         }
 
-        const propertyPath = fieldConfig.PROPERTY_PATH;
-        let value = propertyPath ? resolvePath(sourceData, propertyPath) : fieldConfig.DEFAULT_VALUE;
+        const dataKey = fieldConfig.DATA_KEY;
+        let value = dataKey ? resolvePath(sourceData, dataKey) : fieldConfig.DEFAULT_VALUE;
 
         if (typeof value === "object" && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
@@ -913,10 +913,6 @@ function isTileValid(x, y) {
 
 function isTileAdjacent(x, y) {
     return Math.abs(window.gameState.player.position.x - x) + Math.abs(window.gameState.player.position.y - y) <= 1;
-}
-
-function resolvePath(obj, path) {
-    return path.split('.').reduce((acc, key) => acc?.[key], obj);
 }
 
 function createElement(tag, options = {}) {
