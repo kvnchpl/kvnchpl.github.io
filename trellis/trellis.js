@@ -876,6 +876,7 @@ function highlightTile(x, y) {
     }
 
     window.gameState.grid.highlightedTile = { x, y };
+    console.log(`highlightedTile updated to: (${window.gameState.grid.highlightedTile.x}, ${window.gameState.grid.highlightedTile.y})`);
 
     const tile = window.gameState.grid.tiles[y][x];
     if (!tile) {
