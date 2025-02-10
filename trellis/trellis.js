@@ -618,14 +618,14 @@ function attachUIEventListeners() {
 }
 
 function preventKeyBindingScroll(e) {
-    const keyBindings = gameData.KEY_BINDINGS;
+    const keyBindings = window.gameData.CONFIG.KEY_BINDINGS;
     if (Object.values(keyBindings).includes(e.key)) {
         e.preventDefault();
     }
 }
 
 function handleKeyDown(e) {
-    const keyConfig = gameData.CONFIG.KEY_BINDINGS[e.key];
+    const keyConfig = window.gameData.CONFIG.KEY_BINDINGS[e.key];
     if (!keyConfig) {
         console.warn(`Unhandled key: '${e.key}'`);
         return;
@@ -647,7 +647,7 @@ function handleKeyDown(e) {
 }
 
 function handlePlayerMovement(direction) {
-    const { x, y } = gameState.player.position;
+    const { x, y } = window.gameState.player.position;
     let newX = x;
     let newY = y;
 
@@ -670,11 +670,11 @@ function handlePlayerMovement(direction) {
     }
 
     if (isTileValid(newX, newY)) {
-        const targetTile = gameState.grid.tiles[newY]?.[newX];
+        const targetTile = window.gameState.grid.tiles[newY]?.[newX];
         const plotType = window.gameData.CONFIG.TILE_CONFIG.TYPES.PLOT.TYPE;
 
         if (!targetTile.isType(plotType)) {
-            gameState.player.position = { x: newX, y: newY };
+            window.gameState.player.position = { x: newX, y: newY };
             highlightTile(newX, newY);
             render();
         } else {
@@ -686,7 +686,7 @@ function handlePlayerMovement(direction) {
 }
 
 function handleTileHighlight(direction) {
-    const { x, y } = gameState.grid.highlightedTile;
+    const { x, y } = window.gameState.grid.highlightedTile;
     let newX = x;
     let newY = y;
 
@@ -704,8 +704,8 @@ function handleTileHighlight(direction) {
             newX += 1;
             break;
         case "reset":
-            newX = gameState.player.position.x;
-            newY = gameState.player.position.y;
+            newX = window.gameState.player.position.x;
+            newY = window.gameState.player.position.y;
             break;
         default:
             console.warn(`Unknown highlight direction: '${direction}'`);
@@ -720,15 +720,15 @@ function handleTileHighlight(direction) {
 }
 
 function handleTileAction(actionKey) {
-    const { x, y } = gameState.grid.highlightedTile;
-    const tile = gameState.grid.tiles[y]?.[x];
+    const { x, y } = window.gameState.grid.highlightedTile;
+    const tile = window.gameState.grid.tiles[y]?.[x];
 
     if (!tile) {
         console.error("Invalid target tile for action.");
         return;
     }
 
-    const actionConfig = gameData.CONFIG.ACTIONS[actionKey.toUpperCase()];
+    const actionConfig = window.gameData.CONFIG.ACTIONS[actionKey.toUpperCase()];
     if (!actionConfig) {
         console.warn(`Action '${actionKey}' not found in configuration.`);
         return;
@@ -751,7 +751,7 @@ function attachCanvasEventListeners() {
     }
 
     const handleClick = (e) => {
-        if (gameState.ui.isTutorialActive) return;
+        if (window.gameState.ui.isTutorialActive) return;
 
         const rect = canvas.getBoundingClientRect();
         const x = Math.floor((e.clientX - rect.left) / window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE);
@@ -777,9 +777,9 @@ function detachCanvasEventListeners() {
 /* TIME & WEEK LOGIC */
 
 function advanceTime(minutes) {
-    gameState.time.currentTime += minutes;
+    window.gameState.time.currentTime += minutes;
 
-    if (gameState.time.currentTime >= gameData.DAY_END) {
+    if (window.gameState.time.currentTime >= window.gameData.CONFIG.GAME_CONFIG.TIME.END) {
         skipToNextWeek();
     } else {
         updateTimeDisplay();
@@ -788,8 +788,8 @@ function advanceTime(minutes) {
 }
 
 function skipToNextWeek() {
-    gameState.calendar.currentWeek++;
-    gameState.time.currentTime = gameData.DAY_START;
+    window.gameState.calendar.currentWeek++;
+    window.gameState.time.currentTime = window.gameData.CONFIG.GAME_CONFIG.TIME.START;
 
     updateYearAndSeason();
 
@@ -803,36 +803,36 @@ function skipToNextWeek() {
 }
 
 function updateYearAndSeason() {
-    gameState.calendar.currentYear = Math.floor(gameState.calendar.currentWeek / gameData.WEEKS_PER_YEAR) + 1;
-    gameState.calendar.currentSeason = gameData.SEASONS[Math.floor((gameState.calendar.currentWeek % gameData.WEEKS_PER_YEAR) / gameData.WEEKS_PER_SEASON)];
+    window.gameState.calendar.currentYear = Math.floor(window.gameState.calendar.currentWeek / window.gameData.CONFIG.CALENDAR_CONFIG.WEEKS_PER_SEASON) + 1;
+    window.gameState.calendar.currentSeason = window.gameData.CONFIG.CALENDAR_CONFIG.SEASONS[Math.floor((window.gameState.calendar.currentWeek % window.gameData.CONFIG.CALENDAR_CONFIG.WEEKS_PER_SEASON) / window.gameData.CONFIG.CALENDAR_CONFIG.WEEKS_PER_SEASON)];
 
-    const yearField = gameData.FIELDS.YEAR;
-    updateField(yearField.ID, gameState.calendar.currentYear);
+    const yearField = window.gameData.FIELDS.YEAR;
+    updateField(yearField.ID, window.gameState.calendar.currentYear);
 
-    const seasonField = gameData.FIELDS.SEASON;
-    updateField(seasonField.ID, gameState.calendar.currentSeason);
+    const seasonField = window.gameData.FIELDS.SEASON;
+    updateField(seasonField.ID, window.gameState.calendar.currentSeason);
 }
 
 function updateBiodiversity() {
     const typesFound = new Set();
 
-    for (let row = 0; row < gameState.grid.height; row++) {
-        for (let col = 0; col < gameState.grid.width; col++) {
-            const tile = gameState.grid.tiles[row][col];
+    for (let row = 0; row < window.gameState.grid.tiles.length; row++) {
+        for (let col = 0; col < window.gameState.grid.tiles[row].length; col++) {
+            const tile = window.gameState.grid.tiles[row][col];
             if (tile.PLANT_DATA.VALUE) {
                 typesFound.add(tile.PLANT_DATA.VALUE.NAME);
             }
         }
     }
 
-    gameState.score.biodiversity = typesFound.size;
-    return gameState.score.biodiversity;
+    window.gameState.score.biodiversity = typesFound.size;
+    return window.gameState.score.biodiversity;
 }
 
 /* PLAYER MOVEMENT & CONTROLS */
 
 function resetPlayerPosition() {
-    if (!gameState.grid.tiles || gameState.grid.tiles.length === 0) {
+    if (!window.gameState.grid.tiles || window.gameState.grid.tiles.length === 0) {
         console.error("Cannot reset player position: grid not initialized.");
         return;
     }
@@ -841,19 +841,19 @@ function resetPlayerPosition() {
     const gridHeight = window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
 
     // Ensure positions are within bounds
-    gameState.player.position.x = Math.floor(gridWidth / 2) || 0;
-    gameState.player.position.y = Math.floor(gridHeight / 2) || 0;
+    window.gameState.player.position.x = Math.floor(gridWidth / 2) || 0;
+    window.gameState.player.position.y = Math.floor(gridHeight / 2) || 0;
 
-    const { x, y } = gameState.player.position;
+    const { x, y } = window.gameState.player.position;
 
     if (x < 0 || x >= gridWidth || y < 0 || y >= gridHeight) {
         console.error(`Invalid player position after reset: (${x}, ${y})`);
         return;
     }
 
-    gameState.grid.highlightedTile = { x, y };
+    window.gameState.grid.highlightedTile = { x, y };
 
-    const tile = gameState.grid.tiles[y]?.[x];
+    const tile = window.gameState.grid.tiles[y]?.[x];
     if (!tile) {
         console.error(`Highlighted tile at (${x}, ${y}) is invalid.`);
         return;
@@ -869,18 +869,18 @@ function highlightTile(x, y) {
         return;
     }
 
-    const tile = new Tile(gameState.grid.tiles[y][x]);
-    tile.highlight();
+    const tile = new Tile(window.gameState.grid.tiles[y][x]);
+    tile.highlight(window.gameState);
     updateTileStats();
 }
 
 /* TILE & GRID UPDATES */
 
 function updateAllTiles() {
-    gameState.grid.tiles.forEach(row => {
+    window.gameState.grid.tiles.forEach(row => {
         row.forEach(tileData => {
             const tile = new Tile(tileData);
-            tile.updateMoisture(gameState.baseMoistureDecay);
+            tile.updateMoisture(window.gameState.baseMoistureDecay);
             tile.growPlant({ isSufficient: checkConditions });
         });
     });
@@ -932,7 +932,7 @@ function updateBiodiversityDisplay() {
 
 function updateInventory(item, delta) {
     const [category, itemKey] = item.split('.');
-    const inventoryCategory = gameState.inventory[category];
+    const inventoryCategory = window.gameState.player.inventory[category];
     if (!inventoryCategory || !(itemKey in inventoryCategory)) {
         console.error(`Inventory item '${itemKey}' not found in category '${category}'.`);
         return;
