@@ -564,7 +564,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
 
 function updateSubfields(subfields, values) {
     Object.entries(subfields).forEach(([key, subfieldConfig]) => {
-        const subfieldValue = values[key];
+        const subfieldValue = safeGet(values, key, subfieldConfig.DEFAULT_VALUE);
         updateField(subfieldConfig.ID, subfieldValue);
 
         if (subfieldConfig.SUBFIELDS) {
