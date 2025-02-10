@@ -425,18 +425,18 @@ function renderUISection(uiSection, gameData) {
 
             fieldContainer.appendChild(labelElement);
 
-            if (fieldData.SUBFIELDS) {
-                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE || {}, gameData);
-            } else {
-                const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
-                    id: fieldData.ID,
-                    className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-                    textContent: fieldData.DEFAULT_VALUE,
-                });
-                fieldContainer.appendChild(valueElement);
-            }
+            const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
+                id: fieldData.ID,
+                className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
+                textContent: fieldData.DEFAULT_VALUE,
+            });
+            fieldContainer.appendChild(valueElement);
 
             container.appendChild(fieldContainer);
+
+            if (fieldData.SUBFIELDS) {
+                renderSubfields(container, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE || {}, gameData);
+            }
         } else if (fieldData.SECTION_TYPE === "HEADING") {
             const headingElement = createElement(gameData.UI_COMPONENTS.HEADING.TAG, {
                 id: fieldData.ID,
@@ -457,7 +457,7 @@ function renderUISection(uiSection, gameData) {
     });
 }
 
-function renderSubfields(container, subfields, defaultValues, gameData, level = 1) {
+function renderSubfields(parentContainer, subfields, defaultValues, gameData, level = 1) {
     Object.entries(subfields).forEach(([key, subfieldData]) => {
         const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
             className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS,
@@ -478,12 +478,12 @@ function renderSubfields(container, subfields, defaultValues, gameData, level = 
         subfieldContainer.appendChild(labelElement);
         subfieldContainer.appendChild(valueElement);
 
-        // Append the subfield container after the parent container
-        container.appendChild(subfieldContainer);
+        // Append the subfield container to the parent container
+        parentContainer.appendChild(subfieldContainer);
 
         // Recursively render nested subfields
         if (subfieldData.SUBFIELDS) {
-            renderSubfields(container, subfieldData.SUBFIELDS, defaultValues ? defaultValues[key] : {}, gameData, level + 1);
+            renderSubfields(parentContainer, subfieldData.SUBFIELDS, defaultValues ? defaultValues[key] : {}, gameData, level + 1);
         }
     });
 }

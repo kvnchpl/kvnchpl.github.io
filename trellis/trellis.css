@@ -166,11 +166,11 @@ canvas {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px;
+    margin-top: calc(var(--spacing-unit) / 2);
 }
 
 .subfield-container {
-    padding-left: calc(var(--spacing-unit) * var(--level, 1));
+    padding-left: calc(var(--spacing-unit) * var(--level, 1));  
 }
 
 .field-label {
