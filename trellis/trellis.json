@@ -416,7 +416,7 @@
             "LABEL": "Plant",
             "ID": "tilePlant",
             "DEFAULT_VALUE": "None",
-            "DATA_KEY": "PLANT_DATA"
+            "DATA_KEY": "PLANT_DATA.NAME"
         },
         "TILE_WEED_LEVEL": {
             "SECTION_TYPE": "FIELD_LABEL",
@@ -440,7 +440,7 @@
             "LABEL": "Moisture Decay Rate",
             "ID": "tileMoistureDecay",
             "DEFAULT_VALUE": "2",
-            "DATA_KEY": "MOISTURE_DECAY"
+            "DATA_KEY": "MOISTURE_DECAY_RATE"
         },
         "TILE_SOIL_NUTRIENTS": {
             "SECTION_TYPE": "FIELD_LABEL",
