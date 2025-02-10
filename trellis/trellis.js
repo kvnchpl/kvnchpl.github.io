@@ -551,6 +551,7 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) { // Ensure
         if (fieldConfig.SUBFIELDS) {
             updateSubfields(fieldConfig.SUBFIELDS, value || {}); // Ensure a valid object
         } else {
+            console.log(`Updating field ${fieldConfig.ID} with value:`, value);
             updateField(fieldConfig.ID, value);
         }
     });
