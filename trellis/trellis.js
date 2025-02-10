@@ -428,13 +428,20 @@ function renderUISection(uiSection, gameData) {
             });
 
             if (fieldData.ON_CLICK) {
+                console.log(`✅ Assigning tile method '${fieldData.ON_CLICK}' to button '${fieldData.ID}'`);
                 button.addEventListener("click", () => {
-                    const handler = window[fieldData.ON_CLICK];
-                    if (typeof handler === "function") {
-                        handler();
-                    } else {
-                        console.error(`Handler function '${fieldData.ON_CLICK}' not found.`);
+                    const { x, y } = window.gameState.grid.highlightedTile;
+                    const tile = window.gameState.grid.tiles[y]?.[x];
+
+                    if (!tile || typeof tile[fieldData.ON_CLICK] !== "function") {
+                        console.error(`❌ Tile method '${fieldData.ON_CLICK}' not found on tile at (${x}, ${y}).`);
+                        return;
                     }
+
+                    console.log(`🔄 Performing action '${fieldData.ON_CLICK}' on tile:`, tile);
+                    tile[fieldData.ON_CLICK](); // ✅ Call the method dynamically
+                    updateTileStats();
+                    render();
                 });
             }
 
@@ -570,16 +577,20 @@ function updateSubfields(subfields, values = {}) {
 /* EVENT LISTENERS */
 
 function attachUIEventListeners() {
+    console.log("✅ Attaching UI event listeners");
+
     document.addEventListener("click", (event) => {
         const button = event.target.closest("[data-on-click]");
         if (!button) return;
 
         const handlerName = button.dataset.onClick;
+        console.log(`✅ Button clicked: ${handlerName}`);
+
         const handler = window[handlerName];
         if (typeof handler === "function") {
             handler();
         } else {
-            console.error(`Handler function '${handlerName}' not found for button: `, button);
+            console.error(`❌ Handler function '${handlerName}' not found.`);
         }
     });
 

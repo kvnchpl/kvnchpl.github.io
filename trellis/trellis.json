@@ -301,56 +301,56 @@
             "CONTAINER": "actionsContainer",
             "LABEL": "Till",
             "ID": "tillBtn",
-            "ON_CLICK": "tillSoil"
+            "ON_CLICK": "till"
         },
         "FERTILIZE": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Fertilize",
             "ID": "fertilizeBtn",
-            "ON_CLICK": "fertilizeTile"
+            "ON_CLICK": "fertilize"
         },
         "PLANT": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Plant",
             "ID": "plantBtn",
-            "ON_CLICK": "plantSeed"
+            "ON_CLICK": "plant"
         },
         "WATER": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Water",
             "ID": "waterBtn",
-            "ON_CLICK": "waterTile"
+            "ON_CLICK": "water"
         },
         "MULCH": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Mulch",
             "ID": "mulchBtn",
-            "ON_CLICK": "mulchTile"
+            "ON_CLICK": "mulch"
         },
         "WEED": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Weed",
             "ID": "weedBtn",
-            "ON_CLICK": "weedTile"
+            "ON_CLICK": "weed"
         },
         "HARVEST": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Harvest",
             "ID": "harvestBtn",
-            "ON_CLICK": "harvestPlant"
+            "ON_CLICK": "harvest"
         },
         "CLEAR": {
             "SECTION_TYPE": "BUTTON",
             "CONTAINER": "actionsContainer",
             "LABEL": "Clear",
             "ID": "clearBtn",
-            "ON_CLICK": "clearPlot"
+            "ON_CLICK": "clear"
         },
         "TIME": {
             "SECTION_TYPE": "FIELD_LABEL",
