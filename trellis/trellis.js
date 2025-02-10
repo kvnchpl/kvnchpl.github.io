@@ -718,7 +718,7 @@ function handleTileHighlight(direction) {
             return;
     }
 
-    if (isTileValid(newX, newY)) {
+    if (isTileValid(newX, newY) && isTileAdjacent(newX, newY)) {
         highlightTile(newX, newY);
     } else {
         console.log("Cannot highlight invalid tile:", { x: newX, y: newY });
@@ -969,16 +969,9 @@ function getTargetTile() {
     }
     return { x, y };
 }
-/*
-function isTileValid(x, y) {
-    return x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
-}
-*/
 
 function isTileValid(x, y) {
-    const isValid = x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
-    console.log(`isTileValid called with coordinates: (${x}, ${y}), isValid: ${isValid}`);
-    return isValid;
+    return x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
 }
 
 function isTileAdjacent(x, y) {
