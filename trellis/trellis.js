@@ -530,6 +530,7 @@ function updateField(fieldId, value) {
         return;
     }
 
+    console.log(`Setting field ${fieldId} text content to: ${value}`); // Debugging statement
     fieldElement.textContent = value;
 }
 
@@ -548,6 +549,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         }
 
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
+        console.log(`Updating field ${fieldConfig.ID} with value: ${value}`); // Debugging statement
         if (fieldConfig.SUBFIELDS) {
             updateSubfields(fieldConfig.SUBFIELDS, value);
         } else {
