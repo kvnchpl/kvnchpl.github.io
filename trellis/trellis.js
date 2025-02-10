@@ -66,8 +66,8 @@ class Tile {
     }
 
     till() {
-        const emptyKey = gameData.TILE_CONFIG.DEFAULT_TYPE; // Dynamically reference the default type
-        const plotKey = Object.keys(gameData.TILE_CONFIG.TYPES).find(key => gameData.TILE_CONFIG.TYPES[key].IS_TILLED);
+        const emptyKey = window.gameData.CONFIG.TILE_CONFIG.DEFAULT_TYPE; // Dynamically reference the default type
+        const plotKey = Object.keys(window.gameData.CONFIG.TILE_CONFIG.TYPES).find(key => window.gameData.CONFIG.TILE_CONFIG.TYPES[key].IS_TILLED);
 
         if (this.isType(emptyKey) && plotKey) {
             this.setType(plotKey);
@@ -123,7 +123,7 @@ class Tile {
     }
 
     clear() {
-        const defaultType = gameData.TILE_CONFIG.DEFAULT_TYPE;
+        const defaultType = window.gameData.CONFIG.TILE_CONFIG.DEFAULT_TYPE;
         this.setType(defaultType);
     }
 
@@ -160,7 +160,7 @@ class TileService {
     static initializeStyles() {
         Object.keys(this.types).forEach((typeKey) => {
             const cssVariable = `--tile-${typeKey.toLowerCase()}`;
-            const style = getCSSVariable(cssVariable) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
+            const style = getCSSVariable(cssVariable) || getCSSVariable(window.gameData.CONFIG.TILE_CONFIG.DEFAULT_STYLE);
             this.styles.set(typeKey, style);
         });
     }
@@ -670,7 +670,7 @@ function handlePlayerMovement(direction) {
 
     if (isTileValid(newX, newY)) {
         const targetTile = gameState.grid.tiles[newY]?.[newX];
-        const plotType = gameData.TILE_CONFIG.TYPES.PLOT.TYPE;
+        const plotType = window.gameData.CONFIG.TILE_CONFIG.TYPES.PLOT.TYPE;
 
         if (!targetTile.isType(plotType)) {
             gameState.player.position = { x: newX, y: newY };
@@ -753,8 +753,8 @@ function attachCanvasEventListeners() {
         if (gameState.ui.isTutorialActive) return;
 
         const rect = canvas.getBoundingClientRect();
-        const x = Math.floor((e.clientX - rect.left) / gameData.TILE_SIZE);
-        const y = Math.floor((e.clientY - rect.top) / gameData.TILE_SIZE);
+        const x = Math.floor((e.clientX - rect.left) / window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE);
+        const y = Math.floor((e.clientY - rect.top) / window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE);
 
         highlightTile(x, y);
     };
@@ -1010,7 +1010,7 @@ function getCSSVariable(name) {
 }
 
 function getTileStyle(typeKey) {
-    return TileService.styles.get(typeKey) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
+    return TileService.styles.get(typeKey) || getCSSVariable(window.gameData.CONFIG.TILE_CONFIG.DEFAULT_STYLE);
 }
 
 function parseAndAdjustRGB(baseColor, adjustments) {
@@ -1037,7 +1037,7 @@ function parseAndAdjustRGB(baseColor, adjustments) {
 function calculateAdjustments(tile) {
     const adjustments = { r: 0, g: 0, b: 0 };
 
-    for (const [key, config] of Object.entries(gameData.TILE_CONFIG.RGB_ADJUSTMENTS)) {
+    for (const [key, config] of Object.entries(window.gameData.CONFIG.TILE_CONFIG.RGB_ADJUSTMENTS)) {
         const { SCALE, r = 0, g = 0, b = 0 } = config;
 
         if (!SCALE || !SCALE.PATH) continue;
