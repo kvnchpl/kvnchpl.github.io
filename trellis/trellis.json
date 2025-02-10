@@ -400,7 +400,7 @@
             "LABEL": "Type",
             "ID": "tileType",
             "DEFAULT_VALUE": "Empty",
-            "PROPERTY_PATH": "TYPE"
+            "DATA_KEY": "TYPE"
         },
         "TILE_IS_TILLED": {
             "SECTION_TYPE": "FIELD_LABEL",
@@ -408,7 +408,7 @@
             "LABEL": "Tilled",
             "ID": "tileIsTilled",
             "DEFAULT_VALUE": "False",
-            "PROPERTY_PATH": "IS_TILLED"
+            "DATA_KEY": "IS_TILLED"
         },
         "TILE_PLANT": {
             "SECTION_TYPE": "FIELD_LABEL",
@@ -416,28 +416,31 @@
             "LABEL": "Plant",
             "ID": "tilePlant",
             "DEFAULT_VALUE": "None",
-            "PROPERTY_PATH": "PLANT_DATA.NAME"
+            "DATA_KEY": "PLANT_DATA"
         },
         "TILE_WEED_LEVEL": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "tileStats",
             "LABEL": "Weed Level",
             "ID": "tileWeedLevel",
-            "DEFAULT_VALUE": "0"
+            "DEFAULT_VALUE": "0",
+            "DATA_KEY": "WEED_LEVEL"
         },
         "TILE_MOISTURE": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "tileStats",
             "LABEL": "Moisture",
             "ID": "tileMoisture",
-            "DEFAULT_VALUE": "50"
+            "DEFAULT_VALUE": "50",
+            "DATA_KEY": "MOISTURE"
         },
         "TILE_MOISTURE_DECAY": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "tileStats",
             "LABEL": "Moisture Decay Rate",
             "ID": "tileMoistureDecay",
-            "DEFAULT_VALUE": "2"
+            "DEFAULT_VALUE": "2",
+            "DATA_KEY": "MOISTURE_DECAY"
         },
         "TILE_SOIL_NUTRIENTS": {
             "SECTION_TYPE": "FIELD_LABEL",
