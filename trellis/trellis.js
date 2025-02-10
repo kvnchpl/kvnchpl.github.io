@@ -545,10 +545,12 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) {
 
         const dataKey = fieldConfig.DATA_KEY;
         let value = dataKey ? resolvePath(sourceData, dataKey) : fieldConfig.DEFAULT_VALUE;
+        if (value == null) {
+            value = fieldConfig.DEFAULT_VALUE;
+        }
         if (typeof value === "object" && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
         }
-
         if (fieldConfig.SUBFIELDS) {
             updateSubfields(fieldConfig.SUBFIELDS, value || {});
         } else {
@@ -1005,7 +1007,7 @@ function calculateAdjustments(tile) {
 
 function resolvePath(obj, path) {
     if (typeof path === "string") {
-        path = path.split("."); // Ensure path is treated as an array
+        path = path.split(".");
     }
-    return path.reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : null), obj);
+    return path.reduce((acc, key) => acc?.[key] ?? null, obj);
 }
