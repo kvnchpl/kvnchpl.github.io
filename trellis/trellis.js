@@ -678,7 +678,7 @@ function handlePlayerMovement(direction) {
 
         if (!targetTile.isType(plotType)) {
             window.gameState.player.position = { x: newX, y: newY };
-            highlightTile(newX, newY);
+            highlightTile(newX, newY); // Update the highlighted tile
             render();
         } else {
             console.log("Cannot move onto a PLOT tile.");
@@ -867,12 +867,19 @@ function resetPlayerPosition() {
 }
 
 function highlightTile(x, y) {
-    if (!isTileValid(x, y) || !isTileAdjacent(x, y)) {
-        console.log("Cannot highlight tile at:", { x, y });
+    if (!isTileValid(x, y)) {
+        console.error(`Invalid tile coordinates: (${x}, ${y})`);
         return;
     }
 
-    const tile = new Tile(window.gameState.grid.tiles[y][x]);
+    window.gameState.grid.highlightedTile = { x, y };
+
+    const tile = window.gameState.grid.tiles[y][x];
+    if (!tile) {
+        console.error(`Tile at (${x}, ${y}) is undefined.`);
+        return;
+    }
+
     tile.highlight(window.gameState);
     updateTileStats();
 }
