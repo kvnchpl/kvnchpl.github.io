@@ -533,7 +533,7 @@ function updateField(fieldId, value) {
     console.log(`Setting field ${fieldId} text content to: ${value}`); // Debugging statement
     fieldElement.textContent = value;
 }
-/* updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER); */
+
 function updateStatsFromFields(fields, sourceData, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -542,13 +542,13 @@ function updateStatsFromFields(fields, sourceData, containerId) {
     }
 
     fields.forEach(fieldKey => {
-        const fieldConfig = safeGet(window.gameData, `FIELDS.${fieldKey}`, null);
+        const fieldConfig = window.gameData.FIELDS[fieldKey];
         if (!fieldConfig) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
         }
 
-        let value = safeGet(sourceData, fieldConfig.VALUE, fieldConfig.DEFAULT_VALUE);
+        let value = sourceData[fieldConfig.VALUE];
         if (typeof value === 'object' && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
         }
