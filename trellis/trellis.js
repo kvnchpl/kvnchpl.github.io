@@ -533,7 +533,7 @@ function updateField(fieldId, value) {
     console.log(`Setting field ${fieldId} text content to: ${value}`); // Debugging statement
     fieldElement.textContent = value;
 }
-
+/* updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER); */
 function updateStatsFromFields(fields, sourceData, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
@@ -549,6 +549,9 @@ function updateStatsFromFields(fields, sourceData, containerId) {
         }
 
         let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
+        if (typeof value === 'object') {
+            value = JSON.stringify(value);
+        }
         console.log(`Updating field ${fieldConfig.ID} with value: ${value}`); // Debugging statement
         if (fieldConfig.SUBFIELDS) {
             updateSubfields(fieldConfig.SUBFIELDS, value);
