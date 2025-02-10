@@ -90,6 +90,9 @@ canvas {
 }
 
 .sidebar-section {
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
     padding: calc(var(--spacing-unit) * 2);
     background: var(--color-container-bg);
     border: 1px solid var(--border-color);
@@ -98,6 +101,7 @@ canvas {
 
 .sidebar-section.full-width {
     grid-column: span 2;
+    max-width: 100%;
 }
 
 #gameSidebar strong {
