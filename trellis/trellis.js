@@ -266,8 +266,6 @@ async function initGame() {
             console.warn("Tutorial overlay not found. Skipping tutorial setup.");
         }
 
-        console.log("Game initialized with:", window.gameState, inventory, tutorial);
-
         return { gameState: window.gameState, inventory, tutorial };
     } catch (error) {
         console.error("Error during game initialization:", error);
@@ -290,7 +288,7 @@ window.onload = async () => {
         window.gameData = await response.json(); // Assign the fetched gameData to the global window object
 
         const initializedComponents = await initGame();
-        console.log("Game successfully initialized!", initializedComponents);
+        console.log("Game successfully initialized: ", initializedComponents);
     } catch (error) {
         console.error("Error during game loading or initialization:", error);
     }
