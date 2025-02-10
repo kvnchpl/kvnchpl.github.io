@@ -895,16 +895,6 @@ function updateBiodiversityDisplay() {
 
 /* UTILITY */
 
-function getTargetTile() {
-    const { x, y } = window.gameState.grid.highlightedTile.x !== null ?
-        window.gameState.grid.highlightedTile : window.gameState.player;
-    if (x === null || y === null) {
-        console.error("Target tile coordinates are invalid:", { x, y });
-        return null;
-    }
-    return { x, y };
-}
-
 function isTileValid(x, y) {
     return x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
 }
@@ -920,22 +910,6 @@ function safeGet(obj, path, defaultValue = undefined) {
         }
         return undefined;
     }, obj) ?? defaultValue;
-}
-
-function createAndAppendElement(container, tagName, options = {}) {
-    const element = document.createElement(tagName);
-
-    if (options.id) element.id = options.id;
-    if (options.className) element.className = options.className;
-    if (options.textContent) element.textContent = options.textContent;
-    if (options.attributes) {
-        for (const [key, value] of Object.entries(options.attributes)) {
-            element.setAttribute(key, value);
-        }
-    }
-
-    container.appendChild(element);
-    return element;
 }
 
 function createElement(tag, options = {}) {
@@ -1025,14 +999,6 @@ function calculateAdjustments(tile) {
     }
 
     return adjustments;
-}
-
-function applyAdjustments(base, adjustments) {
-    return {
-        r: base.r + (adjustments.r || 0),
-        g: base.g + (adjustments.g || 0),
-        b: base.b + (adjustments.b || 0),
-    };
 }
 
 function resolvePath(obj, path) {
