@@ -853,7 +853,6 @@ function updateTileStats() {
         return;
     }
 
-    window.gameState.grid.tiles[y][x] = new Tile(window.gameState.grid.tiles[y][x], x, y);
     const tile = window.gameState.grid.tiles[y][x];
 
     if (!tile) {
@@ -861,7 +860,7 @@ function updateTileStats() {
         return;
     }
 
-    console.log("Updating tile stats for tile:", tile);
+    console.log("Updating tile stats for tile:", tile); // Debugging statement
 
     updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER);
     render();
