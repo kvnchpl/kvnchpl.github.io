@@ -238,11 +238,9 @@ async function initGame() {
         const inventory = new Inventory(window.gameData.INVENTORY);
         const tutorial = new Tutorial(window.gameData.UI.TUTORIAL_OVERLAY);
 
-        // Make the hide method accessible globally
-        window.hideTutorial = () => tutorial.hide();
-
         // Set the initial highlighted tile to the player's position
         window.gameState.grid.highlightedTile = { ...window.gameState.player.position };
+        console.log(`Initial highlighted tile set to: (${window.gameState.grid.highlightedTile.x}, ${window.gameState.grid.highlightedTile.y})`);
 
         // Iterate through all UI sections and render them
         Object.values(window.gameData.UI).forEach(uiSection => {
@@ -690,6 +688,7 @@ function handlePlayerMovement(direction) {
 
 function handleTileHighlight(direction) {
     const { x, y } = window.gameState.grid.highlightedTile;
+    console.log(`handleTileHighlight called with direction: ${direction}, current coordinates: (${x}, ${y})`);
     let newX = x;
     let newY = y;
 
@@ -715,6 +714,7 @@ function handleTileHighlight(direction) {
             return;
     }
 
+    console.log(`New coordinates after direction: (${newX}, ${newY})`);
     if (isTileValid(newX, newY)) {
         highlightTile(newX, newY);
     } else {
@@ -867,6 +867,7 @@ function resetPlayerPosition() {
 }
 
 function highlightTile(x, y) {
+    console.log(`highlightTile called with coordinates: (${x}, ${y})`);
     if (!isTileValid(x, y)) {
         console.error(`Invalid tile coordinates: (${x}, ${y})`);
         return;
@@ -898,6 +899,7 @@ function updateAllTiles() {
 
 function updateTileStats() {
     const { x, y } = window.gameState.grid.highlightedTile;
+    console.log(`updateTileStats called with coordinates: (${x}, ${y})`);
 
     if (x === null || y === null || !isTileValid(x, y)) {
         console.error(`Invalid tile coordinates: (${x}, ${y})`);
@@ -963,9 +965,16 @@ function getTargetTile() {
     }
     return { x, y };
 }
-
+/*
 function isTileValid(x, y) {
     return x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
+}
+*/
+
+function isTileValid(x, y) {
+    const isValid = x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
+    console.log(`isTileValid called with coordinates: (${x}, ${y}), isValid: ${isValid}`);
+    return isValid;
 }
 
 function isTileAdjacent(x, y) {
