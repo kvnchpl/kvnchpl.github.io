@@ -698,9 +698,8 @@ function handlePlayerMovement(direction) {
 
     if (isTileValid(newX, newY)) {
         const targetTile = window.gameState.grid.tiles[newY]?.[newX];
-        const plotType = window.gameData.CONFIG.TILE_CONFIG.TYPES.PLOT.TYPE;
 
-        if (!targetTile.isType(plotType)) {
+        if (targetTile && !targetTile.IS_TILLED) {
             window.gameState.player.position = { x: newX, y: newY };
             highlightTile(newX, newY); // Update the highlighted tile
             render();
