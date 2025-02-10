@@ -141,14 +141,14 @@ class Tile {
         this.MOISTURE.VALUE = Math.max(this.MOISTURE.VALUE - decayRate, 0);
     }
 
-    updateSoilNutrients({
-        N,
-        P,
-        K
-    }) {
-        this.SOIL_NUTRIENTS.N += N;
-        this.SOIL_NUTRIENTS.P += P;
-        this.SOIL_NUTRIENTS.K += K;
+    updateSoilNutrients({ N, P, K }) {
+        if (!this.SOIL_NUTRIENTS) {
+            this.SOIL_NUTRIENTS = { NITROGEN: 0, PHOSPHORUS: 0, POTASSIUM: 0 };
+        }
+
+        this.SOIL_NUTRIENTS.NITROGEN += N ?? 0;
+        this.SOIL_NUTRIENTS.PHOSPHORUS += P ?? 0;
+        this.SOIL_NUTRIENTS.POTASSIUM += K ?? 0;
     }
 
     growPlant(conditions) {
