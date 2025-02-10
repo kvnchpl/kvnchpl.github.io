@@ -69,8 +69,11 @@ class Tile {
     }
 
     till() {
-        const emptyKey = window.gameData.CONFIG.TILE_CONFIG.DEFAULT_TYPE; // Dynamically reference the default type
-        const plotKey = Object.keys(window.gameData.CONFIG.TILE_CONFIG.TYPES).find(key => window.gameData.CONFIG.TILE_CONFIG.TYPES[key].IS_TILLED);
+        const { TILE_CONFIG } = window.gameData?.CONFIG ?? {};
+        const emptyKey = TILE_CONFIG?.DEFAULT_TYPE ?? Object.keys(TILE_CONFIG?.TYPES ?? {})[0];
+        const plotKey = Object.keys(TILE_CONFIG?.TYPES ?? {}).find(
+            key => TILE_CONFIG?.TYPES?.[key]?.IS_TILLED
+        );
 
         if (this.isType(emptyKey) && plotKey) {
             this.setType(plotKey);
@@ -116,7 +119,7 @@ class Tile {
     }
 
     harvest() {
-        if (this.PLANT_DATA.VALUE && this.PLANT_DATA.VALUE.IS_MATURE) {
+        if (this.PLANT_DATA?.VALUE?.IS_MATURE) {
             const plantType = this.PLANT_DATA.VALUE.NAME;
             const yieldAmount = window.gameData.CONFIG.PLANTS[plantType.toUpperCase()].YIELD;
             if (yieldAmount > 0) {
@@ -216,8 +219,8 @@ class Inventory {
     }
 
     static update(itemKey, delta) {
-        if (window.gameState.player.inventory[itemKey] !== undefined) {
-            window.gameState.player.inventory[itemKey] = Math.max(0, window.gameState.player.inventory[itemKey] + delta);
+        if (window.gameState?.player?.inventory?.[itemKey] !== undefined) {
+            window.gameState.player.inventory[itemKey] = Math.max(0, (window.gameState.player.inventory?.[itemKey] ?? 0) + delta);
             this.updateUI(itemKey, window.gameState.player.inventory[itemKey]);
         } else {
             console.error(`Invalid inventory item: ${itemKey}`);
@@ -226,7 +229,7 @@ class Inventory {
 
     static updateUI(itemKey, value) {
         const fieldId = `inventory${itemKey.charAt(0).toUpperCase() + itemKey.slice(1)}`;
-        const fieldElement = document.getElementById(fieldId);
+        const fieldElement = document.getElementById(fieldId)?.textContent = value;
         if (fieldElement) {
             fieldElement.textContent = value;
         } else {
@@ -351,7 +354,8 @@ function drawGrid(context) {
     for (let row = 0; row < window.gameState.grid.tiles.length; row++) {
         for (let col = 0; col < window.gameState.grid.tiles[row].length; col++) {
             const tile = window.gameState.grid.tiles[row][col];
-            const baseColor = getTileStyle(tile.TYPE);
+            const defaultStyleKey = window.gameData?.CONFIG?.TILE_CONFIG?.DEFAULT_STYLE;
+            const baseColor = getTileStyle(tile?.TYPE ?? getCSSVariable(defaultStyleKey));
 
             const adjustments = calculateAdjustments(tile);
             const finalColor = parseAndAdjustRGB(baseColor, adjustments);
@@ -393,18 +397,9 @@ function drawGrid(context) {
 }
 
 function renderUISection(uiSection, gameData) {
-    const containerId = uiSection.CONTAINER;
-    const container = document.getElementById(containerId);
+    const container = document.getElementById(uiSection?.CONTAINER);
     if (!container) {
-        console.warn(`Container with ID '${containerId}' not found in the DOM.`);
-        return;
-    }
-    if (!uiSection) {
-        console.warn(`No data provided for container '${containerId}'.`);
-        return;
-    }
-    if (!uiSection.FIELDS) {
-        console.warn(`No fields provided for container '${containerId}'.`);
+        console.warn(`Container with ID '${uiSection?.CONTAINER}' not found.`);
         return;
     }
 
