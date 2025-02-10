@@ -35,7 +35,8 @@ class GameState {
         const defaultTypeKey = config.TILE_CONFIG.DEFAULT_TYPE;
 
         return Array.from({ length: HEIGHT }, (_, y) =>
-            Array.from({ length: WIDTH }, (_, x) => new Tile(TileService.createTile(defaultTypeKey), x, y))
+            Array.from({ length: WIDTH }, (_, x) =>
+                new Tile(TileService.createTile(defaultTypeKey), x, y))
         );
     }
 }
@@ -78,7 +79,11 @@ class Tile {
 
     fertilize() {
         if (this.IS_TILLED && gameState.player.inventory.fertilizer > 0) {
-            this.updateSoilNutrients({ N: 10, P: 5, K: 5 });
+            this.updateSoilNutrients({
+                N: 10,
+                P: 5,
+                K: 5
+            });
             Inventory.update('fertilizer', -1);
         }
     }
@@ -134,7 +139,11 @@ class Tile {
         this.MOISTURE.VALUE = Math.max(this.MOISTURE.VALUE - decayRate, 0);
     }
 
-    updateSoilNutrients({ N, P, K }) {
+    updateSoilNutrients({
+        N,
+        P,
+        K
+    }) {
         this.SOIL_NUTRIENTS.N += N;
         this.SOIL_NUTRIENTS.P += P;
         this.SOIL_NUTRIENTS.K += K;
@@ -142,7 +151,11 @@ class Tile {
 
     growPlant(conditions) {
         if (!this.PLANT_DATA || !this.PLANT_DATA.VALUE) return;
-        const { N, P, K } = this.SOIL_NUTRIENTS;
+        const {
+            N,
+            P,
+            K
+        } = this.SOIL_NUTRIENTS;
         if (conditions.isSufficient(N, P, K, this.MOISTURE.VALUE)) {
             this.PLANT_DATA.VALUE.AGE++;
         }
@@ -173,7 +186,11 @@ class TileService {
             console.error(`Tile type '${typeKey}' not found.`);
             return null;
         }
-        return new Tile({ ...this.defaults, ...typeConfig, TYPE: typeKey });
+        return new Tile({
+            ...this.defaults,
+            ...typeConfig,
+            TYPE: typeKey
+        });
     }
 
     static updateTile(tile, typeKey) {
@@ -182,7 +199,11 @@ class TileService {
             console.error(`Tile type '${typeKey}' not found.`);
             return;
         }
-        Object.assign(tile, { ...this.defaults, ...typeConfig, TYPE: typeKey });
+        Object.assign(tile, {
+            ...this.defaults,
+            ...typeConfig,
+            TYPE: typeKey
+        });
     }
 
     static getTypeConfig(typeKey) {
@@ -266,7 +287,11 @@ async function initGame() {
             console.warn("Tutorial overlay not found. Skipping tutorial setup.");
         }
 
-        return { gameState: window.gameState, inventory, tutorial };
+        return {
+            gameState: window.gameState,
+            inventory,
+            tutorial
+        };
     } catch (error) {
         console.error("Error during game initialization:", error);
         throw error;
@@ -334,14 +359,14 @@ function drawGrid(context) {
 
             // Draw the border (highlight if highlighted, otherwise default)
             context.strokeStyle =
-                row === window.gameState.grid.highlightedTile.y && col === window.gameState.grid.highlightedTile.x
-                    ? getCSSVariable(highlightStyle)
-                    : getCSSVariable(defaultBorderStyle);
+                row === window.gameState.grid.highlightedTile.y && col === window.gameState.grid.highlightedTile.x ?
+                    getCSSVariable(highlightStyle) :
+                    getCSSVariable(defaultBorderStyle);
 
             context.lineWidth = row === window.gameState.grid.highlightedTile.y &&
-                col === window.gameState.grid.highlightedTile.x
-                ? 3
-                : 1;
+                col === window.gameState.grid.highlightedTile.x ?
+                3 :
+                1;
 
             context.strokeRect(
                 col * tileSize,
@@ -1041,10 +1066,19 @@ function parseAndAdjustRGB(baseColor, adjustments) {
 }
 
 function calculateAdjustments(tile) {
-    const adjustments = { r: 0, g: 0, b: 0 };
+    const adjustments = {
+        r: 0,
+        g: 0,
+        b: 0
+    };
 
     for (const [key, config] of Object.entries(window.gameData.CONFIG.TILE_CONFIG.RGB_ADJUSTMENTS)) {
-        const { SCALE, r = 0, g = 0, b = 0 } = config;
+        const {
+            SCALE,
+            r = 0,
+            g = 0,
+            b = 0
+        } = config;
 
         if (!SCALE || !SCALE.PATH) continue;
 
@@ -1056,9 +1090,9 @@ function calculateAdjustments(tile) {
         if (SCALE.CONDITION !== undefined) {
             scale = value === SCALE.CONDITION ? 1 : 0;
         } else if (SCALE.DIVISOR) {
-            const divisor = typeof SCALE.DIVISOR === "string"
-                ? resolvePath(tile, SCALE.DIVISOR.split("."))
-                : SCALE.DIVISOR;
+            const divisor = typeof SCALE.DIVISOR === "string" ?
+                resolvePath(tile, SCALE.DIVISOR.split(".")) :
+                SCALE.DIVISOR;
 
             if (divisor) {
                 scale = value / divisor;
