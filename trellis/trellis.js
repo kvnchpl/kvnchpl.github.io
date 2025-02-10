@@ -229,7 +229,7 @@ class Inventory {
 
     static updateUI(itemKey, value) {
         const fieldId = `inventory${itemKey.charAt(0).toUpperCase() + itemKey.slice(1)}`;
-        const fieldElement = document.getElementById(fieldId)?.textContent = value;
+        const fieldElement = document.getElementById(fieldId);
         if (fieldElement) {
             fieldElement.textContent = value;
         } else {
