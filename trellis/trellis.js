@@ -529,7 +529,7 @@ function updateField(fieldId, value) {
     fieldElement.textContent = value;
 }
 
-function updateStatsFromFields(fields, sourceData, containerId) {
+function updateStatsFromFields(fields, sourceData = {}, containerId) { // Ensure sourceData exists
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container element with id '${containerId}' not found.`);
@@ -543,23 +543,27 @@ function updateStatsFromFields(fields, sourceData, containerId) {
             return;
         }
 
-        let value = fieldConfig ? sourceData?.[fieldConfig.VALUE] ?? fieldConfig.DEFAULT_VALUE : undefined;
+        let value = sourceData?.[fieldConfig.VALUE] ?? fieldConfig.DEFAULT_VALUE;
         if (typeof value === 'object' && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
         }
-        console.log(`Updating field ${fieldConfig.ID} with value: ${value}`); // Debugging statement
 
         if (fieldConfig.SUBFIELDS) {
-            updateSubfields(fieldConfig.SUBFIELDS, value);
+            updateSubfields(fieldConfig.SUBFIELDS, value || {}); // Ensure a valid object
         } else {
             updateField(fieldConfig.ID, value);
         }
     });
 }
 
-function updateSubfields(subfields, values) {
+function updateSubfields(subfields, values = {}) {
     Object.entries(subfields).forEach(([key, subfieldConfig]) => {
-        const subfieldValue = values[key]?.[subfieldConfig.ID] ?? subfieldConfig.DEFAULT_VALUE;
+        if (!values || typeof values !== "object") {
+            console.warn(`Skipping update for key '${key}' because 'values' is undefined or invalid.`);
+            return;
+        }
+
+        const subfieldValue = values?.[key]?.[subfieldConfig.ID] ?? subfieldConfig.DEFAULT_VALUE;
         updateField(subfieldConfig.ID, subfieldValue);
 
         if (subfieldConfig.SUBFIELDS) {
