@@ -703,6 +703,7 @@ function handleTileAction(actionKey) {
     if (typeof tile[actionKey] === "function") {
         tile[actionKey](actionConfig.PARAMS || {});
         advanceTime(actionConfig.TIME_COST || 0);
+        updateTileStats();
         render();
     } else {
         console.warn(`Action '${actionKey}' is not implemented for the tile.`);
