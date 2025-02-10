@@ -704,7 +704,7 @@ function handlePlayerMovement(direction) {
             highlightTile(newX, newY); // Update the highlighted tile
             render();
         } else {
-            console.log("Cannot move onto a PLOT tile.");
+            console.log("Cannot move onto a tilled tile.");
         }
     } else {
         console.log("Invalid move. Out of bounds.");
