@@ -836,8 +836,8 @@ function resetPlayerPosition() {
         return;
     }
 
-    const gridWidth = gameData.GRID_WIDTH;
-    const gridHeight = gameData.GRID_HEIGHT;
+    const gridWidth = window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH;
+    const gridHeight = window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
 
     // Ensure positions are within bounds
     gameState.player.position.x = Math.floor(gridWidth / 2) || 0;
