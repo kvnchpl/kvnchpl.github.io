@@ -701,6 +701,7 @@ function handleTileAction(actionKey) {
     }
 
     if (typeof tile[actionKey] === "function") {
+        console.log(`Performing action '${actionKey}' on tile:`, tile); // Debugging statement
         tile[actionKey](actionConfig.PARAMS || {});
         advanceTime(actionConfig.TIME_COST || 0);
         updateTileStats();
@@ -865,6 +866,8 @@ function updateTileStats() {
         console.error(`Tile at (${x}, ${y}) is undefined.`);
         return;
     }
+
+    console.log("Updating tile stats for tile:", tile); // Debugging statement
 
     updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER);
     render();
