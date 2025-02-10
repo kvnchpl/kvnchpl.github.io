@@ -119,7 +119,7 @@ class Tile {
     }
 
     harvest() {
-        if (this.PLANT_DATA?.VALUE?.IS_MATURE) {
+        if (this.PLANT_DATA?.IS_MATURE) {
             const plantType = this.PLANT_DATA.VALUE.NAME;
             const yieldAmount = window.gameData.CONFIG.PLANTS[plantType.toUpperCase()].YIELD;
             if (yieldAmount > 0) {
@@ -228,7 +228,7 @@ class Inventory {
     }
 
     static updateUI(itemKey, value) {
-        const fieldId = `inventory${itemKey.charAt(0).toUpperCase() + itemKey.slice(1)}`;
+        const fieldId = `inventory${itemKey.replace(".", "").charAt(0).toUpperCase() + itemKey.replace(".", "").slice(1)}`;
         const fieldElement = document.getElementById(fieldId);
         if (fieldElement) {
             fieldElement.textContent = value;
