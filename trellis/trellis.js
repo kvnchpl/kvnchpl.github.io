@@ -514,39 +514,6 @@ function renderSubfields(parentContainer, subfields, defaultValues, gameData, le
     });
 }
 
-function updateUISection(containerId, data) {
-    const container = document.getElementById(containerId);
-    if (!container) {
-        console.error(`Container missing for container with ID: ${containerId}`);
-        return;
-    }
-    if (!data || !data.FIELDS) {
-        console.error(`Data missing for container with ID: ${containerId}`);
-        return;
-    }
-
-    Object.entries(data.FIELDS).forEach(([fieldKey, fieldData]) => {
-        const fieldElement = document.getElementById(fieldData.ID);
-        if (!fieldElement) {
-            console.warn(`Field element with ID '${fieldData.ID}' not found.`);
-            return;
-        }
-
-        // Handle button updates
-        if (fieldData.SECTION_TYPE === "BUTTON") {
-            if (fieldData.LABEL) {
-                fieldElement.textContent = fieldData.LABEL; // Always preserve LABEL
-            }
-        } else {
-            // Update other field types (e.g., FIELD_LABEL)
-            const newValue = fieldData.DEFAULT_VALUE || "";
-            if (newValue !== undefined) {
-                fieldElement.textContent = newValue;
-            }
-        }
-    });
-}
-
 function updateField(fieldId, value) {
     if (!fieldId) {
         console.error("Field ID is missing.");
@@ -599,32 +566,6 @@ function updateSubfields(subfields, values) {
             updateSubfields(subfieldConfig.SUBFIELDS, subfieldValue);
         }
     });
-}
-
-function appendTileStat(container, label, id) {
-    const sectionType = gameData.UI_COMPONENTS.FIELD_CONTAINER;
-    const labelType = gameData.UI_COMPONENTS.LABEL;
-    const valueType = gameData.UI_COMPONENTS.VALUE;
-    const uiClasses = gameData.UI_CLASSES;
-
-    const field = createElement(sectionType.TAG, {
-        className: sectionType.CLASS || uiClasses.FIELD_CONTAINER
-    });
-
-    const labelSpan = createElement(labelType.TAG, {
-        className: labelType.CLASS || uiClasses.FIELD_LABEL,
-        textContent: `${label}: `
-    });
-    field.appendChild(labelSpan);
-
-    const valueSpan = createElement(valueType.TAG, {
-        id: id,
-        className: valueType.CLASS || uiClasses.FIELD_VALUE,
-        textContent: "N/A"
-    });
-    field.appendChild(valueSpan);
-
-    container.appendChild(field);
 }
 
 /* EVENT LISTENERS */
@@ -789,15 +730,6 @@ function attachCanvasEventListeners() {
     canvas.addEventListener("click", handleClick);
 
     canvas._handleClick = handleClick;
-}
-
-function detachCanvasEventListeners() {
-    const canvas = document.getElementById("gameCanvas");
-
-    if (canvas && canvas._handleClick) {
-        canvas.removeEventListener("click", canvas._handleClick);
-        delete canvas._handleClick;
-    }
 }
 
 /* TIME & WEEK LOGIC */
