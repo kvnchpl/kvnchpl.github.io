@@ -653,10 +653,7 @@ function preventKeyBindingScroll(e) {
 
 function handleKeyDown(e) {
     const keyConfig = window.gameData.CONFIG.KEY_BINDINGS[e.key];
-    if (!keyConfig) {
-        console.warn(`Unhandled key: '${e.key}'`);
-        return;
-    }
+    if (!keyConfig) return;
 
     switch (keyConfig.TYPE) {
         case "PLAYER_MOVE":
@@ -992,7 +989,7 @@ function isTileValid(x, y) {
 }
 
 function isTileAdjacent(x, y) {
-    return Math.abs (window.gameState.player.position.x - x) + Math.abs (window.gameState.player.position.y - y) <= 1;
+    return Math.abs(window.gameState.player.position.x - x) + Math.abs(window.gameState.player.position.y - y) <= 1;
 }
 
 function safeGet(obj, path, defaultValue = undefined) {
