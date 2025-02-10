@@ -287,7 +287,7 @@ window.onload = async () => {
 
         window.gameData = await response.json(); // Assign the fetched gameData to the global window object
 
-        const initializedComponents = await initGame(window.gameData);
+        const initializedComponents = await initGame();
         console.log("Game successfully initialized!", initializedComponents);
     } catch (error) {
         console.error("Error during game loading or initialization:", error);
