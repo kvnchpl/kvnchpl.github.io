@@ -711,8 +711,7 @@ function handleTileHighlight(direction) {
             newX += 1;
             break;
         case "reset":
-            newX = playerX;
-            newY = playerY;
+            // Keep highlight at player position
             break;
         default:
             console.warn(`Unknown highlight direction: '${direction}'`);
