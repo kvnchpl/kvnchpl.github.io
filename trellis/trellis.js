@@ -865,6 +865,8 @@ function updateTileStats() {
         return;
     }
 
+    // 💡 Ensure the tile object is fresh and not stale
+    window.gameState.grid.tiles[y][x] = new Tile(window.gameState.grid.tiles[y][x], x, y);
     const tile = window.gameState.grid.tiles[y][x];
 
     if (!tile) {
