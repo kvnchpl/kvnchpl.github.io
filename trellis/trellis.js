@@ -118,7 +118,7 @@ class Tile {
     harvest() {
         if (this.PLANT_DATA.VALUE && this.PLANT_DATA.VALUE.IS_MATURE) {
             const plantType = this.PLANT_DATA.VALUE.NAME;
-            const yieldAmount = PLANT_DATA[plantType].YIELD;
+            const yieldAmount = window.gameData.CONFIG.PLANTS[plantType.toUpperCase()].YIELD;
             if (yieldAmount > 0) {
                 Inventory.update(`produce.${plantType}`, yieldAmount); // Add harvested yield
                 console.log(`Harvested ${yieldAmount} ${plantType}(s).`);
@@ -212,22 +212,26 @@ class TileService {
 
 class Inventory {
     constructor(data) {
-        this.items = structuredClone(data);
+        Object.assign(this, data);
     }
 
-    static update(itemPath, delta) {
-        const [category, key] = itemPath.split(".");
-        if (window.gameState.player.inventory[category] && window.gameState.player.inventory[category][key] !== undefined) {
-            window.gameState.player.inventory[category][key] = Math.max(0, window.gameState.player.inventory[category][key] + delta);
-            this.updateUI(category, key, window.gameState.player.inventory[category][key]);
+    static update(itemKey, delta) {
+        if (window.gameState.player.inventory[itemKey] !== undefined) {
+            window.gameState.player.inventory[itemKey] = Math.max(0, window.gameState.player.inventory[itemKey] + delta);
+            this.updateUI(itemKey, window.gameState.player.inventory[itemKey]);
         } else {
-            console.error(`Invalid inventory item: ${itemPath}`);
+            console.error(`Invalid inventory item: ${itemKey}`);
         }
     }
 
-    static updateUI(category, key, value) {
-        const fieldId = `produce${key.charAt(0).toUpperCase() + key.slice(1)}`;
-        document.getElementById(fieldId).textContent = value;
+    static updateUI(itemKey, value) {
+        const fieldId = `inventory${itemKey.charAt(0).toUpperCase() + itemKey.slice(1)}`;
+        const fieldElement = document.getElementById(fieldId);
+        if (fieldElement) {
+            fieldElement.textContent = value;
+        } else {
+            console.warn(`Field element with ID '${fieldId}' not found.`);
+        }
     }
 }
 
