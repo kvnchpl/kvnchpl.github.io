@@ -542,17 +542,18 @@ function updateStatsFromFields(fields, sourceData, containerId) {
     }
 
     fields.forEach(fieldKey => {
-        const fieldConfig = safeGet(gameData.FIELDS, fieldKey, null);
+        const fieldConfig = window.gameData.FIELDS[fieldKey];
         if (!fieldConfig) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
         }
 
-        let value = safeGet(sourceData, `${fieldKey}.VALUE`, fieldConfig.DEFAULT_VALUE);
-        if (typeof value === 'object') {
+        let value = safeGet(sourceData, fieldConfig.VALUE, fieldConfig.DEFAULT_VALUE);
+        if (typeof value === 'object' && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
         }
         console.log(`Updating field ${fieldConfig.ID} with value: ${value}`); // Debugging statement
+
         if (fieldConfig.SUBFIELDS) {
             updateSubfields(fieldConfig.SUBFIELDS, value);
         } else {
@@ -563,7 +564,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
 
 function updateSubfields(subfields, values) {
     Object.entries(subfields).forEach(([key, subfieldConfig]) => {
-        const subfieldValue = safeGet(values, key, subfieldConfig.DEFAULT_VALUE);
+        const subfieldValue = values[key];
         updateField(subfieldConfig.ID, subfieldValue);
 
         if (subfieldConfig.SUBFIELDS) {
