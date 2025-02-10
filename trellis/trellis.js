@@ -315,8 +315,8 @@ function render() {
 
 function drawGrid(context) {
     const tileSize = window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
-    const defaultBorderStyle = window.gameData.TILE_CONFIG.BORDER_STYLE;
-    const highlightStyle = window.gameData.TILE_CONFIG.HIGHLIGHT_STYLE;
+    const defaultBorderStyle = window.gameData.CONFIG.TILE_CONFIG.BORDER_STYLE;
+    const highlightStyle = window.gameData.CONFIG.TILE_CONFIG.HIGHLIGHT_STYLE;
 
     for (let row = 0; row < window.gameState.grid.tiles.length; row++) {
         for (let col = 0; col < window.gameState.grid.tiles[row].length; col++) {
