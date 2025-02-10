@@ -1004,11 +1004,7 @@ function createElement(tag, options = {}) {
 
     if (options.id) element.id = options.id;
     if (options.className) element.className = options.className;
-    if (options.textContent !== undefined) { // Ensure textContent is explicitly set
-        element.textContent = options.textContent;
-    } else {
-        console.warn(`No textContent provided for element with tag: ${tag} and id: ${options.id}`);
-    }
+    if (options.textContent !== undefined) element.textContent = options.textContent;
     if (options.attributes) {
         for (const [key, value] of Object.entries(options.attributes)) {
             element.setAttribute(key, value);
