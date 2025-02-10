@@ -163,8 +163,6 @@ class TileService {
             const style = getCSSVariable(cssVariable) || getCSSVariable(gameData.TILE_CONFIG.DEFAULT_STYLE);
             this.styles.set(typeKey, style);
         });
-
-        console.log("Tile styles initialized:", this.styles);
     }
 
     static createTile(typeKey) {
