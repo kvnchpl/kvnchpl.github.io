@@ -387,6 +387,13 @@
             "ID": "biodiversityScore",
             "DEFAULT_VALUE": "0"
         },
+        "TILE_COORDINATES": {
+            "SECTION_TYPE": "FIELD_LABEL",
+            "CONTAINER": "tileStats",
+            "LABEL": "Coordinates",
+            "ID": "tileCoordinates",
+            "DEFAULT_VALUE": "(0, 0)"
+        },
         "TILE_TYPE": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "tileStats",
