@@ -477,34 +477,26 @@ function renderUISection(uiSection, gameData) {
     });
 }
 
-function renderSubfields(parentContainer, subfields, defaultValues, gameData, level = 1) {
+function renderSubfields(parentContainer, subfields, values, gameData) {
     Object.entries(subfields).forEach(([key, subfieldData]) => {
         const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
-            className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS,
-            style: `--level: ${level};`, // Optional styling for hierarchy
+            className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS
         });
 
         const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
             className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-            textContent: `${subfieldData.LABEL}:`, // Use LABEL for subfield
+            textContent: `${subfieldData.LABEL}:`
         });
 
         const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
             id: subfieldData.ID,
             className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-            textContent: (defaultValues && defaultValues[key]) || subfieldData.DEFAULT_VALUE, // Display the default value for the subfield
+            textContent: values?.[key] ?? subfieldData.DEFAULT_VALUE
         });
 
         subfieldContainer.appendChild(labelElement);
         subfieldContainer.appendChild(valueElement);
-
-        // Append the subfield container to the parent container
         parentContainer.appendChild(subfieldContainer);
-
-        // Recursively render nested subfields
-        if (subfieldData.SUBFIELDS) {
-            renderSubfields(parentContainer, subfieldData.SUBFIELDS, defaultValues ? defaultValues[key] : {}, gameData, level + 1);
-        }
     });
 }
 
@@ -548,11 +540,8 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) {
         if (value == null) {
             value = fieldConfig.DEFAULT_VALUE;
         }
-        if (typeof value === "object" && !fieldConfig.SUBFIELDS) {
-            value = JSON.stringify(value);
-        }
         if (fieldConfig.SUBFIELDS) {
-            updateSubfields(fieldConfig.SUBFIELDS, value || {});
+            updateSubfields(fieldConfig.SUBFIELDS, sourceData[fieldKey] ?? {});
         } else {
             updateField(fieldConfig.ID, value);
         }
@@ -566,12 +555,8 @@ function updateSubfields(subfields, values = {}) {
             return;
         }
 
-        const subfieldValue = values?.[key]?.[subfieldConfig.ID] ?? subfieldConfig.DEFAULT_VALUE;
+        const subfieldValue = values[key] ?? subfieldConfig.DEFAULT_VALUE;
         updateField(subfieldConfig.ID, subfieldValue);
-
-        if (subfieldConfig.SUBFIELDS) {
-            updateSubfields(subfieldConfig.SUBFIELDS, subfieldValue);
-        }
     });
 }
 
@@ -868,7 +853,6 @@ function updateTileStats() {
         return;
     }
 
-    // 💡 Ensure the tile object is fresh and not stale
     window.gameState.grid.tiles[y][x] = new Tile(window.gameState.grid.tiles[y][x], x, y);
     const tile = window.gameState.grid.tiles[y][x];
 
@@ -877,7 +861,7 @@ function updateTileStats() {
         return;
     }
 
-    console.log("Updating tile stats for tile:", tile); // Debugging statement
+    console.log("Updating tile stats for tile:", tile);
 
     updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER);
     render();
