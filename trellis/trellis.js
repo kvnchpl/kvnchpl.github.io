@@ -78,7 +78,6 @@ class Tile {
     }
 
     fertilize() {
-        console.log('Fertilize called:', window.gameState.player.inventory);
         if (this.IS_TILLED && window.gameState.player.inventory.FERTILIZER > 0) {
             this.updateSoilNutrients({
                 N: 10,
