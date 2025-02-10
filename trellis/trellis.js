@@ -82,12 +82,18 @@ class Tile {
 
     fertilize() {
         if (this.IS_TILLED && window.gameState.player.inventory.FERTILIZER > 0) {
+            console.log("Before fertilizing:", JSON.stringify(this.SOIL_NUTRIENTS)); // 🔍 Debug log
+
             this.updateSoilNutrients({
                 N: 10,
                 P: 5,
                 K: 5
             });
+
+            console.log("After fertilizing:", JSON.stringify(this.SOIL_NUTRIENTS)); // 🔍 Debug log
+
             Inventory.update('FERTILIZER', -1);
+            updateTileStats(); // ✅ Ensure UI updates
         }
     }
 
@@ -146,9 +152,9 @@ class Tile {
             this.SOIL_NUTRIENTS = { NITROGEN: 0, PHOSPHORUS: 0, POTASSIUM: 0 };
         }
 
-        this.SOIL_NUTRIENTS.NITROGEN += N ?? 0;
-        this.SOIL_NUTRIENTS.PHOSPHORUS += P ?? 0;
-        this.SOIL_NUTRIENTS.POTASSIUM += K ?? 0;
+        this.SOIL_NUTRIENTS.NITROGEN = (this.SOIL_NUTRIENTS.NITROGEN ?? 0) + (N ?? 0);
+        this.SOIL_NUTRIENTS.PHOSPHORUS = (this.SOIL_NUTRIENTS.PHOSPHORUS ?? 0) + (P ?? 0);
+        this.SOIL_NUTRIENTS.POTASSIUM = (this.SOIL_NUTRIENTS.POTASSIUM ?? 0) + (K ?? 0);
     }
 
     growPlant(conditions) {
@@ -517,7 +523,6 @@ function updateField(fieldId, value) {
         return;
     }
 
-    console.log(`Setting field ${fieldId} text content to: ${value}`); // Debugging statement
     fieldElement.textContent = value;
 }
 
@@ -555,6 +560,7 @@ function updateSubfields(subfields, values = {}) {
             return;
         }
 
+        console.log(`Updating subfield '${key}' with value:`, values[key]);
         const subfieldValue = values[key] ?? subfieldConfig.DEFAULT_VALUE;
         updateField(subfieldConfig.ID, subfieldValue);
     });
