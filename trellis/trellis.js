@@ -542,13 +542,13 @@ function updateStatsFromFields(fields, sourceData, containerId) {
     }
 
     fields.forEach(fieldKey => {
-        const fieldConfig = window.gameData.FIELDS[fieldKey];
+        const fieldConfig = window.gameData.FIELDS?.[fieldKey];
         if (!fieldConfig) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
         }
 
-        let value = sourceData[fieldConfig.VALUE];
+        let value = fieldConfig ? sourceData?.[fieldConfig.VALUE] ?? fieldConfig.DEFAULT_VALUE : undefined;
         if (typeof value === 'object' && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
         }
@@ -564,7 +564,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
 
 function updateSubfields(subfields, values) {
     Object.entries(subfields).forEach(([key, subfieldConfig]) => {
-        const subfieldValue = safeGet(values, key, subfieldConfig.DEFAULT_VALUE);
+        const subfieldValue = values[key]?.[subfieldConfig.ID] ?? subfieldConfig.DEFAULT_VALUE;
         updateField(subfieldConfig.ID, subfieldValue);
 
         if (subfieldConfig.SUBFIELDS) {
@@ -910,15 +910,6 @@ function isTileValid(x, y) {
 
 function isTileAdjacent(x, y) {
     return Math.abs(window.gameState.player.position.x - x) + Math.abs(window.gameState.player.position.y - y) <= 1;
-}
-
-function safeGet(obj, path, defaultValue = undefined) {
-    return path.split('.').reduce((acc, part) => {
-        if (acc && acc.hasOwnProperty(part)) {
-            return acc[part];
-        }
-        return undefined;
-    }, obj) ?? defaultValue;
 }
 
 function createElement(tag, options = {}) {
