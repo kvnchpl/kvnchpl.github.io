@@ -349,7 +349,7 @@ function drawGrid(context) {
 
             // Draw the player marker if the player is on this tile
             if (row === window.gameState.player.position.y && col === window.gameState.player.position.x) {
-                context.fillStyle = getCSSVariable(window.gameData.TILE_CONFIG.PLAYER_STYLE);
+                context.fillStyle = getCSSVariable(window.gameData.CONFIG.TILE_CONFIG.PLAYER_STYLE);
                 const padding = tileSize * 0.2; // Shrink player marker a bit
                 context.fillRect(
                     col * tileSize + padding,
