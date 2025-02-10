@@ -426,7 +426,7 @@ function renderUISection(uiSection, gameData) {
             fieldContainer.appendChild(labelElement);
 
             if (fieldData.SUBFIELDS) {
-                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE, gameData);
+                renderSubfields(fieldContainer, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE || {}, gameData);
             } else {
                 const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
                     id: fieldData.ID,
@@ -472,7 +472,7 @@ function renderSubfields(container, subfields, defaultValues, gameData, level = 
         const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
             id: subfieldData.ID,
             className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-            textContent: defaultValues[key] || subfieldData.DEFAULT_VALUE, // Display the default value for the subfield
+            textContent: (defaultValues && defaultValues[key]) || subfieldData.DEFAULT_VALUE, // Display the default value for the subfield
         });
 
         subfieldContainer.appendChild(labelElement);
@@ -483,7 +483,7 @@ function renderSubfields(container, subfields, defaultValues, gameData, level = 
 
         // Recursively render nested subfields
         if (subfieldData.SUBFIELDS) {
-            renderSubfields(container, subfieldData.SUBFIELDS, defaultValues[key], gameData, level + 1);
+            renderSubfields(container, subfieldData.SUBFIELDS, defaultValues ? defaultValues[key] : {}, gameData, level + 1);
         }
     });
 }
