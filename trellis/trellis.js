@@ -57,7 +57,7 @@ class Tile {
     }
 
     highlight(gameState) {
-        const prevTile = gameState.grid.highlightedTile;
+        const prevTile = window.gameState.grid.highlightedTile;
         if (prevTile) {
             document
                 .querySelector(`#tile-${prevTile.y}-${prevTile.x}`)
@@ -65,7 +65,7 @@ class Tile {
         }
         const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
         tileElement?.classList.add("highlighted");
-        gameState.grid.highlightedTile = { x: this.x, y: this.y };
+        window.gameState.grid.highlightedTile = { x: this.x, y: this.y };
     }
 
     till() {
@@ -78,7 +78,7 @@ class Tile {
     }
 
     fertilize() {
-        if (this.IS_TILLED && gameState.player.inventory.fertilizer > 0) {
+        if (this.IS_TILLED && window.gameState.player.inventory.fertilizer > 0) {
             this.updateSoilNutrients({
                 N: 10,
                 P: 5,
@@ -104,7 +104,7 @@ class Tile {
     }
 
     mulch() {
-        if (this.IS_TILLED && gameState.inventory.mulch > 0) {
+        if (this.IS_TILLED && window.gameState.inventory.mulch > 0) {
             this.MOISTURE_DECAY_RATE = Math.max(this.MOISTURE_DECAY_RATE - 1, 0);
             Inventory.update('mulch', -1);
         }
@@ -978,8 +978,8 @@ function updateInventory(item, delta) {
 /* UTILITY */
 
 function getTargetTile() {
-    const { x, y } = gameState.grid.highlightedTile.x !== null ?
-        gameState.grid.highlightedTile : gameState.player;
+    const { x, y } = window.gameState.grid.highlightedTile.x !== null ?
+        window.gameState.grid.highlightedTile : window.gameState.player;
     if (x === null || y === null) {
         console.error("Target tile coordinates are invalid:", { x, y });
         return null;
@@ -992,7 +992,7 @@ function isTileValid(x, y) {
 }
 
 function isTileAdjacent(x, y) {
-    return Math.abs(gameState.player.position.x - x) + Math.abs(gameState.player.position.y - y) <= 1;
+    return Math.abs (window.gameState.player.position.x - x) + Math.abs (window.gameState.player.position.y - y) <= 1;
 }
 
 function safeGet(obj, path, defaultValue = undefined) {
