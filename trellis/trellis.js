@@ -78,13 +78,13 @@ class Tile {
     }
 
     fertilize() {
-        if (this.IS_TILLED && window.gameState.player.inventory.fertilizer > 0) {
+        if (this.IS_TILLED && window.gameState.player.inventory.FERTILIZER > 0) {
             this.updateSoilNutrients({
                 N: 10,
                 P: 5,
                 K: 5
             });
-            Inventory.update('fertilizer', -1);
+            Inventory.update('FERTILIZER', -1);
         }
     }
 
@@ -96,7 +96,6 @@ class Tile {
                 IS_MATURE: false
             };
         }
-
     }
 
     water() {
@@ -104,9 +103,9 @@ class Tile {
     }
 
     mulch() {
-        if (this.IS_TILLED && window.gameState.inventory.mulch > 0) {
+        if (this.IS_TILLED && window.gameState.player.inventory.MULCH > 0) {
             this.MOISTURE_DECAY_RATE = Math.max(this.MOISTURE_DECAY_RATE - 1, 0);
-            Inventory.update('mulch', -1);
+            Inventory.update('MULCH', -1);
         }
     }
 
@@ -216,17 +215,17 @@ class Inventory {
         this.items = structuredClone(data);
     }
 
-    update(itemPath, delta) {
+    static update(itemPath, delta) {
         const [category, key] = itemPath.split(".");
-        if (this.items[category] && this.items[category][key] !== undefined) {
-            this.items[category][key] = Math.max(0, this.items[category][key] + delta);
-            this.updateUI(category, key, this.items[category][key]);
+        if (window.gameState.player.inventory[category] && window.gameState.player.inventory[category][key] !== undefined) {
+            window.gameState.player.inventory[category][key] = Math.max(0, window.gameState.player.inventory[category][key] + delta);
+            this.updateUI(category, key, window.gameState.player.inventory[category][key]);
         } else {
             console.error(`Invalid inventory item: ${itemPath}`);
         }
     }
 
-    updateUI(category, key, value) {
+    static updateUI(category, key, value) {
         const fieldId = `produce${key.charAt(0).toUpperCase() + key.slice(1)}`;
         document.getElementById(fieldId).textContent = value;
     }
