@@ -529,7 +529,7 @@ function updateField(fieldId, value) {
     fieldElement.textContent = value;
 }
 
-function updateStatsFromFields(fields, sourceData = {}, containerId) { // Ensure sourceData exists
+function updateStatsFromFields(fields, sourceData = {}, containerId) {
     const container = document.getElementById(containerId);
     if (!container) {
         console.error(`Container element with id '${containerId}' not found.`);
@@ -543,15 +543,16 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) { // Ensure
             return;
         }
 
-        let value = sourceData?.[fieldConfig.VALUE] ?? fieldConfig.DEFAULT_VALUE;
-        if (typeof value === 'object' && !fieldConfig.SUBFIELDS) {
+        const propertyPath = fieldConfig.PROPERTY_PATH;
+        let value = propertyPath ? resolvePath(sourceData, propertyPath) : fieldConfig.DEFAULT_VALUE;
+
+        if (typeof value === "object" && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
         }
 
         if (fieldConfig.SUBFIELDS) {
-            updateSubfields(fieldConfig.SUBFIELDS, value || {}); // Ensure a valid object
+            updateSubfields(fieldConfig.SUBFIELDS, value || {});
         } else {
-            console.log(`Updating field ${fieldConfig.ID} with value:`, value);
             updateField(fieldConfig.ID, value);
         }
     });
@@ -912,6 +913,10 @@ function isTileValid(x, y) {
 
 function isTileAdjacent(x, y) {
     return Math.abs(window.gameState.player.position.x - x) + Math.abs(window.gameState.player.position.y - y) <= 1;
+}
+
+function resolvePath(obj, path) {
+    return path.split('.').reduce((acc, key) => acc?.[key], obj);
 }
 
 function createElement(tag, options = {}) {
