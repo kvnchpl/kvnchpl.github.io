@@ -399,21 +399,24 @@
             "CONTAINER": "tileStats",
             "LABEL": "Type",
             "ID": "tileType",
-            "DEFAULT_VALUE": "Empty"
+            "DEFAULT_VALUE": "Empty",
+            "PROPERTY_PATH": "TYPE"
         },
         "TILE_IS_TILLED": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "tileStats",
             "LABEL": "Tilled",
             "ID": "tileIsTilled",
-            "DEFAULT_VALUE": "False"
+            "DEFAULT_VALUE": "False",
+            "PROPERTY_PATH": "IS_TILLED"
         },
         "TILE_PLANT": {
             "SECTION_TYPE": "FIELD_LABEL",
             "CONTAINER": "tileStats",
             "LABEL": "Plant",
             "ID": "tilePlant",
-            "DEFAULT_VALUE": "None"
+            "DEFAULT_VALUE": "None",
+            "PROPERTY_PATH": "PLANT_DATA.NAME"
         },
         "TILE_WEED_LEVEL": {
             "SECTION_TYPE": "FIELD_LABEL",
