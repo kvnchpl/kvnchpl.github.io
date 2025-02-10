@@ -128,7 +128,6 @@ canvas {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: calc(var(--spacing-unit) * 2);
     padding: calc(var(--spacing-unit) * 2);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
