@@ -961,20 +961,6 @@ function updateBiodiversityDisplay() {
     updateField(biodiversityField.ID, window.gameState.score.biodiversity);
 }
 
-/* INVENTORY */
-
-function updateInventory(item, delta) {
-    const [category, itemKey] = item.split('.');
-    const inventoryCategory = window.gameState.player.inventory[category];
-    if (!inventoryCategory || !(itemKey in inventoryCategory)) {
-        console.error(`Inventory item '${itemKey}' not found in category '${category}'.`);
-        return;
-    }
-
-    inventoryCategory[itemKey] = Math.max(0, inventoryCategory[itemKey] + delta);
-    updateField(`${category}.${itemKey}`, inventoryCategory[itemKey]);
-}
-
 /* UTILITY */
 
 function getTargetTile() {
