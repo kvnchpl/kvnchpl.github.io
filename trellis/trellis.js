@@ -231,18 +231,21 @@ class Tutorial {
 
 /* INITIALIZATION */
 
-async function initGame(gameData) {
+async function initGame() {
     try {
-        TileService.initializeDefaults(gameData.CONFIG.TILE_CONFIG.DEFAULTS, gameData.CONFIG.TILE_CONFIG.TYPES);
+        TileService.initializeDefaults(window.gameData.CONFIG.TILE_CONFIG.DEFAULTS, window.gameData.CONFIG.TILE_CONFIG.TYPES);
         TileService.initializeStyles();
 
-        window.gameState = new GameState(gameData.CONFIG);
-        const inventory = new Inventory(gameData.INVENTORY);
-        const tutorial = new Tutorial(gameData.UI.TUTORIAL_OVERLAY);
+        window.gameState = new GameState(window.gameData.CONFIG);
+        const inventory = new Inventory(window.gameData.INVENTORY);
+        const tutorial = new Tutorial(window.gameData.UI.TUTORIAL_OVERLAY);
+
+        // Set the initial highlighted tile to the player's position
+        window.gameState.grid.highlightedTile = { ...window.gameState.player.position };
 
         // Iterate through all UI sections and render them
-        Object.values(gameData.UI).forEach(uiSection => {
-            renderUISection(uiSection, gameData);
+        Object.values(window.gameData.UI).forEach(uiSection => {
+            renderUISection(uiSection, window.gameData);
         });
 
         // Attach event listeners
@@ -885,15 +888,21 @@ function updateAllTiles() {
 }
 
 function updateTileStats() {
-    const { x, y } = gameState.grid.highlightedTile;
-    const tile = gameState.grid.tiles[y][x];
+    const { x, y } = window.gameState.grid.highlightedTile;
+
+    if (x === null || y === null || !isTileValid(x, y)) {
+        console.error(`Invalid tile coordinates: (${x}, ${y})`);
+        return;
+    }
+
+    const tile = window.gameState.grid.tiles[y][x];
 
     if (!tile) {
         console.error(`Tile at (${x}, ${y}) is undefined.`);
         return;
     }
 
-    updateStatsFromFields(gameData.UI.TILE_STATS.FIELDS, tile, gameData.UI.TILE_STATS.CONTAINER);
+    updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER);
     render();
 }
 
@@ -947,7 +956,7 @@ function getTargetTile() {
 }
 
 function isTileValid(x, y) {
-    return x >= 0 && x < gameData.GRID_WIDTH && y >= 0 && y < gameData.GRID_HEIGHT;
+    return x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
 }
 
 function isTileAdjacent(x, y) {
