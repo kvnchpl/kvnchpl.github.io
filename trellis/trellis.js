@@ -544,7 +544,7 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) {
         }
 
         const dataKey = fieldConfig.DATA_KEY;
-        let value = dataKey ? resolvePath(sourceData, dataKey) : fieldConfig.DEFAULT_VALUE;
+        let value = dataKey ? resolvePath(sourceData, dataKey.split(".")) : fieldConfig.DEFAULT_VALUE;
 
         if (typeof value === "object" && !fieldConfig.SUBFIELDS) {
             value = JSON.stringify(value);
