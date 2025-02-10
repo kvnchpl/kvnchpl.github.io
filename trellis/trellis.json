@@ -82,6 +82,10 @@
                 "TYPE": "HIGHLIGHT_TILE",
                 "DIRECTION": "RIGHT"
             },
+            "q": {
+                "TYPE": "HIGHLIGHT_TILE",
+                "DIRECTION": "RESET"
+            },
             "1": {
                 "TYPE": "ACTION",
                 "ACTION": "TILL"
