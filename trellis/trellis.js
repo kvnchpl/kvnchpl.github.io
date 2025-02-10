@@ -542,7 +542,7 @@ function updateStatsFromFields(fields, sourceData, containerId) {
     }
 
     fields.forEach(fieldKey => {
-        const fieldConfig = window.gameData.FIELDS[fieldKey];
+        const fieldConfig = safeGet(window.gameData, `FIELDS.${fieldKey}`, null);
         if (!fieldConfig) {
             console.error(`Field configuration for '${fieldKey}' not found.`);
             return;
