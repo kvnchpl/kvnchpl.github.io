@@ -546,7 +546,8 @@ function updateStatsFromFields(fields, sourceData = {}, containerId) {
             value = fieldConfig.DEFAULT_VALUE;
         }
         if (fieldConfig.SUBFIELDS) {
-            updateSubfields(fieldConfig.SUBFIELDS, sourceData[fieldKey] ?? {});
+            const subfieldData = dataKey ? resolvePath(sourceData, dataKey) : {};
+            updateSubfields(fieldConfig.SUBFIELDS, subfieldData);
         } else {
             updateField(fieldConfig.ID, value);
         }
