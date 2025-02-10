@@ -34,15 +34,17 @@ class GameState {
         const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
         const defaultTypeKey = config.TILE_CONFIG.DEFAULT_TYPE;
 
-        return Array.from({ length: HEIGHT }, () =>
-            Array.from({ length: WIDTH }, () => TileService.createTile(defaultTypeKey))
+        return Array.from({ length: HEIGHT }, (_, y) =>
+            Array.from({ length: WIDTH }, (_, x) => new Tile(TileService.createTile(defaultTypeKey), x, y))
         );
     }
 }
 
 class Tile {
-    constructor(data) {
+    constructor(data, x, y) {
         Object.assign(this, data);
+        this.x = x;
+        this.y = y;
     }
 
     isType(typeKey) {
