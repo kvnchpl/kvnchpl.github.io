@@ -238,6 +238,9 @@ async function initGame() {
         const inventory = new Inventory(window.gameData.INVENTORY);
         const tutorial = new Tutorial(window.gameData.UI.TUTORIAL_OVERLAY);
 
+        // Make the hide method accessible globally
+        window.hideTutorial = () => tutorial.hide();
+
         // Set the initial highlighted tile to the player's position
         window.gameState.grid.highlightedTile = { ...window.gameState.player.position };
 
