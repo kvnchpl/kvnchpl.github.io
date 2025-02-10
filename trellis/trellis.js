@@ -244,7 +244,6 @@ async function initGame() {
 
         // Set the initial highlighted tile to the player's position
         window.gameState.grid.highlightedTile = { ...window.gameState.player.position };
-        console.log(`Initial highlighted tile set to: (${window.gameState.grid.highlightedTile.x}, ${window.gameState.grid.highlightedTile.y})`);
 
         // Iterate through all UI sections and render them
         Object.values(window.gameData.UI).forEach(uiSection => {
