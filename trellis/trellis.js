@@ -63,6 +63,7 @@ class Tile {
         const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
         tileElement?.classList.add("highlighted");
         gameState.grid.highlightedTile = { x: this.x, y: this.y };
+        console.log(`Tile.highlight updated highlightedTile to: (${gameState.grid.highlightedTile.x}, ${gameState.grid.highlightedTile.y})`);
     }
 
     till() {
