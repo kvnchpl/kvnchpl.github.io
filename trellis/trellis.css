@@ -205,11 +205,16 @@ canvas {
     gap: calc(var(--spacing-unit) * 2);
 }
 
+#tutorialOverlay h2 {
+    color: var(--color-overlay-text);
+}
+
 #tutorialOverlay p {
     font-size: var(--font-size-default);
     max-width: 80%;
     margin: 0;
 }
+
 
 .tutorial-button {
     background: var(--color-overlay-button-bg);
