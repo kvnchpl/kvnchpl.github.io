@@ -691,7 +691,6 @@ function handlePlayerMovement(direction) {
 
 function handleTileHighlight(direction) {
     const { x, y } = window.gameState.grid.highlightedTile;
-    console.log(`handleTileHighlight called with direction: ${direction}, current coordinates: (${x}, ${y})`);
     let newX = x;
     let newY = y;
 
@@ -717,7 +716,6 @@ function handleTileHighlight(direction) {
             return;
     }
 
-    console.log(`New coordinates after direction: (${newX}, ${newY})`);
     if (isTileValid(newX, newY)) {
         highlightTile(newX, newY);
     } else {
