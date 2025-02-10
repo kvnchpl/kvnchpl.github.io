@@ -65,7 +65,6 @@ class Tile {
         const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
         tileElement?.classList.add("highlighted");
         gameState.grid.highlightedTile = { x: this.x, y: this.y };
-        console.log(`Tile.highlight updated highlightedTile to: (${gameState.grid.highlightedTile.x}, ${gameState.grid.highlightedTile.y})`);
     }
 
     till() {
@@ -870,14 +869,12 @@ function resetPlayerPosition() {
 }
 
 function highlightTile(x, y) {
-    console.log(`highlightTile called with coordinates: (${x}, ${y})`);
     if (!isTileValid(x, y)) {
         console.error(`Invalid tile coordinates: (${x}, ${y})`);
         return;
     }
 
     window.gameState.grid.highlightedTile = { x, y };
-    console.log(`highlightedTile updated to: (${window.gameState.grid.highlightedTile.x}, ${window.gameState.grid.highlightedTile.y})`);
 
     const tile = window.gameState.grid.tiles[y][x];
     if (!tile) {
@@ -903,7 +900,6 @@ function updateAllTiles() {
 
 function updateTileStats() {
     const { x, y } = window.gameState.grid.highlightedTile;
-    console.log(`updateTileStats called with coordinates: (${x}, ${y})`);
 
     if (x === null || y === null || !isTileValid(x, y)) {
         console.error(`Invalid tile coordinates: (${x}, ${y})`);
