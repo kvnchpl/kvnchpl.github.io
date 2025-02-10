@@ -20,7 +20,7 @@ class GameState {
                 x: Math.floor(config.GAME_CONFIG.GRID.WIDTH / 2),
                 y: Math.floor(config.GAME_CONFIG.GRID.HEIGHT / 2),
             },
-            inventory: structuredClone(config.INVENTORY),
+            inventory: new Inventory(config.INVENTORY),
         };
         this.score = {
             biodiversity: 0,
@@ -262,7 +262,6 @@ async function initGame() {
         TileService.initializeStyles();
 
         window.gameState = new GameState(window.gameData.CONFIG);
-        const inventory = new Inventory(window.gameData.INVENTORY);
         const tutorial = new Tutorial(window.gameData.UI.TUTORIAL_OVERLAY);
 
         window.hideTutorial = () => tutorial.hide();
