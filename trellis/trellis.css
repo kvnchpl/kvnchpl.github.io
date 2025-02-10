@@ -125,7 +125,8 @@ canvas {
 
 #buttonContainer,
 #actionsContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     justify-content: space-between;
     align-items: center;
     padding: calc(var(--spacing-unit) * 2);
@@ -133,11 +134,6 @@ canvas {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     gap: calc(var(--spacing-unit) * 2);
-}
-
-#actionsContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
 }
 
 #buttonContainer button,
