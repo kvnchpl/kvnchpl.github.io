@@ -212,7 +212,7 @@ function createPath(oldPos, newPos) {
     };
 
     let pathType = determinePathType(adjacentPaths, diagonalPaths);
-    
+
     // **Apply the correct path type immediately**
     oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
 
@@ -251,6 +251,7 @@ function adjustPathType(pos) {
 }
 
 function determinePathType(adjacentPaths, diagonalPaths) {
+    /*
     // Check if all 8 surrounding tiles are paths → fully enclosed path
     if (
         adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right &&
@@ -258,7 +259,7 @@ function determinePathType(adjacentPaths, diagonalPaths) {
     ) {
         return 'path_filled'; // New fully enclosed sprite
     }
-    
+
     // Handle inverted corners (when surrounded by most tiles except one diagonal)
     if (diagonalPaths.topLeft && adjacentPaths.top && adjacentPaths.left && adjacentPaths.bottom && adjacentPaths.right && diagonalPaths.bottomRight && diagonalPaths.topRight) {
         return 'invertedcorner_br';
@@ -272,6 +273,7 @@ function determinePathType(adjacentPaths, diagonalPaths) {
     if (diagonalPaths.bottomRight && adjacentPaths.bottom && adjacentPaths.right && adjacentPaths.top && adjacentPaths.left && diagonalPaths.topLeft && diagonalPaths.bottomLeft) {
         return 'invertedcorner_tl';
     }
+    */
 
     // Handle full 4-way intersection
     if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
