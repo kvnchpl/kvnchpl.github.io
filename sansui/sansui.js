@@ -56,7 +56,7 @@ function createMap() {
     map.innerHTML = '';
 
     // Determine the width of the map based on screen size
-    const mapWidthInCells = Math.min((Math.floor(window.innerWidth / cellSize)) - 1, mapSize);
+    const mapWidthInCells = Math.min((Math.floor(window.innerWidth / config.cellSize)) - 1, config.mapSize);
 
     for (let y = 0; y < mapSize; y++) {
         for (let x = 0; x < mapWidthInCells; x++) {
@@ -261,9 +261,9 @@ function generateFeature() {
             const featureLayer = cell.querySelector('.feature');
 
             // Generate a feature with a probability defined by spawnChance if the cell doesn't already have a feature
-            if (Math.random() < spawnChance && !featureLayer.style.backgroundImage) {
+            if (Math.random() < config.spawnChance && !featureLayer.style.backgroundImage) {
                 const feature = features[Math.floor(Math.random() * features.length)];
-                const sprite = featureSprites[feature][Math.floor(Math.random() * featureSprites[feature].length)];
+                const sprite = config.featureSprites[feature][Math.floor(Math.random() * config.featureSprites[feature].length)];
                 featureLayer.style.backgroundImage = `url(${sprite})`;
             }
         }
