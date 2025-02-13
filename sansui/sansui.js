@@ -1,5 +1,8 @@
 /* sansui.js */
 let config = {};
+let mapWidthInCells;
+let growableCells = new Set();
+let updateScheduled = false;
 
 let playerPosition = {
     x: 0,
@@ -7,6 +10,7 @@ let playerPosition = {
 };
 let playerDirection = 'down';
 let playerHasMoved = false;
+
 
 async function loadConfig() {
     try {
@@ -47,6 +51,7 @@ async function initGame() {
         return;
     }
 
+    updateMapWidth();
     createMap();
     setupAutoGrowth();
 }
@@ -66,9 +71,6 @@ function handleKeyDown(event) {
 function createMap() {
     const map = document.getElementById('map');
     map.innerHTML = '';
-
-    // Determine the width of the map based on screen size
-    const mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize));
 
     for (let y = 0; y < config.mapSize; y++) {
         for (let x = 0; x < mapWidthInCells; x++) {
@@ -93,16 +95,13 @@ function createMap() {
     map.style.gridTemplateColumns = `repeat(${mapWidthInCells}, ${config.cellSize}px)`;
 
     placePlayerRandomly(mapWidthInCells);
-    updateMap(mapWidthInCells);
+    scheduleUpdate();
 
     playerHasMoved = false; // Reset playerHasMoved to false when creating the map
 }
 
 // Choose a random edge position for the player to start
 function placePlayerRandomly() {
-    // Ensure correct map width
-    const mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize));
-
     // Ensure config.mapSize is valid
     if (!config.mapSize || config.mapSize <= 0) {
         console.error("Invalid map size detected:", config.mapSize);
@@ -149,7 +148,7 @@ function placePlayerRandomly() {
     playerDirection = 'down'; // Default starting direction
     console.log(`Player placed at (${playerPosition.x}, ${playerPosition.y})`);
 
-    updateMap(mapWidthInCells);
+    scheduleUpdate();
 }
 
 // Update the grid, placing the player sprite in the correct position
@@ -169,7 +168,6 @@ function updateMap(mapWidthInCells) {
 
 // Move the player in the specified direction, update the direction, and create a path
 function movePlayer(x, y) {
-    const mapWidthInCells = Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize);
     const newX = playerPosition.x + x;
     const newY = playerPosition.y + y;
 
@@ -195,7 +193,7 @@ function movePlayer(x, y) {
         }
     }
 
-    updateMap(mapWidthInCells); // Update the map regardless of whether the player moved
+    scheduleUpdate(); // Update the map regardless of whether the player moved
 }
 
 // Create a path as the player moves, selecting the appropriate path shape based on adjacent cells
@@ -307,56 +305,34 @@ function isPath(x, y) {
     return cell && cell.querySelector('.feature').classList.contains('path');
 }
 
-// Randomly generates features in adjacent cells with a probability defined by spawnChance
+function markAsGrowable(x, y) {
+    growableCells.add(`${x},${y}`);
+}
+
 function generateFeature() {
-    if (!playerHasMoved) return;
-    const surroundingPositions = [{
-        x: playerPosition.x - 1,
-        y: playerPosition.y
-    },
-    {
-        x: playerPosition.x + 1,
-        y: playerPosition.y
-    },
-    {
-        x: playerPosition.x,
-        y: playerPosition.y - 1
-    },
-    {
-        x: playerPosition.x,
-        y: playerPosition.y + 1
-    },
-    {
-        x: playerPosition.x - 1,
-        y: playerPosition.y - 1
-    },
-    {
-        x: playerPosition.x + 1,
-        y: playerPosition.y - 1
-    },
-    {
-        x: playerPosition.x - 1,
-        y: playerPosition.y + 1
-    },
-    {
-        x: playerPosition.x + 1,
-        y: playerPosition.y + 1
-    }
-    ];
+    if (!playerHasMoved || growableCells.size === 0) return;
 
-    surroundingPositions.forEach(pos => {
-        // Check if the position is within bounds
-        if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
-            const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
-            const featureLayer = cell.querySelector('.feature');
+    growableCells.forEach(cellKey => {
+        const [x, y] = cellKey.split(',').map(Number);
+        const adjacentPositions = [
+            { x: x - 1, y: y },
+            { x: x + 1, y: y },
+            { x: x, y: y - 1 },
+            { x: x, y: y + 1 }
+        ];
 
-            // Generate a feature with a probability defined by spawnChance if the cell doesn't already have a feature
-            if (Math.random() < config.spawnChance && !featureLayer.style.backgroundImage) {
-                const feature = config.features[Math.floor(Math.random() * config.features.length)];
-                const sprite = config.featureSprites[feature][Math.floor(Math.random() * config.featureSprites[feature].length)];
-                featureLayer.style.backgroundImage = `url(${sprite})`;
+        adjacentPositions.forEach(pos => {
+            if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
+                const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+                const featureLayer = cell.querySelector('.feature');
+
+                if (!featureLayer.style.backgroundImage && Math.random() < config.spawnChance) {
+                    const feature = config.categories.growableFeatures[Math.floor(Math.random() * config.categories.growableFeatures.length)];
+                    featureLayer.style.backgroundImage = `url(${config.featureSprites[feature][Math.floor(Math.random() * config.featureSprites[feature].length)]})`;
+                    markAsGrowable(pos.x, pos.y);
+                }
             }
-        }
+        });
     });
 }
 
@@ -421,6 +397,22 @@ function prependBaseURL(obj, baseURL) {
     }
     return baseURL + obj;
 }
+
+function scheduleUpdate() {
+    if (!updateScheduled) {
+        updateScheduled = true;
+        requestAnimationFrame(() => {
+            updateMap(mapWidthInCells);
+            updateScheduled = false;
+        });
+    }
+}
+
+function updateMapWidth() {
+    mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize));
+}
+
+window.addEventListener('resize', updateMapWidth); // Update when window resizes
 
 function handleInput(input) {
     const actions = {
