@@ -206,7 +206,7 @@ function createPath(oldPos, newPos) {
     }
 
     // Set the correct path type for the old cell
-    oldFeatureLayer.style.backgroundImage = `url(${featureSprites.path[pathType]})`;
+    oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
     oldFeatureLayer.classList.add('path');
 
     // Adjust path types for the old cell immediately after the player leaves
