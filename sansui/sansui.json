@@ -5,52 +5,22 @@
     "growthChance": 0.1,
     "features": {
         "gravel": {
-            "growable": true,
-            "sprites": [
-                "gravel_1.png",
-                "gravel_2.png",
-                "gravel_3.png"
-            ]
+            "growable": true
         },
         "water": {
-            "growable": true,
-            "sprites": [
-                "water_1.png",
-                "water_2.png",
-                "water_3.png"
-            ]
+            "growable": true
         },
         "grass": {
-            "growable": true,
-            "sprites": [
-                "grass_1.png",
-                "grass_2.png",
-                "grass_3.png"
-            ]
+            "growable": true
         },
         "bush": {
-            "growable": true,
-            "sprites": [
-                "bush_1.png",
-                "bush_2.png",
-                "bush_3.png"
-            ]
+            "growable": true
         },
         "tree": {
-            "growable": true,
-            "sprites": [
-                "tree_1.png",
-                "tree_2.png",
-                "tree_3.png"
-            ]
+            "growable": true
         },
         "shrine": {
-            "growable": false,
-            "sprites": [
-                "shrine_1.png",
-                "shrine_2.png",
-                "shrine_3.png"
-            ]
+            "growable": false
         }
     },
     "sprites": {

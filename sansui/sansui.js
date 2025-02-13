@@ -25,10 +25,10 @@ async function loadConfig() {
 
         // Convert sprite paths to full URLs
         const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
-        // Apply to features and paths
-        config.sprites.features = prependBaseURL(config.sprites.features, baseURL);
-        config.sprites.paths = prependBaseURL(config.sprites.paths, baseURL);
-        config.sprites.player = prependBaseURL(config.sprites.player, baseURL);
+
+        Object.keys(config.sprites).forEach(category => {
+            config.sprites[category] = prependBaseURL(config.sprites[category], baseURL);
+        });
 
         for (let direction in config.playerSprites) {
             config.playerSprites[direction] = baseURL + config.playerSprites[direction];
@@ -230,7 +230,11 @@ function createPath(oldPos, newPos) {
 
 function adjustPathType(pos) {
     const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+    if (!cell) return; // Prevent errors on out-of-bounds cells
+
     const featureLayer = cell.querySelector('.feature');
+    if (!featureLayer.classList.contains('path')) return;
+
     const adjacentPaths = {
         top: isPath(pos.x, pos.y - 1),
         bottom: isPath(pos.x, pos.y + 1),
@@ -238,36 +242,18 @@ function adjustPathType(pos) {
         right: isPath(pos.x + 1, pos.y),
     };
 
-    let pathType;
+    let pathType = determinePathType(adjacentPaths);
+    featureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
+}
 
-    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
-        pathType = 'intersection_4';
-    } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) {
-        pathType = 'intersection_3_left';
-    } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.right) {
-        pathType = 'intersection_3_right';
-    } else if (adjacentPaths.top && adjacentPaths.left && adjacentPaths.right) {
-        pathType = 'intersection_3_top';
-    } else if (adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
-        pathType = 'intersection_3_bottom';
-    } else if (adjacentPaths.top && adjacentPaths.left) {
-        pathType = 'corner_br';
-    } else if (adjacentPaths.top && adjacentPaths.right) {
-        pathType = 'corner_bl';
-    } else if (adjacentPaths.bottom && adjacentPaths.left) {
-        pathType = 'corner_tr';
-    } else if (adjacentPaths.bottom && adjacentPaths.right) {
-        pathType = 'corner_tl';
-    } else if (adjacentPaths.left && adjacentPaths.right) {
-        pathType = 'horizontal';
-    } else if (adjacentPaths.top && adjacentPaths.bottom) {
-        pathType = 'vertical';
-    }
-    if (pathType) {
-        featureLayer.style.backgroundImage = `url(${featureSprites.path[pathType]})`;
-        featureLayer.classList.add('path');
-        console.log(`Adjusted path at (${pos.x}, ${pos.y}) to ${pathType}`);
-    }
+function determinePathType(adjacentPaths) {
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) return 'intersection_4';
+    if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
+    if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
+    if (adjacentPaths.top && adjacentPaths.left) return 'corner_br';
+    if (adjacentPaths.top && adjacentPaths.right) return 'corner_bl';
+    if (adjacentPaths.bottom && adjacentPaths.left) return 'corner_tr';
+    if (adjacentPaths.bottom && adjacentPaths.right) return 'corner_tl';
 }
 
 function adjustAdjacentPathTypes(pos) {
@@ -342,50 +328,24 @@ function generateFeature() {
 }
 
 function growFeatures() {
-    document.querySelectorAll('.cell').forEach(cell => {
+    if (growableCells.size === 0) return;
+
+    const cellsToProcess = Array.from(growableCells);
+    growableCells.clear(); // Prevent infinite growth loops
+
+    cellsToProcess.forEach(cellKey => {
+        const [x, y] = cellKey.split(',').map(Number);
+        const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
         const featureLayer = cell.querySelector('.feature');
-        const hasFeature = featureLayer.style.backgroundImage !== '';
-        if (hasFeature) {
-            const pos = {
-                x: parseInt(cell.dataset.x),
-                y: parseInt(cell.dataset.y)
-            };
 
-            const adjacentPositions = [{
-                x: pos.x,
-                y: pos.y - 1
-            },
-            {
-                x: pos.x,
-                y: pos.y + 1
-            },
-            {
-                x: pos.x - 1,
-                y: pos.y
-            },
-            {
-                x: pos.x + 1,
-                y: pos.y
-            }
-            ];
+        if (!featureLayer.style.backgroundImage) {
+            const newFeature = Object.keys(config.features)
+                .filter(f => config.features[f].growable)
+                .sort(() => Math.random() - 0.5)[0];
 
-            adjacentPositions.forEach(adjPos => {
-                if (adjPos.x >= 0 && adjPos.x < config.mapSize && adjPos.y >= 0 && adjPos.y < config.mapSize) {
-                    const adjacentCell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
-                    const adjacentFeatureLayer = adjacentCell.querySelector('.feature');
-                    const isPlayerHere = playerPosition.x === adjPos.x && playerPosition.y === adjPos.y;
+            featureLayer.style.backgroundImage = `url(${config.sprites.features[newFeature][Math.floor(Math.random() * config.sprites.features[newFeature].length)]})`;
 
-                    if (adjacentFeatureLayer.style.backgroundImage === '' && !isPlayerHere && Math.random() < config.growthChance) {
-                        const featureType = Object.entries(config.features).find(([key, data]) =>
-                            featureLayer.style.backgroundImage.includes(key) && data.growable
-                        );
-                        if (featureType) {
-                            const sprite = featureSprites[featureType][Math.floor(Math.random() * featureSprites[featureType].length)];
-                            adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
-                        }
-                    }
-                }
-            });
+            markAsGrowable(x, y);
         }
     });
 }
