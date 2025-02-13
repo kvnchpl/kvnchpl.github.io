@@ -31,7 +31,8 @@ async function loadConfig() {
     }
 }
 
-function initializeGame() {
+async function initializeGame() {
+    await loadConfig(); // Ensure config is loaded
     createMap();
     document.addEventListener('keydown', handleKeyDown);
 }
@@ -108,7 +109,7 @@ function updateMap(mapWidthInCells) {
         const playerLayer = cell.querySelector('.player');
         playerLayer.style.backgroundImage = '';
         if (parseInt(cell.dataset.x) === playerPosition.x && parseInt(cell.dataset.y) === playerPosition.y) {
-            playerLayer.style.backgroundImage = `url(${playerSprites[playerDirection]})`;
+            playerLayer.style.backgroundImage = `url(${config.playerSprites[playerDirection]})`;
         }
     });
 
@@ -262,7 +263,7 @@ function generateFeature() {
 
             // Generate a feature with a probability defined by spawnChance if the cell doesn't already have a feature
             if (Math.random() < config.spawnChance && !featureLayer.style.backgroundImage) {
-                const feature = features[Math.floor(Math.random() * features.length)];
+                const feature = config.features[Math.floor(Math.random() * config.features.length)];
                 const sprite = config.featureSprites[feature][Math.floor(Math.random() * config.featureSprites[feature].length)];
                 featureLayer.style.backgroundImage = `url(${sprite})`;
             }
@@ -294,7 +295,7 @@ function growFeatures() {
                     const isPlayerHere = playerPosition.x === adjPos.x && playerPosition.y === adjPos.y;
 
                     if (adjacentFeatureLayer.style.backgroundImage === '' && !isPlayerHere && Math.random() < config.growthChance) {
-                        const featureType = growableFeatures.find(feature => featureLayer.style.backgroundImage.includes(feature));
+                        const featureType = config.growableFeatures.find(feature => featureLayer.style.backgroundImage.includes(feature));
                         if (featureType) {
                             const sprite = featureSprites[featureType][Math.floor(Math.random() * featureSprites[featureType].length)];
                             adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
