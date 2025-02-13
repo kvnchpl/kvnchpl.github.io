@@ -29,7 +29,6 @@ async function loadConfig() {
         config.sprites = prependBaseURL(config.sprites, baseURL);
 
         console.log("Config successfully loaded:", config);
-        console.log("Sprites after URL processing:", config.sprites); // Debugging log
 
         // Initialize game after loading config
         initGame();
@@ -124,9 +123,6 @@ function placePlayerRandomly() {
             y: i
         });
     }
-
-    // Debugging: Log Edge Positions Count
-    console.log(`mapWidthInCells: ${mapWidthInCells}, config.mapSize: ${config.mapSize}, edgePositions count: ${edgePositions.length}`);
 
     if (edgePositions.length === 0) {
         console.error("Edge positions array is empty. Player cannot be placed.");
