@@ -176,7 +176,7 @@ function movePlayer(x, y) {
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // **Set firstMoveDirection explicitly based on movement direction**
+            // **Explicitly determine firstMoveDirection**
             const firstMoveDirection = x !== 0 ? 'horizontal' : 'vertical';
 
             // **Pass firstMoveDirection to every adjustPathType() call**
@@ -236,15 +236,21 @@ function adjustPathType(pos, firstMoveDirection = null) {
     // **If no adjacent paths exist, use firstMoveDirection**
     const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
     if (!hasAdjacentPaths && firstMoveDirection) {
-        featureLayer.style.backgroundImage = `url(${config.sprites.paths[firstMoveDirection]})`;
+        // **Prevent overwriting an already correctly placed path**
+        const currentPathType = featureLayer.style.backgroundImage.split('/').pop().replace('.png', '');
+        if (currentPathType !== firstMoveDirection) {
+            featureLayer.style.backgroundImage = `url(${config.sprites.paths[firstMoveDirection]})`;
+        }
         return;
     }
 
     // Determine new path type
     let newPathType = determinePathType(neighbors, firstMoveDirection);
 
-    // Apply the new path type immediately
-    featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
+    // **Only update if the type actually changed**
+    if (featureLayer.style.backgroundImage !== `url(${config.sprites.paths[newPathType]})`) {
+        featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
+    }
 }
 
 function determinePathType(neighbors, firstMoveDirection = null) {
