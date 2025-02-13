@@ -1,7 +1,10 @@
 /* sansui.js */
 let config = {};
 
-let playerPosition = { x: 0, y: 0 };
+let playerPosition = {
+    x: 0,
+    y: 0
+};
 let playerDirection = 'down';
 let playerHasMoved = false;
 
@@ -32,7 +35,7 @@ async function loadConfig() {
         }
 
         console.log("Config successfully loaded:", config);
-        
+
         // Call initGame only once after successful config load
         initGame();
     } catch (error) {
@@ -116,10 +119,22 @@ function placePlayerRandomly() {
 
     // Populate valid edge positions
     for (let i = 0; i < mapWidthInCells; i++) {
-        edgePositions.push({ x: i, y: 0 }, { x: i, y: config.mapSize - 1 });
+        edgePositions.push({
+            x: i,
+            y: 0
+        }, {
+            x: i,
+            y: config.mapSize - 1
+        });
     }
     for (let i = 0; i < config.mapSize; i++) {
-        edgePositions.push({ x: 0, y: i }, { x: mapWidthInCells - 1, y: i });
+        edgePositions.push({
+            x: 0,
+            y: i
+        }, {
+            x: mapWidthInCells - 1,
+            y: i
+        });
     }
 
     // Debugging: Log Edge Positions Count
@@ -132,7 +147,10 @@ function placePlayerRandomly() {
 
     // Select a random valid edge position
     const randomIndex = Math.floor(Math.random() * edgePositions.length);
-    playerPosition = edgePositions[randomIndex] || { x: 0, y: 0 }; // Fallback to (0,0)
+    playerPosition = edgePositions[randomIndex] || {
+        x: 0,
+        y: 0
+    }; // Fallback to (0,0)
 
     playerDirection = 'down'; // Default starting direction
     console.log(`Player placed at (${playerPosition.x}, ${playerPosition.y})`);
@@ -171,8 +189,14 @@ function movePlayer(x, y) {
 
         // Only move the player if the target cell does not have a non-path feature
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            createPath(playerPosition, { x: newX, y: newY });
-            playerPosition = { x: newX, y: newY };
+            createPath(playerPosition, {
+                x: newX,
+                y: newY
+            });
+            playerPosition = {
+                x: newX,
+                y: newY
+            };
             playerHasMoved = true;
         }
     }
@@ -256,11 +280,22 @@ function adjustPathType(pos) {
 }
 
 function adjustAdjacentPathTypes(pos) {
-    const adjacentPositions = [
-        { x: pos.x, y: pos.y - 1 },
-        { x: pos.x, y: pos.y + 1 },
-        { x: pos.x - 1, y: pos.y },
-        { x: pos.x + 1, y: pos.y }
+    const adjacentPositions = [{
+        x: pos.x,
+        y: pos.y - 1
+    },
+    {
+        x: pos.x,
+        y: pos.y + 1
+    },
+    {
+        x: pos.x - 1,
+        y: pos.y
+    },
+    {
+        x: pos.x + 1,
+        y: pos.y
+    }
     ];
     adjacentPositions.forEach(adjPos => {
         if (adjPos.x >= 0 && adjPos.x < config.mapSize && adjPos.y >= 0 && adjPos.y < config.mapSize) {
@@ -281,15 +316,38 @@ function isPath(x, y) {
 // Randomly generates features in adjacent cells with a probability defined by spawnChance
 function generateFeature() {
     if (!playerHasMoved) return;
-    const surroundingPositions = [
-        { x: playerPosition.x - 1, y: playerPosition.y },
-        { x: playerPosition.x + 1, y: playerPosition.y },
-        { x: playerPosition.x, y: playerPosition.y - 1 },
-        { x: playerPosition.x, y: playerPosition.y + 1 },
-        { x: playerPosition.x - 1, y: playerPosition.y - 1 },
-        { x: playerPosition.x + 1, y: playerPosition.y - 1 },
-        { x: playerPosition.x - 1, y: playerPosition.y + 1 },
-        { x: playerPosition.x + 1, y: playerPosition.y + 1 }
+    const surroundingPositions = [{
+        x: playerPosition.x - 1,
+        y: playerPosition.y
+    },
+    {
+        x: playerPosition.x + 1,
+        y: playerPosition.y
+    },
+    {
+        x: playerPosition.x,
+        y: playerPosition.y - 1
+    },
+    {
+        x: playerPosition.x,
+        y: playerPosition.y + 1
+    },
+    {
+        x: playerPosition.x - 1,
+        y: playerPosition.y - 1
+    },
+    {
+        x: playerPosition.x + 1,
+        y: playerPosition.y - 1
+    },
+    {
+        x: playerPosition.x - 1,
+        y: playerPosition.y + 1
+    },
+    {
+        x: playerPosition.x + 1,
+        y: playerPosition.y + 1
+    }
     ];
 
     surroundingPositions.forEach(pos => {
@@ -318,11 +376,22 @@ function growFeatures() {
                 y: parseInt(cell.dataset.y)
             };
 
-            const adjacentPositions = [
-                { x: pos.x, y: pos.y - 1 },
-                { x: pos.x, y: pos.y + 1 },
-                { x: pos.x - 1, y: pos.y },
-                { x: pos.x + 1, y: pos.y }
+            const adjacentPositions = [{
+                x: pos.x,
+                y: pos.y - 1
+            },
+            {
+                x: pos.x,
+                y: pos.y + 1
+            },
+            {
+                x: pos.x - 1,
+                y: pos.y
+            },
+            {
+                x: pos.x + 1,
+                y: pos.y
+            }
             ];
 
             adjacentPositions.forEach(adjPos => {
