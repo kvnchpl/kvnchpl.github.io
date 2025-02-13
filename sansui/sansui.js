@@ -25,13 +25,13 @@ async function loadConfig() {
             config.playerSprites[direction] = baseURL + config.playerSprites[direction];
         }
 
-        initializeGame();
+        initGame();
     } catch (error) {
         console.error("Failed to load config:", error);
     }
 }
 
-async function initializeGame() {
+async function initGame() {
     await loadConfig(); // Wait until config is fully loaded
     console.log("Config successfully loaded:", config);
     createMap();
