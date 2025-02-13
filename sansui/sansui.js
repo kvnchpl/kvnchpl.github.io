@@ -162,42 +162,38 @@ function movePlayer(x, y) {
     const newX = playerPosition.x + x;
     const newY = playerPosition.y + y;
 
-    // Always update the player's direction based on the key pressed
     playerDirection = x === 1 ? 'right' : x === -1 ? 'left' : y === 1 ? 'down' : 'up';
 
-    // Check if the new position is within bounds
     if (newX >= 0 && newX < mapWidthInCells && newY >= 0 && newY < config.mapSize) {
         const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
-        // Only move the player if the target cell does not have a non-path feature
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            
-            // Create the path before adjusting types
+            // **Create path and immediately update its type**
             createPath(playerPosition, { x: newX, y: newY });
 
             // Move the player
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // Now update the tile and its neighbors
+            // **Now update the tile and its neighbors**
             adjustPathType(playerPosition);
             adjustAdjacentPathTypes(playerPosition);
         }
     }
 
-    scheduleUpdate(); // Update the map
+    scheduleUpdate();
 }
 
 // Create a path as the player moves, selecting the appropriate path shape based on adjacent cells
 function createPath(oldPos, newPos) {
     const oldCell = document.querySelector(`.cell[data-x="${oldPos.x}"][data-y="${oldPos.y}"]`);
+    if (!oldCell) return;
+
     const oldFeatureLayer = oldCell.querySelector('.feature');
+    oldFeatureLayer.classList.add('path'); // Mark it as a path
 
-    // Ensure the old cell becomes a path
-    oldFeatureLayer.classList.add('path');
-
-    // Check adjacent paths before assigning a type
+    // **Determine correct path type before applying**
     const adjacentPaths = {
         top: isPath(oldPos.x, oldPos.y - 1),
         bottom: isPath(oldPos.x, oldPos.y + 1),
@@ -212,11 +208,12 @@ function createPath(oldPos, newPos) {
         bottomRight: isPath(oldPos.x + 1, oldPos.y + 1)
     };
 
-    // Determine the correct path type before applying it
     let pathType = determinePathType(adjacentPaths, diagonalPaths);
+    
+    // **Apply the correct path type immediately**
     oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
 
-    // Ensure immediate updates
+    // **Immediately adjust surrounding paths**
     adjustPathType(oldPos);
     adjustAdjacentPathTypes(oldPos);
 }
