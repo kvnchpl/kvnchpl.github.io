@@ -356,13 +356,13 @@ function setupAutoGrowth() {
 
 function prependBaseURL(obj, baseURL) {
     if (Array.isArray(obj)) {
-        return obj.map(img => baseURL + img);
+        return obj.map(img => img.startsWith('http') ? img : baseURL + img);
     } else if (typeof obj === 'object' && obj !== null) {
         return Object.fromEntries(
             Object.entries(obj).map(([key, value]) => [key, prependBaseURL(value, baseURL)])
         );
     }
-    return baseURL + obj;
+    return obj.startsWith('http') ? obj : baseURL + obj;
 }
 
 function scheduleUpdate() {
