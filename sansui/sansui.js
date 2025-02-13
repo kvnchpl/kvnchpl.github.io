@@ -89,12 +89,18 @@ function createMap() {
 
 // Choose a random edge position for the player to start
 function placePlayerRandomly() {
+    // Ensure correct map width
+    const mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize));
+
+    // Ensure config.mapSize is valid
+    if (!config.mapSize || config.mapSize <= 0) {
+        console.error("Invalid map size detected:", config.mapSize);
+        return;
+    }
+
     const edgePositions = [];
 
-    // Ensure correct map width
-    const mapWidthInCells = Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize);
-
-    // Collect edge positions
+    // Populate valid edge positions
     for (let i = 0; i < mapWidthInCells; i++) {
         edgePositions.push({ x: i, y: 0 }, { x: i, y: config.mapSize - 1 });
     }
@@ -102,18 +108,20 @@ function placePlayerRandomly() {
         edgePositions.push({ x: 0, y: i }, { x: mapWidthInCells - 1, y: i });
     }
 
-    // Choose a random position
-    const randomIndex = Math.floor(Math.random() * edgePositions.length);
-    const randomPosition = edgePositions[randomIndex];
+    // Debugging: Log Edge Positions Count
+    console.log(`mapWidthInCells: ${mapWidthInCells}, config.mapSize: ${config.mapSize}, edgePositions count: ${edgePositions.length}`);
 
-    // Ensure it’s an actual edge position
-    if (randomPosition) {
-        playerPosition = { x: randomPosition.x, y: randomPosition.y };
-        playerDirection = 'down'; // Default starting direction
-        console.log(`Player placed at (${playerPosition.x}, ${playerPosition.y})`);
-    } else {
-        console.error("Failed to place player at an edge position!");
+    if (edgePositions.length === 0) {
+        console.error("Edge positions array is empty. Player cannot be placed.");
+        return;
     }
+
+    // Select a random valid edge position
+    const randomIndex = Math.floor(Math.random() * edgePositions.length);
+    playerPosition = edgePositions[randomIndex] || { x: 0, y: 0 }; // Fallback to (0,0)
+
+    playerDirection = 'down'; // Default starting direction
+    console.log(`Player placed at (${playerPosition.x}, ${playerPosition.y})`);
 
     updateMap(mapWidthInCells);
 }
