@@ -230,7 +230,6 @@ function adjustPathType(pos) {
     const featureLayer = cell.querySelector('.feature');
     if (!featureLayer.classList.contains('path')) return;
 
-    // Extract the feature name if stored in a data attribute or class
     let feature = featureLayer.dataset.feature || null; 
 
     if (!feature) {
