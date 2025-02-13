@@ -169,20 +169,15 @@ function movePlayer(x, y) {
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            // **Ensure the new tile is marked as a path BEFORE determining type**
-            targetFeatureLayer.classList.add('path');
+            // **Create a new path before making any adjustments**
+            createPath(playerPosition, { x: newX, y: newY });
 
-            const oldPos = { ...playerPosition }; // Store old position before updating
+            // Move the player
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // **Explicitly determine firstMoveDirection**
-            const firstMoveDirection = x !== 0 ? 'horizontal' : 'vertical';
-
-            // **Pass firstMoveDirection to every adjustPathType() call**
-            adjustPathType(oldPos, firstMoveDirection);
-            adjustAdjacentPathTypes(oldPos);
-            adjustPathType(playerPosition, firstMoveDirection);
+            // **Only now adjust paths**
+            adjustPathType(playerPosition);
             adjustAdjacentPathTypes(playerPosition);
         }
     }
@@ -198,58 +193,73 @@ function createPath(oldPos, newPos) {
     const oldFeatureLayer = oldCell.querySelector('.feature');
     oldFeatureLayer.classList.add('path'); // Mark it as a path
 
-    // **Determine correct path type before applying**
-    const adjacentPaths = {
-        top: isPath(oldPos.x, oldPos.y - 1),
-        bottom: isPath(oldPos.x, oldPos.y + 1),
-        left: isPath(oldPos.x - 1, oldPos.y),
-        right: isPath(oldPos.x + 1, oldPos.y)
-    };
+    const deltaX = newPos.x - oldPos.x;
+    const deltaY = newPos.y - oldPos.y;
 
-    const diagonalPaths = {
-        topLeft: isPath(oldPos.x - 1, oldPos.y - 1),
-        topRight: isPath(oldPos.x + 1, oldPos.y - 1),
-        bottomLeft: isPath(oldPos.x - 1, oldPos.y + 1),
-        bottomRight: isPath(oldPos.x + 1, oldPos.y + 1)
-    };
+    // **Determine initial path type based on movement direction**
+    let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
 
-    let pathType = determinePathType(adjacentPaths, diagonalPaths);
-
-    // **Apply the correct path type immediately**
+    // **Apply the initial path immediately before checking neighbors**
     oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
 
-    // **Immediately adjust surrounding paths**
+    // **Now adjust surrounding paths**
     adjustPathType(oldPos);
     adjustAdjacentPathTypes(oldPos);
 }
 
-function adjustPathType(pos, firstMoveDirection = null) {
+function adjustPathType(pos) {
     const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
     if (!cell) return;
 
     const featureLayer = cell.querySelector('.feature');
     if (!featureLayer.classList.contains('path')) return;
 
-    // Get all 8 neighboring path states
-    const neighbors = getPathNeighbors(pos);
+    // **Check current path type**
+    const currentPathType = featureLayer.style.backgroundImage.split('/').pop().replace('.png', '');
+    
+    // Get adjacent paths
+    const adjacentPaths = {
+        top: isPath(pos.x, pos.y - 1),
+        bottom: isPath(pos.x, pos.y + 1),
+        left: isPath(pos.x - 1, pos.y),
+        right: isPath(pos.x + 1, pos.y),
+    };
 
-    // **If no adjacent paths exist, use firstMoveDirection**
-    const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
-    if (!hasAdjacentPaths && firstMoveDirection) {
-        // **Prevent overwriting an already correctly placed path**
-        const currentPathType = featureLayer.style.backgroundImage.split('/').pop().replace('.png', '');
-        if (currentPathType !== firstMoveDirection) {
-            featureLayer.style.backgroundImage = `url(${config.sprites.paths[firstMoveDirection]})`;
-        }
-        return;
+    let newPathType = null;
+
+    // **Only update if the path is incomplete**
+    if (currentPathType === 'vertical' || currentPathType === 'horizontal') {
+        return; // Keep it as is if it's already correct
     }
 
-    // Determine new path type
-    let newPathType = determinePathType(neighbors, firstMoveDirection);
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
+        newPathType = 'intersection_4';
+    } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) {
+        newPathType = 'intersection_3_left';
+    } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.right) {
+        newPathType = 'intersection_3_right';
+    } else if (adjacentPaths.top && adjacentPaths.left && adjacentPaths.right) {
+        newPathType = 'intersection_3_top';
+    } else if (adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
+        newPathType = 'intersection_3_bottom';
+    } else if (adjacentPaths.top && adjacentPaths.left) {
+        newPathType = 'corner_br';
+    } else if (adjacentPaths.top && adjacentPaths.right) {
+        newPathType = 'corner_bl';
+    } else if (adjacentPaths.bottom && adjacentPaths.left) {
+        newPathType = 'corner_tr';
+    } else if (adjacentPaths.bottom && adjacentPaths.right) {
+        newPathType = 'corner_tl';
+    } else if (adjacentPaths.left && adjacentPaths.right) {
+        newPathType = 'horizontal';
+    } else if (adjacentPaths.top && adjacentPaths.bottom) {
+        newPathType = 'vertical';
+    }
 
-    // **Only update if the type actually changed**
-    if (featureLayer.style.backgroundImage !== `url(${config.sprites.paths[newPathType]})`) {
+    if (newPathType) {
         featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
+        featureLayer.classList.add('path');
+        console.log(`Adjusted path at (${pos.x}, ${pos.y}) to ${newPathType}`);
     }
 }
 
