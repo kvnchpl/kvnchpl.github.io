@@ -250,27 +250,6 @@ function adjustPathType(pos) {
 }
 
 function determinePathType(adjacentPaths, diagonalPaths) {
-    // Handle full 4-way intersection
-    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
-        return 'intersection_4';
-    }
-
-    // Handle 3-way intersections
-    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.right) return 'intersection_3_right';
-    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) return 'intersection_3_left';
-    if (adjacentPaths.left && adjacentPaths.right && adjacentPaths.top) return 'intersection_3_top';
-    if (adjacentPaths.left && adjacentPaths.right && adjacentPaths.bottom) return 'intersection_3_bottom';
-
-    // Handle straight paths
-    if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
-    if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
-
-    // Handle regular corners
-    if (adjacentPaths.top && adjacentPaths.right) return 'corner_br';
-    if (adjacentPaths.top && adjacentPaths.left) return 'corner_bl';
-    if (adjacentPaths.bottom && adjacentPaths.right) return 'corner_tl';
-    if (adjacentPaths.bottom && adjacentPaths.left) return 'corner_tr';
-
     // Handle inverted corners (when surrounded by most tiles except one diagonal)
     if (diagonalPaths.topLeft && diagonalPaths.top && diagonalPaths.left && diagonalPaths.bottom && diagonalPaths.right && diagonalPaths.bottomRight && diagonalPaths.topRight) {
         return 'invertedcorner_br';
@@ -285,33 +264,50 @@ function determinePathType(adjacentPaths, diagonalPaths) {
         return 'invertedcorner_tl';
     }
 
+    // Handle full 4-way intersection
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
+        return 'intersection_4';
+    }
+
+    // Handle 3-way intersections
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.right) return 'intersection_3_right';
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) return 'intersection_3_left';
+    if (adjacentPaths.left && adjacentPaths.right && adjacentPaths.top) return 'intersection_3_top';
+    if (adjacentPaths.left && adjacentPaths.right && adjacentPaths.bottom) return 'intersection_3_bottom';
+
+    // Handle turns (corners)
+    if (adjacentPaths.left && adjacentPaths.bottom) return 'corner_tr';
+    if (adjacentPaths.right && adjacentPaths.bottom) return 'corner_tl';
+    if (adjacentPaths.left && adjacentPaths.top) return 'corner_br';
+    if (adjacentPaths.right && adjacentPaths.top) return 'corner_bl';
+
+    // Handle straight paths
+    if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
+    if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
+
     return 'horizontal'; // Default if no clear type is determined
 }
 
 function adjustAdjacentPathTypes(pos) {
-    const adjacentPositions = [{
-        x: pos.x,
-        y: pos.y - 1
-    },
-    {
-        x: pos.x,
-        y: pos.y + 1
-    },
-    {
-        x: pos.x - 1,
-        y: pos.y
-    },
-    {
-        x: pos.x + 1,
-        y: pos.y
-    }
+    const adjacentPositions = [
+        { x: pos.x, y: pos.y - 1 }, // Top
+        { x: pos.x, y: pos.y + 1 }, // Bottom
+        { x: pos.x - 1, y: pos.y }, // Left
+        { x: pos.x + 1, y: pos.y }, // Right
+        { x: pos.x - 1, y: pos.y - 1 }, // Top-left
+        { x: pos.x + 1, y: pos.y - 1 }, // Top-right
+        { x: pos.x - 1, y: pos.y + 1 }, // Bottom-left
+        { x: pos.x + 1, y: pos.y + 1 }  // Bottom-right
     ];
+
     adjacentPositions.forEach(adjPos => {
-        if (adjPos.x >= 0 && adjPos.x < config.mapSize && adjPos.y >= 0 && adjPos.y < config.mapSize) {
+        if (adjPos.x >= 0 && adjPos.x < mapWidthInCells && adjPos.y >= 0 && adjPos.y < config.mapSize) {
             const cell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
-            const featureLayer = cell.querySelector('.feature');
-            if (featureLayer.classList.contains('path')) {
-                adjustPathType(adjPos);
+            if (cell) {
+                const featureLayer = cell.querySelector('.feature');
+                if (featureLayer.classList.contains('path')) {
+                    adjustPathType(adjPos);
+                }
             }
         }
     });
