@@ -88,8 +88,13 @@ function createMap() {
 }
 
 // Choose a random edge position for the player to start
-function placePlayerRandomly(mapWidthInCells) {
+function placePlayerRandomly() {
     const edgePositions = [];
+
+    // Ensure correct map width
+    const mapWidthInCells = Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize);
+
+    // Collect edge positions
     for (let i = 0; i < mapWidthInCells; i++) {
         edgePositions.push({ x: i, y: 0 }, { x: i, y: config.mapSize - 1 });
     }
@@ -97,9 +102,19 @@ function placePlayerRandomly(mapWidthInCells) {
         edgePositions.push({ x: 0, y: i }, { x: mapWidthInCells - 1, y: i });
     }
 
-    const randomPosition = edgePositions[Math.floor(Math.random() * edgePositions.length)];
-    playerPosition = { x: randomPosition.x, y: randomPosition.y };
-    playerDirection = 'down'; // Always start facing down
+    // Choose a random position
+    const randomIndex = Math.floor(Math.random() * edgePositions.length);
+    const randomPosition = edgePositions[randomIndex];
+
+    // Ensure it’s an actual edge position
+    if (randomPosition) {
+        playerPosition = { x: randomPosition.x, y: randomPosition.y };
+        playerDirection = 'down'; // Default starting direction
+        console.log(`Player placed at (${playerPosition.x}, ${playerPosition.y})`);
+    } else {
+        console.error("Failed to place player at an edge position!");
+    }
+
     updateMap(mapWidthInCells);
 }
 
