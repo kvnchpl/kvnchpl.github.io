@@ -21,15 +21,11 @@ async function loadConfig() {
 
         // Convert sprite paths to full URLs
         const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
-        for (let feature in config.featureSprites) {
-            if (Array.isArray(config.featureSprites[feature])) {
-                config.featureSprites[feature] = config.featureSprites[feature].map(img => baseURL + img);
-            } else {
-                for (let pathType in config.featureSprites[feature]) {
-                    config.featureSprites[feature][pathType] = baseURL + config.featureSprites[feature][pathType];
-                }
-            }
-        }
+        // Apply to features and paths
+        config.featureSprites = prependBaseURL(config.featureSprites, baseURL);
+        config.pathSprites = prependBaseURL(config.pathSprites, baseURL);
+        config.playerSprites = prependBaseURL(config.playerSprites, baseURL);
+
         for (let direction in config.playerSprites) {
             config.playerSprites[direction] = baseURL + config.playerSprites[direction];
         }
@@ -53,8 +49,6 @@ async function initGame() {
 
     createMap();
     setupAutoGrowth();
-    setupKeyboardControls();
-    setupButtonControls();
 }
 
 function handleKeyDown(event) {
@@ -74,7 +68,7 @@ function createMap() {
     map.innerHTML = '';
 
     // Determine the width of the map based on screen size
-    const mapWidthInCells = Math.min((Math.floor(window.innerWidth / config.cellSize)) - 1, config.mapSize);
+    const mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize));
 
     for (let y = 0; y < config.mapSize; y++) {
         for (let x = 0; x < mapWidthInCells; x++) {
@@ -417,25 +411,39 @@ function setupAutoGrowth() {
     setInterval(growFeatures, 5000);
 }
 
-function setupKeyboardControls() {
-    document.addEventListener('keydown', event => {
-        const keyMap = {
-            'ArrowUp': () => movePlayer(0, -1),
-            'ArrowDown': () => movePlayer(0, 1),
-            'ArrowLeft': () => movePlayer(-1, 0),
-            'ArrowRight': () => movePlayer(1, 0),
-            ' ': growFeatures // Spacebar triggers growFeatures
-        };
-        if (keyMap[event.key]) keyMap[event.key]();
-    });
+function prependBaseURL(obj, baseURL) {
+    if (Array.isArray(obj)) {
+        return obj.map(img => baseURL + img);
+    } else if (typeof obj === 'object' && obj !== null) {
+        return Object.fromEntries(
+            Object.entries(obj).map(([key, value]) => [key, prependBaseURL(value, baseURL)])
+        );
+    }
+    return baseURL + obj;
 }
 
-function setupButtonControls() {
-    document.getElementById('up').addEventListener('click', () => movePlayer(0, -1));
-    document.getElementById('down').addEventListener('click', () => movePlayer(0, 1));
-    document.getElementById('left').addEventListener('click', () => movePlayer(-1, 0));
-    document.getElementById('right').addEventListener('click', () => movePlayer(1, 0));
-    document.getElementById('reset').addEventListener('click', createMap);
+function handleInput(input) {
+    const actions = {
+        'ArrowUp': () => movePlayer(0, -1),
+        'ArrowDown': () => movePlayer(0, 1),
+        'ArrowLeft': () => movePlayer(-1, 0),
+        'ArrowRight': () => movePlayer(1, 0),
+        ' ': growFeatures,
+        'up': () => movePlayer(0, -1),
+        'down': () => movePlayer(0, 1),
+        'left': () => movePlayer(-1, 0),
+        'right': () => movePlayer(1, 0),
+        'reset': createMap
+    };
+    if (actions[input]) actions[input]();
 }
+
+// Keyboard controls
+document.addEventListener('keydown', event => handleInput(event.key));
+
+// Button controls
+['up', 'down', 'left', 'right', 'reset'].forEach(id => {
+    document.getElementById(id).addEventListener('click', () => handleInput(id));
+});
 
 window.onload = loadConfig;
