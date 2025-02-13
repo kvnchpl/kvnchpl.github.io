@@ -1,6 +1,10 @@
 /* sansui.js */
 let config = {};
 
+let playerPosition = { x: 0, y: 0 };
+let playerDirection = 'down';
+let playerHasMoved = false;
+
 async function loadConfig() {
     try {
         const response = await fetch('sansui.json'); // Adjust URL if hosted elsewhere
@@ -45,10 +49,6 @@ function handleKeyDown(event) {
 
 // Call loadConfig on page load
 loadConfig();
-
-let playerPosition = { x: 0, y: 0 };
-let playerDirection = 'down';
-let playerHasMoved = false;
 
 // Initialize the grid and place the player randomly at an edge position
 function createMap() {
