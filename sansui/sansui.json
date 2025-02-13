@@ -3,24 +3,61 @@
     "cellSize": 48,
     "spawnChance": 0.05,
     "growthChance": 0.1,
-    "features": ["gravel", "water", "grass", "bush", "tree", "shrine"],
-    "growableFeatures": ["gravel", "water", "grass", "bush", "tree"],
+    "features": [
+        "gravel",
+        "water",
+        "grass",
+        "bush",
+        "tree",
+        "shrine"
+    ],
+    "growableFeatures": [
+        "gravel",
+        "water",
+        "grass",
+        "bush",
+        "tree"
+    ],
     "featureSprites": {
-        "gravel": ["gravel_1.png", "gravel_2.png", "gravel_3.png"],
-        "water": ["water_1.png", "water_2.png", "water_3.png"],
-        "grass": ["grass_1.png", "grass_2.png", "grass_3.png"],
-        "bush": ["bush_1.png", "bush_2.png", "bush_3.png"],
-        "tree": ["tree_1.png", "tree_2.png", "tree_3.png"],
-        "shrine": ["shrine_1.png", "shrine_2.png", "shrine_3.png"],
-        "path": {
-            "vertical": "path_vertical.png",
-            "horizontal": "path_horizontal.png",
-            "corner_tl": "path_corner_tl.png",
-            "corner_tr": "path_corner_tr.png",
-            "corner_bl": "path_corner_bl.png",
-            "corner_br": "path_corner_br.png",
-            "intersection_4": "path_intersection_4.png"
-        }
+        "gravel": [
+            "gravel_1.png",
+            "gravel_2.png",
+            "gravel_3.png"
+        ],
+        "water": [
+            "water_1.png",
+            "water_2.png",
+            "water_3.png"
+        ],
+        "grass": [
+            "grass_1.png",
+            "grass_2.png",
+            "grass_3.png"
+        ],
+        "bush": [
+            "bush_1.png",
+            "bush_2.png",
+            "bush_3.png"
+        ],
+        "tree": [
+            "tree_1.png",
+            "tree_2.png",
+            "tree_3.png"
+        ],
+        "shrine": [
+            "shrine_1.png",
+            "shrine_2.png",
+            "shrine_3.png"
+        ]
+    },
+    "pathSprites": {
+        "vertical": "path_vertical.png",
+        "horizontal": "path_horizontal.png",
+        "corner_tl": "path_corner_tl.png",
+        "corner_tr": "path_corner_tr.png",
+        "corner_bl": "path_corner_bl.png",
+        "corner_br": "path_corner_br.png",
+        "intersection_4": "path_intersection_4.png"
     },
     "playerSprites": {
         "up": "player_up.png",
