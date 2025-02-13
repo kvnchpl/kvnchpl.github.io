@@ -176,15 +176,15 @@ function movePlayer(x, y) {
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // Determine if it's an isolated path
+            // Determine if it's an isolated path (no adjacent paths)
             const neighbors = getPathNeighbors(oldPos);
             const isFirstMove = !Object.values(neighbors).some(Boolean);
             const firstMoveDirection = isFirstMove ? (x !== 0 ? 'horizontal' : 'vertical') : null;
 
-            // **Use firstMoveDirection to determine correct path immediately**
+            // **Pass firstMoveDirection to every adjustPathType() call**
             adjustPathType(oldPos, firstMoveDirection);
             adjustAdjacentPathTypes(oldPos);
-            adjustPathType(playerPosition);
+            adjustPathType(playerPosition, firstMoveDirection);
             adjustAdjacentPathTypes(playerPosition);
         }
     }
@@ -235,7 +235,14 @@ function adjustPathType(pos, firstMoveDirection = null) {
     // Get all 8 neighboring path states
     const neighbors = getPathNeighbors(pos);
 
-    // Determine new path type, considering first move direction
+    // **If no adjacent paths exist, use firstMoveDirection**
+    const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
+    if (!hasAdjacentPaths && firstMoveDirection) {
+        featureLayer.style.backgroundImage = `url(${config.sprites.paths[firstMoveDirection]})`;
+        return;
+    }
+
+    // Determine new path type
     let newPathType = determinePathType(neighbors, firstMoveDirection);
 
     // Apply the new path type immediately
@@ -248,7 +255,7 @@ function determinePathType(neighbors, firstMoveDirection = null) {
 
     if (!hasAdjacentPaths) {
         if (firstMoveDirection) {
-            return firstMoveDirection === 'horizontal' ? 'horizontal' : 'vertical';
+            return firstMoveDirection;
         }
         console.warn("Isolated path detected but no movement direction provided. Defaulting to horizontal.");
         return 'horizontal';  // Default to horizontal only if no movement direction is known
