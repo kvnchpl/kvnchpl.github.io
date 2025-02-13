@@ -438,6 +438,4 @@ function setupButtonControls() {
     document.getElementById('reset').addEventListener('click', createMap);
 }
 
-window.onload = function () {
-    loadConfig();
-};
+window.onload = loadConfig;
