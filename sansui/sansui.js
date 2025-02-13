@@ -26,9 +26,9 @@ async function loadConfig() {
         // Convert sprite paths to full URLs
         const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
         // Apply to features and paths
-        config.featureSprites = prependBaseURL(config.featureSprites, baseURL);
-        config.pathSprites = prependBaseURL(config.pathSprites, baseURL);
-        config.playerSprites = prependBaseURL(config.playerSprites, baseURL);
+        config.sprites.features = prependBaseURL(config.sprites.features, baseURL);
+        config.sprites.paths = prependBaseURL(config.sprites.paths, baseURL);
+        config.sprites.player = prependBaseURL(config.sprites.player, baseURL);
 
         for (let direction in config.playerSprites) {
             config.playerSprites[direction] = baseURL + config.playerSprites[direction];
@@ -185,11 +185,10 @@ function movePlayer(x, y) {
                 x: newX,
                 y: newY
             });
-            playerPosition = {
-                x: newX,
-                y: newY
-            };
-            playerHasMoved = true;
+            if (newX !== playerPosition.x || newY !== playerPosition.y) {
+                playerPosition = { x: newX, y: newY };
+                playerHasMoved = true;
+            }
         }
     }
 
@@ -312,7 +311,10 @@ function markAsGrowable(x, y) {
 function generateFeature() {
     if (!playerHasMoved || growableCells.size === 0) return;
 
-    growableCells.forEach(cellKey => {
+    const cellsToProcess = Array.from(growableCells);
+    growableCells.clear(); // Clear previous set
+
+    cellsToProcess.forEach(cellKey => {
         const [x, y] = cellKey.split(',').map(Number);
         const adjacentPositions = [
             { x: x - 1, y: y },
@@ -327,9 +329,12 @@ function generateFeature() {
                 const featureLayer = cell.querySelector('.feature');
 
                 if (!featureLayer.style.backgroundImage && Math.random() < config.spawnChance) {
-                    const feature = config.categories.growableFeatures[Math.floor(Math.random() * config.categories.growableFeatures.length)];
-                    featureLayer.style.backgroundImage = `url(${config.featureSprites[feature][Math.floor(Math.random() * config.featureSprites[feature].length)]})`;
-                    markAsGrowable(pos.x, pos.y);
+                    const feature = Object.keys(config.features)
+                        .filter(f => config.features[f].growable)
+                        .sort(() => Math.random() - 0.5)[0];
+
+                    featureLayer.style.backgroundImage = `url(${config.sprites.features[feature][Math.floor(Math.random() * config.sprites.features[feature].length)]})`;
+                    growableCells.add(`${pos.x},${pos.y}`);
                 }
             }
         });
@@ -371,7 +376,9 @@ function growFeatures() {
                     const isPlayerHere = playerPosition.x === adjPos.x && playerPosition.y === adjPos.y;
 
                     if (adjacentFeatureLayer.style.backgroundImage === '' && !isPlayerHere && Math.random() < config.growthChance) {
-                        const featureType = config.growableFeatures.find(feature => featureLayer.style.backgroundImage.includes(feature));
+                        const featureType = Object.entries(config.features).find(([key, data]) =>
+                            featureLayer.style.backgroundImage.includes(key) && data.growable
+                        );
                         if (featureType) {
                             const sprite = featureSprites[featureType][Math.floor(Math.random() * featureSprites[featureType].length)];
                             adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
