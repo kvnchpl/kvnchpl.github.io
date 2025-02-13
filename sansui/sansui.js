@@ -7,7 +7,7 @@ let playerHasMoved = false;
 
 async function loadConfig() {
     try {
-        const response = await fetch('sansui.json'); // Adjust URL if hosted elsewhere
+        const response = await fetch('https://kvnchpl.github.io/sansui/sansui.json');
         config = await response.json();
 
         // Convert sprite paths to full URLs
