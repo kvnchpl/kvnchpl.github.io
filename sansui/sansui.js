@@ -261,27 +261,6 @@ function determinePathType(neighbors, firstMoveDirection = null) {
         return 'horizontal';  // Default to horizontal only if no movement direction is known
     }
 
-    /*
-    // Fully enclosed path (all 8 neighbors are paths)
-    if (Object.values(neighbors).every(Boolean)) {
-        return 'path_filled';
-    }
-
-    // Inverted corners
-    if (neighbors.topLeft && neighbors.top && neighbors.left && neighbors.bottom && neighbors.right) {
-        return 'invertedcorner_br';
-    }
-    if (neighbors.topRight && neighbors.top && neighbors.right && neighbors.bottom && neighbors.left) {
-        return 'invertedcorner_bl';
-    }
-    if (neighbors.bottomLeft && neighbors.bottom && neighbors.left && neighbors.top && neighbors.right) {
-        return 'invertedcorner_tr';
-    }
-    if (neighbors.bottomRight && neighbors.bottom && neighbors.right && neighbors.top && neighbors.left) {
-        return 'invertedcorner_tl';
-    }
-    */
-   
     // Full 4-way intersection
     if (neighbors.top && neighbors.bottom && neighbors.left && neighbors.right) {
         return 'intersection_4';
@@ -303,7 +282,7 @@ function determinePathType(neighbors, firstMoveDirection = null) {
     if (neighbors.top && neighbors.bottom) return 'vertical';
     if (neighbors.left && neighbors.right) return 'horizontal';
 
-    // Default to horizontal if something goes wrong
+    // Default case (should never reach this point)
     console.warn("No path type determined for:", neighbors);
     return 'horizontal';
 }
