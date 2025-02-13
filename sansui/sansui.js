@@ -350,13 +350,18 @@ function setupAutoGrowth() {
 
 function prependBaseURL(obj, baseURL) {
     if (Array.isArray(obj)) {
-        return obj.map(img => (img.startsWith('http') || img.startsWith('/')) ? img : baseURL + img);
+        // If it's an array, apply URL transformation to each element
+        return obj.map(item => (typeof item === 'string' && !item.startsWith('http') && !item.startsWith('/')) ? baseURL + item : item);
     } else if (typeof obj === 'object' && obj !== null) {
+        // If it's an object, recursively process all properties
         return Object.fromEntries(
             Object.entries(obj).map(([key, value]) => [key, prependBaseURL(value, baseURL)])
         );
+    } else if (typeof obj === 'string') {
+        // If it's a single string, apply the base URL if needed
+        return (!obj.startsWith('http') && !obj.startsWith('/')) ? baseURL + obj : obj;
     }
-    return (obj.startsWith('http') || obj.startsWith('/')) ? obj : baseURL + obj;
+    return obj; // Return other types unchanged
 }
 
 function scheduleUpdate() {
