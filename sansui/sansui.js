@@ -176,18 +176,21 @@ function movePlayer(x, y) {
 
         // Only move the player if the target cell does not have a non-path feature
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            createPath(playerPosition, {
-                x: newX,
-                y: newY
-            });
-            if (newX !== playerPosition.x || newY !== playerPosition.y) {
-                playerPosition = { x: newX, y: newY };
-                playerHasMoved = true;
-            }
+            // Ensure the old tile updates immediately before moving the player
+            adjustPathType(playerPosition);
+            adjustAdjacentPathTypes(playerPosition);
+
+            // Move the player
+            playerPosition = { x: newX, y: newY };
+            playerHasMoved = true;
+
+            // Ensure the new tile updates after moving the player
+            adjustPathType(playerPosition);
+            adjustAdjacentPathTypes(playerPosition);
         }
     }
 
-    scheduleUpdate(); // Update the map regardless of whether the player moved
+    scheduleUpdate(); // Update the map
 }
 
 // Create a path as the player moves, selecting the appropriate path shape based on adjacent cells
