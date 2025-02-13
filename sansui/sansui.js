@@ -251,6 +251,14 @@ function adjustPathType(pos) {
 }
 
 function determinePathType(adjacentPaths, diagonalPaths) {
+    // Check if all 8 surrounding tiles are paths → fully enclosed path
+    if (
+        adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right &&
+        diagonalPaths.topLeft && diagonalPaths.topRight && diagonalPaths.bottomLeft && diagonalPaths.bottomRight
+    ) {
+        return 'path_filled'; // New fully enclosed sprite
+    }
+    
     // Handle inverted corners (when surrounded by most tiles except one diagonal)
     if (diagonalPaths.topLeft && adjacentPaths.top && adjacentPaths.left && adjacentPaths.bottom && adjacentPaths.right && diagonalPaths.bottomRight && diagonalPaths.topRight) {
         return 'invertedcorner_br';
