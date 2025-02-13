@@ -11,7 +11,6 @@ let playerPosition = {
 let playerDirection = 'down';
 let playerHasMoved = false;
 
-
 async function loadConfig() {
     try {
         console.log("Loading configuration...");
@@ -23,20 +22,15 @@ async function loadConfig() {
             return;
         }
 
-        // Convert sprite paths to full URLs
+        // Base URL for assets
         const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
 
-        Object.keys(config.sprites).forEach(category => {
-            config.sprites[category] = prependBaseURL(config.sprites[category], baseURL);
-        });
-
-        for (let direction in config.sprites.player) {
-            config.sprites.player[direction] = baseURL + config.sprites.player[direction];
-        }
+        // Apply URL transformation to all sprites in the config
+        config.sprites = prependBaseURL(config.sprites, baseURL);
 
         console.log("Config successfully loaded:", config);
 
-        // Call initGame only once after successful config load
+        // Initialize game after loading config
         initGame();
     } catch (error) {
         console.error("Failed to load config:", error);
@@ -356,13 +350,13 @@ function setupAutoGrowth() {
 
 function prependBaseURL(obj, baseURL) {
     if (Array.isArray(obj)) {
-        return obj.map(img => img.startsWith('http') ? img : baseURL + img);
+        return obj.map(img => (img.startsWith('http') || img.startsWith('/')) ? img : baseURL + img);
     } else if (typeof obj === 'object' && obj !== null) {
         return Object.fromEntries(
             Object.entries(obj).map(([key, value]) => [key, prependBaseURL(value, baseURL)])
         );
     }
-    return obj.startsWith('http') ? obj : baseURL + obj;
+    return (obj.startsWith('http') || obj.startsWith('/')) ? obj : baseURL + obj;
 }
 
 function scheduleUpdate() {
