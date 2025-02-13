@@ -169,20 +169,19 @@ function movePlayer(x, y) {
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            // **Immediately mark the new tile as a path**
+            // **Ensure the new tile is marked as a path BEFORE determining type**
             targetFeatureLayer.classList.add('path');
 
             // Move the player
+            const oldPos = { ...playerPosition };  // Store old position before updating
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // **Now adjust previous tile & surrounding paths**
-            adjustPathType({ x: newX, y: newY });
-            adjustAdjacentPathTypes({ x: newX, y: newY });
-
-            // Ensure previous tile updates correctly
-            adjustPathType({ x: newX - x, y: newY - y });
-            adjustAdjacentPathTypes({ x: newX - x, y: newY - y });
+            // **Now determine correct path type immediately**
+            adjustPathType(oldPos);
+            adjustAdjacentPathTypes(oldPos);
+            adjustPathType(playerPosition);
+            adjustAdjacentPathTypes(playerPosition);
         }
     }
 
@@ -253,16 +252,16 @@ function adjustPathType(pos) {
 
 function determinePathType(adjacentPaths, diagonalPaths) {
     // Handle inverted corners (when surrounded by most tiles except one diagonal)
-    if (diagonalPaths.topLeft && diagonalPaths.top && diagonalPaths.left && diagonalPaths.bottom && diagonalPaths.right && diagonalPaths.bottomRight && diagonalPaths.topRight) {
+    if (diagonalPaths.topLeft && adjacentPaths.top && adjacentPaths.left && adjacentPaths.bottom && adjacentPaths.right && diagonalPaths.bottomRight && diagonalPaths.topRight) {
         return 'invertedcorner_br';
     }
-    if (diagonalPaths.topRight && diagonalPaths.top && diagonalPaths.right && diagonalPaths.bottom && diagonalPaths.left && diagonalPaths.bottomLeft && diagonalPaths.topLeft) {
+    if (diagonalPaths.topRight && adjacentPaths.top && adjacentPaths.right && adjacentPaths.bottom && adjacentPaths.left && diagonalPaths.bottomLeft && diagonalPaths.topLeft) {
         return 'invertedcorner_bl';
     }
-    if (diagonalPaths.bottomLeft && diagonalPaths.bottom && diagonalPaths.left && diagonalPaths.top && diagonalPaths.right && diagonalPaths.topRight && diagonalPaths.bottomRight) {
+    if (diagonalPaths.bottomLeft && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.top && adjacentPaths.right && diagonalPaths.topRight && diagonalPaths.bottomRight) {
         return 'invertedcorner_tr';
     }
-    if (diagonalPaths.bottomRight && diagonalPaths.bottom && diagonalPaths.right && diagonalPaths.top && diagonalPaths.left && diagonalPaths.topLeft && diagonalPaths.bottomLeft) {
+    if (diagonalPaths.bottomRight && adjacentPaths.bottom && adjacentPaths.right && adjacentPaths.top && adjacentPaths.left && diagonalPaths.topLeft && diagonalPaths.bottomLeft) {
         return 'invertedcorner_tl';
     }
 
@@ -283,12 +282,16 @@ function determinePathType(adjacentPaths, diagonalPaths) {
     if (adjacentPaths.left && adjacentPaths.top) return 'corner_br';
     if (adjacentPaths.right && adjacentPaths.top) return 'corner_bl';
 
-    // Handle straight paths
+    // Handle connected straight paths
     if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
     if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
 
-    console.log("No path type determined for:", adjacentPaths, diagonalPaths);
-    return 'horizontal'; // Default if no clear type is determined
+    // Handle isolated straight paths
+    if (adjacentPaths.top || adjacentPaths.bottom) return 'vertical';
+    if (adjacentPaths.left || adjacentPaths.right) return 'horizontal';
+
+    console.warn("No path type determined for:", adjacentPaths, diagonalPaths);
+    return 'horizontal'; // Default to horizontal
 }
 
 function adjustAdjacentPathTypes(pos) {
