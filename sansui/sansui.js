@@ -169,19 +169,19 @@ function movePlayer(x, y) {
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            // Ensure the new tile is marked as a path BEFORE determining type
+            // **Ensure the new tile is marked as a path BEFORE determining type**
             targetFeatureLayer.classList.add('path');
 
             const oldPos = { ...playerPosition }; // Store old position before updating
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // Determine if it's the first move
-            const isFirstMove = !Object.values(getPathNeighbors(oldPos)).some(Boolean);
-            // Determine the first move direction
+            // Determine if it's an isolated path
+            const neighbors = getPathNeighbors(oldPos);
+            const isFirstMove = !Object.values(neighbors).some(Boolean);
             const firstMoveDirection = isFirstMove ? (x !== 0 ? 'horizontal' : 'vertical') : null;
 
-            // Adjust path types for old and new position
+            // **Use firstMoveDirection to determine correct path immediately**
             adjustPathType(oldPos, firstMoveDirection);
             adjustAdjacentPathTypes(oldPos);
             adjustPathType(playerPosition);
@@ -243,11 +243,15 @@ function adjustPathType(pos, firstMoveDirection = null) {
 }
 
 function determinePathType(neighbors, firstMoveDirection = null) {
-    // Check if no adjacent paths exist (first move)
+    // Check if no adjacent paths exist (isolated tile)
     const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
 
-    if (!hasAdjacentPaths && firstMoveDirection) {
-        return firstMoveDirection === 'horizontal' ? 'horizontal' : 'vertical';
+    if (!hasAdjacentPaths) {
+        if (firstMoveDirection) {
+            return firstMoveDirection === 'horizontal' ? 'horizontal' : 'vertical';
+        }
+        console.warn("Isolated path detected but no movement direction provided. Defaulting to horizontal.");
+        return 'horizontal';  // Default to horizontal only if no movement direction is known
     }
 
     /*
