@@ -63,7 +63,15 @@
             "corner_tr": "path_corner_tr.png",
             "corner_bl": "path_corner_bl.png",
             "corner_br": "path_corner_br.png",
-            "intersection_4": "path_intersection_4.png"
+            "intersection_4": "path_intersection_4.png",
+            "intersection_3_top": "path_intersection_3_top.png",
+            "intersection_3_bottom": "path_intersection_3_bottom.png",
+            "intersection_3_left": "path_intersection_3_left.png",
+            "intersection_3_right": "path_intersection_3_right.png",
+            "invertedcorner_tl": "path_invertedcorner_tl.png",
+            "invertedcorner_tr": "path_invertedcorner_tr.png",
+            "invertedcorner_bl": "path_invertedcorner_bl.png",
+            "invertedcorner_br": "path_invertedcorner_br.png"
         },
         "player": {
             "up": "player_up.png",

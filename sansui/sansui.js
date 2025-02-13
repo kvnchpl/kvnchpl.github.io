@@ -233,24 +233,59 @@ function adjustPathType(pos) {
         right: isPath(pos.x + 1, pos.y)
     };
 
+    // Check diagonal paths
+    const diagonalPaths = {
+        topLeft: isPath(pos.x - 1, pos.y - 1),
+        topRight: isPath(pos.x + 1, pos.y - 1),
+        bottomLeft: isPath(pos.x - 1, pos.y + 1),
+        bottomRight: isPath(pos.x + 1, pos.y + 1)
+    };
+
     // Determine the correct path type
-    let newPathType = determinePathType(adjacentPaths);
+    let newPathType = determinePathType(adjacentPaths, diagonalPaths);
 
     if (newPathType) {
         featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
     }
 }
 
-function determinePathType(adjacentPaths) {
-    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) return 'intersection_4';
+function determinePathType(adjacentPaths, diagonalPaths) {
+    // Handle full 4-way intersection
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
+        return 'intersection_4';
+    }
+
+    // Handle 3-way intersections
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.right) return 'intersection_3_right';
+    if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) return 'intersection_3_left';
+    if (adjacentPaths.left && adjacentPaths.right && adjacentPaths.top) return 'intersection_3_top';
+    if (adjacentPaths.left && adjacentPaths.right && adjacentPaths.bottom) return 'intersection_3_bottom';
+
+    // Handle straight paths
     if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
     if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
+
+    // Handle regular corners
     if (adjacentPaths.top && adjacentPaths.right) return 'corner_br';
     if (adjacentPaths.top && adjacentPaths.left) return 'corner_bl';
     if (adjacentPaths.bottom && adjacentPaths.right) return 'corner_tl';
     if (adjacentPaths.bottom && adjacentPaths.left) return 'corner_tr';
 
-    return 'horizontal'; // Default to horizontal if no clear intersection
+    // Handle inverted corners (when surrounded by most tiles except one diagonal)
+    if (diagonalPaths.topLeft && diagonalPaths.top && diagonalPaths.left && diagonalPaths.bottom && diagonalPaths.right && diagonalPaths.bottomRight && diagonalPaths.topRight) {
+        return 'invertedcorner_br';
+    }
+    if (diagonalPaths.topRight && diagonalPaths.top && diagonalPaths.right && diagonalPaths.bottom && diagonalPaths.left && diagonalPaths.bottomLeft && diagonalPaths.topLeft) {
+        return 'invertedcorner_bl';
+    }
+    if (diagonalPaths.bottomLeft && diagonalPaths.bottom && diagonalPaths.left && diagonalPaths.top && diagonalPaths.right && diagonalPaths.topRight && diagonalPaths.bottomRight) {
+        return 'invertedcorner_tr';
+    }
+    if (diagonalPaths.bottomRight && diagonalPaths.bottom && diagonalPaths.right && diagonalPaths.top && diagonalPaths.left && diagonalPaths.topLeft && diagonalPaths.bottomLeft) {
+        return 'invertedcorner_tl';
+    }
+
+    return 'horizontal'; // Default if no clear type is determined
 }
 
 function adjustAdjacentPathTypes(pos) {
