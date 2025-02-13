@@ -287,7 +287,7 @@ function determinePathType(adjacentPaths, diagonalPaths) {
     if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
     if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
 
-    console.log("No path type determined for:", adjacentPaths, diagonalPaths);
+    console.log("No path type determined for:", pos);
     return 'horizontal'; // Default if no clear type is determined
 }
 
