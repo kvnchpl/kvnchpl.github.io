@@ -32,7 +32,8 @@ async function loadConfig() {
 }
 
 async function initializeGame() {
-    await loadConfig(); // Ensure config is loaded
+    await loadConfig(); // Wait until config is fully loaded
+    console.log("Config successfully loaded:", config); // Debugging log
     createMap();
     document.addEventListener('keydown', handleKeyDown);
 }
@@ -350,6 +351,3 @@ document.getElementById('left').addEventListener('click', () => movePlayer(-1, 0
 document.getElementById('right').addEventListener('click', () => movePlayer(1, 0));
 
 document.getElementById('reset').addEventListener('click', createMap);
-
-// Initialize the map when the page loads
-createMap();
