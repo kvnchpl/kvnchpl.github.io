@@ -172,13 +172,16 @@ function movePlayer(x, y) {
             // **Ensure the new tile is marked as a path BEFORE determining type**
             targetFeatureLayer.classList.add('path');
 
-            // Move the player
             const oldPos = { ...playerPosition };  // Store old position before updating
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // **Now determine correct path type immediately**
-            adjustPathType(oldPos);
+            // Determine if it's the first move (no adjacent paths)
+            const isFirstMove = !Object.values(getAdjacentPaths(oldPos)).some(Boolean);
+            const firstMoveDirection = isFirstMove ? (x !== 0 ? 'horizontal' : 'vertical') : null;
+
+            // **Pass the firstMoveDirection to determinePathType()**
+            adjustPathType(oldPos, firstMoveDirection);
             adjustAdjacentPathTypes(oldPos);
             adjustPathType(playerPosition);
             adjustAdjacentPathTypes(playerPosition);
@@ -221,36 +224,32 @@ function createPath(oldPos, newPos) {
     adjustAdjacentPathTypes(oldPos);
 }
 
-function adjustPathType(pos) {
+function adjustPathType(pos, firstMoveDirection = null) {
     const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
     if (!cell) return;
 
     const featureLayer = cell.querySelector('.feature');
     if (!featureLayer.classList.contains('path')) return;
 
-    // Check adjacency before deciding the type
-    const adjacentPaths = {
-        top: isPath(pos.x, pos.y - 1),
-        bottom: isPath(pos.x, pos.y + 1),
-        left: isPath(pos.x - 1, pos.y),
-        right: isPath(pos.x + 1, pos.y)
-    };
+    // Get surrounding path info
+    const adjacentPaths = getAdjacentPaths(pos);
+    const diagonalPaths = getDiagonalPaths(pos);
 
-    const diagonalPaths = {
-        topLeft: isPath(pos.x - 1, pos.y - 1),
-        topRight: isPath(pos.x + 1, pos.y - 1),
-        bottomLeft: isPath(pos.x - 1, pos.y + 1),
-        bottomRight: isPath(pos.x + 1, pos.y + 1)
-    };
+    // Determine new path type, considering first move direction
+    let newPathType = determinePathType(adjacentPaths, diagonalPaths, firstMoveDirection);
 
-    // Determine new path type
-    let newPathType = determinePathType(adjacentPaths, diagonalPaths);
-
-    // **Apply the new path type immediately**
+    // Apply the new path type immediately
     featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
 }
 
-function determinePathType(adjacentPaths, diagonalPaths) {
+function determinePathType(adjacentPaths, diagonalPaths, firstMoveDirection = null) {
+    // Special case: If NO adjacent paths exist, base path on movement direction
+    const hasAdjacentPaths = Object.values(adjacentPaths).some(Boolean);
+    
+    if (!hasAdjacentPaths && firstMoveDirection) {
+        return firstMoveDirection === 'horizontal' ? 'horizontal' : 'vertical';
+    }
+
     /*
     // Check if all 8 surrounding tiles are paths → fully enclosed path
     if (
