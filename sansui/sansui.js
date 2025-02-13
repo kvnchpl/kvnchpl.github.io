@@ -208,7 +208,7 @@ function createPath(oldPos, newPos) {
     oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
     oldFeatureLayer.classList.add('path');
 
-    // Adjust path types for the old cell and surrounding cells
+    // Immediately update the path type for the old position
     adjustPathType(oldPos);
     adjustAdjacentPathTypes(oldPos);
 
@@ -216,7 +216,7 @@ function createPath(oldPos, newPos) {
     playerPosition = newPos;
     updateMap();
 
-    // Adjust path types for the new position and surrounding cells
+    // Ensure the new position and its surroundings update
     adjustPathType(newPos);
     adjustAdjacentPathTypes(newPos);
 }
