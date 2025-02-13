@@ -29,6 +29,7 @@ async function loadConfig() {
         config.sprites = prependBaseURL(config.sprites, baseURL);
 
         console.log("Config successfully loaded:", config);
+        console.log("Sprites after URL processing:", config.sprites); // Debugging log
 
         // Initialize game after loading config
         initGame();
@@ -237,7 +238,12 @@ function adjustPathType(pos) {
     };
 
     let pathType = determinePathType(adjacentPaths);
-    featureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
+    if (config.sprites.features[feature] && config.sprites.features[feature].length > 0) {
+        const spriteIndex = Math.floor(Math.random() * config.sprites.features[feature].length);
+        featureLayer.style.backgroundImage = `url(${config.sprites.features[feature][spriteIndex]})`;
+    } else {
+        console.error("Feature sprite missing:", feature, config.sprites.features[feature]);
+    }
 }
 
 function determinePathType(adjacentPaths) {
@@ -351,7 +357,7 @@ function setupAutoGrowth() {
 function prependBaseURL(obj, baseURL) {
     if (Array.isArray(obj)) {
         // If it's an array, apply URL transformation to each element
-        return obj.map(item => (typeof item === 'string' && !item.startsWith('http') && !item.startsWith('/')) ? baseURL + item : item);
+        return obj.map(item => (typeof item === 'string' && item && !item.startsWith('http') && !item.startsWith('/')) ? baseURL + item : item);
     } else if (typeof obj === 'object' && obj !== null) {
         // If it's an object, recursively process all properties
         return Object.fromEntries(
@@ -359,7 +365,7 @@ function prependBaseURL(obj, baseURL) {
         );
     } else if (typeof obj === 'string') {
         // If it's a single string, apply the base URL if needed
-        return (!obj.startsWith('http') && !obj.startsWith('/')) ? baseURL + obj : obj;
+        return (obj && !obj.startsWith('http') && !obj.startsWith('/')) ? baseURL + obj : obj;
     }
     return obj; // Return other types unchanged
 }
