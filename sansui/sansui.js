@@ -176,15 +176,15 @@ function movePlayer(x, y) {
 
         // Only move the player if the target cell does not have a non-path feature
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            // Ensure the old tile updates immediately before moving the player
-            adjustPathType(playerPosition);
-            adjustAdjacentPathTypes(playerPosition);
+            
+            // **Create the path before adjusting types**
+            createPath(playerPosition, { x: newX, y: newY });
 
             // Move the player
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // Ensure the new tile updates after moving the player
+            // **Now update the tile and its neighbors**
             adjustPathType(playerPosition);
             adjustAdjacentPathTypes(playerPosition);
         }
@@ -201,24 +201,16 @@ function createPath(oldPos, newPos) {
     const deltaX = newPos.x - oldPos.x;
     const deltaY = newPos.y - oldPos.y;
 
-    // Determine the path type for the old cell based on movement
+    // Determine the basic path type based on movement direction
     let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
 
-    // Apply the path type to the old cell
+    // Mark the old cell as a path
     oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
     oldFeatureLayer.classList.add('path');
 
-    // Immediately update the path type for the old position
+    // **Adjust the path immediately after marking**
     adjustPathType(oldPos);
     adjustAdjacentPathTypes(oldPos);
-
-    // Move the player to the new position
-    playerPosition = newPos;
-    updateMap();
-
-    // Ensure the new position and its surroundings update
-    adjustPathType(newPos);
-    adjustAdjacentPathTypes(newPos);
 }
 
 function adjustPathType(pos) {
