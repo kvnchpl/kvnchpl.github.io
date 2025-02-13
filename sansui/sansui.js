@@ -58,7 +58,7 @@ function createMap() {
     // Determine the width of the map based on screen size
     const mapWidthInCells = Math.min((Math.floor(window.innerWidth / config.cellSize)) - 1, config.mapSize);
 
-    for (let y = 0; y < mapSize; y++) {
+    for (let y = 0; y < config.mapSize; y++) {
         for (let x = 0; x < mapWidthInCells; x++) {
             const cell = document.createElement('div');
             cell.classList.add('cell');
@@ -90,9 +90,9 @@ function createMap() {
 function placePlayerRandomly(mapWidthInCells) {
     const edgePositions = [];
     for (let i = 0; i < mapWidthInCells; i++) {
-        edgePositions.push({ x: i, y: 0 }, { x: i, y: mapSize - 1 });
+        edgePositions.push({ x: i, y: 0 }, { x: i, y: config.mapSize - 1 });
     }
-    for (let i = 0; i < mapSize; i++) {
+    for (let i = 0; i < config.mapSize; i++) {
         edgePositions.push({ x: 0, y: i }, { x: mapWidthInCells - 1, y: i });
     }
 
@@ -119,7 +119,7 @@ function updateMap(mapWidthInCells) {
 
 // Move the player in the specified direction, update the direction, and create a path
 function movePlayer(x, y) {
-    const mapWidthInCells = Math.min(Math.floor(window.innerWidth / cellSize), mapSize);
+    const mapWidthInCells = Math.min(Math.floor(window.innerWidth / config.cellSize), config.mapSize);
     const newX = playerPosition.x + x;
     const newY = playerPosition.y + y;
 
@@ -127,7 +127,7 @@ function movePlayer(x, y) {
     playerDirection = x === 1 ? 'right' : x === -1 ? 'left' : y === 1 ? 'down' : 'up';
 
     // Check if the new position is within bounds
-    if (newX >= 0 && newX < mapWidthInCells && newY >= 0 && newY < mapSize) {
+    if (newX >= 0 && newX < mapWidthInCells && newY >= 0 && newY < config.mapSize) {
         const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
@@ -225,7 +225,7 @@ function adjustAdjacentPathTypes(pos) {
         { x: pos.x + 1, y: pos.y }
     ];
     adjacentPositions.forEach(adjPos => {
-        if (adjPos.x >= 0 && adjPos.x < mapSize && adjPos.y >= 0 && adjPos.y < mapSize) {
+        if (adjPos.x >= 0 && adjPos.x < config.mapSize && adjPos.y >= 0 && adjPos.y < config.mapSize) {
             const cell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
             const featureLayer = cell.querySelector('.feature');
             if (featureLayer.classList.contains('path')) {
@@ -256,7 +256,7 @@ function generateFeature() {
 
     surroundingPositions.forEach(pos => {
         // Check if the position is within bounds
-        if (pos.x >= 0 && pos.x < mapSize && pos.y >= 0 && pos.y < mapSize) {
+        if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
             const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
             const featureLayer = cell.querySelector('.feature');
 
@@ -288,12 +288,12 @@ function growFeatures() {
             ];
 
             adjacentPositions.forEach(adjPos => {
-                if (adjPos.x >= 0 && adjPos.x < mapSize && adjPos.y >= 0 && adjPos.y < mapSize) {
+                if (adjPos.x >= 0 && adjPos.x < config.mapSize && adjPos.y >= 0 && adjPos.y < config.mapSize) {
                     const adjacentCell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
                     const adjacentFeatureLayer = adjacentCell.querySelector('.feature');
                     const isPlayerHere = playerPosition.x === adjPos.x && playerPosition.y === adjPos.y;
 
-                    if (adjacentFeatureLayer.style.backgroundImage === '' && !isPlayerHere && Math.random() < growthChance) {
+                    if (adjacentFeatureLayer.style.backgroundImage === '' && !isPlayerHere && Math.random() < config.growthChance) {
                         const featureType = growableFeatures.find(feature => featureLayer.style.backgroundImage.includes(feature));
                         if (featureType) {
                             const sprite = featureSprites[featureType][Math.floor(Math.random() * featureSprites[featureType].length)];
