@@ -30,8 +30,8 @@ async function loadConfig() {
             config.sprites[category] = prependBaseURL(config.sprites[category], baseURL);
         });
 
-        for (let direction in config.playerSprites) {
-            config.playerSprites[direction] = baseURL + config.playerSprites[direction];
+        for (let direction in config.sprites.player) {
+            config.sprites.player[direction] = baseURL + config.sprites.player[direction];
         }
 
         console.log("Config successfully loaded:", config);
