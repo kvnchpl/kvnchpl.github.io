@@ -169,16 +169,20 @@ function movePlayer(x, y) {
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            // **Create path and immediately update its type**
-            createPath(playerPosition, { x: newX, y: newY });
+            // **Immediately mark the new tile as a path**
+            targetFeatureLayer.classList.add('path');
 
             // Move the player
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // **Now update the tile and its neighbors**
-            adjustPathType(playerPosition);
-            adjustAdjacentPathTypes(playerPosition);
+            // **Now adjust previous tile & surrounding paths**
+            adjustPathType({ x: newX, y: newY });
+            adjustAdjacentPathTypes({ x: newX, y: newY });
+
+            // Ensure previous tile updates correctly
+            adjustPathType({ x: newX - x, y: newY - y });
+            adjustAdjacentPathTypes({ x: newX - x, y: newY - y });
         }
     }
 
