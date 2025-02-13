@@ -225,7 +225,7 @@ function adjustPathType(pos) {
     const featureLayer = cell.querySelector('.feature');
     if (!featureLayer.classList.contains('path')) return;
 
-    // Check which adjacent cells are paths
+    // Check adjacency before deciding the type
     const adjacentPaths = {
         top: isPath(pos.x, pos.y - 1),
         bottom: isPath(pos.x, pos.y + 1),
@@ -233,7 +233,6 @@ function adjustPathType(pos) {
         right: isPath(pos.x + 1, pos.y)
     };
 
-    // Check diagonal paths
     const diagonalPaths = {
         topLeft: isPath(pos.x - 1, pos.y - 1),
         topRight: isPath(pos.x + 1, pos.y - 1),
@@ -241,12 +240,11 @@ function adjustPathType(pos) {
         bottomRight: isPath(pos.x + 1, pos.y + 1)
     };
 
-    // Determine the correct path type
+    // Determine new path type
     let newPathType = determinePathType(adjacentPaths, diagonalPaths);
 
-    if (newPathType) {
-        featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
-    }
+    // **Apply the new path type immediately**
+    featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
 }
 
 function determinePathType(adjacentPaths, diagonalPaths) {
