@@ -7,8 +7,14 @@ let playerHasMoved = false;
 
 async function loadConfig() {
     try {
+        console.log("Loading configuration...");
         const response = await fetch('https://kvnchpl.github.io/sansui/sansui.json');
         config = await response.json();
+
+        if (!config.mapSize) {
+            console.error("Invalid config: missing mapSize!");
+            return;
+        }
 
         // Convert sprite paths to full URLs
         const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
@@ -25,6 +31,9 @@ async function loadConfig() {
             config.playerSprites[direction] = baseURL + config.playerSprites[direction];
         }
 
+        console.log("Config successfully loaded:", config);
+        
+        // Call initGame only once after successful config load
         initGame();
     } catch (error) {
         console.error("Failed to load config:", error);
@@ -32,8 +41,13 @@ async function loadConfig() {
 }
 
 async function initGame() {
-    await loadConfig(); // Wait until config is fully loaded
-    console.log("Config successfully loaded:", config);
+    console.log("Initializing game...");
+
+    if (Object.keys(config).length === 0) {
+        console.error("Config is empty! Ensure loadConfig() runs before initGame().");
+        return;
+    }
+
     createMap();
     setupAutoGrowth();
     setupKeyboardControls();
@@ -50,9 +64,6 @@ function handleKeyDown(event) {
     };
     if (keyMap[event.key]) keyMap[event.key]();
 }
-
-// Call loadConfig on page load
-loadConfig();
 
 // Initialize the grid and place the player randomly at an edge position
 function createMap() {
@@ -357,3 +368,8 @@ function setupButtonControls() {
     document.getElementById('right').addEventListener('click', () => movePlayer(1, 0));
     document.getElementById('reset').addEventListener('click', createMap);
 }
+
+window.onload = function () {
+    console.log("Page fully loaded. Initializing Sansui...");
+    loadConfig();
+};
