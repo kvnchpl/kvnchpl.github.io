@@ -194,17 +194,29 @@ function createPath(oldPos, newPos) {
     const oldCell = document.querySelector(`.cell[data-x="${oldPos.x}"][data-y="${oldPos.y}"]`);
     const oldFeatureLayer = oldCell.querySelector('.feature');
 
-    const deltaX = newPos.x - oldPos.x;
-    const deltaY = newPos.y - oldPos.y;
-
-    // Determine the basic path type based on movement direction
-    let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
-
-    // Mark the old cell as a path
-    oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
+    // Ensure the old cell becomes a path
     oldFeatureLayer.classList.add('path');
 
-    // **Adjust the path immediately after marking**
+    // Check adjacent paths **before** assigning a type
+    const adjacentPaths = {
+        top: isPath(oldPos.x, oldPos.y - 1),
+        bottom: isPath(oldPos.x, oldPos.y + 1),
+        left: isPath(oldPos.x - 1, oldPos.y),
+        right: isPath(oldPos.x + 1, oldPos.y)
+    };
+
+    const diagonalPaths = {
+        topLeft: isPath(oldPos.x - 1, oldPos.y - 1),
+        topRight: isPath(oldPos.x + 1, oldPos.y - 1),
+        bottomLeft: isPath(oldPos.x - 1, oldPos.y + 1),
+        bottomRight: isPath(oldPos.x + 1, oldPos.y + 1)
+    };
+
+    // Determine the correct path type **before** applying it
+    let pathType = determinePathType(adjacentPaths, diagonalPaths);
+    oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
+
+    // **Ensure immediate updates**
     adjustPathType(oldPos);
     adjustAdjacentPathTypes(oldPos);
 }
