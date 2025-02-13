@@ -33,9 +33,11 @@ async function loadConfig() {
 
 async function initializeGame() {
     await loadConfig(); // Wait until config is fully loaded
-    console.log("Config successfully loaded:", config); // Debugging log
+    console.log("Config successfully loaded:", config);
     createMap();
-    document.addEventListener('keydown', handleKeyDown);
+    setupAutoGrowth();
+    setupKeyboardControls();
+    setupButtonControls();
 }
 
 function handleKeyDown(event) {
@@ -331,23 +333,27 @@ function growFeatures() {
     });
 }
 
-// Call growFeatures every 5 seconds
-setInterval(growFeatures, 5000);
+function setupAutoGrowth() {
+    setInterval(growFeatures, 5000);
+}
 
-document.addEventListener('keydown', event => {
-    const keyMap = {
-        'ArrowUp': () => movePlayer(0, -1),
-        'ArrowDown': () => movePlayer(0, 1),
-        'ArrowLeft': () => movePlayer(-1, 0),
-        'ArrowRight': () => movePlayer(1, 0),
-        ' ': growFeatures // Spacebar triggers growFeatures
-    };
-    if (keyMap[event.key]) keyMap[event.key]();
-});
+function setupKeyboardControls() {
+    document.addEventListener('keydown', event => {
+        const keyMap = {
+            'ArrowUp': () => movePlayer(0, -1),
+            'ArrowDown': () => movePlayer(0, 1),
+            'ArrowLeft': () => movePlayer(-1, 0),
+            'ArrowRight': () => movePlayer(1, 0),
+            ' ': growFeatures // Spacebar triggers growFeatures
+        };
+        if (keyMap[event.key]) keyMap[event.key]();
+    });
+}
 
-document.getElementById('up').addEventListener('click', () => movePlayer(0, -1));
-document.getElementById('down').addEventListener('click', () => movePlayer(0, 1));
-document.getElementById('left').addEventListener('click', () => movePlayer(-1, 0));
-document.getElementById('right').addEventListener('click', () => movePlayer(1, 0));
-
-document.getElementById('reset').addEventListener('click', createMap);
+function setupButtonControls() {
+    document.getElementById('up').addEventListener('click', () => movePlayer(0, -1));
+    document.getElementById('down').addEventListener('click', () => movePlayer(0, 1));
+    document.getElementById('left').addEventListener('click', () => movePlayer(-1, 0));
+    document.getElementById('right').addEventListener('click', () => movePlayer(1, 0));
+    document.getElementById('reset').addEventListener('click', createMap);
+}
