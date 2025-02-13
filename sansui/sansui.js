@@ -157,7 +157,7 @@ function updateMap(mapWidthInCells) {
         const playerLayer = cell.querySelector('.player');
         playerLayer.style.backgroundImage = '';
         if (parseInt(cell.dataset.x) === playerPosition.x && parseInt(cell.dataset.y) === playerPosition.y) {
-            playerLayer.style.backgroundImage = `url(${config.playerSprites[playerDirection]})`;
+            playerLayer.style.backgroundImage = `url(${config.sprites.player[playerDirection]})`;
         }
     });
 
