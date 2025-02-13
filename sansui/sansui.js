@@ -230,14 +230,15 @@ function adjustPathType(pos) {
     const featureLayer = cell.querySelector('.feature');
     if (!featureLayer.classList.contains('path')) return;
 
-    const adjacentPaths = {
-        top: isPath(pos.x, pos.y - 1),
-        bottom: isPath(pos.x, pos.y + 1),
-        left: isPath(pos.x - 1, pos.y),
-        right: isPath(pos.x + 1, pos.y),
-    };
+    // Extract the feature name if stored in a data attribute or class
+    let feature = featureLayer.dataset.feature || null; 
 
-    let pathType = determinePathType(adjacentPaths);
+    if (!feature) {
+        console.warn(`Feature not found for cell (${pos.x}, ${pos.y}).`);
+        return;
+    }
+
+    // Ensure the feature exists in the sprites config
     if (config.sprites.features[feature] && config.sprites.features[feature].length > 0) {
         const spriteIndex = Math.floor(Math.random() * config.sprites.features[feature].length);
         featureLayer.style.backgroundImage = `url(${config.sprites.features[feature][spriteIndex]})`;
