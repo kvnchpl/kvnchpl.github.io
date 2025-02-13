@@ -176,10 +176,8 @@ function movePlayer(x, y) {
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // Determine if it's an isolated path (no adjacent paths)
-            const neighbors = getPathNeighbors(oldPos);
-            const isFirstMove = !Object.values(neighbors).some(Boolean);
-            const firstMoveDirection = isFirstMove ? (x !== 0 ? 'horizontal' : 'vertical') : null;
+            // **Set firstMoveDirection explicitly based on movement direction**
+            const firstMoveDirection = x !== 0 ? 'horizontal' : 'vertical';
 
             // **Pass firstMoveDirection to every adjustPathType() call**
             adjustPathType(oldPos, firstMoveDirection);
@@ -250,12 +248,12 @@ function adjustPathType(pos, firstMoveDirection = null) {
 }
 
 function determinePathType(neighbors, firstMoveDirection = null) {
-    // Check if no adjacent paths exist (isolated tile)
+    // **Check if no adjacent paths exist (isolated tile)**
     const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
 
     if (!hasAdjacentPaths) {
         if (firstMoveDirection) {
-            return firstMoveDirection;
+            return firstMoveDirection; // Use the explicitly passed firstMoveDirection
         }
         console.warn("Isolated path detected but no movement direction provided. Defaulting to horizontal.");
         return 'horizontal';  // Default to horizontal only if no movement direction is known
