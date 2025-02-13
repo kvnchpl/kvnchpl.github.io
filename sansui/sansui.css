@@ -1,0 +1,142 @@
+
+/* sansui.css */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+#siteWrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.content-wrapper {
+    padding-top: 0 !important;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-bottom: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#title {
+    margin-bottom: 10px;
+}
+
+#header {
+    text-transform: uppercase !important;
+    margin-bottom: 10px;
+}
+
+#garden {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#map {
+    display: grid;
+    grid-template-columns: repeat(10, 48px);
+    grid-template-rows: repeat(10, 48px);
+    gap: 2px;
+    border: 2px solid black;
+}
+
+#reset {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    position: relative;
+}
+
+.cell .layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.feature {
+    background-size: cover;
+}
+
+.player {
+    z-index: 10;
+    background-size: cover;
+}
+
+#controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.arrow {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #controls {
+        display: grid;
+        grid-template-areas:
+            " .  up  . "
+            "left reset right"
+            " . down . ";
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto 1fr auto;
+    }
+
+    .arrow, #reset {
+        display: block;
+        font-size: 2rem;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 2rem;
+    }
+
+    #up {
+        grid-area: up;
+    }
+
+    #down {
+        grid-area: down;
+    }
+
+    #left {
+        grid-area: left;
+    }
+
+    #right {
+        grid-area: right;
+    }
+
+    #reset {
+        grid-area: reset;
+    }
+}
