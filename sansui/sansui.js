@@ -78,7 +78,7 @@ function createMap() {
     }
 
     // Adjust the CSS grid template columns based on the calculated width
-    map.style.gridTemplateColumns = `repeat(${mapWidthInCells}, ${cellSize}px)`;
+    map.style.gridTemplateColumns = `repeat(${mapWidthInCells}, ${config.cellSize}px)`;
 
     placePlayerRandomly(mapWidthInCells);
     updateMap(mapWidthInCells);
