@@ -178,6 +178,7 @@ function movePlayer(x, y) {
 
             // Determine if it's the first move
             const isFirstMove = !Object.values(getPathNeighbors(oldPos)).some(Boolean);
+            // Determine the first move direction
             const firstMoveDirection = isFirstMove ? (x !== 0 ? 'horizontal' : 'vertical') : null;
 
             // Adjust path types for old and new position
