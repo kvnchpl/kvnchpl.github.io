@@ -198,51 +198,46 @@ function createPath(oldPos, newPos) {
     const deltaX = newPos.x - oldPos.x;
     const deltaY = newPos.y - oldPos.y;
 
-    // Determine the path type for the old cell based on the movement direction
-    let pathType;
-    if (deltaX === 1 || deltaX === -1) {
-        pathType = 'horizontal';
-    } else if (deltaY === 1 || deltaY === -1) {
-        pathType = 'vertical';
-    }
+    // Determine the path type for the old cell based on movement
+    let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
 
-    // Set the correct path type for the old cell
+    // Apply the path type to the old cell
     oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
     oldFeatureLayer.classList.add('path');
 
-    // Adjust path types for the old cell immediately after the player leaves
+    // Adjust path types for the old cell and surrounding cells
     adjustPathType(oldPos);
+    adjustAdjacentPathTypes(oldPos);
 
     // Move the player to the new position
     playerPosition = newPos;
     updateMap();
 
-    // Adjust path types for the new position and all adjacent cells
+    // Adjust path types for the new position and surrounding cells
     adjustPathType(newPos);
-    adjustAdjacentPathTypes(oldPos);
     adjustAdjacentPathTypes(newPos);
 }
 
 function adjustPathType(pos) {
     const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
-    if (!cell) return; // Prevent errors on out-of-bounds cells
+    if (!cell) return;
 
     const featureLayer = cell.querySelector('.feature');
     if (!featureLayer.classList.contains('path')) return;
 
-    let feature = featureLayer.dataset.feature || null; 
+    // Check which adjacent cells are paths
+    const adjacentPaths = {
+        top: isPath(pos.x, pos.y - 1),
+        bottom: isPath(pos.x, pos.y + 1),
+        left: isPath(pos.x - 1, pos.y),
+        right: isPath(pos.x + 1, pos.y)
+    };
 
-    if (!feature) {
-        console.warn(`Feature not found for cell (${pos.x}, ${pos.y}).`);
-        return;
-    }
+    // Determine the correct path type
+    let newPathType = determinePathType(adjacentPaths);
 
-    // Ensure the feature exists in the sprites config
-    if (config.sprites.features[feature] && config.sprites.features[feature].length > 0) {
-        const spriteIndex = Math.floor(Math.random() * config.sprites.features[feature].length);
-        featureLayer.style.backgroundImage = `url(${config.sprites.features[feature][spriteIndex]})`;
-    } else {
-        console.error("Feature sprite missing:", feature, config.sprites.features[feature]);
+    if (newPathType) {
+        featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
     }
 }
 
@@ -250,10 +245,12 @@ function determinePathType(adjacentPaths) {
     if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) return 'intersection_4';
     if (adjacentPaths.top && adjacentPaths.bottom) return 'vertical';
     if (adjacentPaths.left && adjacentPaths.right) return 'horizontal';
-    if (adjacentPaths.top && adjacentPaths.left) return 'corner_br';
-    if (adjacentPaths.top && adjacentPaths.right) return 'corner_bl';
-    if (adjacentPaths.bottom && adjacentPaths.left) return 'corner_tr';
+    if (adjacentPaths.top && adjacentPaths.right) return 'corner_br';
+    if (adjacentPaths.top && adjacentPaths.left) return 'corner_bl';
     if (adjacentPaths.bottom && adjacentPaths.right) return 'corner_tl';
+    if (adjacentPaths.bottom && adjacentPaths.left) return 'corner_tr';
+
+    return 'horizontal'; // Default to horizontal if no clear intersection
 }
 
 function adjustAdjacentPathTypes(pos) {
