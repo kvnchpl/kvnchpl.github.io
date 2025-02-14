@@ -114,39 +114,39 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-        
+
         const direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
-    
+
         // Ensure new position is within map bounds
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) {
             return; // Prevent out-of-bounds movement
         }
-    
+
         const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
         if (!targetCell) return;
-    
+
         const targetFeatureLayer = targetCell.querySelector('.feature');
-    
+
         // Prevent movement into obstacles (unless it's an existing path)
         if (targetFeatureLayer.style.backgroundImage && !this.isPath(newX, newY)) {
             return;
         }
-    
+
         // Create a path at the old position before moving
         this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY }, direction);
-    
+
         // Move player
         this.player.x = newX;
         this.player.y = newY;
         this.player.direction = direction;
         this.player.hasMoved = true;
-    
+
         // Mark the new tile as growable for future feature growth
         this.markAsGrowable(newX, newY);
-    
+
         // Update adjacent paths to match the new layout
         this.adjustAdjacentPathTypes({ x: newX, y: newY });
-    
+
         // Schedule an update to redraw the map
         this.scheduleUpdate();
     }
@@ -154,20 +154,20 @@ class Game {
     createPath(oldPos, newPos, firstMoveDirection) {
         const oldCell = document.querySelector(`.cell[data-x="${oldPos.x}"][data-y="${oldPos.y}"]`);
         if (!oldCell) return;
-    
+
         const oldFeatureLayer = oldCell.querySelector('.feature');
         oldFeatureLayer.classList.add('path'); // Mark it as a path
-    
+
         // Get relative movement direction
         const deltaX = newPos.x - oldPos.x;
         const deltaY = newPos.y - oldPos.y;
-    
+
         // Determine initial path type based on movement direction
         let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
-    
+
         // Apply the initial path before checking neighbors
         oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
-    
+
         // Now adjust surrounding paths, considering movement direction
         this.adjustPathType(oldPos, firstMoveDirection);
         this.adjustAdjacentPathTypes(oldPos);
@@ -176,10 +176,10 @@ class Game {
     adjustPathType(pos, firstMoveDirection) {
         const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
         if (!cell) return;
-    
+
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.classList.contains('path')) return;
-    
+
         // Get adjacent paths
         const adjacentPaths = {
             top: this.isPath(pos.x, pos.y - 1),
@@ -187,14 +187,14 @@ class Game {
             left: this.isPath(pos.x - 1, pos.y),
             right: this.isPath(pos.x + 1, pos.y)
         };
-    
+
         let newPathType = this.determinePathType(adjacentPaths, firstMoveDirection);
-    
+
         if (newPathType) {
             featureLayer.style.backgroundImage = `url(${this.config.sprites.paths[newPathType]})`;
             featureLayer.classList.add('path');
         }
-    
+
         // Ensure the map updates visually
         this.scheduleUpdate();
     }
@@ -207,13 +207,13 @@ class Game {
         if (neighbors.top && neighbors.bottom && neighbors.left) return 'intersection_3_left';
         if (neighbors.left && neighbors.right && neighbors.top) return 'intersection_3_top';
         if (neighbors.left && neighbors.right && neighbors.bottom) return 'intersection_3_bottom';
-    
+
         // Corners
         if (neighbors.left && neighbors.bottom) return 'corner_tr';
         if (neighbors.right && neighbors.bottom) return 'corner_tl';
         if (neighbors.left && neighbors.top) return 'corner_br';
         if (neighbors.right && neighbors.top) return 'corner_bl';
-    
+
         // Prioritize player's movement direction
         if (firstMoveDirection === 'up' || firstMoveDirection === 'down') {
             return 'vertical';
@@ -221,7 +221,7 @@ class Game {
         if (firstMoveDirection === 'left' || firstMoveDirection === 'right') {
             return 'horizontal';
         }
-    
+
         return 'horizontal'; // Default to horizontal
     }
 
@@ -329,20 +329,20 @@ class Game {
 
     isPath(x, y) {
         if (x < 0 || x >= this.mapWidthInCells || y < 0 || y >= this.config.mapSize) return false;
-    
+
         const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
         if (!cell) return false;
-    
+
         const pathTypes = new Set([
-            'horizontal', 'vertical', 'intersection_4', 
-            'intersection_3_top', 'intersection_3_bottom', 
-            'intersection_3_left', 'intersection_3_right', 
+            'horizontal', 'vertical', 'intersection_4',
+            'intersection_3_top', 'intersection_3_bottom',
+            'intersection_3_left', 'intersection_3_right',
             'corner_tl', 'corner_tr', 'corner_bl', 'corner_br'
         ]);
-    
+
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.style.backgroundImage) return false;
-    
+
         return pathTypes.has(featureLayer.style.backgroundImage.split('/').pop().replace('.png', ''));
     }
 
