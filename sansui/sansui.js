@@ -160,12 +160,16 @@ class Game {
     updatePlayerSprite() {
         document.querySelectorAll('.player').forEach(playerLayer => {
             playerLayer.style.backgroundImage = ''; // Clear all previous player sprites
+            playerLayer.style.transform = ''; // Reset transform
         });
     
         const playerCell = document.querySelector(`.cell[data-x="${this.player.x}"][data-y="${this.player.y}"]`);
         if (playerCell) {
             const playerLayer = playerCell.querySelector('.player');
             playerLayer.style.backgroundImage = `url(${this.config.sprites.player[this.player.direction]})`;
+    
+            // Move player sprite upwards to 'stand' it on the tile
+            playerLayer.style.transform = `translateY(-${this.TILE_SIZE / 2}px)`;
         }
     }
 
