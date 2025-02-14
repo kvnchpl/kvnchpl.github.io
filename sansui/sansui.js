@@ -254,29 +254,33 @@ class Game {
     }
 
     growFeatures() {
+        if (!this.growableCells) {
+            this.growableCells = new Set();
+        }
+    
         if (this.growableCells.size === 0) {
-            console.log("no growable cells");
+            console.log("No growable cells.");
             return;
         }
-
+    
         this.growableCells.forEach(cellKey => {
             const [x, y] = cellKey.split(',').map(Number);
             const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
             if (!cell) return;
-
+    
             const featureLayer = cell.querySelector('.feature');
             if (!featureLayer.style.backgroundImage) {
                 const featureKeys = Object.keys(this.config.features).filter(f => this.config.features[f].growable);
                 if (featureKeys.length === 0) return;
-
+    
                 const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
                 const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
                 featureLayer.style.backgroundImage = `url(${sprite})`;
-
+    
                 this.markAsGrowable(x, y);
             }
         });
-
+    
         this.scheduleUpdate();
     }
 
