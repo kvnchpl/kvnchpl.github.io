@@ -167,6 +167,7 @@ class Game {
         this.player.y = newY;
         this.player.hasMoved = true;
 
+        this.generateFeature();
         this.updatePlayerSprite();
         this.updatePaths();
     }
