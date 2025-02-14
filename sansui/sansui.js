@@ -156,6 +156,16 @@ class Game {
 
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
 
+        // Check if the target tile contains a feature
+        const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
+        if (!targetCell) return;
+
+        const featureLayer = targetCell.querySelector('.feature');
+        if (featureLayer && featureLayer.style.backgroundImage) {
+            console.log("Blocked! Cannot move onto a feature.");
+            return; // Prevent movement if a feature exists
+        }
+
         this.grid[prevY][prevX] = 1;
         this.grid[newY][newX] = 1;
 
