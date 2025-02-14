@@ -78,8 +78,8 @@ class Game {
         document.querySelectorAll('.cell').forEach(cell => {
             const playerLayer = cell.querySelector('.player');
             playerLayer.style.backgroundImage = '';
-            if (parseInt(cell.dataset.x) === playerPosition.x && parseInt(cell.dataset.y) === playerPosition.y) {
-                playerLayer.style.backgroundImage = `url(${config.sprites.player[playerDirection]})`;
+            if (parseInt(cell.dataset.x) === this.player.x && parseInt(cell.dataset.y) === this.player.y) {
+                playerLayer.style.backgroundImage = `url(${this.config.sprites.player[this.player.direction]})`;
             }
         });
     
@@ -140,7 +140,7 @@ class Game {
         let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
     
         // **Apply the initial path immediately before checking neighbors**
-        oldFeatureLayer.style.backgroundImage = `url(${config.sprites.paths[pathType]})`;
+        oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
     
         // **Now adjust surrounding paths**
         adjustPathType(oldPos);
@@ -251,7 +251,7 @@ class Game {
         ];
     
         adjacentPositions.forEach(adjPos => {
-            if (adjPos.x >= 0 && adjPos.x < mapWidthInCells && adjPos.y >= 0 && adjPos.y < config.mapSize) {
+            if (adjPos.x >= 0 && adjPos.x < this.mapWidthInCells && adjPos.y >= 0 && adjPos.y < this.config.mapSize) {
                 const cell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
                 if (cell) {
                     const featureLayer = cell.querySelector('.feature');
@@ -301,7 +301,7 @@ class Game {
     }
 
     generateFeature() {
-        if (!playerHasMoved) return; // Prevent feature generation before movement
+        if (!this.player.hasMoved) return; // Prevent feature generation before movement
     
         const surroundingPositions = [
             { x: playerPosition.x - 1, y: playerPosition.y },
@@ -343,7 +343,8 @@ class Game {
     }
 
     isPath(x, y) {
-        const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"`);
+        if (x < 0 || x >= this.mapWidthInCells || y < 0 || y >= this.config.mapSize) return false;
+        const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
         return cell && cell.querySelector('.feature').classList.contains('path');
     }
 
@@ -368,7 +369,7 @@ class Game {
             'ArrowLeft': () => this.movePlayer(-1, 0),
             'ArrowRight': () => this.movePlayer(1, 0),
             ' ': () => this.growFeatures(),
-            'reset': () => this.createMap()
+            'r': () => this.createMap()
         };
         if (actions[input]) actions[input]();
     }
