@@ -1,20 +1,10 @@
 /* sansui.js */
 class Game {
     constructor() {
-        this.TILE_SIZE = 32;
-        this.CENTER_SIZE = 20;
-        this.EDGE_WIDTH = (this.TILE_SIZE - this.CENTER_SIZE) / 2;
-        this.EDGE_LENGTH = this.CENTER_SIZE;
-        this.GRID_SIZE = 10;
-
         this.mapWidthInCells = 0;
-        this.grid = Array.from({ length: this.GRID_SIZE }, () => Array(this.GRID_SIZE).fill(0));
-
+        this.grid = [];
         this.pathCanvas = document.getElementById("pathCanvas");
         this.pathCtx = this.pathCanvas.getContext("2d");
-
-        this.pathCanvas.width = this.TILE_SIZE * this.GRID_SIZE;
-        this.pathCanvas.height = this.TILE_SIZE * this.GRID_SIZE;
     }
 
     async loadConfig() {
@@ -27,6 +17,14 @@ class Game {
                 console.error("Invalid this.config: missing mapSize!");
                 return;
             }
+
+            // Load path settings dynamically
+            this.config.pathSettings = this.config.pathSettings;
+            this.TILE_SIZE = this.config.pathSettings.tileSize;
+            this.CENTER_SIZE = this.config.pathSettings.centerSize;
+            this.EDGE_WIDTH = this.config.pathSettings.edgeWidth;
+            this.EDGE_LENGTH = this.config.pathSettings.edgeLength;
+            this.GRID_SIZE = this.config.pathSettings.gridSize;
 
             // Base URL for assets
             const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
@@ -180,35 +178,34 @@ class Game {
     }
 
     drawPath(x, y) {
-        const cellSize = this.TILE_SIZE; // Use class property
-        const startX = x * cellSize;
-        const startY = y * cellSize;
-    
+        const startX = x * this.TILE_SIZE;
+        const startY = y * this.TILE_SIZE;
+
         const ctx = this.pathCtx;
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.beginPath();
-    
+
         const tileProps = this.getTileProperties(x, y);
-    
+
         // Draw center
         const centerX = startX + this.EDGE_WIDTH;
         const centerY = startY + this.EDGE_WIDTH;
         ctx.fillStyle = "black";
         ctx.fillRect(centerX, centerY, this.CENTER_SIZE, this.CENTER_SIZE);
-    
+
         // Helper function to draw a line segment
         function drawLine(x1, y1, x2, y2) {
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
         }
-    
+
         // Draw center sides
         if (tileProps.center.top) drawLine(centerX, centerY, centerX + this.CENTER_SIZE, centerY);
         if (tileProps.center.bottom) drawLine(centerX, centerY + this.CENTER_SIZE, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
         if (tileProps.center.left) drawLine(centerX, centerY, centerX, centerY + this.CENTER_SIZE);
         if (tileProps.center.right) drawLine(centerX + this.CENTER_SIZE, centerY, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
-    
+
         // Draw edges
         for (let [edgePos, sideSet] of Object.entries(tileProps.edges)) {
             const { edgeX, edgeY } = this.getEdgeOrigin(edgePos, centerX, centerY);
@@ -219,19 +216,19 @@ class Game {
                 }
             }
         }
-    
+
         ctx.stroke();
     }
 
     getEdgeOrigin(edgePos, baseX, baseY) {
         let edgeX = baseX;
         let edgeY = baseY;
-    
+
         if (edgePos === "top") edgeY -= this.EDGE_WIDTH;
         if (edgePos === "bottom") edgeY += this.CENTER_SIZE;
         if (edgePos === "left") edgeX -= this.EDGE_WIDTH;
         if (edgePos === "right") edgeX += this.CENTER_SIZE;
-    
+
         return { edgeX, edgeY };
     }
 
@@ -257,7 +254,7 @@ class Game {
 
     updatePaths() {
         this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
-    
+
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
                 if (this.grid[y][x] === 1) {

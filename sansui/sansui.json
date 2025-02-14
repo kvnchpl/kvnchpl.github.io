@@ -7,7 +7,8 @@
         "tileSize": 32,
         "centerSize": 20,
         "edgeWidth": 6,
-        "edgeLength": 20
+        "edgeLength": 20,
+        "gridSize": 10
     },
     "features": {
         "gravel": {
@@ -75,7 +76,6 @@
             "intersection_3_right": "path_intersection_3_right.png",
             "intersection_4": "path_intersection_4.png",
             "filled": "path_filled.png"
-            
         },
         "player": {
             "up": "player_up.png",
