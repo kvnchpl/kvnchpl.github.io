@@ -219,7 +219,7 @@ class Game {
         ctx.stroke();
     }
 
-    function getEdgeOrigin(edgePos, baseX, baseY) {
+    getEdgeOrigin(edgePos, baseX, baseY) {
         let edgeX = baseX;
         let edgeY = baseY;
 
@@ -231,7 +231,7 @@ class Game {
         return { edgeX, edgeY };
     }
 
-    function getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, edgeLength) {
+    getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, edgeLength) {
         if (edgePos === "top" || edgePos === "bottom") {
             switch (side) {
                 case "top": return [edgeX, edgeY, edgeX + edgeLength, edgeY];
