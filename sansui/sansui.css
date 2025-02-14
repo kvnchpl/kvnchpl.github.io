@@ -1,5 +1,13 @@
+/* Root variables for consistency */
+:root {
+    --tile-size: 48px;  /* Size of each grid cell */
+    --grid-width: 10;   /* Number of columns */
+    --grid-height: 10;  /* Number of rows */
+    --grid-gap: 0px;    /* No extra spacing */
+    --border-width: 2px;
+}
 
-/* sansui.css */
+/* General Page Layout */
 body {
     display: flex;
     flex-direction: column;
@@ -7,68 +15,70 @@ body {
     align-items: center;
     margin: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
+    background: #f2f2f2;
 }
 
-#siteWrapper {
-    width: 100% !important;
-    max-width: 100% !important;
-}
-
-.content-wrapper {
-    padding-top: 0 !important;
-}
-
+/* Wrapper for the game */
 #container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     padding-bottom: 20px;
-    overflow: hidden;
-    box-sizing: border-box;
     position: relative;
 }
 
-#title {
-    margin-bottom: 10px;
-}
-
-#header {
-    text-transform: uppercase !important;
-    margin-bottom: 10px;
-}
-
-#garden {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#map-container {
+/* Map grid */
+#map {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-width), var(--tile-size));
+    grid-template-rows: repeat(var(--grid-height), var(--tile-size));
     position: relative;
+    gap: var(--grid-gap);
+    border: var(--border-width) solid black;
+    width: calc(var(--tile-size) * var(--grid-width));
+    height: calc(var(--tile-size) * var(--grid-height));
+}
+
+/* Individual grid cells */
+.cell {
+    width: var(--tile-size);
+    height: var(--tile-size);
+    position: relative;
+}
+
+/* Layers within each cell */
+.cell .layer {
+    position: absolute;
     width: 100%;
     height: 100%;
+    background-size: cover;
 }
 
+/* Feature layer (paths, decorations, etc.) */
+.feature {
+    background-size: cover;
+}
+
+/* Player character */
+.player {
+    z-index: 10;
+    background-size: cover;
+}
+
+/* Path rendering canvas */
 #pathCanvas {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1; /* Paths render behind player and features */
+    width: calc(var(--tile-size) * var(--grid-width));
+    height: calc(var(--tile-size) * var(--grid-height));
+    z-index: 1;
     pointer-events: none;
 }
 
-#map {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 48px); /* Ensure matches TILE_SIZE */
-    grid-template-rows: repeat(auto-fit, 48px);    /* Ensure matches TILE_SIZE */
-    position: relative;
-    gap: 2px;
-    border: 2px solid black;
-}
-
+/* Reset button */
 #reset {
     font-size: 1.5rem;
     display: flex;
@@ -79,28 +89,7 @@ body {
     cursor: pointer;
 }
 
-.cell {
-    width: 48px;
-    height: 48px;
-    position: relative;
-}
-
-.cell .layer {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-}
-
-.feature {
-    background-size: cover;
-}
-
-.player {
-    z-index: 10;
-    background-size: cover;
-}
-
+/* Controls */
 #controls {
     display: flex;
     align-items: center;
@@ -109,12 +98,14 @@ body {
     margin-top: 20px;
 }
 
+/* Arrow buttons for movement */
 .arrow {
     display: none;
     font-size: 2rem;
     cursor: pointer;
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 600px) {
     #controls {
         display: grid;
