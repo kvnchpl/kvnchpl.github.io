@@ -62,8 +62,9 @@ body {
 
 #map {
     display: grid;
-    grid-template-columns: repeat(10, 48px);
-    grid-template-rows: repeat(10, 48px);
+    grid-template-columns: repeat(auto-fit, 48px); /* Ensure matches TILE_SIZE */
+    grid-template-rows: repeat(auto-fit, 48px);    /* Ensure matches TILE_SIZE */
+    position: relative;
     gap: 2px;
     border: 2px solid black;
 }

@@ -106,6 +106,10 @@ class Game {
     resizeCanvas() {
         this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE;
         this.pathCanvas.height = this.config.mapSize * this.TILE_SIZE;
+    
+        this.pathCanvas.style.position = "absolute";
+        this.pathCanvas.style.left = "0px";
+        this.pathCanvas.style.top = "0px";
     }
 
     placePlayerRandomly() {
