@@ -371,6 +371,9 @@ function generateFeature() {
 
     surroundingPositions.forEach(pos => {
         if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
+            // **Skip feature generation if the tile is the player's position**
+            if (pos.x === playerPosition.x && pos.y === playerPosition.y) return;
+
             const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
             if (!cell) return;
 
@@ -436,6 +439,9 @@ function growFeatures() {
 
             adjacentPositions.forEach(pos => {
                 if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
+                    // **Skip feature growth if the tile is the player's position**
+                    if (pos.x === playerPosition.x && pos.y === playerPosition.y) return;
+
                     const adjacentCell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
                     if (!adjacentCell) return;
 
