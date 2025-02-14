@@ -423,30 +423,63 @@ class Game {
     }
 
     growFeatures() {
-        if (!this.growableCells) {
-            this.growableCells = new Set();
+        if (!this.growableCells || this.growableCells.size === 0) {
+            console.log("No growable cells found. Searching for new ones...");
+
+            // Find existing features and mark them as growable
+            document.querySelectorAll('.cell').forEach(cell => {
+                const featureLayer = cell.querySelector('.feature');
+                if (featureLayer.style.backgroundImage !== '') {
+                    const x = parseInt(cell.dataset.x);
+                    const y = parseInt(cell.dataset.y);
+                    this.markAsGrowable(x, y);
+                }
+            });
+
+            if (this.growableCells.size === 0) return; // Still no growable cells
         }
 
-        if (this.growableCells.size === 0) {
-            console.log("No growable cells.");
-            return;
-        }
+        const cellsToProcess = Array.from(this.growableCells);
+        this.growableCells.clear(); // Prevent infinite loops
 
-        this.growableCells.forEach(cellKey => {
+        let featureGrown = false;
+
+        cellsToProcess.forEach(cellKey => {
             const [x, y] = cellKey.split(',').map(Number);
             const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
             if (!cell) return;
 
             const featureLayer = cell.querySelector('.feature');
-            if (!featureLayer.style.backgroundImage) {
-                const featureKeys = Object.keys(this.config.features).filter(f => this.config.features[f].growable);
-                if (featureKeys.length === 0) return;
+            const hasFeature = featureLayer.style.backgroundImage !== '';
 
-                const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
-                const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
-                featureLayer.style.backgroundImage = `url(${sprite})`;
+            if (hasFeature) {
+                const adjacentPositions = [
+                    { x: x, y: y - 1 },
+                    { x: x, y: y + 1 },
+                    { x: x - 1, y: y },
+                    { x: x + 1, y: y }
+                ];
 
-                this.markAsGrowable(x, y);
+                adjacentPositions.forEach(pos => {
+                    if (pos.x >= 0 && pos.x < this.config.mapSize && pos.y >= 0 && pos.y < this.config.mapSize) {
+                        if (pos.x === this.player.x && pos.y === this.player.y) return; // Skip player position
+
+                        const adjacentCell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+                        if (!adjacentCell) return;
+
+                        const adjacentFeatureLayer = adjacentCell.querySelector('.feature');
+
+                        if (!adjacentFeatureLayer.style.backgroundImage && Math.random() < this.config.growthChance) {
+                            const featureKeys = Object.keys(this.config.features);
+                            const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
+                            const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
+
+                            adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
+                            this.markAsGrowable(pos.x, pos.y);
+                            featureGrown = true;
+                        }
+                    }
+                });
             }
         });
 
