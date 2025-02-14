@@ -5,6 +5,7 @@ class Game {
         this.grid = [];
         this.pathCanvas = document.getElementById("pathCanvas");
         this.pathCtx = this.pathCanvas.getContext("2d");
+        this.growableCells = new Set();
     }
 
     async loadConfig() {
