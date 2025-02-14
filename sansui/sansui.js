@@ -1,3 +1,4 @@
+/* sansui.js */
 class Game {
     constructor() {
         this.mapWidthInCells = 0;

@@ -1,15 +1,14 @@
-/* Root variables for consistency */
+/* sansui.css */
 :root {
-    --tile-size: 48px;  /* Size of each grid cell */
-    --grid-width: 10;   /* Number of columns */
-    --grid-height: 10;  /* Number of rows */
-    --grid-gap: 0px;    /* No extra spacing */
-    --border-width: 2px; /* Border around the grid */
-    --font-size: 1.5rem; /* Default font size */
-    --button-size: calc(var(--tile-size) * 0.75); /* Buttons scale with tile size */
+    --tile-size: 48px;
+    --grid-width: 10;
+    --grid-height: 10;
+    --grid-gap: 0px;
+    --border-width: 2px;
+    --font-size: 1.5rem;
+    --button-size: calc(var(--tile-size) * 0.75);
 }
 
-/* General Page Layout */
 body {
     display: flex;
     flex-direction: column;
@@ -21,7 +20,6 @@ body {
     background: #f2f2f2;
 }
 
-/* Wrapper for the game */
 #container {
     display: flex;
     flex-direction: column;
@@ -45,7 +43,6 @@ body {
     height: calc(var(--tile-size) * var(--grid-height));
 }
 
-/* Map grid */
 #map {
     display: grid;
     grid-template-columns: repeat(var(--grid-width), var(--tile-size));
@@ -57,14 +54,12 @@ body {
     height: calc(var(--tile-size) * var(--grid-height));
 }
 
-/* Individual grid cells */
 .cell {
     width: var(--tile-size);
     height: var(--tile-size);
     position: relative;
 }
 
-/* Layers within each cell */
 .cell .layer {
     position: absolute;
     width: 100%;
@@ -72,18 +67,15 @@ body {
     background-size: cover;
 }
 
-/* Feature layer (paths, decorations, etc.) */
 .feature {
     background-size: cover;
 }
 
-/* Player character */
 .player {
     z-index: 10;
     background-size: cover;
 }
 
-/* Path rendering canvas */
 #pathCanvas {
     position: absolute;
     top: 0;
@@ -94,7 +86,6 @@ body {
     pointer-events: none;
 }
 
-/* Reset button */
 #reset {
     font-size: var(--font-size);
     display: flex;
@@ -105,7 +96,6 @@ body {
     cursor: pointer;
 }
 
-/* Controls */
 #controls {
     display: flex;
     align-items: center;
@@ -114,14 +104,12 @@ body {
     margin-top: calc(var(--tile-size) * 0.5);
 }
 
-/* Arrow buttons for movement */
 .arrow {
     display: none;
     font-size: var(--button-size);
     cursor: pointer;
 }
 
-/* Responsive design for smaller screens */
 @media (max-width: 600px) {
     #controls {
         display: grid;
@@ -133,7 +121,8 @@ body {
         grid-template-rows: auto 1fr auto;
     }
 
-    .arrow, #reset {
+    .arrow,
+    #reset {
         display: block;
         font-size: var(--button-size);
         width: 100%;
