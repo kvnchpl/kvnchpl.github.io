@@ -433,10 +433,24 @@ class Game {
     }
 
     growFeatures() {
-        if (!this.growableCells || this.growableCells.size === 0) return;
+        if (!this.growableCells || this.growableCells.size === 0) {
+            console.log("No growable cells found. Searching for new ones...");
+
+            // Find existing features and mark them as growable
+            document.querySelectorAll('.cell').forEach(cell => {
+                const featureLayer = cell.querySelector('.feature');
+                if (featureLayer.style.backgroundImage !== '') {
+                    const x = parseInt(cell.dataset.x);
+                    const y = parseInt(cell.dataset.y);
+                    this.markAsGrowable(x, y);
+                }
+            });
+
+            if (this.growableCells.size === 0) return; // Still no growable cells
+        }
 
         const cellsToProcess = Array.from(this.growableCells);
-        this.growableCells.clear();
+        this.growableCells.clear(); // Prevent infinite loops
 
         let featureGrown = false;
 
@@ -446,24 +460,38 @@ class Game {
             if (!cell) return;
 
             const featureLayer = cell.querySelector('.feature');
+            const hasFeature = featureLayer.style.backgroundImage !== '';
 
-            if (featureLayer.style.backgroundImage) return;
-            if (this.grid[y][x] === 1) {
-                console.log(`Blocked: Tile (${x}, ${y}) is a path. Growth blocked.`);
-                return;
+            if (hasFeature) {
+                const adjacentPositions = [
+                    { x: x, y: y - 1 },
+                    { x: x, y: y + 1 },
+                    { x: x - 1, y: y },
+                    { x: x + 1, y: y }
+                ];
+
+                adjacentPositions.forEach(pos => {
+                    if (pos.x >= 0 && pos.x < this.config.mapSize && pos.y >= 0 && pos.y < this.config.mapSize) {
+                        if (pos.x === this.player.x && pos.y === this.player.y) return; // Skip player position
+
+                        const adjacentCell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+                        if (!adjacentCell) return;
+
+                        const adjacentFeatureLayer = adjacentCell.querySelector('.feature');
+
+                        if (!adjacentFeatureLayer.style.backgroundImage && Math.random() < this.config.growthChance) {
+                            const featureKeys = Object.keys(this.config.features);
+                            const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
+                            const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
+
+                            console.log(`✅ Growing feature '${selectedFeature}' at (${pos.x}, ${pos.y})`);
+                            adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
+                            this.markAsGrowable(pos.x, pos.y);
+                            featureGrown = true;
+                        }
+                    }
+                });
             }
-            if (this.player.x === x && this.player.y === y) return;
-
-            const featureKeys = Object.keys(this.config.features).filter(f => this.config.features[f].growable);
-            if (featureKeys.length === 0) return;
-
-            const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
-            const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
-
-            console.log(`✅ Growing feature '${selectedFeature}' at (${x}, ${y})`);
-            featureLayer.style.backgroundImage = `url(${sprite})`;
-            this.markAsGrowable(x, y);
-            featureGrown = true;
         });
 
         this.scheduleUpdate();
