@@ -348,7 +348,11 @@ function isPath(x, y) {
 }
 
 function markAsGrowable(x, y) {
-    growableCells.add(`${x},${y}`);
+    const cellKey = `${x},${y}`;
+    if (!growableCells.has(cellKey)) {
+        console.log(`Marking (${x}, ${y}) as growable.`);
+        growableCells.add(cellKey);
+    }
 }
 
 function generateFeature() {
@@ -387,10 +391,32 @@ function generateFeature() {
 }
 
 function growFeatures() {
-    if (growableCells.size === 0) return;
+    console.log("Processing growFeatures...");
+
+    if (growableCells.size === 0) {
+        console.warn("No growable cells found. Attempting to expand growth.");
+        // If no growable cells exist, try marking adjacent feature tiles as growable
+        document.querySelectorAll('.cell').forEach(cell => {
+            const featureLayer = cell.querySelector('.feature');
+            if (featureLayer.style.backgroundImage !== '') {
+                const pos = {
+                    x: parseInt(cell.dataset.x),
+                    y: parseInt(cell.dataset.y)
+                };
+                markAsGrowable(pos.x, pos.y);
+            }
+        });
+
+        if (growableCells.size === 0) {
+            console.warn("Still no growable cells. Growth aborted.");
+            return;
+        }
+    }
 
     const cellsToProcess = Array.from(growableCells);
-    growableCells.clear(); // Prevent infinite growth loops
+    growableCells.clear(); // Prevent infinite loops
+
+    let featureGrown = false;
 
     cellsToProcess.forEach(cellKey => {
         const [x, y] = cellKey.split(',').map(Number);
@@ -411,6 +437,8 @@ function growFeatures() {
             adjacentPositions.forEach(pos => {
                 if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
                     const adjacentCell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+                    if (!adjacentCell) return;
+
                     const adjacentFeatureLayer = adjacentCell.querySelector('.feature');
 
                     if (!adjacentFeatureLayer.style.backgroundImage && Math.random() < config.growthChance) {
@@ -420,11 +448,20 @@ function growFeatures() {
 
                         adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
                         markAsGrowable(pos.x, pos.y);
+                        featureGrown = true;
                     }
                 }
             });
         }
     });
+
+    if (!featureGrown) {
+        console.warn("Feature growth was triggered, but no new features were created.");
+    } else {
+        console.log("Feature growth successful.");
+    }
+
+    scheduleUpdate(); // Ensure visual updates are reflected
 }
 
 function setupAutoGrowth() {
@@ -451,7 +488,7 @@ function scheduleUpdate() {
     if (!updateScheduled) {
         updateScheduled = true;
         requestAnimationFrame(() => {
-            updateMap(mapWidthInCells);
+            updateMap();
             updateScheduled = false;
         });
     }
