@@ -100,16 +100,14 @@ class Game {
     }
 
     setupPathGrid() {
+        this.updateMapWidth(); // Ensure width is updated first
         this.grid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(0));
+        this.pathGrid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(null)); // Separate path grid
     }
 
     resizeCanvas() {
         this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE;
         this.pathCanvas.height = this.config.mapSize * this.TILE_SIZE;
-
-        this.pathCanvas.style.position = "absolute";
-        this.pathCanvas.style.left = "0px";
-        this.pathCanvas.style.top = "0px";
     }
 
     placePlayerRandomly() {
@@ -135,12 +133,17 @@ class Game {
     }
 
     movePlayer(dx, dy) {
-        const newX = this.player.x + dx;
-        const newY = this.player.y + dy;
+        const prevX = this.player.x;
+        const prevY = this.player.y;
+
+        const newX = prevX + dx;
+        const newY = prevY + dy;
 
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
 
-        this.grid[this.player.y][this.player.x] = 1; // Mark the previous position as a path
+        this.grid[prevY][prevX] = 1; // Mark previous position as a path
+        this.grid[newY][newX] = 1; // Ensure new position updates immediately
+
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
@@ -197,10 +200,8 @@ class Game {
         }
 
         // Coordinates for the tile's center "box"
-        const centerX = startX + EDGE_WIDTH;
-        const centerY = startY + EDGE_WIDTH;
-
-
+        const centerX = startX + this.EDGE_WIDTH;
+        const centerY = startY + this.EDGE_WIDTH;
 
         // Draw center sides
         if (properties.center.top) drawLine(centerX, centerY, centerX + this.CENTER_SIZE, centerY);
@@ -260,16 +261,15 @@ class Game {
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
                 if (this.grid[y][x] === 1) {
-                    // Store the computed properties in the grid (like path_test)
-                    this.grid[y][x] = this.getTileProperties(x, y);
+                    this.pathGrid[y][x] = this.getTileProperties(x, y); // Store properties separately
                 }
             }
         }
 
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
-                if (this.grid[y][x]) { // Now contains full properties, not just 1 or 0
-                    this.drawPath(x, y, this.grid[y][x]); // Pass stored properties
+                if (this.grid[y][x] === 1) {
+                    this.drawPath(x, y, this.pathGrid[y][x]); // Use stored properties
                 }
             }
         }
