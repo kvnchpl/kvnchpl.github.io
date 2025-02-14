@@ -114,7 +114,8 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-        this.player.direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
+        
+        const direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
     
         // Ensure new position is within map bounds
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) {
@@ -126,20 +127,21 @@ class Game {
     
         const targetFeatureLayer = targetCell.querySelector('.feature');
     
-        // Prevent movement if the tile contains an obstacle
+        // Prevent movement into obstacles (unless it's an existing path)
         if (targetFeatureLayer.style.backgroundImage && !this.isPath(newX, newY)) {
             return;
         }
     
         // Create a path at the old position before moving
-        this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY });
+        this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY }, direction);
     
         // Move player
         this.player.x = newX;
         this.player.y = newY;
+        this.player.direction = direction;
         this.player.hasMoved = true;
     
-        // Mark new tile as growable for potential feature growth
+        // Mark the new tile as growable for future feature growth
         this.markAsGrowable(newX, newY);
     
         // Update adjacent paths to match the new layout
@@ -149,28 +151,29 @@ class Game {
         this.scheduleUpdate();
     }
 
-    createPath(oldPos, newPos) {
+    createPath(oldPos, newPos, firstMoveDirection) {
         const oldCell = document.querySelector(`.cell[data-x="${oldPos.x}"][data-y="${oldPos.y}"]`);
         if (!oldCell) return;
-
+    
         const oldFeatureLayer = oldCell.querySelector('.feature');
         oldFeatureLayer.classList.add('path'); // Mark it as a path
-
+    
+        // Get relative movement direction
         const deltaX = newPos.x - oldPos.x;
         const deltaY = newPos.y - oldPos.y;
-
+    
         // Determine initial path type based on movement direction
         let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
-
-        // Apply the initial path immediately before checking neighbors
+    
+        // Apply the initial path before checking neighbors
         oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
-
-        // Now adjust surrounding paths
-        this.adjustPathType(oldPos);
+    
+        // Now adjust surrounding paths, considering movement direction
+        this.adjustPathType(oldPos, firstMoveDirection);
         this.adjustAdjacentPathTypes(oldPos);
     }
 
-    adjustPathType(pos) {
+    adjustPathType(pos, firstMoveDirection) {
         const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
         if (!cell) return;
     
@@ -185,18 +188,18 @@ class Game {
             right: this.isPath(pos.x + 1, pos.y)
         };
     
-        let newPathType = this.determinePathType(adjacentPaths);
+        let newPathType = this.determinePathType(adjacentPaths, firstMoveDirection);
     
         if (newPathType) {
             featureLayer.style.backgroundImage = `url(${this.config.sprites.paths[newPathType]})`;
             featureLayer.classList.add('path');
         }
     
-        // Schedule an update so the map redraws properly
+        // Ensure the map updates visually
         this.scheduleUpdate();
     }
 
-    determinePathType(neighbors) {
+    determinePathType(neighbors, firstMoveDirection) {
         if (neighbors.top && neighbors.bottom && neighbors.left && neighbors.right) {
             return 'intersection_4';
         }
@@ -211,9 +214,13 @@ class Game {
         if (neighbors.left && neighbors.top) return 'corner_br';
         if (neighbors.right && neighbors.top) return 'corner_bl';
     
-        // Straight paths
-        if (neighbors.top && neighbors.bottom) return 'vertical';
-        if (neighbors.left && neighbors.right) return 'horizontal';
+        // Prioritize player's movement direction
+        if (firstMoveDirection === 'up' || firstMoveDirection === 'down') {
+            return 'vertical';
+        }
+        if (firstMoveDirection === 'left' || firstMoveDirection === 'right') {
+            return 'horizontal';
+        }
     
         return 'horizontal'; // Default to horizontal
     }
