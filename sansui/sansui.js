@@ -114,52 +114,52 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-    
+
         const direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
-    
+
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) {
             return;
         }
-    
+
         const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
         if (!targetCell) return;
-    
+
         const targetFeatureLayer = targetCell.querySelector('.feature');
-    
+
         // Allow movement if it's a path
         if (targetFeatureLayer.style.backgroundImage && !targetFeatureLayer.classList.contains('path')) {
             return;
         }
-    
+
         // Create a path before moving
         this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY });
-    
+
         // Move player
         this.player.x = newX;
         this.player.y = newY;
         this.player.direction = direction;
         this.player.hasMoved = true;
-    
+
         // Ensure paths update properly
         this.adjustAdjacentPathTypes({ x: newX, y: newY });
-    
+
         this.scheduleUpdate();
     }
 
     createPath(oldPos, newPos) {
         const oldCell = document.querySelector(`.cell[data-x="${oldPos.x}"][data-y="${oldPos.y}"]`);
         if (!oldCell) return;
-    
+
         const oldFeatureLayer = oldCell.querySelector('.feature');
         oldFeatureLayer.classList.add('path'); // Mark it as a path
-    
+
         const deltaX = newPos.x - oldPos.x;
         const deltaY = newPos.y - oldPos.y;
-    
+
         // Determine path type based on movement
         let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
         oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
-    
+
         // **Ensure path updates properly**
         this.adjustPathType(oldPos);
         this.adjustAdjacentPathTypes(oldPos);
@@ -169,20 +169,20 @@ class Game {
     adjustPathType(pos) {
         const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
         if (!cell) return;
-    
+
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.classList.contains('path')) return;
-    
+
         // Get adjacent paths
         const neighbors = this.getPathNeighbors(pos);
-    
+
         let newPathType = this.determinePathType(neighbors, this.player.direction);
-    
+
         if (newPathType) {
             featureLayer.style.backgroundImage = `url(${this.config.sprites.paths[newPathType]})`;
             featureLayer.classList.add('path');
         }
-    
+
         this.scheduleUpdate();
     }
 
@@ -194,15 +194,15 @@ class Game {
         if (neighbors.top && neighbors.bottom && neighbors.left) return 'intersection_3_left';
         if (neighbors.left && neighbors.right && neighbors.top) return 'intersection_3_top';
         if (neighbors.left && neighbors.right && neighbors.bottom) return 'intersection_3_bottom';
-    
+
         if (neighbors.left && neighbors.bottom) return 'corner_tr';
         if (neighbors.right && neighbors.bottom) return 'corner_tl';
         if (neighbors.left && neighbors.top) return 'corner_br';
         if (neighbors.right && neighbors.top) return 'corner_bl';
-    
+
         if (neighbors.top && neighbors.bottom) return 'vertical';
         if (neighbors.left && neighbors.right) return 'horizontal';
-    
+
         return 'horizontal';
     }
 
@@ -213,7 +213,7 @@ class Game {
             { x: pos.x - 1, y: pos.y }, // Left
             { x: pos.x + 1, y: pos.y }, // Right
         ];
-    
+
         adjacentPositions.forEach(adjPos => {
             if (adjPos.x >= 0 && adjPos.x < this.mapWidthInCells && adjPos.y >= 0 && adjPos.y < this.config.mapSize) {
                 const cell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
@@ -225,7 +225,7 @@ class Game {
                 }
             }
         });
-    
+
         this.scheduleUpdate();
     }
 
@@ -341,6 +341,7 @@ class Game {
                 this.movePlayer(1, 0);
                 break;
             case ' ':
+                console.log("Spacebar pressed, calling growFeatures()");
                 this.growFeatures();
                 break;
             case 'r':
@@ -374,6 +375,7 @@ window.addEventListener('resize', () => {
 document.addEventListener('keydown', event => {
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(event.key)) {
         event.preventDefault();
+        game.handleInput(event.key);
     }
-    game.handleInput(event.key);
+
 });
