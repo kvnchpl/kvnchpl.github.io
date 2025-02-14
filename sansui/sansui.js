@@ -127,18 +127,35 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-    
+
+        // Prevent moving out of bounds
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
-    
+
         // Mark current position as a path
         this.grid[this.player.y][this.player.x] = 1;
-    
+
         // Move player
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
-    
-        this.updatePaths(); // 🟢 Trigger correct path drawing
+
+        // Immediately update player's sprite position
+        this.updatePlayerSprite();
+
+        // Ensure path is drawn under player
+        this.updatePaths();
+    }
+
+    updatePlayerSprite() {
+        document.querySelectorAll('.player').forEach(playerLayer => {
+            playerLayer.style.backgroundImage = ''; // Clear all previous player sprites
+        });
+
+        const playerCell = document.querySelector(`.cell[data-x="${this.player.x}"][data-y="${this.player.y}"]`);
+        if (playerCell) {
+            const playerLayer = playerCell.querySelector('.player');
+            playerLayer.style.backgroundImage = `url(${this.config.sprites.player[this.player.direction]})`;
+        }
     }
 
     createPath(oldPos, newPos) {
@@ -165,23 +182,23 @@ class Game {
         const cellSize = this.config.cellSize;
         const startX = x * cellSize;
         const startY = y * cellSize;
-    
+
         // Get neighbors
         const top = this.grid[y - 1]?.[x] === 1;
         const bottom = this.grid[y + 1]?.[x] === 1;
         const left = this.grid[y]?.[x - 1] === 1;
         const right = this.grid[y]?.[x + 1] === 1;
-    
+
         // Set line styles
         this.pathCtx.strokeStyle = "black";
         this.pathCtx.lineWidth = 4;
-    
+
         this.pathCtx.beginPath();
-    
+
         // Draw center dot
         this.pathCtx.arc(startX + cellSize / 2, startY + cellSize / 2, 4, 0, Math.PI * 2);
         this.pathCtx.fill();
-    
+
         // Draw connections
         if (top) {
             this.pathCtx.moveTo(startX + cellSize / 2, startY);
@@ -199,13 +216,13 @@ class Game {
             this.pathCtx.moveTo(startX + cellSize, startY + cellSize / 2);
             this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
         }
-    
+
         this.pathCtx.stroke();
     }
 
     updatePaths() {
         this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
-    
+
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
                 if (this.grid[y][x] === 1) {
@@ -291,30 +308,30 @@ class Game {
         if (!this.growableCells) {
             this.growableCells = new Set();
         }
-    
+
         if (this.growableCells.size === 0) {
             console.log("No growable cells.");
             return;
         }
-    
+
         this.growableCells.forEach(cellKey => {
             const [x, y] = cellKey.split(',').map(Number);
             const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
             if (!cell) return;
-    
+
             const featureLayer = cell.querySelector('.feature');
             if (!featureLayer.style.backgroundImage) {
                 const featureKeys = Object.keys(this.config.features).filter(f => this.config.features[f].growable);
                 if (featureKeys.length === 0) return;
-    
+
                 const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
                 const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
                 featureLayer.style.backgroundImage = `url(${sprite})`;
-    
+
                 this.markAsGrowable(x, y);
             }
         });
-    
+
         this.scheduleUpdate();
     }
 
