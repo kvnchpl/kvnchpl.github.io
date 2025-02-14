@@ -104,7 +104,7 @@ class Game {
     }
 
     resizeCanvas() {
-        this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE; 
+        this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE;
         this.pathCanvas.height = this.config.mapSize * this.TILE_SIZE;
     }
 
@@ -211,7 +211,7 @@ class Game {
             const { edgeX, edgeY } = this.getEdgeOrigin(edgePos, centerX, centerY);
             for (let [side, enabled] of Object.entries(sideSet)) {
                 if (enabled) {
-                    const coords = this.getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, this.EDGE_LENGTH);
+                    const coords = this.getEdgeLineCoordinates(edgePos, side, edgeX, edgeY);
                     if (coords) drawLine(...coords);
                 }
             }
@@ -232,21 +232,21 @@ class Game {
         return { edgeX, edgeY };
     }
 
-    getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, edgeLength) {
+    getEdgeLineCoordinates(edgePos, side, edgeX, edgeY) {
         if (edgePos === "top" || edgePos === "bottom") {
             switch (side) {
-                case "top": return [edgeX, edgeY, edgeX + edgeLength, edgeY];
-                case "bottom": return [edgeX, edgeY + EDGE_WIDTH, edgeX + edgeLength, edgeY + EDGE_WIDTH];
-                case "left": return [edgeX, edgeY, edgeX, edgeY + EDGE_WIDTH];
-                case "right": return [edgeX + edgeLength, edgeY, edgeX + edgeLength, edgeY + EDGE_WIDTH];
+                case "top": return [edgeX, edgeY, edgeX + this.EDGE_LENGTH, edgeY];
+                case "bottom": return [edgeX, edgeY + this.EDGE_WIDTH, edgeX + this.EDGE_LENGTH, edgeY + this.EDGE_WIDTH];
+                case "left": return [edgeX, edgeY, edgeX, edgeY + this.EDGE_WIDTH];
+                case "right": return [edgeX + this.EDGE_LENGTH, edgeY, edgeX + this.EDGE_LENGTH, edgeY + this.EDGE_WIDTH];
             }
         }
         else if (edgePos === "left" || edgePos === "right") {
             switch (side) {
-                case "top": return [edgeX, edgeY, edgeX + EDGE_WIDTH, edgeY];
-                case "bottom": return [edgeX, edgeY + edgeLength, edgeX + EDGE_WIDTH, edgeY + edgeLength];
-                case "left": return [edgeX, edgeY, edgeX, edgeY + edgeLength];
-                case "right": return [edgeX + EDGE_WIDTH, edgeY, edgeX + EDGE_WIDTH, edgeY + edgeLength];
+                case "top": return [edgeX, edgeY, edgeX + this.EDGE_WIDTH, edgeY];
+                case "bottom": return [edgeX, edgeY + this.EDGE_LENGTH, edgeX + this.EDGE_WIDTH, edgeY + this.EDGE_LENGTH];
+                case "left": return [edgeX, edgeY, edgeX, edgeY + this.EDGE_LENGTH];
+                case "right": return [edgeX + this.EDGE_WIDTH, edgeY, edgeX + this.EDGE_WIDTH, edgeY + this.EDGE_LENGTH];
             }
         }
         return null;
