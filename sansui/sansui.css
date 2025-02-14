@@ -4,7 +4,9 @@
     --grid-width: 10;   /* Number of columns */
     --grid-height: 10;  /* Number of rows */
     --grid-gap: 0px;    /* No extra spacing */
-    --border-width: 2px;
+    --border-width: 2px; /* Border around the grid */
+    --font-size: 1.5rem; /* Default font size */
+    --button-size: calc(var(--tile-size) * 0.75); /* Buttons scale with tile size */
 }
 
 /* General Page Layout */
@@ -25,7 +27,7 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    padding-bottom: 20px;
+    padding-bottom: calc(var(--tile-size) * 0.5);
     position: relative;
 }
 
@@ -80,12 +82,12 @@ body {
 
 /* Reset button */
 #reset {
-    font-size: 1.5rem;
+    font-size: var(--font-size);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    padding: 5px 10px;
+    margin-top: calc(var(--tile-size) * 0.5);
+    padding: calc(var(--tile-size) * 0.1) calc(var(--tile-size) * 0.3);
     cursor: pointer;
 }
 
@@ -94,14 +96,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
+    gap: calc(var(--tile-size) * 0.2);
+    margin-top: calc(var(--tile-size) * 0.5);
 }
 
 /* Arrow buttons for movement */
 .arrow {
     display: none;
-    font-size: 2rem;
+    font-size: var(--button-size);
     cursor: pointer;
 }
 
@@ -119,11 +121,11 @@ body {
 
     .arrow, #reset {
         display: block;
-        font-size: 2rem;
+        font-size: var(--button-size);
         width: 100%;
         height: 100%;
         text-align: center;
-        line-height: 2rem;
+        line-height: var(--button-size);
     }
 
     #up {
