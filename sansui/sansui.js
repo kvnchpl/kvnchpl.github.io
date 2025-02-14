@@ -64,6 +64,10 @@ class Game {
         this.setupPathGrid();
         this.resizeCanvas();
         this.setupAutoGrowth();
+
+        setTimeout(() => {
+            this.updatePlayerSprite();
+        }, 100);
     }
 
     updateMapWidth() {
