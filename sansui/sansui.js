@@ -469,7 +469,10 @@ function handleInput(input) {
         'ArrowDown': () => movePlayer(0, 1),
         'ArrowLeft': () => movePlayer(-1, 0),
         'ArrowRight': () => movePlayer(1, 0),
-        ' ': growFeatures,
+        ' ': () => {
+            console.log("Forcing feature growth...");
+            growFeatures();
+        }, // Ensure spacebar triggers immediate growth
         'up': () => movePlayer(0, -1),
         'down': () => movePlayer(0, 1),
         'left': () => movePlayer(-1, 0),
@@ -478,6 +481,14 @@ function handleInput(input) {
     };
     if (actions[input]) actions[input]();
 }
+
+// Ensure spacebar triggers `growFeatures()` when pressed
+document.addEventListener('keydown', event => {
+    if (event.key === ' ') {
+        event.preventDefault(); // Prevents scrolling when spacebar is pressed
+    }
+    handleInput(event.key);
+});
 
 // Keyboard controls
 document.addEventListener('keydown', event => handleInput(event.key));
