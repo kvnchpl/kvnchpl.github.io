@@ -134,29 +134,34 @@ class Game {
     movePlayer(dx, dy) {
         const prevX = this.player.x;
         const prevY = this.player.y;
-
+    
         const newX = prevX + dx;
         const newY = prevY + dy;
-
+    
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
-
-        // Ensure both previous and new positions update
+    
         this.grid[prevY][prevX] = 1;
         this.grid[newY][newX] = 1;
-
+    
+        // Set player direction based on movement
+        if (dx === 1) this.player.direction = "right";
+        if (dx === -1) this.player.direction = "left";
+        if (dy === 1) this.player.direction = "down";
+        if (dy === -1) this.player.direction = "up";
+    
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
-
+    
         this.updatePlayerSprite();
-        this.updatePaths();  // Ensure paths are drawn with proper connectivity
+        this.updatePaths();
     }
 
     updatePlayerSprite() {
         document.querySelectorAll('.player').forEach(playerLayer => {
             playerLayer.style.backgroundImage = ''; // Clear all previous player sprites
         });
-
+    
         const playerCell = document.querySelector(`.cell[data-x="${this.player.x}"][data-y="${this.player.y}"]`);
         if (playerCell) {
             const playerLayer = playerCell.querySelector('.player');
