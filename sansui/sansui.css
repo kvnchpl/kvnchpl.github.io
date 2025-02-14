@@ -48,7 +48,8 @@ body {
 
 #map {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(48px, 1fr));
+    grid-template-columns: repeat(10, 48px);
+    grid-template-rows: repeat(10, 48px);
     gap: 2px;
     border: 2px solid black;
 }
@@ -94,7 +95,7 @@ body {
 }
 
 .arrow {
-    visibility: none;
+    display: none;
     font-size: 2rem;
     cursor: pointer;
 }
