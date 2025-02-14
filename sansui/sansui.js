@@ -144,8 +144,8 @@ class Game {
         oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
 
         // Now adjust surrounding paths
-        adjustPathType(oldPos);
-        adjustAdjacentPathTypes(oldPos);
+        this.adjustPathType(oldPos);
+        this.adjustAdjacentPathTypes(oldPos);
     }
 
     adjustPathType(pos) {
@@ -254,7 +254,7 @@ class Game {
                 const cell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
                 if (cell) {
                     const featureLayer = cell.querySelector('.feature');
-                    if (featureLayer.classList.contains('path')) {
+                    if (featureLayer.style.backgroundImage.includes('path')) {
                         this.adjustPathType(adjPos);
                     }
                 }
@@ -341,8 +341,21 @@ class Game {
 
     isPath(x, y) {
         if (x < 0 || x >= this.mapWidthInCells || y < 0 || y >= this.config.mapSize) return false;
+    
         const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
-        return cell && cell.querySelector('.feature').classList.contains('path');
+        if (!cell) return false;
+    
+        const pathTypes = new Set([
+            'horizontal', 'vertical', 'intersection_4', 
+            'intersection_3_top', 'intersection_3_bottom', 
+            'intersection_3_left', 'intersection_3_right', 
+            'corner_tl', 'corner_tr', 'corner_bl', 'corner_br'
+        ]);
+    
+        const featureLayer = cell.querySelector('.feature');
+        if (!featureLayer.style.backgroundImage) return false;
+    
+        return pathTypes.has(featureLayer.style.backgroundImage.split('/').pop().replace('.png', ''));
     }
 
     scheduleUpdate() {
@@ -360,15 +373,26 @@ class Game {
     }
 
     handleInput(input) {
-        const actions = {
-            'ArrowUp': () => this.movePlayer(0, -1),
-            'ArrowDown': () => this.movePlayer(0, 1),
-            'ArrowLeft': () => this.movePlayer(-1, 0),
-            'ArrowRight': () => this.movePlayer(1, 0),
-            ' ': () => this.growFeatures(),
-            'r': () => this.createMap()
-        };
-        if (actions[input]) actions[input]();
+        switch (input) {
+            case 'ArrowUp':
+                this.movePlayer(0, -1);
+                break;
+            case 'ArrowDown':
+                this.movePlayer(0, 1);
+                break;
+            case 'ArrowLeft':
+                this.movePlayer(-1, 0);
+                break;
+            case 'ArrowRight':
+                this.movePlayer(1, 0);
+                break;
+            case ' ':
+                this.growFeatures();
+                break;
+            case 'r':
+                this.createMap();
+                break;
+        }
     }
 
     static prependBaseURL(obj, baseURL) {
