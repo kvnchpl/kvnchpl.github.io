@@ -2,9 +2,11 @@
 class Game {
     constructor() {
         this.mapWidthInCells = 0;
-        this.growableCells = new Set();
-        this.updateScheduled = false;
+        this.grid = [];
         this.player = { x: 0, y: 0, direction: 'down', hasMoved: false };
+
+        this.pathCanvas = document.getElementById("pathCanvas");
+        this.pathCtx = this.pathCanvas.getContext("2d");
     }
 
     async loadConfig() {
@@ -38,6 +40,8 @@ class Game {
 
         this.updateMapWidth();
         this.createMap();
+        this.setupPathGrid(); // Initialize path storage
+        this.resizeCanvas();
         this.setupAutoGrowth();
     }
 
@@ -89,6 +93,15 @@ class Game {
         }
     }
 
+    setupPathGrid() {
+        this.grid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(0));
+    }
+
+    resizeCanvas() {
+        this.pathCanvas.width = this.mapWidthInCells * this.config.cellSize;
+        this.pathCanvas.height = this.config.mapSize * this.config.cellSize;
+    }
+
     placePlayerRandomly() {
         const edgePositions = [];
 
@@ -114,36 +127,17 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-
-        const direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
-
-        if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) {
-            return;
-        }
-
-        const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
-        if (!targetCell) return;
-
-        const targetFeatureLayer = targetCell.querySelector('.feature');
-
-        // Allow movement if it's a path
-        if (targetFeatureLayer.style.backgroundImage && !targetFeatureLayer.classList.contains('path')) {
-            return;
-        }
-
-        // Create a path before moving
-        this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY });
-
-        // Move player
+        if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
+    
+        // Mark the old position as a path
+        this.grid[this.player.y][this.player.x] = 1;
+    
+        // Update player's position
         this.player.x = newX;
         this.player.y = newY;
-        this.player.direction = direction;
         this.player.hasMoved = true;
-
-        // Ensure paths update properly
-        this.adjustAdjacentPathTypes({ x: newX, y: newY });
-
-        this.scheduleUpdate();
+    
+        this.updatePaths();
     }
 
     createPath(oldPos, newPos) {
@@ -164,6 +158,27 @@ class Game {
         this.adjustPathType(oldPos);
         this.adjustAdjacentPathTypes(oldPos);
         this.scheduleUpdate();
+    }
+
+    updatePaths() {
+        this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
+    
+        for (let y = 0; y < this.config.mapSize; y++) {
+            for (let x = 0; x < this.mapWidthInCells; x++) {
+                if (this.grid[y][x] === 1) {
+                    this.drawPath(x, y);
+                }
+            }
+        }
+    }
+    
+    drawPath(x, y) {
+        const cellSize = this.config.cellSize;
+        const startX = x * cellSize;
+        const startY = y * cellSize;
+    
+        this.pathCtx.fillStyle = "black"; // Path color
+        this.pathCtx.fillRect(startX + 10, startY + 10, cellSize - 20, cellSize - 20);
     }
 
     adjustPathType(pos) {
