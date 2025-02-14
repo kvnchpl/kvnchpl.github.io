@@ -144,7 +144,12 @@ class Game {
         this.player = { ...edgePositions[randomIndex], direction: 'down', hasMoved: false };
 
         console.log(`Player placed at (${this.player.x}, ${this.player.y})`);
+
         this.scheduleUpdate();
+
+        setTimeout(() => {
+            this.updatePlayerSprite();
+        }, 50);
     }
 
     movePlayer(dx, dy) {
