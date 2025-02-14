@@ -104,8 +104,9 @@ class Game {
     }
 
     resizeCanvas() {
-        this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE;
-        this.pathCanvas.height = this.config.mapSize * this.TILE_SIZE;
+        const container = document.getElementById("map-container");
+        this.pathCanvas.width = container.clientWidth;
+        this.pathCanvas.height = container.clientHeight;
     }
 
     placePlayerRandomly() {
