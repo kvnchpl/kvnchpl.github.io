@@ -489,13 +489,3 @@ document.addEventListener('keydown', event => {
     }
     handleInput(event.key);
 });
-
-// Keyboard controls
-document.addEventListener('keydown', event => handleInput(event.key));
-
-// Button controls
-['up', 'down', 'left', 'right', 'reset'].forEach(id => {
-    document.getElementById(id).addEventListener('click', () => handleInput(id));
-});
-
-window.onload = loadConfig;
