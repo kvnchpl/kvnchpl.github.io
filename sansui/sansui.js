@@ -1,12 +1,20 @@
 /* sansui.js */
 class Game {
     constructor() {
+        this.TILE_SIZE = 32;
+        this.CENTER_SIZE = 20;
+        this.EDGE_WIDTH = (this.TILE_SIZE - this.CENTER_SIZE) / 2;
+        this.EDGE_LENGTH = this.CENTER_SIZE;
+        this.GRID_SIZE = 10;
+
         this.mapWidthInCells = 0;
-        this.grid = [];
-        this.player = { x: 0, y: 0, direction: 'down', hasMoved: false };
+        this.grid = Array.from({ length: this.GRID_SIZE }, () => Array(this.GRID_SIZE).fill(0));
 
         this.pathCanvas = document.getElementById("pathCanvas");
         this.pathCtx = this.pathCanvas.getContext("2d");
+
+        this.pathCanvas.width = this.TILE_SIZE * this.GRID_SIZE;
+        this.pathCanvas.height = this.TILE_SIZE * this.GRID_SIZE;
     }
 
     async loadConfig() {
@@ -172,13 +180,9 @@ class Game {
     }
 
     drawPath(x, y) {
-        const cellSize = this.config.cellSize;
+        const cellSize = this.TILE_SIZE; // Use class property
         const startX = x * cellSize;
         const startY = y * cellSize;
-    
-        const CENTER_SIZE = 20;
-        const EDGE_WIDTH = (cellSize - CENTER_SIZE) / 2;
-        const EDGE_LENGTH = CENTER_SIZE;
     
         const ctx = this.pathCtx;
         ctx.strokeStyle = "black";
@@ -187,11 +191,11 @@ class Game {
     
         const tileProps = this.getTileProperties(x, y);
     
-        // Draw center of the path
-        const centerX = startX + EDGE_WIDTH;
-        const centerY = startY + EDGE_WIDTH;
+        // Draw center
+        const centerX = startX + this.EDGE_WIDTH;
+        const centerY = startY + this.EDGE_WIDTH;
         ctx.fillStyle = "black";
-        ctx.fillRect(centerX, centerY, EDGE_LENGTH, EDGE_LENGTH);
+        ctx.fillRect(centerX, centerY, this.CENTER_SIZE, this.CENTER_SIZE);
     
         // Helper function to draw a line segment
         function drawLine(x1, y1, x2, y2) {
@@ -200,17 +204,17 @@ class Game {
         }
     
         // Draw center sides
-        if (tileProps.center.top) drawLine(centerX, centerY, centerX + CENTER_SIZE, centerY);
-        if (tileProps.center.bottom) drawLine(centerX, centerY + CENTER_SIZE, centerX + CENTER_SIZE, centerY + CENTER_SIZE);
-        if (tileProps.center.left) drawLine(centerX, centerY, centerX, centerY + CENTER_SIZE);
-        if (tileProps.center.right) drawLine(centerX + CENTER_SIZE, centerY, centerX + CENTER_SIZE, centerY + CENTER_SIZE);
+        if (tileProps.center.top) drawLine(centerX, centerY, centerX + this.CENTER_SIZE, centerY);
+        if (tileProps.center.bottom) drawLine(centerX, centerY + this.CENTER_SIZE, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
+        if (tileProps.center.left) drawLine(centerX, centerY, centerX, centerY + this.CENTER_SIZE);
+        if (tileProps.center.right) drawLine(centerX + this.CENTER_SIZE, centerY, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
     
         // Draw edges
         for (let [edgePos, sideSet] of Object.entries(tileProps.edges)) {
             const { edgeX, edgeY } = this.getEdgeOrigin(edgePos, centerX, centerY);
             for (let [side, enabled] of Object.entries(sideSet)) {
                 if (enabled) {
-                    const coords = this.getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, EDGE_LENGTH);
+                    const coords = this.getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, this.EDGE_LENGTH);
                     if (coords) drawLine(...coords);
                 }
             }
@@ -222,12 +226,12 @@ class Game {
     getEdgeOrigin(edgePos, baseX, baseY) {
         let edgeX = baseX;
         let edgeY = baseY;
-
-        if (edgePos === "top") edgeY -= EDGE_WIDTH;
-        if (edgePos === "bottom") edgeY += CENTER_SIZE;
-        if (edgePos === "left") edgeX -= EDGE_WIDTH;
-        if (edgePos === "right") edgeX += CENTER_SIZE;
-
+    
+        if (edgePos === "top") edgeY -= this.EDGE_WIDTH;
+        if (edgePos === "bottom") edgeY += this.CENTER_SIZE;
+        if (edgePos === "left") edgeX -= this.EDGE_WIDTH;
+        if (edgePos === "right") edgeX += this.CENTER_SIZE;
+    
         return { edgeX, edgeY };
     }
 
