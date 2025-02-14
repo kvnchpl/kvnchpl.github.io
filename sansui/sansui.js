@@ -75,8 +75,16 @@ class Game {
     }
 
     createMap() {
+        console.log("Resetting map...");
         const map = document.getElementById('map');
-        map.innerHTML = '';
+        map.innerHTML = ''; // Clear map HTML
+
+        // Reset the grid and path tracking
+        this.grid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(0));
+        this.pathGrid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(null));
+
+        // Clear the path canvas
+        this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
 
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
@@ -97,10 +105,15 @@ class Game {
             }
         }
 
+        // Reset the map grid layout
         map.style.gridTemplateColumns = `repeat(${this.mapWidthInCells}, ${this.TILE_SIZE}px)`;
-        this.placePlayerRandomly();
+
+        this.growableCells = new Set(); // Clear any growable cells
+        this.placePlayerRandomly(); // Reset player position
         this.scheduleUpdate();
         this.player.hasMoved = false;
+
+        console.log("Map reset complete, all paths cleared.");
     }
 
     updateMap() {
