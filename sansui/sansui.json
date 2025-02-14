@@ -1,7 +1,7 @@
 {
     "mapSize": 10,
     "tileSize": 48,
-    "centerSize": 30,
+    "pathSize": 30,
     "spawnChance": 0.05,
     "growthChance": 0.1,
     "features": {

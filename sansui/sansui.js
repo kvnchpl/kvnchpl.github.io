@@ -20,9 +20,9 @@ class Game {
 
             // Load path settings dynamically
             this.TILE_SIZE = this.config.tileSize;
-            this.CENTER_SIZE = this.config.centerSize;
-            this.EDGE_WIDTH = (this.TILE_SIZE - this.CENTER_SIZE) / 2;
-            this.EDGE_LENGTH = this.CENTER_SIZE;
+            this.PATH_SIZE = this.config.pathSize;
+            this.EDGE_WIDTH = (this.TILE_SIZE - this.PATH_SIZE) / 2;
+            this.EDGE_LENGTH = this.PATH_SIZE;
 
             // Base URL for assets
             const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
@@ -203,10 +203,10 @@ class Game {
         const centerY = startY + this.EDGE_WIDTH;
 
         // Draw center sides
-        if (properties.center.top) drawLine(centerX, centerY, centerX + this.CENTER_SIZE, centerY);
-        if (properties.center.bottom) drawLine(centerX, centerY + this.CENTER_SIZE, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
-        if (properties.center.left) drawLine(centerX, centerY, centerX, centerY + this.CENTER_SIZE);
-        if (properties.center.right) drawLine(centerX + this.CENTER_SIZE, centerY, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
+        if (properties.center.top) drawLine(centerX, centerY, centerX + this.PATH_SIZE, centerY);
+        if (properties.center.bottom) drawLine(centerX, centerY + this.PATH_SIZE, centerX + this.PATH_SIZE, centerY + this.PATH_SIZE);
+        if (properties.center.left) drawLine(centerX, centerY, centerX, centerY + this.PATH_SIZE);
+        if (properties.center.right) drawLine(centerX + this.PATH_SIZE, centerY, centerX + this.PATH_SIZE, centerY + this.PATH_SIZE);
 
         // Draw edges
         for (let [edgePos, sideSet] of Object.entries(properties.edges)) {
@@ -227,9 +227,9 @@ class Game {
         let edgeY = baseY;
 
         if (edgePos === "top") edgeY -= this.EDGE_WIDTH;
-        if (edgePos === "bottom") edgeY += this.CENTER_SIZE;
+        if (edgePos === "bottom") edgeY += this.PATH_SIZE;
         if (edgePos === "left") edgeX -= this.EDGE_WIDTH;
-        if (edgePos === "right") edgeX += this.CENTER_SIZE;
+        if (edgePos === "right") edgeX += this.PATH_SIZE;
 
         return { edgeX, edgeY };
     }
