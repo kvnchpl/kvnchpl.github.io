@@ -207,10 +207,10 @@ class Game {
     
         // Draw edges
         for (let [edgePos, sideSet] of Object.entries(tileProps.edges)) {
-            const { edgeX, edgeY } = getEdgeOrigin(edgePos, centerX, centerY);
+            const { edgeX, edgeY } = this.getEdgeOrigin(edgePos, centerX, centerY);
             for (let [side, enabled] of Object.entries(sideSet)) {
                 if (enabled) {
-                    const coords = getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, EDGE_LENGTH);
+                    const coords = this.getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, EDGE_LENGTH);
                     if (coords) drawLine(...coords);
                 }
             }
