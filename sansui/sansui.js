@@ -409,18 +409,14 @@ class Game {
 
 // Initialize game
 const game = new Game();
-
-// Ensure this.config loads on page load
 window.onload = () => game.loadConfig();
 
-// Ensure game updates when the window is resized
 window.addEventListener('resize', () => {
     game.updateMapWidth();
     game.createMap(); // Fully rebuild the map
     game.scheduleUpdate(); // Ensure it redraws correctly
 });
 
-// Prevent scrolling when using arrow keys or spacebar
 document.addEventListener('keydown', event => {
     if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(event.key)) {
         event.preventDefault();
