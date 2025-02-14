@@ -127,17 +127,18 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
+    
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
     
-        // Mark the old position as a path
+        // Mark current position as a path
         this.grid[this.player.y][this.player.x] = 1;
     
-        // Update player's position
+        // Move player
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
     
-        this.updatePaths();
+        this.updatePaths(); // 🟢 Trigger correct path drawing
     }
 
     createPath(oldPos, newPos) {
@@ -160,6 +161,48 @@ class Game {
         this.scheduleUpdate();
     }
 
+    drawPath(x, y) {
+        const cellSize = this.config.cellSize;
+        const startX = x * cellSize;
+        const startY = y * cellSize;
+    
+        // Get neighbors
+        const top = this.grid[y - 1]?.[x] === 1;
+        const bottom = this.grid[y + 1]?.[x] === 1;
+        const left = this.grid[y]?.[x - 1] === 1;
+        const right = this.grid[y]?.[x + 1] === 1;
+    
+        // Set line styles
+        this.pathCtx.strokeStyle = "black";
+        this.pathCtx.lineWidth = 4;
+    
+        this.pathCtx.beginPath();
+    
+        // Draw center dot
+        this.pathCtx.arc(startX + cellSize / 2, startY + cellSize / 2, 4, 0, Math.PI * 2);
+        this.pathCtx.fill();
+    
+        // Draw connections
+        if (top) {
+            this.pathCtx.moveTo(startX + cellSize / 2, startY);
+            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
+        }
+        if (bottom) {
+            this.pathCtx.moveTo(startX + cellSize / 2, startY + cellSize);
+            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
+        }
+        if (left) {
+            this.pathCtx.moveTo(startX, startY + cellSize / 2);
+            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
+        }
+        if (right) {
+            this.pathCtx.moveTo(startX + cellSize, startY + cellSize / 2);
+            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
+        }
+    
+        this.pathCtx.stroke();
+    }
+
     updatePaths() {
         this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
     
@@ -170,15 +213,6 @@ class Game {
                 }
             }
         }
-    }
-    
-    drawPath(x, y) {
-        const cellSize = this.config.cellSize;
-        const startX = x * cellSize;
-        const startY = y * cellSize;
-    
-        this.pathCtx.fillStyle = "black"; // Path color
-        this.pathCtx.fillRect(startX + 10, startY + 10, cellSize - 20, cellSize - 20);
     }
 
     adjustPathType(pos) {
