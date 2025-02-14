@@ -156,14 +156,12 @@ class Game {
 
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
 
-        // Check if the target tile contains a feature
         const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
         if (!targetCell) return;
 
         const featureLayer = targetCell.querySelector('.feature');
         if (featureLayer && featureLayer.style.backgroundImage) {
-            console.log("Blocked! Cannot move onto a feature.");
-            return; // Prevent movement if a feature exists
+            return;
         }
 
         this.grid[prevY][prevX] = 1;
@@ -479,12 +477,17 @@ class Game {
 
                 const featureLayer = cell.querySelector('.feature');
 
-                if (!featureLayer.style.backgroundImage && Math.random() < this.config.spawnChance) {
+                if (featureLayer.style.backgroundImage) return;
+                if (this.grid[pos.y][pos.x] === 1) return;
+
+                if (Math.random() < this.config.spawnChance) {
                     const featureKeys = Object.keys(this.config.features);
+                    if (featureKeys.length === 0) return;
+
                     const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
                     const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
-                    featureLayer.style.backgroundImage = `url(${sprite})`;
 
+                    featureLayer.style.backgroundImage = `url(${sprite})`;
                     this.markAsGrowable(pos.x, pos.y);
                 }
             }
