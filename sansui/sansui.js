@@ -52,7 +52,7 @@ class Game {
     }
 
     updateMapWidth() {
-        this.mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / this.config.cellSize), this.config.mapSize));
+        this.mapWidthInCells = Math.max(1, Math.min(Math.floor(window.innerWidth / this.TILE_SIZE), this.config.mapSize));
     }
 
     createMap() {
@@ -78,7 +78,7 @@ class Game {
             }
         }
 
-        map.style.gridTemplateColumns = `repeat(${this.mapWidthInCells}, ${this.config.cellSize}px)`;
+        map.style.gridTemplateColumns = `repeat(${this.mapWidthInCells}, ${this.TILE_SIZE}px)`;
         this.placePlayerRandomly();
         this.scheduleUpdate();
         this.player.hasMoved = false;
@@ -104,8 +104,8 @@ class Game {
     }
 
     resizeCanvas() {
-        this.pathCanvas.width = this.mapWidthInCells * this.config.cellSize;
-        this.pathCanvas.height = this.config.mapSize * this.config.cellSize;
+        this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE; 
+        this.pathCanvas.height = this.config.mapSize * this.TILE_SIZE;
     }
 
     placePlayerRandomly() {

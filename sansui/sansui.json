@@ -1,13 +1,12 @@
 {
     "mapSize": 10,
-    "cellSize": 48,
     "spawnChance": 0.05,
     "growthChance": 0.1,
     "pathSettings": {
-        "tileSize": 32,
-        "centerSize": 20,
-        "edgeWidth": 6,
-        "edgeLength": 20,
+        "tileSize": 48,
+        "centerSize": 30,
+        "edgeWidth": 9,
+        "edgeLength": 30,
         "gridSize": 10
     },
     "features": {
