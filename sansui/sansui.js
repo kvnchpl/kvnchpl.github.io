@@ -127,14 +127,14 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-    
+
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
-    
+
         this.grid[this.player.y][this.player.x] = 1; // Mark the previous position as a path
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
-    
+
         this.updatePlayerSprite();
         this.updatePaths(); // Ensure paths are drawn with proper connectivity
     }
@@ -175,43 +175,47 @@ class Game {
         const cellSize = this.config.cellSize;
         const startX = x * cellSize;
         const startY = y * cellSize;
-
-        const EDGE_WIDTH = (cellSize - 20) / 2;
-        const EDGE_LENGTH = 20;
-
+    
+        const CENTER_SIZE = 20;
+        const EDGE_WIDTH = (cellSize - CENTER_SIZE) / 2;
+        const EDGE_LENGTH = CENTER_SIZE;
+    
         const ctx = this.pathCtx;
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
         ctx.beginPath();
-
-        // Center of the tile
+    
+        const tileProps = this.getTileProperties(x, y);
+    
+        // Draw center of the path
         const centerX = startX + EDGE_WIDTH;
         const centerY = startY + EDGE_WIDTH;
-
-        // Get adjacency
-        const neighbors = {
-            top: this.grid[y - 1]?.[x] === 1,
-            bottom: this.grid[y + 1]?.[x] === 1,
-            left: this.grid[y]?.[x - 1] === 1,
-            right: this.grid[y]?.[x + 1] === 1
-        };
-
-        // Draw center
         ctx.fillStyle = "black";
         ctx.fillRect(centerX, centerY, EDGE_LENGTH, EDGE_LENGTH);
-
+    
         // Helper function to draw a line segment
         function drawLine(x1, y1, x2, y2) {
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
         }
-
-        // Draw edges for connected paths
-        if (neighbors.top) drawLine(centerX, startY, centerX + EDGE_LENGTH, startY);
-        if (neighbors.bottom) drawLine(centerX, startY + cellSize, centerX + EDGE_LENGTH, startY + cellSize);
-        if (neighbors.left) drawLine(startX, centerY, startX, centerY + EDGE_LENGTH);
-        if (neighbors.right) drawLine(startX + cellSize, centerY, startX + cellSize, centerY + EDGE_LENGTH);
-
+    
+        // Draw center sides
+        if (tileProps.center.top) drawLine(centerX, centerY, centerX + CENTER_SIZE, centerY);
+        if (tileProps.center.bottom) drawLine(centerX, centerY + CENTER_SIZE, centerX + CENTER_SIZE, centerY + CENTER_SIZE);
+        if (tileProps.center.left) drawLine(centerX, centerY, centerX, centerY + CENTER_SIZE);
+        if (tileProps.center.right) drawLine(centerX + CENTER_SIZE, centerY, centerX + CENTER_SIZE, centerY + CENTER_SIZE);
+    
+        // Draw edges
+        for (let [edgePos, sideSet] of Object.entries(tileProps.edges)) {
+            const { edgeX, edgeY } = getEdgeOrigin(edgePos, centerX, centerY);
+            for (let [side, enabled] of Object.entries(sideSet)) {
+                if (enabled) {
+                    const coords = getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, EDGE_LENGTH);
+                    if (coords) drawLine(...coords);
+                }
+            }
+        }
+    
         ctx.stroke();
     }
 
@@ -245,6 +249,67 @@ class Game {
         }
 
         this.scheduleUpdate();
+    }
+
+    getTileProperties(x, y) {
+        const directions = ["top", "right", "bottom", "left"];
+        const orthogonal = {
+            top: ["left", "right"],
+            right: ["top", "bottom"],
+            bottom: ["left", "right"],
+            left: ["top", "bottom"],
+        };
+        const diagonals = [
+            { key: "topLeft", main: ["top", "left"] },
+            { key: "topRight", main: ["top", "right"] },
+            { key: "bottomLeft", main: ["bottom", "left"] },
+            { key: "bottomRight", main: ["bottom", "right"] }
+        ];
+
+        let tile = {
+            center: { top: false, right: false, bottom: false, left: false },
+            edges: {
+                top: { top: false, right: false, bottom: false, left: false },
+                right: { top: false, right: false, bottom: false, left: false },
+                bottom: { top: false, right: false, bottom: false, left: false },
+                left: { top: false, right: false, bottom: false, left: false }
+            }
+        };
+
+        // Evaluate which neighbors exist
+        let adj = {
+            top: (y > 0) && this.grid[y - 1][x] === 1,
+            right: (x < this.mapWidthInCells - 1) && this.grid[y][x + 1] === 1,
+            bottom: (y < this.config.mapSize - 1) && this.grid[y + 1][x] === 1,
+            left: (x > 0) && this.grid[y][x - 1] === 1,
+            topLeft: (y > 0 && x > 0) && this.grid[y - 1][x - 1] === 1,
+            topRight: (y > 0 && x < this.mapWidthInCells - 1) && this.grid[y - 1][x + 1] === 1,
+            bottomRight: (y < this.config.mapSize - 1 && x < this.mapWidthInCells - 1) && this.grid[y + 1][x + 1] === 1,
+            bottomLeft: (y < this.config.mapSize - 1 && x > 0) && this.grid[y + 1][x - 1] === 1
+        };
+
+        // If no neighbor in a direction, enable the center side in that direction
+        // If a neighbor, enable the edges in the orthogonal directions
+        directions.forEach(dir => {
+            if (!adj[dir]) {
+                tile.center[dir] = true;
+            } else {
+                orthogonal[dir].forEach(ortho => {
+                    tile.edges[dir][ortho] = true;
+                });
+            }
+        });
+
+        // If diagonal plus the two adjoining orthogonal neighbors
+        // are present, remove corner edges to avoid overlap
+        diagonals.forEach(({ key, main }) => {
+            if (adj[key] && adj[main[0]] && adj[main[1]]) {
+                tile.edges[main[0]][main[1]] = false;
+                tile.edges[main[1]][main[0]] = false;
+            }
+        });
+
+        return tile;
     }
 
     determinePathType(neighbors) {
