@@ -532,7 +532,6 @@ class Game {
                 this.movePlayer(1, 0);
                 break;
             case ' ':
-                console.log("Spacebar pressed, calling growFeatures()");
                 this.growFeatures();
                 break;
             case 'r':
