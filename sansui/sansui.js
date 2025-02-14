@@ -14,7 +14,7 @@ class Game {
             this.config = await response.json();
 
             if (!this.config.mapSize) {
-                console.error("Invalid config: missing mapSize!");
+                console.error("Invalid this.config: missing mapSize!");
                 return;
             }
 
@@ -25,7 +25,7 @@ class Game {
             console.log("Config successfully loaded:", this.config);
             this.initGame();
         } catch (error) {
-            console.error("Failed to load config:", error);
+            console.error("Failed to load this.config:", error);
         }
     }
 
@@ -82,10 +82,10 @@ class Game {
                 playerLayer.style.backgroundImage = `url(${this.config.sprites.player[this.player.direction]})`;
             }
         });
-    
-        // **Ensure features generate as expected**
-        if (playerHasMoved) {
-            generateFeature();
+
+        // Ensure features generate as expected
+        if (this.player.hasMoved) {
+            this.generateFeature();
         }
     }
 
@@ -117,6 +117,7 @@ class Game {
         this.player.direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
 
         if (newX >= 0 && newX < this.mapWidthInCells && newY >= 0 && newY < this.config.mapSize) {
+            this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY });
             this.player.x = newX;
             this.player.y = newY;
             this.player.hasMoved = true;
@@ -129,20 +130,20 @@ class Game {
     createPath(oldPos, newPos) {
         const oldCell = document.querySelector(`.cell[data-x="${oldPos.x}"][data-y="${oldPos.y}"]`);
         if (!oldCell) return;
-    
+
         const oldFeatureLayer = oldCell.querySelector('.feature');
         oldFeatureLayer.classList.add('path'); // Mark it as a path
-    
+
         const deltaX = newPos.x - oldPos.x;
         const deltaY = newPos.y - oldPos.y;
-    
-        // **Determine initial path type based on movement direction**
+
+        // Determine initial path type based on movement direction
         let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
-    
-        // **Apply the initial path immediately before checking neighbors**
+
+        // Apply the initial path immediately before checking neighbors
         oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
-    
-        // **Now adjust surrounding paths**
+
+        // Now adjust surrounding paths
         adjustPathType(oldPos);
         adjustAdjacentPathTypes(oldPos);
     }
@@ -150,28 +151,28 @@ class Game {
     adjustPathType(pos) {
         const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
         if (!cell) return;
-    
+
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.classList.contains('path')) return;
-    
-        // **Check current path type**
+
+        // Check current path type
         const currentPathType = featureLayer.style.backgroundImage.split('/').pop().replace('.png', '');
-    
+
         // Get adjacent paths
         const adjacentPaths = {
-            top: isPath(pos.x, pos.y - 1),
-            bottom: isPath(pos.x, pos.y + 1),
-            left: isPath(pos.x - 1, pos.y),
-            right: isPath(pos.x + 1, pos.y),
+            top: this.isPath(pos.x, pos.y - 1),
+            bottom: this.isPath(pos.x, pos.y + 1),
+            left: this.isPath(pos.x - 1, pos.y),
+            right: this.isPath(pos.x + 1, pos.y),
         };
-    
+
         let newPathType = null;
-    
-        // **Only update if the path is incomplete**
+
+        // Only update if the path is incomplete
         if (currentPathType === 'vertical' || currentPathType === 'horizontal') {
             return; // Keep it as is if it's already correct
         }
-    
+
         if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
             newPathType = 'intersection_4';
         } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) {
@@ -195,45 +196,43 @@ class Game {
         } else if (adjacentPaths.top && adjacentPaths.bottom) {
             newPathType = 'vertical';
         }
-    
+
         if (newPathType) {
-            featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
+            featureLayer.style.backgroundImage = `url(${this.config.sprites.paths[newPathType]})`;
             featureLayer.classList.add('path');
         }
+        this.scheduleUpdate();
     }
 
     determinePathType(neighbors, firstMoveDirection = null) {
-        // **Check if no adjacent paths exist (isolated tile)**
+        // Check if no adjacent paths exist (isolated tile)
         const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
-    
+
         if (!hasAdjacentPaths) {
-            if (firstMoveDirection) {
-                return firstMoveDirection; // Use the explicitly passed firstMoveDirection
-            }
-            return 'horizontal';  // Default to horizontal only if no movement direction is known
+            return firstMoveDirection || 'horizontal'; // Use the first move direction if provided
         }
-    
+
         // Full 4-way intersection
         if (neighbors.top && neighbors.bottom && neighbors.left && neighbors.right) {
             return 'intersection_4';
         }
-    
+
         // 3-way intersections
         if (neighbors.top && neighbors.bottom && neighbors.right) return 'intersection_3_right';
         if (neighbors.top && neighbors.bottom && neighbors.left) return 'intersection_3_left';
         if (neighbors.left && neighbors.right && neighbors.top) return 'intersection_3_top';
         if (neighbors.left && neighbors.right && neighbors.bottom) return 'intersection_3_bottom';
-    
+
         // Turns (corners)
         if (neighbors.left && neighbors.bottom) return 'corner_tr';
         if (neighbors.right && neighbors.bottom) return 'corner_tl';
         if (neighbors.left && neighbors.top) return 'corner_br';
         if (neighbors.right && neighbors.top) return 'corner_bl';
-    
+
         // Straight paths
         if (neighbors.top && neighbors.bottom) return 'vertical';
         if (neighbors.left && neighbors.right) return 'horizontal';
-    
+
         // Default case (should never reach this point)
         return 'horizontal';
     }
@@ -249,31 +248,29 @@ class Game {
             { x: pos.x - 1, y: pos.y + 1 }, // Bottom-left
             { x: pos.x + 1, y: pos.y + 1 }  // Bottom-right
         ];
-    
+
         adjacentPositions.forEach(adjPos => {
             if (adjPos.x >= 0 && adjPos.x < this.mapWidthInCells && adjPos.y >= 0 && adjPos.y < this.config.mapSize) {
                 const cell = document.querySelector(`.cell[data-x="${adjPos.x}"][data-y="${adjPos.y}"]`);
                 if (cell) {
                     const featureLayer = cell.querySelector('.feature');
                     if (featureLayer.classList.contains('path')) {
-                        adjustPathType(adjPos);
+                        this.adjustPathType(adjPos);
                     }
                 }
             }
         });
+
+        this.scheduleUpdate();
     }
 
     getPathNeighbors(pos) {
-        return {
-            top: isPath(pos.x, pos.y - 1),
-            bottom: isPath(pos.x, pos.y + 1),
-            left: isPath(pos.x - 1, pos.y),
-            right: isPath(pos.x + 1, pos.y),
-            topLeft: isPath(pos.x - 1, pos.y - 1),
-            topRight: isPath(pos.x + 1, pos.y - 1),
-            bottomLeft: isPath(pos.x - 1, pos.y + 1),
-            bottomRight: isPath(pos.x + 1, pos.y + 1)
-        };
+        const top = this.isPath(pos.x, pos.y - 1);
+        const bottom = this.isPath(pos.x, pos.y + 1);
+        const left = this.isPath(pos.x - 1, pos.y);
+        const right = this.isPath(pos.x + 1, pos.y);
+
+        return { top, bottom, left, right };
     }
 
     growFeatures() {
@@ -302,37 +299,37 @@ class Game {
 
     generateFeature() {
         if (!this.player.hasMoved) return; // Prevent feature generation before movement
-    
+
         const surroundingPositions = [
-            { x: playerPosition.x - 1, y: playerPosition.y },
-            { x: playerPosition.x + 1, y: playerPosition.y },
-            { x: playerPosition.x, y: playerPosition.y - 1 },
-            { x: playerPosition.x, y: playerPosition.y + 1 },
-            { x: playerPosition.x - 1, y: playerPosition.y - 1 },
-            { x: playerPosition.x + 1, y: playerPosition.y - 1 },
-            { x: playerPosition.x - 1, y: playerPosition.y + 1 },
-            { x: playerPosition.x + 1, y: playerPosition.y + 1 }
+            { x: this.player.x - 1, y: this.player.y },
+            { x: this.player.x + 1, y: this.player.y },
+            { x: this.player.x, y: this.player.y - 1 },
+            { x: this.player.x, y: this.player.y + 1 },
+            { x: this.player.x - 1, y: this.player.y - 1 },
+            { x: this.player.x + 1, y: this.player.y - 1 },
+            { x: this.player.x - 1, y: this.player.y + 1 },
+            { x: this.player.x + 1, y: this.player.y + 1 }
         ];
-    
+
         surroundingPositions.forEach(pos => {
-            if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
-                // **Skip feature generation if the tile is the player's position**
-                if (pos.x === playerPosition.x && pos.y === playerPosition.y) return;
-    
+            if (pos.x >= 0 && pos.x < this.config.mapSize && pos.y >= 0 && pos.y < this.config.mapSize) {
+                // Skip feature generation if the tile is the player's position
+                if (pos.x === this.player.x && pos.y === this.player.y) return;
+
                 const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
                 if (!cell) return;
-    
+
                 const featureLayer = cell.querySelector('.feature');
-    
-                // **Only add a feature if the cell is empty**
-                if (!featureLayer.style.backgroundImage && Math.random() < config.spawnChance) {
-                    const featureKeys = Object.keys(config.features);
+
+                // Only add a feature if the cell is empty
+                if (!featureLayer.style.backgroundImage && Math.random() < this.config.spawnChance) {
+                    const featureKeys = Object.keys(this.config.features);
                     const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
-                    const sprite = config.sprites.features[selectedFeature][Math.floor(Math.random() * config.sprites.features[selectedFeature].length)];
+                    const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
                     featureLayer.style.backgroundImage = `url(${sprite})`;
-    
-                    // **Mark the tile as growable for future growth**
-                    markAsGrowable(pos.x, pos.y);
+
+                    // Mark the tile as growable for future growth
+                    this.markAsGrowable(pos.x, pos.y);
                 }
             }
         });
@@ -349,13 +346,13 @@ class Game {
     }
 
     scheduleUpdate() {
-        if (!this.updateScheduled) {
-            this.updateScheduled = true;
-            requestAnimationFrame(() => {
-                this.updateMap();
-                this.updateScheduled = false;
-            });
-        }
+        if (this.updateScheduled) return;
+        this.updateScheduled = true;
+
+        requestAnimationFrame(() => {
+            this.updateMap();
+            this.updateScheduled = false;
+        });
     }
 
     setupAutoGrowth() {
@@ -389,13 +386,14 @@ class Game {
 // Initialize game
 const game = new Game();
 
-// Ensure config loads on page load
+// Ensure this.config loads on page load
 window.onload = () => game.loadConfig();
 
 // Ensure game updates when the window is resized
 window.addEventListener('resize', () => {
     game.updateMapWidth();
-    game.createMap(); // Rebuild the map to reflect new dimensions
+    game.createMap(); // Fully rebuild the map
+    game.scheduleUpdate(); // Ensure it redraws correctly
 });
 
 // Prevent scrolling when using arrow keys or spacebar
