@@ -10,11 +10,29 @@ class Game {
     async loadConfig() {
         try {
             console.log("Loading configuration...");
-            const response = await fetch('https://kvnchpl.github.io/sansui/sansui.json');
+
+            // Get JSON path from meta tag
+            const metaTag = document.querySelector('meta[name="game-data"]');
+            const jsonPath = metaTag ? metaTag.getAttribute('content') : null;
+
+            // Get sprites base path from meta tag
+            const spritesMetaTag = document.querySelector('meta[name="sprites"]');
+            const spritesBasePath = spritesMetaTag ? spritesMetaTag.getAttribute('content') : null;
+
+            if (!jsonPath) {
+                console.error("Game data file path is missing from meta tag!");
+                return;
+            }
+            if (!spritesBasePath) {
+                console.error("Sprites base path is missing from meta tag!");
+                return;
+            }
+
+            const response = await fetch(jsonPath);
             this.config = await response.json();
 
             if (!this.config.mapSize) {
-                console.error("Invalid this.config: missing mapSize!");
+                console.error("Invalid config: missing mapSize!");
                 return;
             }
 
@@ -23,13 +41,13 @@ class Game {
             this.EDGE_WIDTH = (this.TILE_SIZE - this.PATH_SIZE) / 2;
             this.EDGE_LENGTH = this.PATH_SIZE;
 
-            const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
-            this.config.sprites = Game.prependBaseURL(this.config.sprites, baseURL);
+            this.config.sprites = Game.prependBaseURL(this.config.sprites, spritesBasePath);
 
-            console.log("Config successfully loaded:", this.config);
+            console.log("Config successfully loaded from:", jsonPath);
+            console.log("Sprites base path set to:", spritesBasePath);
             this.initGame();
         } catch (error) {
-            console.error("Failed to load this.config:", error);
+            console.error("Failed to load config:", error);
         }
     }
 
