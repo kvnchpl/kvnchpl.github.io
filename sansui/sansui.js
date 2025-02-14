@@ -489,3 +489,5 @@ document.addEventListener('keydown', event => {
     }
     handleInput(event.key);
 });
+
+window.onload = loadConfig;
