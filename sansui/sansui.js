@@ -239,7 +239,10 @@ class Game {
     }
 
     growFeatures() {
-        if (this.growableCells.size === 0) return;
+        if (this.growableCells.size === 0) {
+            console.log("no growable cells");
+            return;
+        }
 
         this.growableCells.forEach(cellKey => {
             const [x, y] = cellKey.split(',').map(Number);
