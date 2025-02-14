@@ -553,7 +553,14 @@ class Game {
 }
 
 const game = new Game();
-window.onload = () => game.loadConfig();
+window.onload = () => {
+    game.loadConfig();
+
+    document.getElementById("reset").addEventListener("click", () => {
+        console.log("Reset button clicked. Restarting game...");
+        game.createMap();
+    });
+};
 
 window.addEventListener('resize', () => {
     game.updateMapWidth();
