@@ -433,9 +433,6 @@ class Game {
 
     growFeatures() {
         if (!this.growableCells || this.growableCells.size === 0) {
-            console.log("No growable cells found. Searching for new ones...");
-
-            // Find existing features and mark them as growable
             document.querySelectorAll('.cell').forEach(cell => {
                 const featureLayer = cell.querySelector('.feature');
                 if (featureLayer.style.backgroundImage !== '') {
@@ -445,7 +442,7 @@ class Game {
                 }
             });
 
-            if (this.growableCells.size === 0) return; // Still no growable cells
+            if (this.growableCells.size === 0) return;
         }
 
         const cellsToProcess = Array.from(this.growableCells);
@@ -520,7 +517,14 @@ class Game {
                 const featureLayer = cell.querySelector('.feature');
 
                 if (featureLayer.style.backgroundImage) return;
-                if (this.grid[pos.y][pos.x] === 1) return;
+                // 🔍 Debug Log: Check what `this.grid[pos.y][pos.x]` contains
+                console.log(`Checking tile (${pos.x}, ${pos.y}):`, this.grid[pos.y]?.[pos.x]);
+
+                // ❌ Prevent feature spawning on paths
+                if (this.grid[pos.y]?.[pos.x] === 1) {
+                    console.log(`Blocked: Tile (${pos.x}, ${pos.y}) is a path.`);
+                    return;
+                }
 
                 if (Math.random() < this.config.spawnChance) {
                     const featureKeys = Object.keys(this.config.features);
