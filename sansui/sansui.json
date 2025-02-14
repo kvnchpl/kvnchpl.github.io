@@ -2,8 +2,8 @@
     "mapSize": 10,
     "tileSize": 48,
     "pathSize": 30,
-    "spawnChance": 0.05,
-    "growthChance": 0.1,
+    "spawnChance": 0.1,
+    "growthChance": 0.2,
     "features": {
         "gravel": {
             "growable": true
