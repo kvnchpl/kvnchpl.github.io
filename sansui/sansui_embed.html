@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SANSUI</title>
-        <link rel="stylesheet" href="https://kvnchpl.github.io/sansui/sansui.css">
-    </head>
-    <body>
-        <div id="container">
-            <div id="title">SANSUI</div>
-            <div id="header"></div>
-            <div id="garden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANSUI</title>
+    <link rel="stylesheet" href="https://kvnchpl.github.io/sansui/sansui.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="title">SANSUI</div>
+        <div id="header"></div>
+        <div id="garden">
+            <div id="map-container">
+                <canvas id="pathCanvas"></canvas>
                 <div id="map"></div>
-                <div id="controls">
-                    <div id="up" class="arrow">↑</div>
-                    <div id="left" class="arrow">←</div>
-                    <div id="reset" style="cursor: pointer;">⟳</div>
-                    <div id="right" class="arrow">→</div>
-                    <div id="down" class="arrow">↓</div>
-                </div>
+            </div>
+            <div id="controls">
+                <div id="up" class="arrow">↑</div>
+                <div id="left" class="arrow">←</div>
+                <div id="reset" style="cursor: pointer;">⟳</div>
+                <div id="right" class="arrow">→</div>
+                <div id="down" class="arrow">↓</div>
             </div>
         </div>
-        <script src="https://kvnchpl.github.io/sansui/sansui.js"></script>
-    </body>
+    </div>
+    <script src="https://kvnchpl.github.io/sansui/sansui.js"></script>
+</body>
+
 </html>
