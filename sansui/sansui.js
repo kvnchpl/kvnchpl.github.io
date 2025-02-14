@@ -1,4 +1,3 @@
-/* sansui.js */
 class Game {
     constructor() {
         this.mapWidthInCells = 0;
@@ -18,13 +17,11 @@ class Game {
                 return;
             }
 
-            // Load path settings dynamically
             this.TILE_SIZE = this.config.tileSize;
             this.PATH_SIZE = this.config.pathSize;
             this.EDGE_WIDTH = (this.TILE_SIZE - this.PATH_SIZE) / 2;
             this.EDGE_LENGTH = this.PATH_SIZE;
 
-            // Base URL for assets
             const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
             this.config.sprites = Game.prependBaseURL(this.config.sprites, baseURL);
 
@@ -44,7 +41,7 @@ class Game {
 
         this.updateMapWidth();
         this.createMap();
-        this.setupPathGrid(); // Initialize path storage
+        this.setupPathGrid();
         this.resizeCanvas();
         this.setupAutoGrowth();
     }
@@ -91,16 +88,15 @@ class Game {
             }
         });
 
-        // Ensure features generate as expected
         if (this.player.hasMoved) {
             this.generateFeature();
         }
     }
 
     setupPathGrid() {
-        this.updateMapWidth(); // Ensure width is updated first
+        this.updateMapWidth();
         this.grid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(0));
-        this.pathGrid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(null)); // Separate path grid
+        this.pathGrid = Array.from({ length: this.config.mapSize }, () => Array(this.mapWidthInCells).fill(null));
     }
 
     resizeCanvas() {
@@ -134,41 +130,39 @@ class Game {
     movePlayer(dx, dy) {
         const prevX = this.player.x;
         const prevY = this.player.y;
-    
+
         const newX = prevX + dx;
         const newY = prevY + dy;
-    
+
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
-    
+
         this.grid[prevY][prevX] = 1;
         this.grid[newY][newX] = 1;
-    
-        // Set player direction based on movement
+
         if (dx === 1) this.player.direction = "right";
         if (dx === -1) this.player.direction = "left";
         if (dy === 1) this.player.direction = "down";
         if (dy === -1) this.player.direction = "up";
-    
+
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
-    
+
         this.updatePlayerSprite();
         this.updatePaths();
     }
 
     updatePlayerSprite() {
         document.querySelectorAll('.player').forEach(playerLayer => {
-            playerLayer.style.backgroundImage = ''; // Clear all previous player sprites
-            playerLayer.style.transform = ''; // Reset transform
+            playerLayer.style.backgroundImage = '';
+            playerLayer.style.transform = '';
         });
-    
+
         const playerCell = document.querySelector(`.cell[data-x="${this.player.x}"][data-y="${this.player.y}"]`);
         if (playerCell) {
             const playerLayer = playerCell.querySelector('.player');
             playerLayer.style.backgroundImage = `url(${this.config.sprites.player[this.player.direction]})`;
-    
-            // Move player sprite upwards to 'stand' it on the tile
+
             playerLayer.style.transform = `translateY(-${this.TILE_SIZE / 2}px)`;
         }
     }
@@ -178,16 +172,14 @@ class Game {
         if (!oldCell) return;
 
         const oldFeatureLayer = oldCell.querySelector('.feature');
-        oldFeatureLayer.classList.add('path'); // Mark it as a path
+        oldFeatureLayer.classList.add('path');
 
         const deltaX = newPos.x - oldPos.x;
         const deltaY = newPos.y - oldPos.y;
 
-        // Determine path type based on movement
         let pathType = (deltaX !== 0) ? 'horizontal' : 'vertical';
         oldFeatureLayer.style.backgroundImage = `url(${this.config.sprites.paths[pathType]})`;
 
-        // **Ensure path updates properly**
         this.adjustPathType(oldPos);
         this.adjustAdjacentPathTypes(oldPos);
         this.scheduleUpdate();
@@ -207,17 +199,14 @@ class Game {
             ctx.lineTo(x2, y2);
         }
 
-        // Coordinates for the tile's center "box"
         const centerX = startX + this.EDGE_WIDTH;
         const centerY = startY + this.EDGE_WIDTH;
 
-        // Draw center sides
         if (properties.center.top) drawLine(centerX, centerY, centerX + this.PATH_SIZE, centerY);
         if (properties.center.bottom) drawLine(centerX, centerY + this.PATH_SIZE, centerX + this.PATH_SIZE, centerY + this.PATH_SIZE);
         if (properties.center.left) drawLine(centerX, centerY, centerX, centerY + this.PATH_SIZE);
         if (properties.center.right) drawLine(centerX + this.PATH_SIZE, centerY, centerX + this.PATH_SIZE, centerY + this.PATH_SIZE);
 
-        // Draw edges
         for (let [edgePos, sideSet] of Object.entries(properties.edges)) {
             const { edgeX, edgeY } = this.getEdgeOrigin(edgePos, centerX, centerY);
             for (let [side, enabled] of Object.entries(sideSet)) {
@@ -269,10 +258,8 @@ class Game {
                     const properties = this.getTileProperties(x, y);
                     this.pathGrid[y][x] = properties;
 
-                    // Only clear the area around the tile instead of the whole canvas
                     this.pathCtx.clearRect(x * this.TILE_SIZE, y * this.TILE_SIZE, this.TILE_SIZE, this.TILE_SIZE);
 
-                    // Draw only the affected tile
                     this.drawPath(x, y, properties);
                 }
             }
@@ -286,7 +273,6 @@ class Game {
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.classList.contains('path')) return;
 
-        // Get adjacent paths
         const neighbors = this.getPathNeighbors(pos);
 
         let newPathType = this.determinePathType(neighbors, this.player.direction);
@@ -335,8 +321,6 @@ class Game {
             bottomLeft: (y < this.config.mapSize - 1 && x > 0) && this.grid[y + 1][x - 1] === 1
         };
 
-        // If no neighbor in a direction, enable the center side in that direction
-        // If a neighbor exists, enable the edges in the orthogonal directions
         directions.forEach(dir => {
             if (!adj[dir]) {
                 tile.center[dir] = true;
@@ -347,7 +331,6 @@ class Game {
             }
         });
 
-        // If diagonal and the two adjoining orthogonal neighbors are present, remove corner edges
         diagonals.forEach(({ key, main }) => {
             if (adj[key] && adj[main[0]] && adj[main[1]]) {
                 tile.edges[main[0]][main[1]] = false;
@@ -380,10 +363,10 @@ class Game {
 
     adjustAdjacentPathTypes(pos) {
         const adjacentPositions = [
-            { x: pos.x, y: pos.y - 1 }, // Top
-            { x: pos.x, y: pos.y + 1 }, // Bottom
-            { x: pos.x - 1, y: pos.y }, // Left
-            { x: pos.x + 1, y: pos.y }, // Right
+            { x: pos.x, y: pos.y - 1 },
+            { x: pos.x, y: pos.y + 1 },
+            { x: pos.x - 1, y: pos.y },
+            { x: pos.x + 1, y: pos.y },
         ];
 
         adjacentPositions.forEach(adjPos => {
@@ -442,7 +425,7 @@ class Game {
     }
 
     generateFeature() {
-        if (!this.player.hasMoved) return; // Prevent feature generation before movement
+        if (!this.player.hasMoved) return;
 
         const surroundingPositions = [
             { x: this.player.x - 1, y: this.player.y },
@@ -457,7 +440,7 @@ class Game {
 
         surroundingPositions.forEach(pos => {
             if (pos.x >= 0 && pos.x < this.config.mapSize && pos.y >= 0 && pos.y < this.config.mapSize) {
-                // Skip feature generation if the tile is the player's position
+
                 if (pos.x === this.player.x && pos.y === this.player.y) return;
 
                 const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
@@ -465,14 +448,12 @@ class Game {
 
                 const featureLayer = cell.querySelector('.feature');
 
-                // Only add a feature if the cell is empty
                 if (!featureLayer.style.backgroundImage && Math.random() < this.config.spawnChance) {
                     const featureKeys = Object.keys(this.config.features);
                     const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
                     const sprite = this.config.sprites.features[selectedFeature][Math.floor(Math.random() * this.config.sprites.features[selectedFeature].length)];
                     featureLayer.style.backgroundImage = `url(${sprite})`;
 
-                    // Mark the tile as growable for future growth
                     this.markAsGrowable(pos.x, pos.y);
                 }
             }
@@ -538,14 +519,13 @@ class Game {
     }
 }
 
-// Initialize game
 const game = new Game();
 window.onload = () => game.loadConfig();
 
 window.addEventListener('resize', () => {
     game.updateMapWidth();
-    game.createMap(); // Fully rebuild the map
-    game.scheduleUpdate(); // Ensure it redraws correctly
+    game.createMap();
+    game.scheduleUpdate();
 });
 
 document.addEventListener('keydown', event => {
