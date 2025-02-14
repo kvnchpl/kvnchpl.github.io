@@ -106,7 +106,7 @@ class Game {
     resizeCanvas() {
         this.pathCanvas.width = this.mapWidthInCells * this.TILE_SIZE;
         this.pathCanvas.height = this.config.mapSize * this.TILE_SIZE;
-    
+
         this.pathCanvas.style.position = "absolute";
         this.pathCanvas.style.left = "0px";
         this.pathCanvas.style.top = "0px";
@@ -181,7 +181,7 @@ class Game {
         this.scheduleUpdate();
     }
 
-    drawPath(x, y) {
+    drawPath(x, y, properties) {
         const startX = x * this.TILE_SIZE;
         const startY = y * this.TILE_SIZE;
 
@@ -190,28 +190,26 @@ class Game {
         ctx.lineWidth = 2;
         ctx.beginPath();
 
-        const tileProps = this.getTileProperties(x, y);
-
-        // Draw center
-        const centerX = startX + this.EDGE_WIDTH;
-        const centerY = startY + this.EDGE_WIDTH;
-        ctx.fillStyle = "black";
-        ctx.fillRect(centerX, centerY, this.CENTER_SIZE, this.CENTER_SIZE);
-
         // Helper function to draw a line segment
         function drawLine(x1, y1, x2, y2) {
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
         }
 
+        // Coordinates for the tile's center "box"
+        const centerX = startX + EDGE_WIDTH;
+        const centerY = startY + EDGE_WIDTH;
+
+
+
         // Draw center sides
-        if (tileProps.center.top) drawLine(centerX, centerY, centerX + this.CENTER_SIZE, centerY);
-        if (tileProps.center.bottom) drawLine(centerX, centerY + this.CENTER_SIZE, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
-        if (tileProps.center.left) drawLine(centerX, centerY, centerX, centerY + this.CENTER_SIZE);
-        if (tileProps.center.right) drawLine(centerX + this.CENTER_SIZE, centerY, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
+        if (properties.center.top) drawLine(centerX, centerY, centerX + this.CENTER_SIZE, centerY);
+        if (properties.center.bottom) drawLine(centerX, centerY + this.CENTER_SIZE, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
+        if (properties.center.left) drawLine(centerX, centerY, centerX, centerY + this.CENTER_SIZE);
+        if (properties.center.right) drawLine(centerX + this.CENTER_SIZE, centerY, centerX + this.CENTER_SIZE, centerY + this.CENTER_SIZE);
 
         // Draw edges
-        for (let [edgePos, sideSet] of Object.entries(tileProps.edges)) {
+        for (let [edgePos, sideSet] of Object.entries(properties.edges)) {
             const { edgeX, edgeY } = this.getEdgeOrigin(edgePos, centerX, centerY);
             for (let [side, enabled] of Object.entries(sideSet)) {
                 if (enabled) {
@@ -262,7 +260,16 @@ class Game {
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
                 if (this.grid[y][x] === 1) {
-                    this.drawPath(x, y);
+                    // Store the computed properties in the grid (like path_test)
+                    this.grid[y][x] = this.getTileProperties(x, y);
+                }
+            }
+        }
+
+        for (let y = 0; y < this.config.mapSize; y++) {
+            for (let x = 0; x < this.mapWidthInCells; x++) {
+                if (this.grid[y][x]) { // Now contains full properties, not just 1 or 0
+                    this.drawPath(x, y, this.grid[y][x]); // Pass stored properties
                 }
             }
         }
