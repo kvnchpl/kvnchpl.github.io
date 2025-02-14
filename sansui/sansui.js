@@ -387,14 +387,20 @@ class Game {
 
 // Initialize game
 const game = new Game();
+
+// Ensure config loads on page load
 window.onload = () => game.loadConfig();
+
+// Ensure game updates when the window is resized
+window.addEventListener('resize', () => {
+    game.updateMapWidth();
+    game.createMap(); // Rebuild the map to reflect new dimensions
+});
+
+// Prevent scrolling when using arrow keys or spacebar
 document.addEventListener('keydown', event => {
-    if (event.key === ' ') {
-        event.preventDefault(); // Prevents scrolling when spacebar is pressed
+    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' '].includes(event.key)) {
+        event.preventDefault();
     }
     game.handleInput(event.key);
 });
-
-window.addEventListener('resize', updateMapWidth); // Update when window resizes
-
-window.onload = loadConfig;
