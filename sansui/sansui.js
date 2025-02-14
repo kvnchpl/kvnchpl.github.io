@@ -114,40 +114,35 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-
+        
         const direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
-
-        // Ensure new position is within map bounds
+    
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) {
-            return; // Prevent out-of-bounds movement
+            return;
         }
-
+    
         const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
         if (!targetCell) return;
-
+    
         const targetFeatureLayer = targetCell.querySelector('.feature');
-
-        // Prevent movement into obstacles (unless it's an existing path)
+    
+        // Allow movement onto paths
         if (targetFeatureLayer.style.backgroundImage && !this.isPath(newX, newY)) {
             return;
         }
-
+    
         // Create a path at the old position before moving
         this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY }, direction);
-
+    
         // Move player
         this.player.x = newX;
         this.player.y = newY;
         this.player.direction = direction;
         this.player.hasMoved = true;
-
-        // Mark the new tile as growable for future feature growth
-        this.markAsGrowable(newX, newY);
-
-        // Update adjacent paths to match the new layout
+    
+        // Update adjacent paths
         this.adjustAdjacentPathTypes({ x: newX, y: newY });
-
-        // Schedule an update to redraw the map
+    
         this.scheduleUpdate();
     }
 
@@ -173,29 +168,23 @@ class Game {
         this.adjustAdjacentPathTypes(oldPos);
     }
 
-    adjustPathType(pos, firstMoveDirection) {
+    adjustPathType(pos) {
         const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
         if (!cell) return;
-
+    
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.classList.contains('path')) return;
-
+    
         // Get adjacent paths
-        const adjacentPaths = {
-            top: this.isPath(pos.x, pos.y - 1),
-            bottom: this.isPath(pos.x, pos.y + 1),
-            left: this.isPath(pos.x - 1, pos.y),
-            right: this.isPath(pos.x + 1, pos.y)
-        };
-
-        let newPathType = this.determinePathType(adjacentPaths, firstMoveDirection);
-
+        const neighbors = this.getPathNeighbors(pos);
+    
+        let newPathType = this.determinePathType(neighbors, this.player.direction);
+    
         if (newPathType) {
             featureLayer.style.backgroundImage = `url(${this.config.sprites.paths[newPathType]})`;
             featureLayer.classList.add('path');
         }
-
-        // Ensure the map updates visually
+    
         this.scheduleUpdate();
     }
 
@@ -207,13 +196,13 @@ class Game {
         if (neighbors.top && neighbors.bottom && neighbors.left) return 'intersection_3_left';
         if (neighbors.left && neighbors.right && neighbors.top) return 'intersection_3_top';
         if (neighbors.left && neighbors.right && neighbors.bottom) return 'intersection_3_bottom';
-
+    
         // Corners
         if (neighbors.left && neighbors.bottom) return 'corner_tr';
         if (neighbors.right && neighbors.bottom) return 'corner_tl';
         if (neighbors.left && neighbors.top) return 'corner_br';
         if (neighbors.right && neighbors.top) return 'corner_bl';
-
+    
         // Prioritize player's movement direction
         if (firstMoveDirection === 'up' || firstMoveDirection === 'down') {
             return 'vertical';
@@ -221,7 +210,7 @@ class Game {
         if (firstMoveDirection === 'left' || firstMoveDirection === 'right') {
             return 'horizontal';
         }
-
+    
         return 'horizontal'; // Default to horizontal
     }
 
@@ -329,21 +318,17 @@ class Game {
 
     isPath(x, y) {
         if (x < 0 || x >= this.mapWidthInCells || y < 0 || y >= this.config.mapSize) return false;
-
+    
         const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
         if (!cell) return false;
-
-        const pathTypes = new Set([
-            'horizontal', 'vertical', 'intersection_4',
-            'intersection_3_top', 'intersection_3_bottom',
-            'intersection_3_left', 'intersection_3_right',
-            'corner_tl', 'corner_tr', 'corner_bl', 'corner_br'
-        ]);
-
+    
         const featureLayer = cell.querySelector('.feature');
-        if (!featureLayer.style.backgroundImage) return false;
-
-        return pathTypes.has(featureLayer.style.backgroundImage.split('/').pop().replace('.png', ''));
+        if (!featureLayer || !featureLayer.style.backgroundImage) return false;
+    
+        // Extract filename from the background image URL
+        const imageFilename = featureLayer.style.backgroundImage.split('/').pop().replace('.png", "")');
+    
+        return Object.values(this.config.sprites.paths).some(path => path.includes(imageFilename));
     }
 
     scheduleUpdate() {
