@@ -115,15 +115,37 @@ class Game {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
         this.player.direction = dx === 1 ? 'right' : dx === -1 ? 'left' : dy === 1 ? 'down' : 'up';
-
-        if (newX >= 0 && newX < this.mapWidthInCells && newY >= 0 && newY < this.config.mapSize) {
-            this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY });
-            this.player.x = newX;
-            this.player.y = newY;
-            this.player.hasMoved = true;
-
-            this.markAsGrowable(newX, newY);
+    
+        // Ensure new position is within map bounds
+        if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) {
+            return; // Prevent out-of-bounds movement
         }
+    
+        const targetCell = document.querySelector(`.cell[data-x="${newX}"][data-y="${newY}"]`);
+        if (!targetCell) return;
+    
+        const targetFeatureLayer = targetCell.querySelector('.feature');
+    
+        // Prevent movement if the tile contains an obstacle
+        if (targetFeatureLayer.style.backgroundImage && !this.isPath(newX, newY)) {
+            return;
+        }
+    
+        // Create a path at the old position before moving
+        this.createPath({ x: this.player.x, y: this.player.y }, { x: newX, y: newY });
+    
+        // Move player
+        this.player.x = newX;
+        this.player.y = newY;
+        this.player.hasMoved = true;
+    
+        // Mark new tile as growable for potential feature growth
+        this.markAsGrowable(newX, newY);
+    
+        // Update adjacent paths to match the new layout
+        this.adjustAdjacentPathTypes({ x: newX, y: newY });
+    
+        // Schedule an update to redraw the map
         this.scheduleUpdate();
     }
 
