@@ -219,6 +219,38 @@ class Game {
         ctx.stroke();
     }
 
+    function getEdgeOrigin(edgePos, baseX, baseY) {
+        let edgeX = baseX;
+        let edgeY = baseY;
+
+        if (edgePos === "top") edgeY -= EDGE_WIDTH;
+        if (edgePos === "bottom") edgeY += CENTER_SIZE;
+        if (edgePos === "left") edgeX -= EDGE_WIDTH;
+        if (edgePos === "right") edgeX += CENTER_SIZE;
+
+        return { edgeX, edgeY };
+    }
+
+    function getEdgeLineCoordinates(edgePos, side, edgeX, edgeY, edgeLength) {
+        if (edgePos === "top" || edgePos === "bottom") {
+            switch (side) {
+                case "top": return [edgeX, edgeY, edgeX + edgeLength, edgeY];
+                case "bottom": return [edgeX, edgeY + EDGE_WIDTH, edgeX + edgeLength, edgeY + EDGE_WIDTH];
+                case "left": return [edgeX, edgeY, edgeX, edgeY + EDGE_WIDTH];
+                case "right": return [edgeX + edgeLength, edgeY, edgeX + edgeLength, edgeY + EDGE_WIDTH];
+            }
+        }
+        else if (edgePos === "left" || edgePos === "right") {
+            switch (side) {
+                case "top": return [edgeX, edgeY, edgeX + EDGE_WIDTH, edgeY];
+                case "bottom": return [edgeX, edgeY + edgeLength, edgeX + EDGE_WIDTH, edgeY + edgeLength];
+                case "left": return [edgeX, edgeY, edgeX, edgeY + edgeLength];
+                case "right": return [edgeX + EDGE_WIDTH, edgeY, edgeX + EDGE_WIDTH, edgeY + edgeLength];
+            }
+        }
+        return null;
+    }
+
     updatePaths() {
         this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
     
