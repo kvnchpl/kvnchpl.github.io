@@ -127,23 +127,16 @@ class Game {
     movePlayer(dx, dy) {
         const newX = this.player.x + dx;
         const newY = this.player.y + dy;
-
-        // Prevent moving out of bounds
+    
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
-
-        // Mark current position as a path
-        this.grid[this.player.y][this.player.x] = 1;
-
-        // Move player
+    
+        this.grid[this.player.y][this.player.x] = 1; // Mark the previous position as a path
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
-
-        // Immediately update player's sprite position
+    
         this.updatePlayerSprite();
-
-        // Ensure path is drawn under player
-        this.updatePaths();
+        this.updatePaths(); // Ensure paths are drawn with proper connectivity
     }
 
     updatePlayerSprite() {
@@ -183,46 +176,48 @@ class Game {
         const startX = x * cellSize;
         const startY = y * cellSize;
 
-        // Get neighbors
-        const top = this.grid[y - 1]?.[x] === 1;
-        const bottom = this.grid[y + 1]?.[x] === 1;
-        const left = this.grid[y]?.[x - 1] === 1;
-        const right = this.grid[y]?.[x + 1] === 1;
+        const EDGE_WIDTH = (cellSize - 20) / 2;
+        const EDGE_LENGTH = 20;
 
-        // Set line styles
-        this.pathCtx.strokeStyle = "black";
-        this.pathCtx.lineWidth = 4;
+        const ctx = this.pathCtx;
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctx.beginPath();
 
-        this.pathCtx.beginPath();
+        // Center of the tile
+        const centerX = startX + EDGE_WIDTH;
+        const centerY = startY + EDGE_WIDTH;
 
-        // Draw center dot
-        this.pathCtx.arc(startX + cellSize / 2, startY + cellSize / 2, 4, 0, Math.PI * 2);
-        this.pathCtx.fill();
+        // Get adjacency
+        const neighbors = {
+            top: this.grid[y - 1]?.[x] === 1,
+            bottom: this.grid[y + 1]?.[x] === 1,
+            left: this.grid[y]?.[x - 1] === 1,
+            right: this.grid[y]?.[x + 1] === 1
+        };
 
-        // Draw connections
-        if (top) {
-            this.pathCtx.moveTo(startX + cellSize / 2, startY);
-            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
-        }
-        if (bottom) {
-            this.pathCtx.moveTo(startX + cellSize / 2, startY + cellSize);
-            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
-        }
-        if (left) {
-            this.pathCtx.moveTo(startX, startY + cellSize / 2);
-            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
-        }
-        if (right) {
-            this.pathCtx.moveTo(startX + cellSize, startY + cellSize / 2);
-            this.pathCtx.lineTo(startX + cellSize / 2, startY + cellSize / 2);
+        // Draw center
+        ctx.fillStyle = "black";
+        ctx.fillRect(centerX, centerY, EDGE_LENGTH, EDGE_LENGTH);
+
+        // Helper function to draw a line segment
+        function drawLine(x1, y1, x2, y2) {
+            ctx.moveTo(x1, y1);
+            ctx.lineTo(x2, y2);
         }
 
-        this.pathCtx.stroke();
+        // Draw edges for connected paths
+        if (neighbors.top) drawLine(centerX, startY, centerX + EDGE_LENGTH, startY);
+        if (neighbors.bottom) drawLine(centerX, startY + cellSize, centerX + EDGE_LENGTH, startY + cellSize);
+        if (neighbors.left) drawLine(startX, centerY, startX, centerY + EDGE_LENGTH);
+        if (neighbors.right) drawLine(startX + cellSize, centerY, startX + cellSize, centerY + EDGE_LENGTH);
+
+        ctx.stroke();
     }
 
     updatePaths() {
         this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
-
+    
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
                 if (this.grid[y][x] === 1) {
