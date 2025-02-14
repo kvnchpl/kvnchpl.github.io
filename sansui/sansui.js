@@ -192,7 +192,6 @@ class Game {
         ctx.lineWidth = 2;
         ctx.beginPath();
 
-        // Helper function to draw a line segment
         function drawLine(x1, y1, x2, y2) {
             ctx.moveTo(x1, y1);
             ctx.lineTo(x2, y2);
@@ -242,8 +241,7 @@ class Game {
                 case "left": return [edgeX, edgeY, edgeX, edgeY + this.EDGE_WIDTH];
                 case "right": return [edgeX + this.EDGE_LENGTH, edgeY, edgeX + this.EDGE_LENGTH, edgeY + this.EDGE_WIDTH];
             }
-        }
-        else if (edgePos === "left" || edgePos === "right") {
+        } else if (edgePos === "left" || edgePos === "right") {
             switch (side) {
                 case "top": return [edgeX, edgeY, edgeX + this.EDGE_WIDTH, edgeY];
                 case "bottom": return [edgeX, edgeY + this.EDGE_LENGTH, edgeX + this.EDGE_WIDTH, edgeY + this.EDGE_LENGTH];
@@ -292,10 +290,6 @@ class Game {
     }
 
     getTileProperties(x, y) {
-        if (this.pathGrid[y][x]) {
-            return this.pathGrid[y][x]; // Use precomputed properties
-        }
-
         const directions = ["top", "right", "bottom", "left"];
         const orthogonal = {
             top: ["left", "right"],
@@ -320,7 +314,6 @@ class Game {
             }
         };
 
-        // Evaluate which neighbors exist
         let adj = {
             top: (y > 0) && this.grid[y - 1][x] === 1,
             right: (x < this.mapWidthInCells - 1) && this.grid[y][x + 1] === 1,
@@ -333,7 +326,7 @@ class Game {
         };
 
         // If no neighbor in a direction, enable the center side in that direction
-        // If a neighbor, enable the edges in the orthogonal directions
+        // If a neighbor exists, enable the edges in the orthogonal directions
         directions.forEach(dir => {
             if (!adj[dir]) {
                 tile.center[dir] = true;
@@ -344,8 +337,7 @@ class Game {
             }
         });
 
-        // If diagonal plus the two adjoining orthogonal neighbors
-        // are present, remove corner edges to avoid overlap
+        // If diagonal and the two adjoining orthogonal neighbors are present, remove corner edges
         diagonals.forEach(({ key, main }) => {
             if (adj[key] && adj[main[0]] && adj[main[1]]) {
                 tile.edges[main[0]][main[1]] = false;
