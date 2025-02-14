@@ -262,7 +262,6 @@ function adjustPathType(pos) {
     if (newPathType) {
         featureLayer.style.backgroundImage = `url(${config.sprites.paths[newPathType]})`;
         featureLayer.classList.add('path');
-        console.log(`Adjusted path at (${pos.x}, ${pos.y}) to ${newPathType}`);
     }
 }
 
@@ -274,7 +273,6 @@ function determinePathType(neighbors, firstMoveDirection = null) {
         if (firstMoveDirection) {
             return firstMoveDirection; // Use the explicitly passed firstMoveDirection
         }
-        console.warn("Isolated path detected but no movement direction provided. Defaulting to horizontal.");
         return 'horizontal';  // Default to horizontal only if no movement direction is known
     }
 
@@ -300,7 +298,6 @@ function determinePathType(neighbors, firstMoveDirection = null) {
     if (neighbors.left && neighbors.right) return 'horizontal';
 
     // Default case (should never reach this point)
-    console.warn("No path type determined for:", neighbors);
     return 'horizontal';
 }
 
@@ -350,7 +347,6 @@ function isPath(x, y) {
 function markAsGrowable(x, y) {
     const cellKey = `${x},${y}`;
     if (!growableCells.has(cellKey)) {
-        console.log(`Marking (${x}, ${y}) as growable.`);
         growableCells.add(cellKey);
     }
 }
@@ -394,10 +390,7 @@ function generateFeature() {
 }
 
 function growFeatures() {
-    console.log("Processing growFeatures...");
-
     if (growableCells.size === 0) {
-        console.warn("No growable cells found. Attempting to expand growth.");
         // If no growable cells exist, try marking adjacent feature tiles as growable
         document.querySelectorAll('.cell').forEach(cell => {
             const featureLayer = cell.querySelector('.feature');
@@ -410,10 +403,7 @@ function growFeatures() {
             }
         });
 
-        if (growableCells.size === 0) {
-            console.warn("Still no growable cells. Growth aborted.");
-            return;
-        }
+        if (growableCells.size === 0) return; // Still no growable cells found
     }
 
     const cellsToProcess = Array.from(growableCells);
@@ -461,12 +451,6 @@ function growFeatures() {
         }
     });
 
-    if (!featureGrown) {
-        console.warn("Feature growth was triggered, but no new features were created.");
-    } else {
-        console.log("Feature growth successful.");
-    }
-
     scheduleUpdate(); // Ensure visual updates are reflected
 }
 
@@ -512,10 +496,7 @@ function handleInput(input) {
         'ArrowDown': () => movePlayer(0, 1),
         'ArrowLeft': () => movePlayer(-1, 0),
         'ArrowRight': () => movePlayer(1, 0),
-        ' ': () => {
-            console.log("Forcing feature growth...");
-            growFeatures();
-        }, // Ensure spacebar triggers immediate growth
+        ' ': () => growFeatures(),
         'up': () => movePlayer(0, -1),
         'down': () => movePlayer(0, 1),
         'left': () => movePlayer(-1, 0),
