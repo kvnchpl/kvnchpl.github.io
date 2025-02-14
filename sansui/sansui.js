@@ -173,90 +173,49 @@ class Game {
     adjustPathType(pos) {
         const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
         if (!cell) return;
-
+    
         const featureLayer = cell.querySelector('.feature');
         if (!featureLayer.classList.contains('path')) return;
-
-        // Check current path type
-        const currentPathType = featureLayer.style.backgroundImage.split('/').pop().replace('.png', '');
-
+    
         // Get adjacent paths
         const adjacentPaths = {
             top: this.isPath(pos.x, pos.y - 1),
             bottom: this.isPath(pos.x, pos.y + 1),
             left: this.isPath(pos.x - 1, pos.y),
-            right: this.isPath(pos.x + 1, pos.y),
+            right: this.isPath(pos.x + 1, pos.y)
         };
-
-        let newPathType = null;
-
-        // Only update if the path is incomplete
-        if (currentPathType === 'vertical' || currentPathType === 'horizontal') {
-            return; // Keep it as is if it's already correct
-        }
-
-        if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
-            newPathType = 'intersection_4';
-        } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.left) {
-            newPathType = 'intersection_3_left';
-        } else if (adjacentPaths.top && adjacentPaths.bottom && adjacentPaths.right) {
-            newPathType = 'intersection_3_right';
-        } else if (adjacentPaths.top && adjacentPaths.left && adjacentPaths.right) {
-            newPathType = 'intersection_3_top';
-        } else if (adjacentPaths.bottom && adjacentPaths.left && adjacentPaths.right) {
-            newPathType = 'intersection_3_bottom';
-        } else if (adjacentPaths.top && adjacentPaths.left) {
-            newPathType = 'corner_br';
-        } else if (adjacentPaths.top && adjacentPaths.right) {
-            newPathType = 'corner_bl';
-        } else if (adjacentPaths.bottom && adjacentPaths.left) {
-            newPathType = 'corner_tr';
-        } else if (adjacentPaths.bottom && adjacentPaths.right) {
-            newPathType = 'corner_tl';
-        } else if (adjacentPaths.left && adjacentPaths.right) {
-            newPathType = 'horizontal';
-        } else if (adjacentPaths.top && adjacentPaths.bottom) {
-            newPathType = 'vertical';
-        }
-
+    
+        let newPathType = this.determinePathType(adjacentPaths);
+    
         if (newPathType) {
             featureLayer.style.backgroundImage = `url(${this.config.sprites.paths[newPathType]})`;
             featureLayer.classList.add('path');
         }
+    
+        // Schedule an update so the map redraws properly
         this.scheduleUpdate();
     }
 
-    determinePathType(neighbors, firstMoveDirection = null) {
-        // Check if no adjacent paths exist (isolated tile)
-        const hasAdjacentPaths = neighbors.top || neighbors.bottom || neighbors.left || neighbors.right;
-
-        if (!hasAdjacentPaths) {
-            return firstMoveDirection || 'horizontal'; // Use the first move direction if provided
-        }
-
-        // Full 4-way intersection
+    determinePathType(neighbors) {
         if (neighbors.top && neighbors.bottom && neighbors.left && neighbors.right) {
             return 'intersection_4';
         }
-
-        // 3-way intersections
         if (neighbors.top && neighbors.bottom && neighbors.right) return 'intersection_3_right';
         if (neighbors.top && neighbors.bottom && neighbors.left) return 'intersection_3_left';
         if (neighbors.left && neighbors.right && neighbors.top) return 'intersection_3_top';
         if (neighbors.left && neighbors.right && neighbors.bottom) return 'intersection_3_bottom';
-
-        // Turns (corners)
+    
+        // Corners
         if (neighbors.left && neighbors.bottom) return 'corner_tr';
         if (neighbors.right && neighbors.bottom) return 'corner_tl';
         if (neighbors.left && neighbors.top) return 'corner_br';
         if (neighbors.right && neighbors.top) return 'corner_bl';
-
+    
         // Straight paths
         if (neighbors.top && neighbors.bottom) return 'vertical';
         if (neighbors.left && neighbors.right) return 'horizontal';
-
-        // Default case (should never reach this point)
-        return 'horizontal';
+    
+        return 'horizontal'; // Default to horizontal
     }
 
     adjustAdjacentPathTypes(pos) {
