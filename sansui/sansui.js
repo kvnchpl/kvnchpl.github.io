@@ -143,7 +143,7 @@ function placePlayerRandomly() {
 }
 
 // Update the grid, placing the player sprite in the correct position
-function updateMap(mapWidthInCells) {
+function updateMap() {
     document.querySelectorAll('.cell').forEach(cell => {
         const playerLayer = cell.querySelector('.player');
         playerLayer.style.backgroundImage = '';
@@ -152,8 +152,9 @@ function updateMap(mapWidthInCells) {
         }
     });
 
+    // **Ensure features generate as expected**
     if (playerHasMoved) {
-        generateFeature(mapWidthInCells);
+        generateFeature();
     }
 }
 
@@ -169,14 +170,16 @@ function movePlayer(x, y) {
         const targetFeatureLayer = targetCell.querySelector('.feature');
 
         if (!targetFeatureLayer.style.backgroundImage || targetFeatureLayer.classList.contains('path')) {
-            // **Create a new path before making any adjustments**
             createPath(playerPosition, { x: newX, y: newY });
 
             // Move the player
             playerPosition = { x: newX, y: newY };
             playerHasMoved = true;
 
-            // **Only now adjust paths**
+            // **Mark new tile as growable**
+            markAsGrowable(newX, newY);
+
+            // Adjust path types
             adjustPathType(playerPosition);
             adjustAdjacentPathTypes(playerPosition);
         }
@@ -216,7 +219,7 @@ function adjustPathType(pos) {
 
     // **Check current path type**
     const currentPathType = featureLayer.style.backgroundImage.split('/').pop().replace('.png', '');
-    
+
     // Get adjacent paths
     const adjacentPaths = {
         top: isPath(pos.x, pos.y - 1),
@@ -349,35 +352,37 @@ function markAsGrowable(x, y) {
 }
 
 function generateFeature() {
-    if (!playerHasMoved || growableCells.size === 0) return;
+    if (!playerHasMoved) return; // Prevent feature generation before movement
 
-    const cellsToProcess = Array.from(growableCells);
-    growableCells.clear(); // Clear previous set
+    const surroundingPositions = [
+        { x: playerPosition.x - 1, y: playerPosition.y },
+        { x: playerPosition.x + 1, y: playerPosition.y },
+        { x: playerPosition.x, y: playerPosition.y - 1 },
+        { x: playerPosition.x, y: playerPosition.y + 1 },
+        { x: playerPosition.x - 1, y: playerPosition.y - 1 },
+        { x: playerPosition.x + 1, y: playerPosition.y - 1 },
+        { x: playerPosition.x - 1, y: playerPosition.y + 1 },
+        { x: playerPosition.x + 1, y: playerPosition.y + 1 }
+    ];
 
-    cellsToProcess.forEach(cellKey => {
-        const [x, y] = cellKey.split(',').map(Number);
-        const adjacentPositions = [
-            { x: x - 1, y: y },
-            { x: x + 1, y: y },
-            { x: x, y: y - 1 },
-            { x: x, y: y + 1 }
-        ];
+    surroundingPositions.forEach(pos => {
+        if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
+            const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+            if (!cell) return;
 
-        adjacentPositions.forEach(pos => {
-            if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
-                const cell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
-                const featureLayer = cell.querySelector('.feature');
+            const featureLayer = cell.querySelector('.feature');
 
-                if (!featureLayer.style.backgroundImage && Math.random() < config.spawnChance) {
-                    const feature = Object.keys(config.features)
-                        .filter(f => config.features[f].growable)
-                        .sort(() => Math.random() - 0.5)[0];
+            // **Only add a feature if the cell is empty**
+            if (!featureLayer.style.backgroundImage && Math.random() < config.spawnChance) {
+                const featureKeys = Object.keys(config.features);
+                const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
+                const sprite = config.sprites.features[selectedFeature][Math.floor(Math.random() * config.sprites.features[selectedFeature].length)];
+                featureLayer.style.backgroundImage = `url(${sprite})`;
 
-                    featureLayer.style.backgroundImage = `url(${config.sprites.features[feature][Math.floor(Math.random() * config.sprites.features[feature].length)]})`;
-                    growableCells.add(`${pos.x},${pos.y}`);
-                }
+                // **Mark the tile as growable for future growth**
+                markAsGrowable(pos.x, pos.y);
             }
-        });
+        }
     });
 }
 
@@ -390,16 +395,34 @@ function growFeatures() {
     cellsToProcess.forEach(cellKey => {
         const [x, y] = cellKey.split(',').map(Number);
         const cell = document.querySelector(`.cell[data-x="${x}"][data-y="${y}"]`);
+        if (!cell) return;
+
         const featureLayer = cell.querySelector('.feature');
+        const hasFeature = featureLayer.style.backgroundImage !== '';
 
-        if (!featureLayer.style.backgroundImage) {
-            const newFeature = Object.keys(config.features)
-                .filter(f => config.features[f].growable)
-                .sort(() => Math.random() - 0.5)[0];
+        if (hasFeature) {
+            const adjacentPositions = [
+                { x: x, y: y - 1 },
+                { x: x, y: y + 1 },
+                { x: x - 1, y: y },
+                { x: x + 1, y: y }
+            ];
 
-            featureLayer.style.backgroundImage = `url(${config.sprites.features[newFeature][Math.floor(Math.random() * config.sprites.features[newFeature].length)]})`;
+            adjacentPositions.forEach(pos => {
+                if (pos.x >= 0 && pos.x < config.mapSize && pos.y >= 0 && pos.y < config.mapSize) {
+                    const adjacentCell = document.querySelector(`.cell[data-x="${pos.x}"][data-y="${pos.y}"]`);
+                    const adjacentFeatureLayer = adjacentCell.querySelector('.feature');
 
-            markAsGrowable(x, y);
+                    if (!adjacentFeatureLayer.style.backgroundImage && Math.random() < config.growthChance) {
+                        const featureKeys = Object.keys(config.features);
+                        const selectedFeature = featureKeys[Math.floor(Math.random() * featureKeys.length)];
+                        const sprite = config.sprites.features[selectedFeature][Math.floor(Math.random() * config.sprites.features[selectedFeature].length)];
+
+                        adjacentFeatureLayer.style.backgroundImage = `url(${sprite})`;
+                        markAsGrowable(pos.x, pos.y);
+                    }
+                }
+            });
         }
     });
 }
