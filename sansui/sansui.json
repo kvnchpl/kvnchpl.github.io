@@ -1,14 +1,9 @@
 {
     "mapSize": 10,
+    "tileSize": 48,
+    "centerSize": 30,
     "spawnChance": 0.05,
     "growthChance": 0.1,
-    "pathSettings": {
-        "tileSize": 48,
-        "centerSize": 30,
-        "edgeWidth": 9,
-        "edgeLength": 30,
-        "gridSize": 10
-    },
     "features": {
         "gravel": {
             "growable": true

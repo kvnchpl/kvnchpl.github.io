@@ -19,12 +19,10 @@ class Game {
             }
 
             // Load path settings dynamically
-            this.config.pathSettings = this.config.pathSettings;
-            this.TILE_SIZE = this.config.pathSettings.tileSize;
-            this.CENTER_SIZE = this.config.pathSettings.centerSize;
-            this.EDGE_WIDTH = this.config.pathSettings.edgeWidth;
-            this.EDGE_LENGTH = this.config.pathSettings.edgeLength;
-            this.GRID_SIZE = this.config.pathSettings.gridSize;
+            this.TILE_SIZE = this.config.tileSize;
+            this.CENTER_SIZE = this.config.centerSize;
+            this.EDGE_WIDTH = (this.TILE_SIZE - this.CENTER_SIZE) / 2;
+            this.EDGE_LENGTH = this.CENTER_SIZE;
 
             // Base URL for assets
             const baseURL = "https://kvnchpl.github.io/sansui/sprites/";
@@ -141,15 +139,16 @@ class Game {
 
         if (newX < 0 || newX >= this.mapWidthInCells || newY < 0 || newY >= this.config.mapSize) return;
 
-        this.grid[prevY][prevX] = 1; // Mark previous position as a path
-        this.grid[newY][newX] = 1; // Ensure new position updates immediately
+        // Ensure both previous and new positions update
+        this.grid[prevY][prevX] = 1;
+        this.grid[newY][newX] = 1;
 
         this.player.x = newX;
         this.player.y = newY;
         this.player.hasMoved = true;
 
         this.updatePlayerSprite();
-        this.updatePaths(); // Ensure paths are drawn with proper connectivity
+        this.updatePaths();  // Ensure paths are drawn with proper connectivity
     }
 
     updatePlayerSprite() {
@@ -256,20 +255,17 @@ class Game {
     }
 
     updatePaths() {
-        this.pathCtx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
-
         for (let y = 0; y < this.config.mapSize; y++) {
             for (let x = 0; x < this.mapWidthInCells; x++) {
                 if (this.grid[y][x] === 1) {
-                    this.pathGrid[y][x] = this.getTileProperties(x, y); // Store properties separately
-                }
-            }
-        }
+                    const properties = this.getTileProperties(x, y);
+                    this.pathGrid[y][x] = properties;
 
-        for (let y = 0; y < this.config.mapSize; y++) {
-            for (let x = 0; x < this.mapWidthInCells; x++) {
-                if (this.grid[y][x] === 1) {
-                    this.drawPath(x, y, this.pathGrid[y][x]); // Use stored properties
+                    // Only clear the area around the tile instead of the whole canvas
+                    this.pathCtx.clearRect(x * this.TILE_SIZE, y * this.TILE_SIZE, this.TILE_SIZE, this.TILE_SIZE);
+
+                    // Draw only the affected tile
+                    this.drawPath(x, y, properties);
                 }
             }
         }
@@ -296,6 +292,10 @@ class Game {
     }
 
     getTileProperties(x, y) {
+        if (this.pathGrid[y][x]) {
+            return this.pathGrid[y][x]; // Use precomputed properties
+        }
+
         const directions = ["top", "right", "bottom", "left"];
         const orthogonal = {
             top: ["left", "right"],
