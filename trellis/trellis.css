@@ -1,246 +1,43 @@
 :root {
-    --body-bg: #f0f0f0;
-    --color-text-primary: #fff;
-    --color-text-secondary: #000;
-    --color-ui-bg: #333;
-    --color-ui-bg-button: #555;
-    --color-ui-bg-button-hover: #777;
-    --color-container-bg: #ccc;
-    --color-canvas-bg: #eee;
-    --color-canvas-border: #999;
-    --color-overlay-bg: rgba(0, 0, 0, 0.7);
-    --color-overlay-text: #fff;
-    --color-overlay-button-bg: #aaa;
-    --color-overlay-button-text: #000;
-
-    --tile-default: #77dd77;
-    --tile-empty: #e0e0e0;
-    --tile-path: #bdbdbd;
-    --tile-plot: #8b4513;
-    --tile-player: #ffd700;
-    --tile-highlight: red;
-
-    --game-width: 600px;
-    --game-height: 600px;
-    --sidebar-width: 400px;
-
-    --spacing-unit: 0.5rem;
-    --border-radius: 5px;
-    --border-color: #ccc;
-    --box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-
-    --font-family: Arial, sans-serif;
-    --font-size-default: 1rem;
-    --font-size-strong: 1.2rem;
-
-    --transition-default: background 0.3s ease;
-}
-
-/* GLOBAL STYLES */
-
-.hidden {
-    display: none !important;
-}
-
-body {
+    --grid-columns: 10;
+    --grid-rows: 10;
+    --cell-size: 50px;
+    --cell-border: 1px solid #ccc;
+    --bg-color: #e0ffe0;
+    --plot-color: #a0d0a0;
+  }
+  
+  body {
     margin: 0;
-    font-family: var(--font-family);
-    background: var(--body-bg);
-}
-
-/* LAYOUT AND CONTAINERS */
-
-#mainContent {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin: 0 auto;
-    gap: calc(var(--spacing-unit) * 4);
-    max-width: calc(var(--game-width) + var(--sidebar-width) + var(--spacing-unit) * 4);
-    padding: calc(var(--spacing-unit) * 4) 0;
-    box-sizing: border-box;
-}
-
-#gameContainer {
+    padding: 0;
+    background-color: var(--bg-color);
     position: relative;
-    width: var(--game-width);
-    height: var(--game-height);
-    background: var(--color-container-bg);
-    box-shadow: var(--box-shadow);
-}
-
-canvas {
-    display: block;
-    width: var(--game-width);
-    height: var(--game-height);
-    background: var(--color-canvas-bg);
-    border: 2px solid var(--color-canvas-border);
-}
-
-#gameSidebar {
+  }
+  
+  #trellis-game {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-unit);
-    width: var(--sidebar-width);
-    background: var(--color-ui-bg);
-    padding: calc(var(--spacing-unit) * 2);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
+    grid-template-columns: repeat(var(--grid-columns), var(--cell-size));
+    grid-template-rows: repeat(var(--grid-rows), var(--cell-size));
+    position: relative;
+    width: calc(var(--grid-columns) * var(--cell-size));
+    height: calc(var(--grid-rows) * var(--cell-size));
+  }
+  
+  .cell {
+    width: var(--cell-size);
+    height: var(--cell-size);
+    border: var(--cell-border);
     box-sizing: border-box;
-}
-
-.sidebar-section {
-    max-width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
-    padding: calc(var(--spacing-unit) * 2);
-    background: var(--color-container-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-}
-
-.sidebar-section.full-width {
-    grid-column: span 2;
-    max-width: 100%;
-}
-
-#gameSidebar strong {
-    margin-bottom: calc(var(--spacing-unit) / 2);
-    font-size: var(--font-size-strong);
-}
-
-.sidebar-section {
-    padding: calc(var(--spacing-unit) * 2);
-    background: var(--color-container-bg);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-}
-
-#gameSidebar strong {
-    margin-bottom: calc(var(--spacing-unit) / 2);
-    font-size: var(--font-size-strong);
-}
-
-/* BUTTONS AND ACTIONS */
-
-#buttonContainer,
-#actionsContainer {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: space-between;
-    align-items: center;
-    padding: calc(var(--spacing-unit) * 2);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    gap: calc(var(--spacing-unit) * 2);
-}
-
-#buttonContainer button,
-#actionsContainer button {
-    background: var(--color-ui-bg-button);
-    color: var(--color-text-primary);
-    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--font-size-default);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition-default);
-}
-
-#buttonContainer button:hover,
-#actionsContainer button:hover {
-    background: var(--color-ui-bg-button-hover);
-}
-
-/* FIELD CONTAINERS */
-
-.field-container,
-.subfield-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: calc(var(--spacing-unit) / 2);
-}
-
-.subfield-container {
-    padding-left: calc(var(--spacing-unit) * var(--level, 1));  
-}
-
-.field-label {
-    font-weight: bold;
-    margin-right: 5px;
-    text-align: left;
-}
-
-.field-value {
-    flex-grow: 1;
-    text-align: right;
-}
-
-/* TUTORIAL OVERLAY */
-
-#tutorialOverlay {
+    background-color: var(--plot-color);
+    position: relative;
+  }
+  
+  .cell.tended {
+    background-color: #c0e6c0;
+  }
+  
+  .gardener {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-overlay-bg);
-    color: var(--color-overlay-text);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: calc(var(--spacing-unit) * 4);
-    z-index: 5;
-    box-sizing: border-box;
-    gap: calc(var(--spacing-unit) * 2);
-}
-
-#tutorialOverlay h2 {
-    color: var(--color-overlay-text);
-}
-
-#tutorialOverlay p {
-    font-size: var(--font-size-default);
-    max-width: 80%;
-    margin: 0;
-}
-
-
-.tutorial-button {
-    background: var(--color-overlay-button-bg);
-    color: var(--color-overlay-button-text);
-    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: var(--font-size-default);
-    box-shadow: var(--box-shadow);
-    transition: var(--transition-default);
-}
-
-.tutorial-button:hover {
-    background: var(--color-overlay-bg);
-    color: var(--color-overlay-text);
-}
-
-@media (max-width: 768px) {
-    #mainContent {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #gameContainer,
-    #gameSidebar {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    #gameSidebar {
-        grid-template-columns: 1fr; /* Single column on smaller screens */
-    }
-}
+    background-size: cover;
+    z-index: 10;
+  }
