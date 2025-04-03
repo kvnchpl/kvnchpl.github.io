@@ -1,16 +1,17 @@
 // Retrieve configuration and sprite folder URLs from meta tags
-const configUrl = document.querySelector('meta[name="game-data"]')?.content || console.error('Error: Configuration URL not found.');
+const jsonUrl = document.querySelector('meta[name="game-data"]')?.content || console.error('Error: Configuration URL not found.');
 const spriteFolder = document.querySelector('meta[name="sprites"]')?.content || console.error('Error: Sprite folder URL not found.');
 
 // Game class: Initializes the grid, gardener, and binds controls.
 class Game {
-  constructor(config) {
-    this.config = config;
-    this.eventManager = new EventManager(); // Create an event manager.
-    this.grid = new Grid(config.grid, config.plots, this.eventManager);
-    this.gardener = new Gardener(config.gardener, this.grid, this.eventManager);
-    this.init();
-  }
+    constructor(config) {
+        this.config = config;
+        this.eventManager = new EventManager();
+        this.grid = new Grid(config.grid, config.plots, this.eventManager);
+        this.gardener = new Gardener(config.gardener, this.grid, this.eventManager);
+        this.timeManager = new TimeManager(); 
+        this.init();
+      }
 
   init() {
     // Create the game container.
@@ -37,43 +38,50 @@ class Game {
   bindControls() {
     document.addEventListener('keydown', (e) => {
       let moved = false;
-      if (e.key === 'ArrowUp') {
+      // Use movement keys defined in the JSON.
+      if (e.key === this.config.controls.moveUp) {
         moved = this.gardener.move(0, -1);
-      } else if (e.key === 'ArrowDown') {
+      } else if (e.key === this.config.controls.moveDown) {
         moved = this.gardener.move(0, 1);
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === this.config.controls.moveLeft) {
         moved = this.gardener.move(-1, 0);
-      } else if (e.key === 'ArrowRight') {
+      } else if (e.key === this.config.controls.moveRight) {
         moved = this.gardener.move(1, 0);
       }
       if (moved) {
-        // Trigger an event for gardener movement.
         this.eventManager.trigger('gardenerMoved', { x: this.gardener.x, y: this.gardener.y });
         this.saveState();
       }
-
-      // Map action keys.
-      const actionKeys = {
-        'T': 'till',
-        'F': 'fertilize',
-        'P': 'plant',
-        'W': 'water',
-        'M': 'mulch',
-        'R': 'weed',
-        'H': 'harvest',
-        'C': 'clear'
+  
+      // Build a mapping from action key (uppercased) to action name.
+      const actions = {
+        [this.config.controls.till.toUpperCase()]: "till",
+        [this.config.controls.fertilize.toUpperCase()]: "fertilize",
+        [this.config.controls.plant.toUpperCase()]: "plant",
+        [this.config.controls.water.toUpperCase()]: "water",
+        [this.config.controls.mulch.toUpperCase()]: "mulch",
+        [this.config.controls.weed.toUpperCase()]: "weed",
+        [this.config.controls.harvest.toUpperCase()]: "harvest",
+        [this.config.controls.clear.toUpperCase()]: "clear"
       };
+  
       const keyUpper = e.key.toUpperCase();
-      if (actionKeys[keyUpper]) {
-        this.grid.applyAction(this.gardener.x, this.gardener.y, actionKeys[keyUpper]);
-        // Trigger an event for action applied.
-        this.eventManager.trigger('actionApplied', {
-          x: this.gardener.x,
-          y: this.gardener.y,
-          action: actionKeys[keyUpper]
-        });
-        // Save state after an action.
-        this.saveState();
+      if (actions[keyUpper]) {
+        if (this.grid.applyAction(this.gardener.x, this.gardener.y, actions[keyUpper])) {
+          // Look up the duration for the action from the JSON.
+          const duration = this.config.actionDurations[actions[keyUpper]];
+          if (duration) {
+            this.timeManager.addMinutes(duration);
+            console.log(`Action: ${actions[keyUpper]} took ${duration} minutes.`);
+            console.log(`Time: ${this.timeManager.getCurrentTimeString()}, Date: ${this.timeManager.getCurrentDateString()}`);
+          }
+          this.eventManager.trigger('actionApplied', {
+            x: this.gardener.x,
+            y: this.gardener.y,
+            action: actions[keyUpper]
+          });
+          this.saveState();
+        }
       }
     });
   }
@@ -178,7 +186,7 @@ class Grid {
         if (states.includes(state) && this.plots[state] && this.plots[state].sprite) {
           let layer = document.createElement('div');
           layer.classList.add('state-layer');
-          layer.style.backgroundImage = `url(https://kvnchpl.github.io/trellis/sprites/${this.plots[state].sprite})`;
+          layer.style.backgroundImage = `url(${spriteFolder}${this.plots[state].sprite})`;
           cell.appendChild(layer);
         }
       });
@@ -191,102 +199,109 @@ class Grid {
   
     // Existing applyAction method remains the same.
     applyAction(x, y, action) {
-      let cell = this.getCell(x, y);
-      if (!cell) return;
-      let states = JSON.parse(cell.dataset.states);
-  
-      const addState = (s) => {
-        if (!states.includes(s)) states.push(s);
-      };
-      const removeState = (s) => {
-        const index = states.indexOf(s);
-        if (index !== -1) states.splice(index, 1);
-      };
-  
-      switch (action) {
-        case 'till':
-          if (!states.includes("tilled") &&
-              (states.includes("empty") || states.includes("harvested") || states.includes("weedy"))) {
-            removeState("empty");
-            removeState("harvested");
-            removeState("weedy");
-            addState("tilled");
-          } else {
-            console.log("Cannot till: Plot is already tilled or not in a tillable condition.");
-            return;
-          }
-          break;
-        case 'fertilize':
-          if (states.includes("tilled") && !states.includes("fertilized")) {
-            addState("fertilized");
-          } else {
-            console.log("Cannot fertilize: Plot must be tilled and not already fertilized.");
-            return;
-          }
-          break;
-        case 'mulch':
-          if ((states.includes("tilled") || states.includes("fertilized")) && !states.includes("mulched")) {
-            addState("mulched");
-          } else {
-            console.log("Cannot mulch: Plot must be tilled or fertilized and not already mulched.");
-            return;
-          }
-          break;
-        case 'plant':
-          if ((states.includes("tilled") || states.includes("fertilized") || states.includes("mulched")) && !states.includes("planted")) {
-            addState("planted");
-          } else {
-            console.log("Cannot plant: Plot must be tilled, fertilized, or mulched, and not already planted.");
-            return;
-          }
-          break;
-        case 'water':
-          if (states.includes("planted") && !states.includes("harvestable")) {
-            addState("harvestable");
-          } else {
-            console.log("Cannot water: Plot must be planted and not already water-saturated.");
-            return;
-          }
-          break;
-        case 'harvest':
-          if (states.includes("harvestable")) {
-            removeState("planted");
-            removeState("harvestable");
-            addState("harvested");
-          } else {
-            console.log("Cannot harvest: Plot is not ready for harvest.");
-            return;
-          }
-          break;
-        case 'weed':
-          if (states.includes("weedy")) {
-            removeState("weedy");
-            if (!states.includes("tilled")) addState("tilled");
-          } else {
-            console.log("Cannot weed: Plot is not weedy.");
-            return;
-          }
-          break;
-        case 'clear':
-          if (states.includes("planted") || states.includes("harvestable")) {
-            console.log("Cannot clear: Plot is actively growing; harvest first.");
-            return;
-          } else {
-            states = ["empty"];
-          }
-          break;
-        default:
-          console.log("Unknown action:", action);
-          return;
+        let cell = this.getCell(x, y);
+        if (!cell) return false;
+        let states = JSON.parse(cell.dataset.states);
+      
+        const addState = (s) => {
+          if (!states.includes(s)) states.push(s);
+        };
+        const removeState = (s) => {
+          const index = states.indexOf(s);
+          if (index !== -1) states.splice(index, 1);
+        };
+      
+        let actionApplied = false;
+        switch (action) {
+          case 'till':
+            if (!states.includes("tilled") &&
+                (states.includes("empty") || states.includes("harvested") || states.includes("weedy"))) {
+              removeState("empty");
+              removeState("harvested");
+              removeState("weedy");
+              addState("tilled");
+              actionApplied = true;
+            } else {
+              console.log("Cannot till: Plot is already tilled or not in a tillable condition.");
+              return false;
+            }
+            break;
+          case 'fertilize':
+            if (states.includes("tilled") && !states.includes("fertilized")) {
+              addState("fertilized");
+              actionApplied = true;
+            } else {
+              console.log("Cannot fertilize: Plot must be tilled and not already fertilized.");
+              return false;
+            }
+            break;
+          case 'mulch':
+            if ((states.includes("tilled") || states.includes("fertilized")) && !states.includes("mulched")) {
+              addState("mulched");
+              actionApplied = true;
+            } else {
+              console.log("Cannot mulch: Plot must be tilled or fertilized and not already mulched.");
+              return false;
+            }
+            break;
+          case 'plant':
+            if ((states.includes("tilled") || states.includes("fertilized") || states.includes("mulched")) && !states.includes("planted")) {
+              addState("planted");
+              actionApplied = true;
+            } else {
+              console.log("Cannot plant: Plot must be tilled, fertilized, or mulched, and not already planted.");
+              return false;
+            }
+            break;
+          case 'water':
+            if (states.includes("planted") && !states.includes("harvestable")) {
+              addState("harvestable");
+              actionApplied = true;
+            } else {
+              console.log("Cannot water: Plot must be planted and not already water-saturated.");
+              return false;
+            }
+            break;
+          case 'harvest':
+            if (states.includes("harvestable")) {
+              removeState("planted");
+              removeState("harvestable");
+              addState("harvested");
+              actionApplied = true;
+            } else {
+              console.log("Cannot harvest: Plot is not ready for harvest.");
+              return false;
+            }
+            break;
+          case 'weed':
+            if (states.includes("weedy")) {
+              removeState("weedy");
+              if (!states.includes("tilled")) addState("tilled");
+              actionApplied = true;
+            } else {
+              console.log("Cannot weed: Plot is not weedy.");
+              return false;
+            }
+            break;
+          case 'clear':
+            if (states.includes("planted") || states.includes("harvestable")) {
+              console.log("Cannot clear: Plot is actively growing; harvest first.");
+              return false;
+            } else {
+              states = ["empty"];
+              actionApplied = true;
+            }
+            break;
+          default:
+            console.log("Unknown action:", action);
+            return false;
+        }
+      
+        console.log(`Action '${action}' applied at (${x}, ${y}). New states: ${states.join(', ')}`);
+        cell.dataset.states = JSON.stringify(states);
+        this.updateCellState(x, y);
+        return actionApplied;
       }
-
-      console.log(`Action '${action}' applied at (${x}, ${y}). New states: ${states.join(', ')}`);
-      cell.dataset.states = JSON.stringify(states);
-      this.updateCellState(x, y);
-      if (window.currentGame) {
-        window.currentGame.saveState();
-      }
-    }
   }
 
 // Gardener class: Handles the gardener's position, movement, and rendering.
