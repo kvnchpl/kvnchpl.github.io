@@ -35,6 +35,16 @@
         "sprite": "plot_weedy.png"
       }
     },
+    "actionDurations": {
+    "till": 10,
+    "fertilize": 5,
+    "mulch": 5,
+    "plant": 15,
+    "water": 3,
+    "harvest": 12,
+    "weed": 8,
+    "clear": 6
+    },
     "controls": {
       "moveUp": "ArrowUp",
       "moveDown": "ArrowDown",
