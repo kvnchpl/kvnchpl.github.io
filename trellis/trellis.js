@@ -28,31 +28,31 @@ class Game {
   }
 
   bindControls() {
+    const controls = this.config.controls;
+    // Build a key-to-action mapping. For movement, we use functions that call the gardener.move()
+    // For other actions, we call grid.applyAction() with the appropriate command.
+    const keyMapping = {
+      [controls.moveUp]: () => this.gardener.move(0, -1),
+      [controls.moveDown]: () => this.gardener.move(0, 1),
+      [controls.moveLeft]: () => this.gardener.move(-1, 0),
+      [controls.moveRight]: () => this.gardener.move(1, 0),
+      [controls.till.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'till'),
+      [controls.fertilize.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'fertilize'),
+      [controls.plant.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'plant'),
+      [controls.water.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'water'),
+      [controls.mulch.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'mulch'),
+      [controls.weed.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'weed'),
+      [controls.harvest.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'harvest'),
+      [controls.clear.toUpperCase()]: () => this.grid.applyAction(this.gardener.x, this.gardener.y, 'clear')
+    };
+  
     document.addEventListener('keydown', (e) => {
-      let moved = false;
-      if (e.key === 'ArrowUp') {
-        moved = this.gardener.move(0, -1);
-      } else if (e.key === 'ArrowDown') {
-        moved = this.gardener.move(0, 1);
-      } else if (e.key === 'ArrowLeft') {
-        moved = this.gardener.move(-1, 0);
-      } else if (e.key === 'ArrowRight') {
-        moved = this.gardener.move(1, 0);
-      }
-      // Map action keys.
-      const actionKeys = {
-        'T': 'till',
-        'F': 'fertilize',
-        'P': 'plant',
-        'W': 'water',
-        'M': 'mulch',
-        'R': 'weed',
-        'H': 'harvest',
-        'C': 'clear'
-      };
-      const keyUpper = e.key.toUpperCase();
-      if (actionKeys[keyUpper]) {
-        this.grid.applyAction(this.gardener.x, this.gardener.y, actionKeys[keyUpper]);
+      const key = e.key;
+      // Check for both case-sensitive and upper-case keys.
+      if (keyMapping[key]) {
+        keyMapping[key]();
+      } else if (keyMapping[key.toUpperCase()]) {
+        keyMapping[key.toUpperCase()]();
       }
     });
   }
