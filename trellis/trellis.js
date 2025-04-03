@@ -1,14 +1,14 @@
-// Game class: Initializes the grid and the gardener and binds controls.
+// Game class: Initializes the grid and gardener and binds controls.
 class Game {
     constructor(config) {
       this.config = config;
-      this.grid = new Grid(config.grid);
+      this.grid = new Grid(config.grid, config.plots);
       this.gardener = new Gardener(config.gardener, this.grid);
       this.init();
     }
   
     init() {
-      // Create the game container and assign it an id for styling.
+      // Create the game container.
       this.gameContainer = document.createElement('div');
       this.gameContainer.id = 'trellis-game';
       document.body.appendChild(this.gameContainer);
@@ -35,30 +35,42 @@ class Game {
         } else if (e.key === 'ArrowRight') {
           moved = this.gardener.move(1, 0);
         }
-        // If movement occurs, mark the new cell as tended.
-        if (moved) {
-          this.grid.tendPlot(this.gardener.x, this.gardener.y);
+        // (Movement does not automatically modify the cell state.)
+  
+        // Map action keys.
+        const actionKeys = {
+          'T': 'till',
+          'F': 'fertilize',
+          'P': 'plant',
+          'W': 'water',
+          'M': 'mulch',
+          'R': 'weed',
+          'H': 'harvest',
+          'C': 'clear'
+        };
+        const keyUpper = e.key.toUpperCase();
+        if (actionKeys[keyUpper]) {
+          this.grid.applyAction(this.gardener.x, this.gardener.y, actionKeys[keyUpper]);
         }
       });
     }
   }
   
-  // Grid class: Creates the grid based on configuration and manages the state of each cell.
+  // Grid class: Creates the grid, manages cell states, and applies actions.
   class Grid {
-    constructor(gridConfig) {
+    constructor(gridConfig, plotDefinitions) {
       this.columns = gridConfig.columns;
       this.rows = gridConfig.rows;
       this.cellSize = gridConfig.cellSize;
+      this.plots = plotDefinitions;
       this.cells = [];
     }
   
     createGrid(container) {
-      // Update CSS variables to reflect the dynamic grid configuration.
       container.style.setProperty('--grid-columns', this.columns);
       container.style.setProperty('--grid-rows', this.rows);
       container.style.setProperty('--cell-size', `${this.cellSize}px`);
   
-      // Create grid cells.
       for (let y = 0; y < this.rows; y++) {
         this.cells[y] = [];
         for (let x = 0; x < this.columns; x++) {
@@ -66,23 +78,109 @@ class Game {
           cell.classList.add('cell');
           cell.dataset.x = x;
           cell.dataset.y = y;
+          cell.dataset.state = 'empty';
+          // Set default sprite.
+          cell.style.backgroundImage = `url(https://kvnchpl.github.io/trellis/sprites/${this.plots['empty'].sprite})`;
           container.appendChild(cell);
           this.cells[y][x] = cell;
         }
       }
     }
   
-    tendPlot(x, y) {
-      // Mark the cell as tended by adding a CSS class.
-      let cell = this.cells[y][x];
-      if (cell && !cell.classList.contains('tended')) {
-        cell.classList.add('tended');
+    updateCellState(x, y, newState) {
+      let cell = this.getCell(x, y);
+      if (!cell) return;
+      cell.dataset.state = newState;
+      if (this.plots[newState] && this.plots[newState].sprite) {
+        cell.style.backgroundImage = `url(https://kvnchpl.github.io/trellis/sprites/${this.plots[newState].sprite})`;
+      } else {
+        cell.style.backgroundImage = '';
       }
     }
   
     getCell(x, y) {
       if (x < 0 || x >= this.columns || y < 0 || y >= this.rows) return null;
       return this.cells[y][x];
+    }
+  
+    // Apply an action to the cell at (x,y) based on its current state.
+    applyAction(x, y, action) {
+      let cell = this.getCell(x, y);
+      if (!cell) return;
+      let currentState = cell.dataset.state;
+      let newState = currentState; // default is no change
+  
+      switch (action) {
+        case 'till':
+          if (currentState === 'empty' || currentState === 'harvested' || currentState === 'weedy') {
+            newState = 'tilled';
+          } else {
+            console.log("Cannot till: Plot must be empty, harvested, or weedy.");
+            return;
+          }
+          break;
+        case 'fertilize':
+          if (currentState === 'tilled') {
+            newState = 'fertilized';
+          } else {
+            console.log("Cannot fertilize: Plot must be tilled.");
+            return;
+          }
+          break;
+        case 'plant':
+          if (currentState === 'tilled' || currentState === 'fertilized' || currentState === 'mulched') {
+            newState = 'planted';
+          } else {
+            console.log("Cannot plant: Plot must be tilled, fertilized, or mulched.");
+            return;
+          }
+          break;
+        case 'water':
+          if (currentState === 'planted') {
+            newState = 'harvestable';
+          } else {
+            console.log("Cannot water: Plot must be planted.");
+            return;
+          }
+          break;
+        case 'mulch':
+          if (currentState === 'tilled' || currentState === 'fertilized') {
+            newState = 'mulched';
+          } else {
+            console.log("Cannot mulch: Plot must be tilled or fertilized.");
+            return;
+          }
+          break;
+        case 'weed':
+          if (currentState === 'weedy') {
+            newState = 'tilled';
+          } else {
+            console.log("Cannot weed: Plot is not weedy.");
+            return;
+          }
+          break;
+        case 'harvest':
+          if (currentState === 'harvestable') {
+            newState = 'harvested';
+          } else {
+            console.log("Cannot harvest: Plot is not ready for harvest.");
+            return;
+          }
+          break;
+        case 'clear':
+          if (currentState === 'planted' || currentState === 'harvestable') {
+            console.log("Cannot clear: Plot is actively growing; harvest first.");
+            return;
+          } else {
+            newState = 'empty';
+          }
+          break;
+        default:
+          console.log("Unknown action:", action);
+          return;
+      }
+      console.log(`Action '${action}' applied at (${x}, ${y}): ${currentState} → ${newState}`);
+      this.updateCellState(x, y, newState);
     }
   }
   
@@ -97,15 +195,12 @@ class Game {
     }
   
     render() {
-      // Create the gardener element if it doesn't exist.
       if (!this.element) {
         this.element = document.createElement('div');
         this.element.classList.add('gardener');
         this.element.style.backgroundImage = `url(https://kvnchpl.github.io/trellis/sprites/${this.sprite})`;
-        // Append the gardener to the game container so its positioning is relative.
         document.getElementById('trellis-game').appendChild(this.element);
       }
-      // Position the gardener based on grid coordinates.
       let cellSize = this.grid.cellSize;
       this.element.style.width = `${cellSize}px`;
       this.element.style.height = `${cellSize}px`;
@@ -116,7 +211,6 @@ class Game {
     move(dx, dy) {
       let newX = this.x + dx;
       let newY = this.y + dy;
-      // Check grid boundaries.
       if (newX < 0 || newX >= this.grid.columns || newY < 0 || newY >= this.grid.rows) {
         return false;
       }
@@ -131,7 +225,6 @@ class Game {
   fetch('https://kvnchpl.github.io/trellis/trellis.json')
     .then(response => response.json())
     .then(config => {
-      // Initialize the game once the DOM is fully loaded.
       window.addEventListener('DOMContentLoaded', () => {
         new Game(config);
       });
