@@ -4,92 +4,108 @@ const spriteFolder = document.querySelector('meta[name="sprites"]')?.content || 
 
 // Game class: Initializes the grid, gardener, and binds controls.
 class Game {
-    constructor(config) {
-      this.config = config;
-      this.grid = new Grid(config.grid, config.plots);
-      this.gardener = new Gardener(config.gardener, this.grid);
-      this.init();
-    }
-  
-    init() {
-      // Create the game container.
-      this.gameContainer = document.createElement('div');
-      this.gameContainer.id = 'trellis-game';
-      document.body.appendChild(this.gameContainer);
-  
-      // Create grid cells.
-      this.grid.createGrid(this.gameContainer);
-  
-      // Load state if one exists.
-      this.loadState();
-  
-      // Render the gardener (using loaded state or starting defaults).
-      this.gardener.render();
-  
-      // Bind keyboard controls.
-      this.bindControls();
-    }
-  
-    bindControls() {
-      document.addEventListener('keydown', (e) => {
-        let moved = false;
-        if (e.key === 'ArrowUp') {
-          moved = this.gardener.move(0, -1);
-        } else if (e.key === 'ArrowDown') {
-          moved = this.gardener.move(0, 1);
-        } else if (e.key === 'ArrowLeft') {
-          moved = this.gardener.move(-1, 0);
-        } else if (e.key === 'ArrowRight') {
-          moved = this.gardener.move(1, 0);
-        }
-        if (moved) {
-          this.saveState();
-        }
-        
-        // Map action keys.
-        const actionKeys = {
-          'T': 'till',
-          'F': 'fertilize',
-          'P': 'plant',
-          'W': 'water',
-          'M': 'mulch',
-          'R': 'weed',
-          'H': 'harvest',
-          'C': 'clear'
-        };
-        const keyUpper = e.key.toUpperCase();
-        if (actionKeys[keyUpper]) {
-          this.grid.applyAction(this.gardener.x, this.gardener.y, actionKeys[keyUpper]);
-          // Save state after an action.
-          this.saveState();
-        }
-      });
-    }
-  
-    // Save the game state to localStorage.
-    saveState() {
-      const gameState = {
-        gridStates: this.grid.getStates(), // grid returns a 2D array of each cell's states
-        gardener: { x: this.gardener.x, y: this.gardener.y }
-      };
-      localStorage.setItem('trellis-save', JSON.stringify(gameState));
-      console.log("Game state saved.");
-    }
-  
-    // Load the game state from localStorage if it exists.
-    loadState() {
-      const savedState = localStorage.getItem('trellis-save');
-      if (savedState) {
-        const gameState = JSON.parse(savedState);
-        // Restore gardener position.
-        this.gardener.x = gameState.gardener.x;
-        this.gardener.y = gameState.gardener.y;
-        // Restore grid states.
-        this.grid.setStates(gameState.gridStates);
-        console.log("Game state loaded.");
+  constructor(config) {
+    this.config = config;
+    this.eventManager = new EventManager(); // Create an event manager.
+    this.grid = new Grid(config.grid, config.plots, this.eventManager);
+    this.gardener = new Gardener(config.gardener, this.grid, this.eventManager);
+    this.init();
+  }
+
+  init() {
+    // Create the game container.
+    this.gameContainer = document.createElement('div');
+    this.gameContainer.id = 'trellis-game';
+    document.body.appendChild(this.gameContainer);
+
+    // Create grid cells.
+    this.grid.createGrid(this.gameContainer);
+
+    // Load state if one exists.
+    this.loadState();
+
+    // Render the gardener (using loaded state or starting defaults).
+    this.gardener.render();
+
+    // Bind keyboard controls.
+    this.bindControls();
+
+    // Trigger an event once the game is initialized.
+    this.eventManager.trigger('gameInitialized', { game: this });
+  }
+
+  bindControls() {
+    document.addEventListener('keydown', (e) => {
+      let moved = false;
+      if (e.key === 'ArrowUp') {
+        moved = this.gardener.move(0, -1);
+      } else if (e.key === 'ArrowDown') {
+        moved = this.gardener.move(0, 1);
+      } else if (e.key === 'ArrowLeft') {
+        moved = this.gardener.move(-1, 0);
+      } else if (e.key === 'ArrowRight') {
+        moved = this.gardener.move(1, 0);
       }
+      if (moved) {
+        // Trigger an event for gardener movement.
+        this.eventManager.trigger('gardenerMoved', { x: this.gardener.x, y: this.gardener.y });
+        this.saveState();
+      }
+
+      // Map action keys.
+      const actionKeys = {
+        'T': 'till',
+        'F': 'fertilize',
+        'P': 'plant',
+        'W': 'water',
+        'M': 'mulch',
+        'R': 'weed',
+        'H': 'harvest',
+        'C': 'clear'
+      };
+      const keyUpper = e.key.toUpperCase();
+      if (actionKeys[keyUpper]) {
+        this.grid.applyAction(this.gardener.x, this.gardener.y, actionKeys[keyUpper]);
+        // Trigger an event for action applied.
+        this.eventManager.trigger('actionApplied', {
+          x: this.gardener.x,
+          y: this.gardener.y,
+          action: actionKeys[keyUpper]
+        });
+        // Save state after an action.
+        this.saveState();
+      }
+    });
+  }
+
+  // Save the game state to localStorage.
+  saveState() {
+    const gameState = {
+      gridStates: this.grid.getStates(), // grid returns a 2D array of each cell's states
+      gardener: { x: this.gardener.x, y: this.gardener.y }
+    };
+    localStorage.setItem('trellis-save', JSON.stringify(gameState));
+    console.log("Game state saved.");
+    // Trigger an event for state saved.
+    this.eventManager.trigger('stateSaved', gameState);
+  }
+
+  // Load the game state from localStorage if it exists.
+  loadState() {
+    const savedState = localStorage.getItem('trellis-save');
+    if (savedState) {
+      const gameState = JSON.parse(savedState);
+      // Restore gardener position.
+      this.gardener.x = gameState.gardener.x;
+      this.gardener.y = gameState.gardener.y;
+      // Restore grid states.
+      this.grid.setStates(gameState.gridStates);
+      console.log("Game state loaded.");
+      // Trigger an event for state loaded.
+      this.eventManager.trigger('stateLoaded', gameState);
     }
   }
+}
 
 // Grid class: Creates the grid, manages multiple states per cell, and applies actions.
 class Grid {
