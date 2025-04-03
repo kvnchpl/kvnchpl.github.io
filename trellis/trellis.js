@@ -1,1014 +1,141 @@
-/* CLASSES */
-
-class GameState {
+// Game class: Initializes the grid and the gardener and binds controls.
+class Game {
     constructor(config) {
-        this.config = config;
-        this.time = {
-            currentTime: config.GAME_CONFIG.TIME.START,
-        };
-        this.calendar = {
-            currentWeek: config.GAME_CONFIG.DEFAULT_WEEK,
-            currentYear: config.GAME_CONFIG.DEFAULT_YEAR,
-            currentSeason: config.GAME_CONFIG.DEFAULT_SEASON,
-        };
-        this.grid = {
-            tiles: this.initGrid(config),
-            highlightedTile: { x: null, y: null },
-        };
-        this.player = {
-            position: {
-                x: Math.floor(config.GAME_CONFIG.GRID.WIDTH / 2),
-                y: Math.floor(config.GAME_CONFIG.GRID.HEIGHT / 2),
-            },
-            inventory: new Inventory(config.INVENTORY),
-        };
-        this.score = {
-            biodiversity: 0,
-        };
-        this.ui = {
-            isTutorialActive: true,
-        };
+      this.config = config;
+      this.grid = new Grid(config.grid);
+      this.gardener = new Gardener(config.gardener, this.grid);
+      this.init();
     }
-
-    initGrid(config) {
-        const { WIDTH, HEIGHT } = config.GAME_CONFIG.GRID;
-        const defaultTypeKey = config.TILE_CONFIG.DEFAULT_TYPE;
-
-        return Array.from({ length: HEIGHT }, (_, y) =>
-            Array.from({ length: WIDTH }, (_, x) =>
-                new Tile(TileService.createTile(defaultTypeKey), x, y))
-        );
+  
+    init() {
+      // Create the game container and assign it an id for styling.
+      this.gameContainer = document.createElement('div');
+      this.gameContainer.id = 'trellis-game';
+      document.body.appendChild(this.gameContainer);
+  
+      // Create grid cells.
+      this.grid.createGrid(this.gameContainer);
+  
+      // Render the gardener at the start position.
+      this.gardener.render();
+  
+      // Bind keyboard controls.
+      this.bindControls();
     }
-}
-
-class Tile {
-    constructor(data, x, y) {
-        Object.assign(this, data);
-        this.x = x;
-        this.y = y;
-    }
-
-    isType(typeKey) {
-        return this.TYPE === typeKey;
-    }
-
-    setType(typeKey) {
-        TileService.updateTile(this, typeKey);
-    }
-
-    highlight(gameState) {
-        const prevTile = window.gameState.grid.highlightedTile;
-        if (prevTile) {
-            document
-                .querySelector(`#tile-${prevTile.y}-${prevTile.x}`)
-                ?.classList.remove("highlighted");
+  
+    bindControls() {
+      document.addEventListener('keydown', (e) => {
+        let moved = false;
+        if (e.key === 'ArrowUp') {
+          moved = this.gardener.move(0, -1);
+        } else if (e.key === 'ArrowDown') {
+          moved = this.gardener.move(0, 1);
+        } else if (e.key === 'ArrowLeft') {
+          moved = this.gardener.move(-1, 0);
+        } else if (e.key === 'ArrowRight') {
+          moved = this.gardener.move(1, 0);
         }
-        const tileElement = document.querySelector(`#tile-${this.y}-${this.x}`);
-        tileElement?.classList.add("highlighted");
-        window.gameState.grid.highlightedTile = { x: this.x, y: this.y };
-    }
-
-    till() {
-        const { TILE_CONFIG } = window.gameData?.CONFIG ?? {};
-        const emptyKey = TILE_CONFIG?.DEFAULT_TYPE ?? Object.keys(TILE_CONFIG?.TYPES ?? {})[0];
-        const plotKey = Object.keys(TILE_CONFIG?.TYPES ?? {}).find(
-            key => TILE_CONFIG?.TYPES?.[key]?.IS_TILLED
-        );
-
-        if (this.isType(emptyKey) && plotKey) {
-            this.setType(plotKey);
+        // If movement occurs, mark the new cell as tended.
+        if (moved) {
+          this.grid.tendPlot(this.gardener.x, this.gardener.y);
         }
+      });
     }
-
-    fertilize() {
-        if (this.IS_TILLED && window.gameState.player.inventory.FERTILIZER > 0) {
-            console.log("Before fertilizing:", JSON.stringify(this.SOIL_NUTRIENTS)); // 🔍 Debug log
-
-            this.updateSoilNutrients({
-                N: 10,
-                P: 5,
-                K: 5
-            });
-
-            console.log("After fertilizing:", JSON.stringify(this.SOIL_NUTRIENTS)); // 🔍 Debug log
-
-            Inventory.update('FERTILIZER', -1);
-            updateTileStats(); // ✅ Ensure UI updates
+  }
+  
+  // Grid class: Creates the grid based on configuration and manages the state of each cell.
+  class Grid {
+    constructor(gridConfig) {
+      this.columns = gridConfig.columns;
+      this.rows = gridConfig.rows;
+      this.cellSize = gridConfig.cellSize;
+      this.cells = [];
+    }
+  
+    createGrid(container) {
+      // Update CSS variables to reflect the dynamic grid configuration.
+      container.style.setProperty('--grid-columns', this.columns);
+      container.style.setProperty('--grid-rows', this.rows);
+      container.style.setProperty('--cell-size', `${this.cellSize}px`);
+  
+      // Create grid cells.
+      for (let y = 0; y < this.rows; y++) {
+        this.cells[y] = [];
+        for (let x = 0; x < this.columns; x++) {
+          let cell = document.createElement('div');
+          cell.classList.add('cell');
+          cell.dataset.x = x;
+          cell.dataset.y = y;
+          container.appendChild(cell);
+          this.cells[y][x] = cell;
         }
+      }
     }
-
-    plant(seedType = "tomato") {
-        if (this.IS_TILLED && !this.PLANT_DATA.VALUE) {
-            this.PLANT_DATA.VALUE = {
-                NAME: seedType,
-                AGE: 0,
-                IS_MATURE: false
-            };
-        }
+  
+    tendPlot(x, y) {
+      // Mark the cell as tended by adding a CSS class.
+      let cell = this.cells[y][x];
+      if (cell && !cell.classList.contains('tended')) {
+        cell.classList.add('tended');
+      }
     }
-
-    water() {
-        this.MOISTURE.VALUE = Math.min(this.MOISTURE.VALUE + 20, 100);
+  
+    getCell(x, y) {
+      if (x < 0 || x >= this.columns || y < 0 || y >= this.rows) return null;
+      return this.cells[y][x];
     }
-
-    mulch() {
-        if (this.IS_TILLED && window.gameState.player.inventory.MULCH > 0) {
-            this.MOISTURE_DECAY_RATE = Math.max(this.MOISTURE_DECAY_RATE - 1, 0);
-            Inventory.update('MULCH', -1);
-        }
+  }
+  
+  // Gardener class: Handles the gardener's position, movement, and rendering.
+  class Gardener {
+    constructor(gardenerConfig, grid) {
+      this.x = gardenerConfig.startX;
+      this.y = gardenerConfig.startY;
+      this.sprite = gardenerConfig.sprite;
+      this.grid = grid;
+      this.element = null;
     }
-
-    weed() {
-        if (this.WEED_LEVEL.VALUE > 0) {
-            this.WEED_LEVEL.VALUE = 0;
-        }
+  
+    render() {
+      // Create the gardener element if it doesn't exist.
+      if (!this.element) {
+        this.element = document.createElement('div');
+        this.element.classList.add('gardener');
+        this.element.style.backgroundImage = `url(https://kvnchpl.github.io/trellis/sprites/${this.sprite})`;
+        // Append the gardener to the game container so its positioning is relative.
+        document.getElementById('trellis-game').appendChild(this.element);
+      }
+      // Position the gardener based on grid coordinates.
+      let cellSize = this.grid.cellSize;
+      this.element.style.width = `${cellSize}px`;
+      this.element.style.height = `${cellSize}px`;
+      this.element.style.left = `${this.x * cellSize}px`;
+      this.element.style.top = `${this.y * cellSize}px`;
     }
-
-    harvest() {
-        if (this.PLANT_DATA?.IS_MATURE) {
-            const plantType = this.PLANT_DATA.VALUE.NAME;
-            const yieldAmount = window.gameData.CONFIG.PLANTS[plantType.toUpperCase()].YIELD;
-            if (yieldAmount > 0) {
-                Inventory.update(`produce.${plantType}`, yieldAmount); // Add harvested yield
-                console.log(`Harvested ${yieldAmount} ${plantType}(s).`);
-            }
-            this.PLANT_DATA.VALUE = null;
-            this.IS_TILLED = false;
-        }
+  
+    move(dx, dy) {
+      let newX = this.x + dx;
+      let newY = this.y + dy;
+      // Check grid boundaries.
+      if (newX < 0 || newX >= this.grid.columns || newY < 0 || newY >= this.grid.rows) {
+        return false;
+      }
+      this.x = newX;
+      this.y = newY;
+      this.render();
+      return true;
     }
-
-    clear() {
-        const defaultType = window.gameData.CONFIG.TILE_CONFIG.DEFAULT_TYPE;
-        this.setType(defaultType);
-    }
-
-    updateMoisture(decayRate) {
-        if (!this.MOISTURE) return;
-        this.MOISTURE.VALUE = Math.max(this.MOISTURE.VALUE - decayRate, 0);
-    }
-
-    updateSoilNutrients({ N, P, K }) {
-        if (!this.SOIL_NUTRIENTS) {
-            this.SOIL_NUTRIENTS = { NITROGEN: 0, PHOSPHORUS: 0, POTASSIUM: 0 };
-        }
-
-        this.SOIL_NUTRIENTS.NITROGEN = (this.SOIL_NUTRIENTS.NITROGEN ?? 0) + (N ?? 0);
-        this.SOIL_NUTRIENTS.PHOSPHORUS = (this.SOIL_NUTRIENTS.PHOSPHORUS ?? 0) + (P ?? 0);
-        this.SOIL_NUTRIENTS.POTASSIUM = (this.SOIL_NUTRIENTS.POTASSIUM ?? 0) + (K ?? 0);
-    }
-
-    growPlant(conditions) {
-        if (!this.PLANT_DATA || !this.PLANT_DATA.VALUE) return;
-        const {
-            N,
-            P,
-            K
-        } = this.SOIL_NUTRIENTS;
-        if (conditions.isSufficient(N, P, K, this.MOISTURE.VALUE)) {
-            this.PLANT_DATA.VALUE.AGE++;
-        }
-    }
-}
-
-class TileService {
-    static defaults = {};
-    static types = {};
-    static styles = new Map();
-
-    static initializeDefaults(defaults, types) {
-        this.defaults = structuredClone(defaults);
-        this.types = structuredClone(types);
-    }
-
-    static initializeStyles() {
-        Object.keys(this.types).forEach((typeKey) => {
-            const cssVariable = `--tile-${typeKey.toLowerCase()}`;
-            const style = getCSSVariable(cssVariable) || getCSSVariable(window.gameData.CONFIG.TILE_CONFIG.DEFAULT_STYLE);
-            this.styles.set(typeKey, style);
-        });
-    }
-
-    static createTile(typeKey) {
-        const typeConfig = this.types[typeKey];
-        if (!typeConfig) {
-            console.error(`Tile type '${typeKey}' not found.`);
-            return null;
-        }
-        return new Tile({
-            ...this.defaults,
-            ...typeConfig,
-            TYPE: typeKey
-        });
-    }
-
-    static updateTile(tile, typeKey) {
-        const typeConfig = this.types[typeKey];
-        if (!typeConfig) {
-            console.error(`Tile type '${typeKey}' not found.`);
-            return;
-        }
-        Object.assign(tile, {
-            ...this.defaults,
-            ...typeConfig,
-            TYPE: typeKey
-        });
-    }
-
-    static getTypeConfig(typeKey) {
-        return this.types[typeKey] || null;
-    }
-}
-
-class Inventory {
-    constructor(data) {
-        Object.assign(this, data);
-    }
-
-    static update(itemKey, delta) {
-        if (window.gameState?.player?.inventory?.[itemKey] !== undefined) {
-            window.gameState.player.inventory[itemKey] = Math.max(0, (window.gameState.player.inventory?.[itemKey] ?? 0) + delta);
-            this.updateUI(itemKey, window.gameState.player.inventory[itemKey]);
-        } else {
-            console.error(`Invalid inventory item: ${itemKey}`);
-        }
-    }
-
-    static updateUI(itemKey, value) {
-        const fieldId = `inventory${itemKey.replace(".", "").charAt(0).toUpperCase() + itemKey.replace(".", "").slice(1)}`;
-        const fieldElement = document.getElementById(fieldId);
-        if (fieldElement) {
-            fieldElement.textContent = value;
-        } else {
-            console.warn(`Field element with ID '${fieldId}' not found.`);
-        }
-    }
-}
-
-class Tutorial {
-    constructor(overlayData) {
-        this.overlayId = overlayData.CONTAINER;
-        this.overlay = document.getElementById(this.overlayId);
-        this.isActive = true;
-    }
-
-    show() {
-        this.isActive = true;
-        this.overlay.classList.remove("hidden");
-    }
-
-    hide() {
-        this.isActive = false;
-        this.overlay.classList.add("hidden");
-    }
-}
-
-/* INITIALIZATION */
-
-async function initGame() {
-    try {
-        TileService.initializeDefaults(window.gameData.CONFIG.TILE_CONFIG.DEFAULTS, window.gameData.CONFIG.TILE_CONFIG.TYPES);
-        TileService.initializeStyles();
-
-        window.gameState = new GameState(window.gameData.CONFIG);
-        const tutorial = new Tutorial(window.gameData.UI.TUTORIAL_OVERLAY);
-
-        window.hideTutorial = () => tutorial.hide();
-
-        // Set the initial highlighted tile to the player's position
-        window.gameState.grid.highlightedTile = { ...window.gameState.player.position };
-
-        // Iterate through all UI sections and render them
-        Object.values(window.gameData.UI).forEach(uiSection => {
-            renderUISection(uiSection, window.gameData);
-        });
-
-        // Attach event listeners
-        attachUIEventListeners();
-        attachCanvasEventListeners();
-
-        // Update UI with initial values
-        updateTimeDisplay();
-        updateWeekDisplay();
-        updateBiodiversityDisplay();
-        updateTileStats();
-
-        if (tutorial.overlay) {
-            tutorial.show();
-        } else {
-            console.warn("Tutorial overlay not found. Skipping tutorial setup.");
-        }
-
-        return {
-            gameState: window.gameState,
-            inventory,
-            tutorial
-        };
-    } catch (error) {
-        console.error("Error during game initialization:", error);
-        throw error;
-    }
-}
-
-window.onload = async () => {
-    const gameDataURL = document.querySelector('meta[name="game-data"]')?.content;
-    if (!gameDataURL) {
-        console.error("Game data URL is not defined in the HTML <meta> tag.");
-        return;
-    }
-    try {
-        const response = await fetch(gameDataURL);
-        if (!response.ok) {
-            throw new Error(`Failed to fetch game data: ${response.status} ${response.statusText}`);
-        }
-
-        window.gameData = await response.json(); // Assign the fetched gameData to the global window object
-
-        const initializedComponents = await initGame();
-        console.log("Game successfully initialized: ", initializedComponents);
-    } catch (error) {
-        console.error("Error during game loading or initialization:", error);
-    }
-};
-
-/* RENDERING */
-
-function render() {
-    const canvas = document.getElementById("gameCanvas");
-    if (!canvas) {
-        console.error("Canvas not found.");
-        return;
-    }
-    const ctx = canvas.getContext("2d");
-    if (!ctx) {
-        console.error("Failed to get canvas rendering context.");
-        return;
-    }
-
-    canvas.width = window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH * window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
-    canvas.height = window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT * window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawGrid(ctx);
-}
-
-function drawGrid(context) {
-    const tileSize = window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE;
-    const defaultBorderStyle = window.gameData.CONFIG.TILE_CONFIG.BORDER_STYLE;
-    const highlightStyle = window.gameData.CONFIG.TILE_CONFIG.HIGHLIGHT_STYLE;
-    const playerStyle = window.gameData.CONFIG.TILE_CONFIG.PLAYER_STYLE;
-
-    for (let row = 0; row < window.gameState.grid.tiles.length; row++) {
-        for (let col = 0; col < window.gameState.grid.tiles[row].length; col++) {
-            const tile = window.gameState.grid.tiles[row][col];
-            const defaultStyleKey = window.gameData?.CONFIG?.TILE_CONFIG?.DEFAULT_STYLE;
-            const baseColor = getTileStyle(tile?.TYPE ?? getCSSVariable(defaultStyleKey));
-
-            const adjustments = calculateAdjustments(tile);
-            const finalColor = parseAndAdjustRGB(baseColor, adjustments);
-
-            context.fillStyle = finalColor;
-            context.fillRect(col * tileSize, row * tileSize, tileSize, tileSize);
-
-            // Draw the border (highlight if highlighted, otherwise default)
-            context.strokeStyle =
-                row === window.gameState.grid.highlightedTile.y && col === window.gameState.grid.highlightedTile.x ?
-                    getCSSVariable(highlightStyle) :
-                    getCSSVariable(defaultBorderStyle);
-
-            context.lineWidth = row === window.gameState.grid.highlightedTile.y &&
-                col === window.gameState.grid.highlightedTile.x ?
-                3 :
-                1;
-
-            context.strokeRect(
-                col * tileSize,
-                row * tileSize,
-                tileSize,
-                tileSize
-            );
-
-            // Draw the player marker if the player is on this tile
-            if (row === window.gameState.player.position.y && col === window.gameState.player.position.x) {
-                context.fillStyle = getCSSVariable(playerStyle);
-                const padding = tileSize * 0.2; // Shrink player marker a bit
-                context.fillRect(
-                    col * tileSize + padding,
-                    row * tileSize + padding,
-                    tileSize - padding * 2,
-                    tileSize - padding * 2
-                );
-            }
-        }
-    }
-}
-
-function renderUISection(uiSection, gameData) {
-    const container = document.getElementById(uiSection?.CONTAINER);
-    if (!container) {
-        console.warn(`Container with ID '${uiSection?.CONTAINER}' not found.`);
-        return;
-    }
-
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-
-    uiSection.FIELDS.forEach((fieldKey) => {
-        const fieldData = gameData.FIELDS[fieldKey];
-        if (!fieldData) {
-            console.warn(`Field data for key '${fieldKey}' not found.`);
-            return;
-        }
-
-        if (fieldData.SECTION_TYPE === "BUTTON") {
-            const button = createElement("button", {
-                id: fieldData.ID,
-                className: gameData.UI_COMPONENTS.BUTTON.CLASS,
-                textContent: fieldData.LABEL,
-            });
-
-            if (fieldData.ON_CLICK) {
-                console.log(`✅ Assigning tile method '${fieldData.ON_CLICK}' to button '${fieldData.ID}'`);
-                button.addEventListener("click", () => {
-                    const { x, y } = window.gameState.grid.highlightedTile;
-                    const tile = window.gameState.grid.tiles[y]?.[x];
-
-                    if (!tile || typeof tile[fieldData.ON_CLICK] !== "function") {
-                        console.error(`❌ Tile method '${fieldData.ON_CLICK}' not found on tile at (${x}, ${y}).`);
-                        return;
-                    }
-
-                    console.log(`🔄 Performing action '${fieldData.ON_CLICK}' on tile:`, tile);
-                    tile[fieldData.ON_CLICK](); // ✅ Call the method dynamically
-                    updateTileStats();
-                    render();
-                });
-            }
-
-            container.appendChild(button);
-        } else if (fieldData.SECTION_TYPE === "FIELD_LABEL") {
-            const fieldContainer = createElement(gameData.UI_COMPONENTS.FIELD_CONTAINER.TAG, {
-                className: gameData.UI_COMPONENTS.FIELD_CONTAINER.CLASS,
-            });
-
-            const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
-                className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-                textContent: `${fieldData.LABEL}:`,
-            });
-
-            fieldContainer.appendChild(labelElement);
-
-            const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
-                id: fieldData.ID,
-                className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-                textContent: fieldData.DEFAULT_VALUE,
-            });
-            fieldContainer.appendChild(valueElement);
-
-            container.appendChild(fieldContainer);
-
-            if (fieldData.SUBFIELDS) {
-                renderSubfields(container, fieldData.SUBFIELDS, fieldData.DEFAULT_VALUE || {}, gameData);
-            }
-        } else if (fieldData.SECTION_TYPE === "HEADING") {
-            const headingElement = createElement(gameData.UI_COMPONENTS.HEADING.TAG, {
-                id: fieldData.ID,
-                className: gameData.UI_COMPONENTS.HEADING.CLASS,
-                textContent: fieldData.LABEL,
-            });
-            container.appendChild(headingElement);
-        } else if (fieldData.SECTION_TYPE === "CONTENT") {
-            const contentElement = createElement(gameData.UI_COMPONENTS.CONTENT.TAG, {
-                id: fieldData.ID,
-                className: gameData.UI_COMPONENTS.CONTENT.CLASS,
-                textContent: fieldData.LABEL,
-            });
-            container.appendChild(contentElement);
-        } else {
-            console.warn(`Unknown SECTION_TYPE: '${fieldData.SECTION_TYPE}' for field '${fieldKey}'.`);
-        }
+  }
+  
+  // Load configuration from trellis.json and initialize the game.
+  fetch('https://kvnchpl.github.io/trellis/trellis.json')
+    .then(response => response.json())
+    .then(config => {
+      // Initialize the game once the DOM is fully loaded.
+      window.addEventListener('DOMContentLoaded', () => {
+        new Game(config);
+      });
+    })
+    .catch(error => {
+      console.error('Error loading game configuration:', error);
     });
-}
-
-function renderSubfields(parentContainer, subfields, values, gameData) {
-    Object.entries(subfields).forEach(([key, subfieldData]) => {
-        const subfieldContainer = createElement(gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.TAG, {
-            className: gameData.UI_COMPONENTS.SUBFIELD_CONTAINER.CLASS
-        });
-
-        const labelElement = createElement(gameData.UI_COMPONENTS.FIELD_LABEL.TAG, {
-            className: gameData.UI_COMPONENTS.FIELD_LABEL.CLASS,
-            textContent: `${subfieldData.LABEL}:`
-        });
-
-        const valueElement = createElement(gameData.UI_COMPONENTS.FIELD_VALUE.TAG, {
-            id: subfieldData.ID,
-            className: gameData.UI_COMPONENTS.FIELD_VALUE.CLASS,
-            textContent: values?.[key] ?? subfieldData.DEFAULT_VALUE
-        });
-
-        subfieldContainer.appendChild(labelElement);
-        subfieldContainer.appendChild(valueElement);
-        parentContainer.appendChild(subfieldContainer);
-    });
-}
-
-function updateField(fieldId, value) {
-    if (!fieldId) {
-        console.error("Field ID is missing.");
-        return;
-    }
-
-    const fieldElement = document.getElementById(fieldId);
-    if (!fieldElement) {
-        console.error(`Field element with ID '${fieldId}' not found. Cannot update to value: ${value}`);
-        return;
-    }
-
-    if (typeof value === "object") {
-        console.warn(`Skipping update for field '${fieldId}' because the value is an object.`);
-        return;
-    }
-
-    fieldElement.textContent = value;
-}
-
-function updateStatsFromFields(fields, sourceData = {}, containerId) {
-    const container = document.getElementById(containerId);
-    if (!container) {
-        console.error(`Container element with id '${containerId}' not found.`);
-        return;
-    }
-
-    fields.forEach(fieldKey => {
-        const fieldConfig = window.gameData.FIELDS?.[fieldKey];
-        if (!fieldConfig) {
-            console.error(`Field configuration for '${fieldKey}' not found.`);
-            return;
-        }
-
-        const dataKey = fieldConfig.DATA_KEY;
-        let value = dataKey ? resolvePath(sourceData, dataKey) : fieldConfig.DEFAULT_VALUE;
-        if (value == null) {
-            value = fieldConfig.DEFAULT_VALUE;
-        }
-        if (fieldConfig.SUBFIELDS) {
-            const subfieldData = dataKey ? resolvePath(sourceData, dataKey) : {};
-            updateSubfields(fieldConfig.SUBFIELDS, subfieldData);
-        } else {
-            updateField(fieldConfig.ID, value);
-        }
-    });
-}
-
-function updateSubfields(subfields, values = {}) {
-    Object.entries(subfields).forEach(([key, subfieldConfig]) => {
-        if (!values || typeof values !== "object") {
-            console.warn(`Skipping update for key '${key}' because 'values' is undefined or invalid.`);
-            return;
-        }
-
-        console.log(`Updating subfield '${key}' with value:`, values[key]);
-        const subfieldValue = values[key] ?? subfieldConfig.DEFAULT_VALUE;
-        updateField(subfieldConfig.ID, subfieldValue);
-    });
-}
-
-/* EVENT LISTENERS */
-
-function attachUIEventListeners() {
-    console.log("✅ Attaching UI event listeners");
-
-    document.addEventListener("click", (event) => {
-        const button = event.target.closest("[data-on-click]");
-        if (!button) return;
-
-        const handlerName = button.dataset.onClick;
-        console.log(`✅ Button clicked: ${handlerName}`);
-
-        const handler = window[handlerName];
-        if (typeof handler === "function") {
-            handler();
-        } else {
-            console.error(`❌ Handler function '${handlerName}' not found.`);
-        }
-    });
-
-    window.addEventListener("keydown", preventKeyBindingScroll);
-    window.addEventListener("keydown", handleKeyDown);
-}
-
-function preventKeyBindingScroll(e) {
-    const keyBindings = window.gameData.CONFIG.KEY_BINDINGS;
-    if (Object.values(keyBindings).includes(e.key)) {
-        e.preventDefault();
-    }
-}
-
-function handleKeyDown(e) {
-    const keyConfig = window.gameData.CONFIG.KEY_BINDINGS[e.key];
-    if (!keyConfig) return;
-
-    switch (keyConfig.TYPE) {
-        case "PLAYER_MOVE":
-            handlePlayerMovement(keyConfig.DIRECTION.toLowerCase());
-            break;
-        case "HIGHLIGHT_TILE":
-            handleTileHighlight(keyConfig.DIRECTION.toLowerCase());
-            break;
-        case "ACTION":
-            handleTileAction(keyConfig.ACTION.toLowerCase());
-            break;
-        default:
-            console.warn(`Unknown key type: '${keyConfig.TYPE}'`);
-    }
-}
-
-function handlePlayerMovement(direction) {
-    const { x, y } = window.gameState.player.position;
-    let newX = x;
-    let newY = y;
-
-    switch (direction) {
-        case "up":
-            newY -= 1;
-            break;
-        case "down":
-            newY += 1;
-            break;
-        case "left":
-            newX -= 1;
-            break;
-        case "right":
-            newX += 1;
-            break;
-        default:
-            console.warn(`Unknown movement direction: '${direction}'`);
-            return;
-    }
-
-    if (isTileValid(newX, newY)) {
-        const targetTile = window.gameState.grid.tiles[newY]?.[newX];
-
-        if (targetTile && !targetTile.IS_TILLED) {
-            window.gameState.player.position = { x: newX, y: newY };
-            highlightTile(newX, newY); // Update the highlighted tile
-            render();
-        } else {
-            console.log("Cannot move onto a tilled tile.");
-        }
-    } else {
-        console.log("Invalid move. Out of bounds.");
-    }
-}
-
-function handleTileHighlight(direction) {
-    const playerX = window.gameState.player.position.x;
-    const playerY = window.gameState.player.position.y;
-    let newX = playerX;
-    let newY = playerY;
-
-    switch (direction) {
-        case "up":
-            newY -= 1;
-            break;
-        case "down":
-            newY += 1;
-            break;
-        case "left":
-            newX -= 1;
-            break;
-        case "right":
-            newX += 1;
-            break;
-        case "reset":
-            // Keep highlight at player position
-            break;
-        default:
-            console.warn(`Unknown highlight direction: '${direction}'`);
-            return;
-    }
-
-    if (isTileValid(newX, newY) && isTileAdjacent(newX, newY)) {
-        highlightTile(newX, newY);
-    } else {
-        console.log("Cannot highlight invalid tile:", { x: newX, y: newY });
-    }
-}
-
-function handleTileAction(actionKey) {
-    const { x, y } = window.gameState.grid.highlightedTile;
-    const tile = window.gameState.grid.tiles[y]?.[x];
-
-    if (!tile) {
-        console.error("Invalid target tile for action.");
-        return;
-    }
-
-    const actionConfig = window.gameData.CONFIG.ACTIONS[actionKey.toUpperCase()];
-    if (!actionConfig) {
-        console.warn(`Action '${actionKey}' not found in configuration.`);
-        return;
-    }
-
-    if (typeof tile[actionKey] === "function") {
-        console.log(`Performing action '${actionKey}' on tile:`, tile); // Debugging statement
-        tile[actionKey](actionConfig.PARAMS || {});
-        advanceTime(actionConfig.TIME_COST || 0);
-        updateTileStats();
-        render();
-    } else {
-        console.warn(`Action '${actionKey}' is not implemented for the tile.`);
-    }
-}
-
-function attachCanvasEventListeners() {
-    const canvas = document.getElementById("gameCanvas");
-    if (!canvas) {
-        console.error("Canvas element not found.");
-        return;
-    }
-
-    const handleClick = (e) => {
-        if (window.gameState.ui.isTutorialActive) return;
-
-        const rect = canvas.getBoundingClientRect();
-        const x = Math.floor((e.clientX - rect.left) / window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE);
-        const y = Math.floor((e.clientY - rect.top) / window.gameData.CONFIG.GAME_CONFIG.GRID.TILE_SIZE);
-
-        highlightTile(x, y);
-    };
-
-    canvas.addEventListener("click", handleClick);
-
-    canvas._handleClick = handleClick;
-}
-
-/* TIME & WEEK LOGIC */
-
-function advanceTime(minutes) {
-    window.gameState.time.currentTime += minutes;
-
-    if (window.gameState.time.currentTime >= window.gameData.CONFIG.GAME_CONFIG.TIME.END) {
-        skipToNextWeek();
-    } else {
-        updateTimeDisplay();
-        render();
-    }
-}
-
-function skipToNextWeek() {
-    window.gameState.calendar.currentWeek++;
-    window.gameState.time.currentTime = window.gameData.CONFIG.GAME_CONFIG.TIME.START;
-
-    updateYearAndSeason();
-
-    updateAllTiles();
-    updateBiodiversity();
-
-    updateTimeDisplay();
-    updateWeekDisplay();
-    updateBiodiversityDisplay();
-    updateTileStats();
-}
-
-function updateYearAndSeason() {
-    window.gameState.calendar.currentYear = Math.floor(window.gameState.calendar.currentWeek / window.gameData.CONFIG.CALENDAR_CONFIG.WEEKS_PER_SEASON) + 1;
-    window.gameState.calendar.currentSeason = window.gameData.CONFIG.CALENDAR_CONFIG.SEASONS[Math.floor((window.gameState.calendar.currentWeek % window.gameData.CONFIG.CALENDAR_CONFIG.WEEKS_PER_SEASON) / window.gameData.CONFIG.CALENDAR_CONFIG.WEEKS_PER_SEASON)];
-
-    const yearField = window.gameData.FIELDS.YEAR;
-    updateField(yearField.ID, window.gameState.calendar.currentYear);
-
-    const seasonField = window.gameData.FIELDS.SEASON;
-    updateField(seasonField.ID, window.gameState.calendar.currentSeason);
-}
-
-function updateBiodiversity() {
-    const typesFound = new Set();
-
-    for (let row = 0; row < window.gameState.grid.tiles.length; row++) {
-        for (let col = 0; col < window.gameState.grid.tiles[row].length; col++) {
-            const tile = window.gameState.grid.tiles[row][col];
-            if (tile.PLANT_DATA.VALUE) {
-                typesFound.add(tile.PLANT_DATA.VALUE.NAME);
-            }
-        }
-    }
-
-    window.gameState.score.biodiversity = typesFound.size;
-    return window.gameState.score.biodiversity;
-}
-
-/* PLAYER MOVEMENT & CONTROLS */
-
-function resetPlayerPosition() {
-    if (!window.gameState.grid.tiles || window.gameState.grid.tiles.length === 0) {
-        console.error("Cannot reset player position: grid not initialized.");
-        return;
-    }
-
-    const gridWidth = window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH;
-    const gridHeight = window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
-
-    // Ensure positions are within bounds
-    window.gameState.player.position.x = Math.floor(gridWidth / 2) || 0;
-    window.gameState.player.position.y = Math.floor(gridHeight / 2) || 0;
-
-    const { x, y } = window.gameState.player.position;
-
-    if (x < 0 || x >= gridWidth || y < 0 || y >= gridHeight) {
-        console.error(`Invalid player position after reset: (${x}, ${y})`);
-        return;
-    }
-
-    window.gameState.grid.highlightedTile = { x, y };
-
-    const tile = window.gameState.grid.tiles[y]?.[x];
-    if (!tile) {
-        console.error(`Highlighted tile at (${x}, ${y}) is invalid.`);
-        return;
-    }
-
-    highlightTile(x, y);
-    updateTileStats();
-}
-
-function highlightTile(x, y) {
-    if (!isTileValid(x, y)) {
-        console.error(`Invalid tile coordinates: (${x}, ${y})`);
-        return;
-    }
-
-    window.gameState.grid.highlightedTile = { x, y };
-
-    const tile = window.gameState.grid.tiles[y][x];
-    if (!tile) {
-        console.error(`Tile at (${x}, ${y}) is undefined.`);
-        return;
-    }
-
-    tile.highlight(window.gameState);
-    updateTileStats();
-}
-
-/* TILE & GRID UPDATES */
-
-function updateAllTiles() {
-    window.gameState.grid.tiles.forEach(row => {
-        row.forEach(tileData => {
-            const tile = new Tile(tileData);
-            tile.updateMoisture(window.gameState.baseMoistureDecay);
-            tile.growPlant({ isSufficient: checkConditions });
-        });
-    });
-}
-
-function updateTileStats() {
-    const { x, y } = window.gameState.grid.highlightedTile;
-
-    if (x === null || y === null || !isTileValid(x, y)) {
-        console.error(`Invalid tile coordinates: (${x}, ${y})`);
-        return;
-    }
-
-    const tile = window.gameState.grid.tiles[y][x];
-
-    if (!tile) {
-        console.error(`Tile at (${x}, ${y}) is undefined.`);
-        return;
-    }
-
-    console.log("Updating tile stats for tile:", tile); // Debugging statement
-
-    updateStatsFromFields(window.gameData.UI.TILE_STATS.FIELDS, tile, window.gameData.UI.TILE_STATS.CONTAINER);
-    render();
-}
-
-/* UI UPDATES */
-
-function updateTimeDisplay() {
-    const totalMinutes = window.gameState.time.currentTime;
-    const hours = Math.floor(totalMinutes / 60) % 12 || 12;
-    const minutes = totalMinutes % 60;
-    const ampm = totalMinutes < 720 ? "AM" : "PM";
-    const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes} ${ampm}`;
-
-    const timeField = window.gameData.FIELDS.TIME;
-    updateField(timeField.ID, formattedTime);
-}
-
-function updateWeekDisplay() {
-    const weekField = window.gameData.FIELDS.WEEK;
-    updateField(weekField.ID, window.gameState.calendar.currentWeek);
-}
-
-function updateBiodiversityDisplay() {
-    const biodiversityField = window.gameData.FIELDS.BIODIVERSITY;
-    updateField(biodiversityField.ID, window.gameState.score.biodiversity);
-}
-
-/* UTILITY */
-
-function isTileValid(x, y) {
-    return x >= 0 && x < window.gameData.CONFIG.GAME_CONFIG.GRID.WIDTH && y >= 0 && y < window.gameData.CONFIG.GAME_CONFIG.GRID.HEIGHT;
-}
-
-function isTileAdjacent(x, y) {
-    return Math.abs(window.gameState.player.position.x - x) + Math.abs(window.gameState.player.position.y - y) <= 1;
-}
-
-function createElement(tag, options = {}) {
-    const element = document.createElement(tag);
-
-    if (options.id) element.id = options.id;
-    if (options.className) element.className = options.className;
-    if (options.textContent !== undefined) element.textContent = options.textContent;
-    if (options.attributes) {
-        for (const [key, value] of Object.entries(options.attributes)) {
-            element.setAttribute(key, value);
-        }
-    }
-
-    return element;
-}
-
-function getCSSVariable(name) {
-    return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-}
-
-function getTileStyle(typeKey) {
-    return TileService.styles.get(typeKey) || getCSSVariable(window.gameData.CONFIG.TILE_CONFIG.DEFAULT_STYLE);
-}
-
-function parseAndAdjustRGB(baseColor, adjustments) {
-    // Convert hex to RGB
-    const hexToRgb = (hex) => {
-        const bigint = parseInt(hex.slice(1), 16);
-        return [bigint >> 16, (bigint >> 8) & 255, bigint & 255];
-    };
-
-    // Clamp RGB values between 0 and 255
-    const clamp = (value) => Math.max(0, Math.min(255, value));
-
-    const [r, g, b] = hexToRgb(baseColor);
-
-    // Apply adjustments and clamp the results
-    const adjustedR = clamp(r + (adjustments.r || 0));
-    const adjustedG = clamp(g + (adjustments.g || 0));
-    const adjustedB = clamp(b + (adjustments.b || 0));
-
-    // Return adjusted RGB as a CSS color
-    return `rgb(${adjustedR}, ${adjustedG}, ${adjustedB})`;
-}
-
-function calculateAdjustments(tile) {
-    const adjustments = {
-        r: 0,
-        g: 0,
-        b: 0
-    };
-
-    for (const [key, config] of Object.entries(window.gameData.CONFIG.TILE_CONFIG.RGB_ADJUSTMENTS)) {
-        const {
-            SCALE,
-            r = 0,
-            g = 0,
-            b = 0
-        } = config;
-
-        if (!SCALE || !SCALE.PATH) continue;
-
-        // Resolve the value from the tile using the path
-        const value = resolvePath(tile, SCALE.PATH);
-
-        // Handle scaling
-        let scale = 0;
-        if (SCALE.CONDITION !== undefined) {
-            scale = value === SCALE.CONDITION ? 1 : 0;
-        } else if (SCALE.DIVISOR) {
-            const divisor = typeof SCALE.DIVISOR === "string" ?
-                resolvePath(tile, SCALE.DIVISOR.split(".")) :
-                SCALE.DIVISOR;
-
-            if (divisor) {
-                scale = value / divisor;
-            }
-        } else {
-            scale = value;
-        }
-
-        // Apply adjustments
-        adjustments.r += r * scale;
-        adjustments.g += g * scale;
-        adjustments.b += b * scale;
-    }
-
-    return adjustments;
-}
-
-function resolvePath(obj, path) {
-    if (typeof path === "string") {
-        path = path.split(".");
-    }
-    return path.reduce((acc, key) => acc?.[key] ?? null, obj);
-}
