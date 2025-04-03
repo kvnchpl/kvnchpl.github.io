@@ -30,10 +30,7 @@
     box-sizing: border-box;
     background-color: var(--plot-color);
     position: relative;
-  }
-  
-  .cell.tended {
-    background-color: #c0e6c0;
+    background-size: cover;
   }
   
   .gardener {

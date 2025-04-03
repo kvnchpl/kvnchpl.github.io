@@ -10,13 +10,29 @@
       "sprite": "gardener.png"
     },
     "plots": {
-      "default": {
-        "state": "empty",
+      "empty": {
         "sprite": "plot_empty.png"
       },
-      "tended": {
-        "state": "tended",
-        "sprite": "plot_tended.png"
+      "tilled": {
+        "sprite": "plot_tilled.png"
+      },
+      "fertilized": {
+        "sprite": "plot_fertilized.png"
+      },
+      "mulched": {
+        "sprite": "plot_mulched.png"
+      },
+      "planted": {
+        "sprite": "plot_planted.png"
+      },
+      "harvestable": {
+        "sprite": "plot_harvestable.png"
+      },
+      "harvested": {
+        "sprite": "plot_harvested.png"
+      },
+      "weedy": {
+        "sprite": "plot_weedy.png"
       }
     }
   }
