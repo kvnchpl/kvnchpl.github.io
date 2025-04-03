@@ -30,7 +30,17 @@
     box-sizing: border-box;
     background-color: var(--plot-color);
     position: relative;
+  }
+  
+  /* New CSS for the transparent state layers */
+  .state-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-size: cover;
+    pointer-events: none; /* so layers don't block clicks or events */
   }
   
   .gardener {
