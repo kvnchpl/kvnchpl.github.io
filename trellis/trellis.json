@@ -34,5 +34,19 @@
       "weedy": {
         "sprite": "plot_weedy.png"
       }
+    },
+    "controls": {
+      "moveUp": "ArrowUp",
+      "moveDown": "ArrowDown",
+      "moveLeft": "ArrowLeft",
+      "moveRight": "ArrowRight",
+      "till": "T",
+      "fertilize": "F",
+      "plant": "P",
+      "water": "W",
+      "mulch": "M",
+      "weed": "R",
+      "harvest": "H",
+      "clear": "C"
     }
   }
