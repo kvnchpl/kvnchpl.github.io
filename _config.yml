@@ -1,0 +1,24 @@
+title: kvnchpl
+description: Artist portfolio exploring digital sacredness and experimental ecologies.
+baseurl: "" # Leave this blank for GitHub Pages
+url: "https://kvnchpl.github.io"
+
+collections:
+  projects:
+    output: true
+  writings:
+    output: true
+  readings:
+    output: true
+
+permalink: /:collection/:name/
+
+# Optional: Add markdown rendering settings
+markdown: kramdown
+theme: minima
+
+# Add plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
