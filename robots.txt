@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /_site/
+Disallow: /private/
+Allow: /
+
+Sitemap: {{ site.url }}/sitemap.xml

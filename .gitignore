@@ -1,2 +1,41 @@
-**/.DS_Store
-*.png
+# Jekyll build files
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Logs and temporary files
+*.log
+*.tmp
+*.pid
+*.gem
+.DS_Store
+Thumbs.db
+
+# Bundler dependencies
+/vendor/bundle/
+
+# Node modules (if using npm or yarn)
+node_modules/
+
+# System files
+*.swp
+*.bak
+*.orig
+*.lock
+
+# GitHub Pages specific
+*.env
+.env.local
+.env.development
+.env.production
+
+# VS Code settings
+.vscode/
+
+# MacOS specific
+.AppleDouble
+.LSOverride
+
+# Other
+.idea/ # JetBrains IDEs
