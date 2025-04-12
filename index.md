@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Home
-description: Portfolio for artist Kevin Chappelle.
+title: home
+description: Portfolio and brain dump for kevin cunanan chappelle, creator of multimedia projects and performances. based in new york city.
 permalink: /home/
 ---
 
