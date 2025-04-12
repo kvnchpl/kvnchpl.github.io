@@ -1,0 +1,25 @@
+# Set default behavior to automatically normalize line endings
+* text=auto
+
+# Explicitly set text files
+*.html text
+*.md text
+*.yml text
+*.yaml text
+*.json text
+*.css text
+*.js text
+*.xml text
+
+# Binary files
+*.woff binary
+*.woff2 binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.ico binary
+*.svg binary
+
+# Don't count generated content in GitHub language stats
+_site/ linguist-vendored
+assets/fonts/ linguist-vendored
