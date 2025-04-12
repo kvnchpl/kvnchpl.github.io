@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% include head.html %}
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <header role="banner">
-      <nav role="navigation" aria-label="Main menu">
-        <ul>
-          <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-          <li><a href="https://kvnchpl-thoughts.tumblr.com/">Thoughts</a></li>
-          <li><a href="{{ '/writings/' | relative_url }}">Writings</a></li>
-          <li><a href="{{ '/readings/' | relative_url }}">Readings</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<head>
+  {% include head.html %}
+</head>
 
-    <main id="main-content" role="main">
-      {{ content }}
-    </main>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-    <footer role="contentinfo">
-      {% include footer.html %}
-    </footer>
-  </body>
+  <header role="banner">
+    <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      ☰
+    </button>
+
+    <nav id="site-nav" role="navigation" aria-label="Main menu">
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Home</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
+        <li><a href="https://kvnchpl-thoughts.tumblr.com/">Thoughts</a></li>
+        <li><a href="{{ '/writings/' | relative_url }}">Writings</a></li>
+        <li><a href="{{ '/readings/' | relative_url }}">Readings</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+    {{ content }}
+  </main>
+
+  <footer role="contentinfo">
+    {% include footer.html %}
+  </footer>
+</body>
+
 </html>

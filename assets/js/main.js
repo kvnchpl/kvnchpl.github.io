@@ -73,7 +73,7 @@ window.onload = () => {
                     const otherLinkWidth = otherWrapper.offsetWidth;
                     otherWrapper.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
-                    : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
+                        : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
 
                     otherWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
                 }
@@ -120,81 +120,81 @@ window.onload = () => {
 
     fetch(IMAGE_LIST_URL)
         .then((response) => {
-        if (!response.ok) {
-            throw new Error('Failed to fetch images');
-        }
-        return response.json();
-    })
+            if (!response.ok) {
+                throw new Error('Failed to fetch images');
+            }
+            return response.json();
+        })
         .then((imageList) => {
-        const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
-        const preloadImages = (images) => {
-            images.forEach((src) => {
-                const img = new Image();
-                img.src = src;
-            });
-        };
+            const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
+            const preloadImages = (images) => {
+                images.forEach((src) => {
+                    const img = new Image();
+                    img.src = src;
+                });
+            };
 
-        shuffledImages = shuffleArray(imageList);
-        preloadImages(shuffledImages);
+            shuffledImages = shuffleArray(imageList);
+            preloadImages(shuffledImages);
 
-        if (isMobile()) {
-            overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-            overlay.style.opacity = '0.5';
-        }
-    })
+            if (isMobile()) {
+                overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
+                overlay.style.opacity = '0.5';
+            }
+        })
         .catch((error) => {
-        console.error('Error loading images:', error);
-    });
+            console.error('Error loading images:', error);
+        });
 
     fetch(jsonUrl)
         .then((response) => response.json())
         .then((linkData) => {
-        // Helper function to configure link targets
-        const configureLinkTarget = (link, linkItem) => {
-            if (linkItem.newTab === false) {
-                link.target = '_self'; // Force open in the same tab
-            } else if (linkItem.href.startsWith('http')) {
-                link.target = '_blank'; // Open external links in a new tab
-                link.rel = 'noopener noreferrer';
-            }
-        };
+            // Helper function to configure link targets
+            const configureLinkTarget = (link, linkItem) => {
+                if (linkItem.newTab === false) {
+                    link.target = '_self'; // Force open in the same tab
+                } else if (linkItem.href.startsWith('http')) {
+                    link.target = '_blank'; // Open external links in a new tab
+                    link.rel = 'noopener noreferrer';
+                }
+            };
 
-        const rows = linkData.map((linkItem) => {
-            const row = document.createElement('div');
-            row.className = 'row';
+            const rows = linkData.map((linkItem) => {
+                const row = document.createElement('div');
+                row.className = 'row';
 
-            const wrapper = document.createElement('div');
-            wrapper.className = 'link-wrapper';
+                const wrapper = document.createElement('div');
+                wrapper.className = 'link-wrapper';
 
-            const link = document.createElement('a');
-            link.href = linkItem.href;
-            link.textContent = linkItem.label;
-            configureLinkTarget(link, linkItem); // Apply link target logic
+                const link = document.createElement('a');
+                link.href = linkItem.href;
+                link.textContent = linkItem.label;
+                configureLinkTarget(link, linkItem); // Apply link target logic
 
-            wrapper.appendChild(link);
+                wrapper.appendChild(link);
 
-            // Add subtitle dynamically if applicable
-            const subtitleParts = [];
-            if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
-            if (linkItem.publication) subtitleParts.push(linkItem.publication);
-            if (linkItem.month && linkItem.year) subtitleParts.push(formatDate(linkItem.month, linkItem.year));
+                // Add subtitle dynamically if applicable
+                const subtitleParts = [];
+                if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
+                if (linkItem.publication) subtitleParts.push(linkItem.publication);
+                if (linkItem.month && linkItem.year) subtitleParts.push(formatDate(linkItem.month, linkItem.year));
 
-            if (subtitleParts.length > 0) {
-                const subtitle = document.createElement('span');
-                subtitle.className = 'subtitle';
-                subtitle.textContent = subtitleParts.join(', ');
-                wrapper.appendChild(subtitle);
-            }
+                if (subtitleParts.length > 0) {
+                    const subtitle = document.createElement('span');
+                    subtitle.className = 'subtitle';
+                    subtitle.textContent = subtitleParts.join(', ');
+                    wrapper.appendChild(subtitle);
+                }
 
-            row.appendChild(wrapper);
-            linkContainer.appendChild(row);
+                row.appendChild(wrapper);
+                linkContainer.appendChild(row);
 
-            return row;
-        });
+                return row;
+            });
 
-        initialPositions = randomizeLinks(rows);
-        enableHoverEffect(rows, initialPositions, 200);
-    })
+            initialPositions = randomizeLinks(rows);
+            enableHoverEffect(rows, initialPositions, 200);
+        })
         .catch((error) => console.error('Error loading links:', error));
 
     if (isMobile()) {
@@ -236,6 +236,16 @@ window.onload = () => {
             const target = event.target;
             if (target.closest('a')) return; // Allow links to navigate
             overlay.style.backgroundImage = `url(${getNextImage()})`;
+        });
+    }
+    // Mobile navigation toggle
+    const navToggle = document.getElementById("nav-toggle");
+    const siteNav = document.getElementById("site-nav");
+
+    if (navToggle && siteNav) {
+        navToggle.addEventListener("click", () => {
+            const isOpen = siteNav.classList.toggle("open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
         });
     }
 }
