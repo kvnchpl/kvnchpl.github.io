@@ -1,7 +1,7 @@
 ---
 layout: default
 title: home
-description: Portfolio and brain dump for kevin cunanan chappelle, creator of multimedia projects and performances. based in new york city.
+description: Portfolio and brain dump for kevin cunanan chappelle, creator of multimedia projects and performances. Based in New York City.
 permalink: /home/
 ---
 
