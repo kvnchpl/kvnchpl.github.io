@@ -1,85 +1,85 @@
 # kvnchpl.github.io
 
-- Portfolio and creative brain-dump for Kevin Cunanan Chappelle  
-- Exploring digital sacredness, experimental ecologies, and speculative design
+- portfolio and creative brain-dump for kevin cunanan chappelle  
+- exploring digital sacredness, experimental ecologies, and speculative design
 
 <p align="center">
-  <img alt="GitHub Pages" src="https://img.shields.io/badge/deploy-GitHub%20Pages-blue?logo=github&style=flat-square">
-  <img alt="Built with Jekyll" src="https://img.shields.io/badge/built%20with-Jekyll-orange?logo=ruby&style=flat-square">
-  <img alt="Last Commit" src="https://img.shields.io/github/last-commit/kvnchpl/kvnchpl.github.io?style=flat-square">
-  <img alt="Repo Size" src="https://img.shields.io/github/repo-size/kvnchpl/kvnchpl.github.io?style=flat-square">
-  <img alt="License" src="https://img.shields.io/github/license/kvnchpl/kvnchpl.github.io?style=flat-square">
+  <img alt="github pages" src="https://img.shields.io/badge/deploy-github%20pages-blue?logo=github&style=flat-square">
+  <img alt="built with jekyll" src="https://img.shields.io/badge/built%20with-jekyll-orange?logo=ruby&style=flat-square">
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/kvnchpl/kvnchpl.github.io?style=flat-square">
+  <img alt="repo size" src="https://img.shields.io/github/repo-size/kvnchpl/kvnchpl.github.io?style=flat-square">
+  <img alt="license" src="https://img.shields.io/github/license/kvnchpl/kvnchpl.github.io?style=flat-square">
 </p>
 
 ---
 
-## Live Site
+## live site
 
 **[https://kvnchpl.github.io](https://kvnchpl.github.io)**
 
 
-## Project Structure
+## project structure
 
 ```
-├── _projects/         # Portfolio entries
-├── _writings/         # Essays and creative writing
-├── _readings/         # Annotated reference material
-├── assets/            # Fonts, styles, images, scripts
-├── _layouts/          # HTML layout templates
-├── _includes/         # Head, footer, partials
-├── _data/             # JSON/YAML structured content
-├── index.md           # Homepage
-├── contact.md         # Contact page
+├── _projects/         # portfolio entries
+├── _writings/         # essays and creative writing
+├── _readings/         # annotated reference material
+├── assets/            # fonts, styles, images, scripts
+├── _layouts/          # html layout templates
+├── _includes/         # head, footer, partials
+├── _data/             # json/yaml structured content
+├── index.md           # homepage
+├── contact.md         # contact page
 ```
 
 ---
 
-## Local Development
+## local development
 
-### Prerequisites
+### prerequisites
 
-- Ruby 3.x (recommend: install via [`rbenv`](https://github.com/rbenv/rbenv))
-- Bundler
+- ruby 3.x (recommend: install via [`rbenv`](https://github.com/rbenv/rbenv))
+- bundler
 
 ```bash
 gem install bundler
 ```
 
-### Setup
+### setup
 
 ```bash
 bundle install
 bundle exec jekyll serve --livereload
 ```
 
-Visit [http://localhost:4000](http://localhost:4000)
+visit [http://localhost:4000](http://localhost:4000)
 
 ---
 
-## Deployment
+## deployment
 
-This site is deployed via GitHub Pages using a custom Jekyll configuration.
+this site is deployed via github pages using a custom jekyll configuration.
 
-### Notes:
+### notes:
 
-- `_site/` is excluded from Git and rebuilt on deploy
-- All routing is file-based (`.md`) using custom layouts
-- SEO tags, favicons, and Open Graph metadata are defined in `_includes/head.html`
-
----
-
-## Features
-
-- Fully responsive layout
-- Mobile nav with animated toggle & keyboard trap
-- Dynamic hover overlays driven by `main.js`
-- JSON/YAML-powered link rows and content
-- Custom typography (Apolline Std)
+- `_site/` is excluded from git and rebuilt on deploy
+- all routing is file-based (`.md`) using custom layouts
+- seo tags, favicons, and open graph metadata are defined in `_includes/head.html`
 
 ---
 
-## Credits
+## features
 
-- Font: Apolline Std  
-- Framework: [Jekyll](https://jekyllrb.com/)  
-- Author: [@kvnchpl](https://github.com/kvnchpl)
+- fully responsive layout
+- mobile nav with animated toggle & keyboard trap
+- dynamic hover overlays driven by `main.js`
+- json/yaml-powered link rows and content
+- custom typography (apolline std)
+
+---
+
+## credits
+
+- font: apolline std  
+- framework: [jekyll](https://jekyllrb.com/)  
+- author: [@kvnchpl](https://github.com/kvnchpl)
