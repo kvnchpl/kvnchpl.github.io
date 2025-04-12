@@ -3,7 +3,6 @@
 - Portfolio and creative brain-dump for Kevin Cunanan Chappelle  
 - Exploring digital sacredness, experimental ecologies, and speculative design
 
-
 <p align="center">
   <img alt="GitHub Pages" src="https://img.shields.io/badge/deploy-GitHub%20Pages-blue?logo=github&style=flat-square">
   <img alt="Built with Jekyll" src="https://img.shields.io/badge/built%20with-Jekyll-orange?logo=ruby&style=flat-square">
