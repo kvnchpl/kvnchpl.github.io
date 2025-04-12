@@ -16,5 +16,8 @@
   ],
   "theme_color": "#EAF4F6",
   "background_color": "#EAF4F6",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "en",
+  "scope": "/"
 }
