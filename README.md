@@ -1,7 +1,7 @@
 # kvnchpl.github.io
 
-> Portfolio and creative brain-dump for Kevin Cunanan Chappelle  
-> Exploring digital sacredness, experimental ecologies, and speculative design
+- Portfolio and creative brain-dump for Kevin Cunanan Chappelle  
+- Exploring digital sacredness, experimental ecologies, and speculative design
 
 
 <p align="center">
