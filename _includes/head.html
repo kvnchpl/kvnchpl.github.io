@@ -22,9 +22,6 @@
 <meta property="twitter:domain" content="kvnchpl.com">
 <meta property="twitter:url" content="{{ page.url | absolute_url }}">
 
-<!-- Custom page data  -->
-<meta name="link-data" content="/_data/substation.json">
-
 <!-- Stylesheets -->
 <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/apolline.css' | relative_url }}">
@@ -33,9 +30,15 @@
 <link rel="manifest" href="/manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon/favicon-32x32.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/images/favicon/favicon-16x16.png' | relative_url }}">
-<link rel="shortcut icon" href="{{ '/assets/images/favicon/favicon.ico' | relative_url }}">
 <link rel="shortcut icon" href="/favicon.ico">
 <link rel="apple-touch-icon" href="{{ '/assets/images/favicon/apple-touch-icon.png' | relative_url }}">
 <link rel="icon" href="/favicon.ico" type="image/x-icon">
 <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/images/favicon/android-chrome-192x192.png' | relative_url }}">
 <link rel="icon" type="image/png" sizes="512x512" href="{{ '/assets/images/favicon/android-chrome-512x512.png' | relative_url }}">
+
+<!-- Preload Fonts and Images -->
+<link rel="preload" as="image" href="{{ '/assets/images/og-image.jpg' | relative_url }}">
+<link rel="preload" as="font" href="{{ '/assets/fonts/apolline_regular.woff2' | relative_url }}" type="font/woff2" crossorigin>
+
+<!-- Custom page data  -->
+<meta name="link-data" content="/_data/substation.json">
