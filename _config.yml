@@ -36,6 +36,12 @@ defaults:
       type: "readings"
     values:
       layout: reading
+      
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
 
 plugins:
   - jekyll-feed
