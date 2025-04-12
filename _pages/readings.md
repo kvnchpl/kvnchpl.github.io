@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Readings
 description: See what I'm reading.
 permalink: /readings/

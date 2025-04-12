@@ -14,6 +14,28 @@ collections:
     output: true
   readings:
     output: true
+  pages:
+    output: true
+    permalink: /:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+
+  - scope:
+      path: ""
+      type: "writings"
+    values:
+      layout: writing
+
+  - scope:
+      path: ""
+      type: "readings"
+    values:
+      layout: reading
 
 plugins:
   - jekyll-feed
