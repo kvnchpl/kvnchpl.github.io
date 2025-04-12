@@ -21,7 +21,6 @@
 ## Project Structure
 
 ```
-.
 ├── _projects/         # Portfolio entries
 ├── _writings/         # Essays and creative writing
 ├── _readings/         # Annotated reference material
