@@ -1,41 +1,37 @@
-# Jekyll build files
+# Jekyll output
 _site/
-.sass-cache/
 .jekyll-cache/
-.jekyll-metadata
+.sass-cache/
 
-# Logs and temporary files
+# Build artifacts
 *.log
 *.tmp
-*.pid
-*.gem
-.DS_Store
-Thumbs.db
-
-# Bundler dependencies
-/vendor/bundle/
-
-# Node modules (if using npm or yarn)
-node_modules/
-
-# System files
 *.swp
-*.bak
-*.orig
-*.lock
 
-# GitHub Pages specific
-*.env
-.env.local
-.env.development
-.env.production
-
-# VS Code settings
-.vscode/
-
-# MacOS specific
+# macOS system files
+.DS_Store
 .AppleDouble
 .LSOverride
 
-# Other
-.idea/ # JetBrains IDEs
+# Thumbnails
+._*
+
+# Files that might appear on external drives
+.Spotlight-V100
+.Trashes
+
+# VS Code
+.vscode/
+
+# Ruby bundler files
+.bundle/
+vendor/
+
+# Environment and dependency files
+.env
+node_modules/
+yarn.lock
+package-lock.json
+
+# Custom private folder (for drafts or personal content)
+private/
