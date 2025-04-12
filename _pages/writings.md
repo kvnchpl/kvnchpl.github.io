@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Writings
 description: See what I'm writing.
 permalink: /writings/

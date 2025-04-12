@@ -1,5 +1,4 @@
 ---
-layout: default
 title: Projects
 description: See what I'm working on.
 permalink: /projects/
