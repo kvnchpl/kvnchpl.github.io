@@ -15,11 +15,11 @@
 
 ## Live Site
 
-Visit: [https://kvnchpl.github.io](https://kvnchpl.github.io)
+**[https://kvnchpl.github.io](https://kvnchpl.github.io)**
 
 ---
 
-## 🖼 Preview
+## Preview
 
 <p align="center">
   <img src="/assets/images/og-image.jpg" alt="Site preview" width="700">
@@ -28,55 +28,68 @@ Visit: [https://kvnchpl.github.io](https://kvnchpl.github.io)
 ---
 
 ## Project Structure
+
+```
 .
-├── _projects/         # Portfolio projects
-├── _writings/         # Essays and texts
-├── _readings/         # Annotated readings and references
-├── assets/            # Fonts, CSS, JS, images
-├── _layouts/          # Custom layouts
+├── _projects/         # Portfolio entries
+├── _writings/         # Essays and creative writing
+├── _readings/         # Annotated reference material
+├── assets/            # Fonts, styles, images, scripts
+├── _layouts/          # HTML layout templates
 ├── _includes/         # Head, footer, partials
-├── _data/             # JSON/YAML used to populate pages
+├── _data/             # JSON/YAML structured content
 ├── index.md           # Homepage
 ├── contact.md         # Contact page
-├── …                # More markdown-based routes
+```
 
 ---
 
-## Development Setup
+## Local Development
 
-### 1. Prerequisites
+### Prerequisites
 
-- Ruby 3.x (use [`rbenv`](https://github.com/rbenv/rbenv) recommended)
+- Ruby 3.x (recommend: install via [`rbenv`](https://github.com/rbenv/rbenv))
 - Bundler
 
 ```bash
 gem install bundler
+```
+
+### Setup
+
+```bash
 bundle install
 bundle exec jekyll serve --livereload
+```
 
-Site will be available at http://localhost:4000
+Visit [http://localhost:4000](http://localhost:4000)
 
 ---
 
 ## Deployment
 
-This site is hosted via GitHub Pages using the default Jekyll build process.
+This site is deployed via GitHub Pages using a custom Jekyll configuration.
 
-Important notes:
-	•	The _site/ folder is excluded and not committed.
-	•	Favicon and SEO metadata are set via _includes/head.html.
-	•	The site uses custom layouts — not a prebuilt Jekyll theme.
+### Notes:
+
+- `_site/` is excluded from Git and rebuilt on deploy
+- All routing is file-based (`.md`) using custom layouts
+- SEO tags, favicons, and Open Graph metadata are defined in `_includes/head.html`
+
+---
 
 ## Features
 
-	•	Mobile-first, accessible navigation with animated toggle
-	•	Custom project and writing layouts
-	•	Sky image hover overlays & scroll logic (see main.js)
-	•	JSON/YAML-powered content
-	•	Fully responsive & deployable via GitHub Pages
+- Fully responsive layout
+- Mobile nav with animated toggle & keyboard trap
+- Dynamic hover overlays driven by `main.js`
+- JSON/YAML-powered link rows and content
+- Custom typography (Apolline Std)
+
+---
 
 ## Credits
 
-Fonts: Apolline Std
-Built with: Jekyll
-Maintained by: @kvnchpl
+- Font: Apolline Std  
+- Framework: [Jekyll](https://jekyllrb.com/)  
+- Author: [@kvnchpl](https://github.com/kvnchpl)
