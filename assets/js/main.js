@@ -243,6 +243,10 @@ window.onload = () => {
     const siteNav = document.getElementById("site-nav");
 
     if (navToggle && siteNav) {
+        const navLinks = siteNav.querySelectorAll("a");
+        const firstLink = navLinks[0];
+        const lastLink = navLinks[navLinks.length - 1];
+
         const closeNav = () => {
             siteNav.classList.remove("open");
             navToggle.setAttribute("aria-expanded", "false");
@@ -251,12 +255,16 @@ window.onload = () => {
         const toggleNav = () => {
             const isOpen = siteNav.classList.toggle("open");
             navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+
+            if (isOpen && firstLink) {
+                firstLink.focus(); // move focus into nav
+            }
         };
 
-        // Click to toggle
+        // Click toggle
         navToggle.addEventListener("click", toggleNav);
 
-        // Keyboard support (Enter or Space)
+        // Keyboard toggle
         navToggle.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
@@ -264,14 +272,40 @@ window.onload = () => {
             }
         });
 
-        // Close menu when a nav link is clicked
-        const navLinks = siteNav.querySelectorAll("a");
+        // Close on link click
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
                 if (siteNav.classList.contains("open")) {
                     closeNav();
                 }
             });
+        });
+
+        // Trap focus within nav
+        document.addEventListener("keydown", (e) => {
+            if (!siteNav.classList.contains("open")) return;
+
+            if (e.key === "Tab") {
+                if (e.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstLink) {
+                        e.preventDefault();
+                        lastLink.focus();
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastLink) {
+                        e.preventDefault();
+                        firstLink.focus();
+                    }
+                }
+            }
+
+            if (e.key === "Escape") {
+                // ESC closes nav
+                closeNav();
+                navToggle.focus();
+            }
         });
     }
 }
