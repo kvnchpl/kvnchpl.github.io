@@ -6,11 +6,11 @@ layout: default
 <p>{{ page.summary }}</p>
 
 {% if page.images %}
-  <div class="gallery">
-    {% for img in page.images %}
-      <img src="{{ img }}" alt="Writing image">
-    {% endfor %}
-  </div>
+<div class="gallery">
+  {% for img in page.images %}
+  <img src="{{ img }}" alt="Writing image">
+  {% endfor %}
+</div>
 {% endif %}
 
 <div class="content">
