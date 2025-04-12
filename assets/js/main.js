@@ -243,9 +243,35 @@ window.onload = () => {
     const siteNav = document.getElementById("site-nav");
 
     if (navToggle && siteNav) {
-        navToggle.addEventListener("click", () => {
+        const closeNav = () => {
+            siteNav.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", "false");
+        };
+
+        const toggleNav = () => {
             const isOpen = siteNav.classList.toggle("open");
             navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        };
+
+        // Click to toggle
+        navToggle.addEventListener("click", toggleNav);
+
+        // Keyboard support (Enter or Space)
+        navToggle.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                toggleNav();
+            }
+        });
+
+        // Close menu when a nav link is clicked
+        const navLinks = siteNav.querySelectorAll("a");
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                if (siteNav.classList.contains("open")) {
+                    closeNav();
+                }
+            });
         });
     }
 }

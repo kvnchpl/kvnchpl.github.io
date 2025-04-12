@@ -131,13 +131,52 @@ a:focus {
 
 #nav-toggle {
   display: none;
-  font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--font-color);
-  margin: 1rem;
+  padding: 1rem;
   z-index: 1001;
+}
+
+#nav-toggle .menu-icon {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 2px;
+  background: var(--font-color);
+  transition: background 0.3s ease;
+}
+
+#nav-toggle .menu-icon::before,
+#nav-toggle .menu-icon::after {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: var(--font-color);
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+#nav-toggle .menu-icon::before {
+  top: -8px;
+}
+
+#nav-toggle .menu-icon::after {
+  top: 8px;
+}
+
+#site-nav.open+#nav-toggle .menu-icon {
+  background: transparent;
+}
+
+#site-nav.open+#nav-toggle .menu-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+#site-nav.open+#nav-toggle .menu-icon::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 /* mobile styling */
@@ -180,6 +219,9 @@ a:focus {
 
   #nav-toggle {
     display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
   }
 
   #site-nav ul {
@@ -191,7 +233,7 @@ a:focus {
     left: 0;
     width: 100%;
     padding: 1rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
 
   #site-nav.open ul {
