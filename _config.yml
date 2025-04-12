@@ -1,7 +1,11 @@
 title: kvnchpl
-description: Artist portfolio exploring digital sacredness and experimental ecologies.
-baseurl: "" # Leave this blank for GitHub Pages
+description: Portfolio and brain dump for kevin cunanan chappelle, creator of multimedia projects and performances. Based in New York City.
+
 url: "https://kvnchpl.github.io"
+baseurl: ""
+
+permalink: /:collection/:name/
+markdown: kramdown
 
 collections:
   projects:
@@ -11,13 +15,17 @@ collections:
   readings:
     output: true
 
-permalink: /:collection/:name/
-
-# Optional: Add markdown rendering settings
-markdown: kramdown
-
-# Add plugins
 plugins:
-  - jekyll-sitemap
   - jekyll-feed
+  - jekyll-sitemap
   - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - README.md
+  - .gitignore
+  - .gitattributes
+  - private
+  - _site
