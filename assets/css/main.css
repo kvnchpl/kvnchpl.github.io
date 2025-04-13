@@ -17,17 +17,21 @@
   --hover-color: gray;
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   overflow-x: hidden;
-}
-
-body {
   color: var(--font-color);
   font-family: "Apolline Std", serif;
   line-height: 1.6;
+}
+
+main,
+header,
+footer {
+  max-width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* General link styles */
@@ -74,7 +78,7 @@ ul li a {
   display: flex;
   justify-content: center;
   position: relative;
-  visibility: hidden; /* Initially hidden, made visible by JS */
+  visibility: hidden;
 }
 
 #link-container .row.left-arrow {
@@ -212,6 +216,10 @@ ul li a {
 
 /* Mobile styles */
 @media (max-width: 768px) {
+  body {
+    padding: 0.5rem;
+  }
+
   #link-container {
     gap: var(--gap-size-mobile);
   }
