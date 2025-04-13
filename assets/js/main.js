@@ -181,6 +181,8 @@ window.onload = () => {
             const preloadImages = (images) => {
                 images.forEach((src) => {
                     const img = new Image();
+                    img.onload = () => console.log(`DEBUG: Image preloaded: ${src}`);
+                    img.onerror = () => console.error(`DEBUG: Failed to preload image: ${src}`);
                     img.src = src;
                 });
             };
