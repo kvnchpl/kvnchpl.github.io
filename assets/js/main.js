@@ -128,16 +128,22 @@ window.onload = async () => {
             };
         };
 
-        const debouncedHoverHandler = debounce((row, isLeftArrow, hoveredLeft) => {
+        const debouncedHoverHandler = debounce((row, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             overlay.classList.add("visible-overlay");
+
+            // Get the hovered link's position relative to the containing block
+            const containerRect = linkContainer.getBoundingClientRect();
+            const rowRect = row.getBoundingClientRect();
+            const hoveredLeft = rowRect.left - containerRect.left;
 
             rows.forEach((otherRow) => {
                 if (otherRow !== row) {
                     const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     const otherLinkWidth = otherRow.offsetWidth;
 
+                    // Align other links with the hovered link
                     otherLinkWrapper.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
@@ -165,8 +171,7 @@ window.onload = async () => {
 
             row.addEventListener("mouseenter", () => {
                 if (!isMobile) {
-                    const hoveredLeft = parseFloat(window.getComputedStyle(row).left);
-                    debouncedHoverHandler(row, isLeftArrow, hoveredLeft);
+                    debouncedHoverHandler(row, isLeftArrow);
                 }
             });
 
