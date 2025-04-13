@@ -75,6 +75,7 @@ li.visible {
 a {
   display: inline-block;
   white-space: nowrap;
+  transition: transform var(--transition-duration) ease-in-out;
 }
 
 a:hover {
