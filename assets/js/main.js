@@ -1,14 +1,12 @@
-const IMAGE_LIST_URL = "/_data/sky_images.json";
-
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
-    const jsonUrl = document.querySelector("meta[name='link-data']").content;
+    const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
 
     if (!jsonUrl) {
-        console.error("No JSON URL found in the <meta> tag with name='link-data'.");
+        console.error("No JSON URL found in the <meta> tag with name='sky-images-data'.");
         return;
     }
 
