@@ -173,6 +173,10 @@ window.onload = async () => {
 
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
+
+                // Skip randomizing the currently hovered link
+                if (linkWrapper === currentlyHoveredLink) return;
+
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
@@ -181,9 +185,13 @@ window.onload = async () => {
                     return;
                 }
 
+                // Generate a new random position for other links
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                 linkWrapper.style.left = `${newLeft}px`;
             });
+
+            // Reset the currently hovered link
+            currentlyHoveredLink = null;
 
             overlay.classList.remove("visible");
         }, debounceTime);
