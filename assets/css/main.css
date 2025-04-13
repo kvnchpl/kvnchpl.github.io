@@ -105,6 +105,14 @@ a:hover {
   z-index: var(--overlay-z-index);
 }
 
+#image-overlay.visible {
+  opacity: var(--overlay-opacity);
+}
+
+#image-overlay.hidden {
+  opacity: 0;
+}
+
 /* Navigation styles */
 #nav-toggle {
   display: none;
@@ -163,15 +171,6 @@ a:hover {
 #site-nav ul li a {
   font-size: var(--font-size);
   text-transform: uppercase;
-}
-
-/* Overlay visibility */
-#image-overlay.visible {
-  opacity: var(--overlay-opacity);
-}
-
-#image-overlay.hidden {
-  opacity: 0;
 }
 
 /* Skip link */
