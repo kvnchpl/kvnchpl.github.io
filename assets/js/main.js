@@ -246,9 +246,6 @@ window.onload = async () => {
         .catch((error) => logError(`Error loading homepage links: ${error.message}`));
 
     if (isMobile()) {
-        overlay.classList.add("visible-overlay");
-        overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-
         let previousInterval = -1;
 
         // Scroll-based image cycling
