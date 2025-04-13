@@ -207,6 +207,8 @@ footer {
   }
 
   #link-container .row {
+    position: relative;
+    left: auto;
     justify-content: flex-start;
   }
 
