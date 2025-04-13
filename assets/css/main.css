@@ -51,11 +51,11 @@ footer {
 }
 
 #link-container .row.left-arrow {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 #link-container .row.right-arrow {
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .row {
@@ -205,11 +205,11 @@ footer {
     justify-content: flex-start;
   }
 
-  .row.left-arrow {
+  #link-container .row.left-arrow {
     justify-content: flex-end;
   }
 
-  .row.right-arrow {
+  #link-container .row.right-arrow {
     justify-content: flex-start;
   }
 
