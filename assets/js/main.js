@@ -202,8 +202,8 @@ window.onload = () => {
                 return row;
             });
 
-            console.log("DEBUG: Rows found:", rows);
             console.log("DEBUG: Calling randomizeLinks");
+            console.log("DEBUG: Rows found:", rows);
             initialPositions = randomizeLinks(rows);
             enableHoverEffect(rows, initialPositions, 200);
         })
