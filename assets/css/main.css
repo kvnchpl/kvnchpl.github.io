@@ -17,52 +17,12 @@
   --hover-color: gray;
 }
 
-body {
-  margin: 0;
-  padding: 1rem;
-  overflow-x: hidden;
-  color: var(--font-color);
-  font-family: "Apolline Std", serif;
-  line-height: 1.6;
-}
-
 main,
 header,
 footer {
   max-width: 100%;
   padding: 0 1rem;
   box-sizing: border-box;
-}
-
-/* General link styles */
-a {
-  color: var(--font-color);
-  text-decoration: none;
-  transition: color var(--transition-duration) ease-in-out;
-}
-
-a:focus {
-  outline: 2px solid var(--font-color);
-}
-
-a:hover {
-  color: var(--hover-color);
-}
-
-/* Link list styles */
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  margin-bottom: 1rem;
-}
-
-ul li a {
-  text-transform: uppercase;
-  font-size: var(--font-size);
 }
 
 /* Link container and rows */
@@ -96,8 +56,6 @@ ul li a {
 
 .link-wrapper a {
   display: inline-block;
-  font-size: var(--font-size);
-  text-transform: uppercase;
   white-space: nowrap;
   transition: transform var(--transition-duration) ease-in-out;
 }
@@ -216,10 +174,6 @@ ul li a {
 
 /* Mobile styles */
 @media (max-width: 768px) {
-  body {
-    padding: 0.5rem;
-  }
-
   #link-container {
     gap: var(--gap-size-mobile);
   }

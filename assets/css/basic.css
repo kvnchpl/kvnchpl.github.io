@@ -1,12 +1,60 @@
-body {
-    background-color: #EAF4F6;
-    color: black;
-    font-family: "Apolline Std", serif;
-    font-weight: 400;
+:root {
+    --background-color: #EAF4F6;
+    --font-color: black;
+    --font-family: "Apolline Std", serif;
+    --font-weight: 400;
+    --line-height: 1.6;
+    --body-padding: 1rem;
+    --link-color: black;
+    --link-hover-color: gray;
+    --link-font-weight: 600;
+    --transition-duration: 0.3s;
+    --focus-outline-color: black;
+    --list-margin: 0;
+    --list-padding: 0;
+    --list-item-margin-bottom: 1rem;
+    --link-text-transform: uppercase;
+    --link-font-size: 1.2rem;
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
     font-style: normal;
-}
-
-a {
-    color: black; /* Set link color */
-    font-weight: 600;
-}
+    line-height: var(--line-height);
+    margin: 0;
+    padding: var(--body-padding);
+    overflow-x: hidden;
+  }
+  
+  a {
+    color: var(--link-color);
+    font-weight: var(--link-font-weight);
+    text-decoration: none;
+    transition: color var(--transition-duration) ease-in-out;
+  }
+  
+  a:focus {
+    outline: 2px solid var(--focus-outline-color);
+  }
+  
+  a:hover {
+    color: var(--link-hover-color);
+  }
+  
+  ul {
+    list-style: none;
+    padding: var(--list-padding);
+    margin: var(--list-margin);
+  }
+  
+  ul li {
+    margin-bottom: var(--list-item-margin-bottom);
+  }
+  
+  ul li a {
+    text-transform: var(--link-text-transform);
+    font-size: var(--link-font-size);
+  }
