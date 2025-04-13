@@ -52,14 +52,10 @@ ul {
 
 li {
   display: flex;
+  position: relative;
   justify-content: center;
   visibility: hidden;
   transition: transform var(--transition-duration) ease-in-out;
-}
-
-li.randomized {
-  position: absolute;
-  transition: left var(--transition-duration) ease-in-out;
 }
 
 li.visible {
