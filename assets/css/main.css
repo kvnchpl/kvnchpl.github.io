@@ -54,7 +54,7 @@ li {
   display: flex;
   position: relative;
   justify-content: center;
-  visibility: hidden;
+  visibility: hidden; /* hidden by default */
   transition: transform var(--transition-duration) ease-in-out;
 }
 
