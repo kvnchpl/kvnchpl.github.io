@@ -34,9 +34,6 @@ footer {
 }
 
 ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   gap: var(--gap-size-desktop);
@@ -70,7 +67,6 @@ li.visible {
 a {
   display: inline-block;
   white-space: nowrap;
-  transition: transform var(--transition-duration) ease-in-out;
 }
 
 a:hover {
