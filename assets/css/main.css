@@ -114,6 +114,7 @@ a:hover {
 
 #image-overlay.visible {
   opacity: var(--overlay-opacity);
+  pointer-events: auto;
 }
 
 #image-overlay.hidden {
