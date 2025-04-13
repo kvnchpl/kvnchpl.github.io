@@ -95,7 +95,6 @@ window.onload = async () => {
                 row.style.left = initialLeft;
             }
 
-            row.classList.add("transition");
             row.classList.add("visible");
         });
     };
