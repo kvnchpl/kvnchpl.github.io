@@ -75,12 +75,8 @@ window.onload = async () => {
             const isLeftArrow = index % 2 === 0; // Alternate left/right based on index
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
-            if (isMobile) {
-                // Mobile: Alternate left- and right-justified rows
-                row.style.position = "relative"; // Ensure rows are positioned relative for mobile
-                row.style.left = ""; // Reset any desktop-specific positioning
-            } else {
-                // Desktop: Randomize horizontal positions
+            // Desktop: Randomize horizontal positions
+            if (!isMobile) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
