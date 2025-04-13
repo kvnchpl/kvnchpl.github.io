@@ -129,25 +129,21 @@ window.onload = async () => {
 
     // Enable hover effects with debounced handlers
     const enableHoverEffect = (rows) => {
-        const debouncedHoverHandler = debounce((row, isLeftArrow) => {
+        const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             overlay.classList.add("visible-overlay");
 
-            // Get the hovered link's position relative to the containing block
-            const containerRect = linkContainer.getBoundingClientRect();
-            const rowRect = row.getBoundingClientRect();
-            const hoveredLeft = rowRect.left - containerRect.left;
-
             rows.forEach((otherRow) => {
-                if (otherRow !== row) {
-                    const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
-                    const otherLinkWidth = otherRow.offsetWidth;
+                const otherWrapper = otherRow.querySelector(".link-wrapper");
+                if (otherWrapper !== linkWrapper) {
+                    const otherLinkWidth = otherWrapper.offsetWidth;
 
                     // Align other links with the hovered link
-                    otherLinkWrapper.style.left = isLeftArrow
+                    otherWrapper.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
-                        : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
+                        : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
+
                 }
             });
         }, debounceTime);
@@ -155,26 +151,24 @@ window.onload = async () => {
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
-                linkWrapper.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
+                linkWrapper.style.left = `calc(${initialPositions[index]}% - ${linkWrapper.offsetWidth / 2}px)`;
             });
 
             overlay.classList.add("hidden-overlay");
         }, debounceTime);
 
         rows.forEach((row) => {
+            const linkWrapper = row.querySelector(".link-wrapper");
             const isLeftArrow = row.classList.contains("left-arrow");
-            if (!isLeftArrow && !row.classList.contains("right-arrow")) {
-                console.warn(`DEBUG: Row ${row} has no arrow class, skipping hover effect`);
-                return;
-            }
 
-            row.addEventListener("mouseenter", () => {
+            linkWrapper.addEventListener("mouseenter", () => {
                 if (!isMobile) {
-                    debouncedHoverHandler(row, isLeftArrow);
+                    const hoveredLeft = parseFloat(window.getComputedStyle(linkWrapper).left);
+                    debouncedHoverHandler(linkWrapper, isLeftArrow, hoveredLeft);
                 }
             });
 
-            row.addEventListener("mouseleave", () => {
+            linkWrapper.addEventListener("mouseleave", () => {
                 if (!isMobile) {
                     debouncedLeaveHandler();
                 }
