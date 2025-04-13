@@ -42,12 +42,12 @@ ul {
 }
 
 .link-wrapper {
-  position: relative; /* Default for mobile */
+  position: relative;
   transition: left var(--transition-duration) ease-in-out;
 }
 
 .link-wrapper.randomized {
-  position: absolute; /* For desktop randomization */
+  position: absolute;
 }
 
 li {
@@ -106,7 +106,7 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0;
+  opacity: 0; /* hidden by default */
   pointer-events: none;
   transition: opacity var(--transition-duration) ease-in-out;
   z-index: var(--overlay-z-index);
@@ -115,10 +115,6 @@ a:hover {
 #image-overlay.visible {
   opacity: var(--overlay-opacity);
   pointer-events: auto;
-}
-
-#image-overlay.hidden {
-  opacity: 0;
 }
 
 /* Navigation styles */
