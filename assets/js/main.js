@@ -23,8 +23,6 @@ window.onload = async () => {
     const debounceTime = config.debounceTime || 200;
     const linkContainerId = config.linkContainerId || "link-container";
     const imageOverlayId = config.imageOverlayId || "image-overlay";
-    const scrollThresholds = config.scrollThresholds || { shortPage: 800, mediumPage: 1600 };
-    const scrollIntervals = config.scrollIntervals || { shortPage: 2, mediumPage: 3, longPage: 4 };
 
     const overlay = document.getElementById(imageOverlayId);
     const linkContainer = document.getElementById(linkContainerId);
@@ -61,7 +59,7 @@ window.onload = async () => {
         });
     };
 
-    // Randomize link positions and apply classes
+    // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
             const link = row.querySelector("a");
@@ -70,15 +68,15 @@ window.onload = async () => {
                 return;
             }
 
-            const isLeftArrow = index % 2 === 0;
-            row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
-
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
 
-            link.textContent = isLeftArrow ? `←${originalText}` : `${originalText}→`;
-
-            if (!isMobile()) {
+            if (isMobile()) {
+                // Alternate left- and right-justified rows on mobile
+                const isLeftArrow = index % 2 === 0;
+                row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
+            } else {
+                // Randomize positions on desktop
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
@@ -92,13 +90,14 @@ window.onload = async () => {
 
                 const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
                 const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
+
                 row.style.position = "absolute";
                 row.style.left = initialLeft;
             }
 
             row.classList.add("transition");
             row.style.visibility = "visible";
-            console.log(`DEBUG: Row ${index} made visible`);
+            console.log(`DEBUG: Row ${index} positioned.`);
         });
     };
 
