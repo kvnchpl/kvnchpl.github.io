@@ -163,23 +163,23 @@ window.onload = async () => {
                 const linkWrapper = row.querySelector(".link-wrapper");
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
-        
+
                 if (viewportWidth === 0) {
                     logError("Viewport width is zero, cannot calculate positions!");
                     return;
                 }
-        
+
                 // Generate a new random position
                 const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
                 const safeMaxPercent = 100 - safeMinPercent;
-        
+
                 const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
                 const newLeft = (randomPercent / 100) * viewportWidth - linkWidth / 2;
-        
+
                 // Apply the new position
                 linkWrapper.style.left = `${newLeft}px`;
             });
-        
+
             overlay.classList.add("hidden");
         }, debounceTime);
 
@@ -211,6 +211,8 @@ window.onload = async () => {
             overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
             overlay.classList.add("visible");
         }
+    } else {
+        logError("DEBUG: No valid overlay images found in sky_images.json or the file is empty.");
     }
 
     // Fetch and process homepage links
