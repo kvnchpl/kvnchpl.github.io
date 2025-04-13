@@ -176,8 +176,6 @@ window.onload = async () => {
         
                 // Apply the new position
                 linkWrapper.style.left = `${newLeft}px`;
-        
-                console.log(`DEBUG: New randomized left for row: ${newLeft}px`);
             });
         
             overlay.classList.add("hidden-overlay");
