@@ -4,11 +4,6 @@ window.onload = async () => {
     // Utility function to check if the device is mobile
     const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
-    // Utility function to retrieve CSS variables
-    const getCSSVariable = (variable) => {
-        return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
-    };
-
     // Utility function for centralized error logging
     const logError = (message) => console.error(`DEBUG: ${message}`);
 
@@ -126,7 +121,7 @@ window.onload = async () => {
         const debouncedHoverHandler = debounce((row, isLeftArrow, hoveredLeft) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.style.opacity = getCSSVariable("--overlay-opacity");
+            overlay.classList.add("visible-overlay");
 
             rows.forEach((otherRow) => {
                 if (otherRow !== row) {
@@ -195,7 +190,7 @@ window.onload = async () => {
 
             if (isMobile()) {
                 overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-                overlay.style.opacity = getCSSVariable("--overlay-opacity");
+                overlay.classList.add("visible-overlay");
             }
         })
         .catch((error) => logError(`Error loading overlay images: ${error.message}`));
@@ -251,6 +246,9 @@ window.onload = async () => {
         .catch((error) => logError(`Error loading homepage links: ${error.message}`));
 
     if (isMobile()) {
+        overlay.classList.add("visible-overlay");
+        overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
+
         let previousInterval = -1;
 
         // Scroll-based image cycling
