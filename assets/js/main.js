@@ -139,7 +139,6 @@ window.onload = async () => {
                     otherRow.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
-
                 }
             });
         }, debounceTime);
