@@ -32,6 +32,15 @@ window.onload = async () => {
         };
     };
 
+    // Utility function to generate a random position for links
+    const generateRandomPosition = (linkWidth, viewportWidth) => {
+        const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
+        const safeMaxPercent = 100 - safeMinPercent;
+    
+        const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
+        return (randomPercent / 100) * viewportWidth - linkWidth / 2;
+    };
+
     // Fetch configuration from config.json
     const config = await fetchJSON("config-data");
     if (!config) return;
@@ -109,21 +118,16 @@ window.onload = async () => {
             if (!isMobile) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
-
+            
                 if (viewportWidth === 0) {
                     logError("Viewport width is zero, cannot calculate positions!");
                     return;
                 }
-
-                const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
-                const safeMaxPercent = 100 - safeMinPercent;
-
-                const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
-                const initialLeft = (randomPercent / 100) * viewportWidth - linkWidth / 2;
-
-                linkWrapper.classList.add("randomized");
-                linkWrapper.style.left = `${initialLeft}px`; // Initialize left as a pixel value
-
+            
+                const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
+                linkWrapper.style.position = "absolute";
+                linkWrapper.style.left = `${initialLeft}px`;
+            
                 initialPositions[index] = initialLeft; // Store initial position as a pixel value
             }
 
@@ -165,20 +169,13 @@ window.onload = async () => {
                 const linkWrapper = row.querySelector(".link-wrapper");
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
-
+            
                 if (viewportWidth === 0) {
                     logError("Viewport width is zero, cannot calculate positions!");
                     return;
                 }
-
-                // Generate a new random position
-                const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
-                const safeMaxPercent = 100 - safeMinPercent;
-
-                const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
-                const newLeft = (randomPercent / 100) * viewportWidth - linkWidth / 2;
-
-                // Apply the new position
+            
+                const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                 linkWrapper.style.left = `${newLeft}px`;
             });
             overlay.classList.remove("visible");
