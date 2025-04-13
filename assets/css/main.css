@@ -166,11 +166,11 @@ a:hover {
 }
 
 /* Overlay visibility */
-.visible-overlay {
+#image-overlay.visible {
   opacity: var(--overlay-opacity);
 }
 
-.hidden-overlay {
+#image-overlay.hidden {
   opacity: 0;
 }
 

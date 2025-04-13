@@ -132,7 +132,7 @@ window.onload = async () => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.classList.add("visible-overlay");
+            overlay.classList.add("visible");
 
             // Get the bounding rectangle of the hovered link
             const hoveredRect = linkWrapper.getBoundingClientRect();
@@ -161,7 +161,7 @@ window.onload = async () => {
                 linkWrapper.style.left = `calc(${initialPositions[index]}% - ${linkWrapper.offsetWidth / 2}px)`;
             });
 
-            overlay.classList.add("hidden-overlay");
+            overlay.classList.add("hidden");
         }, debounceTime);
 
         rows.forEach((row) => {
@@ -190,7 +190,7 @@ window.onload = async () => {
 
         if (isMobile) {
             overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-            overlay.classList.add("visible-overlay");
+            overlay.classList.add("visible");
         }
     }
 
