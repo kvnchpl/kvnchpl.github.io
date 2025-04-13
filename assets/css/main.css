@@ -78,6 +78,10 @@ footer {
   transition: left var(--transition-duration) ease-in-out;
 }
 
+.row.visible {
+  visibility: visible;
+}
+
 .subtitle {
   display: block;
   font-size: var(--subtitle-font-size);
