@@ -63,6 +63,7 @@ window.onload = async () => {
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
         currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
+        console.log(`DEBUG: Next overlay image: ${nextImage}`); // Debugging log
         return nextImage;
     };
 
