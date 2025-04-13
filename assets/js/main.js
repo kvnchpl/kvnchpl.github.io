@@ -1,6 +1,7 @@
 const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
+    console.log("DEBUG: main.js loaded");
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
     const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
@@ -45,6 +46,7 @@ window.onload = () => {
             }
 
             row.style.visibility = "visible";
+            console.log(`DEBUG: Row ${index} made visible`);
         });
 
         return initialPositions;
