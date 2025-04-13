@@ -41,41 +41,23 @@ ul {
   gap: var(--gap-size-desktop);
 }
 
+li {
+  display: flex;
+  justify-content: center;
+}
+
 .link-wrapper {
   position: relative;
-  transition: left var(--transition-duration) ease-in-out;
+  visibility: hidden;
+  transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
 }
 
 .link-wrapper.randomized {
   position: absolute;
 }
 
-li {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  visibility: hidden; /* hidden by default */
-  transition: transform var(--transition-duration) ease-in-out;
-}
-
-li.visible {
+.link-wrapper.visible {
   visibility: visible;
-}
-
-.left-arrow {
-  justify-content: flex-end;
-}
-
-.right-arrow {
-  justify-content: flex-start;
-}
-
-.left-arrow a::before {
-  content: "← ";
-}
-
-.right-arrow a::after {
-  content: " →";
 }
 
 a {
