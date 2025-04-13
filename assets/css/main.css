@@ -42,6 +42,7 @@ ul {
 }
 
 .link-wrapper {
+  border-color: red;
   position: relative; /* Default for mobile */
   transition: left var(--transition-duration) ease-in-out;
 }
