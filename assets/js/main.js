@@ -191,8 +191,6 @@ window.onload = async () => {
         // Create rows and append them to the <ul>
         const rows = indexLinks.map((linkItem) => {
             const row = document.createElement("li");
-            row.className = "row";
-
             const link = document.createElement("a");
             link.href = linkItem.href;
             link.textContent = linkItem.label;

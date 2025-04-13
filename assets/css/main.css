@@ -33,11 +33,21 @@ footer {
   padding: 1rem;
 }
 
-.row {
+li {
   display: flex;
   justify-content: center;
   position: relative;
   visibility: hidden;
+  transition: transform var(--transition-duration) ease-in-out;
+}
+
+li.randomized {
+  position: absolute;
+  transition: left var(--transition-duration) ease-in-out;
+}
+
+li.visible {
+  visibility: visible;
 }
 
 ul {
@@ -71,15 +81,6 @@ a {
 
 a:hover {
   transform: scale(var(--hover-scale));
-}
-
-.randomized {
-  position: absolute;
-  transition: left var(--transition-duration) ease-in-out;
-}
-
-.visible {
-  visibility: visible;
 }
 
 .subtitle {
@@ -214,7 +215,7 @@ a:hover {
     gap: var(--gap-size-mobile);
   }
 
-  .row {
+  li {
     position: relative;
     left: auto;
     justify-content: flex-start;
