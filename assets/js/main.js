@@ -14,14 +14,14 @@ window.onload = () => {
     } else {
         console.error("DEBUG: Link container not found!");
     }
-/*
+
     if (!linkContainer) {
         console.error("No link container found!");
         return;
     }
 
     const rows = linkContainer.querySelectorAll('li.row'); // Target <li> elements directly
-*/
+
     if (rows.length === 0) {
         console.error("No rows found inside the link container!");
         return;
