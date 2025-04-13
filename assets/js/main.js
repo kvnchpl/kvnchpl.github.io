@@ -60,6 +60,8 @@ window.onload = async () => {
         });
     };
 
+    const initialPositions = []; // Define the array to store initial positions
+
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
@@ -93,6 +95,8 @@ window.onload = async () => {
 
                 row.classList.add("randomized");
                 row.style.left = initialLeft;
+
+                initialPositions[index] = randomPercent;
             }
 
             row.classList.add("visible");
