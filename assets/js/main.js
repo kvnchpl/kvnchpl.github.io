@@ -103,9 +103,9 @@ window.onload = async () => {
                 const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
 
                 linkWrapper.classList.add("randomized");
-                linkWrapper.style.left = initialLeft;
+                linkWrapper.style.left = initialLeft; // Initialize left property
 
-                initialPositions[index] = randomPercent;
+                initialPositions[index] = randomPercent; // Store initial position
             }
 
             row.classList.add("visible");
@@ -135,17 +135,22 @@ window.onload = async () => {
 
             rows.forEach((otherRow) => {
                 if (otherRow !== row) {
+                    const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     const otherLinkWidth = otherRow.offsetWidth;
-                    otherRow.style.left = isLeftArrow
+
+                    otherLinkWrapper.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
+
+                    console.log(`DEBUG: Hover effect updated left for row: ${otherRow}`);
                 }
             });
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
-                row.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
+                const linkWrapper = row.querySelector(".link-wrapper");
+                linkWrapper.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
             });
 
             overlay.classList.add("hidden-overlay");
