@@ -133,7 +133,8 @@ window.onload = async () => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.classList.add("visible-overlay");
+            overlay.classList.add("visible");
+            console.log(`DEBUG: Overlay updated with image: ${nextImage}`);
 
             // Get the bounding rectangle of the hovered link
             const hoveredRect = linkWrapper.getBoundingClientRect();
@@ -179,7 +180,7 @@ window.onload = async () => {
                 linkWrapper.style.left = `${newLeft}px`;
             });
         
-            overlay.classList.add("hidden-overlay");
+            overlay.classList.add("hidden");
         }, debounceTime);
 
         rows.forEach((row) => {
