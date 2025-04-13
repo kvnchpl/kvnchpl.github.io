@@ -7,17 +7,22 @@ window.onload = async () => {
     // Utility function for centralized error logging
     const logError = (message) => console.error(`DEBUG: ${message}`);
 
+    // Utility function to fetch JSON data from a URL
+    const fetchJSON = async (metaName) => {
+        const url = document.querySelector(`meta[name='${metaName}']`).content;
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
+            return await response.json();
+        } catch (error) {
+            logError(`Error loading ${metaName}: ${error.message}`);
+            return null;
+        }
+    };
+
     // Fetch configuration from config.json
-    const configUrl = "/assets/data/config.json";
-    let config = {};
-    try {
-        const response = await fetch(configUrl);
-        if (!response.ok) throw new Error("Failed to fetch config.json");
-        config = await response.json();
-    } catch (error) {
-        logError(`Error loading config.json: ${error.message}`);
-        return;
-    }
+    const config = await fetchJSON("config-data");
+    if (!config) return;
 
     // Extract configuration values
     const debounceTime = config.debounceTime || 200;
@@ -166,83 +171,54 @@ window.onload = async () => {
     };
 
     // Fetch and process overlay images
-    fetch(document.querySelector("meta[name='sky-images-data']").content)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to fetch overlay images");
-            }
-            return response.json();
-        })
-        .then((imageList) => {
-            if (!Array.isArray(imageList) || imageList.length === 0) {
-                console.warn("DEBUG: No valid images found in sky_images.json");
-                return;
-            }
+    const skyImages = await fetchJSON("sky-images-data");
+    if (skyImages && Array.isArray(skyImages) && skyImages.length > 0) {
+        shuffledImages = skyImages.sort(() => Math.random() - 0.5);
+        preloadImages(shuffledImages);
 
-            shuffledImages = imageList.sort(() => Math.random() - 0.5);
-            preloadImages(shuffledImages);
-
-            if (!shuffledImages || shuffledImages.length === 0) {
-                logError("DEBUG: No images found in shuffledImages");
-                return;
-            }
-
-            if (isMobile()) {
-                overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-                overlay.classList.add("visible-overlay");
-            }
-        })
-        .catch((error) => logError(`Error loading overlay images: ${error.message}`));
+        if (isMobile()) {
+            overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
+            overlay.classList.add("visible-overlay");
+        }
+    }
 
     // Fetch and process homepage links
-    fetch(document.querySelector("meta[name='index-links-data']").content)
-        .then((response) => {
-            if (!response.ok) {
-                throw new Error("Failed to fetch homepage links");
+    const indexLinks = await fetchJSON("index-links-data");
+    if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
+        const rows = indexLinks.map((linkItem) => {
+            const row = document.createElement("li");
+            row.className = "row";
+
+            const link = document.createElement("a");
+            link.href = linkItem.href;
+            link.textContent = linkItem.label;
+
+            if (linkItem.newTab === false) {
+                link.target = "_self";
+            } else if (linkItem.href.startsWith("http")) {
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
             }
-            return response.json();
-        })
-        .then((linkData) => {
-            if (!Array.isArray(linkData) || linkData.length === 0) {
-                console.warn("DEBUG: No valid links found in index.json");
-                return;
+
+            row.appendChild(link);
+
+            // Add subtitle dynamically if applicable
+            if (linkItem.subtitle) {
+                const subtitle = document.createElement("span");
+                subtitle.className = "subtitle";
+                subtitle.textContent = linkItem.subtitle;
+                row.appendChild(subtitle);
             }
 
-            const rows = linkData.map((linkItem) => {
-                const row = document.createElement("li");
-                row.className = "row";
+            linkContainer.querySelector("ul").appendChild(row);
 
-                const link = document.createElement("a");
-                link.href = linkItem.href;
-                link.textContent = linkItem.label;
+            return row;
+        });
 
-                if (linkItem.newTab === false) {
-                    link.target = "_self";
-                } else if (linkItem.href.startsWith("http")) {
-                    link.target = "_blank";
-                    link.rel = "noopener noreferrer";
-                }
-
-                row.appendChild(link);
-
-                // Add subtitle dynamically if applicable
-                if (linkItem.subtitle) {
-                    const subtitle = document.createElement("span");
-                    subtitle.className = "subtitle";
-                    subtitle.textContent = linkItem.subtitle;
-                    row.appendChild(subtitle);
-                }
-
-                linkContainer.querySelector("ul").appendChild(row);
-
-                return row;
-            });
-
-            console.log("DEBUG: Rows created:", rows);
-            randomizeLinks(rows);
-            enableHoverEffect(rows);
-        })
-        .catch((error) => logError(`Error loading homepage links: ${error.message}`));
+        console.log("DEBUG: Rows created:", rows);
+        randomizeLinks(rows);
+        enableHoverEffect(rows);
+    }
 
     if (isMobile()) {
         let previousInterval = -1;
