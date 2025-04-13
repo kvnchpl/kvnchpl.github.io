@@ -40,6 +40,11 @@ ul {
   gap: var(--gap-size-desktop);
 }
 
+.link-wrapper {
+  position: relative; /* Default for mobile */
+  width: 100%; /* Ensure full width */
+}
+
 li {
   display: flex;
   justify-content: center;

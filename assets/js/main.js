@@ -65,6 +65,15 @@ window.onload = async () => {
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
+            const linkWrapper = document.createElement("div");
+            linkWrapper.className = "link-wrapper";
+
+            // Move existing children into the wrapper
+            while (row.firstChild) {
+                linkWrapper.appendChild(row.firstChild);
+            }
+            row.appendChild(linkWrapper);
+
             const link = row.querySelector("a");
             if (!link) {
                 logError(`No <a> element found in row ${index}`);
@@ -93,8 +102,8 @@ window.onload = async () => {
                 const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
                 const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
 
-                row.classList.add("randomized");
-                row.style.left = initialLeft;
+                linkWrapper.classList.add("randomized");
+                linkWrapper.style.left = initialLeft;
 
                 initialPositions[index] = randomPercent;
             }
