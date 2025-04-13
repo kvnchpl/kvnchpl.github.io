@@ -27,7 +27,7 @@
 ├── assets/            # fonts, styles, images, scripts
 ├── _layouts/          # html layout templates
 ├── _includes/         # head, footer, partials
-├── data/             # json/yaml structured content
+├── data/              # json/yaml structured content
 ├── index.md           # homepage
 ├── contact.md         # contact page
 ```
