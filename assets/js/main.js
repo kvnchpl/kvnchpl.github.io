@@ -3,7 +3,9 @@ window.onload = () => {
 
     const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
-    const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
+    const imageJsonUrl = document.querySelector("meta[name='sky-images-data']").content; // For overlay images
+    const linkJsonUrl = document.querySelector("meta[name='index-links-data']").content; // For homepage links
+
     const overlay = document.getElementById('image-overlay');
     if (!overlay) {
         console.error("DEBUG: No #image-overlay element found!");
@@ -13,7 +15,6 @@ window.onload = () => {
     overlay.setAttribute('aria-hidden', 'true');
 
     const linkContainer = document.getElementById('link-container');
-
     if (!linkContainer) {
         console.error("DEBUG: No link container found!");
         return;
@@ -24,22 +25,22 @@ window.onload = () => {
         return;
     }
 
-    const rows = linkContainer.querySelectorAll('li.row');
-    console.log("DEBUG: Rows found:", rows);
-
-    if (rows.length === 0) {
-        console.error("No rows found inside the link container!");
-        return;
-    }
-
     let shuffledImages = [];
     let currentImageIndex = 0;
-    let initialPositions = [];
 
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
         currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
         return nextImage;
+    };
+
+    const preloadImages = (images) => {
+        images.forEach((src) => {
+            const img = new Image();
+            img.onload = () => console.log(`DEBUG: Image preloaded: ${src}`);
+            img.onerror = () => console.error(`DEBUG: Failed to preload image: ${src}`);
+            img.src = src;
+        });
     };
 
     const randomizeLinks = (rows) => {
@@ -71,8 +72,6 @@ window.onload = () => {
                 const safeMaxPercent = 100 - safeMinPercent;
 
                 const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
-                initialPositions.push(randomPercent);
-
                 const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
                 row.style.position = "absolute";
                 row.style.left = initialLeft;
@@ -81,11 +80,9 @@ window.onload = () => {
             row.style.visibility = "visible";
             console.log(`DEBUG: Row ${index} made visible`);
         });
-
-        return initialPositions;
     };
 
-    const enableHoverEffect = (rows, initialPositions, debounceTime) => {
+    const enableHoverEffect = (rows) => {
         const debounce = (func, wait, immediate = false) => {
             let timeout;
             return function (...args) {
@@ -115,7 +112,7 @@ window.onload = () => {
                     otherRow.style.transition = 'left var(--transition-duration) ease-in-out';
                 }
             });
-        }, debounceTime);
+        }, 200);
 
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
@@ -124,7 +121,7 @@ window.onload = () => {
             });
 
             overlay.style.opacity = '0';
-        }, debounceTime);
+        }, 200);
 
         rows.forEach((row) => {
             const isLeftArrow = row.classList.contains('left-arrow');
@@ -148,65 +145,43 @@ window.onload = () => {
         });
     };
 
-    // Helper function to format publication dates
-    function formatDate(month, year) {
-        if (typeof month === 'number') {
-            const date = new Date(year, month - 1); // Convert month to zero-based index
-            return date.toLocaleString('default', { month: 'long', year: 'numeric' });
-        }
-        return `${month} ${year}`; // For cases like "Fall 1964"
-    }
-
-    fetch(jsonUrl)
+    // Fetch and process overlay images
+    fetch(imageJsonUrl)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Failed to fetch data');
+                throw new Error('Failed to fetch overlay images');
             }
             return response.json();
         })
-        .then((data) => {
-
-            if (!Array.isArray(data)) {
-                throw new Error("Invalid JSON format: Expected an array");
+        .then((imageList) => {
+            if (!Array.isArray(imageList) || imageList.length === 0) {
+                console.warn("DEBUG: No valid images found in sky_images.json");
+                return;
             }
 
-            const imageList = data.filter((item) => item.endsWith('.png') || item.endsWith('.jpg'));
-            const linkData = data.filter((item) => typeof item === 'object' && item.href);
-
-            if (imageList.length === 0) {
-                console.warn("DEBUG: No valid images found in JSON data");
-            }
-
-            if (linkData.length === 0) {
-                console.warn("DEBUG: No valid links found in JSON data");
-            }
-
-            const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
-            const preloadImages = (images) => {
-                images.forEach((src) => {
-                    const img = new Image();
-                    img.onload = () => console.log(`DEBUG: Image preloaded: ${src}`);
-                    img.onerror = () => console.error(`DEBUG: Failed to preload image: ${src}`);
-                    img.src = src;
-                });
-            };
-
-            shuffledImages = shuffleArray(imageList);
+            shuffledImages = imageList.sort(() => Math.random() - 0.5);
             preloadImages(shuffledImages);
 
             if (isMobile()) {
                 overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
                 overlay.style.opacity = '0.5';
             }
+        })
+        .catch((error) => console.error('Error loading overlay images:', error));
 
-            const configureLinkTarget = (link, linkItem) => {
-                if (linkItem.newTab === false) {
-                    link.target = '_self'; // Force open in the same tab
-                } else if (linkItem.href.startsWith('http')) {
-                    link.target = '_blank'; // Open external links in a new tab
-                    link.rel = 'noopener noreferrer';
-                }
-            };
+    // Fetch and process homepage links
+    fetch(linkJsonUrl)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch homepage links');
+            }
+            return response.json();
+        })
+        .then((linkData) => {
+            if (!Array.isArray(linkData) || linkData.length === 0) {
+                console.warn("DEBUG: No valid links found in index.json");
+                return;
+            }
 
             const rows = linkData.map((linkItem) => {
                 const row = document.createElement('li');
@@ -215,7 +190,13 @@ window.onload = () => {
                 const link = document.createElement('a');
                 link.href = linkItem.href;
                 link.textContent = linkItem.label;
-                configureLinkTarget(link, linkItem);
+
+                if (linkItem.newTab === false) {
+                    link.target = '_self';
+                } else if (linkItem.href.startsWith('http')) {
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
 
                 row.appendChild(link);
 
@@ -223,7 +204,7 @@ window.onload = () => {
                 const subtitleParts = [];
                 if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
                 if (linkItem.publication) subtitleParts.push(linkItem.publication);
-                if (linkItem.month && linkItem.year) subtitleParts.push(formatDate(linkItem.month, linkItem.year));
+                if (linkItem.month && linkItem.year) subtitleParts.push(`${linkItem.month} ${linkItem.year}`);
 
                 if (subtitleParts.length > 0) {
                     const subtitle = document.createElement('span');
@@ -237,12 +218,11 @@ window.onload = () => {
                 return row;
             });
 
-            console.log("DEBUG: Calling randomizeLinks");
-            console.log("DEBUG: Rows found:", rows);
-            initialPositions = randomizeLinks(rows);
-            enableHoverEffect(rows, initialPositions, 200);
+            console.log("DEBUG: Rows created:", rows);
+            randomizeLinks(rows);
+            enableHoverEffect(rows);
         })
-        .catch((error) => console.error('Error loading data:', error));
+        .catch((error) => console.error('Error loading homepage links:', error));
 
     if (isMobile()) {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
