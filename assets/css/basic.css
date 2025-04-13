@@ -1,20 +1,26 @@
 :root {
     --background-color: #EAF4F6;
     --font-color: black;
-    --font-family: "Apolline Std", serif;
-    --font-weight: 400;
-    --line-height: 1.6;
-    --body-padding: 1rem;
     --link-color: black;
     --link-hover-color: gray;
-    --link-font-weight: 400;
-    --transition-duration: 0.3s;
     --focus-outline-color: black;
+
+    --font-family: "Apolline Std", serif;
+    --font-weight: 400;
+    --font-weigth-bold: 600;
+    --line-height: 1.6;
+    --title-font-size: 2.5rem;
+    --link-font-size: 1.2rem;
+
+    --title-text-transform: uppercase;
+    --link-text-transform: uppercase;
+
+    --body-padding: 1rem;
     --list-margin: 0;
     --list-padding: 0;
     --list-item-margin-bottom: 1rem;
-    --link-text-transform: uppercase;
-    --link-font-size: 1.2rem;
+
+    --transition-duration: 0.3s;
 }
 
 body {
@@ -29,9 +35,13 @@ body {
     overflow-x: hidden;
 }
 
+h1 {
+    font-size: var(--title-font-size);
+    text-transform: var(--link-text-transform);
+}
+
 a {
     color: var(--link-color);
-    font-weight: var(--link-font-weight);
     text-decoration: none;
     transition: color var(--transition-duration) ease-in-out;
 }
