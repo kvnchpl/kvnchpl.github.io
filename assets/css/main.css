@@ -45,6 +45,11 @@ ul {
   width: 100%;
 }
 
+.link-wrapper.randomized {
+  position: absolute; /* For desktop randomization */
+  transition: left var(--transition-duration) ease-in-out; /* Smooth sliding */
+}
+
 li {
   display: flex;
   justify-content: center;
