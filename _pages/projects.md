@@ -1,12 +1,23 @@
 ---
-title: Projects
-description: See what I'm working on.
+layout: default
+title: projects
+description: A collection of projects by Kevin Cunanan Chappelle.
 permalink: /projects/
 ---
 
 <h1>Projects</h1>
-<ul>
+
+<div id="link-container">
   {% for project in site.projects %}
-    <li><a href="{{ project.url }}">{{ project.title }}</a></li>
+    <div class="row">
+      <div class="link-wrapper">
+        <a href="{{ project.url }}">
+          {{ project.title }}
+        </a>
+        {% if project.description %}
+          <span class="subtitle">{{ project.description }}</span>
+        {% endif %}
+      </div>
+    </div>
   {% endfor %}
-</ul>
+</div>
