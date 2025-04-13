@@ -1,6 +1,4 @@
 window.onload = async () => {
-    console.log("DEBUG: main.js loaded");
-
     // Utility function to check if the device is mobile
     const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
@@ -58,7 +56,6 @@ window.onload = async () => {
     const preloadImages = (images) => {
         images.forEach((src) => {
             const img = new Image();
-            img.onload = () => console.log(`DEBUG: Image preloaded: ${src}`);
             img.onerror = () => logError(`Failed to preload image: ${src}`);
             img.src = src;
         });
@@ -102,7 +99,6 @@ window.onload = async () => {
 
             row.classList.add("transition");
             row.style.visibility = "visible";
-            console.log(`DEBUG: Row ${index} positioned.`);
         });
     };
 
@@ -185,6 +181,16 @@ window.onload = async () => {
     // Fetch and process homepage links
     const indexLinks = await fetchJSON("index-links-data");
     if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
+        // Select the <ul> inside #link-container
+        const linkContainer = document.getElementById("link-container");
+        const linkList = linkContainer.querySelector("ul");
+
+        if (!linkList) {
+            logError("No <ul> element found inside #link-container!");
+            return;
+        }
+
+        // Create rows and append them to the <ul>
         const rows = indexLinks.map((linkItem) => {
             const row = document.createElement("li");
             row.className = "row";
@@ -193,6 +199,7 @@ window.onload = async () => {
             link.href = linkItem.href;
             link.textContent = linkItem.label;
 
+            // Handle target attributes for links
             if (linkItem.newTab === false) {
                 link.target = "_self";
             } else if (linkItem.href.startsWith("http")) {
@@ -210,14 +217,15 @@ window.onload = async () => {
                 row.appendChild(subtitle);
             }
 
-            linkContainer.querySelector("ul").appendChild(row);
-
+            linkList.appendChild(row);
             return row;
         });
 
-        console.log("DEBUG: Rows created:", rows);
+        // Apply randomization and hover effects
         randomizeLinks(rows);
         enableHoverEffect(rows);
+    } else {
+        logError("DEBUG: No valid links found in index.json or the file is empty.");
     }
 
     if (isMobile()) {
