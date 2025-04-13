@@ -139,7 +139,7 @@ window.onload = async () => {
                 row.classList.add("transition");
             });
 
-            overlay.style.opacity = "0";
+            overlay.classList.add("hidden-overlay");
         }, debounceTime);
 
         rows.forEach((row) => {

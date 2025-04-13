@@ -171,6 +171,10 @@ footer {
   opacity: var(--overlay-opacity);
 }
 
+.hidden-overlay {
+  opacity: 0;
+}
+
 /* Transition and hover effects */
 .transition {
   transition: transform var(--transition-duration) ease-in-out, left var(--transition-duration) ease-in-out;
