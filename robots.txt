@@ -3,4 +3,4 @@ Disallow: /_site/
 Disallow: /private/
 Allow: /
 
-Sitemap: https://kvnchpl.github.io/sitemap.xml
+Sitemap: /sitemap.xml
