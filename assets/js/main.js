@@ -96,7 +96,7 @@ window.onload = async () => {
                 const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
                 const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
 
-                row.style.position = "absolute";
+                row.classList.add("randomized");
                 row.style.left = initialLeft;
             }
 
@@ -275,7 +275,8 @@ window.onload = async () => {
 
         const toggleNav = () => {
             const isOpen = siteNav.classList.toggle("open");
-            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            siteNav.setAttribute("aria-hidden", !isOpen);
+            navToggle.setAttribute("aria-expanded", isOpen);
 
             if (isOpen && firstLink) {
                 firstLink.focus();
