@@ -8,7 +8,7 @@ permalink: /
 <h1>kvnchpl</h1>
 
 <ul class="link-list">
-  {% for link in site.data.substation %}
+  {% for link in site.data.index %}
     <li>
       <a href="{{ link.href }}" 
          {% if link.href == page.url %}aria-current="page"{% endif %}
