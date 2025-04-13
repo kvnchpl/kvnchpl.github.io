@@ -1,15 +1,24 @@
 window.onload = () => {
     console.log("DEBUG: main.js loaded");
 
-    const isMobile = () => window.innerWidth <= 768;
+    const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
     const overlay = document.getElementById('image-overlay');
-    const linkContainer = document.getElementById('link-container');
-    console.log("DEBUG: Link container:", linkContainer);
+    if (!overlay) {
+        console.error("DEBUG: No #image-overlay element found!");
+        return;
+    }
 
+    const linkContainer = document.getElementById('link-container');
+    
     if (!linkContainer) {
         console.error("DEBUG: No link container found!");
+        return;
+    }
+
+    if (!linkContainer.querySelector('ul')) {
+        console.error("DEBUG: No <ul> found inside #link-container!");
         return;
     }
 
@@ -34,6 +43,10 @@ window.onload = () => {
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
             const link = row.querySelector('a');
+            if (!link) {
+                console.error(`DEBUG: No <a> element found in row ${index}`);
+                return;
+            }
 
             const isLeftArrow = index % 2 === 0;
             row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
@@ -42,6 +55,11 @@ window.onload = () => {
             if (!isMobile()) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
+
+                if (viewportWidth === 0) {
+                    console.error("DEBUG: Viewport width is zero, cannot calculate positions!");
+                    return;
+                }
 
                 const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
                 const safeMaxPercent = 100 - safeMinPercent;
@@ -62,12 +80,17 @@ window.onload = () => {
     };
 
     const enableHoverEffect = (rows, initialPositions, debounceTime) => {
-        const debounce = (func, wait) => {
+        const debounce = (func, wait, immediate = false) => {
             let timeout;
             return function (...args) {
                 const context = this;
+                const callNow = immediate && !timeout;
                 clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(context, args), wait);
+                timeout = setTimeout(() => {
+                    timeout = null;
+                    if (!immediate) func.apply(context, args);
+                }, wait);
+                if (callNow) func.apply(context, args);
             };
         };
 
@@ -99,6 +122,10 @@ window.onload = () => {
 
         rows.forEach((row) => {
             const isLeftArrow = row.classList.contains('left-arrow');
+            if (!isLeftArrow && !row.classList.contains('right-arrow')) {
+                console.warn(`DEBUG: Row ${row} has no arrow class, skipping hover effect`);
+                return;
+            }
 
             row.addEventListener('mouseenter', () => {
                 if (!isMobile()) {
@@ -132,9 +159,22 @@ window.onload = () => {
             return response.json();
         })
         .then((data) => {
+
+            if (!Array.isArray(data)) {
+                throw new Error("Invalid JSON format: Expected an array");
+            }
+
             // Separate image list and link data
             const imageList = data.filter((item) => item.endsWith('.png') || item.endsWith('.jpg'));
             const linkData = data.filter((item) => typeof item === 'object' && item.href);
+
+            if (imageList.length === 0) {
+                console.warn("DEBUG: No valid images found in JSON data");
+            }
+
+            if (linkData.length === 0) {
+                console.warn("DEBUG: No valid links found in JSON data");
+            }
 
             // Handle images
             const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
