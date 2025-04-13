@@ -140,7 +140,6 @@ window.onload = async () => {
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
 
-                    otherRow.classList.add("transition");
                 }
             });
         }, debounceTime);
@@ -148,7 +147,6 @@ window.onload = async () => {
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
                 row.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
-                row.classList.add("transition");
             });
 
             overlay.classList.add("hidden-overlay");
