@@ -1,6 +1,6 @@
 [
   {
-      "href": "projects",
+      "href": "/projects",
       "label": "See what I’m working on"
   },
   {
@@ -9,11 +9,11 @@
       "newTab": false
   },
   {
-      "href": "writings",
+      "href": "/writings",
       "label": "See what I’m writing"
   },
   {
-      "href": "readings",
+      "href": "/readings",
       "label": "See what I’m reading"
   },
   {
@@ -29,7 +29,7 @@
       "label": "Go hunting for hydrants"
   },
   {
-      "href": "contact",
+      "href": "/contact",
       "label": "Say hi"
   }
 ]
