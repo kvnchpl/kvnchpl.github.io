@@ -174,14 +174,6 @@ window.onload = async () => {
                 }
             });
         });
-
-        rows.forEach((row, index) => {
-            console.log(`DEBUG: Row ${index} styles`, {
-                position: row.style.position,
-                left: row.style.left,
-                classes: row.classList.toString(),
-            });
-        });
     };
 
     // Fetch and process overlay images
