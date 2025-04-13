@@ -72,6 +72,14 @@ li.visible {
   justify-content: flex-start;
 }
 
+.left-arrow a::before {
+  content: "← ";
+}
+
+.right-arrow a::after {
+  content: " →";
+}
+
 a {
   display: inline-block;
   white-space: nowrap;

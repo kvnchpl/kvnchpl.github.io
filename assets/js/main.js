@@ -101,13 +101,6 @@ window.onload = async () => {
             const isLeftArrow = index % 2 === 0; // Alternate left/right based on index
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
-            // Add arrows to the link text
-            if (isLeftArrow) {
-                link.innerHTML = `← ${originalText}`; // Prepend left arrow
-            } else {
-                link.innerHTML = `${originalText} →`; // Append right arrow
-            }
-
             // Desktop: Randomize horizontal positions
             if (!isMobile) {
                 const linkWidth = link.offsetWidth;
