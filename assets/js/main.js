@@ -10,7 +10,7 @@ window.onload = () => {
         return;
     }
 
-    const rows = linkContainer.querySelectorAll('li.row');
+    const rows = linkContainer.querySelectorAll('li.row'); // Target <li> elements directly
 
     if (rows.length === 0) {
         console.error("No rows found inside the link container!");
@@ -29,7 +29,6 @@ window.onload = () => {
 
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector('.link-wrapper');
             const link = row.querySelector('a');
 
             const isLeftArrow = index % 2 === 0;
@@ -47,8 +46,8 @@ window.onload = () => {
                 initialPositions.push(randomPercent);
 
                 const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
-                linkWrapper.style.position = "absolute";
-                linkWrapper.style.left = initialLeft;
+                row.style.position = "absolute";
+                row.style.left = initialLeft;
             }
 
             row.style.visibility = "visible";
@@ -68,46 +67,43 @@ window.onload = () => {
             };
         };
 
-        const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
+        const debouncedHoverHandler = debounce((row, isLeftArrow, hoveredLeft) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             overlay.style.opacity = '0.5';
 
             rows.forEach((otherRow) => {
-                const otherWrapper = otherRow.querySelector('.link-wrapper');
-                if (otherWrapper !== linkWrapper) {
-                    const otherLinkWidth = otherWrapper.offsetWidth;
-                    otherWrapper.style.left = isLeftArrow
+                if (otherRow !== row) {
+                    const otherLinkWidth = otherRow.offsetWidth;
+                    otherRow.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
-                        : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
+                        : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
 
-                    otherWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
+                    otherRow.style.transition = 'left var(--transition-duration) ease-in-out';
                 }
             });
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
-                const linkWrapper = row.querySelector('.link-wrapper');
-                linkWrapper.style.left = `calc(${initialPositions[index]}% - ${linkWrapper.offsetWidth / 2}px)`;
-                linkWrapper.style.transition = 'left var(--transition-duration) ease-in-out';
+                row.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
+                row.style.transition = 'left var(--transition-duration) ease-in-out';
             });
 
             overlay.style.opacity = '0';
         }, debounceTime);
 
         rows.forEach((row) => {
-            const linkWrapper = row.querySelector('.link-wrapper');
             const isLeftArrow = row.classList.contains('left-arrow');
 
-            linkWrapper.addEventListener('mouseenter', () => {
+            row.addEventListener('mouseenter', () => {
                 if (!isMobile()) {
-                    const hoveredLeft = parseFloat(window.getComputedStyle(linkWrapper).left);
-                    debouncedHoverHandler(linkWrapper, isLeftArrow, hoveredLeft);
+                    const hoveredLeft = parseFloat(window.getComputedStyle(row).left);
+                    debouncedHoverHandler(row, isLeftArrow, hoveredLeft);
                 }
             });
 
-            linkWrapper.addEventListener('mouseleave', () => {
+            row.addEventListener('mouseleave', () => {
                 if (!isMobile()) {
                     debouncedLeaveHandler();
                 }
