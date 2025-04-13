@@ -8,9 +8,9 @@ permalink: /readings/
 <h1>Readings</h1>
 
 <div id="link-container">
-  {% for reading in site.data.readings %}
-    <div class="row">
-      <div class="link-wrapper">
+  <ul>
+    {% for reading in site.data.readings %}
+      <li class="row">
         <a href="{{ reading.link }}" target="_blank" rel="noopener noreferrer">
           {{ reading.title }}
         </a>
@@ -20,7 +20,7 @@ permalink: /readings/
             {% if reading.publication %}, {{ reading.publication }}{% endif %}
           </span>
         {% endif %}
-      </div>
-    </div>
-  {% endfor %}
+      </li>
+    {% endfor %}
+  </ul>
 </div>
