@@ -166,6 +166,9 @@ window.onload = async () => {
                     otherWrapper.style.left = `${newLeft}px`;
                 }
             });
+
+            // Ensure the hovered link stays in its original position
+            linkWrapper.style.left = `${parseFloat(linkWrapper.style.left || 0)}px`;
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
