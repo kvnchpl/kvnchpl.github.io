@@ -72,12 +72,15 @@ window.onload = async () => {
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
 
+            const isLeftArrow = index % 2 === 0; // Alternate left/right based on index
+            row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
+
             if (isMobile) {
-                // Alternate left- and right-justified rows on mobile
-                const isLeftArrow = index % 2 === 0;
-                row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
+                // Mobile: Alternate left- and right-justified rows
+                row.style.position = "relative"; // Ensure rows are positioned relative for mobile
+                row.style.left = ""; // Reset any desktop-specific positioning
             } else {
-                // Randomize positions on desktop
+                // Desktop: Randomize horizontal positions
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
