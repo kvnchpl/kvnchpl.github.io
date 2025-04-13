@@ -56,7 +56,6 @@ a:hover {
 
 ul {
     list-style: none;
-    position: relative;
     padding: var(--list-padding);
     margin: var(--list-margin);
 }
