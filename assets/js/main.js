@@ -37,9 +37,9 @@ window.onload = async () => {
     if (!config) return;
 
     // Extract configuration values
-    const debounceTime = config.debounceTime || 200;
-    const linkContainerId = config.linkContainerId || "link-container";
-    const imageOverlayId = config.imageOverlayId || "image-overlay";
+    const debounceTime = config.debounceTime;
+    const linkContainerId = config.linkContainerId;
+    const imageOverlayId = config.imageOverlayId;
 
     const overlay = document.getElementById(imageOverlayId);
     const linkContainer = document.getElementById(linkContainerId);
@@ -157,12 +157,29 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
-            rows.forEach((row, index) => {
+            rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
-                const initialLeft = initialPositions[index];
-                linkWrapper.style.left = `${initialLeft}px`; // Reset to the initialized pixel value
+                const linkWidth = linkWrapper.offsetWidth;
+                const viewportWidth = window.innerWidth;
+        
+                if (viewportWidth === 0) {
+                    logError("Viewport width is zero, cannot calculate positions!");
+                    return;
+                }
+        
+                // Generate a new random position
+                const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
+                const safeMaxPercent = 100 - safeMinPercent;
+        
+                const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
+                const newLeft = (randomPercent / 100) * viewportWidth - linkWidth / 2;
+        
+                // Apply the new position
+                linkWrapper.style.left = `${newLeft}px`;
+        
+                console.log(`DEBUG: New randomized left for row: ${newLeft}px`);
             });
-
+        
             overlay.classList.add("hidden-overlay");
         }, debounceTime);
 
