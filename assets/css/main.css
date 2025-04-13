@@ -157,6 +157,16 @@ footer {
   text-transform: uppercase;
 }
 
+/* Transition class */
+.transition {
+  transition: transform var(--transition-duration) ease-in-out, left var(--transition-duration) ease-in-out;
+}
+
+/* Hover effect class */
+.hover-scale {
+  transform: scale(var(--hover-scale));
+}
+
 /* Skip link */
 .skip-link {
   position: absolute;

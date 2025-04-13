@@ -17,8 +17,8 @@ window.onload = async () => {
 
     // Extract configuration values
     const debounceTime = config.debounceTime || 200;
-    const linkContainerId = config.linkContainerId || "link-container";
-    const imageOverlayId = config.imageOverlayId || "image-overlay";
+    const linkContainerId = config.linkContainerId;
+    const imageOverlayId = config.imageOverlayId;
     const scrollThresholds = config.scrollThresholds || { shortPage: 800, mediumPage: 1600 };
     const scrollIntervals = config.scrollIntervals || { shortPage: 2, mediumPage: 3, longPage: 4 };
 
@@ -88,7 +88,8 @@ window.onload = async () => {
                 row.style.position = "absolute";
                 row.style.left = initialLeft;
             }
-
+            
+            row.classList.add("transition");
             row.style.visibility = "visible";
             console.log(`DEBUG: Row ${index} made visible`);
         });
@@ -121,7 +122,7 @@ window.onload = async () => {
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
 
-                    otherRow.style.transition = "left var(--transition-duration) ease-in-out";
+                    otherRow.classList.add("transition");
                 }
             });
         }, debounceTime);
@@ -129,7 +130,7 @@ window.onload = async () => {
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
                 row.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
-                row.style.transition = "left var(--transition-duration) ease-in-out";
+                row.classList.add("transition");
             });
 
             overlay.style.opacity = "0";
