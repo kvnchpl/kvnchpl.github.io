@@ -115,12 +115,12 @@ window.onload = async () => {
                 const safeMaxPercent = 100 - safeMinPercent;
 
                 const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
-                const initialLeft = `calc(${randomPercent}% - ${linkWidth / 2}px)`;
+                const initialLeft = (randomPercent / 100) * viewportWidth - linkWidth / 2;
 
                 linkWrapper.classList.add("randomized");
-                linkWrapper.style.left = initialLeft; // Initialize left property
+                linkWrapper.style.left = `${initialLeft}px`; // Initialize left as a pixel value
 
-                initialPositions[index] = randomPercent; // Store initial position
+                initialPositions[index] = initialLeft; // Store initial position as a pixel value
             }
 
             row.classList.add("visible");
@@ -162,8 +162,11 @@ window.onload = async () => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
                 const initialLeft = initialPositions[index];
+                /*
                 const linkWidth = linkWrapper.offsetWidth;
                 linkWrapper.style.left = `${(initialLeft / 100) * window.innerWidth - linkWidth / 2}px`;
+                */
+                linkWrapper.style.left = `${initialLeft}px`; // Reset to the initialized pixel value
             });
 
             overlay.classList.add("hidden-overlay");
