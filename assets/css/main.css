@@ -33,28 +33,28 @@ footer {
   padding: 1rem;
 }
 
-#link-container .row {
+.row {
   display: flex;
   justify-content: center;
   position: relative;
   visibility: hidden;
 }
 
-#link-container ul {
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-#link-container ul li {
+li {
   margin-bottom: var(--gap-size-desktop);
 }
 
-#link-container .row.left-arrow {
+.left-arrow {
   justify-content: flex-end;
 }
 
-#link-container .row.right-arrow {
+.right-arrow {
   justify-content: flex-start;
 }
 
@@ -63,22 +63,22 @@ footer {
   transition: transform var(--transition-duration) ease-in-out;
 }
 
-.row a {
+a {
   display: inline-block;
   white-space: nowrap;
   transition: transform var(--transition-duration) ease-in-out;
 }
 
-.row a:hover {
+a:hover {
   transform: scale(var(--hover-scale));
 }
 
-.row.randomized {
+.randomized {
   position: absolute;
   transition: left var(--transition-duration) ease-in-out;
 }
 
-.row.visible {
+.visible {
   visibility: visible;
 }
 
@@ -214,22 +214,18 @@ footer {
     gap: var(--gap-size-mobile);
   }
 
-  #link-container .row {
+  .row {
     position: relative;
     left: auto;
     justify-content: flex-start;
   }
 
-  #link-container .row.left-arrow {
+  .left-arrow {
     justify-content: flex-end;
   }
 
-  #link-container .row.right-arrow {
+  .right-arrow {
     justify-content: flex-start;
-  }
-
-  .transition {
-    transition: left var(--transition-duration) ease-in-out;
   }
 
   #nav-toggle {
