@@ -1,0 +1,14 @@
+{
+    "debounceTime": 200,
+    "linkContainerId": "link-container",
+    "imageOverlayId": "image-overlay",
+    "scrollThresholds": {
+        "shortPage": 800,
+        "mediumPage": 1600
+    },
+    "scrollIntervals": {
+        "shortPage": 2,
+        "mediumPage": 3,
+        "longPage": 4
+    }
+}
