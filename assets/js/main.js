@@ -164,18 +164,15 @@ window.onload = () => {
             };
 
             const rows = linkData.map((linkItem) => {
-                const row = document.createElement('div');
+                const row = document.createElement('li');
                 row.className = 'row';
-
-                const wrapper = document.createElement('div');
-                wrapper.className = 'link-wrapper';
 
                 const link = document.createElement('a');
                 link.href = linkItem.href;
                 link.textContent = linkItem.label;
                 configureLinkTarget(link, linkItem); // Apply link target logic
 
-                wrapper.appendChild(link);
+                row.appendChild(link);
 
                 // Add subtitle dynamically if applicable
                 const subtitleParts = [];
@@ -187,18 +184,17 @@ window.onload = () => {
                     const subtitle = document.createElement('span');
                     subtitle.className = 'subtitle';
                     subtitle.textContent = subtitleParts.join(', ');
-                    wrapper.appendChild(subtitle);
+                    row.appendChild(subtitle);
                 }
 
-                row.appendChild(wrapper);
-                linkContainer.appendChild(row);
+                linkContainer.querySelector('ul').appendChild(row);
 
                 return row;
             });
 
             console.log("DEBUG: Calling randomizeLinks");
             console.log("DEBUG: Rows found:", rows);
-            initialPositions = randomizeLinks(rows);
+            initialPositions = randomizeLinks(rows); // Pass the correct rows here
             enableHoverEffect(rows, initialPositions, 200);
         })
         .catch((error) => console.error('Error loading data:', error));
