@@ -36,7 +36,7 @@ window.onload = async () => {
     const generateRandomPosition = (linkWidth, viewportWidth) => {
         const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
         const safeMaxPercent = 100 - safeMinPercent;
-    
+
         const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
         return (randomPercent / 100) * viewportWidth - linkWidth / 2;
     };
@@ -118,16 +118,16 @@ window.onload = async () => {
             if (!isMobile) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
-            
+
                 if (viewportWidth === 0) {
                     logError("Viewport width is zero, cannot calculate positions!");
                     return;
                 }
-            
+
                 const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
                 linkWrapper.style.position = "absolute";
                 linkWrapper.style.left = `${initialLeft}px`;
-            
+
                 initialPositions[index] = initialLeft; // Store initial position as a pixel value
             }
 
@@ -135,9 +135,13 @@ window.onload = async () => {
         });
     };
 
-    // Enable hover effects with debounced handlers
+    let currentlyHoveredLink = null; // Track the currently hovered link
+
     const enableHoverEffect = (rows) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
+            if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
+            currentlyHoveredLink = linkWrapper; // Update the currently hovered link
+
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             overlay.classList.add("visible");
@@ -165,19 +169,22 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
+            currentlyHoveredLink = null; // Reset the currently hovered link
+
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
-            
+
                 if (viewportWidth === 0) {
                     logError("Viewport width is zero, cannot calculate positions!");
                     return;
                 }
-            
+
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                 linkWrapper.style.left = `${newLeft}px`;
             });
+
             overlay.classList.remove("visible");
         }, debounceTime);
 
