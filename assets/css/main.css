@@ -27,6 +27,7 @@ footer {
 /* Link container and rows */
 #link-container {
   display: flex;
+  position: relative;
   flex-direction: column;
   gap: var(--gap-size-desktop);
   margin: 0 auto;
@@ -43,11 +44,11 @@ ul {
 .link-wrapper {
   position: relative; /* Default for mobile */
   width: 100%;
+  transition: left var(--transition-duration) ease-in-out;
 }
 
 .link-wrapper.randomized {
   position: absolute; /* For desktop randomization */
-  transition: left var(--transition-duration) ease-in-out; /* Smooth sliding */
 }
 
 li {
