@@ -1,6 +1,5 @@
 window.onload = async () => {
-    // Utility function to check if the device is mobile
-    const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
     const logError = (message) => console.error(`DEBUG: ${message}`);
@@ -73,7 +72,7 @@ window.onload = async () => {
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
 
-            if (isMobile()) {
+            if (isMobile) {
                 // Alternate left- and right-justified rows on mobile
                 const isLeftArrow = index % 2 === 0;
                 row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
@@ -152,14 +151,14 @@ window.onload = async () => {
             }
 
             row.addEventListener("mouseenter", () => {
-                if (!isMobile()) {
+                if (!isMobile) {
                     const hoveredLeft = parseFloat(window.getComputedStyle(row).left);
                     debouncedHoverHandler(row, isLeftArrow, hoveredLeft);
                 }
             });
 
             row.addEventListener("mouseleave", () => {
-                if (!isMobile()) {
+                if (!isMobile) {
                     debouncedLeaveHandler();
                 }
             });
@@ -172,7 +171,7 @@ window.onload = async () => {
         shuffledImages = skyImages.sort(() => Math.random() - 0.5);
         preloadImages(shuffledImages);
 
-        if (isMobile()) {
+        if (isMobile) {
             overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
             overlay.classList.add("visible-overlay");
         }
@@ -228,7 +227,7 @@ window.onload = async () => {
         logError("DEBUG: No valid links found in index.json or the file is empty.");
     }
 
-    if (isMobile()) {
+    if (isMobile) {
         let previousInterval = -1;
 
         // Scroll-based image cycling
