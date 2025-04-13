@@ -73,6 +73,11 @@ footer {
   transform: scale(var(--hover-scale));
 }
 
+.row.randomized {
+  position: absolute;
+  transition: left var(--transition-duration) ease-in-out;
+}
+
 .subtitle {
   display: block;
   font-size: var(--subtitle-font-size);
