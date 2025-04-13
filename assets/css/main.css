@@ -43,7 +43,6 @@ ul {
 
 .link-wrapper {
   position: relative; /* Default for mobile */
-  width: 100%;
   transition: left var(--transition-duration) ease-in-out;
 }
 
