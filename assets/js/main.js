@@ -132,7 +132,7 @@ window.onload = async () => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.classList.add("visible");
+            overlay.classList.add("visible-overlay");
 
             // Get the bounding rectangle of the hovered link
             const hoveredRect = linkWrapper.getBoundingClientRect();
@@ -147,8 +147,11 @@ window.onload = async () => {
                         ? hoveredRect.left - otherRect.left
                         : hoveredRect.right - otherRect.right;
 
-                    // Apply the calculated offset
-                    otherWrapper.style.left = `${parseFloat(otherWrapper.style.left || 0) + offset}px`;
+                    // Convert the offset to a pixel value and apply it
+                    const currentLeft = parseFloat(otherWrapper.style.left || 0);
+                    const newLeft = currentLeft + offset;
+
+                    otherWrapper.style.left = `${newLeft}px`;
 
                     console.log(`DEBUG: Updated left for other link: ${otherWrapper.style.left}`);
                 }
@@ -158,10 +161,12 @@ window.onload = async () => {
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
-                linkWrapper.style.left = `calc(${initialPositions[index]}% - ${linkWrapper.offsetWidth / 2}px)`;
+                const initialLeft = initialPositions[index];
+                const linkWidth = linkWrapper.offsetWidth;
+                linkWrapper.style.left = `${(initialLeft / 100) * window.innerWidth - linkWidth / 2}px`;
             });
 
-            overlay.classList.add("hidden");
+            overlay.classList.add("hidden-overlay");
         }, debounceTime);
 
         rows.forEach((row) => {
