@@ -15,9 +15,9 @@
     --list-item-margin-bottom: 1rem;
     --link-text-transform: uppercase;
     --link-font-size: 1.2rem;
-  }
-  
-  body {
+}
+
+body {
     background-color: var(--background-color);
     color: var(--font-color);
     font-family: var(--font-family);
@@ -27,34 +27,34 @@
     margin: 0;
     padding: var(--body-padding);
     overflow-x: hidden;
-  }
-  
-  a {
+}
+
+a {
     color: var(--link-color);
     font-weight: var(--link-font-weight);
     text-decoration: none;
     transition: color var(--transition-duration) ease-in-out;
-  }
-  
-  a:focus {
+}
+
+a:focus {
     outline: 2px solid var(--focus-outline-color);
-  }
-  
-  a:hover {
+}
+
+a:hover {
     color: var(--link-hover-color);
-  }
-  
-  ul {
+}
+
+ul {
     list-style: none;
     padding: var(--list-padding);
     margin: var(--list-margin);
-  }
-  
-  ul li {
+}
+
+ul li {
     margin-bottom: var(--list-item-margin-bottom);
-  }
-  
-  ul li a {
+}
+
+ul li a {
     text-transform: var(--link-text-transform);
     font-size: var(--link-font-size);
-  }
+}
