@@ -116,14 +116,19 @@ window.onload = () => {
         return `${month} ${year}`; // For cases like "Fall 1964"
     }
 
-    fetch(IMAGE_LIST_URL)
+    fetch(jsonUrl)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Failed to fetch images');
+                throw new Error('Failed to fetch data');
             }
             return response.json();
         })
-        .then((imageList) => {
+        .then((data) => {
+            // Separate image list and link data
+            const imageList = data.filter((item) => item.endsWith('.png') || item.endsWith('.jpg'));
+            const linkData = data.filter((item) => typeof item === 'object' && item.href);
+
+            // Handle images
             const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
             const preloadImages = (images) => {
                 images.forEach((src) => {
@@ -139,15 +144,8 @@ window.onload = () => {
                 overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
                 overlay.style.opacity = '0.5';
             }
-        })
-        .catch((error) => {
-            console.error('Error loading images:', error);
-        });
 
-    fetch(jsonUrl)
-        .then((response) => response.json())
-        .then((linkData) => {
-            // Helper function to configure link targets
+            // Handle links
             const configureLinkTarget = (link, linkItem) => {
                 if (linkItem.newTab === false) {
                     link.target = '_self'; // Force open in the same tab
@@ -193,7 +191,7 @@ window.onload = () => {
             initialPositions = randomizeLinks(rows);
             enableHoverEffect(rows, initialPositions, 200);
         })
-        .catch((error) => console.error('Error loading links:', error));
+        .catch((error) => console.error('Error loading data:', error));
 
     if (isMobile()) {
         // Set the initial overlay image
@@ -236,6 +234,7 @@ window.onload = () => {
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
     }
+
     // Mobile navigation toggle
     const navToggle = document.getElementById("nav-toggle");
     const siteNav = document.getElementById("site-nav");
@@ -306,4 +305,4 @@ window.onload = () => {
             }
         });
     }
-}
+};
