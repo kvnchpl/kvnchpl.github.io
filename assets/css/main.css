@@ -205,6 +205,18 @@ footer {
     justify-content: flex-start;
   }
 
+  .row.left-arrow {
+    justify-content: flex-end;
+  }
+
+  .row.right-arrow {
+    justify-content: flex-start;
+  }
+
+  .transition {
+    transition: left var(--transition-duration) ease-in-out;
+  }
+
   #nav-toggle {
     display: block;
     position: absolute;
