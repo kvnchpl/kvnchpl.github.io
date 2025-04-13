@@ -60,10 +60,6 @@ ul {
     margin: var(--list-margin);
 }
 
-ul li {
-    margin-bottom: var(--list-item-margin-bottom);
-}
-
 ul li a {
     text-transform: var(--link-text-transform);
     font-size: var(--link-font-size);
