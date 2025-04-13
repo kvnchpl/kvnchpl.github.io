@@ -40,6 +40,16 @@ footer {
   visibility: hidden;
 }
 
+#link-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#link-container ul li {
+  margin-bottom: var(--gap-size-desktop);
+}
+
 #link-container .row.left-arrow {
   justify-content: flex-start;
 }
@@ -48,18 +58,18 @@ footer {
   justify-content: flex-end;
 }
 
-.link-wrapper {
+.row {
   position: relative;
   transition: transform var(--transition-duration) ease-in-out;
 }
 
-.link-wrapper a {
+.row a {
   display: inline-block;
   white-space: nowrap;
   transition: transform var(--transition-duration) ease-in-out;
 }
 
-.link-wrapper a:hover {
+.row a:hover {
   transform: scale(var(--hover-scale));
 }
 
