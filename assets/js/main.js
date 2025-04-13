@@ -10,8 +10,10 @@ window.onload = () => {
         return;
     }
 
+    overlay.setAttribute('aria-hidden', 'true');
+
     const linkContainer = document.getElementById('link-container');
-    
+
     if (!linkContainer) {
         console.error("DEBUG: No link container found!");
         return;
@@ -22,7 +24,7 @@ window.onload = () => {
         return;
     }
 
-    const rows = linkContainer.querySelectorAll('li.row'); // Target <li> elements directly
+    const rows = linkContainer.querySelectorAll('li.row');
     console.log("DEBUG: Rows found:", rows);
 
     if (rows.length === 0) {
@@ -50,7 +52,11 @@ window.onload = () => {
 
             const isLeftArrow = index % 2 === 0;
             row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
-            link.textContent = isLeftArrow ? `←${link.textContent}` : `${link.textContent}→`;
+
+            const originalText = link.textContent.trim();
+            link.setAttribute('aria-label', originalText);
+
+            link.textContent = isLeftArrow ? `←${originalText}` : `${originalText}→`;
 
             if (!isMobile()) {
                 const linkWidth = link.offsetWidth;
@@ -164,7 +170,6 @@ window.onload = () => {
                 throw new Error("Invalid JSON format: Expected an array");
             }
 
-            // Separate image list and link data
             const imageList = data.filter((item) => item.endsWith('.png') || item.endsWith('.jpg'));
             const linkData = data.filter((item) => typeof item === 'object' && item.href);
 
@@ -176,7 +181,6 @@ window.onload = () => {
                 console.warn("DEBUG: No valid links found in JSON data");
             }
 
-            // Handle images
             const shuffleArray = (array) => array.sort(() => Math.random() - 0.5);
             const preloadImages = (images) => {
                 images.forEach((src) => {
@@ -195,7 +199,6 @@ window.onload = () => {
                 overlay.style.opacity = '0.5';
             }
 
-            // Handle links
             const configureLinkTarget = (link, linkItem) => {
                 if (linkItem.newTab === false) {
                     link.target = '_self'; // Force open in the same tab
@@ -212,7 +215,7 @@ window.onload = () => {
                 const link = document.createElement('a');
                 link.href = linkItem.href;
                 link.textContent = linkItem.label;
-                configureLinkTarget(link, linkItem); // Apply link target logic
+                configureLinkTarget(link, linkItem);
 
                 row.appendChild(link);
 
@@ -236,17 +239,16 @@ window.onload = () => {
 
             console.log("DEBUG: Calling randomizeLinks");
             console.log("DEBUG: Rows found:", rows);
-            initialPositions = randomizeLinks(rows); // Pass the correct rows here
+            initialPositions = randomizeLinks(rows);
             enableHoverEffect(rows, initialPositions, 200);
         })
         .catch((error) => console.error('Error loading data:', error));
 
     if (isMobile()) {
-        // Set the initial overlay image
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
         overlay.style.opacity = '0.5';
 
-        let previousInterval = -1; // Track the last interval crossed
+        let previousInterval = -1;
 
         // Scroll-based image cycling
         window.addEventListener('scroll', () => {
@@ -263,7 +265,6 @@ window.onload = () => {
                 totalIntervals = 4; // For long pages
             }
 
-            // Calculate the current interval
             const currentInterval = Math.min(
                 Math.floor((scrollTop / scrollHeight) * totalIntervals),
                 totalIntervals - 1 // Ensure the interval index doesn't exceed bounds
@@ -278,12 +279,11 @@ window.onload = () => {
 
         document.addEventListener('click', (event) => {
             const target = event.target;
-            if (target.closest('a')) return; // Allow links to navigate
+            if (target.closest('a')) return;
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
     }
 
-    // Mobile navigation toggle
     const navToggle = document.getElementById("nav-toggle");
     const siteNav = document.getElementById("site-nav");
 
@@ -302,14 +302,12 @@ window.onload = () => {
             navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
 
             if (isOpen && firstLink) {
-                firstLink.focus(); // move focus into nav
+                firstLink.focus();
             }
         };
 
-        // Click toggle
         navToggle.addEventListener("click", toggleNav);
 
-        // Keyboard toggle
         navToggle.addEventListener("keydown", (e) => {
             if (e.key === "Enter" || e.key === " ") {
                 e.preventDefault();
@@ -317,7 +315,6 @@ window.onload = () => {
             }
         });
 
-        // Close on link click
         navLinks.forEach(link => {
             link.addEventListener("click", () => {
                 if (siteNav.classList.contains("open")) {
@@ -326,7 +323,6 @@ window.onload = () => {
             });
         });
 
-        // Trap focus within nav
         document.addEventListener("keydown", (e) => {
             if (!siteNav.classList.contains("open")) return;
 
@@ -347,7 +343,6 @@ window.onload = () => {
             }
 
             if (e.key === "Escape") {
-                // ESC closes nav
                 closeNav();
                 navToggle.focus();
             }
