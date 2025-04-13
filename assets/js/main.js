@@ -1,29 +1,41 @@
-window.onload = () => {
+window.onload = async () => {
     console.log("DEBUG: main.js loaded");
 
     const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
-    const imageJsonUrl = document.querySelector("meta[name='sky-images-data']").content; // For overlay images
-    const linkJsonUrl = document.querySelector("meta[name='index-links-data']").content; // For homepage links
+    // Fetch configuration from config.json
+    const configUrl = "/assets/data/config.json";
+    let config = {};
+    try {
+        const response = await fetch(configUrl);
+        if (!response.ok) throw new Error("Failed to fetch config.json");
+        config = await response.json();
+    } catch (error) {
+        console.error("DEBUG: Error loading config.json:", error);
+        return;
+    }
 
-    const overlay = document.getElementById('image-overlay');
+    // Extract configuration values
+    const debounceTime = config.debounceTime || 200;
+    const linkContainerId = config.linkContainerId || "link-container";
+    const imageOverlayId = config.imageOverlayId || "image-overlay";
+    const scrollThresholds = config.scrollThresholds || { shortPage: 800, mediumPage: 1600 };
+    const scrollIntervals = config.scrollIntervals || { shortPage: 2, mediumPage: 3, longPage: 4 };
+
+    const overlay = document.getElementById(imageOverlayId);
+    const linkContainer = document.getElementById(linkContainerId);
+
     if (!overlay) {
         console.error("DEBUG: No #image-overlay element found!");
         return;
     }
 
-    overlay.setAttribute('aria-hidden', 'true');
-
-    const linkContainer = document.getElementById('link-container');
     if (!linkContainer) {
         console.error("DEBUG: No link container found!");
         return;
     }
 
-    if (!linkContainer.querySelector('ul')) {
-        console.error("DEBUG: No <ul> found inside #link-container!");
-        return;
-    }
+    overlay.setAttribute("aria-hidden", "true");
 
     let shuffledImages = [];
     let currentImageIndex = 0;
@@ -45,17 +57,17 @@ window.onload = () => {
 
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
-            const link = row.querySelector('a');
+            const link = row.querySelector("a");
             if (!link) {
                 console.error(`DEBUG: No <a> element found in row ${index}`);
                 return;
             }
 
             const isLeftArrow = index % 2 === 0;
-            row.classList.add(isLeftArrow ? 'left-arrow' : 'right-arrow');
+            row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
             const originalText = link.textContent.trim();
-            link.setAttribute('aria-label', originalText);
+            link.setAttribute("aria-label", originalText);
 
             link.textContent = isLeftArrow ? `←${originalText}` : `${originalText}→`;
 
@@ -100,7 +112,7 @@ window.onload = () => {
         const debouncedHoverHandler = debounce((row, isLeftArrow, hoveredLeft) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.style.opacity = '0.5';
+            overlay.style.opacity = "0.5";
 
             rows.forEach((otherRow) => {
                 if (otherRow !== row) {
@@ -109,35 +121,35 @@ window.onload = () => {
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
 
-                    otherRow.style.transition = 'left var(--transition-duration) ease-in-out';
+                    otherRow.style.transition = "left var(--transition-duration) ease-in-out";
                 }
             });
-        }, 200);
+        }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
             rows.forEach((row, index) => {
                 row.style.left = `calc(${initialPositions[index]}% - ${row.offsetWidth / 2}px)`;
-                row.style.transition = 'left var(--transition-duration) ease-in-out';
+                row.style.transition = "left var(--transition-duration) ease-in-out";
             });
 
-            overlay.style.opacity = '0';
-        }, 200);
+            overlay.style.opacity = "0";
+        }, debounceTime);
 
         rows.forEach((row) => {
-            const isLeftArrow = row.classList.contains('left-arrow');
-            if (!isLeftArrow && !row.classList.contains('right-arrow')) {
+            const isLeftArrow = row.classList.contains("left-arrow");
+            if (!isLeftArrow && !row.classList.contains("right-arrow")) {
                 console.warn(`DEBUG: Row ${row} has no arrow class, skipping hover effect`);
                 return;
             }
 
-            row.addEventListener('mouseenter', () => {
+            row.addEventListener("mouseenter", () => {
                 if (!isMobile()) {
                     const hoveredLeft = parseFloat(window.getComputedStyle(row).left);
                     debouncedHoverHandler(row, isLeftArrow, hoveredLeft);
                 }
             });
 
-            row.addEventListener('mouseleave', () => {
+            row.addEventListener("mouseleave", () => {
                 if (!isMobile()) {
                     debouncedLeaveHandler();
                 }
@@ -146,10 +158,10 @@ window.onload = () => {
     };
 
     // Fetch and process overlay images
-    fetch(imageJsonUrl)
+    fetch(document.querySelector("meta[name='sky-images-data']").content)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Failed to fetch overlay images');
+                throw new Error("Failed to fetch overlay images");
             }
             return response.json();
         })
@@ -164,16 +176,16 @@ window.onload = () => {
 
             if (isMobile()) {
                 overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-                overlay.style.opacity = '0.5';
+                overlay.style.opacity = "0.5";
             }
         })
-        .catch((error) => console.error('Error loading overlay images:', error));
+        .catch((error) => console.error("Error loading overlay images:", error));
 
     // Fetch and process homepage links
-    fetch(linkJsonUrl)
+    fetch(document.querySelector("meta[name='index-links-data']").content)
         .then((response) => {
             if (!response.ok) {
-                throw new Error('Failed to fetch homepage links');
+                throw new Error("Failed to fetch homepage links");
             }
             return response.json();
         })
@@ -184,36 +196,31 @@ window.onload = () => {
             }
 
             const rows = linkData.map((linkItem) => {
-                const row = document.createElement('li');
-                row.className = 'row';
+                const row = document.createElement("li");
+                row.className = "row";
 
-                const link = document.createElement('a');
+                const link = document.createElement("a");
                 link.href = linkItem.href;
                 link.textContent = linkItem.label;
 
                 if (linkItem.newTab === false) {
-                    link.target = '_self';
-                } else if (linkItem.href.startsWith('http')) {
-                    link.target = '_blank';
-                    link.rel = 'noopener noreferrer';
+                    link.target = "_self";
+                } else if (linkItem.href.startsWith("http")) {
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
                 }
 
                 row.appendChild(link);
 
                 // Add subtitle dynamically if applicable
-                const subtitleParts = [];
-                if (linkItem.author) subtitleParts.push(`By ${linkItem.author}`);
-                if (linkItem.publication) subtitleParts.push(linkItem.publication);
-                if (linkItem.month && linkItem.year) subtitleParts.push(`${linkItem.month} ${linkItem.year}`);
-
-                if (subtitleParts.length > 0) {
-                    const subtitle = document.createElement('span');
-                    subtitle.className = 'subtitle';
-                    subtitle.textContent = subtitleParts.join(', ');
+                if (linkItem.subtitle) {
+                    const subtitle = document.createElement("span");
+                    subtitle.className = "subtitle";
+                    subtitle.textContent = linkItem.subtitle;
                     row.appendChild(subtitle);
                 }
 
-                linkContainer.querySelector('ul').appendChild(row);
+                linkContainer.querySelector("ul").appendChild(row);
 
                 return row;
             });
@@ -222,7 +229,7 @@ window.onload = () => {
             randomizeLinks(rows);
             enableHoverEffect(rows);
         })
-        .catch((error) => console.error('Error loading homepage links:', error));
+        .catch((error) => console.error("Error loading homepage links:", error));
 
     if (isMobile()) {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
