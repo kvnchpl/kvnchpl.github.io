@@ -6,14 +6,22 @@ window.onload = () => {
     const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
+    console.log("DEBUG: Link container:", linkContainer);
 
+    if (linkContainer) {
+        const rows = linkContainer.querySelectorAll('li.row');
+        console.log("DEBUG: Rows found:", rows);
+    } else {
+        console.error("DEBUG: Link container not found!");
+    }
+/*
     if (!linkContainer) {
         console.error("No link container found!");
         return;
     }
 
     const rows = linkContainer.querySelectorAll('li.row'); // Target <li> elements directly
-
+*/
     if (rows.length === 0) {
         console.error("No rows found inside the link container!");
         return;
