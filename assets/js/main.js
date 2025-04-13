@@ -99,6 +99,10 @@ window.onload = async () => {
             link.setAttribute("aria-label", originalText);
 
             const isLeftArrow = index % 2 === 0; // Alternate left/right based on index
+
+            // Add arrows dynamically
+            link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
+
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
             // Desktop: Randomize horizontal positions
@@ -123,7 +127,7 @@ window.onload = async () => {
                 initialPositions[index] = initialLeft; // Store initial position as a pixel value
             }
 
-            row.classList.add("visible");
+            linkWrapper.classList.add("visible");
         });
     };
 
