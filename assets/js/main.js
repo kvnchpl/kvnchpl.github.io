@@ -63,7 +63,6 @@ window.onload = async () => {
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
         currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
-        console.log(`DEBUG: Next overlay image: ${nextImage}`); // Debugging log
         return nextImage;
     };
 
@@ -134,7 +133,6 @@ window.onload = async () => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             overlay.classList.add("visible");
-            console.log(`DEBUG: Overlay updated with image: ${nextImage}`);
 
             // Get the bounding rectangle of the hovered link
             const hoveredRect = linkWrapper.getBoundingClientRect();
