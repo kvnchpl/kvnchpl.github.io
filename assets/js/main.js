@@ -2,6 +2,7 @@ const isMobile = () => window.innerWidth <= 768;
 
 window.onload = () => {
     console.log("DEBUG: main.js loaded");
+    const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
 
