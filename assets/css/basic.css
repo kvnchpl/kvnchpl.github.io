@@ -37,7 +37,7 @@ body {
 
 h1 {
     font-size: var(--title-font-size);
-    text-transform: var(--link-text-transform);
+    text-transform: var(--title-text-transform);
 }
 
 a {
