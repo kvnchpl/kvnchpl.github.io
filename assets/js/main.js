@@ -1,6 +1,6 @@
 window.onload = () => {
     console.log("DEBUG: main.js loaded");
-    
+
     const isMobile = () => window.innerWidth <= 768;
 
     const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
@@ -194,6 +194,8 @@ window.onload = () => {
                 return row;
             });
 
+            console.log("DEBUG: Rows found:", rows);
+            console.log("DEBUG: Calling randomizeLinks");
             initialPositions = randomizeLinks(rows);
             enableHoverEffect(rows, initialPositions, 200);
         })
