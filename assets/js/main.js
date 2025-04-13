@@ -101,6 +101,13 @@ window.onload = async () => {
             const isLeftArrow = index % 2 === 0; // Alternate left/right based on index
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
+            // Add arrows to the link text
+            if (isLeftArrow) {
+                link.innerHTML = `← ${originalText}`; // Prepend left arrow
+            } else {
+                link.innerHTML = `${originalText} →`; // Append right arrow
+            }
+
             // Desktop: Randomize horizontal positions
             if (!isMobile) {
                 const linkWidth = link.offsetWidth;
@@ -152,8 +159,6 @@ window.onload = async () => {
                     const newLeft = currentLeft + offset;
 
                     otherWrapper.style.left = `${newLeft}px`;
-
-                    console.log(`DEBUG: Updated left for other link: ${otherWrapper.style.left}`);
                 }
             });
         }, debounceTime);
@@ -162,10 +167,6 @@ window.onload = async () => {
             rows.forEach((row, index) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
                 const initialLeft = initialPositions[index];
-                /*
-                const linkWidth = linkWrapper.offsetWidth;
-                linkWrapper.style.left = `${(initialLeft / 100) * window.innerWidth - linkWidth / 2}px`;
-                */
                 linkWrapper.style.left = `${initialLeft}px`; // Reset to the initialized pixel value
             });
 
