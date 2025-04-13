@@ -233,23 +233,23 @@ window.onload = async () => {
 
     if (isMobile()) {
         overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-        overlay.style.opacity = '0.5';
+        overlay.style.opacity = config.overlayOpacity || "0.5";
 
         let previousInterval = -1;
 
         // Scroll-based image cycling
-        window.addEventListener('scroll', () => {
+        window.addEventListener("scroll", () => {
             const scrollTop = Math.max(0, document.documentElement.scrollTop || document.body.scrollTop);
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
             // Dynamically adjust total intervals based on scrollable height
             let totalIntervals;
-            if (scrollHeight < 800) {
-                totalIntervals = 2; // For short pages
-            } else if (scrollHeight < 1600) {
-                totalIntervals = 3; // For medium-length pages
+            if (scrollHeight < scrollThresholds.shortPage) {
+                totalIntervals = scrollIntervals.shortPage; // For short pages
+            } else if (scrollHeight < scrollThresholds.mediumPage) {
+                totalIntervals = scrollIntervals.mediumPage; // For medium-length pages
             } else {
-                totalIntervals = 4; // For long pages
+                totalIntervals = scrollIntervals.longPage; // For long pages
             }
 
             const currentInterval = Math.min(
@@ -264,9 +264,10 @@ window.onload = async () => {
             }
         });
 
-        document.addEventListener('click', (event) => {
+        // Click-based image cycling
+        document.addEventListener("click", (event) => {
             const target = event.target;
-            if (target.closest('a')) return;
+            if (target.closest("a")) return; // Ignore clicks on links
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
     }
