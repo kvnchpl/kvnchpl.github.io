@@ -133,7 +133,6 @@ window.onload = async () => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.classList.remove("hidden");
             overlay.classList.add("visible");
             console.log(`DEBUG: Overlay updated with image: ${nextImage}`);
 
@@ -181,7 +180,6 @@ window.onload = async () => {
                 linkWrapper.style.left = `${newLeft}px`;
             });
             overlay.classList.remove("visible");
-            overlay.classList.add("hidden");
         }, debounceTime);
 
         rows.forEach((row) => {
