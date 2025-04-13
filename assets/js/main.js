@@ -17,6 +17,21 @@ window.onload = async () => {
         }
     };
 
+    // Utility function to debounce function calls
+    const debounce = (func, wait, immediate = false) => {
+        let timeout;
+        return function (...args) {
+            const context = this;
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            }, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
+
     // Fetch configuration from config.json
     const config = await fetchJSON("config-data");
     if (!config) return;
@@ -114,20 +129,6 @@ window.onload = async () => {
 
     // Enable hover effects with debounced handlers
     const enableHoverEffect = (rows) => {
-        const debounce = (func, wait, immediate = false) => {
-            let timeout;
-            return function (...args) {
-                const context = this;
-                const callNow = immediate && !timeout;
-                clearTimeout(timeout);
-                timeout = setTimeout(() => {
-                    timeout = null;
-                    if (!immediate) func.apply(context, args);
-                }, wait);
-                if (callNow) func.apply(context, args);
-            };
-        };
-
         const debouncedHoverHandler = debounce((row, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
