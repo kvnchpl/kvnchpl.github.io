@@ -129,21 +129,28 @@ window.onload = async () => {
 
     // Enable hover effects with debounced handlers
     const enableHoverEffect = (rows) => {
-        const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow, hoveredLeft) => {
+        const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
             overlay.classList.add("visible-overlay");
 
+            // Get the bounding rectangle of the hovered link
+            const hoveredRect = linkWrapper.getBoundingClientRect();
+
             rows.forEach((otherRow) => {
                 const otherWrapper = otherRow.querySelector(".link-wrapper");
                 if (otherWrapper !== linkWrapper) {
-                    const otherLinkWidth = otherWrapper.offsetWidth;
+                    const otherRect = otherWrapper.getBoundingClientRect();
 
-                    // Align other links with the hovered link
-                    otherWrapper.style.left = isLeftArrow
-                        ? `${hoveredLeft}px`
-                        : `${hoveredLeft + linkWrapper.offsetWidth - otherLinkWidth}px`;
+                    // Calculate the new left position for the other link
+                    const offset = isLeftArrow
+                        ? hoveredRect.left - otherRect.left
+                        : hoveredRect.right - otherRect.right;
 
+                    // Apply the calculated offset
+                    otherWrapper.style.left = `${parseFloat(otherWrapper.style.left || 0) + offset}px`;
+
+                    console.log(`DEBUG: Updated left for other link: ${otherWrapper.style.left}`);
                 }
             });
         }, debounceTime);
@@ -163,8 +170,7 @@ window.onload = async () => {
 
             linkWrapper.addEventListener("mouseenter", () => {
                 if (!isMobile) {
-                    const hoveredLeft = parseFloat(window.getComputedStyle(linkWrapper).left);
-                    debouncedHoverHandler(linkWrapper, isLeftArrow, hoveredLeft);
+                    debouncedHoverHandler(linkWrapper, isLeftArrow);
                 }
             });
 
