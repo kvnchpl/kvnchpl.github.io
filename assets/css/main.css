@@ -42,7 +42,7 @@ ul {
 
 .link-wrapper {
   position: relative; /* Default for mobile */
-  width: 100%; /* Ensure full width */
+  width: 100%;
 }
 
 li {
