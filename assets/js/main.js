@@ -4,10 +4,16 @@ window.onload = () => {
     console.log("DEBUG: main.js loaded");
     const overlay = document.getElementById('image-overlay');
     const linkContainer = document.getElementById('link-container');
-    const jsonUrl = document.querySelector("meta[name='sky-images-data']").content;
 
-    if (!jsonUrl) {
-        console.error("No JSON URL found in the <meta> tag with name='sky-images-data'.");
+    if (!linkContainer) {
+        console.error("No link container found!");
+        return;
+    }
+
+    const rows = linkContainer.querySelectorAll('li.row');
+
+    if (rows.length === 0) {
+        console.error("No rows found inside the link container!");
         return;
     }
 
