@@ -33,6 +33,12 @@ footer {
   padding: 1rem;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 li {
   display: flex;
   justify-content: center;
@@ -50,27 +56,12 @@ li.visible {
   visibility: visible;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  margin-bottom: var(--gap-size-desktop);
-}
-
 .left-arrow {
   justify-content: flex-end;
 }
 
 .right-arrow {
   justify-content: flex-start;
-}
-
-.row {
-  position: relative;
-  transition: transform var(--transition-duration) ease-in-out;
 }
 
 a {
@@ -174,15 +165,6 @@ a:hover {
 
 .hidden-overlay {
   opacity: 0;
-}
-
-/* Transition and hover effects */
-.transition {
-  transition: transform var(--transition-duration) ease-in-out, left var(--transition-duration) ease-in-out;
-}
-
-.hover-scale {
-  transform: scale(var(--hover-scale));
 }
 
 /* Skip link */
