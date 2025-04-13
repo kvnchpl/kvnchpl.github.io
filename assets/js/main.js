@@ -184,9 +184,9 @@ window.onload = async () => {
     };
 
     // Fetch and process overlay images
-    const skyImages = await fetchJSON("sky-images-data");
-    if (skyImages && Array.isArray(skyImages) && skyImages.length > 0) {
-        shuffledImages = skyImages.sort(() => Math.random() - 0.5);
+    const overlayImages = await fetchJSON("overlay-images-data");
+    if (overlayImages && Array.isArray(overlayImages) && overlayImages.length > 0) {
+        shuffledImages = overlayImages.sort(() => Math.random() - 0.5);
         preloadImages(shuffledImages);
 
         if (isMobile) {
