@@ -148,8 +148,6 @@ window.onload = async () => {
                     otherLinkWrapper.style.left = isLeftArrow
                         ? `${hoveredLeft}px`
                         : `${hoveredLeft + row.offsetWidth - otherLinkWidth}px`;
-
-                    console.log(`DEBUG: Hover effect updated left for row: ${otherRow}`);
                 }
             });
         }, debounceTime);
