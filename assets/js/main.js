@@ -1,7 +1,16 @@
 window.onload = async () => {
     console.log("DEBUG: main.js loaded");
 
+    // Utility function to check if the device is mobile
     const isMobile = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+    // Utility function to retrieve CSS variables
+    const getCSSVariable = (variable) => {
+        return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
+    };
+
+    // Utility function for centralized error logging
+    const logError = (message) => console.error(`DEBUG: ${message}`);
 
     // Fetch configuration from config.json
     const configUrl = "/assets/data/config.json";
@@ -11,14 +20,14 @@ window.onload = async () => {
         if (!response.ok) throw new Error("Failed to fetch config.json");
         config = await response.json();
     } catch (error) {
-        console.error("DEBUG: Error loading config.json:", error);
+        logError(`Error loading config.json: ${error.message}`);
         return;
     }
 
     // Extract configuration values
     const debounceTime = config.debounceTime || 200;
-    const linkContainerId = config.linkContainerId;
-    const imageOverlayId = config.imageOverlayId;
+    const linkContainerId = config.linkContainerId || "link-container";
+    const imageOverlayId = config.imageOverlayId || "image-overlay";
     const scrollThresholds = config.scrollThresholds || { shortPage: 800, mediumPage: 1600 };
     const scrollIntervals = config.scrollIntervals || { shortPage: 2, mediumPage: 3, longPage: 4 };
 
@@ -26,12 +35,12 @@ window.onload = async () => {
     const linkContainer = document.getElementById(linkContainerId);
 
     if (!overlay) {
-        console.error("DEBUG: No #image-overlay element found!");
+        logError("No #image-overlay element found!");
         return;
     }
 
     if (!linkContainer) {
-        console.error("DEBUG: No link container found!");
+        logError("No link container found!");
         return;
     }
 
@@ -40,26 +49,29 @@ window.onload = async () => {
     let shuffledImages = [];
     let currentImageIndex = 0;
 
+    // Utility function to get the next image in the shuffled list
     const getNextImage = () => {
         const nextImage = shuffledImages[currentImageIndex];
         currentImageIndex = (currentImageIndex + 1) % shuffledImages.length;
         return nextImage;
     };
 
+    // Preload images for smoother transitions
     const preloadImages = (images) => {
         images.forEach((src) => {
             const img = new Image();
             img.onload = () => console.log(`DEBUG: Image preloaded: ${src}`);
-            img.onerror = () => console.error(`DEBUG: Failed to preload image: ${src}`);
+            img.onerror = () => logError(`Failed to preload image: ${src}`);
             img.src = src;
         });
     };
 
+    // Randomize link positions and apply classes
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
             const link = row.querySelector("a");
             if (!link) {
-                console.error(`DEBUG: No <a> element found in row ${index}`);
+                logError(`No <a> element found in row ${index}`);
                 return;
             }
 
@@ -76,7 +88,7 @@ window.onload = async () => {
                 const viewportWidth = window.innerWidth;
 
                 if (viewportWidth === 0) {
-                    console.error("DEBUG: Viewport width is zero, cannot calculate positions!");
+                    logError("Viewport width is zero, cannot calculate positions!");
                     return;
                 }
 
@@ -88,13 +100,14 @@ window.onload = async () => {
                 row.style.position = "absolute";
                 row.style.left = initialLeft;
             }
-            
+
             row.classList.add("transition");
             row.style.visibility = "visible";
             console.log(`DEBUG: Row ${index} made visible`);
         });
     };
 
+    // Enable hover effects with debounced handlers
     const enableHoverEffect = (rows) => {
         const debounce = (func, wait, immediate = false) => {
             let timeout;
@@ -113,7 +126,7 @@ window.onload = async () => {
         const debouncedHoverHandler = debounce((row, isLeftArrow, hoveredLeft) => {
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
-            overlay.style.opacity = "0.5";
+            overlay.style.opacity = getCSSVariable("--overlay-opacity");
 
             rows.forEach((otherRow) => {
                 if (otherRow !== row) {
@@ -175,12 +188,17 @@ window.onload = async () => {
             shuffledImages = imageList.sort(() => Math.random() - 0.5);
             preloadImages(shuffledImages);
 
+            if (!shuffledImages || shuffledImages.length === 0) {
+                logError("DEBUG: No images found in shuffledImages");
+                return;
+            }
+
             if (isMobile()) {
                 overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-                overlay.style.opacity = "0.5";
+                overlay.style.opacity = getCSSVariable("--overlay-opacity");
             }
         })
-        .catch((error) => console.error("Error loading overlay images:", error));
+        .catch((error) => logError(`Error loading overlay images: ${error.message}`));
 
     // Fetch and process homepage links
     fetch(document.querySelector("meta[name='index-links-data']").content)
@@ -230,27 +248,24 @@ window.onload = async () => {
             randomizeLinks(rows);
             enableHoverEffect(rows);
         })
-        .catch((error) => console.error("Error loading homepage links:", error));
+        .catch((error) => logError(`Error loading homepage links: ${error.message}`));
 
     if (isMobile()) {
-        overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-        overlay.style.opacity = config.overlayOpacity || "0.5";
-
         let previousInterval = -1;
 
         // Scroll-based image cycling
-        window.addEventListener("scroll", () => {
+        const handleScroll = debounce(() => {
             const scrollTop = Math.max(0, document.documentElement.scrollTop || document.body.scrollTop);
             const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
 
             // Dynamically adjust total intervals based on scrollable height
             let totalIntervals;
             if (scrollHeight < scrollThresholds.shortPage) {
-                totalIntervals = scrollIntervals.shortPage; // For short pages
+                totalIntervals = scrollIntervals.shortPage;
             } else if (scrollHeight < scrollThresholds.mediumPage) {
-                totalIntervals = scrollIntervals.mediumPage; // For medium-length pages
+                totalIntervals = scrollIntervals.mediumPage;
             } else {
-                totalIntervals = scrollIntervals.longPage; // For long pages
+                totalIntervals = scrollIntervals.longPage;
             }
 
             const currentInterval = Math.min(
@@ -263,12 +278,14 @@ window.onload = async () => {
                 overlay.style.backgroundImage = `url(${getNextImage()})`;
                 previousInterval = currentInterval; // Update the last interval crossed
             }
-        });
+        }, debounceTime);
+
+        window.addEventListener("scroll", handleScroll);
 
         // Click-based image cycling
         document.addEventListener("click", (event) => {
             const target = event.target;
-            if (target.closest("a")) return; // Ignore clicks on links
+            if (target.closest("a, button, input, textarea, select")) return; // Ignore clicks on interactive elements
             overlay.style.backgroundImage = `url(${getNextImage()})`;
         });
     }
