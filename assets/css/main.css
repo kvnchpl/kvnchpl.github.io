@@ -46,7 +46,8 @@ li {
   justify-content: center;
 }
 
-.link-wrapper {
+.link-wrapper,
+.title-wrapper {
   position: relative;
   visibility: hidden;
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
@@ -88,7 +89,8 @@ a:hover {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0; /* hidden by default */
+  opacity: 0;
+  /* hidden by default */
   pointer-events: none;
   transition: opacity var(--transition-duration) ease-in-out;
   z-index: var(--overlay-z-index);
@@ -226,6 +228,7 @@ a:hover {
   }
 
   #image-overlay {
-    pointer-events: auto; /* Enable click events on mobile */
+    pointer-events: auto;
+    /* Enable click events on mobile */
   }
 }
