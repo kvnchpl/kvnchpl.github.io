@@ -177,12 +177,6 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
-            if (currentlyHoveredLink) {
-                console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
-                console.log(`DEBUG: Leaving link position: ${currentlyHoveredLink.style.left}`);
-            }
-            currentlyHoveredLink = null; // Reset the currently hovered link
-
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
 
@@ -199,7 +193,9 @@ window.onload = async () => {
 
                 // Generate a new random position for other links
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-                linkWrapper.style.left = `${newLeft}px`;
+                requestAnimationFrame(() => {
+                    linkWrapper.style.left = `${newLeft}px`;
+                });
             });
 
             // Reset the currently hovered link
@@ -225,11 +221,15 @@ window.onload = async () => {
                 }
             });
 
-            linkWrapper.addEventListener("pointerleave", () => {
+            linkWrapper.addEventListener("pointerleave", (event) => {
                 if (!isMobile) {
+                    const wrapper = event.currentTarget;
                     setTimeout(() => {
-                        if (!linkWrapper.matches(':hover')) {
-                            currentlyHoveredLink = null;
+                        if (!wrapper.matches(':hover')) {
+                            if (currentlyHoveredLink) {
+                                console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
+                                console.log(`DEBUG: Leaving link position: ${currentlyHoveredLink.style.left}`);
+                            }
                             debouncedLeaveHandler();
                         }
                     }, debounceTime / 2);
