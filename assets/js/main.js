@@ -140,6 +140,7 @@ window.onload = async () => {
     };
 
     let isAnimating = false; // Flag to prevent multiple animations
+    let pendingHover = null;
     let currentlyHoveredLink = null; // Track the currently hovered link
 
     const enableHoverEffect = (rows) => {
@@ -223,8 +224,12 @@ window.onload = async () => {
             const linkWrapper = row.querySelector(".link-wrapper");
             const isLeftArrow = row.classList.contains("left-arrow");
 
-            linkWrapper.addEventListener("pointerenter", (event) => {
-                if (isAnimating || currentlyHoveredLink === linkWrapper) return; // Block hover if animation is in progress
+            linkWrapper.addEventListener("pointerenter", () => {
+                if (currentlyHoveredLink === linkWrapper) return;
+                if (isAnimating) {
+                    pendingHover = { linkWrapper, isLeftArrow };
+                    return;
+                }
                 setTimeout(() => {
                     if (linkWrapper.matches(':hover')) {
                         debouncedHoverHandler(linkWrapper, isLeftArrow);
@@ -249,6 +254,11 @@ window.onload = async () => {
 
                 if (allDone) {
                     isAnimating = false;
+                    if (pendingHover) {
+                        const { linkWrapper, isLeftArrow } = pendingHover;
+                        pendingHover = null;
+                        debouncedHoverHandler(linkWrapper, isLeftArrow);
+                    }
                 }
             });
         });
