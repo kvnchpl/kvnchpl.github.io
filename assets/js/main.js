@@ -220,6 +220,10 @@ window.onload = async () => {
             });
 
             overlay.classList.remove("visible");
+            setTimeout(() => {
+                isAnimating = false;
+                console.log("Animation unlock after timeout.");
+            }, 350); // match --transition-duration (0.3s) + buffer
         }, debounceTime);
 
         rows.forEach((row) => {
@@ -244,13 +248,17 @@ window.onload = async () => {
                 }, debounceTime / 2);
             });
 
-            linkWrapper.addEventListener("transitionend", () => {
-                // Check if all wrappers have finished animating
+            linkWrapper.addEventListener("transitionend", (event) => {
+                console.log("Transition ended on:", event.target);
+
+                linkWrapper.classList.remove("animating");
+
                 const allDone = [...document.querySelectorAll(".link-wrapper")]
                     .every(el => !el.classList.contains("animating"));
 
                 if (allDone) {
-                    isAnimating = false; // Unlock the animation flag when all animations finish
+                    console.log("All transitions complete.");
+                    isAnimating = false;
                 }
             });
         });
