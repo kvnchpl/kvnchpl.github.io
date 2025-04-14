@@ -229,7 +229,7 @@ window.onload = async () => {
                     if (currentlyHoveredLink === wrapper) return;
                     setTimeout(() => {
                         if (wrapper.matches(':hover')) {
-                            debouncedHoverHandler(wrapper, wrapper.classList.contains("left-arrow"));
+                            debouncedHoverHandler(wrapper, isLeftArrow);
                         }
                     }, debounceTime / 2);
                 }
