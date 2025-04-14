@@ -100,7 +100,6 @@ a:hover {
 
 #image-overlay.visible {
   opacity: var(--overlay-opacity);
-  pointer-events: auto;
 }
 
 /* Navigation styles */
@@ -228,5 +227,9 @@ a:hover {
 
   #site-nav.open ul {
     display: flex;
+  }
+
+  #image-overlay {
+    pointer-events: auto; /* Enable click events on mobile */
   }
 }
