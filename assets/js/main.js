@@ -212,11 +212,14 @@ window.onload = async () => {
             const linkWrapper = row.querySelector(".link-wrapper");
             const isLeftArrow = row.classList.contains("left-arrow");
 
-            linkWrapper.addEventListener("pointerenter", () => {
+            linkWrapper.addEventListener("pointerenter", (event) => {
                 if (!isMobile) {
+                    const wrapper = event.currentTarget;
+                    if (currentlyHoveredLink === wrapper) return; // prevent repeat
+
                     setTimeout(() => {
-                        if (linkWrapper.matches(':hover')) {
-                            debouncedHoverHandler(linkWrapper, isLeftArrow);
+                        if (wrapper.matches(':hover')) {
+                            debouncedHoverHandler(wrapper, wrapper.classList.contains("left-arrow"));
                         }
                     }, debounceTime / 2);
                 }
