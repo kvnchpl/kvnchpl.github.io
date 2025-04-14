@@ -210,8 +210,10 @@ window.onload = async () => {
                 });
             });
 
-            currentlyHoveredLink = null;
             overlay.classList.remove("visible");
+            requestAnimationFrame(() => {
+                currentlyHoveredLink = null;
+            });
         }, debounceTime);
 
         rows.forEach((row) => {
