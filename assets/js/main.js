@@ -140,9 +140,8 @@ window.onload = async () => {
 
     const enableHoverEffect = (rows) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
-            if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
+            if (currentlyHoveredLink === linkWrapper || isAnimating) return; // Prevent re-triggering for the same link or if animations are in progress
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
-
 
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
@@ -162,11 +161,6 @@ window.onload = async () => {
                         // Align left edge of other link to hovered link's left edge
                         const targetLeft = hoveredRect.left;
                         const offset = targetLeft - otherRect.left;
-                        console.log("DEBUG: Hovered link left:", targetLeft);
-                        console.log("DEBUG: Other link left:", otherRect.left);
-                        console.log("DEBUG: Calculated offset:", offset);
-                        console.log("DEBUG: Current otherWrapper.style.left:", otherWrapper.style.left);
-                        console.log("DEBUG: Final newLeft (align left):", parseFloat(otherWrapper.style.left || 0) + offset);
                         newLeft = parseFloat(otherWrapper.style.left || 0) + offset;
                     } else {
                         const hoveredRight = hoveredRect.right;
@@ -175,20 +169,19 @@ window.onload = async () => {
 
                         const expectedRight = hoveredRight - parentLeft;
                         newLeft = expectedRight - otherWidth;
-
-                        console.log("DEBUG: Hovered right:", hoveredRight);
-                        console.log("DEBUG: Parent left:", parentLeft);
-                        console.log("DEBUG: Expected visual right (relative):", expectedRight);
-                        console.log("DEBUG: New left to align right:", newLeft);
                     }
 
+                    // Lock animation until all links have finished moving
+                    isAnimating = true;
                     otherWrapper.classList.add("animating");
+
                     requestAnimationFrame(() => {
                         otherWrapper.style.left = `${newLeft}px`;
 
-                        // Remove animating class after a delay
+                        // Remove animating class after a delay (match CSS transition duration)
                         setTimeout(() => {
                             otherWrapper.classList.remove("animating");
+                            isAnimating = false; // Unlock the animation flag
                         }, 300); // Match your CSS transition duration
                     });
                 }
@@ -203,7 +196,7 @@ window.onload = async () => {
                 const linkWrapper = row.querySelector(".link-wrapper");
 
                 // Skip randomizing the currently hovered link
-                if (linkWrapper === currentlyHoveredLink) return;
+                if (linkWrapper === currentlyHoveredLink || isAnimating) return;
 
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
@@ -215,19 +208,19 @@ window.onload = async () => {
 
                 // Generate a new random position for other links
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
+                isAnimating = true;
                 requestAnimationFrame(() => {
-                    otherWrapper.style.left = `${newLeft}px`;
+                    linkWrapper.style.left = `${newLeft}px`;
 
                     // Remove animating class after a delay
                     setTimeout(() => {
-                        otherWrapper.classList.remove("animating");
+                        isAnimating = false; // Unlock the animation flag
                     }, 300); // Match your CSS transition duration
                 });
             });
 
             // Reset the currently hovered link
             currentlyHoveredLink = null;
-
             overlay.classList.remove("visible");
         }, debounceTime);
 
@@ -236,27 +229,21 @@ window.onload = async () => {
             const isLeftArrow = row.classList.contains("left-arrow");
 
             linkWrapper.addEventListener("pointerenter", (event) => {
-                if (isAnimating || currentlyHoveredLink === wrapper) return;
-                if (!isMobile) {
-                    const wrapper = event.currentTarget;
-                    if (currentlyHoveredLink === wrapper) return;
-                    setTimeout(() => {
-                        if (wrapper.matches(':hover')) {
-                            debouncedHoverHandler(wrapper, isLeftArrow);
-                        }
-                    }, debounceTime / 2);
-                }
+                if (isAnimating || currentlyHoveredLink === linkWrapper) return; // Block hover if animation is in progress
+                setTimeout(() => {
+                    if (linkWrapper.matches(':hover')) {
+                        debouncedHoverHandler(linkWrapper, isLeftArrow);
+                    }
+                }, debounceTime / 2);
             });
 
             linkWrapper.addEventListener("pointerleave", (event) => {
-                if (!isMobile) {
-                    const wrapper = event.currentTarget;
-                    setTimeout(() => {
-                        if (!wrapper.matches(':hover')) {
-                            debouncedLeaveHandler();
-                        }
-                    }, debounceTime / 2);
-                }
+                if (isAnimating) return; // Block leave event if animation is still running
+                setTimeout(() => {
+                    if (!linkWrapper.matches(':hover')) {
+                        debouncedLeaveHandler();
+                    }
+                }, debounceTime / 2);
             });
 
             linkWrapper.addEventListener("transitionend", () => {
@@ -265,7 +252,7 @@ window.onload = async () => {
                     .every(el => !el.classList.contains("animating"));
 
                 if (allDone) {
-                    isAnimating = false;
+                    isAnimating = false; // Unlock the animation flag when all animations finish
                 }
             });
         });
