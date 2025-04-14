@@ -139,13 +139,12 @@ window.onload = async () => {
         });
     };
 
-    let isAnimating = false; // Flag to prevent multiple animations
-    let pendingHover = null;
+
     let currentlyHoveredLink = null; // Track the currently hovered link
 
     const enableHoverEffect = (rows) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
-            if (currentlyHoveredLink === linkWrapper || isAnimating) return; // Prevent re-triggering for the same link or if animations are in progress
+            if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
 
             const nextImage = getNextImage();
@@ -177,7 +176,6 @@ window.onload = async () => {
                     }
 
                     // Lock animation until all links have finished moving
-                    isAnimating = true;
                     otherWrapper.classList.add("animating");
 
                     requestAnimationFrame(() => {
@@ -215,9 +213,6 @@ window.onload = async () => {
 
             overlay.classList.remove("visible");
             currentlyHoveredLink = null;
-            setTimeout(() => {
-                isAnimating = false;
-            }, 350); // match --transition-duration (0.3s) + buffer
         }, debounceTime);
 
         rows.forEach((row) => {
@@ -226,41 +221,17 @@ window.onload = async () => {
 
             linkWrapper.addEventListener("pointerenter", () => {
                 if (currentlyHoveredLink === linkWrapper) return;
-                if (isAnimating) {
-                    pendingHover = { linkWrapper, isLeftArrow };
-                    return;
-                }
-                setTimeout(() => {
-                    if (linkWrapper.matches(':hover')) {
-                        debouncedHoverHandler(linkWrapper, isLeftArrow);
-                    }
-                }, debounceTime / 2);
+                debouncedHoverHandler(linkWrapper, isLeftArrow);
             });
 
             linkWrapper.addEventListener("pointerleave", (event) => {
-                if (isAnimating) return; // Block leave event if animation is still running
-                setTimeout(() => {
-                    if (!linkWrapper.matches(':hover')) {
-                        debouncedLeaveHandler();
-                    }
-                }, debounceTime / 2);
+                if (!linkWrapper.matches(':hover')) {
+                    debouncedLeaveHandler();
+                }
             });
 
             linkWrapper.addEventListener("transitionend", () => {
                 linkWrapper.classList.remove("animating");
-
-                const allDone = [...document.querySelectorAll(".link-wrapper")]
-                    .every(el => !el.classList.contains("animating"));
-
-                if (allDone) {
-                    isAnimating = false;
-                    document.body.classList.add("allow-hover");
-                    if (pendingHover) {
-                        const { linkWrapper, isLeftArrow } = pendingHover;
-                        pendingHover = null;
-                        debouncedHoverHandler(linkWrapper, isLeftArrow);
-                    }
-                }
             });
         });
     };
