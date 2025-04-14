@@ -139,8 +139,11 @@ window.onload = async () => {
 
     const enableHoverEffect = (rows) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
+            console.log(`DEBUG: Hovering over link: ${linkWrapper.textContent}`);
+            console.log(`DEBUG: currentlyHoveredLink: ${currentlyHoveredLink.textContent}`);
             if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
+            
 
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
