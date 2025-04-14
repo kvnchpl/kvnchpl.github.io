@@ -205,10 +205,10 @@ window.onload = async () => {
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                 linkWrapper.classList.add("animating");
 
-                    requestAnimationFrame(() => {
-                        linkWrapper.style.left = `${newLeft}px`;
-                        currentlyHoveredLink = null;
-                    });
+                requestAnimationFrame(() => {
+                    linkWrapper.style.left = `${newLeft}px`;
+                    currentlyHoveredLink = null;
+                });
             });
 
             overlay.classList.remove("visible");
