@@ -143,7 +143,7 @@ window.onload = async () => {
             console.log(`DEBUG: Hovered link position: ${linkWrapper.style.left}`);
             if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
-            
+
 
             const nextImage = getNextImage();
             overlay.style.backgroundImage = `url(${nextImage})`;
@@ -166,7 +166,9 @@ window.onload = async () => {
                     const currentLeft = parseFloat(otherWrapper.style.left || 0);
                     const newLeft = currentLeft + offset;
 
-                    otherWrapper.style.left = `${newLeft}px`;
+                    requestAnimationFrame(() => {
+                        otherWrapper.style.left = `${newLeft}px`;
+                    });
                 }
             });
 
@@ -208,20 +210,21 @@ window.onload = async () => {
             const linkWrapper = row.querySelector(".link-wrapper");
             const isLeftArrow = row.classList.contains("left-arrow");
 
-            linkWrapper.addEventListener("mouseenter", () => {
+            linkWrapper.addEventListener("pointerenter", () => {
                 if (!isMobile) {
                     setTimeout(() => {
                         if (linkWrapper.matches(':hover')) {
                             debouncedHoverHandler(linkWrapper, isLeftArrow);
                         }
-                    }, debounceTime / 2); // quick check, enough to confirm it's not a flicker
+                    }, debounceTime / 2);
                 }
             });
-            
-            linkWrapper.addEventListener("mouseleave", () => {
+
+            linkWrapper.addEventListener("pointerleave", () => {
                 if (!isMobile) {
                     setTimeout(() => {
                         if (!linkWrapper.matches(':hover')) {
+                            currentlyHoveredLink = null;
                             debouncedLeaveHandler();
                         }
                     }, debounceTime / 2);
