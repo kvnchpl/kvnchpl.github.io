@@ -168,14 +168,17 @@ window.onload = async () => {
                         console.log("DEBUG: Final newLeft (align left):", parseFloat(otherWrapper.style.left || 0) + offset);
                         newLeft = parseFloat(otherWrapper.style.left || 0) + offset;
                     } else {
-                        // Align right edge of other link to hovered link's right edge
                         const hoveredRight = hoveredRect.right;
+                        const parentLeft = otherWrapper.offsetParent.getBoundingClientRect().left;
                         const otherWidth = otherRect.width;
-                        console.log("DEBUG: Hovered link right:", hoveredRect.right);
-                        console.log("DEBUG: Other link width:", otherRect.width);
-                        console.log("DEBUG: Expected newLeft (align right):", hoveredRect.right - otherRect.width);
-                        console.log("DEBUG: Current otherWrapper.style.left:", otherWrapper.style.left);
-                        newLeft = hoveredRight - otherWidth;
+                    
+                        const expectedRight = hoveredRight - parentLeft;
+                        newLeft = expectedRight - otherWidth;
+                    
+                        console.log("DEBUG: Hovered right:", hoveredRight);
+                        console.log("DEBUG: Parent left:", parentLeft);
+                        console.log("DEBUG: Expected visual right (relative):", expectedRight);
+                        console.log("DEBUG: New left to align right:", newLeft);
                     }
 
                     requestAnimationFrame(() => {
