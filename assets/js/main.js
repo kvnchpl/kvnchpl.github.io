@@ -210,13 +210,21 @@ window.onload = async () => {
 
             linkWrapper.addEventListener("mouseenter", () => {
                 if (!isMobile) {
-                    debouncedHoverHandler(linkWrapper, isLeftArrow);
+                    setTimeout(() => {
+                        if (linkWrapper.matches(':hover')) {
+                            debouncedHoverHandler(linkWrapper, isLeftArrow);
+                        }
+                    }, debounceTime / 2); // quick check, enough to confirm it's not a flicker
                 }
             });
-
+            
             linkWrapper.addEventListener("mouseleave", () => {
                 if (!isMobile) {
-                    debouncedLeaveHandler();
+                    setTimeout(() => {
+                        if (!linkWrapper.matches(':hover')) {
+                            debouncedLeaveHandler();
+                        }
+                    }, debounceTime / 2);
                 }
             });
         });
