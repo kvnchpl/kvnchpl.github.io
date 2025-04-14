@@ -175,9 +175,6 @@ window.onload = async () => {
                         newLeft = expectedRight - otherWidth;
                     }
 
-                    // Lock animation until all links have finished moving
-                    otherWrapper.classList.add("animating");
-
                     requestAnimationFrame(() => {
                         otherWrapper.style.left = `${newLeft}px`;
                     });
@@ -189,8 +186,6 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
-            isAnimating = true; // Lock interaction until all are moved
-
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
                 if (linkWrapper === currentlyHoveredLink) return;
@@ -204,7 +199,6 @@ window.onload = async () => {
                 }
 
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-                linkWrapper.classList.add("animating");
 
                 requestAnimationFrame(() => {
                     linkWrapper.style.left = `${newLeft}px`;
@@ -228,10 +222,6 @@ window.onload = async () => {
                 if (!linkWrapper.matches(':hover')) {
                     debouncedLeaveHandler();
                 }
-            });
-
-            linkWrapper.addEventListener("transitionend", () => {
-                linkWrapper.classList.remove("animating");
             });
         });
     };
