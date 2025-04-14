@@ -177,7 +177,6 @@ window.onload = async () => {
 
                     requestAnimationFrame(() => {
                         otherWrapper.style.left = `${newLeft}px`;
-                        console.log("New left applied:", newLeft);
                     });
                 }
             });
@@ -190,16 +189,8 @@ window.onload = async () => {
             isAnimating = true; // Lock interaction until all are moved
 
             rows.forEach((row) => {
-                console.log("Evaluating row:", row);
-
                 const linkWrapper = row.querySelector(".link-wrapper");
-                if (linkWrapper === currentlyHoveredLink) {
-                    console.log("Skipping hovered link:", linkWrapper.textContent);
-                    return;
-                }
-
-                console.log("Animating link:", linkWrapper.textContent);
-                console.log("Old left:", linkWrapper.style.left);
+                if (linkWrapper === currentlyHoveredLink) return;
 
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
@@ -214,15 +205,13 @@ window.onload = async () => {
 
                 requestAnimationFrame(() => {
                     linkWrapper.style.left = `${newLeft}px`;
-                    console.log("New left applied:", newLeft);
-                    currentlyHoveredLink = null;
                 });
             });
 
             overlay.classList.remove("visible");
+            currentlyHoveredLink = null;
             setTimeout(() => {
                 isAnimating = false;
-                console.log("Animation unlock after timeout.");
             }, 350); // match --transition-duration (0.3s) + buffer
         }, debounceTime);
 
@@ -248,16 +237,13 @@ window.onload = async () => {
                 }, debounceTime / 2);
             });
 
-            linkWrapper.addEventListener("transitionend", (event) => {
-                console.log("Transition ended on:", event.target);
-
+            linkWrapper.addEventListener("transitionend", () => {
                 linkWrapper.classList.remove("animating");
 
                 const allDone = [...document.querySelectorAll(".link-wrapper")]
                     .every(el => !el.classList.contains("animating"));
 
                 if (allDone) {
-                    console.log("All transitions complete.");
                     isAnimating = false;
                 }
             });
