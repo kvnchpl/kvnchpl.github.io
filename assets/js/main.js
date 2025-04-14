@@ -281,6 +281,12 @@ window.onload = async () => {
             return row;
         });
 
+        // Add the title row to participate in the animation system
+        const titleRow = document.querySelector(".title-row");
+        if (titleRow) {
+            rows.unshift(titleRow);
+        }
+
         // Apply randomization and hover effects
         randomizeLinks(rows);
         enableHoverEffect(rows);

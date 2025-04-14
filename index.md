@@ -5,9 +5,11 @@ description: Portfolio and brain dump for Kevin Cunanan Chappelle, creator of mu
 permalink: /
 ---
 
-<div class="link-wrapper title-wrapper">
-  <h1><a href="/">Kevin Cunanan Chappelle :)</a></h1>
-</div>
+<li class="title-row">
+  <div class="link-wrapper title-wrapper">
+    <h1><a href="/">Kevin Cunanan Chappelle :)</a></h1>
+  </div>
+</li>
 
 <div id="link-container">
   <ul>
