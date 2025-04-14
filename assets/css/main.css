@@ -52,6 +52,7 @@ li {
   display: inline-block;
   width: fit-content;
   height: fit-content;
+  transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
 }
 
 .link-wrapper.randomized,
