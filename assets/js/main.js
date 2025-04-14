@@ -192,11 +192,13 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
+            isAnimating = true; // Lock interaction until all are moved
+
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
 
                 // Skip randomizing the currently hovered link
-                if (linkWrapper === currentlyHoveredLink || isAnimating) return;
+                if (linkWrapper === currentlyHoveredLink) return;
 
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
@@ -206,20 +208,14 @@ window.onload = async () => {
                     return;
                 }
 
-                // Generate a new random position for other links
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-                isAnimating = true;
+                linkWrapper.classList.add("animating");
+
                 requestAnimationFrame(() => {
                     linkWrapper.style.left = `${newLeft}px`;
-
-                    // Remove animating class after a delay
-                    setTimeout(() => {
-                        isAnimating = false; // Unlock the animation flag
-                    }, 300); // Match your CSS transition duration
                 });
             });
 
-            // Reset the currently hovered link
             currentlyHoveredLink = null;
             overlay.classList.remove("visible");
         }, debounceTime);
