@@ -63,6 +63,15 @@ li {
   visibility: visible;
 }
 
+.title-row {
+  margin-bottom: var(--gap-size-desktop);
+}
+
+.title-row h1 {
+  font-size: var(--title-font-size);
+  text-transform: var(--title-text-transform);
+}
+
 a {
   display: inline-block;
   white-space: nowrap;

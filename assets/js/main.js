@@ -111,12 +111,15 @@ window.onload = async () => {
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
 
-            const isLeftArrow = index % 2 === 0; // Alternate left/right based on index
+            const isTitleRow = row.classList.contains("title-row");
+            const isLeftArrow = isTitleRow || index % 2 === 0; // Alternate left/right arrows
 
             // Add arrows dynamically
             link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
 
-            row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
+            if (!isTitleRow) {
+                row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
+            }
 
             // Desktop: Randomize horizontal positions
             if (!isMobile) {
