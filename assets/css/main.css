@@ -64,7 +64,6 @@ a {
   display: inline-block;
   white-space: nowrap;
   transition: transform var(--transition-duration) ease-in-out;
-  pointer-events: none;
 }
 
 a:hover {
