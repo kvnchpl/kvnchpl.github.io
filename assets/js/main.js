@@ -177,12 +177,6 @@ window.onload = async () => {
 
                     requestAnimationFrame(() => {
                         otherWrapper.style.left = `${newLeft}px`;
-
-                        // Remove animating class after a delay (match CSS transition duration)
-                        setTimeout(() => {
-                            otherWrapper.classList.remove("animating");
-                            isAnimating = false; // Unlock the animation flag
-                        }, 300); // Match your CSS transition duration
                     });
                 }
             });
