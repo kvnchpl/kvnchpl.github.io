@@ -159,13 +159,15 @@ window.onload = async () => {
                     let newLeft;
                     if (isLeftArrow) {
                         // Align left edge of other link to left edge of hovered link
-                        const diff = hoveredRect.left - otherRect.left;
-                        newLeft = parseFloat(otherWrapper.style.left || 0) + diff;
+                        const targetLeft = hoveredRect.left;
+                        const offset = targetLeft - otherRect.left;
+                        newLeft = parseFloat(otherWrapper.style.left || 0) + offset;
                     } else {
                         // Align right edge of other link to right edge of hovered link
-                        const otherWidth = otherRect.width;
                         const targetRight = hoveredRect.right;
-                        newLeft = targetRight - otherWidth;
+                        const currentRight = otherRect.left + otherRect.width;
+                        const offset = targetRight - currentRight;
+                        newLeft = parseFloat(otherWrapper.style.left || 0) + offset;
                     }
 
                     requestAnimationFrame(() => {
