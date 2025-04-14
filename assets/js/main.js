@@ -139,8 +139,6 @@ window.onload = async () => {
 
     const enableHoverEffect = (rows) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
-            console.log(`DEBUG: Hovered link: ${linkWrapper.textContent}`);
-            console.log(`DEBUG: Hovered link position: ${linkWrapper.style.left}`);
             if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
 
@@ -212,9 +210,10 @@ window.onload = async () => {
                 if (!isMobile) {
                     const wrapper = event.currentTarget;
                     if (currentlyHoveredLink === wrapper) return; // prevent repeat
-
                     setTimeout(() => {
                         if (wrapper.matches(':hover')) {
+                            console.log(`DEBUG: Hovered link: ${wrapper.textContent}`);
+                            console.log(`DEBUG: Hovered link position: ${wrapper.style.left}`);
                             debouncedHoverHandler(wrapper, wrapper.classList.contains("left-arrow"));
                         }
                     }, debounceTime / 2);
