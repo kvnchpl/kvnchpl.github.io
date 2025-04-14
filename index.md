@@ -8,9 +8,7 @@ permalink: /
 <div id="link-container">
   <ul>
     <li class="title-row">
-      <div class="link-wrapper title-wrapper">
-        <h1><a href="/">Kevin Cunanan Chappelle :)</a></h1>
-      </div>
+      <h1><a href="/">Kevin Cunanan Chappelle :)</a></h1>
     </li>
     <!-- Other links will be populated by JavaScript -->
   </ul>
