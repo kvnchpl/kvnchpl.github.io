@@ -209,11 +209,9 @@ window.onload = async () => {
             linkWrapper.addEventListener("pointerenter", (event) => {
                 if (!isMobile) {
                     const wrapper = event.currentTarget;
-                    if (currentlyHoveredLink === wrapper) return; // prevent repeat
+                    if (currentlyHoveredLink === wrapper) return;
                     setTimeout(() => {
                         if (wrapper.matches(':hover')) {
-                            console.log(`DEBUG: Hovered link: ${wrapper.textContent}`);
-                            console.log(`DEBUG: Hovered link position: ${wrapper.style.left}`);
                             debouncedHoverHandler(wrapper, wrapper.classList.contains("left-arrow"));
                         }
                     }, debounceTime / 2);
@@ -225,10 +223,6 @@ window.onload = async () => {
                     const wrapper = event.currentTarget;
                     setTimeout(() => {
                         if (!wrapper.matches(':hover')) {
-                            if (currentlyHoveredLink) {
-                                console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
-                                console.log(`DEBUG: Leaving link position: ${currentlyHoveredLink.style.left}`);
-                            }
                             debouncedLeaveHandler();
                         }
                     }, debounceTime / 2);
