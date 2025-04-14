@@ -213,7 +213,8 @@ window.onload = async () => {
 
         rows.forEach((row) => {
             const linkWrapper = row.querySelector(".link-wrapper");
-            const isLeftArrow = row.classList.contains("left-arrow");
+            const isTitleRow = row.classList.contains("title-row");
+            const isLeftArrow = isTitleRow || row.classList.contains("left-arrow");
 
             linkWrapper.addEventListener("pointerenter", () => {
                 if (currentlyHoveredLink === linkWrapper) return;
