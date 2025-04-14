@@ -205,15 +205,13 @@ window.onload = async () => {
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                 linkWrapper.classList.add("animating");
 
-                requestAnimationFrame(() => {
-                    linkWrapper.style.left = `${newLeft}px`;
-                });
+                    requestAnimationFrame(() => {
+                        linkWrapper.style.left = `${newLeft}px`;
+                        currentlyHoveredLink = null;
+                    });
             });
 
             overlay.classList.remove("visible");
-            requestAnimationFrame(() => {
-                currentlyHoveredLink = null;
-            });
         }, debounceTime);
 
         rows.forEach((row) => {
