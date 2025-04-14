@@ -159,11 +159,22 @@ window.onload = async () => {
                     let newLeft;
                     if (isLeftArrow) {
                         // Align left edge of other link to hovered link's left edge
-                        newLeft = parseFloat(linkWrapper.style.left || 0);
+                        const targetLeft = hoveredRect.left;
+                        const offset = targetLeft - otherRect.left;
+                        console.log("DEBUG: Hovered link left:", targetLeft);
+                        console.log("DEBUG: Other link left:", otherRect.left);
+                        console.log("DEBUG: Calculated offset:", offset);
+                        console.log("DEBUG: Current otherWrapper.style.left:", otherWrapper.style.left);
+                        console.log("DEBUG: Final newLeft (align left):", parseFloat(otherWrapper.style.left || 0) + offset);
+                        newLeft = parseFloat(otherWrapper.style.left || 0) + offset;
                     } else {
                         // Align right edge of other link to hovered link's right edge
                         const hoveredRight = hoveredRect.right;
                         const otherWidth = otherRect.width;
+                        console.log("DEBUG: Hovered link right:", hoveredRect.right);
+                        console.log("DEBUG: Other link width:", otherRect.width);
+                        console.log("DEBUG: Expected newLeft (align right):", hoveredRect.right - otherRect.width);
+                        console.log("DEBUG: Current otherWrapper.style.left:", otherWrapper.style.left);
                         newLeft = hoveredRight - otherWidth;
                     }
 
