@@ -135,6 +135,7 @@ window.onload = async () => {
         });
     };
 
+    let isAnimating = false; // Flag to prevent multiple animations
     let currentlyHoveredLink = null; // Track the currently hovered link
 
     const enableHoverEffect = (rows) => {
@@ -171,18 +172,24 @@ window.onload = async () => {
                         const hoveredRight = hoveredRect.right;
                         const parentLeft = otherWrapper.offsetParent.getBoundingClientRect().left;
                         const otherWidth = otherRect.width;
-                    
+
                         const expectedRight = hoveredRight - parentLeft;
                         newLeft = expectedRight - otherWidth;
-                    
+
                         console.log("DEBUG: Hovered right:", hoveredRight);
                         console.log("DEBUG: Parent left:", parentLeft);
                         console.log("DEBUG: Expected visual right (relative):", expectedRight);
                         console.log("DEBUG: New left to align right:", newLeft);
                     }
 
+                    otherWrapper.classList.add("animating");
                     requestAnimationFrame(() => {
                         otherWrapper.style.left = `${newLeft}px`;
+
+                        // Remove animating class after a delay
+                        setTimeout(() => {
+                            otherWrapper.classList.remove("animating");
+                        }, 300); // Match your CSS transition duration
                     });
                 }
             });
@@ -209,7 +216,12 @@ window.onload = async () => {
                 // Generate a new random position for other links
                 const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                 requestAnimationFrame(() => {
-                    linkWrapper.style.left = `${newLeft}px`;
+                    otherWrapper.style.left = `${newLeft}px`;
+
+                    // Remove animating class after a delay
+                    setTimeout(() => {
+                        otherWrapper.classList.remove("animating");
+                    }, 300); // Match your CSS transition duration
                 });
             });
 
@@ -224,6 +236,7 @@ window.onload = async () => {
             const isLeftArrow = row.classList.contains("left-arrow");
 
             linkWrapper.addEventListener("pointerenter", (event) => {
+                if (isAnimating || currentlyHoveredLink === wrapper) return;
                 if (!isMobile) {
                     const wrapper = event.currentTarget;
                     if (currentlyHoveredLink === wrapper) return;
@@ -243,6 +256,16 @@ window.onload = async () => {
                             debouncedLeaveHandler();
                         }
                     }, debounceTime / 2);
+                }
+            });
+
+            linkWrapper.addEventListener("transitionend", () => {
+                // Check if all wrappers have finished animating
+                const allDone = [...document.querySelectorAll(".link-wrapper")]
+                    .every(el => !el.classList.contains("animating"));
+
+                if (allDone) {
+                    isAnimating = false;
                 }
             });
         });
