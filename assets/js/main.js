@@ -131,7 +131,7 @@ window.onload = async () => {
                 }
 
                 const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
-                linkWrapper.style.position = "absolute";
+                linkWrapper.classList.add("randomized");
                 linkWrapper.style.left = `${initialLeft}px`;
 
                 initialPositions[index] = initialLeft; // Store initial position as a pixel value
