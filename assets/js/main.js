@@ -34,11 +34,15 @@ window.onload = async () => {
 
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
-        const safeMinPercent = (linkWidth / 2 / viewportWidth) * 100;
-        const safeMaxPercent = 100 - safeMinPercent;
+        // Set base margin in pixels based on screen size
+        const baseMargin = viewportWidth < 768 ? 40 : 80;
 
-        const randomPercent = Math.random() * (safeMaxPercent - safeMinPercent) + safeMinPercent;
-        return (randomPercent / 100) * viewportWidth - linkWidth / 2;
+        // Adjust safe zone dynamically
+        const safeMin = baseMargin + linkWidth / 2;
+        const safeMax = viewportWidth - baseMargin - linkWidth / 2;
+
+        const randomX = Math.random() * (safeMax - safeMin) + safeMin;
+        return randomX - linkWidth / 2;
     };
 
     // Fetch configuration from config.json
