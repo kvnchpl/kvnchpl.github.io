@@ -177,8 +177,10 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
-            console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
-            console.log(`DEBUG: Leaving link position: ${currentlyHoveredLink.style.left}`);
+            if (currentlyHoveredLink) {
+                console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
+                console.log(`DEBUG: Leaving link position: ${currentlyHoveredLink.style.left}`);
+            }
             currentlyHoveredLink = null; // Reset the currently hovered link
 
             rows.forEach((row) => {
