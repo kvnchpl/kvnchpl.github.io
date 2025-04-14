@@ -60,6 +60,10 @@ li {
   visibility: visible;
 }
 
+.link-wrapper * {
+  pointer-events: none;
+}
+
 a {
   display: inline-block;
   white-space: nowrap;
