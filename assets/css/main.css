@@ -53,11 +53,13 @@ li {
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
 }
 
-.link-wrapper.randomized {
+.link-wrapper.randomized,
+.title-wrapper.randomized {
   position: absolute;
 }
 
-.link-wrapper.visible {
+.link-wrapper.visible,
+.title-wrapper.visible {
   visibility: visible;
 }
 
