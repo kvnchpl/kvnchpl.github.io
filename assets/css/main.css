@@ -42,15 +42,16 @@ ul {
 }
 
 li {
-  display: flex;
-  justify-content: center;
+  display: block;
+  width: 100%;
+  position: relative;
 }
 
 .link-wrapper,
 .title-wrapper {
-  position: relative;
-  visibility: hidden;
-  transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
 }
 
 .link-wrapper.randomized,
