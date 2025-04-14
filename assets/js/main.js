@@ -114,10 +114,9 @@ window.onload = async () => {
             const isTitleRow = row.classList.contains("title-row");
             const isLeftArrow = isTitleRow || index % 2 === 0; // Alternate left/right arrows
 
-            // Add arrows dynamically
-            link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
-
+            // Add arrows dynamically (skip for title)
             if (!isTitleRow) {
+                link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
                 row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
             }
 
