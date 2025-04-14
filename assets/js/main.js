@@ -139,8 +139,8 @@ window.onload = async () => {
 
     const enableHoverEffect = (rows) => {
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
-            console.log(`DEBUG: Hovering over link: ${linkWrapper.textContent}`);
-            console.log(`DEBUG: currentlyHoveredLink: ${currentlyHoveredLink.textContent}`);
+            console.log(`DEBUG: Hovered link: ${linkWrapper.textContent}`);
+            console.log(`DEBUG: Hovered link position: ${linkWrapper.style.left}`);
             if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
             
@@ -176,8 +176,8 @@ window.onload = async () => {
 
         const debouncedLeaveHandler = debounce(() => {
             console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
+            console.log(`DEBUG: Leaving link position: ${currentlyHoveredLink.style.left}`);
             currentlyHoveredLink = null; // Reset the currently hovered link
-            console.log(`DEBUG: currentlyHoveredLink: ${currentlyHoveredLink.textContent}`);
 
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
