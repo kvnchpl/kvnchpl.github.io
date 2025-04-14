@@ -175,7 +175,9 @@ window.onload = async () => {
         }, debounceTime);
 
         const debouncedLeaveHandler = debounce(() => {
+            console.log(`DEBUG: Leaving link: ${currentlyHoveredLink.textContent}`);
             currentlyHoveredLink = null; // Reset the currently hovered link
+            console.log(`DEBUG: currentlyHoveredLink: ${currentlyHoveredLink.textContent}`);
 
             rows.forEach((row) => {
                 const linkWrapper = row.querySelector(".link-wrapper");
