@@ -177,6 +177,7 @@ window.onload = async () => {
 
                     requestAnimationFrame(() => {
                         otherWrapper.style.left = `${newLeft}px`;
+                        console.log("New left applied:", newLeft);
                     });
                 }
             });
@@ -189,10 +190,16 @@ window.onload = async () => {
             isAnimating = true; // Lock interaction until all are moved
 
             rows.forEach((row) => {
-                const linkWrapper = row.querySelector(".link-wrapper");
+                console.log("Evaluating row:", row);
 
-                // Skip randomizing the currently hovered link
-                if (linkWrapper === currentlyHoveredLink) return;
+                const linkWrapper = row.querySelector(".link-wrapper");
+                if (linkWrapper === currentlyHoveredLink) {
+                    console.log("Skipping hovered link:", linkWrapper.textContent);
+                    return;
+                }
+
+                console.log("Animating link:", linkWrapper.textContent);
+                console.log("Old left:", linkWrapper.style.left);
 
                 const linkWidth = linkWrapper.offsetWidth;
                 const viewportWidth = window.innerWidth;
@@ -207,6 +214,7 @@ window.onload = async () => {
 
                 requestAnimationFrame(() => {
                     linkWrapper.style.left = `${newLeft}px`;
+                    console.log("New left applied:", newLeft);
                     currentlyHoveredLink = null;
                 });
             });
