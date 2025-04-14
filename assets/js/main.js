@@ -254,6 +254,7 @@ window.onload = async () => {
 
                 if (allDone) {
                     isAnimating = false;
+                    document.body.classList.add("allow-hover");
                     if (pendingHover) {
                         const { linkWrapper, isLeftArrow } = pendingHover;
                         pendingHover = null;
