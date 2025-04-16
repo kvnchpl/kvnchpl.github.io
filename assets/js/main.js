@@ -24,9 +24,9 @@ window.onload = async () => {
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
         const baseMargin = viewportWidth < 768 ? 40 : 80;
-        const safeMin = baseMargin + linkWidth / 2;
-        const safeMax = viewportWidth - baseMargin - linkWidth / 2;
-        return Math.random() * (safeMax - safeMin) + safeMin - linkWidth / 2;
+        const safeMin = baseMargin;
+        const safeMax = viewportWidth - baseMargin - linkWidth;
+        return Math.max(safeMin, Math.min(Math.random() * (safeMax - safeMin) + safeMin, safeMax));
     };
 
     // Randomize link positions for desktop and alternate positions for mobile
