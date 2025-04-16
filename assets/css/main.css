@@ -5,9 +5,6 @@
   --subtitle-font-size: 0.96rem;
   --title-font-size: 2.5rem;
 
-  --text-transform-uppercase: uppercase;
-  --text-transform-lowercase: lowercase;
-
   --transition-duration: 0.3s;
   --hover-scale: 1.05;
 
@@ -48,6 +45,9 @@ li {
   width: 100%;
   position: relative;
 }
+#link-container ul li {
+  text-transform: uppercase;
+}
 
 .link-wrapper {
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
@@ -67,7 +67,7 @@ li {
 
 .title-row a {
   font-size: var(--title-font-size);
-  text-transform: var(--text-transform-uppercase);
+  text-transform: uppercase;
 }
 
 a {
@@ -84,7 +84,7 @@ a:hover {
 .subtitle {
   display: block;
   font-size: var(--subtitle-font-size);
-  text-transform: var(--text-transform-lowercase);
+  text-transform: lowercase;
   margin-top: 0.5rem;
   color: var(--subtitle-color);
 }
@@ -116,7 +116,7 @@ a:hover {
 }
 
 #site-nav a {
-  text-transform: var(--text-transform-uppercase);
+  text-transform: uppercase;
   color: var(--font-color);
   margin: 0 0.5rem;
 }
