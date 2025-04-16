@@ -67,8 +67,7 @@ li {
   position: relative;
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
   border: 1px solid blue; /* Debug border for the links */
-  z-index: 10; /* Ensure it is above other elements */
-  opacity: 1; /* Ensure full visibility */
+  min-height: var(--font-size);
 }
 
 .link-wrapper.randomized {
@@ -93,6 +92,7 @@ li {
 
 .title-row {
   margin-bottom: var(--gap-size-desktop);
+  min-height: var(--title-font-size);
   overflow: visible;
 }
 
