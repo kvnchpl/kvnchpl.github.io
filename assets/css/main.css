@@ -49,14 +49,17 @@ footer {
 }
 
 #link-container ul li {
-  display: block;
-  width: 100%;
-  position: relative;
   flex-shrink: 1;
   text-transform: uppercase;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+li {
+  display: block;
+  width: 100%;
+  position: relative;
 }
 
 .link-wrapper {
