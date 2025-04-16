@@ -61,6 +61,17 @@ li {
   visibility: visible;
 }
 
+.link-wrapper a {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform var(--transition-duration) ease-in-out;
+  color: var(--font-color);
+}
+
+.link-wrapper a:hover {
+  transform: scale(var(--hover-scale));
+}
+
 .title-row {
   margin-bottom: var(--gap-size-desktop);
 }
@@ -75,10 +86,6 @@ a {
   text-decoration: none;
   transition: transform var(--transition-duration) ease-in-out;
   color: var(--font-color);
-}
-
-a:hover {
-  transform: scale(var(--hover-scale));
 }
 
 .subtitle {
