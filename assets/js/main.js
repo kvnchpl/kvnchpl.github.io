@@ -191,38 +191,49 @@ window.onload = async () => {
                     const row = document.createElement("li");
                     row.classList.add("row");
 
-                    const linkWrapper = document.createElement("div");
-                    linkWrapper.className = "link-wrapper";
+                    if (linkItem.isTitle) {
+                        // Handle the title row
+                        row.classList.add("title-row");
 
-                    const link = document.createElement("a");
-                    link.href = linkItem.href;
-                    link.textContent = linkItem.label;
+                        const linkWrapper = document.createElement("div");
+                        linkWrapper.className = "link-wrapper";
 
-                    if (linkItem.newTab === false) {
-                        link.target = "_self";
-                    } else if (linkItem.href.startsWith("http")) {
-                        link.target = "_blank";
-                        link.rel = "noopener noreferrer";
+                        const link = document.createElement("a");
+                        link.href = linkItem.href;
+                        link.textContent = linkItem.label;
+
+                        linkWrapper.appendChild(link);
+                        row.appendChild(linkWrapper);
+                    } else {
+                        // Handle regular rows
+                        const linkWrapper = document.createElement("div");
+                        linkWrapper.className = "link-wrapper";
+
+                        const link = document.createElement("a");
+                        link.href = linkItem.href;
+                        link.textContent = linkItem.label;
+
+                        if (linkItem.newTab === false) {
+                            link.target = "_self";
+                        } else if (linkItem.href.startsWith("http")) {
+                            link.target = "_blank";
+                            link.rel = "noopener noreferrer";
+                        }
+
+                        linkWrapper.appendChild(link);
+                        row.appendChild(linkWrapper);
                     }
-
-                    linkWrapper.appendChild(link);
-                    row.appendChild(linkWrapper);
 
                     if (linkItem.subtitle) {
                         const subtitle = document.createElement("span");
                         subtitle.className = "subtitle";
                         subtitle.textContent = linkItem.subtitle;
-                        linkWrapper.appendChild(subtitle);
+                        row.querySelector(".link-wrapper").appendChild(subtitle);
                     }
 
                     linkList.appendChild(row);
                     return row;
                 });
-
-                const titleRow = document.querySelector(".title-row");
-                if (titleRow) {
-                    rows.unshift(titleRow);
-                }
             } else {
                 logError("DEBUG: No valid links found in index.json or the file is empty.");
             }
