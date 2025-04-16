@@ -177,6 +177,55 @@ window.onload = async () => {
         return await fetchJSON("section-data");
     };
 
+    // Format subtitles dynamically based on available properties
+    const formatSubtitle = (item, format) => {
+        if (format === "detailed" && item.subtitle && item.publication && (item.month || item.season) && item.year) {
+            return `— ${item.subtitle}, ${item.publication}, ${item.month || item.season} ${item.year}`;
+        } else if (item.subtitle) {
+            return item.subtitle;
+        }
+        return null;
+    };
+
+    // Render links dynamically
+    const renderLinks = (data, format) => {
+        const fragment = document.createDocumentFragment();
+
+        data.forEach((item) => {
+            const row = document.createElement("li");
+            row.classList.add("row");
+
+            const linkWrapper = document.createElement("div");
+            linkWrapper.className = "link-wrapper";
+
+            const link = document.createElement("a");
+            link.href = item.href;
+            link.textContent = item.title;
+
+            if (item.external) {
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+            } else if (item.newTab === false) {
+                link.target = "_self";
+            }
+
+            linkWrapper.appendChild(link);
+
+            const subtitleText = formatSubtitle(item, format);
+            if (subtitleText) {
+                const subtitle = document.createElement("span");
+                subtitle.className = "subtitle";
+                subtitle.textContent = subtitleText;
+                linkWrapper.appendChild(subtitle);
+            }
+
+            row.appendChild(linkWrapper);
+            fragment.appendChild(row);
+        });
+
+        return fragment;
+    };
+
     // Initialize a page by rendering links and applying behaviors
     const initializePage = async (sectionKey, sectionsConfig, overlaySetup) => {
         const section = sectionsConfig[sectionKey];
@@ -185,7 +234,7 @@ window.onload = async () => {
             return;
         }
 
-        const { metaName, containerId, isListPage } = section;
+        const { metaName, containerId, isListPage, format } = section;
         const container = document.getElementById(containerId);
         if (!container) {
             console.error(`Container with ID '${containerId}' not found`);
@@ -193,9 +242,6 @@ window.onload = async () => {
         }
 
         const list = container.querySelector("ul");
-        const dynamicContent = document.getElementById("dynamic-content");
-        const currentPath = window.location.pathname;
-
         const data = await fetchJSON(metaName);
         if (!data || !Array.isArray(data) || data.length === 0) {
             console.error(`No valid data found for meta tag '${metaName}'`);
@@ -203,89 +249,12 @@ window.onload = async () => {
         }
 
         if (isListPage && list) {
-            // Render a list of links for list pages
-            const rows = data.map((item) => {
-                const row = document.createElement("li");
-                row.classList.add("row");
+            const fragment = renderLinks(data, format);
+            list.appendChild(fragment);
 
-                const linkWrapper = document.createElement("div");
-                linkWrapper.className = "link-wrapper";
-
-                const link = document.createElement("a");
-                link.href = item.href;
-                link.textContent = item.title;
-
-                if (item.external) {
-                    link.target = "_blank";
-                    link.rel = "noopener noreferrer";
-                } else if (item.newTab === false) {
-                    link.target = "_self";
-                }
-
-                linkWrapper.appendChild(link);
-
-                // Dynamically format the subtitle based on available properties
-                if (item.subtitle && item.publication && (item.month || item.season) && item.year) {
-                    const subtitle = document.createElement("span");
-                    subtitle.className = "subtitle";
-                    subtitle.textContent = `— ${item.subtitle}, ${item.publication}, ${item.month || item.season} ${item.year}`;
-                    linkWrapper.appendChild(subtitle);
-                } else if (item.subtitle) {
-                    const subtitle = document.createElement("span");
-                    subtitle.className = "subtitle";
-                    subtitle.textContent = item.subtitle;
-                    linkWrapper.appendChild(subtitle);
-                }
-
-                row.appendChild(linkWrapper);
-                list.appendChild(row);
-
-                return row;
-            });
-
-            if (rows.length > 0) {
-                randomizeLinks(rows);
-                enableHoverEffect(rows, overlaySetup.getNextImage, overlaySetup.overlay);
-            }
-        } else if (dynamicContent) {
-            // Populate content for individual pages
-            const item = data.find((entry) => entry.href === currentPath);
-            if (!item) {
-                dynamicContent.innerHTML = "<p>Content not found.</p>";
-                return;
-            }
-
-            const title = document.createElement("h1");
-            title.textContent = item.title;
-
-            const description = document.createElement("p");
-            description.textContent = item.description;
-
-            dynamicContent.appendChild(title);
-            dynamicContent.appendChild(description);
-
-            // Add images if available
-            if (item.images && item.images.length > 0) {
-                const gallery = document.createElement("div");
-                gallery.className = "gallery";
-
-                item.images.forEach((imageSrc) => {
-                    const img = document.createElement("img");
-                    img.src = imageSrc;
-                    img.alt = `${item.title} image`;
-                    gallery.appendChild(img);
-                });
-
-                dynamicContent.appendChild(gallery);
-            }
-
-            // Add additional metadata (e.g., subtitle, publication date)
-            if (item.subtitle) {
-                const subtitle = document.createElement("p");
-                subtitle.className = "subtitle";
-                subtitle.textContent = item.subtitle;
-                dynamicContent.appendChild(subtitle);
-            }
+            const rows = Array.from(list.children);
+            randomizeLinks(rows);
+            enableHoverEffect(rows, overlaySetup.getNextImage, overlaySetup.overlay);
         }
     };
 

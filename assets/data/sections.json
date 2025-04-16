@@ -2,21 +2,25 @@
     "index": {
         "metaName": "index-data",
         "containerId": "link-container",
-        "isListPage": true
+        "isListPage": true,
+        "format": "default"
     },
     "projects": {
         "metaName": "projects-data",
         "containerId": "link-container",
-        "isListPage": true
+        "isListPage": true,
+        "format": "default"
     },
     "readings": {
         "metaName": "readings-data",
         "containerId": "link-container",
-        "isListPage": true
+        "isListPage": true,
+        "format": "detailed"
     },
     "writings": {
         "metaName": "writings-data",
         "containerId": "link-container",
-        "isListPage": true
+        "isListPage": true,
+        "format": "default"
     }
 }
