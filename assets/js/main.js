@@ -34,8 +34,6 @@ window.onload = async () => {
         console.log("randomizeLinks called with rows:", rows);
 
         rows.forEach((row, index) => {
-            if (row.classList.contains("title-row")) return; // Skip the title row
-
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) {
                 console.error(`No .link-wrapper found in row ${index}`);
@@ -51,8 +49,12 @@ window.onload = async () => {
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
 
-            const isLeftArrow = index % 2 === 0;
-            link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
+            // Treat title-row as a left-arrow row but skip appending the arrow
+            const isLeftArrow = row.classList.contains("title-row") || index % 2 === 0;
+            if (!row.classList.contains("title-row")) {
+                link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
+            }
+
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
             if (!isMobile) {
@@ -77,7 +79,6 @@ window.onload = async () => {
     // Enable hover effects for links
     const enableHoverEffect = (rows) => {
         rows.forEach((row, index) => {
-
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) return;
 
@@ -94,19 +95,18 @@ window.onload = async () => {
                 console.log(`Hovered link left: ${hoveredLeft}, right: ${hoveredRight}`);
 
                 rows.forEach((otherRow, otherIndex) => {
-                    if (otherIndex === index || otherRow.classList.contains("title-row")) return;
+                    if (otherIndex === index) return;
 
                     const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     if (!otherLinkWrapper) return;
 
                     const otherLinkWidth = otherLinkWrapper.offsetWidth;
 
-                    if (row.classList.contains("left-arrow")) {
-                        // Align other links' left edges with the hovered link's left edge
+                    // Treat title-row as a left-arrow row
+                    if (row.classList.contains("left-arrow") || row.classList.contains("title-row")) {
                         otherLinkWrapper.style.left = `${hoveredLeft}px`;
                         console.log(`Aligning left-arrow row ${otherIndex} to ${hoveredLeft}`);
                     } else if (row.classList.contains("right-arrow")) {
-                        // Align other links' right edges with the hovered link's right edge
                         otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
                         console.log(`Aligning right-arrow row ${otherIndex} to ${hoveredRight - otherLinkWidth}`);
                     }
@@ -119,7 +119,7 @@ window.onload = async () => {
                 console.log(`Pointer left row ${index}`);
 
                 rows.forEach((otherRow, otherIndex) => {
-                    if (otherIndex === index || otherRow.classList.contains("title-row")) return;
+                    if (otherIndex === index) return;
 
                     const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     if (!otherLinkWrapper) return;
