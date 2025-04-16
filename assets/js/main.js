@@ -224,8 +224,8 @@ window.onload = async () => {
 
                 linkWrapper.appendChild(link);
 
-                // Format the subtitle for readings
-                if (sectionKey === "readings" && item.subtitle) {
+                // Dynamically format the subtitle based on available properties
+                if (item.subtitle && item.publication && (item.month || item.season) && item.year) {
                     const subtitle = document.createElement("span");
                     subtitle.className = "subtitle";
                     subtitle.textContent = `— ${item.subtitle}, ${item.publication}, ${item.month || item.season} ${item.year}`;
