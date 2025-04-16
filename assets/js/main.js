@@ -1,6 +1,4 @@
 window.onload = async () => {
-    console.log("main.js is loaded");
-
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
@@ -33,25 +31,14 @@ window.onload = async () => {
 
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
-        console.log("randomizeLinks called with rows:", rows);
-
         rows.forEach((row, index) => {
-            if (row.classList.contains("title-row")) {
-                console.log(`Skipping title row at index ${index}`);
-                return; // Skip the title row
-            }
+            if (row.classList.contains("title-row")) return; // Skip the title row
 
             const linkWrapper = row.querySelector(".link-wrapper");
-            if (!linkWrapper) {
-                logError(`No .link-wrapper found in row ${index}`);
-                return;
-            }
+            if (!linkWrapper) return; // No link wrapper found
 
             const link = linkWrapper.querySelector("a");
-            if (!link) {
-                logError(`No <a> element found in .link-wrapper for row ${index}`);
-                return;
-            }
+            if (!link) return; // No link found
 
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
@@ -80,19 +67,11 @@ window.onload = async () => {
 
     // Enable hover effects for links
     const enableHoverEffect = (rows) => {
-        console.log("enableHoverEffect called with rows:", rows);
-
         rows.forEach((row, index) => {
-            if (row.classList.contains("title-row")) {
-                console.log(`Skipping hover effect for title row at index ${index}`);
-                return; // Skip the title row
-            }
+            if (row.classList.contains("title-row")) return; // Skip the title row
 
             const linkWrapper = row.querySelector(".link-wrapper");
-            if (!linkWrapper) {
-                logError(`No .link-wrapper found in row ${index}`);
-                return;
-            }
+            if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => {
                 linkWrapper.style.transform = "scale(1.1)";
@@ -190,7 +169,5 @@ window.onload = async () => {
 
         randomizeLinks(rows);
         enableHoverEffect(rows);
-    } else {
-        console.log("No #link-container found on this page");
     }
 };
