@@ -172,16 +172,9 @@ window.onload = async () => {
         return { overlay, getNextImage };
     };
 
-    // Dynamically fetch sections.json
+    // Dynamically fetch sections.json via meta tag
     const fetchSectionsConfig = async () => {
-        try {
-            const response = await fetch("/assets/data/sections.json");
-            if (!response.ok) throw new Error("Failed to fetch sections.json");
-            return await response.json();
-        } catch (error) {
-            logError(`Error fetching sections.json: ${error.message}`);
-            return null;
-        }
+        return await fetchJSON("section-data");
     };
 
     // Initialize a page by rendering links and applying behaviors
