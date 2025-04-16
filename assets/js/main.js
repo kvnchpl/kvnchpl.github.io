@@ -6,9 +6,7 @@ window.onload = async () => {
 
     console.log("Page detection:", {
         isHomepage,
-        isProjectsPage,
-        isWritingsPage,
-        isReadingsPage,
+        isProjectsPage
     });
 
     // Utility function for centralized error logging
@@ -176,7 +174,7 @@ window.onload = async () => {
             const hoveredRect = linkWrapper.getBoundingClientRect();
 
             rows.forEach((otherRow) => {
-                
+
                 const otherWrapper = otherRow.querySelector(".link-wrapper");
                 console.log(`Adding hover effect to row ${index}`); // Debugging
                 if (otherWrapper !== linkWrapper) {
