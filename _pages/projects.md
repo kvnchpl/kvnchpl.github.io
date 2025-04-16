@@ -5,8 +5,6 @@ description: A collection of projects by Kevin Cunanan Chappelle.
 permalink: /projects/
 ---
 
-<h1>Projects</h1>
-
 <div id="link-container">
   <ul>
     {% for project in site.projects %}
