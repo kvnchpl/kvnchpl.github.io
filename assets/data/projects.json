@@ -2,48 +2,46 @@
     {
         "title": "Viewfinder",
         "href": "/projects/viewfinder",
-        "month": 10,
-        "year": 2024,
+        "subtitle": "October 2024",
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
-        "external": false,
         "images": [
-            "/assets/images/projects/viewfinder_1.jpg",
-            "/assets/images/projects/viewfinder_2.jpg"
+            "/assets/images/projects/viewfinder-1.png",
+            "/assets/images/projects/viewfinder-2.png",
+            "/assets/images/projects/viewfinder-3.png"
         ]
     },
     {
         "title": "Triptych",
         "href": "/projects/triptych",
-        "month": 5,
-        "year": 2024,
+        "subtitle": "May 2024",
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
-        "external": false,
         "images": [
-            "/assets/images/projects/triptych_1.jpg"
+            "/assets/images/projects/triptych-1.png",
+            "/assets/images/projects/triptych-2.png",
+            "/assets/images/projects/triptych-3.png"
         ]
     },
     {
         "title": "Shed Your Skin",
         "href": "https://kvnchpl.github.io/shed-your-skin/shed-your-skin.html",
-        "month": 4,
-        "year": 2025,
+        "subtitle": "April 2025",
         "description": "Love letter to a speculative liberatory learning society.",
         "external": true,
         "images": [
-            "/assets/images/projects/shed_your_skin_1.jpg",
-            "/assets/images/projects/shed_your_skin_2.jpg"
+            "/assets/images/projects/shed_your_skin-1.png",
+            "/assets/images/projects/shed_your_skin-2.png",
+            "/assets/images/projects/shed_your_skin-3.png"
         ]
     },
     {
         "title": "Archipelago",
         "href": "/projects/archipelago",
-        "month": 2,
-        "year": 2024,
+        "subtitle": "February 2024",
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
-        "external": false,
         "images": [
-            "/assets/images/projects/archipelago_1.jpg",
-            "/assets/images/projects/archipelago_2.jpg"
+            "/assets/images/projects/archipelago-1.png",
+            "/assets/images/projects/archipelago-2.png",
+            "/assets/images/projects/archipelago-3.png"
         ]
     }
 ]
