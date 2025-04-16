@@ -121,6 +121,10 @@ a:hover {
   margin: 0 0.5rem;
 }
 
+#site-nav a:hover {
+  color: var(--link-hover-color);
+}
+
 #site-nav a.current::before {
   content: "*";
   margin-right: 0.25rem;
