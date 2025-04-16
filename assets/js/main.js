@@ -196,7 +196,14 @@ window.onload = async () => {
     };
 
     // Initialize a page by rendering links and applying behaviors
-    const initializePage = async (metaName, containerId) => {
+    const initializePage = async (sectionKey) => {
+        const section = sectionsConfig[sectionKey];
+        if (!section) {
+            console.error(`No configuration found for section: ${sectionKey}`);
+            return;
+        }
+
+        const { metaName, containerId, isListPage } = section;
         const container = document.getElementById(containerId);
         if (!container) {
             console.error(`Container with ID '${containerId}' not found`);
@@ -213,8 +220,7 @@ window.onload = async () => {
             return;
         }
 
-        // Check if the current page is a list page or an individual page
-        if (list) {
+        if (isListPage && list) {
             // Render a list of links for list pages
             const rows = data.map((item) => {
                 const row = document.createElement("li");
