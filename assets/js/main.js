@@ -206,12 +206,7 @@ window.onload = async () => {
             // Render a list of links for list pages
             const rows = data.map((item) => {
                 const row = document.createElement("li");
-
-                if (item.isTitle) {
-                    row.classList.add("title-row");
-                } else {
-                    row.classList.add("row");
-                }
+                row.classList.add("row");
 
                 const linkWrapper = document.createElement("div");
                 linkWrapper.className = "link-wrapper";
@@ -229,7 +224,13 @@ window.onload = async () => {
 
                 linkWrapper.appendChild(link);
 
-                if (item.subtitle) {
+                // Format the subtitle for readings
+                if (sectionKey === "readings" && item.subtitle) {
+                    const subtitle = document.createElement("span");
+                    subtitle.className = "subtitle";
+                    subtitle.textContent = `— ${item.subtitle}, ${item.publication}, ${item.month || item.season} ${item.year}`;
+                    linkWrapper.appendChild(subtitle);
+                } else if (item.subtitle) {
                     const subtitle = document.createElement("span");
                     subtitle.className = "subtitle";
                     subtitle.textContent = item.subtitle;
