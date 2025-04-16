@@ -310,4 +310,25 @@ window.onload = async () => {
     } else {
         console.error(`No matching section found for path: ${currentPath}`);
     }
+
+    const adjustLinkContainerHeight = () => {
+        const navBar = document.getElementById("site-nav");
+        const titleRow = document.querySelector(".title-row");
+        const linkContainer = document.getElementById("link-container");
+
+        if (!linkContainer) return;
+
+        const navHeight = navBar ? navBar.offsetHeight : 0;
+        const titleHeight = titleRow ? titleRow.offsetHeight : 0;
+
+        // Calculate the available height for the link container
+        const availableHeight = window.innerHeight - (navHeight + titleHeight);
+
+        // Set the height of the link container
+        linkContainer.style.height = `${availableHeight}px`;
+    };
+
+    // Adjust the height on page load and window resize
+    window.addEventListener("load", adjustLinkContainerHeight);
+    window.addEventListener("resize", adjustLinkContainerHeight);
 };
