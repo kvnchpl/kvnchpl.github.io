@@ -34,13 +34,13 @@ window.onload = async () => {
         rows.forEach((row, index) => {
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) {
-                console.error(`No .link-wrapper found in row ${index}`);
+                logError(`No .link-wrapper found in row ${index}`);
                 return;
             }
 
             const link = linkWrapper.querySelector("a");
             if (!link) {
-                console.error(`No <a> element found in .link-wrapper for row ${index}`);
+                logError(`No <a> element found in .link-wrapper for row ${index}`);
                 return;
             }
 
@@ -60,7 +60,7 @@ window.onload = async () => {
                 const viewportWidth = window.innerWidth;
 
                 if (viewportWidth === 0 || linkWidth === 0) {
-                    console.error("Invalid viewport or link width:", { viewportWidth, linkWidth });
+                    logError("Invalid viewport or link width:", { viewportWidth, linkWidth });
                     return;
                 }
 
@@ -126,7 +126,7 @@ window.onload = async () => {
                     const viewportWidth = window.innerWidth;
 
                     if (viewportWidth === 0 || linkWidth === 0) {
-                        console.error("Invalid viewport or link width:", { viewportWidth, linkWidth });
+                        logError("Invalid viewport or link width:", { viewportWidth, linkWidth });
                         return;
                     }
 
@@ -141,22 +141,23 @@ window.onload = async () => {
         });
     };
 
+    // Render links dynamically from JSON data
     const renderLinks = async (metaName, containerId, rowClass = "row") => {
         const container = document.getElementById(containerId);
         if (!container) {
-            console.error(`Container with ID '${containerId}' not found`);
+            logError(`Container with ID '${containerId}' not found`);
             return [];
         }
 
         const list = container.querySelector("ul");
         if (!list) {
-            console.error(`No <ul> found inside container with ID '${containerId}'`);
+            logError(`No <ul> found inside container with ID '${containerId}'`);
             return [];
         }
 
         const data = await fetchJSON(metaName);
         if (!data || !Array.isArray(data) || data.length === 0) {
-            console.error(`No valid data found for meta tag '${metaName}'`);
+            logError(`No valid data found for meta tag '${metaName}'`);
             return [];
         }
 
@@ -194,6 +195,7 @@ window.onload = async () => {
         });
     };
 
+    // Initialize a page by rendering links and applying behaviors
     const initializePage = async (metaName, containerId) => {
         const rows = await renderLinks(metaName, containerId);
         if (rows.length > 0) {
@@ -245,9 +247,6 @@ window.onload = async () => {
             return;
         }
 
-        let rows = Array.from(linkList.children);
-
-        // If on the homepage, fetch links from index.json
         if (window.location.pathname === "/") {
             await initializePage("index-links-data", "link-container");
         } else if (window.location.pathname === "/projects/") {
