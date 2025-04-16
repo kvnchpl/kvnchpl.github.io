@@ -11,12 +11,14 @@ permalink: /writings/
   <ul>
     {% for writing in site.writings %}
       <li class="row">
-        <a href="{{ writing.url }}">
-          {{ writing.title }}
-        </a>
-        {% if writing.date %}
-          <span class="subtitle">Published on {{ writing.date | date: "%B %d, %Y" }}</span>
-        {% endif %}
+        <div class="link-wrapper">
+          <a href="{{ writing.url }}" class="writing-link">
+            {{ writing.title }}
+          </a>
+          {% if writing.date %}
+            <span class="subtitle">Published on {{ writing.date | date: "%B %d, %Y" }}</span>
+          {% endif %}
+        </div>
       </li>
     {% endfor %}
   </ul>
