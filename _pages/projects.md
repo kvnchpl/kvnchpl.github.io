@@ -6,20 +6,7 @@ permalink: /projects/
 ---
 
 <div id="link-container">
-  <ul>
-    {% for project in site.data.projects %}
-      <li class="row">
-        <div class="link-wrapper">
-          <a href="{{ project.href }}" {% if project.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
-            {{ project.title }}
-          </a>
-          {% if project.month and project.year %}
-            <span class="subtitle">
-              {{ project.month | date: "%B" }} {{ project.year }}
-            </span>
-          {% endif %}
-        </div>
-      </li>
-    {% endfor %}
+  <ul id="project-list">
+    <!-- Projects will be dynamically populated by main.js -->
   </ul>
 </div>
