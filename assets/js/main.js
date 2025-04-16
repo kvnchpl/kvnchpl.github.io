@@ -145,25 +145,31 @@ window.onload = async () => {
     const renderLinks = async (metaName, containerId, rowClass = "row") => {
         const container = document.getElementById(containerId);
         if (!container) {
-            logError(`Container with ID '${containerId}' not found`);
+            console.error(`Container with ID '${containerId}' not found`);
             return [];
         }
 
         const list = container.querySelector("ul");
         if (!list) {
-            logError(`No <ul> found inside container with ID '${containerId}'`);
+            console.error(`No <ul> found inside container with ID '${containerId}'`);
             return [];
         }
 
         const data = await fetchJSON(metaName);
         if (!data || !Array.isArray(data) || data.length === 0) {
-            logError(`No valid data found for meta tag '${metaName}'`);
+            console.error(`No valid data found for meta tag '${metaName}'`);
             return [];
         }
 
         return data.map((item) => {
             const row = document.createElement("li");
-            row.classList.add(rowClass);
+
+            // Check if the item is the title row
+            if (item.isTitle) {
+                row.classList.add("title-row");
+            } else {
+                row.classList.add(rowClass);
+            }
 
             const linkWrapper = document.createElement("div");
             linkWrapper.className = "link-wrapper";
