@@ -97,14 +97,13 @@ window.onload = async () => {
                     const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     if (!otherLinkWrapper) return;
 
-                    const otherLinkWidth = otherLinkWrapper.offsetWidth;
-
                     if (row.classList.contains("left-arrow")) {
-                        // Align other links to the hovered link's left edge
-                        otherLinkWrapper.style.left = `${hoveredLeft - otherLinkWidth}px`;
-                    } else {
-                        // Align other links to the hovered link's right edge
-                        otherLinkWrapper.style.left = `${hoveredRight}px`;
+                        // Align other links' left edges with the hovered link's left edge
+                        otherLinkWrapper.style.left = `${hoveredLeft}px`;
+                    } else if (row.classList.contains("right-arrow")) {
+                        // Align other links' right edges with the hovered link's right edge
+                        const otherLinkWidth = otherLinkWrapper.offsetWidth;
+                        otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
                     }
                 });
             });
