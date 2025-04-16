@@ -74,9 +74,7 @@ window.onload = async () => {
     };
 
     // Enable hover effects for links
-    const enableHoverEffect = (rows) => {
-        const overlay = document.getElementById("image-overlay");
-
+    const enableHoverEffect = (rows, getNextImage, overlay) => {
         rows.forEach((row, index) => {
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) return;
@@ -141,62 +139,53 @@ window.onload = async () => {
         });
     };
 
-    // Render links dynamically from JSON data
-    const renderLinks = async (metaName, containerId, rowClass = "row") => {
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.error(`Container with ID '${containerId}' not found`);
-            return [];
-        }
+    // Modularized overlay image handling
+    const setupOverlayImages = async () => {
+        const overlay = document.getElementById("image-overlay");
+        let shuffledImages = [];
+        const getNextImage = (() => {
+            let index = 0;
+            return () => {
+                if (shuffledImages.length === 0) return "";
+                const image = shuffledImages[index];
+                index = (index + 1) % shuffledImages.length;
+                return image;
+            };
+        })();
 
-        const list = container.querySelector("ul");
-        if (!list) {
-            console.error(`No <ul> found inside container with ID '${containerId}'`);
-            return [];
-        }
+        const overlayImages = await fetchJSON("overlay-images-data");
+        if (overlayImages && Array.isArray(overlayImages) && overlayImages.length > 0) {
+            shuffledImages = overlayImages.sort(() => Math.random() - 0.5);
+            shuffledImages.forEach((image) => {
+                const img = new Image();
+                img.src = image;
+            });
 
-        const data = await fetchJSON(metaName);
-        if (!data || !Array.isArray(data) || data.length === 0) {
-            console.error(`No valid data found for meta tag '${metaName}'`);
-            return [];
-        }
-
-        return data.map((item) => {
-            const row = document.createElement("li");
-            row.classList.add(rowClass);
-
-            const linkWrapper = document.createElement("div");
-            linkWrapper.className = "link-wrapper";
-
-            const link = document.createElement("a");
-            link.href = item.href; // Link to the individual page
-            link.textContent = item.title;
-
-            if (item.external) {
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
-            } else if (item.newTab === false) {
-                link.target = "_self";
+            if (isMobile) {
+                overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
+                overlay.classList.add("visible");
             }
+        } else {
+            logError("DEBUG: No valid overlay images found in sky_images.json or the file is empty.");
+        }
 
-            linkWrapper.appendChild(link);
+        return { overlay, getNextImage };
+    };
 
-            if (item.subtitle) {
-                const subtitle = document.createElement("span");
-                subtitle.className = "subtitle";
-                subtitle.textContent = item.subtitle;
-                linkWrapper.appendChild(subtitle);
-            }
-
-            row.appendChild(linkWrapper);
-            list.appendChild(row);
-
-            return row;
-        });
+    // Dynamically fetch sections.json
+    const fetchSectionsConfig = async () => {
+        try {
+            const response = await fetch("/assets/data/sections.json");
+            if (!response.ok) throw new Error("Failed to fetch sections.json");
+            return await response.json();
+        } catch (error) {
+            logError(`Error fetching sections.json: ${error.message}`);
+            return null;
+        }
     };
 
     // Initialize a page by rendering links and applying behaviors
-    const initializePage = async (sectionKey) => {
+    const initializePage = async (sectionKey, sectionsConfig, overlaySetup) => {
         const section = sectionsConfig[sectionKey];
         if (!section) {
             console.error(`No configuration found for section: ${sectionKey}`);
@@ -257,7 +246,7 @@ window.onload = async () => {
 
             if (rows.length > 0) {
                 randomizeLinks(rows);
-                enableHoverEffect(rows);
+                enableHoverEffect(rows, overlaySetup.getNextImage, overlaySetup.overlay);
             }
         } else if (dynamicContent) {
             // Populate content for individual pages
@@ -301,41 +290,15 @@ window.onload = async () => {
         }
     };
 
-    // Preload images
-    const preloadImages = (images) => {
-        images.forEach((image) => {
-            const img = new Image();
-            img.src = image;
-        });
-    };
-
-    // Fetch and process overlay images
-    const overlay = document.getElementById("image-overlay");
-    let shuffledImages = [];
-    const getNextImage = (() => {
-        let index = 0;
-        return () => {
-            if (shuffledImages.length === 0) return "";
-            const image = shuffledImages[index];
-            index = (index + 1) % shuffledImages.length;
-            return image;
-        };
-    })();
-
-    const overlayImages = await fetchJSON("overlay-images-data");
-    if (overlayImages && Array.isArray(overlayImages) && overlayImages.length > 0) {
-        shuffledImages = overlayImages.sort(() => Math.random() - 0.5);
-        preloadImages(shuffledImages);
-
-        if (isMobile) {
-            overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-            overlay.classList.add("visible");
-        }
-    } else {
-        logError("DEBUG: No valid overlay images found in sky_images.json or the file is empty.");
+    // Main logic
+    const sectionsConfig = await fetchSectionsConfig();
+    if (!sectionsConfig) {
+        logError("Failed to load sections configuration.");
+        return;
     }
 
-    // Apply behavior to pages with #link-container
+    const overlaySetup = await setupOverlayImages();
+
     const currentPath = window.location.pathname;
 
     // Dynamically determine the section based on the URL
@@ -345,7 +308,7 @@ window.onload = async () => {
     });
 
     if (sectionKey) {
-        await initializePage(sectionKey);
+        await initializePage(sectionKey, sectionsConfig, overlaySetup);
     } else {
         console.error(`No matching section found for path: ${currentPath}`);
     }
