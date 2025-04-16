@@ -110,6 +110,46 @@ a:hover {
   opacity: var(--overlay-opacity);
 }
 
+/* Navigation styles */
+#site-nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  gap: 0.5rem;
+}
+
+#site-nav ul li {
+  display: inline;
+}
+
+#site-nav ul li a {
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--font-color);
+}
+
+#site-nav ul li a:not(:last-child)::after {
+  content: " / ";
+  color: var(--font-color);
+}
+
+#site-nav ul li a.current {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+#site-nav ul li a.current::before {
+  content: "*";
+  margin-right: 0.25rem;
+}
+
+#site-nav ul li a.current::after {
+  content: "*";
+  margin-left: 0.25rem;
+}
+
 /* Mobile styles */
 @media (max-width: 768px) {
   #link-container {
