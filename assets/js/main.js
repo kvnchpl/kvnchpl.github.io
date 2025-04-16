@@ -2,6 +2,14 @@ window.onload = async () => {
     console.log("main.js is loaded");
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
     const isHomepage = window.location.pathname === '/';
+    const isProjectsPage = window.location.pathname === '/projects/';
+
+    console.log("Page detection:", {
+        isHomepage,
+        isProjectsPage,
+        isWritingsPage,
+        isReadingsPage,
+    });
 
     // Utility function for centralized error logging
     const logError = (message) => console.error(`DEBUG: ${message}`);
