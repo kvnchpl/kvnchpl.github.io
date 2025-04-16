@@ -206,7 +206,12 @@ window.onload = async () => {
             // Render a list of links for list pages
             const rows = data.map((item) => {
                 const row = document.createElement("li");
-                row.classList.add("row");
+
+                if (item.isTitle) {
+                    row.classList.add("title-row");
+                } else {
+                    row.classList.add("row");
+                }
 
                 const linkWrapper = document.createElement("div");
                 linkWrapper.className = "link-wrapper";
