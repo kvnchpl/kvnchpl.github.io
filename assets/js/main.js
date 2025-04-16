@@ -163,19 +163,13 @@ window.onload = async () => {
 
         return data.map((item) => {
             const row = document.createElement("li");
-
-            // Check if the item is the title row
-            if (item.isTitle) {
-                row.classList.add("title-row");
-            } else {
-                row.classList.add(rowClass);
-            }
+            row.classList.add(rowClass);
 
             const linkWrapper = document.createElement("div");
             linkWrapper.className = "link-wrapper";
 
             const link = document.createElement("a");
-            link.href = item.href;
+            link.href = item.href; // Link to the individual page
             link.textContent = item.title;
 
             if (item.external) {
