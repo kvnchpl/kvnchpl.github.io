@@ -8,14 +8,17 @@
 <body>
   <header role="banner">
     <nav id="site-nav" role="navigation" aria-label="Main menu">
-      <ul>
-        <li><a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}current{% endif %}">HOME</a></li>
-        <li><a href="{{ '/projects/' | relative_url }}" class="{% if page.url == '/projects/' %}current{% endif %}">PROJECTS</a></li>
-        <li><a href="https://kvnchpl-thoughts.tumblr.com/">THOUGHTS</a></li>
-        <li><a href="{{ '/writings/' | relative_url }}" class="{% if page.url == '/writings/' %}current{% endif %}">WRITINGS</a></li>
-        <li><a href="{{ '/readings/' | relative_url }}" class="{% if page.url == '/readings/' %}current{% endif %}">READINGS</a></li>
-        <li><a href="{{ '/contact/' | relative_url }}" class="{% if page.url == '/contact/' %}current{% endif %}">CONTACT</a></li>
-      </ul>
+      <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}current{% endif %}">HOME</a>
+      <span>/</span>
+      <a href="{{ '/projects/' | relative_url }}" class="{% if page.url == '/projects/' %}current{% endif %}">PROJECTS</a>
+      <span>/</span>
+      <a href="https://kvnchpl-thoughts.tumblr.com/">THOUGHTS</a>
+      <span>/</span>
+      <a href="{{ '/writings/' | relative_url }}" class="{% if page.url == '/writings/' %}current{% endif %}">WRITINGS</a>
+      <span>/</span>
+      <a href="{{ '/readings/' | relative_url }}" class="{% if page.url == '/readings/' %}current{% endif %}">READINGS</a>
+      <span>/</span>
+      <a href="{{ '/contact/' | relative_url }}" class="{% if page.url == '/contact/' %}current{% endif %}">CONTACT</a>
     </nav>
   </header>
 
