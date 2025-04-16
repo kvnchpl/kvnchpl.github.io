@@ -207,7 +207,12 @@ window.onload = async () => {
 
         data.forEach((item) => {
             const row = document.createElement("li");
-            row.classList.add("row");
+
+            if (item.isTitle) {
+                row.classList.add("title-row");
+            } else {
+                row.classList.add("row");
+            }
 
             const linkWrapper = document.createElement("div");
             linkWrapper.className = "link-wrapper";
