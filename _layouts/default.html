@@ -7,18 +7,14 @@
 
 <body>
   <header role="banner">
-    <button id="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
-      <span class="menu-icon"></span>
-    </button>
-
     <nav id="site-nav" role="navigation" aria-label="Main menu">
       <ul>
-        <li><a href="{{ '/' | relative_url }}">Home</a></li>
-        <li><a href="{{ '/projects/' | relative_url }}">Projects</a></li>
-        <li><a href="https://kvnchpl-thoughts.tumblr.com/">Thoughts</a></li>
-        <li><a href="{{ '/writings/' | relative_url }}">Writings</a></li>
-        <li><a href="{{ '/readings/' | relative_url }}">Readings</a></li>
-        <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+        <li><a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}current{% endif %}">HOME</a></li>
+        <li><a href="{{ '/projects/' | relative_url }}" class="{% if page.url == '/projects/' %}current{% endif %}">PROJECTS</a></li>
+        <li><a href="https://kvnchpl-thoughts.tumblr.com/">THOUGHTS</a></li>
+        <li><a href="{{ '/writings/' | relative_url }}" class="{% if page.url == '/writings/' %}current{% endif %}">WRITINGS</a></li>
+        <li><a href="{{ '/readings/' | relative_url }}" class="{% if page.url == '/readings/' %}current{% endif %}">READINGS</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}" class="{% if page.url == '/contact/' %}current{% endif %}">CONTACT</a></li>
       </ul>
     </nav>
   </header>
