@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+  <header role="banner">
+    <!-- No navigation for the homepage -->
+  </header>
+
+  <main id="main-content" role="main">
+    {{ content }}
+  </main>
+
+  <div id="image-overlay"></div>
+
+  <footer role="contentinfo">
+    {% include footer.html %}
+  </footer>
+
+  <script src="{{ 'assets/js/main.js' | relative_url }}"></script>
+</body>
+
+</html>
