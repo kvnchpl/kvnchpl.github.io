@@ -2,13 +2,19 @@
   {
       "title": "Technics and Time",
       "href": "https://example.com",
-      "subtitle": "By Bernard Stiegler (1994)",
+      "subtitle": "By Bernard Stiegler",
+      "publication": "1994",
+      "month": "January",
+      "year": 1994,
       "external": true
   },
   {
       "title": "A Thousand Plateaus",
       "href": "https://example.com",
-      "subtitle": "By Deleuze & Guattari (1980)",
+      "subtitle": "By Deleuze & Guattari",
+      "publication": "1980",
+      "month": "June",
+      "year": 1980,
       "external": true
   }
 ]
