@@ -83,6 +83,8 @@ window.onload = async () => {
             if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => {
+                if (isMobile) return; // Disable sliding functionality on mobile
+
                 console.log(`Pointer entered row ${index}`);
 
                 const hoveredRect = linkWrapper.getBoundingClientRect();
@@ -106,6 +108,8 @@ window.onload = async () => {
             });
 
             linkWrapper.addEventListener("pointerleave", () => {
+                if (isMobile) return; // Disable sliding functionality on mobile
+
                 console.log(`Pointer left row ${index}`);
 
                 rows.forEach((otherRow, otherIndex) => {
