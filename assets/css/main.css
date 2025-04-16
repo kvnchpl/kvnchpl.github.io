@@ -79,7 +79,6 @@ a {
 
 a:hover {
   transform: scale(var(--hover-scale));
-  color: var(--link-hover-color)
 }
 
 .subtitle {
