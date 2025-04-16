@@ -16,7 +16,7 @@ permalink: /writings/
             {{ writing.title }}
           </a>
           {% if writing.date %}
-            <span class="subtitle">Published on {{ writing.date | date: "%B %d, %Y" }}</span>
+            <span class="subtitle">{{ writing.date | date: "%B %Y" }}</span>
           {% endif %}
         </div>
       </li>

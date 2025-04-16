@@ -2,12 +2,14 @@
   {
     "title": "Technics and Time",
     "author": "Bernard Stiegler",
+    "publication": "The Time of Technics",
     "year": 1994,
     "link": "https://example.com"
   },
   {
     "title": "A Thousand Plateaus",
     "author": "Deleuze & Guattari",
+    "publication": "Capitalism and Schizophrenia",
     "year": 1980,
     "link": "https://example.com"
   }
