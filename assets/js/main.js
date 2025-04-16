@@ -197,58 +197,101 @@ window.onload = async () => {
 
     // Initialize a page by rendering links and applying behaviors
     const initializePage = async (metaName, containerId) => {
-        const rows = await renderLinks(metaName, containerId);
-        if (rows.length > 0) {
-            randomizeLinks(rows);
-            enableHoverEffect(rows);
-        }
-    };
-
-    // Populate individual pages dynamically
-    const populateIndividualPage = async (metaName) => {
-        const dynamicContent = document.getElementById("dynamic-content");
-        if (!dynamicContent) return;
-
-        const currentPath = window.location.pathname; // Get the current page's path
-        const data = await fetchJSON(metaName); // Fetch the relevant JSON file
-
-        const item = data.find((entry) => entry.href === currentPath); // Find the matching entry
-        if (!item) {
-            dynamicContent.innerHTML = "<p>Content not found.</p>";
+        const container = document.getElementById(containerId);
+        if (!container) {
+            console.error(`Container with ID '${containerId}' not found`);
             return;
         }
 
-        // Generate the content dynamically
-        const title = document.createElement("h1");
-        title.textContent = item.title;
+        const list = container.querySelector("ul");
+        const dynamicContent = document.getElementById("dynamic-content");
+        const currentPath = window.location.pathname;
 
-        const description = document.createElement("p");
-        description.textContent = item.description;
-
-        dynamicContent.appendChild(title);
-        dynamicContent.appendChild(description);
-
-        // Add images if available
-        if (item.images && item.images.length > 0) {
-            const gallery = document.createElement("div");
-            gallery.className = "gallery";
-
-            item.images.forEach((imageSrc) => {
-                const img = document.createElement("img");
-                img.src = imageSrc;
-                img.alt = `${item.title} image`;
-                gallery.appendChild(img);
-            });
-
-            dynamicContent.appendChild(gallery);
+        const data = await fetchJSON(metaName);
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            console.error(`No valid data found for meta tag '${metaName}'`);
+            return;
         }
 
-        // Add additional metadata (e.g., subtitle, publication date)
-        if (item.subtitle) {
-            const subtitle = document.createElement("p");
-            subtitle.className = "subtitle";
-            subtitle.textContent = item.subtitle;
-            dynamicContent.appendChild(subtitle);
+        // Check if the current page is a list page or an individual page
+        if (list) {
+            // Render a list of links for list pages
+            const rows = data.map((item) => {
+                const row = document.createElement("li");
+                row.classList.add("row");
+
+                const linkWrapper = document.createElement("div");
+                linkWrapper.className = "link-wrapper";
+
+                const link = document.createElement("a");
+                link.href = item.href;
+                link.textContent = item.title;
+
+                if (item.external) {
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+                } else if (item.newTab === false) {
+                    link.target = "_self";
+                }
+
+                linkWrapper.appendChild(link);
+
+                if (item.subtitle) {
+                    const subtitle = document.createElement("span");
+                    subtitle.className = "subtitle";
+                    subtitle.textContent = item.subtitle;
+                    linkWrapper.appendChild(subtitle);
+                }
+
+                row.appendChild(linkWrapper);
+                list.appendChild(row);
+
+                return row;
+            });
+
+            if (rows.length > 0) {
+                randomizeLinks(rows);
+                enableHoverEffect(rows);
+            }
+        } else if (dynamicContent) {
+            // Populate content for individual pages
+            const item = data.find((entry) => entry.href === currentPath);
+            if (!item) {
+                dynamicContent.innerHTML = "<p>Content not found.</p>";
+                return;
+            }
+
+            const title = document.createElement("h1");
+            title.textContent = item.title;
+
+            const description = document.createElement("p");
+            description.textContent = item.description;
+
+            dynamicContent.appendChild(title);
+            dynamicContent.appendChild(description);
+
+            // Add images if available
+            if (item.images && item.images.length > 0) {
+                const gallery = document.createElement("div");
+                gallery.className = "gallery";
+
+                item.images.forEach((imageSrc) => {
+                    const img = document.createElement("img");
+                    img.src = imageSrc;
+                    img.alt = `${item.title} image`;
+                    gallery.appendChild(img);
+                });
+
+                dynamicContent.appendChild(gallery);
+            }
+
+            // Add additional metadata (e.g., subtitle, publication date)
+            if (item.subtitle) {
+                const subtitle = document.createElement("p");
+                subtitle.className = "subtitle";
+                subtitle.textContent = item.subtitle;
+                dynamicContent.appendChild(subtitle);
+            }
         }
     };
 
@@ -295,20 +338,16 @@ window.onload = async () => {
             return;
         }
 
-        if (window.location.pathname === "/") {
+        const currentPath = window.location.pathname;
+
+        if (currentPath === "/") {
             await initializePage("index-data", "link-container");
-        } else if (window.location.pathname === "/projects/") {
+        } else if (currentPath.startsWith("/projects/")) {
             await initializePage("projects-data", "link-container");
-        } else if (window.location.pathname === "/readings/") {
+        } else if (currentPath.startsWith("/readings/")) {
             await initializePage("readings-data", "link-container");
-        } else if (window.location.pathname === "/writings/") {
+        } else if (currentPath.startsWith("/writings/")) {
             await initializePage("writings-data", "link-container");
-        } else if (window.location.pathname.startsWith("/projects/")) {
-            await populateIndividualPage("projects-data");
-        } else if (window.location.pathname.startsWith("/readings/")) {
-            await populateIndividualPage("readings-data");
-        } else if (window.location.pathname.startsWith("/writings/")) {
-            await populateIndividualPage("writings-data");
         }
     }
 };
