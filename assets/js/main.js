@@ -1,5 +1,6 @@
 window.onload = async () => {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    const isHomepage = window.location.pathname === '/';
 
     // Utility function for centralized error logging
     const logError = (message) => console.error(`DEBUG: ${message}`);
@@ -243,58 +244,60 @@ window.onload = async () => {
         logError("DEBUG: No valid overlay images found in sky_images.json or the file is empty.");
     }
 
-    // Fetch and process homepage links
-    const indexLinks = await fetchJSON("index-links-data");
-    if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
-        // Select the <ul> inside #link-container
-        const linkContainer = document.getElementById("link-container");
-        const linkList = linkContainer.querySelector("ul");
+    // Fetch and process homepage links only if on the homepage
+    if (isHomepage) {
+        const indexLinks = await fetchJSON("index-links-data");
+        if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
+            // Select the <ul> inside #link-container
+            const linkContainer = document.getElementById("link-container");
+            const linkList = linkContainer.querySelector("ul");
 
-        if (!linkList) {
-            logError("No <ul> element found inside #link-container!");
-            return;
-        }
-
-        // Create rows and append them to the <ul>
-        const rows = indexLinks.map((linkItem) => {
-            const row = document.createElement("li");
-            const link = document.createElement("a");
-            link.href = linkItem.href;
-            link.textContent = linkItem.label;
-
-            // Handle target attributes for links
-            if (linkItem.newTab === false) {
-                link.target = "_self";
-            } else if (linkItem.href.startsWith("http")) {
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
+            if (!linkList) {
+                logError("No <ul> element found inside #link-container!");
+                return;
             }
 
-            row.appendChild(link);
+            // Create rows and append them to the <ul>
+            const rows = indexLinks.map((linkItem) => {
+                const row = document.createElement("li");
+                const link = document.createElement("a");
+                link.href = linkItem.href;
+                link.textContent = linkItem.label;
 
-            // Add subtitle dynamically if applicable
-            if (linkItem.subtitle) {
-                const subtitle = document.createElement("span");
-                subtitle.className = "subtitle";
-                subtitle.textContent = linkItem.subtitle;
-                row.appendChild(subtitle);
+                // Handle target attributes for links
+                if (linkItem.newTab === false) {
+                    link.target = "_self";
+                } else if (linkItem.href.startsWith("http")) {
+                    link.target = "_blank";
+                    link.rel = "noopener noreferrer";
+                }
+
+                row.appendChild(link);
+
+                // Add subtitle dynamically if applicable
+                if (linkItem.subtitle) {
+                    const subtitle = document.createElement("span");
+                    subtitle.className = "subtitle";
+                    subtitle.textContent = linkItem.subtitle;
+                    row.appendChild(subtitle);
+                }
+
+                linkList.appendChild(row);
+                return row;
+            });
+
+            // Add the title row to participate in the animation system
+            const titleRow = document.querySelector(".title-row");
+            if (titleRow) {
+                rows.unshift(titleRow);
             }
 
-            linkList.appendChild(row);
-            return row;
-        });
-
-        // Add the title row to participate in the animation system
-        const titleRow = document.querySelector(".title-row");
-        if (titleRow) {
-            rows.unshift(titleRow);
+            // Apply randomization and hover effects
+            randomizeLinks(rows);
+            enableHoverEffect(rows);
+        } else {
+            logError("DEBUG: No valid links found in index.json or the file is empty.");
         }
-
-        // Apply randomization and hover effects
-        randomizeLinks(rows);
-        enableHoverEffect(rows);
-    } else {
-        logError("DEBUG: No valid links found in index.json or the file is empty.");
     }
 
     if (isMobile) {
