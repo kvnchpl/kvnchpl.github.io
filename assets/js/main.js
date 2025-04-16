@@ -129,6 +129,67 @@ window.onload = async () => {
         });
     };
 
+    const renderLinks = async (metaName, containerId, rowClass = "row") => {
+        const container = document.getElementById(containerId);
+        if (!container) {
+            console.error(`Container with ID '${containerId}' not found`);
+            return [];
+        }
+
+        const list = container.querySelector("ul");
+        if (!list) {
+            console.error(`No <ul> found inside container with ID '${containerId}'`);
+            return [];
+        }
+
+        const data = await fetchJSON(metaName);
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            console.error(`No valid data found for meta tag '${metaName}'`);
+            return [];
+        }
+
+        return data.map((item) => {
+            const row = document.createElement("li");
+            row.classList.add(rowClass);
+
+            const linkWrapper = document.createElement("div");
+            linkWrapper.className = "link-wrapper";
+
+            const link = document.createElement("a");
+            link.href = item.href;
+            link.textContent = item.label;
+
+            if (item.external) {
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+            } else if (item.newTab === false) {
+                link.target = "_self";
+            }
+
+            linkWrapper.appendChild(link);
+
+            if (item.subtitle) {
+                const subtitle = document.createElement("span");
+                subtitle.className = "subtitle";
+                subtitle.textContent = item.subtitle;
+                linkWrapper.appendChild(subtitle);
+            }
+
+            row.appendChild(linkWrapper);
+            list.appendChild(row);
+
+            return row;
+        });
+    };
+
+    const initializePage = async (metaName, containerId) => {
+        const rows = await renderLinks(metaName, containerId);
+        if (rows.length > 0) {
+            randomizeLinks(rows);
+            enableHoverEffect(rows);
+        }
+    };
+
     // Preload images
     const preloadImages = (images) => {
         images.forEach((image) => {
@@ -176,61 +237,13 @@ window.onload = async () => {
 
         // If on the homepage, fetch links from index.json
         if (window.location.pathname === "/") {
-            const indexLinks = await fetchJSON("index-links-data");
-            if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
-                rows = indexLinks.map((linkItem) => {
-                    const row = document.createElement("li");
-                    row.classList.add("row");
-
-                    if (linkItem.isTitle) {
-                        // Handle the title row
-                        row.classList.add("title-row");
-
-                        const linkWrapper = document.createElement("div");
-                        linkWrapper.className = "link-wrapper";
-
-                        const link = document.createElement("a");
-                        link.href = linkItem.href;
-                        link.textContent = linkItem.label;
-
-                        linkWrapper.appendChild(link);
-                        row.appendChild(linkWrapper);
-                    } else {
-                        // Handle regular rows
-                        const linkWrapper = document.createElement("div");
-                        linkWrapper.className = "link-wrapper";
-
-                        const link = document.createElement("a");
-                        link.href = linkItem.href;
-                        link.textContent = linkItem.label;
-
-                        if (linkItem.newTab === false) {
-                            link.target = "_self";
-                        } else if (linkItem.href.startsWith("http")) {
-                            link.target = "_blank";
-                            link.rel = "noopener noreferrer";
-                        }
-
-                        linkWrapper.appendChild(link);
-                        row.appendChild(linkWrapper);
-                    }
-
-                    if (linkItem.subtitle) {
-                        const subtitle = document.createElement("span");
-                        subtitle.className = "subtitle";
-                        subtitle.textContent = linkItem.subtitle;
-                        row.querySelector(".link-wrapper").appendChild(subtitle);
-                    }
-
-                    linkList.appendChild(row);
-                    return row;
-                });
-            } else {
-                logError("DEBUG: No valid links found in index.json or the file is empty.");
-            }
+            await initializePage("index-links-data", "link-container");
+        } else if (window.location.pathname === "/projects/") {
+            await initializePage("projects-data", "link-container");
+        } else if (window.location.pathname === "/readings/") {
+            await initializePage("readings-data", "link-container");
+        } else if (window.location.pathname === "/writings/") {
+            await initializePage("writings-data", "link-container");
         }
-
-        randomizeLinks(rows);
-        enableHoverEffect(rows);
     }
 };
