@@ -134,6 +134,11 @@ window.onload = async () => {
             if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
                 rows = indexLinks.map((linkItem) => {
                     const row = document.createElement("li");
+                    row.classList.add("row");
+
+                    const linkWrapper = document.createElement("div");
+                    linkWrapper.className = "link-wrapper";
+
                     const link = document.createElement("a");
                     link.href = linkItem.href;
                     link.textContent = linkItem.label;
@@ -145,13 +150,14 @@ window.onload = async () => {
                         link.rel = "noopener noreferrer";
                     }
 
-                    row.appendChild(link);
+                    linkWrapper.appendChild(link);
+                    row.appendChild(linkWrapper);
 
                     if (linkItem.subtitle) {
                         const subtitle = document.createElement("span");
                         subtitle.className = "subtitle";
                         subtitle.textContent = linkItem.subtitle;
-                        row.appendChild(subtitle);
+                        linkWrapper.appendChild(subtitle);
                     }
 
                     linkList.appendChild(row);
