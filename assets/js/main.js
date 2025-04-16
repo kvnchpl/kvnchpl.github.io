@@ -1,4 +1,5 @@
 window.onload = async () => {
+    console.log("main.js is loaded");
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
     const isHomepage = window.location.pathname === '/';
 
