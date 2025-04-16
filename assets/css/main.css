@@ -153,12 +153,12 @@ a {
 
 #site-nav a.current::before {
   content: "*";
-  margin-right: 0.25rem;
+  margin-right: 0;
 }
 
 #site-nav a.current::after {
   content: "*";
-  margin-left: 0.25rem;
+  margin-left: 0;
 }
 
 #site-nav span {
