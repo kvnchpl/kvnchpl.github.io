@@ -177,10 +177,24 @@ window.onload = async () => {
         return await fetchJSON("section-data");
     };
 
+    // Utility function to format dates
+    const formatDate = (month) => {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        if (typeof month === "number" && month >= 1 && month <= 12) {
+            return monthNames[month - 1]; // Convert numeric month to name
+        }
+        return month; // Return non-numeric values (e.g., "Fall") as-is
+    };
+
     // Format subtitles dynamically based on available properties
     const formatSubtitle = (item, format) => {
-        if (format === "detailed" && item.subtitle && item.publication && (item.month || item.season) && item.year) {
-            return `— ${item.subtitle}, ${item.publication}, ${item.month || item.season} ${item.year}`;
+        if (format === "detailed" && item.subtitle && item.publication && item.year) {
+            const formattedMonth = item.month ? formatDate(item.month) : null;
+            return `— ${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
         } else if (item.subtitle) {
             return item.subtitle;
         }
