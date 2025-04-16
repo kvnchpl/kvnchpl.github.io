@@ -1,6 +1,9 @@
 :root {
   --gap-size-desktop: 60px;
   --gap-size-mobile: 36px;
+  --link-container-gap: 80px;
+  --subtitle-margin-top: 0.25rem;
+  --row-margin-bottom: 20px;
   --font-size: 1.2rem;
   --subtitle-font-size: 0.96rem;
   --title-font-size: 2.5rem;
@@ -27,7 +30,7 @@ footer {
 #link-container {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--gap-size-desktop) + 20px); /* Increased gap size */
+  gap: var(--link-container-gap); 
   margin: 0 auto;
   padding: 1rem;
 }
@@ -35,7 +38,7 @@ footer {
 ul {
   display: flex;
   flex-direction: column;
-  gap: calc(var(--gap-size-desktop) + 20px); /* Increased gap size */
+  gap: var(--link-container-gap);
   padding: 0;
   margin: 0;
 }
@@ -44,6 +47,7 @@ li {
   display: block;
   width: 100%;
   position: relative;
+  margin-bottom: var(--row-margin-bottom);
 }
 #link-container ul li {
   text-transform: uppercase;
@@ -93,7 +97,7 @@ a {
   display: block;
   font-size: var(--subtitle-font-size);
   text-transform: lowercase;
-  margin-top: 0.25rem;
+  margin-top: var(--subtitle-margin-top);
   color: var(--subtitle-color);
 }
 
