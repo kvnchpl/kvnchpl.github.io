@@ -15,10 +15,13 @@ permalink: /readings/
           <a href="{{ reading.link }}" target="_blank" rel="noopener noreferrer" class="reading-link">
             {{ reading.title }}
           </a>
-          {% if reading.author or reading.year %}
+          {% if reading.author or reading.publication or reading.month or reading.year %}
             <span class="subtitle">
               {% if reading.author %}By {{ reading.author }}{% endif %}
-              {% if reading.year %} ({{ reading.year }}){% endif %}
+              {% if reading.publication %} ({{ reading.publication }}){% endif %}
+              {% if reading.month and reading.year %}
+                - {{ reading.month | date: "%B" }} {{ reading.year }}
+              {% endif %}
             </span>
           {% endif %}
         </div>
