@@ -91,19 +91,24 @@ window.onload = async () => {
                 const hoveredLeft = hoveredRect.left;
                 const hoveredRight = hoveredRect.right;
 
+                console.log(`Hovered link left: ${hoveredLeft}, right: ${hoveredRight}`);
+
                 rows.forEach((otherRow, otherIndex) => {
                     if (otherIndex === index || otherRow.classList.contains("title-row")) return;
 
                     const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     if (!otherLinkWrapper) return;
 
+                    const otherLinkWidth = otherLinkWrapper.offsetWidth;
+
                     if (row.classList.contains("left-arrow")) {
                         // Align other links' left edges with the hovered link's left edge
                         otherLinkWrapper.style.left = `${hoveredLeft}px`;
+                        console.log(`Aligning left-arrow row ${otherIndex} to ${hoveredLeft}`);
                     } else if (row.classList.contains("right-arrow")) {
                         // Align other links' right edges with the hovered link's right edge
-                        const otherLinkWidth = otherLinkWrapper.offsetWidth;
                         otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
+                        console.log(`Aligning right-arrow row ${otherIndex} to ${hoveredRight - otherLinkWidth}`);
                     }
                 });
             });
