@@ -6,7 +6,7 @@ permalink: /projects/
 ---
 
 <div id="link-container">
-  <ul id="project-list">
-    <!-- Projects will be dynamically populated by main.js -->
+  <ul>
+    <!-- Links will be populated by JavaScript -->
   </ul>
 </div>
