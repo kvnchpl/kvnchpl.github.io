@@ -2,16 +2,17 @@ window.onload = async () => {
     console.log("main.js is loaded");
 
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
-    const isHomepage = window.location.pathname === '/';
-
-    console.log("Page detection:", { isHomepage });
 
     // Utility function for centralized error logging
     const logError = (message) => console.error(`DEBUG: ${message}`);
 
     // Utility function to fetch JSON data from a URL
     const fetchJSON = async (metaName) => {
-        const url = document.querySelector(`meta[name='${metaName}']`).content;
+        const url = document.querySelector(`meta[name='${metaName}']`)?.content;
+        if (!url) {
+            logError(`Meta tag with name '${metaName}' not found`);
+            return null;
+        }
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
@@ -103,6 +104,14 @@ window.onload = async () => {
         });
     };
 
+    // Preload images
+    const preloadImages = (images) => {
+        images.forEach((image) => {
+            const img = new Image();
+            img.src = image;
+        });
+    };
+
     // Fetch and process overlay images
     const overlay = document.getElementById("image-overlay");
     let shuffledImages = [];
@@ -129,82 +138,59 @@ window.onload = async () => {
         logError("DEBUG: No valid overlay images found in sky_images.json or the file is empty.");
     }
 
-    // Preload images
-    const preloadImages = (images) => {
-        images.forEach((image) => {
-            const img = new Image();
-            img.src = image;
-        });
-    };
-
-    // Apply behavior to the homepage
-    if (isHomepage) {
-        const indexLinks = await fetchJSON("index-links-data");
-        if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
-            const linkContainer = document.getElementById("link-container");
-            const linkList = linkContainer.querySelector("ul");
-
-            if (!linkList) {
-                logError("No <ul> element found inside #link-container!");
-                return;
-            }
-
-            const rows = indexLinks.map((linkItem) => {
-                const row = document.createElement("li");
-                const link = document.createElement("a");
-                link.href = linkItem.href;
-                link.textContent = linkItem.label;
-
-                if (linkItem.newTab === false) {
-                    link.target = "_self";
-                } else if (linkItem.href.startsWith("http")) {
-                    link.target = "_blank";
-                    link.rel = "noopener noreferrer";
-                }
-
-                row.appendChild(link);
-
-                if (linkItem.subtitle) {
-                    const subtitle = document.createElement("span");
-                    subtitle.className = "subtitle";
-                    subtitle.textContent = linkItem.subtitle;
-                    row.appendChild(subtitle);
-                }
-
-                linkList.appendChild(row);
-                return row;
-            });
-
-            const titleRow = document.querySelector(".title-row");
-            if (titleRow) {
-                rows.unshift(titleRow);
-            }
-
-            randomizeLinks(rows);
-            enableHoverEffect(rows);
-        } else {
-            logError("DEBUG: No valid links found in index.json or the file is empty.");
-        }
-    }
-
-    // Apply behavior to other pages with Jekyll-generated HTML
-    if (!isHomepage) {
-        const linkContainer = document.getElementById("link-container");
-        if (!linkContainer) {
-            logError("No #link-container found on this page");
-            return;
-        }
-
+    // Apply behavior to pages with #link-container
+    const linkContainer = document.getElementById("link-container");
+    if (linkContainer) {
         const linkList = linkContainer.querySelector("ul");
         if (!linkList) {
             logError("No <ul> found inside #link-container");
             return;
         }
 
-        const rows = Array.from(linkList.children);
-        console.log("Rows found on this page:", rows);
+        let rows = Array.from(linkList.children);
+
+        // If on the homepage, fetch links from index.json
+        if (window.location.pathname === "/") {
+            const indexLinks = await fetchJSON("index-links-data");
+            if (indexLinks && Array.isArray(indexLinks) && indexLinks.length > 0) {
+                rows = indexLinks.map((linkItem) => {
+                    const row = document.createElement("li");
+                    const link = document.createElement("a");
+                    link.href = linkItem.href;
+                    link.textContent = linkItem.label;
+
+                    if (linkItem.newTab === false) {
+                        link.target = "_self";
+                    } else if (linkItem.href.startsWith("http")) {
+                        link.target = "_blank";
+                        link.rel = "noopener noreferrer";
+                    }
+
+                    row.appendChild(link);
+
+                    if (linkItem.subtitle) {
+                        const subtitle = document.createElement("span");
+                        subtitle.className = "subtitle";
+                        subtitle.textContent = linkItem.subtitle;
+                        row.appendChild(subtitle);
+                    }
+
+                    linkList.appendChild(row);
+                    return row;
+                });
+
+                const titleRow = document.querySelector(".title-row");
+                if (titleRow) {
+                    rows.unshift(titleRow);
+                }
+            } else {
+                logError("DEBUG: No valid links found in index.json or the file is empty.");
+            }
+        }
 
         randomizeLinks(rows);
         enableHoverEffect(rows);
+    } else {
+        console.log("No #link-container found on this page");
     }
 };
