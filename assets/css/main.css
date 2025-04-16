@@ -112,7 +112,6 @@ a:hover {
 
 /* Navigation styles */
 #site-nav {
-  text-align: center;
   margin: 1rem 0;
   font-size: 1.2rem;
 }
@@ -122,10 +121,6 @@ a:hover {
   text-transform: uppercase;
   color: var(--font-color);
   margin: 0 0.5rem;
-}
-
-#site-nav a.current {
-  font-weight: bold;
 }
 
 #site-nav a.current::before {
