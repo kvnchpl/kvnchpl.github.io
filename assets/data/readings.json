@@ -1,18 +1,14 @@
 [
   {
-    "title": "Technics and Time",
-    "author": "Bernard Stiegler",
-    "publication": "The Time of Technics",
-    "month": 1,
-    "year": 1994,
-    "link": "https://example.com"
+      "title": "Technics and Time",
+      "href": "https://example.com",
+      "subtitle": "By Bernard Stiegler (1994)",
+      "external": true
   },
   {
-    "title": "A Thousand Plateaus",
-    "author": "Deleuze & Guattari",
-    "publication": "Capitalism and Schizophrenia",
-    "month": 1,
-    "year": 1980,
-    "link": "https://example.com"
+      "title": "A Thousand Plateaus",
+      "href": "https://example.com",
+      "subtitle": "By Deleuze & Guattari (1980)",
+      "external": true
   }
 ]
