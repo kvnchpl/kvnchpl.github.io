@@ -88,8 +88,9 @@ window.onload = async () => {
                 console.log(`Pointer entered row ${index}`);
 
                 const hoveredRect = linkWrapper.getBoundingClientRect();
-                const hoveredLeft = hoveredRect.left;
-                const hoveredRight = hoveredRect.right;
+                const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
+                const hoveredLeft = hoveredRect.left - containerRect.left; // Relative to the parent container
+                const hoveredRight = hoveredRect.right - containerRect.left; // Relative to the parent container
 
                 console.log(`Hovered link left: ${hoveredLeft}, right: ${hoveredRight}`);
 
@@ -103,14 +104,12 @@ window.onload = async () => {
 
                     if (row.classList.contains("left-arrow")) {
                         // Align other links' left edges with the hovered link's left edge
-                        const adjustedLeft = hoveredLeft - otherLinkWrapper.offsetLeft;
-                        otherLinkWrapper.style.left = `${adjustedLeft}px`;
-                        console.log(`Aligning left-arrow row ${otherIndex} to ${adjustedLeft}`);
+                        otherLinkWrapper.style.left = `${hoveredLeft}px`;
+                        console.log(`Aligning left-arrow row ${otherIndex} to ${hoveredLeft}`);
                     } else if (row.classList.contains("right-arrow")) {
                         // Align other links' right edges with the hovered link's right edge
-                        const adjustedRight = hoveredRight - otherLinkWidth - otherLinkWrapper.offsetLeft;
-                        otherLinkWrapper.style.left = `${adjustedRight}px`;
-                        console.log(`Aligning right-arrow row ${otherIndex} to ${adjustedRight}`);
+                        otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
+                        console.log(`Aligning right-arrow row ${otherIndex} to ${hoveredRight - otherLinkWidth}`);
                     }
                 });
             });
