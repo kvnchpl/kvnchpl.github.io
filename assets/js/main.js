@@ -32,14 +32,21 @@ window.onload = async () => {
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         console.log("randomizeLinks called with rows:", rows);
+
         rows.forEach((row, index) => {
             if (row.classList.contains("title-row")) return; // Skip the title row
 
             const linkWrapper = row.querySelector(".link-wrapper");
-            if (!linkWrapper) return; // No link wrapper found
+            if (!linkWrapper) {
+                console.error(`No .link-wrapper found in row ${index}`);
+                return;
+            }
 
             const link = linkWrapper.querySelector("a");
-            if (!link) return; // No link found
+            if (!link) {
+                console.error(`No <a> element found in .link-wrapper for row ${index}`);
+                return;
+            }
 
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
@@ -52,12 +59,13 @@ window.onload = async () => {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
-                if (viewportWidth === 0) {
-                    logError("Viewport width is zero, cannot calculate positions!");
+                if (viewportWidth === 0 || linkWidth === 0) {
+                    console.error("Invalid viewport or link width:", { viewportWidth, linkWidth });
                     return;
                 }
 
                 const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
+                console.log(`Setting initial left position for row ${index}:`, initialLeft);
                 linkWrapper.classList.add("randomized");
                 linkWrapper.style.left = `${initialLeft}px`;
             }
