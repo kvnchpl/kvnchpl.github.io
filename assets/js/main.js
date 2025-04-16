@@ -336,24 +336,17 @@ window.onload = async () => {
     }
 
     // Apply behavior to pages with #link-container
-    const linkContainer = document.getElementById("link-container");
-    if (linkContainer) {
-        const linkList = linkContainer.querySelector("ul");
-        if (!linkList) {
-            logError("No <ul> found inside #link-container");
-            return;
-        }
+    const currentPath = window.location.pathname;
 
-        const currentPath = window.location.pathname;
+    // Dynamically determine the section based on the URL
+    const sectionKey = Object.keys(sectionsConfig).find((key) => {
+        if (key === "index" && currentPath === "/") return true;
+        return currentPath.startsWith(`/${key}/`);
+    });
 
-        if (currentPath === "/") {
-            await initializePage("index-data", "link-container");
-        } else if (currentPath.startsWith("/projects/")) {
-            await initializePage("projects-data", "link-container");
-        } else if (currentPath.startsWith("/readings/")) {
-            await initializePage("readings-data", "link-container");
-        } else if (currentPath.startsWith("/writings/")) {
-            await initializePage("writings-data", "link-container");
-        }
+    if (sectionKey) {
+        await initializePage(sectionKey);
+    } else {
+        console.error(`No matching section found for path: ${currentPath}`);
     }
 };
