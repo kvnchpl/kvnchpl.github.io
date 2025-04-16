@@ -11,15 +11,17 @@ permalink: /readings/
   <ul>
     {% for reading in site.data.readings %}
       <li class="row">
-        <a href="{{ reading.link }}" target="_blank" rel="noopener noreferrer">
-          {{ reading.title }}
-        </a>
-        {% if reading.author or reading.publication %}
-          <span class="subtitle">
-            {% if reading.author %}By {{ reading.author }}{% endif %}
-            {% if reading.publication %}, {{ reading.publication }}{% endif %}
-          </span>
-        {% endif %}
+        <div class="link-wrapper">
+          <a href="{{ reading.link }}" target="_blank" rel="noopener noreferrer" class="reading-link">
+            {{ reading.title }}
+          </a>
+          {% if reading.author or reading.publication %}
+            <span class="subtitle">
+              {% if reading.author %}By {{ reading.author }}{% endif %}
+              {% if reading.publication %}, {{ reading.publication }}{% endif %}
+            </span>
+          {% endif %}
+        </div>
       </li>
     {% endfor %}
   </ul>
