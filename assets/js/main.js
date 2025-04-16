@@ -31,6 +31,7 @@ window.onload = async () => {
 
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
+        console.log("randomizeLinks called with rows:", rows);
         rows.forEach((row, index) => {
             if (row.classList.contains("title-row")) return; // Skip the title row
 
