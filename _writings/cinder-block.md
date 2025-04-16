@@ -1,5 +1,5 @@
 ---
-permalink: /projects/viewfinder/
+permalink: /writings/cinder-block/
 ---
 
 <div id="dynamic-content">
