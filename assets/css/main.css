@@ -55,6 +55,7 @@ footer {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-height: 2rem;
 }
 
 li {
