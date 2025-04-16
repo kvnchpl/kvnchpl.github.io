@@ -83,11 +83,49 @@ window.onload = async () => {
             if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => {
-                linkWrapper.style.transform = "scale(1.1)";
+                console.log(`Pointer entered row ${index}`);
+
+                const hoveredRect = linkWrapper.getBoundingClientRect();
+                const hoveredLeft = hoveredRect.left;
+                const hoveredRight = hoveredRect.right;
+
+                rows.forEach((otherRow, otherIndex) => {
+                    if (otherIndex === index || otherRow.classList.contains("title-row")) return;
+
+                    const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
+                    if (!otherLinkWrapper) return;
+
+                    if (row.classList.contains("left-arrow")) {
+                        // Align other links to the hovered link's left edge
+                        otherLinkWrapper.style.left = `${hoveredLeft}px`;
+                    } else {
+                        // Align other links to the hovered link's right edge
+                        otherLinkWrapper.style.left = `${hoveredRight - otherLinkWrapper.offsetWidth}px`;
+                    }
+                });
             });
 
             linkWrapper.addEventListener("pointerleave", () => {
-                linkWrapper.style.transform = "scale(1)";
+                console.log(`Pointer left row ${index}`);
+
+                rows.forEach((otherRow, otherIndex) => {
+                    if (otherIndex === index || otherRow.classList.contains("title-row")) return;
+
+                    const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
+                    if (!otherLinkWrapper) return;
+
+                    const linkWidth = otherLinkWrapper.offsetWidth;
+                    const viewportWidth = window.innerWidth;
+
+                    if (viewportWidth === 0 || linkWidth === 0) {
+                        console.error("Invalid viewport or link width:", { viewportWidth, linkWidth });
+                        return;
+                    }
+
+                    // Randomize the position of other links
+                    const newLeft = generateRandomPosition(linkWidth, viewportWidth);
+                    otherLinkWrapper.style.left = `${newLeft}px`;
+                });
             });
         });
     };
