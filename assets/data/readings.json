@@ -3,6 +3,7 @@
     "title": "Technics and Time",
     "author": "Bernard Stiegler",
     "publication": "The Time of Technics",
+    "month": 1,
     "year": 1994,
     "link": "https://example.com"
   },
@@ -10,6 +11,7 @@
     "title": "A Thousand Plateaus",
     "author": "Deleuze & Guattari",
     "publication": "Capitalism and Schizophrenia",
+    "month": 1,
     "year": 1980,
     "link": "https://example.com"
   }
