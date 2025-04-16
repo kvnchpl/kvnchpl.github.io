@@ -111,43 +111,35 @@ a:hover {
 }
 
 /* Navigation styles */
-#site-nav ul {
-  display: flex; /* Ensure all links are on the same line */
-  justify-content: center; /* Center the navigation */
-  align-items: center; /* Vertically align items */
-  list-style: none; /* Remove default bullet points */
-  padding: 0;
+#site-nav {
+  text-align: center;
   margin: 1rem 0;
+  font-size: 1.2rem;
 }
 
-#site-nav ul li {
-  display: inline; /* Ensure each list item is inline */
-}
-
-#site-nav ul li a {
+#site-nav a {
   text-decoration: none;
   text-transform: uppercase;
   color: var(--font-color);
+  margin: 0 0.5rem;
 }
 
-#site-nav ul li a:not(:last-child)::after {
-  content: " / "; /* Add slashes between links */
-  color: var(--font-color);
-}
-
-#site-nav ul li a.current {
+#site-nav a.current {
   font-weight: bold;
-  text-decoration: none;
 }
 
-#site-nav ul li a.current::before {
-  content: "*"; /* Add asterisk before the current page */
+#site-nav a.current::before {
+  content: "*";
   margin-right: 0.25rem;
 }
 
-#site-nav ul li a.current::after {
-  content: "*"; /* Add asterisk after the current page */
+#site-nav a.current::after {
+  content: "*";
   margin-left: 0.25rem;
+}
+
+#site-nav span {
+  color: var(--font-color);
 }
 
 /* Mobile styles */
