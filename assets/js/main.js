@@ -77,7 +77,6 @@ window.onload = async () => {
     // Enable hover effects for links
     const enableHoverEffect = (rows) => {
         rows.forEach((row, index) => {
-            if (row.classList.contains("title-row")) return; // Skip the title row
 
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) return;
