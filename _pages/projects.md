@@ -13,8 +13,8 @@ permalink: /projects/
           <a href="{{ project.url }}" class="project-link">
             {{ project.title }}
           </a>
-          {% if project.description %}
-            <span class="subtitle">{{ project.description }}</span>
+          {% if project.month and project.year %}
+            <span class="subtitle">{{ project.month | date: "%B" }} {{ project.year }}</span>
           {% endif %}
         </div>
       </li>
