@@ -67,7 +67,7 @@ li {
 .title-row a {
   font-size: var(--title-font-size);
   text-transform: var(--title-text-transform);
-  margin-bottom: 1rem;
+  margin-bottom: 30px
 }
 
 a {
