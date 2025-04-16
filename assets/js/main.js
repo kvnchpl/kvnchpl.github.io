@@ -65,7 +65,6 @@ window.onload = async () => {
                 }
 
                 const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
-                console.log(`Setting initial left position for row ${index}:`, initialLeft);
                 linkWrapper.classList.add("randomized");
                 linkWrapper.style.left = `${initialLeft}px`;
             }
@@ -83,14 +82,10 @@ window.onload = async () => {
             linkWrapper.addEventListener("pointerenter", () => {
                 if (isMobile) return; // Disable sliding functionality on mobile
 
-                console.log(`Pointer entered row ${index}`);
-
                 const hoveredRect = linkWrapper.getBoundingClientRect();
                 const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
                 const hoveredLeft = hoveredRect.left - containerRect.left; // Relative to the parent container
                 const hoveredRight = hoveredRect.right - containerRect.left; // Relative to the parent container
-
-                console.log(`Hovered link left: ${hoveredLeft}, right: ${hoveredRight}`);
 
                 rows.forEach((otherRow, otherIndex) => {
                     if (otherIndex === index) return;
@@ -103,18 +98,14 @@ window.onload = async () => {
                     // Treat title-row as a left-arrow row
                     if (row.classList.contains("left-arrow") || row.classList.contains("title-row")) {
                         otherLinkWrapper.style.left = `${hoveredLeft}px`;
-                        console.log(`Aligning left-arrow row ${otherIndex} to ${hoveredLeft}`);
                     } else if (row.classList.contains("right-arrow")) {
                         otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
-                        console.log(`Aligning right-arrow row ${otherIndex} to ${hoveredRight - otherLinkWidth}`);
                     }
                 });
             });
 
             linkWrapper.addEventListener("pointerleave", () => {
                 if (isMobile) return; // Disable sliding functionality on mobile
-
-                console.log(`Pointer left row ${index}`);
 
                 rows.forEach((otherRow, otherIndex) => {
                     if (otherIndex === index) return;
