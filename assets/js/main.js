@@ -64,7 +64,7 @@ window.onload = async () => {
                     return;
                 }
 
-                const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
+                const initialLeft = Math.round(generateRandomPosition(linkWidth, viewportWidth));
                 linkWrapper.classList.add("randomized");
                 linkWrapper.style.left = `${initialLeft}px`;
             }
