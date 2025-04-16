@@ -1,0 +1,30 @@
+[
+    {
+        "index": {
+            "metaName": "index-data",
+            "containerId": "link-container",
+            "isListPage": true
+        }
+    },
+    {
+        "projects": {
+            "metaName": "projects-data",
+            "containerId": "link-container",
+            "isListPage": true
+        }
+    },
+    {
+        "readings": {
+            "metaName": "readings-data",
+            "containerId": "link-container",
+            "isListPage": true
+        }
+    },
+    {
+        "writings": {
+            "metaName": "writings-data",
+            "containerId": "link-container",
+            "isListPage": true
+        }
+    }
+]
