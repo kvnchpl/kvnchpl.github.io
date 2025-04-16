@@ -204,6 +204,54 @@ window.onload = async () => {
         }
     };
 
+    // Populate individual pages dynamically
+    const populateIndividualPage = async (metaName) => {
+        const dynamicContent = document.getElementById("dynamic-content");
+        if (!dynamicContent) return;
+
+        const currentPath = window.location.pathname; // Get the current page's path
+        const data = await fetchJSON(metaName); // Fetch the relevant JSON file
+
+        const item = data.find((entry) => entry.href === currentPath); // Find the matching entry
+        if (!item) {
+            dynamicContent.innerHTML = "<p>Content not found.</p>";
+            return;
+        }
+
+        // Generate the content dynamically
+        const title = document.createElement("h1");
+        title.textContent = item.title;
+
+        const description = document.createElement("p");
+        description.textContent = item.description;
+
+        dynamicContent.appendChild(title);
+        dynamicContent.appendChild(description);
+
+        // Add images if available
+        if (item.images && item.images.length > 0) {
+            const gallery = document.createElement("div");
+            gallery.className = "gallery";
+
+            item.images.forEach((imageSrc) => {
+                const img = document.createElement("img");
+                img.src = imageSrc;
+                img.alt = `${item.title} image`;
+                gallery.appendChild(img);
+            });
+
+            dynamicContent.appendChild(gallery);
+        }
+
+        // Add additional metadata (e.g., subtitle, publication date)
+        if (item.subtitle) {
+            const subtitle = document.createElement("p");
+            subtitle.className = "subtitle";
+            subtitle.textContent = item.subtitle;
+            dynamicContent.appendChild(subtitle);
+        }
+    };
+
     // Preload images
     const preloadImages = (images) => {
         images.forEach((image) => {
@@ -248,13 +296,19 @@ window.onload = async () => {
         }
 
         if (window.location.pathname === "/") {
-            await initializePage("index-links-data", "link-container");
+            await initializePage("index-data", "link-container");
         } else if (window.location.pathname === "/projects/") {
             await initializePage("projects-data", "link-container");
         } else if (window.location.pathname === "/readings/") {
             await initializePage("readings-data", "link-container");
         } else if (window.location.pathname === "/writings/") {
             await initializePage("writings-data", "link-container");
+        } else if (window.location.pathname.startsWith("/projects/")) {
+            await populateIndividualPage("projects-data");
+        } else if (window.location.pathname.startsWith("/readings/")) {
+            await populateIndividualPage("readings-data");
+        } else if (window.location.pathname.startsWith("/writings/")) {
+            await populateIndividualPage("writings-data");
         }
     }
 };

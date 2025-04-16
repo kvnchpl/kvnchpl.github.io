@@ -1,5 +1,5 @@
 ---
-permalink: /projects/viewfinder/
+permalink: /writings/plight-of-center/
 ---
 
 <div id="dynamic-content">
