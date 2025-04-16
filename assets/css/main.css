@@ -49,7 +49,6 @@ li {
 
 .link-wrapper,
 .title-wrapper {
-  display: inline-block;
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
 }
 
@@ -63,17 +62,12 @@ li {
   visibility: visible;
 }
 
-.title-row {
-  margin-bottom: var(--gap-size-desktop);
-}
-
-.title-row h1 {
+.title-row a {
   font-size: var(--title-font-size);
   text-transform: var(--title-text-transform);
 }
 
 a {
-  display: inline-block;
   white-space: nowrap;
   transition: transform var(--transition-duration) ease-in-out;
 }
