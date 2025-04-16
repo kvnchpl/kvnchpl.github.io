@@ -75,12 +75,14 @@ window.onload = async () => {
 
     // Enable hover effects for links
     const enableHoverEffect = (rows) => {
+        const overlay = document.getElementById("image-overlay");
+
         rows.forEach((row, index) => {
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => {
-                if (isMobile) return; // Disable sliding functionality on mobile
+                if (isMobile) return; // Disable overlay functionality on mobile
 
                 const hoveredRect = linkWrapper.getBoundingClientRect();
                 const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
@@ -102,10 +104,17 @@ window.onload = async () => {
                         otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
                     }
                 });
+
+                // Show the image overlay
+                const image = getNextImage();
+                if (image) {
+                    overlay.style.backgroundImage = `url(${image})`;
+                    overlay.classList.add("visible");
+                }
             });
 
             linkWrapper.addEventListener("pointerleave", () => {
-                if (isMobile) return; // Disable sliding functionality on mobile
+                if (isMobile) return; // Disable overlay functionality on mobile
 
                 rows.forEach((otherRow, otherIndex) => {
                     if (otherIndex === index) return;
@@ -125,6 +134,9 @@ window.onload = async () => {
                     const newLeft = generateRandomPosition(linkWidth, viewportWidth);
                     otherLinkWrapper.style.left = `${newLeft}px`;
                 });
+
+                // Hide the image overlay
+                overlay.classList.remove("visible");
             });
         });
     };
