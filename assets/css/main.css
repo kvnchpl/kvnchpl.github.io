@@ -52,10 +52,9 @@ footer {
 #link-container ul li {
   flex-shrink: 1;
   text-transform: uppercase;
-  overflow: hidden;
+  overflow: visible;
   text-overflow: ellipsis;
   white-space: nowrap;
-  min-height: 2rem;
 }
 
 li {
@@ -94,6 +93,7 @@ li {
 
 .title-row {
   margin-bottom: var(--gap-size-desktop);
+  overflow: visible;
 }
 
 .title-row a {
