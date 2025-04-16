@@ -112,16 +112,16 @@ a:hover {
 
 /* Navigation styles */
 #site-nav ul {
-  display: flex;
-  justify-content: center;
-  list-style: none;
+  display: flex; /* Ensure all links are on the same line */
+  justify-content: center; /* Center the navigation */
+  align-items: center; /* Vertically align items */
+  list-style: none; /* Remove default bullet points */
   padding: 0;
   margin: 1rem 0;
-  gap: 0.5rem;
 }
 
 #site-nav ul li {
-  display: inline;
+  display: inline; /* Ensure each list item is inline */
 }
 
 #site-nav ul li a {
@@ -131,7 +131,7 @@ a:hover {
 }
 
 #site-nav ul li a:not(:last-child)::after {
-  content: " / ";
+  content: " / "; /* Add slashes between links */
   color: var(--font-color);
 }
 
@@ -141,12 +141,12 @@ a:hover {
 }
 
 #site-nav ul li a.current::before {
-  content: "*";
+  content: "*"; /* Add asterisk before the current page */
   margin-right: 0.25rem;
 }
 
 #site-nav ul li a.current::after {
-  content: "*";
+  content: "*"; /* Add asterisk after the current page */
   margin-left: 0.25rem;
 }
 
