@@ -194,7 +194,7 @@ window.onload = async () => {
     const formatSubtitle = (item, format) => {
         if (format === "detailed" && item.subtitle && item.publication && item.year) {
             const formattedMonth = item.month ? formatDate(item.month) : null;
-            return `— ${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
+            return `—${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
         } else if (item.subtitle) {
             return item.subtitle;
         }
