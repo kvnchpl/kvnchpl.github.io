@@ -5,7 +5,11 @@
         "month": 10,
         "year": 2024,
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
-        "external": false
+        "external": false,
+        "images": [
+            "/assets/images/projects/viewfinder_1.jpg",
+            "/assets/images/projects/viewfinder_2.jpg"
+        ]
     },
     {
         "title": "Triptych",
@@ -13,7 +17,10 @@
         "month": 5,
         "year": 2024,
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
-        "external": false
+        "external": false,
+        "images": [
+            "/assets/images/projects/triptych_1.jpg"
+        ]
     },
     {
         "title": "Shed Your Skin",
@@ -21,7 +28,11 @@
         "month": 4,
         "year": 2025,
         "description": "Love letter to a speculative liberatory learning society.",
-        "external": true
+        "external": true,
+        "images": [
+            "/assets/images/projects/shed_your_skin_1.jpg",
+            "/assets/images/projects/shed_your_skin_2.jpg"
+        ]
     },
     {
         "title": "Archipelago",
@@ -29,6 +40,10 @@
         "month": 2,
         "year": 2024,
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
-        "external": false
+        "external": false,
+        "images": [
+            "/assets/images/projects/archipelago_1.jpg",
+            "/assets/images/projects/archipelago_2.jpg"
+        ]
     }
 ]
