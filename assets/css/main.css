@@ -3,6 +3,11 @@
   --gap-size-mobile: 36px;
   --font-size: 1.2rem;
   --subtitle-font-size: 0.96rem;
+  --title-font-size: 2.5rem;
+
+  --title-text-transform: uppercase;
+  --link-text-transform: uppercase;
+
   --transition-duration: 0.3s;
   --font-color: black;
   --hover-scale: 1.05;
@@ -47,22 +52,19 @@ li {
   position: relative;
 }
 
-.link-wrapper,
-.title-wrapper {
+.link-wrapper {
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
 }
 
-.link-wrapper.randomized,
-.title-wrapper.randomized {
+.link-wrapper.randomized {
   position: absolute;
 }
 
-.link-wrapper.visible,
-.title-wrapper.visible {
+.link-wrapper.visible {
   visibility: visible;
 }
 
-.title-row a {
+.title-link {
   font-size: var(--title-font-size);
   text-transform: var(--title-text-transform);
 }
