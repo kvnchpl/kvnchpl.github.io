@@ -103,12 +103,14 @@ window.onload = async () => {
 
                     if (row.classList.contains("left-arrow")) {
                         // Align other links' left edges with the hovered link's left edge
-                        otherLinkWrapper.style.left = `${hoveredLeft}px`;
-                        console.log(`Aligning left-arrow row ${otherIndex} to ${hoveredLeft}`);
+                        const adjustedLeft = hoveredLeft - otherLinkWrapper.offsetLeft;
+                        otherLinkWrapper.style.left = `${adjustedLeft}px`;
+                        console.log(`Aligning left-arrow row ${otherIndex} to ${adjustedLeft}`);
                     } else if (row.classList.contains("right-arrow")) {
                         // Align other links' right edges with the hovered link's right edge
-                        otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
-                        console.log(`Aligning right-arrow row ${otherIndex} to ${hoveredRight - otherLinkWidth}`);
+                        const adjustedRight = hoveredRight - otherLinkWidth - otherLinkWrapper.offsetLeft;
+                        otherLinkWrapper.style.left = `${adjustedRight}px`;
+                        console.log(`Aligning right-arrow row ${otherIndex} to ${adjustedRight}`);
                     }
                 });
             });
