@@ -11,12 +11,14 @@ permalink: /projects/
   <ul>
     {% for project in site.projects %}
       <li class="row">
-        <a href="{{ project.url }}">
-          {{ project.title }}
-        </a>
-        {% if project.description %}
-          <span class="subtitle">{{ project.description }}</span>
-        {% endif %}
+        <div class="link-wrapper">
+          <a href="{{ project.url }}" class="project-link">
+            {{ project.title }}
+          </a>
+          {% if project.description %}
+            <span class="subtitle">{{ project.description }}</span>
+          {% endif %}
+        </div>
       </li>
     {% endfor %}
   </ul>
