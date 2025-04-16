@@ -4,63 +4,49 @@
     --link-color: black;
     --link-hover-color: blue;
     --focus-outline-color: black;
-
+  
     --font-family: "Apolline Std", serif;
     --font-weight: 400;
-    --font-weigth-bold: 600;
+    --font-weight-bold: 600;
     --line-height: 1.6;
-    --title-font-size: 2.5rem;
-    --link-font-size: 1.2rem;
-
-    --title-text-transform: uppercase;
-    --link-text-transform: uppercase;
-
+  
     --body-padding: 1rem;
-    --list-margin: 0;
-    --list-padding: 0;
-    --list-item-margin-bottom: 1rem;
-
+  
     --transition-duration: 0.3s;
-}
-
-body {
+  }
+  
+  body {
     background-color: var(--background-color);
     color: var(--font-color);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
-    font-style: normal;
     line-height: var(--line-height);
     margin: 0;
     padding: var(--body-padding);
     overflow-x: hidden;
-}
-
-h1 {
+  }
+  
+  h1 {
     font-size: var(--title-font-size);
-    text-transform: var(--title-text-transform);
-}
-
-a {
+    text-transform: var(--text-transform-uppercase);
+  }
+  
+  a {
     color: var(--link-color);
     text-decoration: none;
     transition: color var(--transition-duration) ease-in-out;
-}
-
-a:focus {
+  }
+  
+  a:focus {
     outline: 2px solid var(--focus-outline-color);
-}
-
-a:hover {
+  }
+  
+  a:hover {
     color: var(--link-hover-color);
-}
-
-ul {
+  }
+  
+  ul {
     list-style: none;
-    padding: var(--list-padding);
-    margin: var(--list-margin);
-}
-
-ul li a {
-    text-transform: var(--link-text-transform);
-    font-size: var(--link-font-size);
-}
+    padding: 0;
+    margin: 0;
+  }
