@@ -169,7 +169,7 @@ window.onload = async () => {
 
             const link = document.createElement("a");
             link.href = item.href;
-            link.textContent = item.label;
+            link.textContent = item.title;
 
             if (item.external) {
                 link.target = "_blank";
