@@ -97,12 +97,14 @@ window.onload = async () => {
                     const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
                     if (!otherLinkWrapper) return;
 
+                    const otherLinkWidth = otherLinkWrapper.offsetWidth;
+
                     if (row.classList.contains("left-arrow")) {
                         // Align other links to the hovered link's left edge
-                        otherLinkWrapper.style.left = `${hoveredLeft}px`;
+                        otherLinkWrapper.style.left = `${hoveredLeft - otherLinkWidth}px`;
                     } else {
                         // Align other links to the hovered link's right edge
-                        otherLinkWrapper.style.left = `${hoveredRight - otherLinkWrapper.offsetWidth}px`;
+                        otherLinkWrapper.style.left = `${hoveredRight}px`;
                     }
                 });
             });
