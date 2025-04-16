@@ -31,8 +31,6 @@ window.onload = async () => {
 
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
-        console.log("randomizeLinks called with rows:", rows);
-
         rows.forEach((row, index) => {
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) {
