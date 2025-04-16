@@ -3,7 +3,6 @@
   --gap-size-mobile: 36px;
   --link-container-gap: 80px;
   --subtitle-margin-top: 0.25rem;
-  --row-margin-bottom: 10px;
   --font-size: 1.2rem;
   --subtitle-font-size: 0.96rem;
   --title-font-size: 2.5rem;
@@ -47,7 +46,6 @@ li {
   display: block;
   width: 100%;
   position: relative;
-  margin-bottom: var(--row-margin-bottom);
 }
 #link-container ul li {
   text-transform: uppercase;
