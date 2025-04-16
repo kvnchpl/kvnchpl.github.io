@@ -94,7 +94,11 @@ window.onload = async () => {
 
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
+        console.log("randomizeLinks called with rows:", rows); // Debugging
+
         rows.forEach((row, index) => {
+            console.log(`Processing row ${index}:`, row); // Debugging
+
             const linkWrapper = document.createElement("div");
             linkWrapper.className = "link-wrapper";
 
@@ -109,6 +113,8 @@ window.onload = async () => {
                 logError(`No <a> element found in row ${index}`);
                 return;
             }
+
+            console.log(`Link text for row ${index}:`, link.textContent.trim()); // Debugging
 
             const originalText = link.textContent.trim();
             link.setAttribute("aria-label", originalText);
@@ -133,6 +139,7 @@ window.onload = async () => {
                 }
 
                 const initialLeft = generateRandomPosition(linkWidth, viewportWidth);
+                console.log(`Setting initial left position for row ${index}:`, initialLeft);
                 linkWrapper.classList.add("randomized");
                 linkWrapper.style.left = `${initialLeft}px`;
 
@@ -147,6 +154,8 @@ window.onload = async () => {
     let currentlyHoveredLink = null; // Track the currently hovered link
 
     const enableHoverEffect = (rows) => {
+        console.log("enableHoverEffect called with rows:", rows); // Debugging
+
         const debouncedHoverHandler = debounce((linkWrapper, isLeftArrow) => {
             if (currentlyHoveredLink === linkWrapper) return; // Prevent re-triggering for the same link
             currentlyHoveredLink = linkWrapper; // Update the currently hovered link
@@ -159,7 +168,9 @@ window.onload = async () => {
             const hoveredRect = linkWrapper.getBoundingClientRect();
 
             rows.forEach((otherRow) => {
+                
                 const otherWrapper = otherRow.querySelector(".link-wrapper");
+                console.log(`Adding hover effect to row ${index}`); // Debugging
                 if (otherWrapper !== linkWrapper) {
                     const otherRect = otherWrapper.getBoundingClientRect();
 
@@ -220,11 +231,13 @@ window.onload = async () => {
 
             linkWrapper.addEventListener("pointerenter", () => {
                 if (currentlyHoveredLink === linkWrapper) return;
+                console.log(`Pointer entered row ${index}`); // Debugging
                 debouncedHoverHandler(linkWrapper, isLeftArrow);
             });
 
             linkWrapper.addEventListener("pointerleave", (event) => {
                 if (!linkWrapper.matches(':hover')) {
+                    console.log(`Pointer left row ${index}`); // Debugging
                     debouncedLeaveHandler();
                 }
             });
