@@ -5,9 +5,9 @@
         "subtitle": "October 2024",
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
         "images": [
-            "/assets/images/projects/viewfinder-1.png",
-            "/assets/images/projects/viewfinder-2.png",
-            "/assets/images/projects/viewfinder-3.png"
+            "/assets/images/projects/viewfinder_1.png",
+            "/assets/images/projects/viewfinder_2.png",
+            "/assets/images/projects/viewfinder_3.png"
         ]
     },
     {
@@ -16,9 +16,9 @@
         "subtitle": "May 2024",
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "images": [
-            "/assets/images/projects/triptych-1.png",
-            "/assets/images/projects/triptych-2.png",
-            "/assets/images/projects/triptych-3.png"
+            "/assets/images/projects/triptych_1.png",
+            "/assets/images/projects/triptych_2.png",
+            "/assets/images/projects/triptych_3.png"
         ]
     },
     {
@@ -28,9 +28,9 @@
         "description": "Love letter to a speculative liberatory learning society.",
         "external": true,
         "images": [
-            "/assets/images/projects/shed_your_skin-1.png",
-            "/assets/images/projects/shed_your_skin-2.png",
-            "/assets/images/projects/shed_your_skin-3.png"
+            "/assets/images/projects/shed_your_skin_1.png",
+            "/assets/images/projects/shed_your_skin_2.png",
+            "/assets/images/projects/shed_your_skin_3.png"
         ]
     },
     {
@@ -39,9 +39,9 @@
         "subtitle": "February 2024",
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "images": [
-            "/assets/images/projects/archipelago-1.png",
-            "/assets/images/projects/archipelago-2.png",
-            "/assets/images/projects/archipelago-3.png"
+            "/assets/images/projects/archipelago_1.png",
+            "/assets/images/projects/archipelago_2.png",
+            "/assets/images/projects/archipelago_3.png"
         ]
     }
 ]
