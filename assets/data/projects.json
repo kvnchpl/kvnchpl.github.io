@@ -26,12 +26,7 @@
         "href": "https://kvnchpl.github.io/shed-your-skin/shed-your-skin.html",
         "subtitle": "April 2025",
         "description": "Love letter to a speculative liberatory learning society.",
-        "external": true,
-        "images": [
-            "/assets/images/projects/shed_your_skin_1.png",
-            "/assets/images/projects/shed_your_skin_2.png",
-            "/assets/images/projects/shed_your_skin_3.png"
-        ]
+        "external": true
     },
     {
         "title": "Archipelago",
