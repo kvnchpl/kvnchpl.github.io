@@ -296,6 +296,12 @@
         return;
     }
 
+    // Special case: Handle the homepage explicitly
+    if (currentPath === "") {
+        initializeCollectionPage("index", indexData);
+        return;
+    }
+
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === `/${currentPath}/`);
 
