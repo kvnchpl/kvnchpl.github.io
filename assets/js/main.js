@@ -297,8 +297,6 @@
         return;
     }
 
-    console.log(`Current path: ${currentPath} | Index data:`, indexData);
-
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
 
