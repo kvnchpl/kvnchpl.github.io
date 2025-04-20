@@ -12,44 +12,55 @@ permalink: /projects/shed-your-skin/
 </head>
 
 <body>
-    <tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play shed your
-                skin.</tw-noscript></noscript></tw-story>
+    <tw-story>
+        <noscript>
+            <tw-noscript>JavaScript needs to be enabled.</tw-noscript>
+        </noscript>
+    </tw-story>
     <tw-storydata name="shed your skin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe"
         format-version="3.3.9" ifid="8CF19DB7-183D-4DFC-9D35-17A1997CD2FA" options="" tags="" zoom="1" hidden>
         <tw-passagedata pid="1" name="shed your skin" tags="" position="600,300" size="100,100">
-            &#39;&#39;shed your skin&#39;&#39;
-            &lt;pre&gt;
+            ''shed your skin''
+            <pre>
             [[can you see yourself.txt]]
             [[not like a snake but an old ringing bell.txt]]
             [[sheddings.js]]
-            [[all halls lead here &gt;]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="2" name="all halls lead here &gt;" tags=""
-            position="800,675" size="100,100">&lt;pre&gt;
+            [[all halls lead here >]]
+            </pre>
+        </tw-passagedata><tw-passagedata pid="2" name="all halls lead here >" tags="" position="800,675" size="100,100">
+            <pre>
             [[overlapping overlapping.txt]]
-            [[the breath &gt;]]
-            [[the ghost &gt;]]
-            [[the guardian &gt;]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="3" name="the breath &gt;" tags="" position="1000,800"
-            size="100,100">&lt;pre&gt;
+            [[the breath >]]
+            [[the ghost >]]
+            [[the guardian >]]
+            </pre>
+        </tw-passagedata><tw-passagedata pid="3" name="the breath >" tags="" position="1000,800" size="100,100">
+            <pre>
             [[in other words a script.txt]]
             [[the rhythm of your presence.txt]]
-            [[dont forget to breathe &gt;]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="4" name="the ghost &gt;" tags="" position="1000,1300"
-            size="100,100">&lt;pre&gt;
+            [[dont forget to breathe >]]
+            </pre>
+        </tw-passagedata><tw-passagedata pid="4" name="the ghost >" tags="" position="1000,1300" size="100,100">
+            <pre>
             [[all the stories that follow.js]]
             [[before birth after death.txt]]
             [[sometimes its more you than you.txt]]
-            [[small routines &gt;]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="5" name="the guardian &gt;" tags="" position="1000,2050"
-            size="100,100">&lt;pre&gt;
+            [[small routines >]]
+            </pre>
+        </tw-passagedata><tw-passagedata pid="5" name="the guardian >" tags="" position="1000,2050" size="100,100">
+            <pre>
             [[and yet we were all born within.txt]]
             [[are you my teacher.txt]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="6" name="dont forget to breathe &gt;" tags=""
-            position="1200,1050" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="6" name="dont forget to breathe >" tags="" position="1200,1050"
+            size="100,100">
+            <pre>
             [[breathe.js]]
             [[wind hall.txt]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="7" name="can you see yourself.txt" tags=""
-            position="800,300" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="7" name="can you see yourself.txt" tags="" position="800,300"
+            size="100,100">
+            <pre>
             `
             // /
             // /
@@ -63,8 +74,10 @@ permalink: /projects/shed-your-skin/
             // / / /
             // /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="8" name="not like a snake but an old ringing bell.txt"
-            tags="" position="800,425" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="8" name="not like a snake but an old ringing bell.txt" tags=""
+            position="800,425" size="100,100">
+            <pre>
             `
             /
             / / / /
@@ -73,118 +86,121 @@ permalink: /projects/shed-your-skin/
             / / / / / / /
             /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="9" name="sheddings.js" tags="" position="800,550"
-            size="100,100">&lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
+            <!DOCTYPE html>
+            <html lang="en">
 
-            &lt;head&gt;
-            &lt;meta charset=&quot;UTF-8&quot;&gt;
-            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-            &lt;title&gt;sheddings.js&lt;/title&gt;
-            &lt;style&gt;
-            body {
-            font-family: monospace;
-            margin: 0;
-            overflow-y: auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            background: black;
-            color: white;
-            }
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>sheddings.js</title>
+                <style>
+                    body {
+                        font-family: monospace;
+                        margin: 0;
+                        overflow-y: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        height: 100vh;
+                        background: black;
+                        color: white;
+                    }
 
-            #terminalContainer {
-            text-align: left;
-            font-size: 1.5em;
-            line-height: 1.5;
-            white-space: pre;
-            padding: 1em;
-            width: auto;
-            max-width: 100%;
-            }
+                    #terminalContainer {
+                        text-align: left;
+                        font-size: 1.5em;
+                        line-height: 1.5;
+                        white-space: pre;
+                        padding: 1em;
+                        width: auto;
+                        max-width: 100%;
+                    }
 
-            #intentionInput {
-            border: none;
-            background: transparent;
-            color: inherit;
-            font-family: inherit;
-            font-size: 1em;
-            outline: none;
-            width: auto;
-            }
-            &lt;/style&gt;
-            &lt;/head&gt;
+                    #intentionInput {
+                        border: none;
+                        background: transparent;
+                        color: inherit;
+                        font-family: inherit;
+                        font-size: 1em;
+                        outline: none;
+                        width: auto;
+                    }
+                </style>
+            </head>
 
-            &lt;body&gt;
-            &lt;div id=&quot;terminalContainer&quot;&gt;
-            &lt;label for=&quot;intentionInput&quot;&gt;what do you want to shed?&lt;/label&gt;
-            &lt;div id=&quot;terminalPrompt&quot;&gt;
-            &lt;span&gt;&gt; &lt;/span&gt;
-            &lt;input type=&quot;text&quot; id=&quot;intentionInput&quot; autofocus&gt;
-            &lt;/div&gt;
-            &lt;/div&gt;
+            <body>
+                <div id="terminalContainer">
+                    <label for="intentionInput">what do you want to shed?</label>
+                    <div id="terminalPrompt">
+                        <span>> </span>
+                        <input type="text" id="intentionInput" autofocus>
+                    </div>
+                </div>
 
-            &lt;script&gt;
-            (() =&gt; {
-            const terminalContainer = document.getElementById(&quot;terminalContainer&quot;);
+                <script>
+                    (() => {
+                        const terminalContainer = document.getElementById("terminalContainer");
 
-            const promptForInput = () =&gt; {
-            const prompt = document.createElement(&quot;div&quot;);
-            prompt.innerHTML = `&lt;span&gt;&gt; &lt;/span&gt;&lt;input type=&quot;text&quot;
-            id=&quot;intentionInput&quot; autofocus&gt;`;
-            terminalContainer.appendChild(prompt);
+                        const promptForInput = () => {
+                            const prompt = document.createElement("div");
+                            prompt.innerHTML = `<span>> </span><input type="text"
+            id="intentionInput" autofocus>`;
+                            terminalContainer.appendChild(prompt);
 
-            const terminalInput = prompt.querySelector(&quot;#intentionInput&quot;);
-            terminalInput.addEventListener(&quot;keydown&quot;, (event) =&gt; {
-            if (event.key === &quot;Enter&quot;) {
-            event.preventDefault();
-            handleInput(terminalInput.value.trim(), prompt);
-            }
-            });
+                            const terminalInput = prompt.querySelector("#intentionInput");
+                            terminalInput.addEventListener("keydown", (event) => {
+                                if (event.key === "Enter") {
+                                    event.preventDefault();
+                                    handleInput(terminalInput.value.trim(), prompt);
+                                }
+                            });
 
-            terminalInput.focus();
-            };
+                            terminalInput.focus();
+                        };
 
-            const handleInput = (intention, prompt) =&gt; {
-            if (!intention) return;
+                        const handleInput = (intention, prompt) => {
+                            if (!intention) return;
 
-            const terminalInput = prompt.querySelector(&quot;#intentionInput&quot;);
-            terminalInput.disabled = true;
+                            const terminalInput = prompt.querySelector("#intentionInput");
+                            terminalInput.disabled = true;
 
-            const skin = intention.split(&#39;&#39;);
-            let sheddable = skin.map((char, i) =&gt; (char !== &#39; &#39; ? i : null)).filter(i =&gt; i !== null);
+                            const skin = intention.split('');
+                            let sheddable = skin.map((char, i) => (char !== ' ' ? i : null)).filter(i => i !== null);
 
-            const displaySkin = () =&gt; {
-            const line = document.createElement(&quot;div&quot;);
-            line.textContent = skin.join(&#39;&#39;);
-            terminalContainer.appendChild(line);
-            terminalContainer.scrollTop = terminalContainer.scrollHeight;
-            };
+                            const displaySkin = () => {
+                                const line = document.createElement("div");
+                                line.textContent = skin.join('');
+                                terminalContainer.appendChild(line);
+                                terminalContainer.scrollTop = terminalContainer.scrollHeight;
+                            };
 
-            const shedSkin = () =&gt; {
-            if (!sheddable.length) return;
-            const fate = Math.floor(Math.random() * sheddable.length);
-            const choice = sheddable[fate];
-            skin[choice] = skin[choice] === &quot;|&quot; ? &quot;!&quot; : skin[choice] === &quot;!&quot; ?
-            &quot;.&quot; : &quot;|&quot;;
-            if (skin[choice] === &quot;.&quot;) sheddable.splice(fate, 1);
-            displaySkin();
-            setTimeout(shedSkin, 500);
-            };
+                            const shedSkin = () => {
+                                if (!sheddable.length) return;
+                                const fate = Math.floor(Math.random() * sheddable.length);
+                                const choice = sheddable[fate];
+                                skin[choice] = skin[choice] === "|" ? "!" : skin[choice] === "!" ?
+                                    "." : "|";
+                                if (skin[choice] === ".") sheddable.splice(fate, 1);
+                                displaySkin();
+                                setTimeout(shedSkin, 500);
+                            };
 
-            displaySkin();
-            setTimeout(shedSkin, 1000);
-            };
+                            displaySkin();
+                            setTimeout(shedSkin, 1000);
+                        };
 
-            terminalContainer.innerHTML = `&lt;div&gt;what do you want to shed?&lt;/div&gt;`;
-            promptForInput();
-            })();
-            &lt;/script&gt;
-            &lt;/body&gt;
+                        terminalContainer.innerHTML = `<div>what do you want to shed?</div>`;
+                        promptForInput();
+                    })();
+                </script>
+            </body>
 
-            &lt;/html&gt;</tw-passagedata><tw-passagedata pid="10" name="overlapping overlapping.txt" tags=""
-            position="1000,675" size="100,100">&lt;pre&gt;
+            </html>
+        </tw-passagedata><tw-passagedata pid="10" name="overlapping overlapping.txt" tags="" position="1000,675"
+            size="100,100">
+            <pre>
             `
             / / / / / / / / ///
             / / / / / / / / ///
@@ -199,8 +215,10 @@ permalink: /projects/shed-your-skin/
             / / / / / / / / ///
             / / / / / / / / ///
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="11" name="in other words a script.txt" tags=""
-            position="1200,800" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="11" name="in other words a script.txt" tags="" position="1200,800"
+            size="100,100">
+            <pre>
             `
             /////////
             /// //// // //// //// /// ///////// //// [space]
@@ -209,8 +227,10 @@ permalink: /projects/shed-your-skin/
             /// //// ////////
             ////////
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="12" name="the rhythm of your presence.txt" tags=""
-            position="1200,925" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="12" name="the rhythm of your presence.txt" tags="" position="1200,925"
+            size="100,100">
+            <pre>
             `
             ///// /// /// ///// /////// /// ////
             /// ///// /// /// ///// /////// /// //// //////// [time]
@@ -221,100 +241,104 @@ permalink: /projects/shed-your-skin/
             // //// ///// ///////// // //////// ////////
             //// ///// ///////// // ////////
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="13" name="all the stories that follow.js" tags=""
-            position="1200,1300" size="100,100">&lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300"
+            size="100,100">
+            <!DOCTYPE html>
+            <html lang="en">
 
-            &lt;head&gt;
-            &lt;meta charset=&quot;UTF-8&quot;&gt;
-            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-            &lt;title&gt;all the stories that follow.js&lt;/title&gt;
-            &lt;style&gt;
-            body {
-            font-family: monospace;
-            margin: 0;
-            overflow-y: auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            background: black;
-            color: white;
-            }
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>all the stories that follow.js</title>
+                <style>
+                    body {
+                        font-family: monospace;
+                        margin: 0;
+                        overflow-y: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        height: 100vh;
+                        background: black;
+                        color: white;
+                    }
 
-            #storyContainer {
-            text-align: left;
-            font-size: 1.5em;
-            line-height: 1.5;
-            white-space: pre;
-            padding: 1em;
-            width: auto;
-            max-width: 100%;
-            }
+                    #storyContainer {
+                        text-align: left;
+                        font-size: 1.5em;
+                        line-height: 1.5;
+                        white-space: pre;
+                        padding: 1em;
+                        width: auto;
+                        max-width: 100%;
+                    }
 
-            #responseInput {
-            border: none;
-            background: transparent;
-            color: inherit;
-            font-family: inherit;
-            font-size: 1em;
-            outline: none;
-            width: auto;
-            }
-            &lt;/style&gt;
-            &lt;/head&gt;
+                    #responseInput {
+                        border: none;
+                        background: transparent;
+                        color: inherit;
+                        font-family: inherit;
+                        font-size: 1em;
+                        outline: none;
+                        width: auto;
+                    }
+                </style>
+            </head>
 
-            &lt;body&gt;
-            &lt;div id=&quot;storyContainer&quot;&gt;&lt;/div&gt;
+            <body>
+                <div id="storyContainer"></div>
 
-            &lt;script&gt;
-            (() =&gt; {
-            const storyContainer = document.getElementById(&quot;storyContainer&quot;);
+                <script>
+                    (() => {
+                        const storyContainer = document.getElementById("storyContainer");
 
-            const gentleWhisperInYourEar = () =&gt; {
-            const question = document.createElement(&quot;div&quot;);
-            question.textContent = &quot;you are not the first to ask this question.&quot;;
-            storyContainer.appendChild(question);
+                        const gentleWhisperInYourEar = () => {
+                            const question = document.createElement("div");
+                            question.textContent = "you are not the first to ask this question.";
+                            storyContainer.appendChild(question);
 
-            const prompt = document.createElement(&quot;div&quot;);
-            prompt.innerHTML = `remember this memory again? [y/n] &lt;input type=&quot;text&quot;
-            id=&quot;responseInput&quot; autofocus&gt;`;
-            storyContainer.appendChild(prompt);
+                            const prompt = document.createElement("div");
+                            prompt.innerHTML = `remember this memory again? [y/n] <input type="text"
+            id="responseInput" autofocus>`;
+                            storyContainer.appendChild(prompt);
 
-            const responseInput = prompt.querySelector(&quot;#responseInput&quot;);
-            responseInput.addEventListener(&quot;keydown&quot;, (event) =&gt; {
-            if (event.key === &quot;Enter&quot;) {
-            event.preventDefault();
-            handleResponse(responseInput.value.trim().toLowerCase(), prompt);
-            }
-            });
+                            const responseInput = prompt.querySelector("#responseInput");
+                            responseInput.addEventListener("keydown", (event) => {
+                                if (event.key === "Enter") {
+                                    event.preventDefault();
+                                    handleResponse(responseInput.value.trim().toLowerCase(), prompt);
+                                }
+                            });
 
-            responseInput.focus();
-            };
+                            responseInput.focus();
+                        };
 
-            const handleResponse = (choice, prompt) =&gt; {
-            prompt.querySelector(&quot;#responseInput&quot;).disabled = true;
+                        const handleResponse = (choice, prompt) => {
+                            prompt.querySelector("#responseInput").disabled = true;
 
-            if (choice === &quot;y&quot; || choice === &quot;yes&quot;) {
-            gentleWhisperInYourEar();
-            } else if (choice === &quot;n&quot; || choice === &quot;no&quot;) {
-            const farewell = document.createElement(&quot;div&quot;);
-            farewell.textContent = &quot;may you find more selves in the memories you choose to keep.&quot;;
-            storyContainer.appendChild(farewell);
-            } else {
-            const thirdPath = document.createElement(&quot;div&quot;);
-            thirdPath.textContent = &quot;you are courageous to take the third path.&quot;;
-            storyContainer.appendChild(thirdPath);
-            }
-            };
+                            if (choice === "y" || choice === "yes") {
+                                gentleWhisperInYourEar();
+                            } else if (choice === "n" || choice === "no") {
+                                const farewell = document.createElement("div");
+                                farewell.textContent = "may you find more selves in the memories you choose to keep.";
+                                storyContainer.appendChild(farewell);
+                            } else {
+                                const thirdPath = document.createElement("div");
+                                thirdPath.textContent = "you are courageous to take the third path.";
+                                storyContainer.appendChild(thirdPath);
+                            }
+                        };
 
-            gentleWhisperInYourEar();
-            })();
-            &lt;/script&gt;
-            &lt;/body&gt;
+                        gentleWhisperInYourEar();
+                    })();
+                </script>
+            </body>
 
-            &lt;/html&gt;</tw-passagedata><tw-passagedata pid="14" name="before birth after death.txt" tags=""
-            position="1200,1425" size="100,100">&lt;pre&gt;
+            </html>
+        </tw-passagedata><tw-passagedata pid="14" name="before birth after death.txt" tags="" position="1200,1425"
+            size="100,100">
+            <pre>
             `
             / /
             / / / / / /
@@ -328,104 +352,108 @@ permalink: /projects/shed-your-skin/
             / / / / / /
             / /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="15" name="sometimes its more you than you.txt" tags=""
-            position="1200,1550" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="15" name="sometimes its more you than you.txt" tags=""
+            position="1200,1550" size="100,100">
+            <pre>
             `
             / / / / / / / / / / / / / / / / / /
             / often / the sum of everything /
             / you know / it makes you laugh /
             / / / / / / / / / / / / / / / / / /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="16" name="small routines &gt;" tags=""
-            position="1200,1675" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
+            <pre>
             [[anytime.txt]]
             [[that crucial moment.txt]]
             [[thursday.txt]]
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="17" name="breathe.js" tags="" position="1400,1050"
-            size="100,100">&lt;!DOCTYPE html&gt;
-            &lt;html lang=&quot;en&quot;&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
+            <!DOCTYPE html>
+            <html lang="en">
 
-            &lt;head&gt;
-            &lt;meta charset=&quot;UTF-8&quot;&gt;
-            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-            &lt;title&gt;breathe.js&lt;/title&gt;
-            &lt;style&gt;
-            body {
-            font-family: monospace;
-            margin: 0;
-            overflow-y: auto;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            height: 100vh;
-            background: black;
-            color: white;
-            }
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>breathe.js</title>
+                <style>
+                    body {
+                        font-family: monospace;
+                        margin: 0;
+                        overflow-y: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-start;
+                        height: 100vh;
+                        background: black;
+                        color: white;
+                    }
 
-            #breathContainer {
-            text-align: left;
-            font-size: 1.5em;
-            line-height: 1.2;
-            white-space: pre;
-            padding: 1em;
-            }
-            &lt;/style&gt;
-            &lt;/head&gt;
+                    #breathContainer {
+                        text-align: left;
+                        font-size: 1.5em;
+                        line-height: 1.2;
+                        white-space: pre;
+                        padding: 1em;
+                    }
+                </style>
+            </head>
 
-            &lt;body&gt;
-            &lt;div id=&quot;breathContainer&quot;&gt;&lt;/div&gt;
+            <body>
+                <div id="breathContainer"></div>
 
-            &lt;script&gt;
-            (() =&gt; {
-            const YOUR_HEARTBEAT = [300, 800];
-            const YOUR_PACE = 10;
-            const breathContainer = document.getElementById(&quot;breathContainer&quot;);
+                <script>
+                    (() => {
+                        const YOUR_HEARTBEAT = [300, 800];
+                        const YOUR_PACE = 10;
+                        const breathContainer = document.getElementById("breathContainer");
 
-            const guideWind = async (phase) =&gt; {
-            let conduit, start, end, step;
+                        const guideWind = async (phase) => {
+                            let conduit, start, end, step;
 
-            switch (phase) {
-            case &quot;draw_in&quot;:
-            conduit = &quot;&gt;&quot;;
-            start = 1;
-            end = YOUR_PACE;
-            step = 1;
-            break;
-            case &quot;stillness&quot;:
-            conduit = &quot;=&quot;;
-            start = YOUR_PACE;
-            end = YOUR_PACE;
-            step = 0;
-            break;
-            case &quot;let_out&quot;:
-            conduit = &quot;&lt;&quot;;
-            start = YOUR_PACE;
-            end = 1;
-            step = -1;
-            break;
-            }
+                            switch (phase) {
+                                case "draw_in":
+                                    conduit = ">";
+                                    start = 1;
+                                    end = YOUR_PACE;
+                                    step = 1;
+                                    break;
+                                case "stillness":
+                                    conduit = "=";
+                                    start = YOUR_PACE;
+                                    end = YOUR_PACE;
+                                    step = 0;
+                                    break;
+                                case "let_out":
+                                    conduit = "<";
+                                    start = YOUR_PACE;
+                                    end = 1;
+                                    step = -1;
+                                    break;
+                            }
 
-            for (let i = start, moment = 0; step === 0 ? moment &lt; YOUR_PACE : i !== end + step; i += step, moment++)
-            {
-            breathContainer.textContent += conduit.repeat(i) + &quot;\n&quot;;
-            breathContainer.scrollTop = breathContainer.scrollHeight;
-            await new Promise((resolve) =&gt; setTimeout(resolve, YOUR_HEARTBEAT[moment % YOUR_HEARTBEAT.length]));
-            }
-            };
+                            for (let i = start, moment = 0; step === 0 ? moment < YOUR_PACE : i !== end + step; i += step, moment++) {
+                                breathContainer.textContent += conduit.repeat(i) + "\n";
+                                breathContainer.scrollTop = breathContainer.scrollHeight;
+                                await new Promise((resolve) => setTimeout(resolve, YOUR_HEARTBEAT[moment % YOUR_HEARTBEAT.length]));
+                            }
+                        };
 
-            (async () =&gt; {
-            await new Promise((resolve) =&gt; setTimeout(resolve, 1000));
-            await guideWind(&quot;draw_in&quot;);
-            await guideWind(&quot;stillness&quot;);
-            await guideWind(&quot;let_out&quot;);
-            await new Promise((resolve) =&gt; setTimeout(resolve, 1000));
-            })();
-            })();
-            &lt;/script&gt;
-            &lt;/body&gt;
+                        (async () => {
+                            await new Promise((resolve) => setTimeout(resolve, 1000));
+                            await guideWind("draw_in");
+                            await guideWind("stillness");
+                            await guideWind("let_out");
+                            await new Promise((resolve) => setTimeout(resolve, 1000));
+                        })();
+                    })();
+                </script>
+            </body>
 
-            &lt;/html&gt;</tw-passagedata><tw-passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175"
-            size="100,100">&lt;pre&gt;
+            </html>
+        </tw-passagedata><tw-passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175" size="100,100">
+            <pre>
             `
             / / / /
             / / / / /////
@@ -440,8 +468,9 @@ permalink: /projects/shed-your-skin/
             / / ////////
             / / /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="19" name="anytime.txt" tags="" position="1400,1675"
-            size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="19" name="anytime.txt" tags="" position="1400,1675" size="100,100">
+            <pre>
             `
             /// ///
             /// /// ///
@@ -453,8 +482,10 @@ permalink: /projects/shed-your-skin/
             /// /// /// ///
             /// /// ///
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="20" name="that crucial moment.txt" tags=""
-            position="1400,1800" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="20" name="that crucial moment.txt" tags="" position="1400,1800"
+            size="100,100">
+            <pre>
             `
             / /
             ////////// / / / / / / /
@@ -467,15 +498,18 @@ permalink: /projects/shed-your-skin/
             // / / / / / / /
             / / /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="21" name="thursday.txt" tags="" position="1400,1925"
-            size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="21" name="thursday.txt" tags="" position="1400,1925" size="100,100">
+            <pre>
             `
             / / / / / / / / / / / / / / / / / / / / / / /
             / it’s another thursday it’s every thursday /
             / / / / / / / / / / / / / / / / / / / / / / /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="22" name="and yet we were all born within.txt" tags=""
-            position="1200,2050" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="22" name="and yet we were all born within.txt" tags=""
+            position="1200,2050" size="100,100">
+            <pre>
             `
             / / / / / / / / / /
             / / / / / / / / / / / / / /
@@ -490,14 +524,17 @@ permalink: /projects/shed-your-skin/
             / / / / / / / /
             / / / /
             `
-            &lt;/pre&gt;</tw-passagedata><tw-passagedata pid="23" name="are you my teacher.txt" tags=""
-            position="1200,2175" size="100,100">&lt;pre&gt;
+            </pre>
+        </tw-passagedata><tw-passagedata pid="23" name="are you my teacher.txt" tags="" position="1200,2175"
+            size="100,100">
+            <pre>
             `
             ///////////////////////////////////////////////////
             who will dissolve me? ask for what you already have
             ///////////////////////////////////////////////////
             `
-            &lt;/pre&gt;</tw-passagedata>
+            </pre>
+        </tw-passagedata>
     </tw-storydata>
     <script src="/assets/js/shed-your-skin.js"></script>
 
