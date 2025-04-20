@@ -218,7 +218,7 @@
             linkWrapper.className = "link-wrapper";
 
             const link = document.createElement("a");
-            link.href = item.href;
+            link.href = item.permalink;
             link.textContent = item.title;
 
             if (item.external) {
