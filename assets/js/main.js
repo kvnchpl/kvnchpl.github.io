@@ -286,18 +286,67 @@
 
     const overlaySetup = await setupOverlayImages();
 
-    const currentPath = window.location.pathname;
+    // Get the current path
+    const currentPath = window.location.pathname.replace(/^\/|\/$/g, ""); // Normalize path (remove leading/trailing slashes)
 
-    // Dynamically determine the section based on the URL
-    const sectionKey = Object.keys(sectionsConfig).find((key) => {
-        if (key === "index" && currentPath === "/") return true;
-        return currentPath.startsWith(`/${key}/`);
-    });
+    // Fetch `index.json` to determine if the current page is a collection page
+    const indexData = await fetchJSON("index-data");
+    if (!indexData) {
+        logError("Failed to load index.json. Skipping initialization.");
+        return;
+    }
 
-    if (sectionKey) {
-        await initializePage(sectionKey, sectionsConfig, overlaySetup);
+    // Check if the current path is a collection page
+    const isCollectionPage = indexData.some((item) => item.permalink === `/${currentPath}/`);
+
+    if (isCollectionPage) {
+        initializeCollectionPage(currentPath);
     } else {
-        console.error(`No matching section found for path: ${currentPath}`);
+        initializeIndividualPage(currentPath);
+    }
+
+    // Function to initialize a collection page (e.g., /projects/, /writings/)
+    function initializeCollectionPage(path) {
+        console.log(`Initializing collection page: ${path}`);
+
+        const container = document.getElementById("link-container");
+        if (!container) {
+            console.warn(`No link-container found for collection page: ${path}`);
+            return;
+        }
+
+        const indexJsonUrl = `/${path}/index.json`;
+        fetchJSON(indexJsonUrl)
+            .then((data) => {
+                if (!data || !Array.isArray(data)) {
+                    console.error(`Invalid or missing data in ${indexJsonUrl}`);
+                    return;
+                }
+
+                const list = container.querySelector("ul");
+                if (!list) {
+                    console.warn(`No <ul> element found in link-container for path: ${path}`);
+                    return;
+                }
+
+                data.forEach((item) => {
+                    const listItem = document.createElement("li");
+                    const link = document.createElement("a");
+                    link.href = item.permalink;
+                    link.textContent = item.title;
+                    listItem.appendChild(link);
+                    list.appendChild(listItem);
+                });
+            })
+            .catch((error) => {
+                console.error(`Failed to fetch data for collection page: ${path}`, error);
+            });
+    }
+
+    // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
+    function initializeIndividualPage(path) {
+        console.log(`Initializing individual page: ${path}`);
+        // Add any specific logic for individual pages here (if needed)
     }
 
     const adjustLinkContainerHeight = () => {
