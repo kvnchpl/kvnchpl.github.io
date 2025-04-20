@@ -2,11 +2,12 @@
     "use strict";
 
     // Ensure the Twine engine's navigation functions are globally accessible
-    require(["engine"], function (engine) {
-        // Expose navigation functions globally
+    if (typeof engine !== "undefined") {
         window.goBack = engine.goBack;
         window.goToPassage = engine.goToPassage;
-    });
+    } else {
+        console.error("Twine engine is not available.");
+    }
 
     // Initialize navigation and passage rendering
     document.addEventListener("DOMContentLoaded", () => {
