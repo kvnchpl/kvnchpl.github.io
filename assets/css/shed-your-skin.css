@@ -34,64 +34,6 @@
     padding: 1em;
 }
 
-/* Keyframes for animations */
-@keyframes appear {
-    0% {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-in-out {
-    0%,
-    to {
-        opacity: 0;
-    }
-    50% {
-        opacity: 1;
-    }
-}
-
-@keyframes slide-left {
-    0% {
-        transform: translateX(100vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slide-right {
-    0% {
-        transform: translateX(-100vw);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes fade-up {
-    0% {
-        opacity: 0;
-        transform: translateY(1em);
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fade-down {
-    0% {
-        opacity: 0;
-        transform: translateY(-1em);
-    }
-    to {
-        opacity: 1;
-    }
-}
-
 /* Twine-specific styles */
 tw-story {
     font-family: monospace;
