@@ -1,6 +1,6 @@
 (async function () {
     "use strict";
-    
+
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
@@ -275,7 +275,7 @@
         list.innerHTML = "";
 
         // Populate the list with links
-        filteredData.forEach((item) => {
+        filteredData.forEach((item, index) => {
             const listItem = document.createElement("li");
             const linkWrapper = document.createElement("div");
             linkWrapper.className = "link-wrapper";
@@ -283,6 +283,7 @@
             const link = document.createElement("a");
             link.href = item.permalink;
             link.textContent = item.title;
+            link.setAttribute("aria-label", item.title);
 
             // Handle external links
             if (item.external) {
@@ -292,6 +293,15 @@
 
             linkWrapper.appendChild(link);
             listItem.appendChild(linkWrapper);
+
+            // Apply the `title-row` class if `isTitle` is true
+            if (item.isTitle) {
+                listItem.classList.add("title-row");
+            } else {
+                // Alternate between `left-arrow` and `right-arrow` for other rows
+                listItem.classList.add(index % 2 === 0 ? "left-arrow" : "right-arrow");
+            }
+
             list.appendChild(listItem);
         });
 
