@@ -256,7 +256,7 @@
         const { metaName, containerId, isListPage, format } = section;
         const container = document.getElementById(containerId);
         if (!container) {
-            console.error(`Container with ID '${containerId}' not found`);
+            console.warn(`Container with ID '${containerId}' not found. Skipping initialization.`);
             return;
         }
 
