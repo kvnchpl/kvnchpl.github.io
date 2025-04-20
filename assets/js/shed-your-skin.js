@@ -15371,3 +15371,7 @@
     }.call(void 0);;
     require("harlowe")
 }());
+
+require(["engine"], function (engine) {
+    window.goBack = engine.goBack;
+});
