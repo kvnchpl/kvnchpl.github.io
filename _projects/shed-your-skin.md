@@ -27,39 +27,43 @@ permalink: /projects/shed-your-skin/
             [[sheddings.js]]
             [[all halls lead here >]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="2" name="all halls lead here >" tags="" position="800,675" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="2" name="all halls lead here >" tags="" position="800,675" size="100,100">
             <pre>
             [[overlapping overlapping.txt]]
             [[the breath >]]
             [[the ghost >]]
             [[the guardian >]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="3" name="the breath >" tags="" position="1000,800" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="3" name="the breath >" tags="" position="1000,800" size="100,100">
             <pre>
             [[in other words a script.txt]]
             [[the rhythm of your presence.txt]]
             [[dont forget to breathe >]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="4" name="the ghost >" tags="" position="1000,1300" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="4" name="the ghost >" tags="" position="1000,1300" size="100,100">
             <pre>
             [[all the stories that follow.js]]
             [[before birth after death.txt]]
             [[sometimes its more you than you.txt]]
             [[small routines >]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="5" name="the guardian >" tags="" position="1000,2050" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="5" name="the guardian >" tags="" position="1000,2050" size="100,100">
             <pre>
             [[and yet we were all born within.txt]]
             [[are you my teacher.txt]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="6" name="dont forget to breathe >" tags="" position="1200,1050"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="6" name="dont forget to breathe >" tags="" position="1200,1050" size="100,100">
             <pre>
             [[breathe.js]]
             [[wind hall.txt]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="7" name="can you see yourself.txt" tags="" position="800,300"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="7" name="can you see yourself.txt" tags="" position="800,300" size="100,100">
             <pre>
             `
             // /
@@ -75,8 +79,9 @@ permalink: /projects/shed-your-skin/
             // /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="8" name="not like a snake but an old ringing bell.txt" tags=""
-            position="800,425" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="8" name="not like a snake but an old ringing bell.txt" tags="" position="800,425"
+            size="100,100">
             <pre>
             `
             /
@@ -87,7 +92,8 @@ permalink: /projects/shed-your-skin/
             /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
             <!DOCTYPE html>
             <html lang="en">
 
@@ -198,8 +204,8 @@ permalink: /projects/shed-your-skin/
             </body>
 
             </html>
-        </tw-passagedata><tw-passagedata pid="10" name="overlapping overlapping.txt" tags="" position="1000,675"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="10" name="overlapping overlapping.txt" tags="" position="1000,675" size="100,100">
             <pre>
             `
             / / / / / / / / ///
@@ -216,8 +222,8 @@ permalink: /projects/shed-your-skin/
             / / / / / / / / ///
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="11" name="in other words a script.txt" tags="" position="1200,800"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="11" name="in other words a script.txt" tags="" position="1200,800" size="100,100">
             <pre>
             `
             /////////
@@ -228,8 +234,8 @@ permalink: /projects/shed-your-skin/
             ////////
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="12" name="the rhythm of your presence.txt" tags="" position="1200,925"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="12" name="the rhythm of your presence.txt" tags="" position="1200,925" size="100,100">
             <pre>
             `
             ///// /// /// ///// /////// /// ////
@@ -242,8 +248,8 @@ permalink: /projects/shed-your-skin/
             //// ///// ///////// // ////////
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300" size="100,100">
             <!DOCTYPE html>
             <html lang="en">
 
@@ -336,8 +342,8 @@ permalink: /projects/shed-your-skin/
             </body>
 
             </html>
-        </tw-passagedata><tw-passagedata pid="14" name="before birth after death.txt" tags="" position="1200,1425"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="14" name="before birth after death.txt" tags="" position="1200,1425" size="100,100">
             <pre>
             `
             / /
@@ -353,8 +359,8 @@ permalink: /projects/shed-your-skin/
             / /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="15" name="sometimes its more you than you.txt" tags=""
-            position="1200,1550" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="15" name="sometimes its more you than you.txt" tags="" position="1200,1550" size="100,100">
             <pre>
             `
             / / / / / / / / / / / / / / / / / /
@@ -363,13 +369,15 @@ permalink: /projects/shed-your-skin/
             / / / / / / / / / / / / / / / / / /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
             <pre>
             [[anytime.txt]]
             [[that crucial moment.txt]]
             [[thursday.txt]]
             </pre>
-        </tw-passagedata><tw-passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
             <!DOCTYPE html>
             <html lang="en">
 
@@ -452,7 +460,8 @@ permalink: /projects/shed-your-skin/
             </body>
 
             </html>
-        </tw-passagedata><tw-passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175" size="100,100">
             <pre>
             `
             / / / /
@@ -469,7 +478,8 @@ permalink: /projects/shed-your-skin/
             / / /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="19" name="anytime.txt" tags="" position="1400,1675" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="19" name="anytime.txt" tags="" position="1400,1675" size="100,100">
             <pre>
             `
             /// ///
@@ -483,8 +493,8 @@ permalink: /projects/shed-your-skin/
             /// /// ///
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="20" name="that crucial moment.txt" tags="" position="1400,1800"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="20" name="that crucial moment.txt" tags="" position="1400,1800" size="100,100">
             <pre>
             `
             / /
@@ -499,7 +509,8 @@ permalink: /projects/shed-your-skin/
             / / /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="21" name="thursday.txt" tags="" position="1400,1925" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="21" name="thursday.txt" tags="" position="1400,1925" size="100,100">
             <pre>
             `
             / / / / / / / / / / / / / / / / / / / / / / /
@@ -507,8 +518,8 @@ permalink: /projects/shed-your-skin/
             / / / / / / / / / / / / / / / / / / / / / / /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="22" name="and yet we were all born within.txt" tags=""
-            position="1200,2050" size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="22" name="and yet we were all born within.txt" tags="" position="1200,2050" size="100,100">
             <pre>
             `
             / / / / / / / / / /
@@ -525,8 +536,8 @@ permalink: /projects/shed-your-skin/
             / / / /
             `
             </pre>
-        </tw-passagedata><tw-passagedata pid="23" name="are you my teacher.txt" tags="" position="1200,2175"
-            size="100,100">
+        </tw-passagedata>
+        <tw-passagedata pid="23" name="are you my teacher.txt" tags="" position="1200,2175" size="100,100">
             <pre>
             `
             ///////////////////////////////////////////////////
