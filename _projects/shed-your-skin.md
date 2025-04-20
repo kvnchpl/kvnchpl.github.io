@@ -17,6 +17,7 @@ permalink: /projects/shed-your-skin/
             <tw-noscript>JavaScript needs to be enabled.</tw-noscript>
         </noscript>
     </tw-story>
+    
     <tw-storydata name="shed your skin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe"
         format-version="3.3.9" ifid="8CF19DB7-183D-4DFC-9D35-17A1997CD2FA" options="" tags="" zoom="1" hidden>
         <tw-passagedata pid="1" name="shed your skin" tags="" position="600,300" size="100,100">
