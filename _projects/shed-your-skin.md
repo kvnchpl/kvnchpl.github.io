@@ -12,10 +12,11 @@ permalink: /projects/shed-your-skin/
 </head>
 
 <body>
-    <div id="backArrow" class="navigation">
-        <a href="javascript:void(0)" onclick="goBack()">← Back</a>
-    </div>
+    
     <tw-story>
+        <div id="backArrow" class="navigation">
+            <a href="javascript:void(0)" onclick="goBack()">← Back</a>
+        </div>
         <noscript>
             <tw-noscript>JavaScript needs to be enabled.</tw-noscript>
         </noscript>
