@@ -332,10 +332,17 @@
             return;
         }
 
+        // Clear existing links
+        list.innerHTML = "";
+
+        // Populate the list with links
         filteredData.forEach((item) => {
             const listItem = document.createElement("li");
+            const linkWrapper = document.createElement("div");
+            linkWrapper.className = "link-wrapper";
+
             const link = document.createElement("a");
-            link.href = item.permalink; // Use permalink directly
+            link.href = item.permalink;
             link.textContent = item.title;
 
             // Handle external links
@@ -344,9 +351,15 @@
                 link.rel = "noopener noreferrer";
             }
 
-            listItem.appendChild(link);
+            linkWrapper.appendChild(link);
+            listItem.appendChild(linkWrapper);
             list.appendChild(listItem);
         });
+
+        // Apply link sliding and overlay functionality
+        const rows = Array.from(list.children);
+        randomizeLinks(rows);
+        enableHoverEffect(rows, getNextImage, document.getElementById("image-overlay"));
     }
 
     // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
