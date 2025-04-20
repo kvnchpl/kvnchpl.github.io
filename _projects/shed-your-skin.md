@@ -13,7 +13,7 @@ permalink: /projects/shed-your-skin/
 
 <body>
     <div id="backArrow" class="navigation">
-        <a href="javascript:void(0)" onclick="navigateBack()">← Back</a>
+        <a href="javascript:void(0)" onclick="goBack()">← Back</a>
     </div>
     <tw-story>
         <noscript>
