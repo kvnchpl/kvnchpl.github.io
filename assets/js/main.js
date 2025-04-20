@@ -1,4 +1,4 @@
-window.onload = async () => {
+(async function () {
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
@@ -320,4 +320,4 @@ window.onload = async () => {
     // Adjust the height on page load and window resize
     window.addEventListener("load", adjustLinkContainerHeight);
     window.addEventListener("resize", adjustLinkContainerHeight);
-};
+})();
