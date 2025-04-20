@@ -277,37 +277,8 @@
         }
     };
 
-    // Main logic
-    const sectionsConfig = await fetchSectionsConfig();
-    if (!sectionsConfig) {
-        logError("Failed to load sections configuration.");
-        return;
-    }
-
-    const overlaySetup = await setupOverlayImages();
-
-    // Get the current path and normalize it
-    let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
-    if (currentPath === "") currentPath = "/"; // Set homepage path to "/"
-
-    // Fetch `index.json` to determine if the current page is a collection page
-    const indexData = await fetchJSON("index-data");
-    if (!indexData) {
-        logError("Failed to load index.json. Skipping initialization.");
-        return;
-    }
-
-    // Check if the current path is a collection page
-    const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
-
-    if (isCollectionPage) {
-        initializeCollectionPage(currentPath, indexData);
-    } else {
-        initializeIndividualPage(currentPath);
-    }
-
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    function initializeCollectionPage(path, indexData) {
+    const initializeCollectionPage = (path, indexData, getNextImage, overlay) => {
         console.log(`Initializing collection page: ${path}`);
 
         const container = document.getElementById("link-container");
@@ -357,13 +328,44 @@
         // Apply link sliding and overlay functionality
         const rows = Array.from(list.children);
         randomizeLinks(rows);
-        enableHoverEffect(rows, getNextImage, document.getElementById("image-overlay"));
-    }
+        enableHoverEffect(rows, getNextImage, overlay);
+    };
 
     // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
-    function initializeIndividualPage(path) {
+    const initializeIndividualPage = (path) => {
         console.log(`Initializing individual page: ${path}`);
         // Add any specific logic for individual pages here (if needed)
+    };
+
+    // Main logic
+    const overlaySetup = await setupOverlayImages();
+    if (!overlaySetup) {
+        logError("Failed to set up overlay images.");
+        return;
+    }
+
+    const { getNextImage, overlay } = overlaySetup;
+
+    // Get the current path and normalize it
+    let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
+    if (currentPath === "") currentPath = "/"; // Set homepage path to "/"
+
+    // Fetch `index.json` to determine if the current page is a collection page
+    const indexData = await fetchJSON("index-data");
+    if (!indexData) {
+        logError("Failed to load index.json. Skipping initialization.");
+        return;
+    }
+
+    console.log(`Current path: ${currentPath} | Index data:`, indexData);
+
+    // Check if the current path is a collection page
+    const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
+
+    if (isCollectionPage) {
+        initializeCollectionPage(currentPath, indexData, getNextImage, overlay);
+    } else {
+        initializeIndividualPage(currentPath);
     }
 
     const adjustLinkContainerHeight = () => {
