@@ -17,7 +17,7 @@ permalink: /projects/shed-your-skin/
             <tw-noscript>JavaScript needs to be enabled.</tw-noscript>
         </noscript>
     </tw-story>
-    
+
     <tw-storydata name="shed your skin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe"
         format-version="3.3.9" ifid="8CF19DB7-183D-4DFC-9D35-17A1997CD2FA" options="" tags="" zoom="1" hidden>
         <tw-passagedata pid="1" name="shed your skin" tags="" position="600,300" size="100,100">
@@ -95,116 +95,69 @@ permalink: /projects/shed-your-skin/
             </pre>
         </tw-passagedata>
         <tw-passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
-            <!DOCTYPE html>
-            <html lang="en">
-
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>sheddings.js</title>
-                <style>
-                    body {
-                        font-family: monospace;
-                        margin: 0;
-                        overflow-y: auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: flex-start;
-                        height: 100vh;
-                        background: black;
-                        color: white;
-                    }
-
-                    #terminalContainer {
-                        text-align: left;
-                        font-size: 1.5em;
-                        line-height: 1.5;
-                        white-space: pre;
-                        padding: 1em;
-                        width: auto;
-                        max-width: 100%;
-                    }
-
-                    #intentionInput {
-                        border: none;
-                        background: transparent;
-                        color: inherit;
-                        font-family: inherit;
-                        font-size: 1em;
-                        outline: none;
-                        width: auto;
-                    }
-                </style>
-            </head>
-
-            <body>
-                <div id="terminalContainer">
-                    <label for="intentionInput">what do you want to shed?</label>
-                    <div id="terminalPrompt">
-                        <span>> </span>
-                        <input type="text" id="intentionInput" autofocus>
-                    </div>
+            <div id="terminalContainer">
+                <label for="intentionInput">what do you want to shed?</label>
+                <div id="terminalPrompt">
+                    <span>> </span>
+                    <input type="text" id="intentionInput" autofocus>
                 </div>
+            </div>
+            <script>
+                (() => {
+                    const terminalContainer = document.getElementById("terminalContainer");
 
-                <script>
-                    (() => {
-                        const terminalContainer = document.getElementById("terminalContainer");
-
-                        const promptForInput = () => {
-                            const prompt = document.createElement("div");
-                            prompt.innerHTML = `<span>> </span><input type="text"
+                    const promptForInput = () => {
+                        const prompt = document.createElement("div");
+                        prompt.innerHTML = `<span>> </span><input type="text"
             id="intentionInput" autofocus>`;
-                            terminalContainer.appendChild(prompt);
+                        terminalContainer.appendChild(prompt);
 
-                            const terminalInput = prompt.querySelector("#intentionInput");
-                            terminalInput.addEventListener("keydown", (event) => {
-                                if (event.key === "Enter") {
-                                    event.preventDefault();
-                                    handleInput(terminalInput.value.trim(), prompt);
-                                }
-                            });
+                        const terminalInput = prompt.querySelector("#intentionInput");
+                        terminalInput.addEventListener("keydown", (event) => {
+                            if (event.key === "Enter") {
+                                event.preventDefault();
+                                handleInput(terminalInput.value.trim(), prompt);
+                            }
+                        });
 
-                            terminalInput.focus();
+                        terminalInput.focus();
+                    };
+
+                    const handleInput = (intention, prompt) => {
+                        if (!intention) return;
+
+                        const terminalInput = prompt.querySelector("#intentionInput");
+                        terminalInput.disabled = true;
+
+                        const skin = intention.split('');
+                        let sheddable = skin.map((char, i) => (char !== ' ' ? i : null)).filter(i => i !== null);
+
+                        const displaySkin = () => {
+                            const line = document.createElement("div");
+                            line.textContent = skin.join('');
+                            terminalContainer.appendChild(line);
+                            terminalContainer.scrollTop = terminalContainer.scrollHeight;
                         };
 
-                        const handleInput = (intention, prompt) => {
-                            if (!intention) return;
-
-                            const terminalInput = prompt.querySelector("#intentionInput");
-                            terminalInput.disabled = true;
-
-                            const skin = intention.split('');
-                            let sheddable = skin.map((char, i) => (char !== ' ' ? i : null)).filter(i => i !== null);
-
-                            const displaySkin = () => {
-                                const line = document.createElement("div");
-                                line.textContent = skin.join('');
-                                terminalContainer.appendChild(line);
-                                terminalContainer.scrollTop = terminalContainer.scrollHeight;
-                            };
-
-                            const shedSkin = () => {
-                                if (!sheddable.length) return;
-                                const fate = Math.floor(Math.random() * sheddable.length);
-                                const choice = sheddable[fate];
-                                skin[choice] = skin[choice] === "|" ? "!" : skin[choice] === "!" ?
-                                    "." : "|";
-                                if (skin[choice] === ".") sheddable.splice(fate, 1);
-                                displaySkin();
-                                setTimeout(shedSkin, 500);
-                            };
-
+                        const shedSkin = () => {
+                            if (!sheddable.length) return;
+                            const fate = Math.floor(Math.random() * sheddable.length);
+                            const choice = sheddable[fate];
+                            skin[choice] = skin[choice] === "|" ? "!" : skin[choice] === "!" ?
+                                "." : "|";
+                            if (skin[choice] === ".") sheddable.splice(fate, 1);
                             displaySkin();
-                            setTimeout(shedSkin, 1000);
+                            setTimeout(shedSkin, 500);
                         };
 
-                        terminalContainer.innerHTML = `<div>what do you want to shed?</div>`;
-                        promptForInput();
-                    })();
-                </script>
-            </body>
+                        displaySkin();
+                        setTimeout(shedSkin, 1000);
+                    };
 
-            </html>
+                    terminalContainer.innerHTML = `<div>what do you want to shed?</div>`;
+                    promptForInput();
+                })();
+            </script>
         </tw-passagedata>
         <tw-passagedata pid="10" name="overlapping overlapping.txt" tags="" position="1000,675" size="100,100">
             <pre>
@@ -251,98 +204,51 @@ permalink: /projects/shed-your-skin/
             </pre>
         </tw-passagedata>
         <tw-passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300" size="100,100">
-            <!DOCTYPE html>
-            <html lang="en">
+            <div id="storyContainer"></div>
+            <script>
+                (() => {
+                    const storyContainer = document.getElementById("storyContainer");
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>all the stories that follow.js</title>
-                <style>
-                    body {
-                        font-family: monospace;
-                        margin: 0;
-                        overflow-y: auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: flex-start;
-                        height: 100vh;
-                        background: black;
-                        color: white;
-                    }
+                    const gentleWhisperInYourEar = () => {
+                        const question = document.createElement("div");
+                        question.textContent = "you are not the first to ask this question.";
+                        storyContainer.appendChild(question);
 
-                    #storyContainer {
-                        text-align: left;
-                        font-size: 1.5em;
-                        line-height: 1.5;
-                        white-space: pre;
-                        padding: 1em;
-                        width: auto;
-                        max-width: 100%;
-                    }
-
-                    #responseInput {
-                        border: none;
-                        background: transparent;
-                        color: inherit;
-                        font-family: inherit;
-                        font-size: 1em;
-                        outline: none;
-                        width: auto;
-                    }
-                </style>
-            </head>
-
-            <body>
-                <div id="storyContainer"></div>
-
-                <script>
-                    (() => {
-                        const storyContainer = document.getElementById("storyContainer");
-
-                        const gentleWhisperInYourEar = () => {
-                            const question = document.createElement("div");
-                            question.textContent = "you are not the first to ask this question.";
-                            storyContainer.appendChild(question);
-
-                            const prompt = document.createElement("div");
-                            prompt.innerHTML = `remember this memory again? [y/n] <input type="text"
+                        const prompt = document.createElement("div");
+                        prompt.innerHTML = `remember this memory again? [y/n] <input type="text"
             id="responseInput" autofocus>`;
-                            storyContainer.appendChild(prompt);
+                        storyContainer.appendChild(prompt);
 
-                            const responseInput = prompt.querySelector("#responseInput");
-                            responseInput.addEventListener("keydown", (event) => {
-                                if (event.key === "Enter") {
-                                    event.preventDefault();
-                                    handleResponse(responseInput.value.trim().toLowerCase(), prompt);
-                                }
-                            });
-
-                            responseInput.focus();
-                        };
-
-                        const handleResponse = (choice, prompt) => {
-                            prompt.querySelector("#responseInput").disabled = true;
-
-                            if (choice === "y" || choice === "yes") {
-                                gentleWhisperInYourEar();
-                            } else if (choice === "n" || choice === "no") {
-                                const farewell = document.createElement("div");
-                                farewell.textContent = "may you find more selves in the memories you choose to keep.";
-                                storyContainer.appendChild(farewell);
-                            } else {
-                                const thirdPath = document.createElement("div");
-                                thirdPath.textContent = "you are courageous to take the third path.";
-                                storyContainer.appendChild(thirdPath);
+                        const responseInput = prompt.querySelector("#responseInput");
+                        responseInput.addEventListener("keydown", (event) => {
+                            if (event.key === "Enter") {
+                                event.preventDefault();
+                                handleResponse(responseInput.value.trim().toLowerCase(), prompt);
                             }
-                        };
+                        });
 
-                        gentleWhisperInYourEar();
-                    })();
-                </script>
-            </body>
+                        responseInput.focus();
+                    };
 
-            </html>
+                    const handleResponse = (choice, prompt) => {
+                        prompt.querySelector("#responseInput").disabled = true;
+
+                        if (choice === "y" || choice === "yes") {
+                            gentleWhisperInYourEar();
+                        } else if (choice === "n" || choice === "no") {
+                            const farewell = document.createElement("div");
+                            farewell.textContent = "may you find more selves in the memories you choose to keep.";
+                            storyContainer.appendChild(farewell);
+                        } else {
+                            const thirdPath = document.createElement("div");
+                            thirdPath.textContent = "you are courageous to take the third path.";
+                            storyContainer.appendChild(thirdPath);
+                        }
+                    };
+
+                    gentleWhisperInYourEar();
+                })();
+            </script>
         </tw-passagedata>
         <tw-passagedata pid="14" name="before birth after death.txt" tags="" position="1200,1425" size="100,100">
             <pre>
@@ -379,88 +285,54 @@ permalink: /projects/shed-your-skin/
             </pre>
         </tw-passagedata>
         <tw-passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
-            <!DOCTYPE html>
-            <html lang="en">
+            <div id="breathContainer"></div>
 
-            <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>breathe.js</title>
-                <style>
-                    body {
-                        font-family: monospace;
-                        margin: 0;
-                        overflow-y: auto;
-                        display: flex;
-                        justify-content: center;
-                        align-items: flex-start;
-                        height: 100vh;
-                        background: black;
-                        color: white;
-                    }
+            <script>
+                (() => {
+                    const YOUR_HEARTBEAT = [300, 800];
+                    const YOUR_PACE = 10;
+                    const breathContainer = document.getElementById("breathContainer");
 
-                    #breathContainer {
-                        text-align: left;
-                        font-size: 1.5em;
-                        line-height: 1.2;
-                        white-space: pre;
-                        padding: 1em;
-                    }
-                </style>
-            </head>
+                    const guideWind = async (phase) => {
+                        let conduit, start, end, step;
 
-            <body>
-                <div id="breathContainer"></div>
+                        switch (phase) {
+                            case "draw_in":
+                                conduit = ">";
+                                start = 1;
+                                end = YOUR_PACE;
+                                step = 1;
+                                break;
+                            case "stillness":
+                                conduit = "=";
+                                start = YOUR_PACE;
+                                end = YOUR_PACE;
+                                step = 0;
+                                break;
+                            case "let_out":
+                                conduit = "<";
+                                start = YOUR_PACE;
+                                end = 1;
+                                step = -1;
+                                break;
+                        }
 
-                <script>
-                    (() => {
-                        const YOUR_HEARTBEAT = [300, 800];
-                        const YOUR_PACE = 10;
-                        const breathContainer = document.getElementById("breathContainer");
+                        for (let i = start, moment = 0; step === 0 ? moment < YOUR_PACE : i !== end + step; i += step, moment++) {
+                            breathContainer.textContent += conduit.repeat(i) + "\n";
+                            breathContainer.scrollTop = breathContainer.scrollHeight;
+                            await new Promise((resolve) => setTimeout(resolve, YOUR_HEARTBEAT[moment % YOUR_HEARTBEAT.length]));
+                        }
+                    };
 
-                        const guideWind = async (phase) => {
-                            let conduit, start, end, step;
-
-                            switch (phase) {
-                                case "draw_in":
-                                    conduit = ">";
-                                    start = 1;
-                                    end = YOUR_PACE;
-                                    step = 1;
-                                    break;
-                                case "stillness":
-                                    conduit = "=";
-                                    start = YOUR_PACE;
-                                    end = YOUR_PACE;
-                                    step = 0;
-                                    break;
-                                case "let_out":
-                                    conduit = "<";
-                                    start = YOUR_PACE;
-                                    end = 1;
-                                    step = -1;
-                                    break;
-                            }
-
-                            for (let i = start, moment = 0; step === 0 ? moment < YOUR_PACE : i !== end + step; i += step, moment++) {
-                                breathContainer.textContent += conduit.repeat(i) + "\n";
-                                breathContainer.scrollTop = breathContainer.scrollHeight;
-                                await new Promise((resolve) => setTimeout(resolve, YOUR_HEARTBEAT[moment % YOUR_HEARTBEAT.length]));
-                            }
-                        };
-
-                        (async () => {
-                            await new Promise((resolve) => setTimeout(resolve, 1000));
-                            await guideWind("draw_in");
-                            await guideWind("stillness");
-                            await guideWind("let_out");
-                            await new Promise((resolve) => setTimeout(resolve, 1000));
-                        })();
+                    (async () => {
+                        await new Promise((resolve) => setTimeout(resolve, 1000));
+                        await guideWind("draw_in");
+                        await guideWind("stillness");
+                        await guideWind("let_out");
+                        await new Promise((resolve) => setTimeout(resolve, 1000));
                     })();
-                </script>
-            </body>
-
-            </html>
+                })();
+            </script>
         </tw-passagedata>
         <tw-passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175" size="100,100">
             <pre>
