@@ -245,38 +245,6 @@
         return fragment;
     };
 
-    // Initialize a page by rendering links and applying behaviors
-    const initializePage = async (sectionKey, sectionsConfig, overlaySetup) => {
-        const section = sectionsConfig[sectionKey];
-        if (!section) {
-            console.error(`No configuration found for section: ${sectionKey}`);
-            return;
-        }
-
-        const { metaName, containerId, isListPage, format } = section;
-        const container = document.getElementById(containerId);
-        if (!container) {
-            console.warn(`Container with ID '${containerId}' not found. Skipping initialization.`);
-            return;
-        }
-
-        const list = container.querySelector("ul");
-        const data = await fetchJSON(metaName);
-        if (!data || !Array.isArray(data) || data.length === 0) {
-            console.error(`No valid data found for meta tag '${metaName}'`);
-            return;
-        }
-
-        if (isListPage && list) {
-            const fragment = renderLinks(data, format);
-            list.appendChild(fragment);
-
-            const rows = Array.from(list.children);
-            randomizeLinks(rows);
-            enableHoverEffect(rows, overlaySetup.getNextImage, overlaySetup.overlay);
-        }
-    };
-
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
     const initializeCollectionPage = (path, indexData, getNextImage, overlay) => {
         console.log(`Initializing collection page: ${path}`);
