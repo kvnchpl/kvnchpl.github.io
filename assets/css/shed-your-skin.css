@@ -11,8 +11,8 @@
     --back-arrow-font-size: 1.2em;
     --back-arrow-position-top: 10px;
     --back-arrow-position-left: 10px;
-    --twine-padding: 5%;
-    --twine-margin: 0 auto;
+    --story-padding: 5%;
+    --story-margin: 0 auto;
     --transition-duration: 0.2s;
 }
 
@@ -25,7 +25,7 @@
     white-space: pre-wrap;
     padding: var(--container-padding);
     max-width: var(--container-max-width);
-    margin: var(--twine-margin);
+    margin: var(--story-margin);
     color: var(--text-color);
     background: var(--background-color);
 }
@@ -66,9 +66,9 @@ story {
     font-family: var(--font-family);
     color: var(--text-color);
     background: var(--background-color);
-    padding: var(--twine-padding);
+    padding: var(--story-padding);
     max-width: var(--container-max-width);
-    margin: var(--twine-margin);
+    margin: var(--story-margin);
 }
 
 passage {
