@@ -62,7 +62,7 @@
     color: var(--link-hover-color);
 }
 
-tw-story {
+story {
     font-family: var(--font-family);
     color: var(--text-color);
     background: var(--background-color);
@@ -71,21 +71,21 @@ tw-story {
     margin: var(--twine-margin);
 }
 
-tw-passage {
+passage {
     display: block;
 }
 
-tw-link {
+link {
     color: var(--link-color);
     text-decoration: none;
     cursor: pointer;
     transition: color var(--transition-duration) ease-in-out;
 }
 
-tw-link:hover {
+link:hover {
     color: var(--link-hover-color);
 }
 
-tw-sidebar {
+sidebar {
     display: none;
 }
