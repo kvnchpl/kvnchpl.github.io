@@ -1,44 +1,44 @@
 [
     {
         "title": "Kevin Cunanan Chappelle :)",
-        "href": "/",
+        "permalink": "/",
         "isTitle": true
     },
     {
         "title": "See what I’m working on",
-        "href": "/projects"
+        "permalink": "/projects"
     },
     {
         "title": "See what I’m thinking about",
-        "href": "https://kvnchpl-thoughts.tumblr.com/",
+        "permalink": "https://kvnchpl-thoughts.tumblr.com/",
         "external": true,
         "newTab": false
     },
     {
         "title": "See what I’m writing",
-        "href": "/writings"
+        "permalink": "/writings"
     },
     {
         "title": "See what I’m reading",
-        "href": "/readings"
+        "permalink": "/readings"
     },
     {
         "title": "See what I’m watching",
-        "href": "https://letterboxd.com/kvnchpl/",
+        "permalink": "https://letterboxd.com/kvnchpl/",
         "external": true
     },
     {
         "title": "See what I’m listening to",
-        "href": "https://open.spotify.com/user/kevchap",
+        "permalink": "https://open.spotify.com/user/kevchap",
         "external": true
     },
     {
         "title": "Go hunting for hydrants",
-        "href": "https://hydranthunt.com/",
+        "permalink": "https://hydranthunt.com/",
         "external": true
     },
     {
         "title": "Say hi",
-        "href": "/contact"
+        "permalink": "/contact"
     }
 ]

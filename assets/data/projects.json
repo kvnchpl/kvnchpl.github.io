@@ -1,7 +1,7 @@
 [
     {
         "title": "Viewfinder",
-        "href": "/projects/viewfinder",
+        "permalink": "/projects/viewfinder",
         "subtitle": "October 2024",
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
         "images": [
@@ -12,7 +12,7 @@
     },
     {
         "title": "Triptych",
-        "href": "/projects/triptych",
+        "permalink": "/projects/triptych",
         "subtitle": "May 2024",
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "images": [
@@ -23,13 +23,13 @@
     },
     {
         "title": "Shed Your Skin",
-        "href": "/projects/shed-your-skin",
+        "permalink": "/projects/shed-your-skin",
         "subtitle": "April 2025",
         "description": "Love letter to a speculative liberatory learning society."
     },
     {
         "title": "Archipelago",
-        "href": "/projects/archipelago",
+        "permalink": "/projects/archipelago",
         "subtitle": "February 2024",
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "images": [
