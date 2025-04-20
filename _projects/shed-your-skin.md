@@ -2,7 +2,6 @@
 permalink: /projects/shed-your-skin/
 ---
 
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
