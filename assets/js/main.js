@@ -286,8 +286,9 @@
 
     const overlaySetup = await setupOverlayImages();
 
-    // Get the current path
-    const currentPath = window.location.pathname.replace(/\/$/, ""); // Normalize path (remove trailing slash)
+    // Get the current path and normalize it
+    let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
+    if (currentPath === "") currentPath = "/"; // Set homepage path to "/"
 
     // Fetch `index.json` to determine if the current page is a collection page
     const indexData = await fetchJSON("index-data");
@@ -297,6 +298,7 @@
     }
 
     console.log(`Current path: ${currentPath} | Index data:`, indexData);
+
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
 
@@ -323,7 +325,7 @@
         }
 
         // Filter the data for the current collection (if applicable)
-        const filteredData = path === "" ? indexData : indexData.filter((item) => item.permalink.startsWith(`${path}/`));
+        const filteredData = path === "/" ? indexData : indexData.filter((item) => item.permalink.startsWith(`${path}/`));
 
         if (!filteredData || filteredData.length === 0) {
             console.error(`Invalid or missing data for collection page: ${path}`);
