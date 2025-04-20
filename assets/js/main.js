@@ -1,4 +1,6 @@
 (async function () {
+    "use strict";
+    
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
