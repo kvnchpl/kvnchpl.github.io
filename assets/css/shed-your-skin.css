@@ -43,6 +43,26 @@
     padding: var(--container-padding);
 }
 
+#backArrow {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 1.2em;
+    font-family: monospace;
+    color: inherit;
+    text-decoration: none;
+}
+
+#backArrow a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+#backArrow a:hover {
+    color: #dd4b39;
+}
+
 tw-story {
     font-family: var(--font-family);
     color: var(--text-color);
