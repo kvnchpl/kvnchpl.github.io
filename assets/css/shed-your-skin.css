@@ -1,46 +1,54 @@
-/* General container styles */
+:root {
+    --font-family: monospace;
+    --font-size: 1.5em;
+    --line-height: 1.5;
+    --text-color: inherit;
+    --background-color: none;
+    --link-color: #00bfff;
+    --link-hover-color: #dd4b39;
+    --container-padding: 1em;
+    --container-max-width: 800px;
+}
+
 #storyContainer,
 #terminalContainer,
 #breathContainer {
-    font-family: monospace;
-    font-size: 1.5em;
-    line-height: 1.5;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    line-height: var(--line-height);
     white-space: pre-wrap;
-    padding: 1em;
-    max-width: 800px;
+    padding: var(--container-padding);
+    max-width: var(--container-max-width);
     margin: 0 auto;
-    color: inherit;
-    background: none;
+    color: var(--text-color);
+    background: var(--background-color);
 }
 
-/* Input field styles */
 #responseInput,
 #intentionInput {
     border: none;
     background: transparent;
-    color: inherit;
-    font-family: inherit;
+    color: var(--text-color);
+    font-family: var(--font-family);
     font-size: 1em;
     outline: none;
     width: 100%;
 }
 
-/* Animation container */
 #breathContainer {
     text-align: left;
-    font-size: 1.5em;
+    font-size: var(--font-size);
     line-height: 1.2;
     white-space: pre;
-    padding: 1em;
+    padding: var(--container-padding);
 }
 
-/* Twine-specific styles */
 tw-story {
-    font-family: monospace;
-    color: inherit;
-    background: none;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background: var(--background-color);
     padding: 5% 10%;
-    max-width: 800px;
+    max-width: var(--container-max-width);
     margin: 0 auto;
 }
 
@@ -49,14 +57,14 @@ tw-passage {
 }
 
 tw-link {
-    color: #00bfff;
+    color: var(--link-color);
     text-decoration: none;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
 }
 
 tw-link:hover {
-    color: #dd4b39;
+    color: var(--link-hover-color);
 }
 
 tw-sidebar {
