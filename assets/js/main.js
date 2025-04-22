@@ -265,11 +265,13 @@
 
         // Normalize the path to match keys in sections.json
         const normalizedPath = path.replace(/^\/|\/$/g, ""); // Remove leading and trailing slashes
+
+        console.log(`DEBUG: Normalized path: "${normalizedPath}"`);
+        console.log(`DEBUG: Sections configuration:`, sectionsConfig);
+
         const sectionConfig = sectionsConfig[normalizedPath];
 
-        console.log(`Sections configuration:`, sectionsConfig);
-
-        console.log(`Section configuration for normalized path "${normalizedPath}":`, sectionConfig);
+        console.log(`DEBUG: Section configuration for normalized path "${normalizedPath}":`, sectionConfig);
 
         if (!sectionConfig) {
             console.error(`No section configuration found for path: ${path}`);
