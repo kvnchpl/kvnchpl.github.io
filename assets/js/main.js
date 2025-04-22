@@ -267,6 +267,8 @@
         const normalizedPath = path.replace(/^\/|\/$/g, ""); // Remove leading and trailing slashes
         const sectionConfig = sectionsConfig[normalizedPath];
 
+        console.log(`Section configuration for normalized path "${normalizedPath}":`, sectionConfig);
+
         if (!sectionConfig) {
             console.error(`No section configuration found for path: ${path}`);
             return;
