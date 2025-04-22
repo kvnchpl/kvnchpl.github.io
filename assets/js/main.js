@@ -263,9 +263,9 @@
             return;
         }
 
-        // Determine the section configuration for the current path
-        const sectionKey = Object.keys(sectionsConfig).find((key) => path.endsWith(key));
-        const sectionConfig = sectionsConfig[sectionKey];
+        // Normalize the path to match keys in sections.json
+        const normalizedPath = path.replace(/^\/|\/$/g, ""); // Remove leading and trailing slashes
+        const sectionConfig = sectionsConfig[normalizedPath];
 
         if (!sectionConfig) {
             console.error(`No section configuration found for path: ${path}`);
