@@ -248,7 +248,7 @@
     };
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    const initializeCollectionPage = (path, indexData, getNextImage, overlay) => {
+    const initializeCollectionPage = async (path, indexData, getNextImage, overlay) => {
         console.log(`Initializing collection page: ${path}`);
 
         const container = document.getElementById("link-container");
@@ -263,8 +263,19 @@
             return;
         }
 
-        // Filter the data for the current collection (if applicable)
-        const filteredData = path === "/" ? indexData : indexData.filter((item) => item.permalink.startsWith(`${path}/`));
+        let filteredData;
+
+        // Fetch the correct data source based on the path
+        if (path === "/projects") {
+            // Fetch projects.json for the /projects path
+            filteredData = await fetchJSON("projects-data");
+        } else if (path === "/") {
+            // Use indexData for the homepage
+            filteredData = indexData;
+        } else {
+            // Filter indexData for other collection pages
+            filteredData = indexData.filter((item) => item.permalink.startsWith(`${path}/`));
+        }
 
         if (!filteredData || filteredData.length === 0) {
             console.error(`Invalid or missing data for collection page: ${path}`);
