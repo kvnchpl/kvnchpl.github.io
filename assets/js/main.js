@@ -249,7 +249,7 @@
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
     const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay) => {
-        console.log(`Initializing collection page: ${path}`);
+        console.log(`DEBUG: Initializing collection page: ${path}`);
 
         const container = document.getElementById("link-container");
         if (!container) {
@@ -327,7 +327,7 @@
 
     // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
     const initializeIndividualPage = (path) => {
-        console.log(`Initializing individual page: ${path}`);
+        console.log(`DEBUG: Initializing individual page: ${path}`);
         // Add any specific logic for individual pages here (if needed)
     };
 
