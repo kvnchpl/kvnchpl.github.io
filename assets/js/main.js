@@ -248,7 +248,7 @@
     };
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    const initializeCollectionPage = async (path, indexData, getNextImage, overlay) => {
+    const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay) => {
         console.log(`Initializing collection page: ${path}`);
 
         const container = document.getElementById("link-container");
@@ -263,21 +263,18 @@
             return;
         }
 
-        let filteredData;
+        // Determine the section configuration for the current path
+        const sectionKey = Object.keys(sectionsConfig).find((key) => path.endsWith(key));
+        const sectionConfig = sectionsConfig[sectionKey];
 
-        // Fetch the correct data source based on the path
-        if (path === "/projects") {
-            // Fetch projects.json for the /projects path
-            filteredData = await fetchJSON("projects-data");
-        } else if (path === "/") {
-            // Use indexData for the homepage
-            filteredData = indexData;
-        } else {
-            // Filter indexData for other collection pages
-            filteredData = indexData.filter((item) => item.permalink.startsWith(`${path}/`));
+        if (!sectionConfig) {
+            console.error(`No section configuration found for path: ${path}`);
+            return;
         }
 
-        if (!filteredData || filteredData.length === 0) {
+        // Fetch the appropriate data for the collection page
+        const collectionData = await fetchJSON(sectionConfig.metaName);
+        if (!collectionData || collectionData.length === 0) {
             console.error(`Invalid or missing data for collection page: ${path}`);
             return;
         }
@@ -286,7 +283,7 @@
         list.innerHTML = "";
 
         // Populate the list with links
-        filteredData.forEach((item, index) => {
+        collectionData.forEach((item, index) => {
             const listItem = document.createElement("li");
             const linkWrapper = document.createElement("div");
             linkWrapper.className = "link-wrapper";
