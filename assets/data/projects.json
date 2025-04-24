@@ -37,5 +37,11 @@
             "/assets/images/projects/archipelago/archipelago_2.png",
             "/assets/images/projects/archipelago/archipelago_3.png"
         ]
+    },
+    {
+        "title": "Compiler Buddha",
+        "permalink": "/projects/compiler-buddha",
+        "subtitle": "April 2025",
+        "description": "Homage to Nam June Paik, code that refashions itself into the Buddha's image."
     }
 ]
