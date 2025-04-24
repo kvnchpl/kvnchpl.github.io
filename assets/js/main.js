@@ -174,11 +174,6 @@
         return { overlay, getNextImage };
     };
 
-    // Dynamically fetch sections.json via meta tag
-    const fetchSectionsConfig = async () => {
-        return await fetchJSON("section-data");
-    };
-
     // Utility function to format dates
     const formatDate = (month) => {
         const monthNames = [
