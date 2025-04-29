@@ -4,7 +4,7 @@
     const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
-    const logError = (message) => logError(`DEBUG: ${message}`);
+    const logError = (message) => console.error(`DEBUG: ${message}`);
 
     // Utility function to fetch JSON data from a URL
     const fetchJSON = async (key) => {
