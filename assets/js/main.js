@@ -63,9 +63,9 @@
         const index = fetchedData[metaTags.index];
         const sections = fetchedData[metaTags.sections];
         const images = fetchedData[metaTags.overlayImages];
-        const collectionData = config.sectionConfig?.metaName
-            ? fetchedData[config.sectionConfig.metaName]
-            : [];
+        const sectionKey = isHomepage ? "index" : path;
+        const collectionMeta = sections[sectionKey]?.metaName;
+        const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
 
         const overlaySetup = await setupOverlayImages(images);
         if (!overlaySetup) throw new Error("Failed to set up overlay images.");
