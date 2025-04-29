@@ -1,12 +1,17 @@
 (async function () {
     "use strict";
 
+    // ==========================
+    // GLOBAL CONSTANTS
+    // ==========================
     const isMobileDevice = () => window.matchMedia("(max-width: 768px)").matches;
+    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
+    const logError = (message, context = {}) => console.error(`DEBUG: ${message}`, context);
 
-    // Utility function for centralized error logging
-    const logError = (message, context = {}) => {
-        console.error(`DEBUG: ${message}`, context);
-    };
+
+    // ==========================
+    // UTILITY FUNCTIONS
+    // ==========================
 
     // Utility function to fetch JSON data from a URL
     const fetchJSON = async (key, fallback = null) => {
@@ -40,40 +45,6 @@
         return defaultValue;
     };
 
-    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
-    const sectionConfig = sections[currentPath];
-
-    if (!sectionConfig) {
-        logError(`No section configuration found for path: ${currentPath}`);
-        return;
-    }
-
-    const [configData, indexData, sectionsConfig, overlayImages, collectionDataPromise] = await Promise.allSettled([
-        fetchJSON("config-data"),
-        fetchJSON("index-data"),
-        fetchJSON("section-data"),
-        fetchJSON("overlay-images-data"),
-        fetchJSON(sectionConfig?.metaName, []), // Dynamically fetch collection data
-    ]);
-
-    const collectionData = await resolveData(collectionDataPromise, []);
-
-    if (!collectionData.length) {
-        logError(`Invalid or missing data for collection page: ${currentPath}`);
-        return;
-    }
-
-
-    const config = await resolveData(configData, {});
-    const index = await resolveData(indexData, []);
-    const sections = await resolveData(sectionsConfig, {});
-    const images = await resolveData(overlayImages, []);
-
-    if (!index.length || !Object.keys(sections).length || !images.length) {
-        logError("Skipping initialization due to missing or invalid data.");
-        return;
-    }
-
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {
@@ -94,10 +65,38 @@
         return Math.random() * (maxPosition - minPosition) + minPosition;
     };
 
+    // Utility function to update the position of a link
     const updateLinkPosition = (linkWrapper, linkWidth, viewportWidth) => {
         const newLeft = generateRandomPosition(linkWidth, viewportWidth);
         linkWrapper.style.left = `${newLeft}px`;
     };
+
+    // Format subtitle based on the provided format
+    const formatSubtitle = (item, format) => {
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+
+        const formatDate = (month) => {
+            if (typeof month === "number" && month >= 1 && month <= 12) {
+                return monthNames[month - 1];
+            }
+            return month;
+        };
+
+        if (format === "detailed" && item.subtitle && item.publication && item.year) {
+            const formattedMonth = item.month ? formatDate(item.month) : null;
+            return `—${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
+        } else if (item.subtitle) {
+            return item.subtitle;
+        }
+        return null;
+    };
+
+    // ==========================
+    // LINK MANAGEMENT
+    // ==========================
 
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
@@ -140,6 +139,7 @@
         });
     };
 
+    // Reset link positions to their original state
     const resetLinkPositions = (rows) => {
         rows.forEach((row) => {
             const linkWrapper = row.querySelector(".link-wrapper");
@@ -206,6 +206,10 @@
         });
     };
 
+    // ==========================
+    // OVERLAY IMAGE HANDLING
+    // ==========================
+
     // Modularized overlay image handling
     const setupOverlayImages = async () => {
         const overlay = document.getElementById(config.imageOverlayId);
@@ -239,28 +243,9 @@
         return { overlay, getNextImage };
     };
 
-    // Format subtitle based on the provided format
-    const formatSubtitle = (item, format) => {
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-
-        const formatDate = (month) => {
-            if (typeof month === "number" && month >= 1 && month <= 12) {
-                return monthNames[month - 1];
-            }
-            return month;
-        };
-
-        if (format === "detailed" && item.subtitle && item.publication && item.year) {
-            const formattedMonth = item.month ? formatDate(item.month) : null;
-            return `—${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
-        } else if (item.subtitle) {
-            return item.subtitle;
-        }
-        return null;
-    };
+    // ==========================
+    // RENDERING FUNCTIONS
+    // ==========================
 
     // Render links dynamically
     const renderLinks = (data, format) => {
@@ -305,6 +290,10 @@
 
         return fragment;
     };
+
+    // ==========================
+    // PAGE INITIALIZATION
+    // ==========================
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
     const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay) => {
@@ -352,6 +341,10 @@
         // Add any specific logic for individual pages here (if needed)
     };
 
+    // ==========================
+    // MAIN INITIALIZATION
+    // ==========================
+
     const overlaySetup = await setupOverlayImages();
     if (!overlaySetup) {
         logError("Failed to set up overlay images.");
@@ -359,6 +352,25 @@
     }
 
     const { getNextImage, overlay } = overlaySetup;
+
+    const [configData, indexData, sectionsConfig, overlayImages, collectionDataPromise] = await Promise.allSettled([
+        fetchJSON("config-data"),
+        fetchJSON("index-data"),
+        fetchJSON("section-data"),
+        fetchJSON("overlay-images-data"),
+        fetchJSON(sectionConfig?.metaName, []), // Dynamically fetch collection data
+    ]);
+
+    const config = await resolveData(configData, {});
+    const index = await resolveData(indexData, []);
+    const sections = await resolveData(sectionsConfig, {});
+    const images = await resolveData(overlayImages, []);
+    const collectionData = await resolveData(collectionDataPromise, []);
+
+    if (!index.length || !Object.keys(sections).length || !images.length || !collectionData.length) {
+        logError("Skipping initialization due to missing or invalid data.");
+        return;
+    }
 
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
