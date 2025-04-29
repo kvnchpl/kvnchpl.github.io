@@ -80,7 +80,7 @@
             ? fetchedData[getConfig("sectionConfig").metaName]
             : [];
 
-        const overlaySetup = await setupOverlayImages();
+        const overlaySetup = await setupOverlayImages(images);
         if (!overlaySetup) throw new Error("Failed to set up overlay images.");
 
         const { getNextImage, overlay } = overlaySetup;
@@ -278,7 +278,7 @@
     // ==========================
 
     // Modularized overlay image handling
-    const setupOverlayImages = async () => {
+    const setupOverlayImages = async (images) => {
         const overlay = document.getElementById(getConfig("imageOverlayId"));
         if (!overlay) {
             logError(`Overlay element not found with ID: ${getConfig("imageOverlayId")}`);
@@ -333,7 +333,7 @@
             shuffledImages = images.sort(() => Math.random() - 0.5);
 
             const preloadResults = await Promise.allSettled(
-                shuffledImages.map(src =>
+                shuffledImages.map((src) =>
                     preloadImage(src)
                         .then((loaded) => preloadedImages.set(loaded, true))
                         .catch((err) => logError(err))
@@ -350,7 +350,7 @@
 
             // For mobile: show the first image immediately
             if (isMobileDevice()) {
-                const firstImage = shuffledImages.find(src => preloadedImages.has(src));
+                const firstImage = shuffledImages.find((src) => preloadedImages.has(src));
                 if (firstImage) {
                     overlay.style.backgroundImage = `url(${firstImage})`;
                     fadeInOverlay(overlay);
@@ -359,7 +359,6 @@
                     logError("No preloaded image available for mobile overlay.");
                 }
             }
-
         } else {
             logError("No overlay images defined or input is invalid.");
         }
