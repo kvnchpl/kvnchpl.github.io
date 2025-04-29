@@ -6,6 +6,7 @@
     // ==========================
     const isMobileDevice = () => window.matchMedia("(max-width: 768px)").matches;
     const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
+    let cachedViewportWidth = window.innerWidth;
     const logError = (message, context = {}) => console.error(`DEBUG: ${message}`, context);
 
     // ==========================
@@ -219,10 +220,24 @@
     const setupOverlayImages = async () => {
         const overlay = document.getElementById(config.imageOverlayId);
         let shuffledImages = [];
+        const preloadedImages = new Map();
+
+        const preloadImage = (src) => {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.src = src;
+                img.onload = () => resolve(src);
+                img.onerror = () => reject(`Failed to preload image: ${src}`);
+            });
+        };
+
         const getNextImage = (() => {
             let index = 0;
             return () => {
-                if (shuffledImages.length === 0) logError("No images available for overlay.");
+                if (shuffledImages.length === 0) {
+                    logError("No images available for overlay.");
+                    return null;
+                }
                 const image = shuffledImages[index];
                 index = (index + 1) % shuffledImages.length;
                 return image;
@@ -231,15 +246,24 @@
 
         if (images && Array.isArray(images) && images.length > 0) {
             shuffledImages = images.sort(() => Math.random() - 0.5);
-            shuffledImages.forEach((image) => {
-                const img = new Image();
-                img.src = image;
-                img.onerror = () => logError(`Failed to preload image: ${image}`);
-            });
 
-            if (isMobileDevice()) {
-                overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
-                overlay.classList.add("visible");
+            // Preload all images and store successful ones in the map
+            await Promise.allSettled(
+                shuffledImages.map((image) =>
+                    preloadImage(image)
+                        .then((src) => preloadedImages.set(src, true))
+                        .catch((error) => logError(error))
+                )
+            );
+
+            if (isMobileDevice() && shuffledImages.length > 0) {
+                const firstImage = shuffledImages[0];
+                if (preloadedImages.has(firstImage)) {
+                    overlay.style.backgroundImage = `url(${firstImage})`;
+                    overlay.classList.add("visible");
+                } else {
+                    logError("First image failed to preload, skipping overlay display.");
+                }
             }
         } else {
             logError("No valid overlay images found or the file is empty.");
@@ -363,7 +387,7 @@
     const images = await resolveData(overlayImages, []);
     const collectionData = await resolveData(collectionDataPromise, []);
 
-    if (!index.length || !Object.keys(sections).length || !images.length || !collectionData.length) {
+    if (!Object.keys(config).length || !index.length || !Object.keys(sections).length || !images.length || !collectionData.length) {
         logError("Skipping initialization due to missing or invalid data.");
         return;
     }
@@ -389,5 +413,7 @@
 
     // Adjust the height on page load and window resize
     window.addEventListener("load", adjustLinkContainerHeight);
-    window.addEventListener("resize", debounce(adjustLinkContainerHeight, config.debounceTime));
+    window.addEventListener("resize", debounce(() => {
+        cachedViewportWidth = window.innerWidth;
+    }, config.debounceTime));
 })();
