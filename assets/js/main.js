@@ -42,6 +42,7 @@
 
     const fetchConfigAndData = async () => {
         const config = await fetchJSON("config-data", {});
+        console.log("Fetched config:", config); // Debugging
         if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
 
         const metaTags = config.metaTags || {};
@@ -51,7 +52,7 @@
         return { config, metaTags, fetchedData };
     };
 
-    const determineCurrentPath = () => {
+    const getCurrentPath = () => {
         const path = window.location.pathname.replace(/^\/|\/$/g, "") || "index";
         return { path, isHomepage: path === "index" };
     };
@@ -479,7 +480,7 @@
 
     try {
         const { config, metaTags, fetchedData } = await fetchConfigAndData();
-        const { path, isHomepage } = determineCurrentPath();
+        const { path, isHomepage } = getCurrentPath();
         await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
         // Adjust link container height on load and resize
@@ -503,5 +504,5 @@
     } catch (error) {
         logError(error.message);
     }
-    
+
 })();
