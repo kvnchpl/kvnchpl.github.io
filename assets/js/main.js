@@ -23,7 +23,8 @@
         }
     };
 
-    const [indexData, sectionsConfig, overlayImages] = await Promise.allSettled([
+    const [configData, indexData, sectionsConfig, overlayImages] = await Promise.allSettled([
+        fetchJSON("config-data"),
         fetchJSON("index-data"),
         fetchJSON("section-data"),
         fetchJSON("overlay-images-data"),
@@ -101,7 +102,6 @@
             linkWrapper.classList.add("visible");
         });
     };
-
 
     const resetLinkPositions = (rows) => {
         rows.forEach((row) => {
@@ -358,5 +358,5 @@
 
     // Adjust the height on page load and window resize
     window.addEventListener("load", adjustLinkContainerHeight);
-    window.addEventListener("resize", debounce(adjustLinkContainerHeight, 200));
+    window.addEventListener("resize", debounce(adjustLinkContainerHeight, configData.debounceTime));
 })();
