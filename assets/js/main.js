@@ -12,19 +12,6 @@
     // UTILITY FUNCTIONS
     // ==========================
 
-    let globalConfig = null;
-
-    const setConfig = (config) => {
-        globalConfig = config;
-    };
-
-    const getConfig = (key, defaultValue = null) => {
-        if (!globalConfig) {
-            throw new Error("Config has not been initialized.");
-        }
-        return key in globalConfig ? globalConfig[key] : defaultValue;
-    };
-
     const fetchJSON = async (key, fallback = null) => {
         const url = document.querySelector(`meta[name='${key}']`)?.content;
         if (!url) {
@@ -58,9 +45,9 @@
         console.log("Fetched config:", config); // Debugging
         if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
 
-        setConfig(config); // Initialize global config
+        window.config = config;
 
-        const metaTags = getConfig("metaTags") || {};
+        const metaTags = config.metaTags || {};
         const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
         const fetchedData = await settleFetch(keysToFetch);
 
@@ -76,8 +63,8 @@
         const index = fetchedData[metaTags.index];
         const sections = fetchedData[metaTags.sections];
         const images = fetchedData[metaTags.overlayImages];
-        const collectionData = getConfig("sectionConfig")?.metaName
-            ? fetchedData[getConfig("sectionConfig").metaName]
+        const collectionData = config.sectionConfig?.metaName
+            ? fetchedData[config.sectionConfig.metaName]
             : [];
 
         const overlaySetup = await setupOverlayImages(images);
@@ -114,8 +101,8 @@
             return 0;
         }
         const margin = isMobileDevice()
-            ? getConfig("linkMargins").mobile
-            : getConfig("linkMargins").desktop;
+            ? config.linkMargins.mobile
+            : config.linkMargins.desktop;
         const minPosition = margin;
         const maxPosition = viewportWidth - margin - linkWidth;
         return Math.random() * (maxPosition - minPosition) + minPosition;
@@ -163,7 +150,7 @@
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector(`.${getConfig("linkWrapperClass")}`);
+            const linkWrapper = row.querySelector(`.${config.linkWrapperClass}`);
             if (!linkWrapper) {
                 logError(`No .link-wrapper found in row ${index}`);
                 return;
@@ -179,7 +166,7 @@
             link.setAttribute("aria-label", originalText);
 
             // Treat title-row as a left-arrow row but skip appending the arrow
-            const isTitleRow = row.id === getConfig("titleRowId");
+            const isTitleRow = row.id === config.titleRowId;
             const isLeftArrow = isTitleRow || index % 2 === 0;
             if (!isTitleRow) {
                 link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
@@ -230,12 +217,12 @@
 
         // Get the row element for this linkWrapper
         const row = linkWrapper.closest("li");
-        const isTitleRow = row && row.id === getConfig("titleRowId");
+        const isTitleRow = row && row.id === config.titleRowId;
 
         rows.forEach((otherRow, otherIndex) => {
             if (otherIndex === index) return;
 
-            const otherLinkWrapper = otherRow.querySelector(`.${getConfig("linkWrapperClass")}`);
+            const otherLinkWrapper = otherRow.querySelector(`.${config.linkWrapperClass}`);
             if (!otherLinkWrapper) return;
 
             const otherLinkWidth = otherLinkWrapper.offsetWidth;
@@ -265,7 +252,7 @@
     // Enable hover effects for links
     const enableHoverEffect = (rows, getNextImage, overlay) => {
         rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector(`.${getConfig("linkWrapperClass")}`);
+            const linkWrapper = row.querySelector(`.${config.linkWrapperClass}`);
             if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => handlePointerEnter(linkWrapper, rows, index, getNextImage, overlay));
@@ -279,9 +266,9 @@
 
     // Modularized overlay image handling
     const setupOverlayImages = async (images) => {
-        const overlay = document.getElementById(getConfig("imageOverlayId"));
+        const overlay = document.getElementById(config.imageOverlayId);
         if (!overlay) {
-            logError(`Overlay element not found with ID: ${getConfig("imageOverlayId")}`);
+            logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
             return null;
         }
 
@@ -311,7 +298,7 @@
             };
         })();
 
-        const fadeInOverlay = (element, duration = getConfig("fadeDuration")) => {
+        const fadeInOverlay = (element, duration = config.fadeDuration) => {
             if (animationFrameId) cancelAnimationFrame(animationFrameId);
             let opacity = 0;
             const startTime = performance.now();
@@ -342,7 +329,7 @@
 
             if (preloadedImages.size === 0) {
                 logError("All image preloads failed.");
-                if (getConfig("debugMode")) {
+                if (config.debugMode) {
                     alert("Image overlay failed to load.");
                 }
                 return { overlay, getNextImage: () => null };
@@ -413,7 +400,7 @@
     const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay, collectionData) => {
         console.log(`DEBUG: Initializing collection page: ${path}`);
 
-        const container = document.getElementById(getConfig("linkContainerId"));
+        const container = document.getElementById(config.linkContainerId);
         if (!container) {
             logError(`No link-container found for collection page: ${path}`);
             return;
@@ -454,13 +441,13 @@
             const row = document.createElement("li");
 
             if (item.isTitle) {
-                row.id = getConfig("titleRowId");
+                row.id = config.titleRowId;
             } else {
-                row.classList.add(getConfig("rowClass"));
+                row.classList.add(config.rowClass);
             }
 
             const linkWrapper = document.createElement("div");
-            linkWrapper.className = getConfig("linkWrapperClass");
+            linkWrapper.className = config.linkWrapperClass;
 
             const link = document.createElement("a");
             link.href = item.permalink;
@@ -478,7 +465,7 @@
             const subtitleText = formatSubtitle(item, format);
             if (subtitleText) {
                 const subtitle = document.createElement("span");
-                subtitle.className = getConfig("subtitleClass");
+                subtitle.className = config.subtitleClass;
                 subtitle.textContent = subtitleText;
                 linkWrapper.appendChild(subtitle);
             }
@@ -500,9 +487,9 @@
 
     // Adjust link container height on load and resize
     const adjustLinkContainerHeight = () => {
-        const navBar = document.getElementById(getConfig("navBarId"));
-        const titleRow = document.getElementById(getConfig("titleRowId"));
-        const linkContainer = document.getElementById(getConfig("linkContainerId"));
+        const navBar = document.getElementById(config.navBarId);
+        const titleRow = document.getElementById(config.titleRowId);
+        const linkContainer = document.getElementById(config.linkContainerId);
 
         if (linkContainer) {
             linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
@@ -514,7 +501,7 @@
         "resize",
         debounce(() => {
             cachedViewportWidth = window.innerWidth;
-        }, getConfig("debounceTime"))
+        }, config.debounceTime)
     );
 
 })();
