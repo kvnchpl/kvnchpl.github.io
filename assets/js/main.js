@@ -326,7 +326,7 @@
         return { overlay, getNextImage };
     };
 
-    const setupScrollBasedOverlay = (overlay, getNextImage, config) => {
+    const setupScrollBasedOverlay = (overlay, getNextImage) => {
         const { scrollThresholds, scrollIntervals } = config;
         const pageHeight = document.body.scrollHeight;
         const viewportHeight = window.innerHeight;
@@ -369,7 +369,7 @@
     // PAGE INITIALIZATION
     // ==========================
 
-    const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
+    const initializePage = async (path, isHomepage, metaTags, fetchedData) => {
         const index = fetchedData[metaTags.index];
         const sections = fetchedData[metaTags.sections];
         const images = fetchedData[metaTags.overlayImages];
@@ -382,7 +382,7 @@
 
         const { getNextImage, overlay } = overlaySetup;
 
-        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
+        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
 
         const isCollectionPage = index.some((item) =>
             item.permalink === (isHomepage ? "/" : path)
@@ -483,7 +483,7 @@
 
     const { config, metaTags, fetchedData } = await fetchConfigAndData();
     const { path, isHomepage } = getCurrentPath();
-    await initializePage(path, isHomepage, config, metaTags, fetchedData);
+    await initializePage(path, isHomepage, metaTags, fetchedData);
 
     // Adjust link container height on load and resize
     const adjustLinkContainerHeight = () => {
