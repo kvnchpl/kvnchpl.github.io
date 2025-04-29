@@ -434,30 +434,26 @@
     // MAIN INITIALIZATION
     // ==========================
 
+    // Fetch the config file
     const config = await fetchJSON("config-data", {});
     if (!Object.keys(config).length) {
         logError("Missing or invalid config.");
         return;
     }
 
-    // Prepare dynamic keys based on config
-    const keysToFetch = [
-        ["index-data", []],
-        ["section-data", {}],
-        ["overlay-images-data", []],
-    ];
+    // Extract metaTags mapping from config
+    const metaTags = config.metaTags || {};
 
-    if (config.sectionConfig?.metaName) {
-        keysToFetch.push([config.sectionConfig.metaName, []]);
-    }
+    // Prepare dynamic keys based on metaTags
+    const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
 
     // Settle all at once and map results by key
     const fetchedData = await settleFetch(keysToFetch);
 
     // Destructure the result map
-    const index = fetchedData["index-data"];
-    const sections = fetchedData["section-data"];
-    const images = fetchedData["overlay-images-data"];
+    const index = fetchedData[metaTags.index];
+    const sections = fetchedData[metaTags.sections];
+    const images = fetchedData[metaTags.overlayImages];
     const collectionData = config.sectionConfig?.metaName ? fetchedData[config.sectionConfig.metaName] : [];
 
     const overlaySetup = await setupOverlayImages();
@@ -471,11 +467,11 @@
     // Setup scroll-based overlay for mobile
     if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
 
-    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "") || "/";
-    const isCollectionPage = index.some((item) => item.permalink === currentPath);
+    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "") || "index";
+    const isCollectionPage = index.some((item) => item.permalink === (currentPath === "index" ? "/" : currentPath));
 
     if (isCollectionPage) {
-        const sectionKey = currentPath === "/" ? "index" : currentPath;
+        const sectionKey = currentPath; // Use "index" for the homepage
         const sectionConfig = sections[sectionKey];
         initializeCollectionPage(currentPath, index, sections, getNextImage, overlay, collectionData);
     } else {
