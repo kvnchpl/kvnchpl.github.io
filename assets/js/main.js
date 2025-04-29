@@ -23,6 +23,17 @@
         }
     };
 
+    const [indexData, sectionsConfig, overlayImages] = await Promise.all([
+        fetchJSON("index-data"),
+        fetchJSON("section-data"),
+        fetchJSON("overlay-images-data"),
+    ]);
+    
+    if (!indexData || !sectionsConfig || !overlayImages) {
+        logError("Failed to load required data. Skipping initialization.");
+        return;
+    }
+
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
         const baseMargin = viewportWidth < 768 ? 40 : 80;
@@ -155,7 +166,6 @@
             };
         })();
 
-        const overlayImages = await fetchJSON("overlay-images-data");
         if (overlayImages && Array.isArray(overlayImages) && overlayImages.length > 0) {
             shuffledImages = overlayImages.sort(() => Math.random() - 0.5);
             shuffledImages.forEach((image) => {
@@ -338,20 +348,6 @@
     // Get the current path and normalize it
     let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
     if (currentPath === "") currentPath = "/"; // Set homepage path to "/"
-
-    // Fetch `index.json` to determine if the current page is a collection page
-    const indexData = await fetchJSON("index-data");
-    if (!indexData) {
-        logError("Failed to load index.json. Skipping initialization.");
-        return;
-    }
-
-    // Fetch `sections.json` for section configurations
-    const sectionsConfig = await fetchJSON("section-data");
-    if (!sectionsConfig) {
-        logError("Failed to load sections.json. Skipping initialization.");
-        return;
-    }
 
     console.log(`DEBUG: Sections configuration:`, sectionsConfig);
 
