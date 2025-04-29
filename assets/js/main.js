@@ -5,7 +5,6 @@
     // GLOBAL CONSTANTS
     // ==========================
     const isMobileDevice = () => window.matchMedia("(max-width: 768px)").matches;
-    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
     let cachedViewportWidth = window.innerWidth;
     const logError = (message, context = {}) => console.error(`DEBUG: ${message}`, context);
 
@@ -13,7 +12,6 @@
     // UTILITY FUNCTIONS
     // ==========================
 
-    // Utility function to fetch JSON data from a URL
     const fetchJSON = async (key, fallback = null) => {
         const url = document.querySelector(`meta[name='${key}']`)?.content;
         if (!url) {
@@ -24,28 +22,22 @@
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
-            const data = await response.json();
-            return data;
+            return await response.json();
         } catch (error) {
             logError(`Error loading '${key}': ${error.message}`);
             return fallback;
         }
     };
 
-    // Utility function to resolve data with fallback
-    const settleFetch = async (keysWithFallbacks) => {
-        const settledResults = await Promise.allSettled(
-            keysWithFallbacks.map(([key, fallback]) => fetchAndResolveJSON(key, fallback))
+    const settleFetch = async (entries) => {
+        const results = await Promise.allSettled(
+            entries.map(([key, fallback]) => fetchJSON(key, fallback))
         );
 
-        return settledResults.map((result, i) => {
-            if (result.status === "fulfilled") {
-                return result.value;
-            } else {
-                logError(`Failed to load '${keysWithFallbacks[i][0]}': ${result.reason}`);
-                return keysWithFallbacks[i][1]; // fallback
-            }
-        });
+        return entries.reduce((acc, [key, fallback], i) => {
+            acc[key] = results[i].status === "fulfilled" ? results[i].value : fallback;
+            return acc;
+        }, {});
     };
 
     const debounce = (func, delay) => {
@@ -421,6 +413,32 @@
     // MAIN INITIALIZATION
     // ==========================
 
+    const config = await fetchJSON("config-data", {});
+    if (!Object.keys(config).length) {
+        logError("Missing or invalid config.");
+        return;
+    }
+
+    // Prepare dynamic keys based on config
+    const keysToFetch = [
+        ["index-data", []],
+        ["section-data", {}],
+        ["overlay-images-data", []],
+    ];
+
+    if (config.sectionConfig?.metaName) {
+        keysToFetch.push([config.sectionConfig.metaName, []]);
+    }
+
+    // Settle all at once and map results by key
+    const fetchedData = await settleFetch(keysToFetch);
+
+    // Destructure the result map
+    const index = fetchedData["index-data"];
+    const sections = fetchedData["section-data"];
+    const images = fetchedData["overlay-images-data"];
+    const collectionData = config.sectionConfig?.metaName ? fetchedData[config.sectionConfig.metaName] : [];
+
     const overlaySetup = await setupOverlayImages();
     if (!overlaySetup) {
         logError("Failed to set up overlay images.");
@@ -432,38 +450,19 @@
     // Setup scroll-based overlay for mobile
     if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
 
-    const [configData, indexData, sectionsConfig, overlayImages, collectionDataPromise] = await Promise.allSettled([
-        fetchJSON("config-data"),
-        fetchJSON("index-data"),
-        fetchJSON("section-data"),
-        fetchJSON("overlay-images-data"),
-        fetchJSON(sectionConfig?.metaName, []), // Dynamically fetch collection data
-    ]);
-
-    const config = await resolveData(configData, {});
-    const index = await resolveData(indexData, []);
-    const sections = await resolveData(sectionsConfig, {});
-    const images = await resolveData(overlayImages, []);
-    const collectionData = await resolveData(collectionDataPromise, []);
-
-    if (!Object.keys(config).length || !index.length || !Object.keys(sections).length || !images.length || !collectionData.length) {
-        logError("Skipping initialization due to missing or invalid data.");
-        return;
-    }
-
-    // Check if the current path is a collection page
-    const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
+    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
+    const isCollectionPage = index.some((item) => item.permalink === currentPath);
 
     if (isCollectionPage) {
-        initializeCollectionPage(currentPath, indexData, sectionsConfig, getNextImage, overlay, collectionData);
+        initializeCollectionPage(currentPath, index, sections, getNextImage, overlay, collectionData);
     } else {
         initializeIndividualPage(currentPath);
     }
 
     const adjustLinkContainerHeight = () => {
-        const navBar = document.getElementById("site-nav");
-        const titleRow = document.querySelector(".title-row");
-        const linkContainer = document.getElementById("link-container");
+        const navBar = document.getElementById(config.navBarId);
+        const titleRow = document.querySelector(`.${config.titleRowClass}`);
+        const linkContainer = document.getElementById(config.linkContainerId);
 
         if (!linkContainer) return;
 

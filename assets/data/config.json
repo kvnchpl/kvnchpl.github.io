@@ -1,5 +1,7 @@
 {
     "debounceTime": 200,
+    "navBarId": "site-nav",
+    "titleRowClass": "title-row",
     "linkContainerId": "link-container",
     "imageOverlayId": "image-overlay",
     "fadeDuration": 500,
