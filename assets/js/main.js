@@ -7,11 +7,11 @@
     const logError = (message) => console.error(`DEBUG: ${message}`);
 
     // Utility function to fetch JSON data from a URL
-    const fetchJSON = async (key) => {
+    const fetchJSON = async (key, fallback = null) => {
         const url = document.querySelector(`meta[name='${key}']`)?.content;
         if (!url) {
             logError(`DEBUG: Meta tag with name '${key}' not found`);
-            return null;
+            return fallback;
         }
         try {
             const response = await fetch(url);
@@ -19,27 +19,31 @@
             return await response.json();
         } catch (error) {
             logError(`DEBUG: Error loading '${key}': ${error.message}`);
-            return null;
+            return fallback;
         }
     };
 
-    const [indexData, sectionsConfig, overlayImages] = await Promise.all([
+    const [indexData, sectionsConfig, overlayImages] = await Promise.allSettled([
         fetchJSON("index-data"),
         fetchJSON("section-data"),
         fetchJSON("overlay-images-data"),
     ]);
 
-    if (!indexData || !sectionsConfig || !overlayImages) {
-        logError("Failed to load required data. Skipping initialization.");
+    if (indexData.status !== "fulfilled") logError("Failed to load index-data.");
+    if (sectionsConfig.status !== "fulfilled") logError("Failed to load section-data.");
+    if (overlayImages.status !== "fulfilled") logError("Failed to load overlay-images-data.");
+
+    if (indexData.status !== "fulfilled" || sectionsConfig.status !== "fulfilled" || overlayImages.status !== "fulfilled") {
+        logError("Skipping initialization due to missing data.");
         return;
     }
 
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
-        const baseMargin = viewportWidth < 768 ? 40 : 80;
-        const safeMin = baseMargin;
-        const safeMax = viewportWidth - baseMargin - linkWidth;
-        return Math.max(safeMin, Math.min(Math.random() * (safeMax - safeMin) + safeMin, safeMax));
+        const margin = viewportWidth < 768 ? 40 : 80;
+        const minPosition = margin;
+        const maxPosition = viewportWidth - margin - linkWidth;
+        return Math.random() * (maxPosition - minPosition) + minPosition;
     };
 
     // Randomize link positions for desktop and alternate positions for mobile
@@ -86,6 +90,25 @@
         });
     };
 
+
+    const resetLinkPositions = (rows) => {
+        rows.forEach((row) => {
+            const linkWrapper = row.querySelector(".link-wrapper");
+            if (!linkWrapper) return;
+
+            const linkWidth = linkWrapper.offsetWidth;
+            const viewportWidth = window.innerWidth;
+
+            if (viewportWidth === 0 || linkWidth === 0) {
+                logError("Invalid viewport or link width:", { viewportWidth, linkWidth });
+                return;
+            }
+
+            const newLeft = generateRandomPosition(linkWidth, viewportWidth);
+            linkWrapper.style.left = `${newLeft}px`;
+        });
+    };
+
     // Enable hover effects for links
     const enableHoverEffect = (rows, getNextImage, overlay) => {
         rows.forEach((row, index) => {
@@ -123,24 +146,6 @@
                     overlay.classList.add("visible");
                 }
             });
-
-            const resetLinkPositions = (rows) => {
-                rows.forEach((row) => {
-                    const linkWrapper = row.querySelector(".link-wrapper");
-                    if (!linkWrapper) return;
-
-                    const linkWidth = linkWrapper.offsetWidth;
-                    const viewportWidth = window.innerWidth;
-
-                    if (viewportWidth === 0 || linkWidth === 0) {
-                        logError("Invalid viewport or link width:", { viewportWidth, linkWidth });
-                        return;
-                    }
-
-                    const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-                    linkWrapper.style.left = `${newLeft}px`;
-                });
-            };
 
             linkWrapper.addEventListener("pointerleave", () => {
                 if (isMobileDevice()) return;
@@ -182,21 +187,20 @@
         return { overlay, getNextImage };
     };
 
-    // Utility function to format dates
-    const formatDate = (month) => {
+    // Format subtitle based on the provided format
+    const formatSubtitle = (item, format) => {
         const monthNames = [
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
-
-        if (typeof month === "number" && month >= 1 && month <= 12) {
-            return monthNames[month - 1]; // Convert numeric month to name
-        }
-        return month; // Return non-numeric values (e.g., "Fall") as-is
-    };
-
-    // Format subtitles dynamically based on available properties
-    const formatSubtitle = (item, format) => {
+    
+        const formatDate = (month) => {
+            if (typeof month === "number" && month >= 1 && month <= 12) {
+                return monthNames[month - 1];
+            }
+            return month;
+        };
+    
         if (format === "detailed" && item.subtitle && item.publication && item.year) {
             const formattedMonth = item.month ? formatDate(item.month) : null;
             return `—${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
