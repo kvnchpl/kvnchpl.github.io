@@ -360,21 +360,20 @@
         initializeIndividualPage(currentPath);
     }
 
+    const calculateAvailableHeight = (navBar, titleRow) => {
+        const navHeight = navBar ? navBar.offsetHeight : 0;
+        const titleHeight = titleRow ? titleRow.offsetHeight : 0;
+        return window.innerHeight - (navHeight + titleHeight);
+    };
+    
     const adjustLinkContainerHeight = () => {
         const navBar = document.getElementById("site-nav");
         const titleRow = document.querySelector(".title-row");
         const linkContainer = document.getElementById("link-container");
-
+    
         if (!linkContainer) return;
-
-        const navHeight = navBar ? navBar.offsetHeight : 0;
-        const titleHeight = titleRow ? titleRow.offsetHeight : 0;
-
-        // Calculate the available height for the link container
-        const availableHeight = window.innerHeight - (navHeight + titleHeight);
-
-        // Set the height of the link container
-        linkContainer.style.height = `${availableHeight}px`;
+    
+        linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
     };
 
     // Adjust the height on page load and window resize
