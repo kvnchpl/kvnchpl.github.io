@@ -20,10 +20,12 @@
             logError(`Meta tag with name '${key}' not found`);
             return fallback;
         }
+
         try {
             const response = await fetch(url);
             if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
-            return await response.json();
+            const data = await response.json();
+            return data;
         } catch (error) {
             logError(`Error loading '${key}': ${error.message}`);
             return fallback;
@@ -31,18 +33,19 @@
     };
 
     // Utility function to resolve data with fallback
-    const resolveData = async (promise, defaultValue = null) => {
-        try {
-            const result = await promise;
+    const settleFetch = async (keysWithFallbacks) => {
+        const settledResults = await Promise.allSettled(
+            keysWithFallbacks.map(([key, fallback]) => fetchAndResolveJSON(key, fallback))
+        );
+
+        return settledResults.map((result, i) => {
             if (result.status === "fulfilled") {
                 return result.value;
             } else {
-                logError(`Promise rejected: ${result.reason}`);
+                logError(`Failed to load '${keysWithFallbacks[i][0]}': ${result.reason}`);
+                return keysWithFallbacks[i][1]; // fallback
             }
-        } catch (error) {
-            logError(`Error resolving promise: ${error.message}`);
-        }
-        return defaultValue;
+        });
     };
 
     const debounce = (func, delay) => {
