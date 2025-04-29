@@ -377,7 +377,7 @@
         const collectionMeta = sections[sectionKey]?.metaName;
         const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
 
-        const overlaySetup = await setupOverlayImages(images, config);
+        const overlaySetup = await setupOverlayImages(images);
         if (!overlaySetup) throw new Error("Failed to set up overlay images.");
 
         const { getNextImage, overlay } = overlaySetup;
