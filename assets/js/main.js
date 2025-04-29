@@ -291,8 +291,6 @@
     };
 
     const setupScrollBasedOverlay = (overlay, getNextImage, config) => {
-        if (!isMobileDevice()) return; // Only apply for mobile devices
-
         const { scrollThresholds, scrollIntervals } = config;
         const pageHeight = document.body.scrollHeight;
         const viewportHeight = window.innerHeight;
