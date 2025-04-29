@@ -40,12 +40,29 @@
         return defaultValue;
     };
 
-    const [configData, indexData, sectionsConfig, overlayImages] = await Promise.allSettled([
+    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
+    const sectionConfig = sections[currentPath];
+
+    if (!sectionConfig) {
+        logError(`No section configuration found for path: ${currentPath}`);
+        return;
+    }
+
+    const [configData, indexData, sectionsConfig, overlayImages, collectionDataPromise] = await Promise.allSettled([
         fetchJSON("config-data"),
         fetchJSON("index-data"),
         fetchJSON("section-data"),
         fetchJSON("overlay-images-data"),
+        fetchJSON(sectionConfig?.metaName, []), // Dynamically fetch collection data
     ]);
+
+    const collectionData = await resolveData(collectionDataPromise, []);
+
+    if (!collectionData.length) {
+        logError(`Invalid or missing data for collection page: ${currentPath}`);
+        return;
+    }
+
 
     const config = await resolveData(configData, {});
     const index = await resolveData(indexData, []);
@@ -335,7 +352,6 @@
         // Add any specific logic for individual pages here (if needed)
     };
 
-    // Main logic
     const overlaySetup = await setupOverlayImages();
     if (!overlaySetup) {
         logError("Failed to set up overlay images.");
@@ -343,24 +359,6 @@
     }
 
     const { getNextImage, overlay } = overlaySetup;
-
-    // Get the current path and normalize it
-    let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
-    if (currentPath === "") currentPath = "/"; // Set homepage path to "/"
-    const sectionConfig = sections[currentPath];
-
-    if (!sectionConfig) {
-        logError(`No section configuration found for path: ${currentPath}`);
-        return;
-    }
-
-    const collectionDataPromise = fetchJSON(sectionConfig.metaName, []);
-    const collectionData = await resolveData(collectionDataPromise, []);
-
-    if (!collectionData.length) {
-        logError(`Invalid or missing data for collection page: ${currentPath}`);
-        return;
-    }
 
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
