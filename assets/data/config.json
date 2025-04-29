@@ -11,5 +11,9 @@
         "shortPage": 2,
         "mediumPage": 3,
         "longPage": 4
+    },
+    "linkMargins": {
+        "mobile": 40,
+        "desktop": 80
     }
 }

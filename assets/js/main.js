@@ -59,7 +59,7 @@
             logError("Invalid dimensions for random position generation.");
             return 0;
         }
-        const margin = viewportWidth < 768 ? 40 : 80;
+        const margin = isMobileDevice() ? config.linkMargins.mobile : config.linkMargins.desktop;
         const minPosition = margin;
         const maxPosition = viewportWidth - margin - linkWidth;
         return Math.random() * (maxPosition - minPosition) + minPosition;
