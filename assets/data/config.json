@@ -1,5 +1,6 @@
 {
     "debounceTime": 200,
+    "fadeDuration": 500,
     "navBarId": "site-nav",
     "linkContainerId": "link-container",
     "linkWrapperClass": "link-wrapper",
@@ -7,7 +8,6 @@
     "titleRowClass": "title-row",
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
-    "fadeDuration": 500,
     "scrollThresholds": {
         "shortPage": 800,
         "mediumPage": 1600
