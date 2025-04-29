@@ -2,6 +2,7 @@
     "debounceTime": 200,
     "linkContainerId": "link-container",
     "imageOverlayId": "image-overlay",
+    "fadeDuration": 500,
     "scrollThresholds": {
         "shortPage": 800,
         "mediumPage": 1600

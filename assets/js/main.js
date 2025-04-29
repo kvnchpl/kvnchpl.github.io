@@ -244,21 +244,21 @@
             };
         })();
 
-        const fadeInOverlay = (element, duration = 500) => {
+        const fadeInOverlay = (element, duration = config.fadeDuration) => {
             let opacity = 0;
-            const step = 16 / duration; // Assuming 60fps, 16ms per frame
+            const startTime = performance.now(); // Use high-resolution timer for accuracy
 
-            const animate = () => {
-                opacity += step;
-                if (opacity >= 1) {
-                    element.style.opacity = 1;
-                    return;
-                }
+            const animate = (currentTime) => {
+                const elapsedTime = currentTime - startTime;
+                opacity = Math.min(elapsedTime / duration, 1); // Calculate opacity based on elapsed time
                 element.style.opacity = opacity;
-                requestAnimationFrame(animate);
+
+                if (opacity < 1) {
+                    requestAnimationFrame(animate); // Continue animation until fully visible
+                }
             };
 
-            animate();
+            requestAnimationFrame(animate); // Start the animation
         };
 
         if (images && Array.isArray(images) && images.length > 0) {
