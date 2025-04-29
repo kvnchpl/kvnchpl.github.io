@@ -244,6 +244,23 @@
             };
         })();
 
+        const fadeInOverlay = (element, duration = 500) => {
+            let opacity = 0;
+            const step = 16 / duration; // Assuming 60fps, 16ms per frame
+
+            const animate = () => {
+                opacity += step;
+                if (opacity >= 1) {
+                    element.style.opacity = 1;
+                    return;
+                }
+                element.style.opacity = opacity;
+                requestAnimationFrame(animate);
+            };
+
+            animate();
+        };
+
         if (images && Array.isArray(images) && images.length > 0) {
             shuffledImages = images.sort(() => Math.random() - 0.5);
 
@@ -260,6 +277,7 @@
                 const firstImage = shuffledImages[0];
                 if (preloadedImages.has(firstImage)) {
                     overlay.style.backgroundImage = `url(${firstImage})`;
+                    fadeInOverlay(overlay); // Use requestAnimationFrame for fade-in
                     overlay.classList.add("visible");
                 } else {
                     logError("First image failed to preload, skipping overlay display.");
@@ -273,11 +291,48 @@
     };
 
     // ==========================
-    // RENDERING FUNCTIONS
+    // PAGE INITIALIZATION
     // ==========================
 
+    // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
+    const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay, collectionData) => {
+        console.log(`DEBUG: Initializing collection page: ${path}`);
+
+        const container = document.getElementById(config.linkContainerId);
+        if (!container) {
+            logError(`No link-container found for collection page: ${path}`);
+            return;
+        }
+
+        const list = container.querySelector("ul");
+        if (!list) {
+            logError(`No <ul> element found in link-container for path: ${path}`);
+            return;
+        }
+
+        if (!collectionData.length) {
+            logError(`Invalid or missing data for collection page: ${path}`);
+            return;
+        }
+
+        // Clear existing links and render new ones
+        list.innerHTML = "";
+        const fragment = populateLinks(collectionData, sectionsConfig[path.replace(/^\/|\/$/g, "")]?.format);
+        list.appendChild(fragment);
+
+        const rows = Array.from(list.children);
+        randomizeLinks(rows);
+        enableHoverEffect(rows, getNextImage, overlay);
+    };
+
+    // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
+    const initializeIndividualPage = (path) => {
+        console.log(`DEBUG: Initializing individual page: ${path}`);
+        // Add any specific logic for individual pages here (if needed)
+    };
+
     // Render links dynamically
-    const renderLinks = (data, format) => {
+    const populateLinks = (data, format) => {
         const fragment = document.createDocumentFragment();
 
         data.forEach((item) => {
@@ -318,47 +373,6 @@
         });
 
         return fragment;
-    };
-
-    // ==========================
-    // PAGE INITIALIZATION
-    // ==========================
-
-    // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay, collectionData) => {
-        console.log(`DEBUG: Initializing collection page: ${path}`);
-
-        const container = document.getElementById(config.linkContainerId);
-        if (!container) {
-            logError(`No link-container found for collection page: ${path}`);
-            return;
-        }
-
-        const list = container.querySelector("ul");
-        if (!list) {
-            logError(`No <ul> element found in link-container for path: ${path}`);
-            return;
-        }
-
-        if (!collectionData.length) {
-            logError(`Invalid or missing data for collection page: ${path}`);
-            return;
-        }
-
-        // Clear existing links and render new ones
-        list.innerHTML = "";
-        const fragment = renderLinks(collectionData, sectionsConfig[path.replace(/^\/|\/$/g, "")]?.format);
-        list.appendChild(fragment);
-
-        const rows = Array.from(list.children);
-        randomizeLinks(rows);
-        enableHoverEffect(rows, getNextImage, overlay);
-    };
-
-    // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
-    const initializeIndividualPage = (path) => {
-        console.log(`DEBUG: Initializing individual page: ${path}`);
-        // Add any specific logic for individual pages here (if needed)
     };
 
     // ==========================
