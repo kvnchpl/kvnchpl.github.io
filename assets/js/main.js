@@ -102,7 +102,7 @@
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector(".link-wrapper");
+            const linkWrapper = row.querySelector(`.${config.linkWrapperClass}`);
             if (!linkWrapper) {
                 logError(`No .link-wrapper found in row ${index}`);
                 return;
@@ -174,7 +174,7 @@
         rows.forEach((otherRow, otherIndex) => {
             if (otherIndex === index) return;
 
-            const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
+            const otherLinkWrapper = otherRow.querySelector(`.${config.linkWrapperClass}`);
             if (!otherLinkWrapper) return;
 
             const otherLinkWidth = otherLinkWrapper.offsetWidth;
@@ -204,7 +204,7 @@
     // Enable hover effects for links
     const enableHoverEffect = (rows, getNextImage, overlay) => {
         rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector(".link-wrapper");
+            const linkWrapper = row.querySelector(`.${config.linkWrapperClass}`);
             if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => handlePointerEnter(linkWrapper, rows, index, getNextImage, overlay));
@@ -378,13 +378,13 @@
             const row = document.createElement("li");
 
             if (item.isTitle) {
-                row.classList.add("title-row");
+                row.id = config.titleRowId;
             } else {
-                row.classList.add("row");
+                row.classList.add(`.${config.rowClass}`);
             }
 
             const linkWrapper = document.createElement("div");
-            linkWrapper.className = "link-wrapper";
+            linkWrapper.className = config.linkWrapperClass;
 
             const link = document.createElement("a");
             link.href = item.permalink;
@@ -402,7 +402,7 @@
             const subtitleText = formatSubtitle(item, format);
             if (subtitleText) {
                 const subtitle = document.createElement("span");
-                subtitle.className = "subtitle";
+                subtitle.className = config.subtitleClass;
                 subtitle.textContent = subtitleText;
                 linkWrapper.appendChild(subtitle);
             }
