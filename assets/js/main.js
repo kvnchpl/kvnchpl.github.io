@@ -4,13 +4,13 @@
     const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
-    const logError = (message) => console.error(`DEBUG: ${message}`);
+    const logError = (message) => logError(`DEBUG: ${message}`);
 
     // Utility function to fetch JSON data from a URL
-    const fetchJSON = async (metaName) => {
-        const url = document.querySelector(`meta[name='${metaName}']`)?.content;
+    const fetchJSON = async (key) => {
+        const url = document.querySelector(`meta[name='${key}']`)?.content;
         if (!url) {
-            logError(`Meta tag with name '${metaName}' not found`);
+            logError(`DEBUG: Meta tag with name '${key}' not found`);
             return null;
         }
         try {
@@ -18,7 +18,7 @@
             if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
             return await response.json();
         } catch (error) {
-            logError(`Error loading ${metaName}: ${error.message}`);
+            logError(`DEBUG: Error loading '${key}': ${error.message}`);
             return null;
         }
     };
@@ -168,7 +168,7 @@
                 overlay.classList.add("visible");
             }
         } else {
-            logError("DEBUG: No valid overlay images found in sky_images.json or the file is empty.");
+            logError("DEBUG: No valid overlay images found or the file is empty.");
         }
 
         return { overlay, getNextImage };
@@ -269,14 +269,14 @@
         console.log(`DEBUG: Section configuration for normalized path "${normalizedPath}":`, sectionConfig);
 
         if (!sectionConfig) {
-            console.error(`No section configuration found for path: ${path}`);
+            logError(`No section configuration found for path: ${path}`);
             return;
         }
 
         // Fetch the appropriate data for the collection page
         const collectionData = await fetchJSON(sectionConfig.metaName);
         if (!collectionData || collectionData.length === 0) {
-            console.error(`Invalid or missing data for collection page: ${path}`);
+            logError(`Invalid or missing data for collection page: ${path}`);
             return;
         }
 
@@ -346,11 +346,20 @@
         return;
     }
 
+    // Fetch `sections.json` for section configurations
+    const sectionsConfig = await fetchJSON("section-data");
+    if (!sectionsConfig) {
+        logError("Failed to load sections.json. Skipping initialization.");
+        return;
+    }
+
+    console.log(`DEBUG: Sections configuration:`, sectionsConfig);
+
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
 
     if (isCollectionPage) {
-        initializeCollectionPage(currentPath, indexData, getNextImage, overlay);
+        initializeCollectionPage(currentPath, indexData, sectionsConfig, getNextImage, overlay);
     } else {
         initializeIndividualPage(currentPath);
     }
