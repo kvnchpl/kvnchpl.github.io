@@ -290,6 +290,47 @@
         return { overlay, getNextImage };
     };
 
+    const setupScrollBasedOverlay = (overlay, getNextImage, config) => {
+        if (!isMobileDevice()) return; // Only apply for mobile devices
+
+        const { scrollThresholds, scrollIntervals } = config;
+        const pageHeight = document.body.scrollHeight;
+        const viewportHeight = window.innerHeight;
+
+        // Determine page type based on height
+        let pageType = "longPage";
+        if (pageHeight <= scrollThresholds.shortPage) {
+            pageType = "shortPage";
+        } else if (pageHeight <= scrollThresholds.mediumPage) {
+            pageType = "mediumPage";
+        }
+
+        // Calculate the number of intervals and interval height
+        const intervals = scrollIntervals[pageType];
+        const intervalHeight = pageHeight / intervals;
+
+        let currentInterval = 0;
+
+        const handleScroll = () => {
+            const scrollTop = window.scrollY;
+            const newInterval = Math.floor(scrollTop / intervalHeight);
+
+            if (newInterval !== currentInterval) {
+                currentInterval = newInterval;
+
+                // Change the overlay image
+                const nextImage = getNextImage();
+                if (nextImage) {
+                    overlay.style.backgroundImage = `url(${nextImage})`;
+                    overlay.classList.add("visible");
+                }
+            }
+        };
+
+        // Attach the scroll event listener
+        window.addEventListener("scroll", handleScroll);
+    };
+
     // ==========================
     // PAGE INITIALIZATION
     // ==========================
@@ -386,6 +427,9 @@
     }
 
     const { getNextImage, overlay } = overlaySetup;
+
+    // Setup scroll-based overlay for mobile
+    if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
 
     const [configData, indexData, sectionsConfig, overlayImages, collectionDataPromise] = await Promise.allSettled([
         fetchJSON("config-data"),
