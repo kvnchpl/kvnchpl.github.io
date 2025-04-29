@@ -12,32 +12,47 @@
     // UTILITY FUNCTIONS
     // ==========================
 
-    const fetchJSON = async (key, fallback = null) => {
-        const url = document.querySelector(`meta[name='${key}']`)?.content;
-        if (!url) {
-            logError(`Meta tag with name '${key}' not found`);
-            return fallback;
-        }
+    const fetchConfigAndData = async () => {
+        const config = await fetchJSON("config-data", {});
+        if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
 
-        try {
-            const response = await fetch(url);
-            if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
-            return await response.json();
-        } catch (error) {
-            logError(`Error loading '${key}': ${error.message}`);
-            return fallback;
-        }
+        const metaTags = config.metaTags || {};
+        const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
+        const fetchedData = await settleFetch(keysToFetch);
+
+        return { config, metaTags, fetchedData };
     };
 
-    const settleFetch = async (entries) => {
-        const results = await Promise.allSettled(
-            entries.map(([key, fallback]) => fetchJSON(key, fallback))
+    const getCurrentPath = () => {
+        const path = window.location.pathname.replace(/^\/|\/$/g, "") || "index";
+        return { path, isHomepage: path === "index" };
+    };
+
+    const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
+        const index = fetchedData[metaTags.index];
+        const sections = fetchedData[metaTags.sections];
+        const images = fetchedData[metaTags.overlayImages];
+        const collectionData = config.sectionConfig?.metaName
+            ? fetchedData[config.sectionConfig.metaName]
+            : [];
+
+        const overlaySetup = await setupOverlayImages();
+        if (!overlaySetup) throw new Error("Failed to set up overlay images.");
+
+        const { getNextImage, overlay } = overlaySetup;
+
+        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
+
+        const isCollectionPage = index.some((item) =>
+            item.permalink === (isHomepage ? "/" : path)
         );
 
-        return entries.reduce((acc, [key, fallback], i) => {
-            acc[key] = results[i].status === "fulfilled" ? results[i].value : fallback;
-            return acc;
-        }, {});
+        if (isCollectionPage) {
+            const sectionKey = isHomepage ? "index" : path;
+            initializeCollectionPage(path, index, sections, getNextImage, overlay, collectionData);
+        } else {
+            initializeIndividualPage(path);
+        }
     };
 
     const debounce = (func, delay) => {
@@ -434,63 +449,30 @@
     // MAIN INITIALIZATION
     // ==========================
 
-    // Fetch the config file
-    const config = await fetchJSON("config-data", {});
-    if (!Object.keys(config).length) {
-        logError("Missing or invalid config.");
-        return;
+    try {
+        const { config, metaTags, fetchedData } = await fetchConfigAndData();
+        const { path, isHomepage } = getCurrentPath();
+        await initializePage(path, isHomepage, config, metaTags, fetchedData);
+
+        // Adjust link container height on load and resize
+        const adjustLinkContainerHeight = () => {
+            const navBar = document.getElementById(config.navBarId);
+            const titleRow = document.getElementById(config.titleRowId);
+            const linkContainer = document.getElementById(config.linkContainerId);
+
+            if (linkContainer) {
+                linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
+            }
+        };
+
+        window.addEventListener("load", adjustLinkContainerHeight);
+        window.addEventListener(
+            "resize",
+            debounce(() => {
+                cachedViewportWidth = window.innerWidth;
+            }, config.debounceTime)
+        );
+    } catch (error) {
+        logError(error.message);
     }
-
-    // Extract metaTags mapping from config
-    const metaTags = config.metaTags || {};
-
-    // Prepare dynamic keys based on metaTags
-    const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
-
-    // Settle all at once and map results by key
-    const fetchedData = await settleFetch(keysToFetch);
-
-    // Destructure the result map
-    const index = fetchedData[metaTags.index];
-    const sections = fetchedData[metaTags.sections];
-    const images = fetchedData[metaTags.overlayImages];
-    const collectionData = config.sectionConfig?.metaName ? fetchedData[config.sectionConfig.metaName] : [];
-
-    const overlaySetup = await setupOverlayImages();
-    if (!overlaySetup) {
-        logError("Failed to set up overlay images.");
-        return;
-    }
-
-    const { getNextImage, overlay } = overlaySetup;
-
-    // Setup scroll-based overlay for mobile
-    if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
-
-    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "") || "index";
-    const isCollectionPage = index.some((item) => item.permalink === (currentPath === "index" ? "/" : currentPath));
-
-    if (isCollectionPage) {
-        const sectionKey = currentPath; // Use "index" for the homepage
-        const sectionConfig = sections[sectionKey];
-        initializeCollectionPage(currentPath, index, sections, getNextImage, overlay, collectionData);
-    } else {
-        initializeIndividualPage(currentPath);
-    }
-
-    const adjustLinkContainerHeight = () => {
-        const navBar = document.getElementById(config.navBarId);
-        const titleRow = document.getElementById(config.titleRowId);
-        const linkContainer = document.getElementById(config.linkContainerId);
-
-        if (!linkContainer) return;
-
-        linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
-    };
-
-    // Adjust the height on page load and window resize
-    window.addEventListener("load", adjustLinkContainerHeight);
-    window.addEventListener("resize", debounce(() => {
-        cachedViewportWidth = window.innerWidth;
-    }, config.debounceTime));
 })();
