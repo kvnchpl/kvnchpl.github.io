@@ -301,7 +301,7 @@
     // ==========================
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay) => {
+    const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay, collectionData) => {
         console.log(`DEBUG: Initializing collection page: ${path}`);
 
         const container = document.getElementById(config.linkContainerId);
@@ -316,15 +316,6 @@
             return;
         }
 
-        const normalizedPath = path.replace(/^\/|\/$/g, "");
-        const sectionConfig = sectionsConfig[normalizedPath];
-
-        if (!sectionConfig) {
-            logError(`No section configuration found for path: ${path}`);
-            return;
-        }
-
-        const collectionData = await fetchJSON(sectionConfig.metaName, []);
         if (!collectionData.length) {
             logError(`Invalid or missing data for collection page: ${path}`);
             return;
@@ -332,7 +323,7 @@
 
         // Clear existing links and render new ones
         list.innerHTML = "";
-        const fragment = renderLinks(collectionData, sectionConfig.format);
+        const fragment = renderLinks(collectionData, sectionsConfig[path.replace(/^\/|\/$/g, "")]?.format);
         list.appendChild(fragment);
 
         const rows = Array.from(list.children);
@@ -381,7 +372,7 @@
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
 
     if (isCollectionPage) {
-        initializeCollectionPage(currentPath, indexData, sectionsConfig, getNextImage, overlay);
+        initializeCollectionPage(currentPath, indexData, sectionsConfig, getNextImage, overlay, collectionData);
     } else {
         initializeIndividualPage(currentPath);
     }
