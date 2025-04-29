@@ -20,5 +20,13 @@
     "linkMargins": {
         "mobile": 40,
         "desktop": 80
+    },
+    "metaTags": {
+        "index": "index-data",
+        "sections": "section-data",
+        "overlayImages": "overlay-images-data",
+        "projects": "projects-data",
+        "readings": "readings-data",
+        "writings": "writings-data"
     }
 }
