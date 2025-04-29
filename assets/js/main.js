@@ -12,6 +12,34 @@
     // UTILITY FUNCTIONS
     // ==========================
 
+    const fetchJSON = async (key, fallback = null) => {
+        const url = document.querySelector(`meta[name='${key}']`)?.content;
+        if (!url) {
+            logError(`Meta tag with name '${key}' not found`);
+            return fallback;
+        }
+
+        try {
+            const response = await fetch(url);
+            if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
+            return await response.json();
+        } catch (error) {
+            logError(`Error loading '${key}': ${error.message}`);
+            return fallback;
+        }
+    };
+
+    const settleFetch = async (entries) => {
+        const results = await Promise.allSettled(
+            entries.map(([key, fallback]) => fetchJSON(key, fallback))
+        );
+
+        return entries.reduce((acc, [key, fallback], i) => {
+            acc[key] = results[i].status === "fulfilled" ? results[i].value : fallback;
+            return acc;
+        }, {});
+    };
+
     const fetchConfigAndData = async () => {
         const config = await fetchJSON("config-data", {});
         if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
@@ -23,7 +51,7 @@
         return { config, metaTags, fetchedData };
     };
 
-    const getCurrentPath = () => {
+    const determineCurrentPath = () => {
         const path = window.location.pathname.replace(/^\/|\/$/g, "") || "index";
         return { path, isHomepage: path === "index" };
     };
@@ -451,7 +479,7 @@
 
     try {
         const { config, metaTags, fetchedData } = await fetchConfigAndData();
-        const { path, isHomepage } = getCurrentPath();
+        const { path, isHomepage } = determineCurrentPath();
         await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
         // Adjust link container height on load and resize
@@ -475,4 +503,5 @@
     } catch (error) {
         logError(error.message);
     }
+    
 })();
