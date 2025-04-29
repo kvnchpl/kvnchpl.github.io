@@ -1,7 +1,7 @@
 (async function () {
     "use strict";
 
-    const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
     // Utility function for centralized error logging
     const logError = (message) => logError(`DEBUG: ${message}`);
@@ -93,7 +93,7 @@
             if (!linkWrapper) return;
 
             linkWrapper.addEventListener("pointerenter", () => {
-                if (isMobile) return; // Disable overlay functionality on mobile
+                if (isMobileDevice()) return; // Disable overlay functionality on mobile
 
                 const hoveredRect = linkWrapper.getBoundingClientRect();
                 const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
@@ -171,7 +171,7 @@
                 img.src = image;
             });
 
-            if (isMobile) {
+            if (isMobileDevice()) {
                 overlay.style.backgroundImage = `url(${shuffledImages[0]})`;
                 overlay.classList.add("visible");
             }
