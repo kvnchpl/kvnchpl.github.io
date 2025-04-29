@@ -238,7 +238,7 @@
     // ==========================
 
     // Modularized overlay image handling
-    const setupOverlayImages = async (images) => {
+    const setupOverlayImages = async (images, config) => {
         const overlay = document.getElementById(config.imageOverlayId);
         if (!overlay) {
             logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
@@ -369,7 +369,7 @@
     // PAGE INITIALIZATION
     // ==========================
 
-    const initializePage = async (path, isHomepage, metaTags, fetchedData) => {
+    const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
         const index = fetchedData[metaTags.index];
         const sections = fetchedData[metaTags.sections];
         const images = fetchedData[metaTags.overlayImages];
@@ -377,7 +377,7 @@
         const collectionMeta = sections[sectionKey]?.metaName;
         const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
 
-        const overlaySetup = await setupOverlayImages(images);
+        const overlaySetup = await setupOverlayImages(images, config);
         if (!overlaySetup) throw new Error("Failed to set up overlay images.");
 
         const { getNextImage, overlay } = overlaySetup;
@@ -483,7 +483,7 @@
 
     const { config, metaTags, fetchedData } = await fetchConfigAndData();
     const { path, isHomepage } = getCurrentPath();
-    await initializePage(path, isHomepage, metaTags, fetchedData);
+    await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
     // Adjust link container height on load and resize
     const adjustLinkContainerHeight = () => {
