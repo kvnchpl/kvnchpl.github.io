@@ -6,7 +6,7 @@
     // ==========================
     const isMobileDevice = () => window.matchMedia("(max-width: 768px)").matches;
     let cachedViewportWidth = window.innerWidth;
-    const logError = (message, context = {}) => console.error(`DEBUG: ${message}`, context);
+    const logError = (message, context = {}) => console.error(message, context);
 
     // ==========================
     // UTILITY FUNCTIONS
@@ -219,8 +219,14 @@
     // Modularized overlay image handling
     const setupOverlayImages = async () => {
         const overlay = document.getElementById(config.imageOverlayId);
+        if (!overlay) {
+            logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
+            return null;
+        }
+
         let shuffledImages = [];
         const preloadedImages = new Map();
+        let animationFrameId = null;
 
         const preloadImage = (src) => {
             return new Promise((resolve, reject) => {
@@ -245,46 +251,56 @@
         })();
 
         const fadeInOverlay = (element, duration = config.fadeDuration) => {
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
             let opacity = 0;
-            const startTime = performance.now(); // Use high-resolution timer for accuracy
+            const startTime = performance.now();
 
             const animate = (currentTime) => {
                 const elapsedTime = currentTime - startTime;
-                opacity = Math.min(elapsedTime / duration, 1); // Calculate opacity based on elapsed time
+                opacity = Math.min(elapsedTime / duration, 1);
                 element.style.opacity = opacity;
 
                 if (opacity < 1) {
-                    requestAnimationFrame(animate); // Continue animation until fully visible
+                    animationFrameId = requestAnimationFrame(animate);
                 }
             };
 
-            requestAnimationFrame(animate); // Start the animation
+            animationFrameId = requestAnimationFrame(animate);
         };
 
-        if (images && Array.isArray(images) && images.length > 0) {
+        if (Array.isArray(images) && images.length > 0) {
             shuffledImages = images.sort(() => Math.random() - 0.5);
 
-            // Preload all images and store successful ones in the map
-            await Promise.allSettled(
-                shuffledImages.map((image) =>
-                    preloadImage(image)
-                        .then((src) => preloadedImages.set(src, true))
-                        .catch((error) => logError(error))
+            const preloadResults = await Promise.allSettled(
+                shuffledImages.map(src =>
+                    preloadImage(src)
+                        .then((loaded) => preloadedImages.set(loaded, true))
+                        .catch((err) => logError(err))
                 )
             );
 
-            if (isMobileDevice() && shuffledImages.length > 0) {
-                const firstImage = shuffledImages[0];
-                if (preloadedImages.has(firstImage)) {
+            if (preloadedImages.size === 0) {
+                logError("All image preloads failed.");
+                if (config.debugMode) {
+                    alert("Image overlay failed to load.");
+                }
+                return { overlay, getNextImage: () => null };
+            }
+
+            // For mobile: show the first image immediately
+            if (isMobileDevice()) {
+                const firstImage = shuffledImages.find(src => preloadedImages.has(src));
+                if (firstImage) {
                     overlay.style.backgroundImage = `url(${firstImage})`;
-                    fadeInOverlay(overlay); // Use requestAnimationFrame for fade-in
+                    fadeInOverlay(overlay);
                     overlay.classList.add("visible");
                 } else {
-                    logError("First image failed to preload, skipping overlay display.");
+                    logError("No preloaded image available for mobile overlay.");
                 }
             }
+
         } else {
-            logError("No valid overlay images found or the file is empty.");
+            logError("No overlay images defined or input is invalid.");
         }
 
         return { overlay, getNextImage };
