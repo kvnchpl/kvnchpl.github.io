@@ -8,7 +8,6 @@
     const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
     const logError = (message, context = {}) => console.error(`DEBUG: ${message}`, context);
 
-
     // ==========================
     // UTILITY FUNCTIONS
     // ==========================
@@ -92,6 +91,12 @@
             return item.subtitle;
         }
         return null;
+    };
+
+    const calculateAvailableHeight = (navBar, titleRow) => {
+        const navHeight = navBar ? navBar.offsetHeight : 0;
+        const titleHeight = titleRow ? titleRow.offsetHeight : 0;
+        return window.innerHeight - (navHeight + titleHeight);
     };
 
     // ==========================
@@ -380,12 +385,6 @@
     } else {
         initializeIndividualPage(currentPath);
     }
-
-    const calculateAvailableHeight = (navBar, titleRow) => {
-        const navHeight = navBar ? navBar.offsetHeight : 0;
-        const titleHeight = titleRow ? titleRow.offsetHeight : 0;
-        return window.innerHeight - (navHeight + titleHeight);
-    };
 
     const adjustLinkContainerHeight = () => {
         const navBar = document.getElementById("site-nav");
