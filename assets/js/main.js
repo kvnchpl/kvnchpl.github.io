@@ -471,7 +471,7 @@
     // Setup scroll-based overlay for mobile
     if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
 
-    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "");
+    const currentPath = window.location.pathname.replace(/^\/|\/$/g, "") || "/";
     const isCollectionPage = index.some((item) => item.permalink === currentPath);
 
     if (isCollectionPage) {
