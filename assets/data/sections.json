@@ -22,5 +22,11 @@
         "containerId": "link-container",
         "isListPage": true,
         "format": "default"
+    },
+    "/": {
+        "metaName": "index-data",
+        "containerId": "link-container",
+        "isListPage": true,
+        "format": "default"
     }
 }
