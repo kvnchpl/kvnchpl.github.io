@@ -238,7 +238,7 @@
     // ==========================
 
     // Modularized overlay image handling
-    const setupOverlayImages = async (images, config) => {
+    const setupOverlayImages = async (images, config = window.config) => {
         const overlay = document.getElementById(config.imageOverlayId);
         if (!overlay) {
             logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
