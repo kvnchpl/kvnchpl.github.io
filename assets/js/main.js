@@ -475,6 +475,8 @@
     const isCollectionPage = index.some((item) => item.permalink === currentPath);
 
     if (isCollectionPage) {
+        const sectionKey = currentPath === "/" ? "index" : currentPath;
+        const sectionConfig = sections[sectionKey];
         initializeCollectionPage(currentPath, index, sections, getNextImage, overlay, collectionData);
     } else {
         initializeIndividualPage(currentPath);
