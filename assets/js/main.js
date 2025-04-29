@@ -67,7 +67,7 @@
         const collectionMeta = sections[sectionKey]?.metaName;
         const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
 
-        const overlaySetup = await setupOverlayImages(images);
+        const overlaySetup = await setupOverlayImages(images, config);
         if (!overlaySetup) throw new Error("Failed to set up overlay images.");
 
         const { getNextImage, overlay } = overlaySetup;
@@ -265,7 +265,7 @@
     // ==========================
 
     // Modularized overlay image handling
-    const setupOverlayImages = async (images) => {
+    const setupOverlayImages = async (images, config) => {
         const overlay = document.getElementById(config.imageOverlayId);
         if (!overlay) {
             logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
