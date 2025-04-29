@@ -10,7 +10,7 @@
     const fetchJSON = async (key, fallback = null) => {
         const url = document.querySelector(`meta[name='${key}']`)?.content;
         if (!url) {
-            logError(`DEBUG: Meta tag with name '${key}' not found`);
+            logError(`Meta tag with name '${key}' not found`);
             return fallback;
         }
         try {
@@ -18,7 +18,7 @@
             if (!response.ok) throw new Error(`Failed to fetch data from ${url}`);
             return await response.json();
         } catch (error) {
-            logError(`DEBUG: Error loading '${key}': ${error.message}`);
+            logError(`Error loading '${key}': ${error.message}`);
             return fallback;
         }
     };
@@ -38,8 +38,20 @@
         return;
     }
 
+    const debounce = (func, delay) => {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func(...args), delay);
+        };
+    };
+
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
+        if (viewportWidth <= 0 || linkWidth <= 0) {
+            logError("Invalid dimensions for random position generation.");
+            return 0;
+        }
         const margin = viewportWidth < 768 ? 40 : 80;
         const minPosition = margin;
         const maxPosition = viewportWidth - margin - linkWidth;
@@ -109,49 +121,52 @@
         });
     };
 
+    const handlePointerEnter = (linkWrapper, rows, index, getNextImage, overlay) => {
+        if (isMobileDevice()) return; // Disable overlay functionality on mobile
+
+        const hoveredRect = linkWrapper.getBoundingClientRect();
+        const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
+        const hoveredLeft = hoveredRect.left - containerRect.left; // Relative to the parent container
+        const hoveredRight = hoveredRect.right - containerRect.left; // Relative to the parent container
+
+        rows.forEach((otherRow, otherIndex) => {
+            if (otherIndex === index) return;
+
+            const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
+            if (!otherLinkWrapper) return;
+
+            const otherLinkWidth = otherLinkWrapper.offsetWidth;
+
+            // Treat title-row as a left-arrow row
+            if (row.classList.contains("left-arrow") || row.classList.contains("title-row")) {
+                otherLinkWrapper.style.left = `${hoveredLeft}px`;
+            } else if (row.classList.contains("right-arrow")) {
+                otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
+            }
+        });
+
+        // Show the image overlay
+        const image = getNextImage();
+        if (image) {
+            overlay.style.backgroundImage = `url(${image})`;
+            overlay.classList.add("visible");
+        }
+    };
+
+    const handlePointerLeave = (rows, overlay) => {
+        if (isMobileDevice()) return;
+        resetLinkPositions(rows);
+        overlay.classList.remove("visible");
+    };
+
     // Enable hover effects for links
     const enableHoverEffect = (rows, getNextImage, overlay) => {
         rows.forEach((row, index) => {
             const linkWrapper = row.querySelector(".link-wrapper");
             if (!linkWrapper) return;
 
-            linkWrapper.addEventListener("pointerenter", () => {
-                if (isMobileDevice()) return; // Disable overlay functionality on mobile
-
-                const hoveredRect = linkWrapper.getBoundingClientRect();
-                const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
-                const hoveredLeft = hoveredRect.left - containerRect.left; // Relative to the parent container
-                const hoveredRight = hoveredRect.right - containerRect.left; // Relative to the parent container
-
-                rows.forEach((otherRow, otherIndex) => {
-                    if (otherIndex === index) return;
-
-                    const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
-                    if (!otherLinkWrapper) return;
-
-                    const otherLinkWidth = otherLinkWrapper.offsetWidth;
-
-                    // Treat title-row as a left-arrow row
-                    if (row.classList.contains("left-arrow") || row.classList.contains("title-row")) {
-                        otherLinkWrapper.style.left = `${hoveredLeft}px`;
-                    } else if (row.classList.contains("right-arrow")) {
-                        otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
-                    }
-                });
-
-                // Show the image overlay
-                const image = getNextImage();
-                if (image) {
-                    overlay.style.backgroundImage = `url(${image})`;
-                    overlay.classList.add("visible");
-                }
-            });
-
-            linkWrapper.addEventListener("pointerleave", () => {
-                if (isMobileDevice()) return;
-                resetLinkPositions(rows);
-                overlay.classList.remove("visible");
-            });
+            linkWrapper.addEventListener("pointerenter", () => handlePointerEnter(linkWrapper, rows, index, getNextImage, overlay));
+            linkWrapper.addEventListener("pointerleave", () => handlePointerLeave(rows, overlay));
         });
     };
 
@@ -174,6 +189,7 @@
             shuffledImages.forEach((image) => {
                 const img = new Image();
                 img.src = image;
+                img.onerror = () => logError(`Failed to preload image: ${image}`);
             });
 
             if (isMobileDevice()) {
@@ -181,7 +197,7 @@
                 overlay.classList.add("visible");
             }
         } else {
-            logError("DEBUG: No valid overlay images found or the file is empty.");
+            logError("No valid overlay images found or the file is empty.");
         }
 
         return { overlay, getNextImage };
@@ -193,14 +209,14 @@
             "January", "February", "March", "April", "May", "June",
             "July", "August", "September", "October", "November", "December"
         ];
-    
+
         const formatDate = (month) => {
             if (typeof month === "number" && month >= 1 && month <= 12) {
                 return monthNames[month - 1];
             }
             return month;
         };
-    
+
         if (format === "detailed" && item.subtitle && item.publication && item.year) {
             const formattedMonth = item.month ? formatDate(item.month) : null;
             return `—${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
@@ -342,5 +358,5 @@
 
     // Adjust the height on page load and window resize
     window.addEventListener("load", adjustLinkContainerHeight);
-    window.addEventListener("resize", adjustLinkContainerHeight);
+    window.addEventListener("resize", debounce(adjustLinkContainerHeight, 200));
 })();
