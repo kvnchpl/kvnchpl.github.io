@@ -495,31 +495,27 @@
     // MAIN INITIALIZATION
     // ==========================
 
-    try {
-        const { config, metaTags, fetchedData } = await fetchConfigAndData();
-        const { path, isHomepage } = getCurrentPath();
-        await initializePage(path, isHomepage, config, metaTags, fetchedData);
+    const { config, metaTags, fetchedData } = await fetchConfigAndData();
+    const { path, isHomepage } = getCurrentPath();
+    await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
-        // Adjust link container height on load and resize
-        const adjustLinkContainerHeight = () => {
-            const navBar = document.getElementById(getConfig("navBarId"));
-            const titleRow = document.getElementById(getConfig("titleRowId"));
-            const linkContainer = document.getElementById(getConfig("linkContainerId"));
+    // Adjust link container height on load and resize
+    const adjustLinkContainerHeight = () => {
+        const navBar = document.getElementById(getConfig("navBarId"));
+        const titleRow = document.getElementById(getConfig("titleRowId"));
+        const linkContainer = document.getElementById(getConfig("linkContainerId"));
 
-            if (linkContainer) {
-                linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
-            }
-        };
+        if (linkContainer) {
+            linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
+        }
+    };
 
-        window.addEventListener("load", adjustLinkContainerHeight);
-        window.addEventListener(
-            "resize",
-            debounce(() => {
-                cachedViewportWidth = window.innerWidth;
-            }, getConfig("debounceTime"))
-        );
-    } catch (error) {
-        logError(error.message);
-    }
+    window.addEventListener("load", adjustLinkContainerHeight);
+    window.addEventListener(
+        "resize",
+        debounce(() => {
+            cachedViewportWidth = window.innerWidth;
+        }, getConfig("debounceTime"))
+    );
 
 })();
