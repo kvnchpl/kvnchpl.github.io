@@ -59,33 +59,6 @@
         return { path, isHomepage: path === "index" };
     };
 
-    const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
-        const index = fetchedData[metaTags.index];
-        const sections = fetchedData[metaTags.sections];
-        const images = fetchedData[metaTags.overlayImages];
-        const sectionKey = isHomepage ? "index" : path;
-        const collectionMeta = sections[sectionKey]?.metaName;
-        const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
-
-        const overlaySetup = await setupOverlayImages(images, config);
-        if (!overlaySetup) throw new Error("Failed to set up overlay images.");
-
-        const { getNextImage, overlay } = overlaySetup;
-
-        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
-
-        const isCollectionPage = index.some((item) =>
-            item.permalink === (isHomepage ? "/" : path)
-        );
-
-        if (isCollectionPage) {
-            const sectionKey = isHomepage ? "index" : path;
-            initializeCollectionPage(path, index, sections, getNextImage, overlay, collectionData);
-        } else {
-            initializeIndividualPage(path);
-        }
-    };
-
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {
@@ -395,6 +368,33 @@
     // ==========================
     // PAGE INITIALIZATION
     // ==========================
+
+    const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
+        const index = fetchedData[metaTags.index];
+        const sections = fetchedData[metaTags.sections];
+        const images = fetchedData[metaTags.overlayImages];
+        const sectionKey = isHomepage ? "index" : path;
+        const collectionMeta = sections[sectionKey]?.metaName;
+        const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
+
+        const overlaySetup = await setupOverlayImages(images, config);
+        if (!overlaySetup) throw new Error("Failed to set up overlay images.");
+
+        const { getNextImage, overlay } = overlaySetup;
+
+        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage, config);
+
+        const isCollectionPage = index.some((item) =>
+            item.permalink === (isHomepage ? "/" : path)
+        );
+
+        if (isCollectionPage) {
+            const sectionKey = isHomepage ? "index" : path;
+            initializeCollectionPage(path, index, sections, getNextImage, overlay, collectionData);
+        } else {
+            initializeIndividualPage(path);
+        }
+    };
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
     const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay, collectionData) => {
