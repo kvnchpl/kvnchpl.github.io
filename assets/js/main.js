@@ -380,7 +380,7 @@
             if (item.isTitle) {
                 row.id = config.titleRowId;
             } else {
-                row.classList.add(`.${config.rowClass}`);
+                row.classList.add(config.rowClass);
             }
 
             const linkWrapper = document.createElement("div");
