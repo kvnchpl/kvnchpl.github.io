@@ -28,7 +28,7 @@
         fetchJSON("section-data"),
         fetchJSON("overlay-images-data"),
     ]);
-    
+
     if (!indexData || !sectionsConfig || !overlayImages) {
         logError("Failed to load required data. Skipping initialization.");
         return;
@@ -124,16 +124,12 @@
                 }
             });
 
-            linkWrapper.addEventListener("pointerleave", () => {
-                if (isMobile) return; // Disable overlay functionality on mobile
+            const resetLinkPositions = (rows) => {
+                rows.forEach((row) => {
+                    const linkWrapper = row.querySelector(".link-wrapper");
+                    if (!linkWrapper) return;
 
-                rows.forEach((otherRow, otherIndex) => {
-                    if (otherIndex === index) return;
-
-                    const otherLinkWrapper = otherRow.querySelector(".link-wrapper");
-                    if (!otherLinkWrapper) return;
-
-                    const linkWidth = otherLinkWrapper.offsetWidth;
+                    const linkWidth = linkWrapper.offsetWidth;
                     const viewportWidth = window.innerWidth;
 
                     if (viewportWidth === 0 || linkWidth === 0) {
@@ -141,12 +137,14 @@
                         return;
                     }
 
-                    // Randomize the position of other links
                     const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-                    otherLinkWrapper.style.left = `${newLeft}px`;
+                    linkWrapper.style.left = `${newLeft}px`;
                 });
+            };
 
-                // Hide the image overlay
+            linkWrapper.addEventListener("pointerleave", () => {
+                if (isMobileDevice()) return;
+                resetLinkPositions(rows);
                 overlay.classList.remove("visible");
             });
         });
@@ -268,63 +266,25 @@
             return;
         }
 
-        // Normalize the path to match keys in sections.json
-        const normalizedPath = path.replace(/^\/|\/$/g, ""); // Remove leading and trailing slashes
-
-        console.log(`DEBUG: Normalized path: "${normalizedPath}"`);
-        console.log(`DEBUG: Sections configuration:`, sectionsConfig);
-
+        const normalizedPath = path.replace(/^\/|\/$/g, "");
         const sectionConfig = sectionsConfig[normalizedPath];
-
-        console.log(`DEBUG: Section configuration for normalized path "${normalizedPath}":`, sectionConfig);
 
         if (!sectionConfig) {
             logError(`No section configuration found for path: ${path}`);
             return;
         }
 
-        // Fetch the appropriate data for the collection page
         const collectionData = await fetchJSON(sectionConfig.metaName);
         if (!collectionData || collectionData.length === 0) {
             logError(`Invalid or missing data for collection page: ${path}`);
             return;
         }
 
-        // Clear existing links
+        // Clear existing links and render new ones
         list.innerHTML = "";
+        const fragment = renderLinks(collectionData, sectionConfig.format);
+        list.appendChild(fragment);
 
-        // Populate the list with links
-        collectionData.forEach((item, index) => {
-            const listItem = document.createElement("li");
-            const linkWrapper = document.createElement("div");
-            linkWrapper.className = "link-wrapper";
-
-            const link = document.createElement("a");
-            link.href = item.permalink;
-            link.textContent = item.title;
-            link.setAttribute("aria-label", item.title);
-
-            // Handle external links
-            if (item.external) {
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
-            }
-
-            linkWrapper.appendChild(link);
-            listItem.appendChild(linkWrapper);
-
-            // Apply the `title-row` class if `isTitle` is true
-            if (item.isTitle) {
-                listItem.classList.add("title-row");
-            } else {
-                // Alternate between `left-arrow` and `right-arrow` for other rows
-                listItem.classList.add(index % 2 === 0 ? "left-arrow" : "right-arrow");
-            }
-
-            list.appendChild(listItem);
-        });
-
-        // Apply link sliding and overlay functionality
         const rows = Array.from(list.children);
         randomizeLinks(rows);
         enableHoverEffect(rows, getNextImage, overlay);
@@ -365,14 +325,14 @@
         const titleHeight = titleRow ? titleRow.offsetHeight : 0;
         return window.innerHeight - (navHeight + titleHeight);
     };
-    
+
     const adjustLinkContainerHeight = () => {
         const navBar = document.getElementById("site-nav");
         const titleRow = document.querySelector(".title-row");
         const linkContainer = document.getElementById("link-container");
-    
+
         if (!linkContainer) return;
-    
+
         linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
     };
 
