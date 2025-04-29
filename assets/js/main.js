@@ -23,6 +23,21 @@
         }
     };
 
+    // Utility function to resolve data with fallback
+    const resolveData = async (promise, defaultValue = null) => {
+        try {
+            const result = await promise;
+            if (result.status === "fulfilled") {
+                return result.value;
+            } else {
+                logError(`Promise rejected: ${result.reason}`);
+            }
+        } catch (error) {
+            logError(`Error resolving promise: ${error.message}`);
+        }
+        return defaultValue;
+    };
+
     const [configData, indexData, sectionsConfig, overlayImages] = await Promise.allSettled([
         fetchJSON("config-data"),
         fetchJSON("index-data"),
@@ -30,12 +45,13 @@
         fetchJSON("overlay-images-data"),
     ]);
 
-    if (indexData.status !== "fulfilled") logError("Failed to load index-data.");
-    if (sectionsConfig.status !== "fulfilled") logError("Failed to load section-data.");
-    if (overlayImages.status !== "fulfilled") logError("Failed to load overlay-images-data.");
+    const config = await resolveData(configData, {});
+    const index = await resolveData(indexData, []);
+    const sections = await resolveData(sectionsConfig, {});
+    const images = await resolveData(overlayImages, []);
 
-    if (indexData.status !== "fulfilled" || sectionsConfig.status !== "fulfilled" || overlayImages.status !== "fulfilled") {
-        logError("Skipping initialization due to missing data.");
+    if (!index.length || !Object.keys(sections).length || !images.length) {
+        logError("Skipping initialization due to missing or invalid data.");
         return;
     }
 
