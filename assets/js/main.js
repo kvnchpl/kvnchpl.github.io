@@ -118,8 +118,9 @@
             link.setAttribute("aria-label", originalText);
 
             // Treat title-row as a left-arrow row but skip appending the arrow
-            const isLeftArrow = row.classList.contains("title-row") || index % 2 === 0;
-            if (!row.classList.contains("title-row")) {
+            const isTitleRow = row.id === config.titleRowId;
+            const isLeftArrow = isTitleRow || index % 2 === 0;
+            if (!isTitleRow) {
                 link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
             }
 
@@ -166,6 +167,10 @@
         const hoveredLeft = hoveredRect.left - containerRect.left; // Relative to the parent container
         const hoveredRight = hoveredRect.right - containerRect.left; // Relative to the parent container
 
+        // Get the row element for this linkWrapper
+        const row = linkWrapper.closest("li");
+        const isTitleRow = row && row.id === config.titleRowId;
+
         rows.forEach((otherRow, otherIndex) => {
             if (otherIndex === index) return;
 
@@ -175,9 +180,9 @@
             const otherLinkWidth = otherLinkWrapper.offsetWidth;
 
             // Treat title-row as a left-arrow row
-            if (row.classList.contains("left-arrow") || row.classList.contains("title-row")) {
+            if ((row && row.classList.contains("left-arrow")) || isTitleRow) {
                 otherLinkWrapper.style.left = `${hoveredLeft}px`;
-            } else if (row.classList.contains("right-arrow")) {
+            } else if (row && row.classList.contains("right-arrow")) {
                 otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
             }
         });
@@ -461,7 +466,7 @@
 
     const adjustLinkContainerHeight = () => {
         const navBar = document.getElementById(config.navBarId);
-        const titleRow = document.querySelector(`.${config.titleRowClass}`);
+        const titleRow = document.getElementById(config.titleRowId);
         const linkContainer = document.getElementById(config.linkContainerId);
 
         if (!linkContainer) return;
