@@ -239,7 +239,9 @@
 
     // Modularized overlay image handling
     const setupOverlayImages = async (images, config = window.config) => {
+        console.log("Overlay ID from config:", config.imageOverlayId);
         const overlay = document.getElementById(config.imageOverlayId);
+        console.log("Resolved overlay element:", overlay);
         if (!overlay) {
             logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
             return null;
@@ -378,8 +380,10 @@
         const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
 
         const overlaySetup = await setupOverlayImages(images, config);
-        if (!overlaySetup) throw new Error("Failed to set up overlay images.");
 
+        if (!overlaySetup || typeof overlaySetup !== "object") {
+            throw new Error("Overlay setup failed or returned invalid object.");
+        }
         const { getNextImage, overlay } = overlaySetup;
 
         if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
