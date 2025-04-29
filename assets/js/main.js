@@ -1,10 +1,12 @@
 (async function () {
     "use strict";
 
-    const isMobileDevice = () => /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth <= 768;
+    const isMobileDevice = () => window.matchMedia("(max-width: 768px)").matches;
 
     // Utility function for centralized error logging
-    const logError = (message) => console.error(`DEBUG: ${message}`);
+    const logError = (message, context = {}) => {
+        console.error(`DEBUG: ${message}`, context);
+    };
 
     // Utility function to fetch JSON data from a URL
     const fetchJSON = async (key, fallback = null) => {
@@ -75,6 +77,11 @@
         return Math.random() * (maxPosition - minPosition) + minPosition;
     };
 
+    const updateLinkPosition = (linkWrapper, linkWidth, viewportWidth) => {
+        const newLeft = generateRandomPosition(linkWidth, viewportWidth);
+        linkWrapper.style.left = `${newLeft}px`;
+    };
+
     // Randomize link positions for desktop and alternate positions for mobile
     const randomizeLinks = (rows) => {
         rows.forEach((row, index) => {
@@ -110,12 +117,9 @@
                     return;
                 }
 
-                const initialLeft = Math.round(generateRandomPosition(linkWidth, viewportWidth));
-                linkWrapper.classList.add("randomized");
-                linkWrapper.style.left = `${initialLeft}px`;
+                updateLinkPosition(linkWrapper, linkWidth, viewportWidth);
+                linkWrapper.classList.add("randomized", "visible");
             }
-
-            linkWrapper.classList.add("visible");
         });
     };
 
@@ -132,8 +136,7 @@
                 return;
             }
 
-            const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-            linkWrapper.style.left = `${newLeft}px`;
+            updateLinkPosition(linkWrapper, linkWidth, viewportWidth);
         });
     };
 
@@ -188,20 +191,20 @@
 
     // Modularized overlay image handling
     const setupOverlayImages = async () => {
-        const overlay = document.getElementById("image-overlay");
+        const overlay = document.getElementById(config.imageOverlayId);
         let shuffledImages = [];
         const getNextImage = (() => {
             let index = 0;
             return () => {
-                if (shuffledImages.length === 0) return "";
+                if (shuffledImages.length === 0) logError("No images available for overlay.");
                 const image = shuffledImages[index];
                 index = (index + 1) % shuffledImages.length;
                 return image;
             };
         })();
 
-        if (overlayImages && Array.isArray(overlayImages) && overlayImages.length > 0) {
-            shuffledImages = overlayImages.sort(() => Math.random() - 0.5);
+        if (images && Array.isArray(images) && images.length > 0) {
+            shuffledImages = images.sort(() => Math.random() - 0.5);
             shuffledImages.forEach((image) => {
                 const img = new Image();
                 img.src = image;
@@ -290,15 +293,15 @@
     const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay) => {
         console.log(`DEBUG: Initializing collection page: ${path}`);
 
-        const container = document.getElementById("link-container");
+        const container = document.getElementById(config.linkContainerId);
         if (!container) {
-            console.warn(`No link-container found for collection page: ${path}`);
+            logError(`No link-container found for collection page: ${path}`);
             return;
         }
 
         const list = container.querySelector("ul");
         if (!list) {
-            console.warn(`No <ul> element found in link-container for path: ${path}`);
+            logError(`No <ul> element found in link-container for path: ${path}`);
             return;
         }
 
@@ -310,8 +313,8 @@
             return;
         }
 
-        const collectionData = await fetchJSON(sectionConfig.metaName);
-        if (!collectionData || collectionData.length === 0) {
+        const collectionData = await fetchJSON(sectionConfig.metaName, []);
+        if (!collectionData.length) {
             logError(`Invalid or missing data for collection page: ${path}`);
             return;
         }
@@ -344,8 +347,20 @@
     // Get the current path and normalize it
     let currentPath = window.location.pathname.replace(/\/$/, ""); // Remove trailing slash
     if (currentPath === "") currentPath = "/"; // Set homepage path to "/"
+    const sectionConfig = sections[currentPath];
 
-    console.log(`DEBUG: Sections configuration:`, sectionsConfig);
+    if (!sectionConfig) {
+        logError(`No section configuration found for path: ${currentPath}`);
+        return;
+    }
+
+    const collectionDataPromise = fetchJSON(sectionConfig.metaName, []);
+    const collectionData = await resolveData(collectionDataPromise, []);
+
+    if (!collectionData.length) {
+        logError(`Invalid or missing data for collection page: ${currentPath}`);
+        return;
+    }
 
     // Check if the current path is a collection page
     const isCollectionPage = indexData.some((item) => item.permalink === currentPath);
@@ -374,5 +389,5 @@
 
     // Adjust the height on page load and window resize
     window.addEventListener("load", adjustLinkContainerHeight);
-    window.addEventListener("resize", debounce(adjustLinkContainerHeight, configData.debounceTime));
+    window.addEventListener("resize", debounce(adjustLinkContainerHeight, config.debounceTime));
 })();
