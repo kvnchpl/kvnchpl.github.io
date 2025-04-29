@@ -1,8 +1,11 @@
 {
     "debounceTime": 200,
     "navBarId": "site-nav",
-    "titleRowClass": "title-row",
     "linkContainerId": "link-container",
+    "linkWrapperClass": "link-wrapper",
+    "rowClass": "row",
+    "titleRowClass": "title-row",
+    "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
     "fadeDuration": 500,
     "scrollThresholds": {
