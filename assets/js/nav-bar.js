@@ -1,18 +1,13 @@
 import { fetchJSON, normalizePath } from './utils.js';
 
 document.addEventListener("DOMContentLoaded", async () => {
-    if (typeof window.fetchJSON !== "function") {
-        console.error("fetchJSON not found on window.");
-        return;
-    }
-
     const nav = document.getElementById("site-nav");
     nav.innerHTML = "";
 
     try {
-        const data = await window.fetchJSON("index-data", []);
+        const data = await fetchJSON("index-data", []);
 
-        const currentPath = window.location.pathname.replace(/\/+$/, "");
+        const currentPath = normalizePath(window.location.pathname);
 
         const navItems = data.filter(item => !item.isTitle);
 
@@ -26,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 a.rel = "noopener noreferrer";
             }
 
-            const normalizedPermalink = item.permalink.replace(/\/+$/, "");
+            const normalizedPermalink = normalizePath(item.permalink);
             if (normalizedPermalink === currentPath) {
                 a.classList.add("current");
                 a.textContent = `*${item.title}*`;
