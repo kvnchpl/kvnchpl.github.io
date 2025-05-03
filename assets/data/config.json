@@ -1,6 +1,6 @@
 {
     "debounceTime": 200,
-    "shuffleImageDuration": 5000,
+    "shuffleInterval": 5000,
     "navBarId": "site-nav",
     "linkContainerId": "link-container",
     "linkWrapperClass": "link-wrapper",
@@ -12,6 +12,10 @@
         "mobile": 40,
         "desktop": 80
     },
+    "arrowSymbols": {
+        "left": "←",
+        "right": "→"
+    },
     "metaTags": {
         "index": "index-data",
         "sections": "section-data",
@@ -19,10 +23,6 @@
         "projects": "projects-data",
         "readings": "readings-data",
         "writings": "writings-data"
-    },
-    "arrowSymbols": {
-        "left": "←",
-        "right": "→"
     },
     "indexFallbackKey": "index"
 }
