@@ -6,7 +6,7 @@
         "external": false,
         "newTab": false,
         "label": "HOME",
-        "navBar": false,
+        "navBar": true,
         "isTitle": true
     },
     {
@@ -16,7 +16,8 @@
         "external": false,
         "newTab": false,
         "label": "PROJECTS",
-        "navBar": true
+        "navBar": true,
+        "isTitle": false
     },
     {
         "title": "See what I’m thinking about",
@@ -25,7 +26,8 @@
         "external": true,
         "newTab": true,
         "label": "THOUGHTS",
-        "navBar": true
+        "navBar": true,
+        "isTitle": false
     },
     {
         "title": "See what I’m writing",
@@ -34,7 +36,8 @@
         "external": false,
         "newTab": false,
         "label": "WRITINGS",
-        "navBar": true
+        "navBar": true,
+        "isTitle": false
     },
     {
         "title": "See what I’m reading",
@@ -43,7 +46,8 @@
         "external": false,
         "newTab": false,
         "label": "READINGS",
-        "navBar": true
+        "navBar": true,
+        "isTitle": false
     },
     {
         "title": "See what I’m watching",
@@ -52,7 +56,8 @@
         "external": true,
         "newTab": true,
         "label": "WATCHINGS",
-        "navBar": false
+        "navBar": false,
+        "isTitle": false
     },
     {
         "title": "See what I’m listening to",
@@ -61,7 +66,8 @@
         "external": true,
         "newTab": true,
         "label": "LISTENINGS",
-        "navBar": false
+        "navBar": false,
+        "isTitle": false
     },
     {
         "title": "Go hunting for hydrants",
@@ -70,7 +76,8 @@
         "external": true,
         "newTab": true,
         "label": "HYDRANTS",
-        "navBar": false
+        "navBar": false,
+        "isTitle": false
     },
     {
         "title": "Say hi",
@@ -79,6 +86,7 @@
         "external": false,
         "newTab": false,
         "label": "CONTACT",
-        "navBar": true
+        "navBar": true,
+        "isTitle": false
     }
 ]
