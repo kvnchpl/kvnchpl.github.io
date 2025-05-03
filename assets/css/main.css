@@ -137,6 +137,7 @@ a {
   pointer-events: none;
   transition: opacity var(--transition-duration) ease-in-out;
   z-index: var(--overlay-z-index);
+  will-change: opacity;
 }
 
 #image-overlay.visible {
