@@ -389,9 +389,10 @@
 
         if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
 
-        const isCollectionPage = index.some((item) =>
-            item.permalink.replace(/^\/|\/$/g, "") === path
-        );
+        const isCollectionPage = index.some((item) => {
+            const normalizedPermalink = item.permalink.replace(/^\/|\/$/g, "") || "index";
+            return normalizedPermalink === path;
+        });
 
         if (isCollectionPage) {
             const sectionKey = isHomepage ? "index" : path;
