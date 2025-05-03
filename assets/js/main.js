@@ -50,6 +50,7 @@
         const metaTags = config.metaTags || {};
         const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
         const fetchedData = await settleFetch(keysToFetch);
+        console.log("DEBUG: Fetched data keys:", Object.keys(fetchedData));
 
         return { metaTags, fetchedData };
     };
@@ -378,6 +379,8 @@
         const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
 
         const overlaySetup = await setupOverlayImages(images, config);
+
+        console.log("DEBUG: Initializing:", { path, sectionKey, collectionMeta, fetchedData });
 
         if (!overlaySetup || typeof overlaySetup !== "object") {
             throw new Error("Overlay setup failed or returned invalid object.");
