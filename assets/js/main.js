@@ -55,7 +55,7 @@
         return { metaTags, fetchedData };
     };
 
-    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || "index";
+    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || config.indexFallbackKey;
 
     const debounce = (func, delay) => {
         let timeout;
@@ -140,7 +140,9 @@
             const isTitleRow = row.id === config.titleRowId;
             const isLeftArrow = isTitleRow || index % 2 === 0;
             if (!isTitleRow) {
-                link.textContent = isLeftArrow ? `← ${originalText}` : `${originalText} →`;
+                const leftArrow = config.arrowSymbols?.left;
+                const rightArrow = config.arrowSymbols?.right;
+                link.textContent = isLeftArrow ? `${leftArrow} ${originalText}` : `${originalText} ${rightArrow}`;
             }
 
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
