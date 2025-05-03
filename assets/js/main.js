@@ -55,6 +55,8 @@
         return { metaTags, fetchedData };
     };
 
+    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || config.indexFallbackKey;
+
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {
