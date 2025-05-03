@@ -205,7 +205,6 @@ a {
   }
 
   #image-overlay {
-    pointer-events: auto;
-    /* Enable click events on mobile */
+    pointer-events: none;
   }
 }
