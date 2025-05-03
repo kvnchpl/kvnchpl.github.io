@@ -55,8 +55,6 @@
         return { metaTags, fetchedData };
     };
 
-    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || config.indexFallbackKey;
-
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {
@@ -453,10 +451,11 @@
     // ==========================
 
     const { pathname } = window.location;
-    const path = normalizePath(pathname);
-    const isHomepage = path === "index";
 
     const { metaTags, fetchedData } = await fetchConfigAndData();
+    const path = normalizePath(pathname);
+    const isHomepage = path === config.indexFallbackKey;
+
     await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
     // Adjust link container height on load and resize
