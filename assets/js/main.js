@@ -390,7 +390,7 @@
         if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
 
         const isCollectionPage = index.some((item) =>
-            item.permalink === (isHomepage ? "/" : path)
+            item.permalink.replace(/^\/|\/$/g, "") === path
         );
 
         if (isCollectionPage) {
