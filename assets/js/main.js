@@ -328,7 +328,7 @@ import {
 
         const isCollectionPage = index.some((item) => {
             const normalizedPermalink = normalizePath(item.permalink);
-            return normalizedPermalink === path && item.collection !== false;
+            return normalizedPermalink === path && item.collection;
         });
 
         if (isCollectionPage) {
@@ -407,11 +407,9 @@ import {
             link.href = item.permalink;
             link.textContent = item.title;
 
+            link.target = item.newTab ? "_blank" : "_self";
             if (item.external) {
-                link.target = "_blank";
                 link.rel = "noopener noreferrer";
-            } else if (item.newTab === false) {
-                link.target = "_self";
             }
 
             linkWrapper.appendChild(link);

@@ -9,18 +9,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const currentPath = normalizePath(window.location.pathname);
 
-        const navItems = data.filter(item => !item.isTitle);
+        const navItems = data.filter(item => item.navBar);
 
         navItems.forEach((item, index) => {
-            const label = item.label || item.title;
-            if (!label) return;
+            const label = item.label;
 
             const a = document.createElement("a");
             a.href = item.permalink;
             a.textContent = label;
+            a.target = item.newTab ? "_blank" : "_self";
 
             if (item.external) {
-                a.target = item.newTab === false ? "_self" : "_blank";
                 a.rel = "noopener noreferrer";
             }
 
