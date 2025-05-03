@@ -39,7 +39,7 @@
     },
     {
         "title": "Say hi",
-        "permalink": "/contact"
+        "permalink": "/contact",
         "individual": true
     }
 ]
