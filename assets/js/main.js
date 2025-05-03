@@ -307,14 +307,16 @@
     const setupScrollBasedOverlay = (overlay, getNextImage) => {
         if (!isMobileDevice()) return;
 
-        // Shuffle to the next image every 5 seconds
+        const interval = config.shuffleImageDuration;
+
+        // Shuffle to the next image every X milliseconds
         setInterval(() => {
             const nextImage = getNextImage();
             if (nextImage) {
                 overlay.style.backgroundImage = `url(${nextImage})`;
                 overlay.classList.add("visible");
             }
-        }, 5000);
+        }, interval);
     };
 
     // ==========================
