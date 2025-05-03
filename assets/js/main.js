@@ -423,6 +423,16 @@
             return;
         }
 
+        // Optionally sort by date if specified in index.json for this path
+        const pageMeta = indexData.find((item) => {
+            const normalizedPermalink = item.permalink.replace(/^\/|\/$/g, "") || "index";
+            return normalizedPermalink === path;
+        });
+
+        if (pageMeta?.dateSorted) {
+            collectionData.sort((a, b) => new Date(a.date) - new Date(b.date));
+        }
+
         // Clear existing links and render new ones
         list.innerHTML = "";
         const fragment = populateLinks(collectionData, sectionsConfig[path.replace(/^\/|\/$/g, "")]?.format);
