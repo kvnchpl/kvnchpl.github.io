@@ -311,6 +311,13 @@
 
         let isAVisible = true;
 
+        // Set different starting images for overlayA and overlayB
+        const firstImage = getNextImage();
+        const secondImage = getNextImage();
+        overlayA.style.backgroundImage = `url(${firstImage})`;
+        overlayB.style.backgroundImage = `url(${secondImage})`;
+        overlayA.classList.add("visible");
+
         setInterval(() => {
             const nextImage = getNextImage();
             if (!nextImage) return;
