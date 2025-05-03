@@ -391,7 +391,7 @@
 
         const isCollectionPage = index.some((item) => {
             const normalizedPermalink = item.permalink.replace(/^\/|\/$/g, "") || "index";
-            return normalizedPermalink === path;
+            return normalizedPermalink === path && item.collection !== false;
         });
 
         if (isCollectionPage) {
