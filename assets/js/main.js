@@ -35,6 +35,25 @@ import {
         return { metaTags, fetchedData };
     };
 
+    // Validate index.json structure for required keys
+    const validateIndexData = (index) => {
+        const requiredKeys = config.requiredIndexKeys;
+        const errors = [];
+
+        index.forEach((item, i) => {
+            requiredKeys.forEach((key) => {
+                if (!item.hasOwnProperty(key)) {
+                    errors.push(`Missing key "${key}" in index item at position ${i}: ${JSON.stringify(item)}`);
+                }
+            });
+        });
+
+        if (errors.length > 0) {
+            logError("Index validation failed with the following issues:\n" + errors.join("\n"));
+            throw new Error("Invalid index.json structure");
+        }
+    };
+
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
         if (viewportWidth <= 0 || linkWidth <= 0) {
@@ -298,6 +317,7 @@ import {
 
     const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
         const index = fetchedData[metaTags.index];
+        validateIndexData(index);
         const images = fetchedData[metaTags.overlayImages];
         const sectionKey = isHomepage ? "index" : path;
         const section = index.find(item => normalizePath(item.permalink) === sectionKey);
