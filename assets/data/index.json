@@ -2,44 +2,83 @@
     {
         "title": "Kevin Cunanan Chappelle :)",
         "permalink": "/",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "HOME",
+        "navBar": false,
         "isTitle": true
     },
     {
         "title": "See what I’m working on",
-        "permalink": "/projects"
+        "permalink": "/projects",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "PROJECTS",
+        "navBar": true
     },
     {
         "title": "See what I’m thinking about",
         "permalink": "https://kvnchpl-thoughts.tumblr.com/",
+        "collection": true,
         "external": true,
-        "newTab": false
+        "newTab": true,
+        "label": "THOUGHTS",
+        "navBar": true
     },
     {
         "title": "See what I’m writing",
-        "permalink": "/writings"
+        "permalink": "/writings",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "WRITINGS",
+        "navBar": true
     },
     {
         "title": "See what I’m reading",
-        "permalink": "/readings"
+        "permalink": "/readings",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "READINGS",
+        "navBar": true
     },
     {
         "title": "See what I’m watching",
         "permalink": "https://letterboxd.com/kvnchpl/",
-        "external": true
+        "collection": true,
+        "external": true,
+        "newTab": true,
+        "label": "WATCHINGS",
+        "navBar": false
     },
     {
         "title": "See what I’m listening to",
         "permalink": "https://open.spotify.com/user/kevchap",
-        "external": true
+        "collection": true,
+        "external": true,
+        "newTab": true,
+        "label": "LISTENINGS",
+        "navBar": false
     },
     {
         "title": "Go hunting for hydrants",
         "permalink": "https://hydranthunt.com/",
-        "external": true
+        "collection": true,
+        "external": true,
+        "newTab": true,
+        "label": "HYDRANTS",
+        "navBar": false
     },
     {
         "title": "Say hi",
         "permalink": "/contact",
-        "collection": false
+        "collection": false,
+        "external": false,
+        "newTab": false,
+        "label": "CONTACT",
+        "navBar": true
     }
 ]
