@@ -57,25 +57,14 @@ import {
 
     // Format subtitle based on the provided format
     const formatSubtitle = (item, format) => {
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
+        const formatDate = (month) => config.monthNames[month - 1] || month;
 
-        const formatDate = (month) => {
-            if (typeof month === "number" && month >= 1 && month <= 12) {
-                return monthNames[month - 1];
-            }
-            return month;
-        };
-
-        if (format === "detailed" && item.subtitle && item.publication && item.year) {
-            const formattedMonth = item.month ? formatDate(item.month) : null;
-            return `—${item.subtitle}, ${item.publication}, ${formattedMonth || ""} ${item.year}`.trim();
-        } else if (item.subtitle) {
-            return item.subtitle;
+        if (format === "detailed") {
+            const formattedMonth = formatDate(item.month);
+            return `—${item.subtitle}, ${item.publication}, ${formattedMonth} ${item.year}`;
         }
-        return null;
+
+        return item.subtitle || null;
     };
 
     const calculateAvailableHeight = (navBar, titleRow) => {
