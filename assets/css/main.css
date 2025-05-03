@@ -19,7 +19,8 @@
   --overlay-z-index: 100;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -105,6 +106,7 @@ li {
   font-size: var(--title-font-size-desktop);
   text-transform: uppercase;
   overflow: visible;
+  -webkit-overflow-scrolling: touch;
 }
 
 p {
@@ -186,20 +188,17 @@ a {
     position: relative;
     left: auto;
     right: 0;
-    /* Right-justify left-arrow rows */
     text-align: right;
   }
 
   .row.right-arrow .link-wrapper {
     position: relative;
     left: 0;
-    /* Left-justify right-arrow rows */
     text-align: left;
   }
 
   .link-wrapper {
     transition: none;
-    /* Disable transitions on mobile */
   }
 
   #link-container {
@@ -210,6 +209,11 @@ a {
     min-height: var(--title-font-size-mobile);
     font-size: var(--title-font-size-mobile);
     font-weight: bold;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
   }
 
   li {
