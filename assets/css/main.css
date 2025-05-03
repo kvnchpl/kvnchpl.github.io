@@ -19,6 +19,15 @@
   --overlay-z-index: 100;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 main,
 header,
 footer {
@@ -201,8 +210,6 @@ a {
     min-height: var(--title-font-size-mobile);
     font-size: var(--title-font-size-mobile);
     font-weight: bold;
-    max-width: 100%;
-    overflow: hidden;
   }
 
   li {
