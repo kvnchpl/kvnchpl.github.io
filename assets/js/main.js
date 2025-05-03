@@ -492,4 +492,11 @@
         }, config.debounceTime)
     );
 
+    document.addEventListener("DOMContentLoaded", () => {
+        const currentNavLink = document.querySelector("#site-nav a.current");
+        if (currentNavLink) {
+            const text = currentNavLink.textContent.trim();
+            currentNavLink.textContent = `*${text}*`;
+        }
+    });
 })();
