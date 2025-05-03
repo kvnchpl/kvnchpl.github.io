@@ -55,8 +55,10 @@
         return { metaTags, fetchedData };
     };
 
+    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || "index";
+
     const getCurrentPath = () => {
-        const path = window.location.pathname.replace(/^\/|\/$/g, "") || "index";
+        const path = normalizePath(window.location.pathname);
         return { path, isHomepage: path === "index" };
     };
 
@@ -390,7 +392,7 @@
         if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
 
         const isCollectionPage = index.some((item) => {
-            const normalizedPermalink = item.permalink.replace(/^\/|\/$/g, "") || "index";
+            const normalizedPermalink = normalizePath(item.permalink);
             return normalizedPermalink === path && item.collection !== false;
         });
 
@@ -425,7 +427,7 @@
 
         // Optionally sort by date if specified in index.json for this path
         const pageMeta = indexData.find((item) => {
-            const normalizedPermalink = item.permalink.replace(/^\/|\/$/g, "") || "index";
+            const normalizedPermalink = normalizePath(item.permalink);
             return normalizedPermalink === path;
         });
 
@@ -435,7 +437,7 @@
 
         // Clear existing links and render new ones
         list.innerHTML = "";
-        const fragment = populateLinks(collectionData, sectionsConfig[path.replace(/^\/|\/$/g, "")]?.format);
+        const fragment = populateLinks(collectionData, sectionsConfig[normalizePath(path)]?.format);
         list.appendChild(fragment);
 
         const rows = Array.from(list.children);
