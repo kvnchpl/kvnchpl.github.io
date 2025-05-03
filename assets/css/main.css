@@ -35,7 +35,7 @@ footer {
   margin: 0 auto;
   padding: 0;
   height: auto;
-  min-height: calc(100vh - var(--nav-height)); 
+  min-height: calc(100vh - var(--nav-height));
   overflow: visible;
 }
 
@@ -89,13 +89,13 @@ li {
   color: var(--link-hover-color);
 }
 
-.title-row {
+#title-row {
   margin-bottom: var(--gap-size-desktop);
   min-height: var(--title-font-size);
   overflow: visible;
 }
 
-.title-row a {
+#title-row a {
   font-size: var(--title-font-size);
   text-transform: uppercase;
 }
