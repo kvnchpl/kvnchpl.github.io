@@ -1,6 +1,6 @@
 {
     "debounceTime": 200,
-    "shuffleInterval": 5000,
+    "shuffleInterval": 3000,
     "navBarId": "site-nav",
     "linkContainerId": "link-container",
     "linkWrapperClass": "link-wrapper",
