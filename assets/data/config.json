@@ -24,5 +24,19 @@
         "readings": "readings-data",
         "writings": "writings-data"
     },
-    "indexFallbackKey": "index"
+    "indexFallbackKey": "index",
+    "monthNames": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+    ]
 }
