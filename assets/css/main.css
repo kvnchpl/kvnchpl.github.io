@@ -5,7 +5,8 @@
   --subtitle-margin-top: 0.25rem;
   --font-size: 1.2rem;
   --subtitle-font-size: 0.96rem;
-  --title-font-size: 2.5rem;
+  --title-font-size-desktop: 2.5rem;
+  --title-font-size-mobile: 1rem;
   --nav-height: 4rem;
 
   --transition-duration: 0.5s;
@@ -91,8 +92,8 @@ li {
 
 #title-row {
   margin-bottom: var(--gap-size-desktop);
-  min-height: var(--title-font-size);
-  font-size: var(--title-font-size);
+  min-height: var(--title-font-size-desktop);
+  font-size: var(--title-font-size-desktop);
   text-transform: uppercase;
   overflow: visible;
 }
@@ -194,6 +195,11 @@ a {
 
   #link-container {
     gap: var(--gap-size-mobile);
+  }
+
+  #title-row {
+    min-height: var(--title-font-size-mobile);
+    font-size: var(--title-font-size-mobile);
   }
 
   li {
