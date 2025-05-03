@@ -104,6 +104,10 @@ p {
   text-transform: lowercase;
 }
 
+#main-content p:first {
+  margin-top: 3rem;
+}
+
 a {
   white-space: nowrap;
   text-decoration: none;
