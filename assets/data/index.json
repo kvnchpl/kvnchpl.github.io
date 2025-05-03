@@ -7,7 +7,11 @@
         "newTab": false,
         "label": "Home",
         "navBar": true,
-        "isTitle": true
+        "isTitle": true,
+        "metaName": "index-data",
+        "containerId": "link-container",
+        "isListPage": true,
+        "format": "default"
     },
     {
         "title": "See what I’m working on",
@@ -17,7 +21,11 @@
         "newTab": false,
         "label": "Projects",
         "navBar": true,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": "projects-data",
+        "containerId": "link-container",
+        "isListPage": true,
+        "format": "default"
     },
     {
         "title": "See what I’m thinking about",
@@ -27,7 +35,11 @@
         "newTab": true,
         "label": "Thoughts",
         "navBar": true,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": null,
+        "containerId": null,
+        "isListPage": false,
+        "format": null
     },
     {
         "title": "See what I’m writing",
@@ -37,7 +49,11 @@
         "newTab": false,
         "label": "Writings",
         "navBar": true,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": "writings-data",
+        "containerId": "link-container",
+        "isListPage": true,
+        "format": "default"
     },
     {
         "title": "See what I’m reading",
@@ -47,7 +63,11 @@
         "newTab": false,
         "label": "Readings",
         "navBar": true,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": "readings-data",
+        "containerId": "link-container",
+        "isListPage": true,
+        "format": "detailed"
     },
     {
         "title": "See what I’m watching",
@@ -57,7 +77,11 @@
         "newTab": true,
         "label": "Watchings",
         "navBar": false,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": null,
+        "containerId": null,
+        "isListPage": false,
+        "format": null
     },
     {
         "title": "See what I’m listening to",
@@ -67,7 +91,11 @@
         "newTab": true,
         "label": "Listenings",
         "navBar": false,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": null,
+        "containerId": null,
+        "isListPage": false,
+        "format": null
     },
     {
         "title": "Go hunting for hydrants",
@@ -77,7 +105,11 @@
         "newTab": true,
         "label": "Hydrants",
         "navBar": false,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": null,
+        "containerId": null,
+        "isListPage": false,
+        "format": null
     },
     {
         "title": "Say hi",
@@ -87,6 +119,10 @@
         "newTab": false,
         "label": "Contact",
         "navBar": true,
-        "isTitle": false
+        "isTitle": false,
+        "metaName": null,
+        "containerId": null,
+        "isListPage": false,
+        "format": null
     }
 ]

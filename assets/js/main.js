@@ -298,15 +298,14 @@ import {
 
     const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
         const index = fetchedData[metaTags.index];
-        const sections = fetchedData[metaTags.sections];
         const images = fetchedData[metaTags.overlayImages];
         const sectionKey = isHomepage ? "index" : path;
-        const collectionMeta = sections[sectionKey]?.metaName;
-        const collectionData = collectionMeta ? fetchedData[collectionMeta] : [];
+        const section = index.find(item => normalizePath(item.permalink) === sectionKey);
+        const collectionData = section?.metaName ? fetchedData[section.metaName] : [];
 
         const overlaySetup = await setupOverlayImages(images, config);
 
-        console.log("DEBUG: Initializing:", { path, sectionKey, collectionMeta, fetchedData });
+        console.log("DEBUG: Initializing:", { path, sectionKey, section, fetchedData });
 
         if (!overlaySetup || typeof overlaySetup !== "object") {
             throw new Error("Overlay setup failed or returned invalid object.");
@@ -321,16 +320,15 @@ import {
         });
 
         if (isCollectionPage) {
-            const sectionKey = isHomepage ? "index" : path;
             // Use overlayA for hover overlays; overlayB is used for crossfade
-            initializeCollectionPage(path, index, sections, getNextImage, overlayA, collectionData);
+            initializeCollectionPage(path, section?.format, getNextImage, overlayA, collectionData);
         } else {
             initializeIndividualPage(path);
         }
     };
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    const initializeCollectionPage = async (path, indexData, sectionsConfig, getNextImage, overlay, collectionData) => {
+    const initializeCollectionPage = async (path, format, getNextImage, overlay, collectionData) => {
         console.log(`DEBUG: Initializing collection page: ${path}`);
 
         const container = document.getElementById(config.linkContainerId);
@@ -350,19 +348,9 @@ import {
             return;
         }
 
-        // Optionally sort by date if specified in index.json for this path
-        const pageMeta = indexData.find((item) => {
-            const normalizedPermalink = normalizePath(item.permalink);
-            return normalizedPermalink === path;
-        });
-
-        if (pageMeta?.dateSorted) {
-            collectionData.sort((a, b) => new Date(a.date) - new Date(b.date));
-        }
-
         // Clear existing links and render new ones
         list.innerHTML = "";
-        const fragment = populateLinks(collectionData, sectionsConfig[normalizePath(path)]?.format);
+        const fragment = populateLinks(collectionData, format);
         list.appendChild(fragment);
 
         const rows = Array.from(list.children);
