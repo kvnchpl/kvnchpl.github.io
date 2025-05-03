@@ -455,8 +455,7 @@
     const { pathname } = window.location;
 
     const { metaTags, fetchedData } = await fetchConfigAndData();
-    const path = normalizePath(pathname);
-    const isHomepage = path === config.indexFallbackKey;
+    const isHomepage = normalizePath(pathname) === config.indexFallbackKey;
 
     await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
