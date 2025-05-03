@@ -1,7 +1,6 @@
 ---
 layout: default
 title: say hi
-description: Get in touch with me for collaborations, inquiries, or just to say hello.
 permalink: /contact/
 ---
 
