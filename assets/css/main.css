@@ -6,7 +6,7 @@
   --font-size: 1.2rem;
   --subtitle-font-size: 0.96rem;
   --title-font-size-desktop: 2.5rem;
-  --title-font-size-mobile: 1rem;
+  --title-font-size-mobile: 1.2rem;
   --nav-height: 4rem;
 
   --transition-duration: 0.5s;
@@ -200,6 +200,7 @@ a {
   #title-row {
     min-height: var(--title-font-size-mobile);
     font-size: var(--title-font-size-mobile);
+    font-weight: bold;
   }
 
   li {
