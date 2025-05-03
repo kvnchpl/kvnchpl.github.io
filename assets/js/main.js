@@ -485,7 +485,7 @@
     // MAIN INITIALIZATION
     // ==========================
 
-    const { config, metaTags, fetchedData } = await fetchConfigAndData();
+    const { metaTags, fetchedData } = await fetchConfigAndData();
     const { path, isHomepage } = getCurrentPath();
     await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
