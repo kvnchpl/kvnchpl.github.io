@@ -245,7 +245,6 @@
 
         let shuffledImages = [];
         const preloadedImages = new Map();
-        let animationFrameId = null;
 
         const preloadImage = (src) => {
             return new Promise((resolve, reject) => {
@@ -268,24 +267,6 @@
                 return image;
             };
         })();
-
-        const fadeInOverlay = (element, duration = config.fadeDuration) => {
-            if (animationFrameId) cancelAnimationFrame(animationFrameId);
-            let opacity = 0;
-            const startTime = performance.now();
-
-            const animate = (currentTime) => {
-                const elapsedTime = currentTime - startTime;
-                opacity = Math.min(elapsedTime / duration, 1);
-                element.style.opacity = opacity;
-
-                if (opacity < 1) {
-                    animationFrameId = requestAnimationFrame(animate);
-                }
-            };
-
-            animationFrameId = requestAnimationFrame(animate);
-        };
 
         if (Array.isArray(images) && images.length > 0) {
             shuffledImages = images.sort(() => Math.random() - 0.5);
@@ -311,7 +292,6 @@
                 const firstImage = shuffledImages.find((src) => preloadedImages.has(src));
                 if (firstImage) {
                     overlay.style.backgroundImage = `url(${firstImage})`;
-                    fadeInOverlay(overlay);
                     overlay.classList.add("visible");
                 } else {
                     logError("No preloaded image available for mobile overlay.");
