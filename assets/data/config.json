@@ -1,6 +1,6 @@
 {
     "debounceTime": 200,
-    "imageShuffleDuration": 5000,
+    "shuffleImageDuration": 5000,
     "navBarId": "site-nav",
     "linkContainerId": "link-container",
     "linkWrapperClass": "link-wrapper",
@@ -19,5 +19,10 @@
         "projects": "projects-data",
         "readings": "readings-data",
         "writings": "writings-data"
-    }
+    },
+    "arrowSymbols": {
+        "left": "←",
+        "right": "→"
+    },
+    "indexFallbackKey": "index"
 }
