@@ -47,7 +47,7 @@
 
         window.config = config;
 
-        const metaTags = config.metaTags || {};
+        const metaTags = config.metaTags;
         const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
         const fetchedData = await settleFetch(keysToFetch);
         console.log("DEBUG: Fetched data keys:", Object.keys(fetchedData));
