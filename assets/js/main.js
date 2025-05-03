@@ -42,7 +42,7 @@
 
     const fetchConfigAndData = async () => {
         const config = await fetchJSON("config-data", {});
-        console.log("Fetched config:", config); // Debugging
+        console.log("DEBUG: Fetched config:", config); // Debugging
         if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
 
         window.config = config;
