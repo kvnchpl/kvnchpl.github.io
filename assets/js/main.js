@@ -239,9 +239,11 @@
 
     // Modularized overlay image handling
     const setupOverlayImages = async (images, config = window.config) => {
-        const overlay = document.getElementById(config.imageOverlayId);
-        if (!overlay) {
-            logError(`Overlay element not found with ID: ${config.imageOverlayId}`);
+        // Replace single overlay lookup with dual overlays
+        const overlayA = document.getElementById("image-overlay-a");
+        const overlayB = document.getElementById("image-overlay-b");
+        if (!overlayA || !overlayB) {
+            logError("Overlay elements not found.");
             return null;
         }
 
@@ -286,43 +288,42 @@
                 if (config.debugMode) {
                     alert("Image overlay failed to load.");
                 }
-                return { overlay, getNextImage: () => null };
+                return { overlayA, overlayB, getNextImage: () => null };
             }
 
             // For mobile: show the first image immediately
             if (isMobileDevice()) {
                 const firstImage = shuffledImages.find((src) => preloadedImages.has(src));
                 if (firstImage) {
-                    overlay.style.backgroundImage = `url(${firstImage})`;
-                    overlay.classList.add("visible");
-                } else {
-                    logError("No preloaded image available for mobile overlay.");
+                    overlayA.style.backgroundImage = `url(${firstImage})`;
+                    overlayA.classList.add("visible");
                 }
             }
         } else {
             logError("No overlay images defined or input is invalid.");
         }
 
-        return { overlay, getNextImage };
+        return { overlayA, overlayB, getNextImage };
     };
 
-    const setupScrollBasedOverlay = (overlay, getNextImage) => {
+    const setupScrollBasedOverlay = (overlayA, overlayB, getNextImage) => {
         if (!isMobileDevice()) return;
 
-        const interval = config.shuffleInterval;
+        let isAVisible = true;
 
-        // Shuffle to the next image every X milliseconds with fade effect
         setInterval(() => {
             const nextImage = getNextImage();
-            if (nextImage) {
-                // Fade out by removing .visible
-                overlay.classList.remove("visible");
-                setTimeout(() => {
-                    overlay.style.backgroundImage = `url(${nextImage})`;
-                    overlay.classList.add("visible");
-                }, 100); // allow opacity to drop before swapping image
-            }
-        }, interval);
+            if (!nextImage) return;
+
+            const showOverlay = isAVisible ? overlayB : overlayA;
+            const hideOverlay = isAVisible ? overlayA : overlayB;
+
+            showOverlay.style.backgroundImage = `url(${nextImage})`;
+            showOverlay.classList.add("visible");
+            hideOverlay.classList.remove("visible");
+
+            isAVisible = !isAVisible;
+        }, config.shuffleInterval);
     };
 
     // ==========================
@@ -344,9 +345,9 @@
         if (!overlaySetup || typeof overlaySetup !== "object") {
             throw new Error("Overlay setup failed or returned invalid object.");
         }
-        const { getNextImage, overlay } = overlaySetup;
+        const { getNextImage, overlayA, overlayB } = overlaySetup;
 
-        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
+        if (isMobileDevice()) setupScrollBasedOverlay(overlayA, overlayB, getNextImage);
 
         const isCollectionPage = index.some((item) => {
             const normalizedPermalink = normalizePath(item.permalink);
@@ -355,7 +356,8 @@
 
         if (isCollectionPage) {
             const sectionKey = isHomepage ? "index" : path;
-            initializeCollectionPage(path, index, sections, getNextImage, overlay, collectionData);
+            // Use overlayA for hover overlays; overlayB is used for crossfade
+            initializeCollectionPage(path, index, sections, getNextImage, overlayA, collectionData);
         } else {
             initializeIndividualPage(path);
         }

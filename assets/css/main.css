@@ -124,7 +124,7 @@ a {
 }
 
 /* Image overlay */
-#image-overlay {
+.image-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -134,14 +134,13 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
+  transition: opacity var(--transition-duration, 0.5s) ease-in-out;
+  z-index: var(--overlay-z-index, 100);
   pointer-events: none;
-  transition: opacity var(--transition-duration) ease-in-out;
-  z-index: var(--overlay-z-index);
-  will-change: opacity;
 }
 
-#image-overlay.visible {
-  opacity: var(--overlay-opacity);
+.image-overlay.visible {
+  opacity: var(--overlay-opacity, 0.5);
 }
 
 /* Navigation styles */
