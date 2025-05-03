@@ -147,7 +147,7 @@
 
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
-            if (!isMobile) {
+            if (!isMobileDevice()) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
