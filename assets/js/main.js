@@ -4,7 +4,7 @@
     // ==========================
     // GLOBAL CONSTANTS
     // ==========================
-    const isMobileDevice = () => window.matchMedia("(max-width: 768px)").matches;
+    const isHoverCapable = () => window.matchMedia("(hover: hover)").matches;
     let cachedViewportWidth = window.innerWidth;
     const logError = (message, context = {}) => console.error(message, context);
 
@@ -71,7 +71,7 @@
             logError("Invalid dimensions for random position generation.");
             return 0;
         }
-        const margin = isMobileDevice()
+        const margin = isHoverCapable()
             ? config.linkMargins.mobile
             : config.linkMargins.desktop;
         const minPosition = margin;
@@ -147,7 +147,7 @@
 
             row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
 
-            if (!isMobileDevice()) {
+            if (!isHoverCapable()) {
                 const linkWidth = link.offsetWidth;
                 const viewportWidth = window.innerWidth;
 
@@ -181,7 +181,7 @@
     };
 
     const handlePointerEnter = (linkWrapper, rows, index, getNextImage, overlay) => {
-        if (isMobileDevice()) return; // Disable overlay functionality on mobile
+        if (isHoverCapable()) return; // Disable overlay functionality on mobile
 
         const hoveredRect = linkWrapper.getBoundingClientRect();
         const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
@@ -217,7 +217,7 @@
     };
 
     const handlePointerLeave = (rows, overlay) => {
-        if (isMobileDevice()) return;
+        if (isHoverCapable()) return;
         resetLinkPositions(rows);
         overlay.classList.remove("visible");
     };
@@ -290,7 +290,7 @@
             }
 
             // For mobile: show the first image immediately
-            if (isMobileDevice()) {
+            if (isHoverCapable()) {
                 const firstImage = shuffledImages.find((src) => preloadedImages.has(src));
                 if (firstImage) {
                     overlay.style.backgroundImage = `url(${firstImage})`;
@@ -307,7 +307,7 @@
     };
 
     const setupScrollBasedOverlay = (overlay, getNextImage) => {
-        if (!isMobileDevice()) return;
+        if (!isHoverCapable()) return;
 
         const interval = config.shuffleInterval;
 
@@ -342,7 +342,7 @@
         }
         const { getNextImage, overlay } = overlaySetup;
 
-        if (isMobileDevice()) setupScrollBasedOverlay(overlay, getNextImage);
+        if (isHoverCapable()) setupScrollBasedOverlay(overlay, getNextImage);
 
         const isCollectionPage = index.some((item) => {
             const normalizedPermalink = normalizePath(item.permalink);
