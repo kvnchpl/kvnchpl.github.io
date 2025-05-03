@@ -12,9 +12,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const navItems = data.filter(item => !item.isTitle);
 
         navItems.forEach((item, index) => {
+            const label = item.label || item.title;
+            if (!label) return;
+
             const a = document.createElement("a");
             a.href = item.permalink;
-            a.textContent = item.title;
+            a.textContent = label;
 
             if (item.external) {
                 a.target = item.newTab === false ? "_self" : "_blank";
@@ -24,13 +27,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             const normalizedPermalink = normalizePath(item.permalink);
             if (normalizedPermalink === currentPath) {
                 a.classList.add("current");
-                a.textContent = `*${item.title}*`;
+                a.textContent = `*${label}*`;
             }
 
             nav.appendChild(a);
             if (index < navItems.length - 1) {
                 const sep = document.createElement("span");
-                sep.textContent = "/";
+                sep.textContent = " / ";
                 nav.appendChild(sep);
             }
         });
