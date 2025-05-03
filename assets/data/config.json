@@ -1,6 +1,6 @@
 {
     "debounceTime": 200,
-    "shuffleImageDuration": 5000,
+    "imageShuffleDuration": 5000,
     "navBarId": "site-nav",
     "linkContainerId": "link-container",
     "linkWrapperClass": "link-wrapper",
