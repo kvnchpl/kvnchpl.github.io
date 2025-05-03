@@ -55,6 +55,8 @@
         return { metaTags, fetchedData };
     };
 
+    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || "index";
+
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {
@@ -491,9 +493,6 @@
     // ==========================
     // MAIN INITIALIZATION
     // ==========================
-
-
-    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || "index";
 
     const { pathname } = window.location;
     const path = normalizePath(pathname);
