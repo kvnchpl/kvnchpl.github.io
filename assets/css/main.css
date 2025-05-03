@@ -173,26 +173,33 @@ a {
   color: var(--font-color);
 }
 
-/* Mobile styles */
-@media (max-width: 768px) {
+@media (hover: hover) {
+  .link-wrapper a:hover {
+    transform: scale(var(--hover-scale));
+    color: var(--link-hover-color);
+  }
+
+  #image-overlay {
+    pointer-events: none;
+  }
+}
+
+@media (hover: none) {
   .row.left-arrow .link-wrapper {
     position: relative;
     left: auto;
     right: 0;
-    /* Right-justify left-arrow rows */
     text-align: right;
   }
 
   .row.right-arrow .link-wrapper {
     position: relative;
     left: 0;
-    /* Left-justify right-arrow rows */
     text-align: left;
   }
 
   .link-wrapper {
     transition: none;
-    /* Disable transitions on mobile */
   }
 
   #link-container {
