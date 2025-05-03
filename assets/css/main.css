@@ -100,6 +100,10 @@ li {
   text-transform: uppercase;
 }
 
+p {
+  text-transform: lowercase;
+}
+
 a {
   white-space: nowrap;
   text-decoration: none;
