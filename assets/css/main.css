@@ -104,7 +104,7 @@ p {
   text-transform: lowercase;
 }
 
-#main-content p:first {
+#main-content p:first-child {
   margin-top: 4rem;
 }
 
