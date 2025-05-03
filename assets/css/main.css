@@ -163,16 +163,6 @@ a {
   color: var(--link-hover-color);
 }
 
-#site-nav a.current::before {
-  content: "*";
-  margin-right: 0;
-}
-
-#site-nav a.current::after {
-  content: "*";
-  margin-left: 0;
-}
-
 #site-nav span {
   color: var(--font-color);
 }
