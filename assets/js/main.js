@@ -311,12 +311,16 @@
 
         const interval = config.shuffleInterval;
 
-        // Shuffle to the next image every X milliseconds
+        // Shuffle to the next image every X milliseconds with fade effect
         setInterval(() => {
             const nextImage = getNextImage();
             if (nextImage) {
-                overlay.style.backgroundImage = `url(${nextImage})`;
-                overlay.classList.add("visible");
+                // Fade out by removing .visible
+                overlay.classList.remove("visible");
+                setTimeout(() => {
+                    overlay.style.backgroundImage = `url(${nextImage})`;
+                    overlay.classList.add("visible");
+                }, 100); // allow opacity to drop before swapping image
             }
         }, interval);
     };
