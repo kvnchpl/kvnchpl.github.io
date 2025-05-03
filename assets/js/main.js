@@ -452,10 +452,11 @@
     // MAIN INITIALIZATION
     // ==========================
 
-    const { path } = window.location;
+    const { pathname } = window.location;
 
     const { metaTags, fetchedData } = await fetchConfigAndData();
-    const isHomepage = normalizePath(path) === config.indexFallbackKey;
+    const path = normalizePath(pathname);
+    const isHomepage = path === config.indexFallbackKey;
 
     await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
