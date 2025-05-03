@@ -8,15 +8,6 @@
     "titleRowId": "title-row",
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
-    "scrollThresholds": {
-        "shortPage": 800,
-        "mediumPage": 1600
-    },
-    "scrollIntervals": {
-        "shortPage": 2,
-        "mediumPage": 3,
-        "longPage": 4
-    },
     "linkMargins": {
         "mobile": 40,
         "desktop": 80
