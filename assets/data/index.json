@@ -5,7 +5,7 @@
         "collection": true,
         "external": false,
         "newTab": false,
-        "label": "HOME",
+        "label": "Home",
         "navBar": true,
         "isTitle": true
     },
@@ -15,7 +15,7 @@
         "collection": true,
         "external": false,
         "newTab": false,
-        "label": "PROJECTS",
+        "label": "Projects",
         "navBar": true,
         "isTitle": false
     },
@@ -25,7 +25,7 @@
         "collection": true,
         "external": true,
         "newTab": true,
-        "label": "THOUGHTS",
+        "label": "Thoughts",
         "navBar": true,
         "isTitle": false
     },
@@ -35,7 +35,7 @@
         "collection": true,
         "external": false,
         "newTab": false,
-        "label": "WRITINGS",
+        "label": "Writings",
         "navBar": true,
         "isTitle": false
     },
@@ -45,7 +45,7 @@
         "collection": true,
         "external": false,
         "newTab": false,
-        "label": "READINGS",
+        "label": "Readings",
         "navBar": true,
         "isTitle": false
     },
@@ -55,7 +55,7 @@
         "collection": true,
         "external": true,
         "newTab": true,
-        "label": "WATCHINGS",
+        "label": "Watchings",
         "navBar": false,
         "isTitle": false
     },
@@ -65,7 +65,7 @@
         "collection": true,
         "external": true,
         "newTab": true,
-        "label": "LISTENINGS",
+        "label": "Listenings",
         "navBar": false,
         "isTitle": false
     },
@@ -75,7 +75,7 @@
         "collection": true,
         "external": true,
         "newTab": true,
-        "label": "HYDRANTS",
+        "label": "Hydrants",
         "navBar": false,
         "isTitle": false
     },
@@ -85,7 +85,7 @@
         "collection": false,
         "external": false,
         "newTab": false,
-        "label": "CONTACT",
+        "label": "Contact",
         "navBar": true,
         "isTitle": false
     }
