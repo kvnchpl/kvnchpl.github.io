@@ -40,5 +40,6 @@
     {
         "title": "Say hi",
         "permalink": "/contact"
+        "individual": true
     }
 ]
