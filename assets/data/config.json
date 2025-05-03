@@ -38,5 +38,19 @@
         "October",
         "November",
         "December"
+    ],
+    "requiredIndexKeys": [
+        "title",
+        "permalink",
+        "collection",
+        "external",
+        "newTab",
+        "label",
+        "navBar",
+        "isTitle",
+        "metaName",
+        "containerId",
+        "isListPage",
+        "format"
     ]
 }
