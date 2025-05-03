@@ -5,7 +5,7 @@
     "linkContainerId": "link-container",
     "linkWrapperClass": "link-wrapper",
     "rowClass": "row",
-    "titleRowClass": "title-row",
+    "titleRowId": "title-row",
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
     "scrollThresholds": {
