@@ -55,13 +55,6 @@
         return { metaTags, fetchedData };
     };
 
-    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || "index";
-
-    const getCurrentPath = () => {
-        const path = normalizePath(window.location.pathname);
-        return { path, isHomepage: path === "index" };
-    };
-
     const debounce = (func, delay) => {
         let timeout;
         return (...args) => {
@@ -499,8 +492,14 @@
     // MAIN INITIALIZATION
     // ==========================
 
+
+    const normalizePath = (permalink) => permalink.replace(/^\/|\/$/g, "") || "index";
+
+    const { pathname } = window.location;
+    const path = normalizePath(pathname);
+    const isHomepage = path === "index";
+
     const { metaTags, fetchedData } = await fetchConfigAndData();
-    const { path, isHomepage } = getCurrentPath();
     await initializePage(path, isHomepage, config, metaTags, fetchedData);
 
     // Adjust link container height on load and resize
