@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             const a = document.createElement("a");
             a.href = item.permalink;
-            a.textContent = label;
+            a.textContent = isMobileDevice() ? `/ ${label} /` : label;
             a.target = item.newTab ? "_blank" : "_self";
 
             if (item.external) {
@@ -26,14 +26,24 @@ document.addEventListener("DOMContentLoaded", async () => {
             const normalizedPermalink = normalizePath(item.permalink);
             if (normalizedPermalink === currentPath) {
                 a.classList.add("current");
-                a.textContent = `*${label}*`;
+                if (isMobileDevice()) {
+                    a.textContent = `* ${label} *`;
+                } else {
+                    a.textContent = `*${label}*`;
+                }
             }
 
-            nav.appendChild(a);
-            if (index < navItems.length - 1) {
-                const sep = document.createElement("span");
-                sep.textContent = " / ";
-                nav.appendChild(sep);
+            if (isMobileDevice()) {
+                const container = document.createElement("div");
+                container.appendChild(a);
+                nav.appendChild(container);
+            } else {
+                nav.appendChild(a);
+                if (index < navItems.length - 1) {
+                    const sep = document.createElement("span");
+                    sep.textContent = " / ";
+                    nav.appendChild(sep);
+                }
             }
         });
     } catch (error) {
