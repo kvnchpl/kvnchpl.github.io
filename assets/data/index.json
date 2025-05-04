@@ -2,7 +2,7 @@
     {
         "title": "Kevin Cunanan Chappelle :)",
         "permalink": "/",
-        "collection": true,
+        "collection": false,
         "external": false,
         "newTab": false,
         "label": "Home",
@@ -26,7 +26,7 @@
     {
         "title": "See what I’m thinking about",
         "permalink": "https://kvnchpl-thoughts.tumblr.com/",
-        "collection": true,
+        "collection": false,
         "external": true,
         "newTab": true,
         "label": "Thoughts",
@@ -62,7 +62,7 @@
     {
         "title": "See what I’m watching",
         "permalink": "https://letterboxd.com/kvnchpl/",
-        "collection": true,
+        "collection": false,
         "external": true,
         "newTab": true,
         "label": "Watchings",
@@ -74,7 +74,7 @@
     {
         "title": "See what I’m listening to",
         "permalink": "https://open.spotify.com/user/kevchap",
-        "collection": true,
+        "collection": false,
         "external": true,
         "newTab": true,
         "label": "Listenings",
@@ -86,7 +86,7 @@
     {
         "title": "Go hunting for hydrants",
         "permalink": "https://hydranthunt.com/",
-        "collection": true,
+        "collection": false,
         "external": true,
         "newTab": true,
         "label": "Hydrants",
