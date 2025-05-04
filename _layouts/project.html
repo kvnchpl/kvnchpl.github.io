@@ -4,19 +4,21 @@ layout: default
 
 <h1>{{ page.title }}</h1>
 
-<div class="slideshow">
-    <button class="prev">&#10094;</button>
-    <div class="slides-wrapper">
-        {% for img in page.images %}
-        <div class="slide">
-            <img src="{{ img }}" alt="{{ page.title }} image">
+<div class="centered-container">
+    <div class="slideshow">
+        <button class="prev">&#10094;</button>
+        <div class="slides-wrapper">
+            {% for img in page.images %}
+            <div class="slide">
+                <img src="{{ img }}" alt="{{ page.title }} image">
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+        <button class="next">&#10095;</button>
     </div>
-    <button class="next">&#10095;</button>
-</div>
 
-<p>{{ page.description }}</p>
+    <p class="project-description">{{ page.description }}</p>
+</div>
 
 <div class="content">
     {{ content }}
