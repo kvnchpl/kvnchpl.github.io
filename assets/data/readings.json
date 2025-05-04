@@ -6,7 +6,9 @@
       "publication": "Example Journal",
       "month": 1,
       "year": 1994,
-      "external": true
+      "external": true,
+      "description": null,
+      "images": []
   },
   {
       "title": "A Thousand Plateaus",
@@ -15,6 +17,8 @@
       "publication": "Example Publication",
       "month": "Fall",
       "year": 1980,
-      "external": true
+      "external": true,
+      "description": null,
+      "images": []
   }
 ]

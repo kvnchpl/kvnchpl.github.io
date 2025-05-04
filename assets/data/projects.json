@@ -8,7 +8,11 @@
             "/assets/images/projects/viewfinder/viewfinder_1.png",
             "/assets/images/projects/viewfinder/viewfinder_2.png",
             "/assets/images/projects/viewfinder/viewfinder_3.png"
-        ]
+        ],
+        "publication": null,
+        "month": null,
+        "year": null,
+        "external": false
     },
     {
         "title": "Triptych",
@@ -19,13 +23,22 @@
             "/assets/images/projects/triptych/triptych_1.png",
             "/assets/images/projects/triptych/triptych_2.png",
             "/assets/images/projects/triptych/triptych_3.png"
-        ]
+        ],
+        "publication": null,
+        "month": null,
+        "year": null,
+        "external": false
     },
     {
         "title": "Shed Your Skin",
         "permalink": "/projects/shed-your-skin",
         "subtitle": "April 2025",
-        "description": "Love letter to a speculative liberatory learning society."
+        "description": "Love letter to a speculative liberatory learning society.",
+        "images": [],
+        "publication": null,
+        "month": null,
+        "year": null,
+        "external": false
     },
     {
         "title": "Archipelago",
@@ -36,12 +49,21 @@
             "/assets/images/projects/archipelago/archipelago_1.png",
             "/assets/images/projects/archipelago/archipelago_2.png",
             "/assets/images/projects/archipelago/archipelago_3.png"
-        ]
+        ],
+        "publication": null,
+        "month": null,
+        "year": null,
+        "external": false
     },
     {
         "title": "Compiler Buddha",
         "permalink": "/projects/compiler-buddha",
         "subtitle": "April 2025",
-        "description": "Homage to Nam June Paik, code that refashions itself into the Buddha's image."
+        "description": "Homage to Nam June Paik, code that refashions itself into the Buddha's image.",
+        "images": [],
+        "publication": null,
+        "month": null,
+        "year": null,
+        "external": false
     }
 ]
