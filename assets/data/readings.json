@@ -1,24 +1,24 @@
 [
-  {
-      "title": "Technics and Time",
-      "permalink": "https://example.com",
-      "subtitle": "Bernard Stiegler",
-      "publication": "Example Journal",
-      "month": 1,
-      "year": 1994,
-      "external": true,
-      "description": null,
-      "images": []
-  },
-  {
-      "title": "A Thousand Plateaus",
-      "permalink": "https://example.com",
-      "subtitle": "Deleuze & Guattari",
-      "publication": "Example Publication",
-      "month": "Fall",
-      "year": 1980,
-      "external": true,
-      "description": null,
-      "images": []
-  }
+    {
+        "title": "Technics and Time",
+        "permalink": "https://example.com",
+        "subtitle": "Bernard Stiegler",
+        "publication": "Example Journal",
+        "month": 1,
+        "year": 1994,
+        "external": true,
+        "description": null,
+        "images": []
+    },
+    {
+        "title": "A Thousand Plateaus",
+        "permalink": "https://example.com",
+        "subtitle": "Deleuze & Guattari",
+        "publication": "Example Publication",
+        "month": "Fall",
+        "year": 1980,
+        "external": true,
+        "description": null,
+        "images": []
+    }
 ]
