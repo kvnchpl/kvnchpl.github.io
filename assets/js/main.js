@@ -54,6 +54,25 @@ import {
         }
     };
 
+    // Validate collection data structure for required keys
+    const validateCollectionData = (collectionData, sectionLabel = "unknown") => {
+        const requiredKeys = config.requiredCollectionKeys || [];
+        const errors = [];
+
+        collectionData.forEach((item, i) => {
+            requiredKeys.forEach((key) => {
+                if (!item.hasOwnProperty(key)) {
+                    errors.push(`Missing key "${key}" in ${sectionLabel} item at position ${i}: ${JSON.stringify(item)}`);
+                }
+            });
+        });
+
+        if (errors.length > 0) {
+            logError(`Collection validation failed for section "${sectionLabel}":\n` + errors.join("\n"));
+            throw new Error(`Invalid collection data for "${sectionLabel}"`);
+        }
+    };
+
     // Utility function to generate a random position for links
     const generateRandomPosition = (linkWidth, viewportWidth) => {
         if (viewportWidth <= 0 || linkWidth <= 0) {
@@ -325,6 +344,10 @@ import {
         const sectionKey = isHomepage ? "index" : path;
         const section = index.find(item => normalizePath(item.permalink) === sectionKey);
         const collectionData = section?.metaName ? fetchedData[section.metaName] : [];
+
+        if (section?.label && Array.isArray(collectionData)) {
+            validateCollectionData(collectionData, section.label);
+        }
 
         const overlaySetup = await setupOverlayImages(images, config);
 
