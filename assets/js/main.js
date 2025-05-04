@@ -346,9 +346,8 @@ import {
         const collectionData = section?.metaName ? fetchedData[section.metaName] : [];
 
         if (section?.collection && Array.isArray(collectionData)) {
-            // Skip validation for homepage collection (only needs links)
-            const skipValidationFor = ["Home"];
-            if (!skipValidationFor.includes(section.label)) {
+            // Skip validation for homepage collection based on permalink
+            if (section.permalink !== "/") {
                 validateCollectionData(collectionData, section.label);
             }
         }
