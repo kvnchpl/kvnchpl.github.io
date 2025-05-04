@@ -18,7 +18,6 @@
     },
     "metaTags": {
         "index": "index-data",
-        "sections": "section-data",
         "overlayImages": "overlay-images-data",
         "projects": "projects-data",
         "readings": "readings-data",
