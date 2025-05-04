@@ -96,16 +96,17 @@ import {
     // Format subtitle based on the provided format
     const formatSubtitle = (item, format) => {
         const formatDate = (month) => config.monthNames[month - 1] || month;
+        const month = item.month ? formatDate(item.month) : "";
+        const year = item.year || "";
+        const pub = item.publication || "";
+        const subtitle = item.subtitle;
 
         if (format === "detailed") {
-            const month = item.month ? formatDate(item.month) : "";
-            const year = item.year || "";
-            const pub = item.publication || "";
-            const subtitle = item.subtitle || "";
-            return `—${subtitle}, ${pub}, ${month} ${year}`.trim();
+            const subtitleText = subtitle ?? `${month} ${year}`.trim();
+            return `—${subtitleText}, ${pub}, ${month} ${year}`.trim();
         }
 
-        return item.subtitle;
+        return subtitle ?? `${month} ${year}`.trim();
     };
 
     const calculateAvailableHeight = (navBar, titleRow) => {
