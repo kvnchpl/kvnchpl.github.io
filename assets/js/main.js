@@ -22,7 +22,6 @@ import {
 
     const fetchConfigAndData = async () => {
         const config = await fetchJSON("config-data", {});
-        console.log("DEBUG: Fetched config:", config); // Debugging
         if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
 
         window.config = config;
@@ -30,7 +29,6 @@ import {
         const metaTags = config.metaTags;
         const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
         const fetchedData = await settleFetch(keysToFetch);
-        console.log("DEBUG: Fetched data keys:", Object.keys(fetchedData));
 
         return { metaTags, fetchedData };
     };
@@ -354,8 +352,6 @@ import {
         }
 
         const overlaySetup = await setupOverlayImages(images, config);
-
-        console.log("DEBUG: Initializing:", { path, sectionKey, section, fetchedData });
 
         if (!overlaySetup || typeof overlaySetup !== "object") {
             throw new Error("Overlay setup failed or returned invalid object.");
