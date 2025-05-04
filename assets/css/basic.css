@@ -52,6 +52,14 @@ ul {
     margin: 0;
 }
 
+/* Centered layout block for slideshow and content */
+.centered-container {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Slideshow layout */
 .slideshow {
     position: relative;
     width: 100%;
@@ -75,14 +83,7 @@ ul {
 .slide.active {
     display: block;
 }
-.centered-container {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-}
 
-.project-description {
-    max-width: 700px;
-    margin: 1rem auto;
-    text-align: center;
+.centered-container .content {
+    margin-top: 2rem;
 }
