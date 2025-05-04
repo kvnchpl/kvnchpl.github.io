@@ -2,7 +2,7 @@
     {
         "title": "Viewfinder",
         "permalink": "/projects/viewfinder",
-        "subtitle": "October 2024",
+        "subtitle": null,
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
         "images": [
             "/assets/images/projects/viewfinder/viewfinder_1.png",
@@ -10,14 +10,14 @@
             "/assets/images/projects/viewfinder/viewfinder_3.png"
         ],
         "publication": null,
-        "month": null,
-        "year": null,
+        "month": 10,
+        "year": 2024,
         "external": false
     },
     {
         "title": "Triptych",
         "permalink": "/projects/triptych",
-        "subtitle": "May 2024",
+        "subtitle": null,
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "images": [
             "/assets/images/projects/triptych/triptych_1.png",
@@ -25,25 +25,25 @@
             "/assets/images/projects/triptych/triptych_3.png"
         ],
         "publication": null,
-        "month": null,
-        "year": null,
+        "month": 5,
+        "year": 2024,
         "external": false
     },
     {
         "title": "Shed Your Skin",
         "permalink": "/projects/shed-your-skin",
-        "subtitle": "April 2025",
+        "subtitle": null,
         "description": "Love letter to a speculative liberatory learning society.",
         "images": [],
         "publication": null,
-        "month": null,
-        "year": null,
+        "month": 4,
+        "year": 2025,
         "external": false
     },
     {
         "title": "Archipelago",
         "permalink": "/projects/archipelago",
-        "subtitle": "February 2024",
+        "subtitle": null,
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "images": [
             "/assets/images/projects/archipelago/archipelago_1.png",
@@ -51,19 +51,19 @@
             "/assets/images/projects/archipelago/archipelago_3.png"
         ],
         "publication": null,
-        "month": null,
-        "year": null,
+        "month": 2,
+        "year": 2024,
         "external": false
     },
     {
         "title": "Compiler Buddha",
         "permalink": "/projects/compiler-buddha",
-        "subtitle": "April 2025",
+        "subtitle": null,
         "description": "Homage to Nam June Paik, code that refashions itself into the Buddha's image.",
         "images": [],
         "publication": null,
-        "month": null,
-        "year": null,
+        "month": 4,
+        "year": 2025,
         "external": false
     }
 ]
