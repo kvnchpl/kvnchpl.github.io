@@ -21,10 +21,8 @@ layout: default
         {{ content }}
     </div>
 
-    {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December" |
-    split: "," %}
     {% if page.month and page.year %}
-    <p class="project-date">—{{ month_names[page.month | minus: 1] }} {{ page.year }}</p>
+    <p class="project-date" data-month="{{ page.month }}" data-year="{{ page.year }}"></p>
     {% endif %}
 </div>
 
@@ -51,6 +49,16 @@ layout: default
 
         if (slides.length > 0) {
             showSlide(current);
+        }
+
+        const projectDateEl = document.querySelector(".project-date");
+        if (projectDateEl && config?.monthNames) {
+            const month = parseInt(projectDateEl.dataset.month, 10);
+            const year = projectDateEl.dataset.year;
+            const monthName = config.monthNames[month - 1];
+            if (monthName && year) {
+                projectDateEl.textContent = `—${monthName} ${year}`;
+            }
         }
     });
 </script>
