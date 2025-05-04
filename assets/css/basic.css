@@ -62,11 +62,25 @@ ul {
 /* Slideshow layout */
 .slideshow {
     position: relative;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     max-width: 700px;
     margin: 2rem auto;
     overflow: hidden;
     text-align: center;
+}
+
+.slideshow button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.slides-wrapper {
+    flex: 1;
 }
 
 .slide {
@@ -78,6 +92,8 @@ ul {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
+    display: block;
+    margin: 0 auto;
 }
 
 .slide.active {
