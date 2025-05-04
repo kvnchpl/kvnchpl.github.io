@@ -345,7 +345,7 @@ import {
         const section = index.find(item => normalizePath(item.permalink) === sectionKey);
         const collectionData = section?.metaName ? fetchedData[section.metaName] : [];
 
-        if (section?.label && Array.isArray(collectionData)) {
+        if (section?.collection && Array.isArray(collectionData)) {
             validateCollectionData(collectionData, section.label);
         }
 
