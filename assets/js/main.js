@@ -389,6 +389,19 @@ import {
             return;
         }
 
+        // Sort by year and month descending before rendering
+        collectionData.sort((a, b) => {
+            const yearA = a.year || 0;
+            const yearB = b.year || 0;
+            const monthA = a.month || 0;
+            const monthB = b.month || 0;
+
+            if (yearA !== yearB) {
+                return yearB - yearA;
+            }
+            return monthB - monthA;
+        });
+
         // Clear existing links and render new ones
         list.innerHTML = "";
         const fragment = populateLinks(collectionData, format);
