@@ -50,5 +50,16 @@
         "isTitle",
         "metaName",
         "format"
+    ],
+    "requiredCollectionKeys": [
+        "title",
+        "permalink",
+        "subtitle",
+        "description",
+        "images",
+        "publication",
+        "month",
+        "year",
+        "external"
     ]
 }
