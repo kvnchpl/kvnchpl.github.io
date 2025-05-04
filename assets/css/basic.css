@@ -27,7 +27,7 @@ body {
 }
 
 h1 {
-    font-size: var(--title-font-size);
+    font-size: var(--title-font-size-desktop);
     text-transform: var(--text-transform-uppercase);
 }
 
