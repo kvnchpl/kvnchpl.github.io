@@ -2,7 +2,7 @@
     {
         "title": "Kevin Cunanan Chappelle :)",
         "permalink": "/",
-        "collection": false,
+        "collection": true,
         "external": false,
         "newTab": false,
         "label": "Home",
