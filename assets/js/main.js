@@ -346,7 +346,11 @@ import {
         const collectionData = section?.metaName ? fetchedData[section.metaName] : [];
 
         if (section?.collection && Array.isArray(collectionData)) {
-            validateCollectionData(collectionData, section.label);
+            // Skip validation for homepage collection (only needs links)
+            const skipValidationFor = ["Home"];
+            if (!skipValidationFor.includes(section.label)) {
+                validateCollectionData(collectionData, section.label);
+            }
         }
 
         const overlaySetup = await setupOverlayImages(images, config);
