@@ -20,6 +20,12 @@ layout: default
     <div class="content">
         {{ content }}
     </div>
+
+    {% assign month_names = "January,February,March,April,May,June,July,August,September,October,November,December" |
+    split: "," %}
+    {% if page.month and page.year %}
+    <p class="project-date">—{{ month_names[page.month | minus: 1] }} {{ page.year }}</p>
+    {% endif %}
 </div>
 
 <script>
