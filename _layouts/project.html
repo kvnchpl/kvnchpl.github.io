@@ -5,14 +5,14 @@ layout: default
 <h1>{{ page.title }}</h1>
 <p>{{ page.description }}</p>
 
-{% if page.images %}
-<div class="gallery">
-  {% for img in page.images %}
-  <img src="{{ img }}" alt="{{ page.title }} image">
-  {% endfor %}
+<div class="slideshow">
+    {% for img in page.images %}
+    <div class="slide">
+        <img src="{{ img }}" alt="{{ page.title }} image">
+    </div>
+    {% endfor %}
 </div>
-{% endif %}
 
 <div class="content">
-  {{ content }}
+    {{ content }}
 </div>
