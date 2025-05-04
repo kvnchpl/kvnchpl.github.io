@@ -79,11 +79,14 @@ import {
         const formatDate = (month) => config.monthNames[month - 1] || month;
 
         if (format === "detailed") {
-            const formattedMonth = formatDate(item.month);
-            return `—${item.subtitle}, ${item.publication}, ${formattedMonth} ${item.year}`;
+            const month = item.month ? formatDate(item.month) : "";
+            const year = item.year || "";
+            const pub = item.publication || "";
+            const subtitle = item.subtitle || "";
+            return `—${subtitle}, ${pub}, ${month} ${year}`.trim();
         }
 
-        return item.subtitle || null;
+        return item.subtitle;
     };
 
     const calculateAvailableHeight = (navBar, titleRow) => {
@@ -360,11 +363,6 @@ import {
         const list = container.querySelector("ul");
         if (!list) {
             logError(`No <ul> element found in link-container for path: ${path}`);
-            return;
-        }
-
-        if (!collectionData.length) {
-            logError(`Invalid or missing data for collection page: ${path}`);
             return;
         }
 
