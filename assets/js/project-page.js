@@ -2,9 +2,6 @@ import { logError, isMobileDevice } from './utils.js';
 
 const initializeProjectPage = () => {
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
-    console.log("Normalized current path:", rawPath);
-    console.log("Available project permalinks:", window.config.projects.map(p => p.permalink));
-
     const project = window.config.projects.find(
         (p) => p.permalink.replace(/^\/+|\/+$/g, "") === rawPath
     );

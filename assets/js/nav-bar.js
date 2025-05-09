@@ -4,6 +4,10 @@ import { isMobileDevice, fetchJSON, normalizePath } from './utils.js';
 
     document.addEventListener("DOMContentLoaded", async () => {
         const nav = document.getElementById("site-nav");
+        if (!nav) {
+            console.warn("Navigation element with ID 'site-nav' not found.");
+            return;
+        }
         nav.innerHTML = "";
 
         try {
