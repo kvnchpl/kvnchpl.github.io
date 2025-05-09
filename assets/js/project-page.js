@@ -20,7 +20,11 @@ const initializeProjectPage = () => {
         project.images.forEach((img) => {
             const slide = document.createElement("div");
             slide.classList.add("slide");
-            slide.innerHTML = `<img src="${img}" alt="${project.title} image" draggable="false">`;
+            const imgEl = document.createElement("img");
+            imgEl.src = img;
+            imgEl.alt = `${project.title} image`;
+            imgEl.draggable = false;
+            slide.appendChild(imgEl);
             slidesWrapper.appendChild(slide);
         });
     }
