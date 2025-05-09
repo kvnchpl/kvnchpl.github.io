@@ -13,8 +13,8 @@
     --font-weight-bold: 600;
     --line-height: 1.6;
     --font-size: 1.2rem;
-    --title-size-desktop: 2.5rem;
-    --title-size-mobile: 1.2rem;
+    --title-size-desktop: calc(1.5rem + 1vw);
+    --title-size-mobile: calc(1rem + 0.5vw);
     --subtitle-size: 0.96rem;
 
     /* Layout and Spacing */
@@ -26,9 +26,9 @@
     --subtitle-spacing-top: 0.25rem;
     --nav-height: 4rem;
     --nav-font-size: 1rem;
-    --slideshow-spacing: 2rem auto;
+    --slideshow-spacing: calc(1rem + 1vw) auto;
     --content-spacing-top: 2rem;
-    --content-first-para-spacing-top: 4rem;
+    --content-first-para-spacing-top: calc(2rem + 1vh);
 
     /* UI Behavior */
     --transition-duration: 0.3s;
