@@ -358,7 +358,9 @@ import {
         }
         const { getNextImage, overlayA, overlayB } = overlaySetup;
 
-        if (isMobileDevice()) setupScrollBasedOverlay(overlayA, overlayB, getNextImage);
+        if (isMobileDevice() && section?.collection) {
+            setupScrollBasedOverlay(overlayA, overlayB, getNextImage);
+        }
 
         const isCollectionPage = index.some((item) => {
             const normalizedPermalink = normalizePath(item.permalink);
