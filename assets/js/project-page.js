@@ -1,9 +1,9 @@
-import { logError, isMobileDevice } from './utils.js';
+import { logError, isMobileDevice, normalizePath } from './utils.js';
 
 const initializeProjectPage = () => {
-    const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
+    const rawPath = normalizePath(window.location.pathname);
     const project = window.config.projects.find(
-        (p) => p.permalink.replace(/^\/+|\/+$/g, "") === rawPath
+        (p) => normalizePath(p.permalink) === rawPath
     );
 
     if (!project) {
