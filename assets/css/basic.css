@@ -19,9 +19,14 @@ h1 {
     text-align: center;
 }
 
+p {
+    text-transform: lowercase;
+}
+
 a {
     color: var(--link-color);
     text-decoration: none;
+    white-space: nowrap;
     transition: color var(--transition-duration) ease-in-out;
 }
 
