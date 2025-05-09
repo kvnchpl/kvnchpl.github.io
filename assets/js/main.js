@@ -4,7 +4,10 @@ import {
     fetchJSON,
     settleFetch,
     debounce,
-    normalizePath
+    normalizePath,
+    hasRequiredKeys,
+    sortByDateDescending,
+    createElementWithClass
 } from './utils.js';
 
 (async function () {
@@ -39,11 +42,10 @@ import {
         const errors = [];
 
         index.forEach((item, i) => {
-            requiredKeys.forEach((key) => {
-                if (!item.hasOwnProperty(key)) {
-                    errors.push(`Missing key "${key}" in index item at position ${i}: ${JSON.stringify(item)}`);
-                }
-            });
+            const missing = hasRequiredKeys(item, requiredKeys);
+            if (missing.length) {
+                errors.push(`Missing keys ${missing.join(", ")} in index item at position ${i}: ${JSON.stringify(item)}`);
+            }
         });
 
         if (errors.length > 0) {
@@ -58,11 +60,10 @@ import {
         const errors = [];
 
         collectionData.forEach((item, i) => {
-            requiredKeys.forEach((key) => {
-                if (!item.hasOwnProperty(key)) {
-                    errors.push(`Missing key "${key}" in ${sectionLabel} item at position ${i}: ${JSON.stringify(item)}`);
-                }
-            });
+            const missing = hasRequiredKeys(item, requiredKeys);
+            if (missing.length) {
+                errors.push(`Missing keys ${missing.join(", ")} in ${sectionLabel} item at position ${i}: ${JSON.stringify(item)}`);
+            }
         });
 
         if (errors.length > 0) {
@@ -394,17 +395,7 @@ import {
         }
 
         // Sort by year and month descending before rendering
-        collectionData.sort((a, b) => {
-            const yearA = a.year || 0;
-            const yearB = b.year || 0;
-            const monthA = a.month || 0;
-            const monthB = b.month || 0;
-
-            if (yearA !== yearB) {
-                return yearB - yearA;
-            }
-            return monthB - monthA;
-        });
+        collectionData.sort(sortByDateDescending);
 
         // Clear existing links and render new ones
         list.innerHTML = "";
@@ -435,8 +426,7 @@ import {
                 row.classList.add(config.rowClass);
             }
 
-            const linkWrapper = document.createElement("div");
-            linkWrapper.className = config.linkWrapperClass;
+            const linkWrapper = createElementWithClass("div", config.linkWrapperClass);
 
             const link = document.createElement("a");
             link.href = item.permalink;
