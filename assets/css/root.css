@@ -23,7 +23,7 @@
     --subtitle-spacing-top: var(--spacing-unit) * 0.25;
     --content-spacing-top: calc(var(--spacing-unit) * 2);
     --content-first-para-spacing-top: calc(var(--spacing-unit) * 2 + 1vh);
-    --max-container-width: 700px;
+    --max-container-width: 90vw;
     --max-content-width: calc(var(--max-container-width) * 0.75);
     --nav-height: 4rem;
     --nav-font-size: 1rem;
