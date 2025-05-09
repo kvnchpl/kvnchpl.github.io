@@ -49,7 +49,7 @@ footer {
 .link-wrapper {
   position: relative;
   transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
-  min-height: var(--font-size);
+  min-height: var(--body-font-size);
 }
 
 .link-wrapper.randomized {
