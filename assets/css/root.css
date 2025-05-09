@@ -12,7 +12,7 @@
     --font-weight: 400;
     --font-weight-bold: 600;
     --line-height: 1.6;
-    --font-size: 1.2rem;
+    --body-font-size: 1.2rem;
     --title-size-desktop: calc(1.5rem + 1vw);
     --title-size-mobile: calc(1rem + 0.5vw);
     --subtitle-size: 0.96rem;
@@ -29,10 +29,17 @@
     --slideshow-spacing: calc(1rem + 1vw) auto;
     --content-spacing-top: 2rem;
     --content-first-para-spacing-top: calc(2rem + 1vh);
+    --column-gap: 1rem;
+    --section-padding: 3rem 1rem;
 
     /* UI Behavior */
     --transition-duration: 0.3s;
     --hover-scale: 1.05;
+    --scroll-behavior: smooth;
+
+    /* Visual Effects */
+    --box-shadow-default: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --border-radius: 6px;
 
     /* Slideshow */
     --slideshow-btn-font-size: 2rem;
@@ -40,4 +47,12 @@
     /* Overlay */
     --overlay-opacity: 0.5;
     --overlay-z-index: 100;
+
+    /* Z-Index Layers */
+    --z-index-base: 1;
+    --z-index-modal: 200;
+
+    /* Accent */
+    --accent-color: #D9480F;
+    --secondary-text-color: #666;
 }
