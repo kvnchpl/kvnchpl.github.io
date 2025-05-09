@@ -18,10 +18,11 @@
     --subtitle-size: 0.96rem;
 
     /* Layout and Spacing */
-    --body-padding: 1rem;
+    --spacing-unit: 1rem;
+    --body-padding: var(--spacing-unit);
     --max-content-width: 700px;
-    --row-gap-desktop: 1rem;
-    --row-gap-mobile: .5rem;
+    --row-gap-desktop: calc(var(--spacing-unit) * 1);
+    --row-gap-mobile: calc(var(--spacing-unit) * 0.5);
     --link-horizontal-spacing: 80px;
     --subtitle-spacing-top: 0.25rem;
     --nav-height: 4rem;
