@@ -139,6 +139,6 @@ ul {
     }
 
     #project-date {
-    max-width: var(--max-content-width-mobile);
-}
+        max-width: var(--max-content-width-mobile);
+    }
 }
