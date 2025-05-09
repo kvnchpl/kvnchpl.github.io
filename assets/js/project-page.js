@@ -1,0 +1,61 @@
+// /assets/js/project-page.js
+import { logError, isMobileDevice, normalizePath } from './utils.js';
+
+document.addEventListener("DOMContentLoaded", () => {
+    const path = normalizePath(window.location.pathname);
+    const project = window.config?.projects?.find(
+        (p) => normalizePath(p.permalink) === path
+    );
+
+    if (!project) {
+        logError("Project not found for path:", path);
+        return;
+    }
+
+    // Populate title
+    const titleEl = document.getElementById("project-title");
+    if (titleEl) titleEl.textContent = project.title;
+
+    // Populate slideshow
+    const slidesWrapper = document.getElementById("project-slides");
+    if (slidesWrapper && Array.isArray(project.images)) {
+        project.images.forEach((img) => {
+            const slide = document.createElement("div");
+            slide.classList.add("slide");
+            slide.innerHTML = `<img src="${img}" alt="${project.title} image">`;
+            slidesWrapper.appendChild(slide);
+        });
+    }
+
+    // Populate date
+    const dateEl = document.getElementById("project-date");
+    if (dateEl && project.month && project.year && Array.isArray(window.config?.monthNames)) {
+        const monthName = window.config.monthNames[project.month - 1] || project.month;
+        dateEl.textContent = `—${monthName} ${project.year}`;
+    }
+
+    // Initialize slideshow
+    const slides = slidesWrapper?.querySelectorAll(".slide");
+    if (slides && slides.length > 0) {
+        let current = 0;
+
+        const showSlide = (index) => {
+            slides.forEach((s, i) => s.classList.toggle("active", i === index));
+        };
+
+        const prevBtn = document.querySelector(".prev");
+        const nextBtn = document.querySelector(".next");
+
+        prevBtn?.addEventListener("click", () => {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        });
+
+        nextBtn?.addEventListener("click", () => {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        });
+
+        showSlide(current);
+    }
+});
