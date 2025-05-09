@@ -1,4 +1,4 @@
-import { logError, isMobileDevice, normalizePath } from './utils.js';
+import { logError, isMobileDevice, normalizePath, createElement } from './utils.js';
 
 const initializeProjectPage = () => {
     const rawPath = normalizePath(window.location.pathname);
@@ -18,13 +18,18 @@ const initializeProjectPage = () => {
     const slidesWrapper = document.getElementById("project-slides");
     if (Array.isArray(project.images)) {
         project.images.forEach((img) => {
-            const slide = document.createElement("div");
-            slide.classList.add("slide");
-            const imgEl = document.createElement("img");
-            imgEl.src = img;
-            imgEl.alt = `${project.title} image`;
-            imgEl.draggable = false;
-            slide.appendChild(imgEl);
+            const slide = createElement("div", {
+                className: "slide",
+                children: [
+                    createElement("img", {
+                        attrs: {
+                            src: img,
+                            alt: `${project.title} image`,
+                            draggable: "false"
+                        }
+                    })
+                ]
+            });
             slidesWrapper.appendChild(slide);
         });
     }
