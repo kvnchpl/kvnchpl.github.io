@@ -13,6 +13,12 @@
     --body-padding: 1rem;
 
     --transition-duration: 0.3s;
+
+    --slideshow-button-size: 2rem;
+    --max-content-width: 700px;
+    --slideshow-margin: 2rem auto;
+    --content-margin-top: 2rem;
+    --first-paragraph-margin-top: 4rem;
 }
 
 body {
@@ -54,7 +60,7 @@ ul {
 
 /* Centered layout block for slideshow and content */
 .centered-container {
-    max-width: 700px;
+    max-width: var(--max-content-width);
     margin: 0 auto;
     text-align: center;
 }
@@ -65,8 +71,8 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 700px;
-    margin: 2rem auto;
+    max-width: var(--max-content-width);
+    margin: var(--slideshow-margin);
     overflow: hidden;
     text-align: center;
 }
@@ -74,7 +80,7 @@ ul {
 .slideshow button {
     background: none;
     border: none;
-    font-size: 2rem;
+    font-size: var(--slideshow-button-size);
     cursor: pointer;
     z-index: 1;
     color: var(--font-color);
@@ -106,12 +112,12 @@ ul {
 }
 
 .content {
-    margin-top: 2rem;
+    margin-top: var(--content-margin-top);
     text-align: justify;
 }
 
 .content p:first-of-type {
-  margin-top: 4rem;
+    margin-top: var(--first-paragraph-margin-top);
 }
 
 #project-date {
