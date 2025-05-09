@@ -43,6 +43,7 @@ footer {
   display: block;
   width: 100%;
   position: relative;
+  left: auto;
 }
 
 .link-wrapper {
@@ -124,10 +125,6 @@ footer {
     text-align: left;
   }
 
-  .link-wrapper {
-    transition: none;
-  }
-
   #link-container {
     gap: var(--row-gap-mobile);
   }
@@ -150,5 +147,9 @@ footer {
 
   #image-overlay {
     pointer-events: none;
+  }
+
+  .link-wrapper {
+    transition: none;
   }
 }

@@ -1,16 +1,16 @@
 html {
     scroll-behavior: var(--scroll-behavior);
+    overflow-x: hidden;
 }
 
 body {
+    margin: 0;
+    padding: var(--body-padding);
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
-    margin: 0;
-    padding: var(--body-padding);
-    overflow-x: hidden;
 }
 
 h1 {
@@ -44,14 +44,12 @@ ul {
     margin: 0;
 }
 
-/* Centered layout block for slideshow and content */
 .centered-container {
     max-width: var(--max-content-width);
     margin: 0 auto;
     text-align: center;
 }
 
-/* Slideshow layout */
 .slideshow {
     position: relative;
     display: flex;
@@ -67,9 +65,9 @@ ul {
     background: none;
     border: none;
     font-size: var(--slideshow-btn-font-size);
+    color: var(--text-color);
     cursor: pointer;
     z-index: 1;
-    color: var(--text-color);
 }
 
 .slideshow button:hover {
@@ -85,6 +83,10 @@ ul {
     text-align: center;
 }
 
+.slide.active {
+    display: block;
+}
+
 .slide img {
     max-width: 100%;
     height: auto;
@@ -92,10 +94,6 @@ ul {
     box-shadow: var(--box-shadow-default);
     display: block;
     margin: 0 auto;
-}
-
-.slide.active {
-    display: block;
 }
 
 .content {

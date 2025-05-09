@@ -11,27 +11,27 @@
     --font-family: "Apolline Std", serif;
     --font-weight: 400;
     --font-weight-bold: 600;
-    --line-height: 1.6;
     --body-font-size: 1.2rem;
     --title-size-desktop: calc(1.5rem + 1vw);
     --title-size-mobile: calc(1rem + 0.5vw);
     --subtitle-size: 0.96rem;
+    --line-height: 1.6;
 
     /* Layout and Spacing */
     --spacing-unit: 1rem;
     --body-padding: var(--spacing-unit);
-    --max-content-width: 700px;
-    --row-gap-desktop: calc(var(--spacing-unit) * 1);
-    --row-gap-mobile: calc(var(--spacing-unit) * 0.5);
-    --link-horizontal-spacing: 80px;
     --subtitle-spacing-top: 0.25rem;
-    --nav-height: 4rem;
-    --nav-font-size: 1rem;
-    --slideshow-spacing: calc(1rem + 1vw) auto;
     --content-spacing-top: 2rem;
     --content-first-para-spacing-top: calc(2rem + 1vh);
+    --max-content-width: 700px;
+    --nav-height: 4rem;
+    --nav-font-size: 1rem;
+    --link-horizontal-spacing: 80px;
+    --row-gap-desktop: calc(var(--spacing-unit) * 1);
+    --row-gap-mobile: calc(var(--spacing-unit) * 0.5);
     --column-gap: 1rem;
     --section-padding: 3rem 1rem;
+    --slideshow-spacing: calc(1rem + 1vw) auto;
 
     /* UI Behavior */
     --transition-duration: 0.3s;
