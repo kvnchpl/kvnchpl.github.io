@@ -1,9 +1,9 @@
 :root {
     --background-color: #EAF4F6;
-    --font-color: black;
+    --text-color: black;
     --link-color: black;
     --link-hover-color: blue;
-    --focus-outline-color: black;
+    --focus-color: black;
 
     --font-family: "Apolline Std", serif;
     --font-weight: 400;
@@ -14,16 +14,16 @@
 
     --transition-duration: 0.3s;
 
-    --slideshow-button-size: 2rem;
+    --slideshow-btn-font-size: 2rem;
     --max-content-width: 700px;
-    --slideshow-margin: 2rem auto;
-    --content-margin-top: 2rem;
-    --first-paragraph-margin-top: 4rem;
+    --slideshow-spacing: 2rem auto;
+    --content-spacing-top: 2rem;
+    --content-first-para-spacing-top: 4rem;
 }
 
 body {
     background-color: var(--background-color);
-    color: var(--font-color);
+    color: var(--text-color);
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
@@ -45,7 +45,7 @@ a {
 }
 
 a:focus {
-    outline: 2px solid var(--focus-outline-color);
+    outline: 2px solid var(--focus-color);
 }
 
 a:hover {
@@ -72,7 +72,7 @@ ul {
     align-items: center;
     justify-content: center;
     max-width: var(--max-content-width);
-    margin: var(--slideshow-margin);
+    margin: var(--slideshow-spacing);
     overflow: hidden;
     text-align: center;
 }
@@ -80,10 +80,10 @@ ul {
 .slideshow button {
     background: none;
     border: none;
-    font-size: var(--slideshow-button-size);
+    font-size: var(--slideshow-btn-font-size);
     cursor: pointer;
     z-index: 1;
-    color: var(--font-color);
+    color: var(--text-color);
 }
 
 .slideshow button:hover {
@@ -112,12 +112,12 @@ ul {
 }
 
 .content {
-    margin-top: var(--content-margin-top);
+    margin-top: var(--content-spacing-top);
     text-align: justify;
 }
 
 .content p:first-of-type {
-    margin-top: var(--first-paragraph-margin-top);
+    margin-top: var(--content-first-para-spacing-top);
 }
 
 #project-date {
