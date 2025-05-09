@@ -23,8 +23,10 @@
     --subtitle-spacing-top: var(--spacing-unit) * 0.25;
     --content-spacing-top: calc(var(--spacing-unit) * 2);
     --content-first-para-spacing-top: calc(var(--spacing-unit) * 2 + 1vh);
-    --max-container-width: 50vw;
-    --max-content-width: calc(var(--max-container-width) * 0.75);
+    --max-container-width-desktop: 50vw;
+    --max-content-width-desktop: calc(var(--max-container-width-desktop) * 0.75);
+    --max-container-width-mobile: 80vw;
+    --max-content-width-mobile: calc(var(--max-container-width-desktop) * 0.75);
     --nav-height: 4rem;
     --nav-font-size: 1rem;
     --link-horizontal-spacing: 80px;
