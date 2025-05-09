@@ -1,4 +1,5 @@
 ---
+layout: project
 permalink: /projects/shed-your-skin/
 ---
 
