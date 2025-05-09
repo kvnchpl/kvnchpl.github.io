@@ -107,13 +107,16 @@ ul {
 
 .content {
     margin: var(--content-spacing-top) auto 0 auto;
+    text-align: left;
+    max-width: var(--max-content-width);
 }
 
 .content p:first-of-type {
     margin-top: var(--content-first-para-spacing-top);
 }
 
-.content, #project-date {
+#project-date {
+    margin: 0 auto;
     text-align: left;
     max-width: var(--max-content-width);
 }
