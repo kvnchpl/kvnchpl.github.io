@@ -53,7 +53,7 @@ export const settleFetch = async (entries) => {
  * @returns {string[]} An array of missing keys.
  */
 export const hasRequiredKeys = (obj, keys) =>
-  keys.filter((key) => !obj.hasOwnProperty(key));
+    keys.filter((key) => !obj.hasOwnProperty(key));
 
 /**
  * Sorts an array of objects by year and month in descending order.
@@ -62,41 +62,32 @@ export const hasRequiredKeys = (obj, keys) =>
  * @returns {number} A negative number if a < b, zero if equal, or a positive number if a > b.
  */
 export const sortByDateDescending = (a, b) => {
-  const yearA = a.year || 0;
-  const yearB = b.year || 0;
-  const monthA = a.month || 0;
-  const monthB = b.month || 0;
+    const yearA = a.year || 0;
+    const yearB = b.year || 0;
+    const monthA = a.month || 0;
+    const monthB = b.month || 0;
 
-  return yearB !== yearA ? yearB - yearA : monthB - monthA;
+    return yearB !== yearA ? yearB - yearA : monthB - monthA;
 };
 
 /**
- * Creates a DOM element with a specified tag and class name.
- * @param {string} tag - The HTML tag to create.
- * @param {string} className - The class name to assign to the element.
- * @returns {HTMLElement} The created DOM element.
- */
-export const createElementWithClass = (tag, className) => {
-    const el = document.createElement(tag);
-    el.className = className;
-    return el;
-};
-
-/**
- * Creates a DOM element with a specified tag, class name, attributes, and children.
+ * Creates a DOM element with a specified tag, class name, attributes, children, and event listeners.
  * @param {string} tag - The HTML tag to create.
  * @param {Object} options - Options for the element.
  * @param {string} [options.className] - The class name to assign to the element.
- * @param {Object}
- * [options.attrs] - Attributes to set on the element.
+ * @param {Object} [options.attrs] - Attributes to set on the element.
  * @param {HTMLElement[]} [options.children] - Child elements to append.
+ * @param {Object} [options.events] - Event listeners to add (key is event name, value is handler).
  * @returns {HTMLElement} The created DOM element.
  */
-export const createElement = (tag, { className, attrs = {}, children = [] } = {}) => {
+export const createElement = (tag, { className, attrs = {}, children = [], events = {} } = {}) => {
     const el = document.createElement(tag);
     if (className) el.className = className;
     Object.entries(attrs).forEach(([key, value]) => {
         el.setAttribute(key, value);
+    });
+    Object.entries(events).forEach(([event, handler]) => {
+        el.addEventListener(event, handler);
     });
     children.forEach(child => el.appendChild(child));
     return el;
