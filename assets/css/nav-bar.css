@@ -1,0 +1,18 @@
+#site-nav {
+  margin-bottom: var(--gap-size-desktop);
+  font-size: var(--nav-font-size);
+}
+
+#site-nav a {
+  text-transform: uppercase;
+  color: var(--font-color);
+  margin: 0 0.5rem;
+}
+
+#site-nav a:hover {
+  color: var(--link-hover-color);
+}
+
+#site-nav span {
+  color: var(--font-color);
+}
