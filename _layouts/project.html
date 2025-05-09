@@ -2,18 +2,12 @@
 layout: default
 ---
 
-<h1>{{ page.title }}</h1>
+<h1 id="project-title"></h1>
 
 <div class="centered-container">
     <div class="slideshow">
         <button class="prev">&#10094;</button>
-        <div class="slides-wrapper">
-            {% for img in page.images %}
-            <div class="slide">
-                <img src="{{ img }}" alt="{{ page.title }} image">
-            </div>
-            {% endfor %}
-        </div>
+        <div class="slides-wrapper" id="project-slides"></div>
         <button class="next">&#10095;</button>
     </div>
 
@@ -21,44 +15,56 @@ layout: default
         {{ content }}
     </div>
 
-    {% if page.month and page.year %}
-    <p class="project-date" data-month="{{ page.month }}" data-year="{{ page.year }}"></p>
-    {% endif %}
+    <p id="project-date" class="project-date"></p>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const slides = document.querySelectorAll(".slide");
-        const prevBtn = document.querySelector(".prev");
-        const nextBtn = document.querySelector(".next");
-        let current = 0;
+    document.addEventListener("DOMContentLoaded", async () => {
+        const path = window.location.pathname.replace(/\/$/, ""); // normalize
+        const project = window.config?.projects?.find(p => p.permalink.replace(/\/$/, "") === path);
 
-        function showSlide(index) {
-            slides.forEach((s, i) => s.classList.toggle("active", i === index));
+        if (!project) {
+            console.error("Project not found for path:", path);
+            return;
         }
 
-        prevBtn.addEventListener("click", () => {
-            current = (current - 1 + slides.length) % slides.length;
-            showSlide(current);
-        });
+        // Populate title
+        document.getElementById("project-title").textContent = project.title;
 
-        nextBtn.addEventListener("click", () => {
-            current = (current + 1) % slides.length;
-            showSlide(current);
-        });
+        // Populate slideshow
+        const slidesWrapper = document.getElementById("project-slides");
+        if (Array.isArray(project.images)) {
+            project.images.forEach(img => {
+                const slide = document.createElement("div");
+                slide.classList.add("slide");
+                slide.innerHTML = `<img src="${img}" alt="${project.title} image">`;
+                slidesWrapper.appendChild(slide);
+            });
+        }
 
+        // Populate date
+        const dateEl = document.getElementById("project-date");
+        if (project.month && project.year) {
+            const monthName = config.monthNames?.[project.month - 1] || project.month;
+            dateEl.textContent = `—${monthName} ${project.year}`;
+        }
+
+        // Enable slideshow (reuse your existing `showSlide`, `prevBtn`, etc.)
+        const slides = slidesWrapper.querySelectorAll(".slide");
         if (slides.length > 0) {
+            let current = 0;
+            const showSlide = (index) => {
+                slides.forEach((s, i) => s.classList.toggle("active", i === index));
+            };
+            document.querySelector(".prev").addEventListener("click", () => {
+                current = (current - 1 + slides.length) % slides.length;
+                showSlide(current);
+            });
+            document.querySelector(".next").addEventListener("click", () => {
+                current = (current + 1) % slides.length;
+                showSlide(current);
+            });
             showSlide(current);
-        }
-
-        const projectDateEl = document.querySelector(".project-date");
-        if (projectDateEl && config?.monthNames) {
-            const month = parseInt(projectDateEl.dataset.month, 10);
-            const year = projectDateEl.dataset.year;
-            const monthName = config.monthNames[month - 1];
-            if (monthName && year) {
-                projectDateEl.textContent = `—${monthName} ${year}`;
-            }
         }
     });
 </script>
