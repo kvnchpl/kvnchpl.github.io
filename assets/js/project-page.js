@@ -3,6 +3,9 @@ import { logError, isMobileDevice, normalizePath } from './utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
+    // TEMP DEBUG LOGS
+    console.log("Normalized current path:", rawPath);
+    console.log("Available project permalinks:", window.config?.projects?.map(p => p.permalink));
     const project = window.config?.projects?.find(
         (p) => p.permalink.replace(/^\/+|\/+$/g, "") === rawPath
     );
