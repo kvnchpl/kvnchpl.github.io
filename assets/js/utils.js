@@ -47,6 +47,42 @@ export const settleFetch = async (entries) => {
 };
 
 /**
+ * Checks if an object has all required keys.
+ * @param {Object} obj - The object to check.
+ * @param {string[]} keys - The array of required keys.
+ * @returns {string[]} An array of missing keys.
+ */
+export const hasRequiredKeys = (obj, keys) =>
+  keys.filter((key) => !obj.hasOwnProperty(key));
+
+/**
+ * Sorts an array of objects by year and month in descending order.
+ * @param {Object} a - The first object to compare.
+ * @param {Object} b - The second object to compare.
+ * @returns {number} A negative number if a < b, zero if equal, or a positive number if a > b.
+ */
+export const sortByDateDescending = (a, b) => {
+  const yearA = a.year || 0;
+  const yearB = b.year || 0;
+  const monthA = a.month || 0;
+  const monthB = b.month || 0;
+
+  return yearB !== yearA ? yearB - yearA : monthB - monthA;
+};
+
+/**
+ * Creates a DOM element with a specified tag and class name.
+ * @param {string} tag - The HTML tag to create.
+ * @param {string} className - The class name to assign to the element.
+ * @returns {HTMLElement} The created DOM element.
+ */
+export const createElementWithClass = (tag, className) => {
+    const el = document.createElement(tag);
+    el.className = className;
+    return el;
+};
+
+/**
  * Creates a debounced version of a function.
  * @param {Function} func - The function to debounce.
  * @param {number} delay - The delay in milliseconds.
