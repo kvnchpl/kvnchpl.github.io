@@ -7,7 +7,7 @@ import {
     normalizePath,
     hasRequiredKeys,
     sortByDateDescending,
-    createElementWithClass
+    createElement
 } from './utils.js';
 
 (async function () {
@@ -426,24 +426,27 @@ import {
                 row.classList.add(config.rowClass);
             }
 
-            const linkWrapper = createElementWithClass("div", config.linkWrapperClass);
+            const linkWrapper = createElement("div", {
+                className: config.linkWrapperClass
+            });
 
-            const link = document.createElement("a");
-            link.href = item.permalink;
-            link.textContent = item.title;
-
-            link.target = item.newTab ? "_blank" : "_self";
-            if (item.external) {
-                link.rel = "noopener noreferrer";
-            }
+            const link = createElement("a", {
+                attrs: {
+                    href: item.permalink,
+                    target: item.newTab ? "_blank" : "_self",
+                    rel: item.external ? "noopener noreferrer" : undefined
+                },
+                children: [document.createTextNode(item.title)]
+            });
 
             linkWrapper.appendChild(link);
 
             const subtitleText = formatSubtitle(item, format);
             if (subtitleText) {
-                const subtitle = document.createElement("span");
-                subtitle.className = config.subtitleClass;
-                subtitle.textContent = subtitleText;
+                const subtitle = createElement("span", {
+                    className: config.subtitleClass,
+                    children: [document.createTextNode(subtitleText)]
+                });
                 linkWrapper.appendChild(subtitle);
             }
 
