@@ -19,15 +19,8 @@ const initializeProjectPage = () => {
     if (Array.isArray(project.images)) {
         project.images.forEach((img) => {
             const slide = createElement("div", {
-                className: "slide",
-                children: [
-                    createElement("img", {
-                        attrs: {
-                            src: img,
-                            alt: `${project.title} image`,
-                            draggable: "false"
-                        }
-                    })
+                className: "slide", children: [
+                    createElement("img", { attrs: { src: img, alt: `${project.title} image`, draggable: "false" } })
                 ]
             });
             slidesWrapper.appendChild(slide);
