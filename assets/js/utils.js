@@ -83,6 +83,26 @@ export const createElementWithClass = (tag, className) => {
 };
 
 /**
+ * Creates a DOM element with a specified tag, class name, attributes, and children.
+ * @param {string} tag - The HTML tag to create.
+ * @param {Object} options - Options for the element.
+ * @param {string} [options.className] - The class name to assign to the element.
+ * @param {Object}
+ * [options.attrs] - Attributes to set on the element.
+ * @param {HTMLElement[]} [options.children] - Child elements to append.
+ * @returns {HTMLElement} The created DOM element.
+ */
+export const createElement = (tag, { className, attrs = {}, children = [] } = {}) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    Object.entries(attrs).forEach(([key, value]) => {
+        el.setAttribute(key, value);
+    });
+    children.forEach(child => el.appendChild(child));
+    return el;
+};
+
+/**
  * Creates a debounced version of a function.
  * @param {Function} func - The function to debounce.
  * @param {number} delay - The delay in milliseconds.
