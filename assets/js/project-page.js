@@ -2,9 +2,9 @@
 import { logError, isMobileDevice, normalizePath } from './utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const rawPath = window.location.pathname.replace(/\/$/, "");
+    const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
     const project = window.config?.projects?.find(
-        (p) => p.permalink.replace(/\/$/, "") === rawPath
+        (p) => p.permalink.replace(/^\/+|\/+$/g, "") === rawPath
     );
 
     if (!project) {
