@@ -1,19 +1,21 @@
 :root {
-  --gap-size-desktop: 1rem;
-  --gap-size-mobile: .5rem;
-  --link-container-gap: 80px;
-  --subtitle-margin-top: 0.25rem;
+  --text-color: black;
+  --subtitle-text-color: gray;
+  --link-hover-color: inherit;
+
   --font-size: 1.2rem;
-  --subtitle-font-size: 0.96rem;
-  --title-font-size-desktop: 2.5rem;
-  --title-font-size-mobile: 1.2rem;
+  --title-size-desktop: 2.5rem;
+  --title-size-mobile: 1.2rem;
+  --subtitle-size: 0.96rem;
+
+  --row-gap-desktop: 1rem;
+  --row-gap-mobile: .5rem;
+  --link-horizontal-spacing: 80px;
+  --subtitle-spacing-top: 0.25rem;
   --nav-height: 4rem;
 
   --transition-duration: 0.5s;
   --hover-scale: 1.05;
-
-  --font-color: black;
-  --subtitle-color: gray;
 
   --overlay-opacity: 0.5;
   --overlay-z-index: 100;
@@ -87,7 +89,7 @@ li {
   display: inline-block;
   text-decoration: none;
   transition: transform var(--transition-duration) ease-in-out;
-  color: var(--font-color);
+  color: var(--text-color);
 }
 
 .link-wrapper a:hover {
@@ -96,9 +98,9 @@ li {
 }
 
 #title-row {
-  margin-bottom: var(--gap-size-desktop);
-  min-height: var(--title-font-size-desktop);
-  font-size: var(--title-font-size-desktop);
+  margin-bottom: var(--row-gap-desktop);
+  min-height: var(--title-size-desktop);
+  font-size: var(--title-size-desktop);
   text-transform: uppercase;
   overflow: visible;
   -webkit-overflow-scrolling: touch;
@@ -112,15 +114,15 @@ a {
   white-space: nowrap;
   text-decoration: none;
   transition: transform var(--transition-duration) ease-in-out;
-  color: var(--font-color);
+  color: var(--text-color);
 }
 
 .subtitle {
   display: block;
-  font-size: var(--subtitle-font-size);
+  font-size: var(--subtitle-size);
   text-transform: lowercase;
-  margin-top: var(--subtitle-margin-top);
-  color: var(--subtitle-color);
+  margin-top: var(--subtitle-spacing-top);
+  color: var(--subtitle-text-color);
 }
 
 /* Image overlay */
@@ -163,12 +165,12 @@ a {
   }
 
   #link-container {
-    gap: var(--gap-size-mobile);
+    gap: var(--row-gap-mobile);
   }
 
   #title-row {
-    min-height: var(--title-font-size-mobile);
-    font-size: var(--title-font-size-mobile);
+    min-height: var(--title-size-mobile);
+    font-size: var(--title-size-mobile);
     font-weight: bold;
     max-width: 100%;
     overflow-x: auto;
