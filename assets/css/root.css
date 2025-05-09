@@ -26,7 +26,7 @@
     --max-container-width-desktop: 50vw;
     --max-content-width-desktop: calc(var(--max-container-width-desktop) * 0.75);
     --max-container-width-mobile: 80vw;
-    --max-content-width-mobile: calc(var(--max-container-width-desktop) * 0.75);
+    --max-content-width-mobile: calc(var(--max-container-width-mobile) * 0.75);
     --nav-height: 4rem;
     --nav-font-size: 1rem;
     --link-horizontal-spacing: 80px;
