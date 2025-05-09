@@ -1,7 +1,6 @@
 ---
+layout: project
 permalink: /projects/compiler-buddha/
-title: Compiler Buddga
-description: Homage to Nam June Paik, code that refashions itself into the Buddha's image.
 ---
 
 <html lang="en">
