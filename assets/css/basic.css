@@ -100,12 +100,12 @@ ul {
     display: block;
 }
 
-.centered-container .content {
+.content {
     margin-top: 2rem;
     text-align: justify;
 }
 
-#main-content .content p:first-of-type {
+.content p:first-of-type {
   margin-top: 4rem;
 }
 
