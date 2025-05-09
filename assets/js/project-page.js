@@ -4,6 +4,7 @@ const waitForProjects = async () => {
     let attempts = 0;
     while ((!window.config || !window.config.projects) && attempts < 20) {
         await new Promise((r) => setTimeout(r, 100));
+        console.log(`Attempt ${attempts + 1}: Waiting for config.projects to be available...`);
         attempts++;
     }
 
