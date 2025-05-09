@@ -467,6 +467,7 @@ import {
     const { pathname } = window.location;
 
     const { metaTags, fetchedData } = await fetchConfigAndData();
+    config.projects = fetchedData[metaTags.projects];
     const path = normalizePath(pathname);
     const isHomepage = path === config.indexFallbackKey;
 
