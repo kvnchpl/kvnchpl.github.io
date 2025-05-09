@@ -16,14 +16,31 @@ const initializeProjectPage = () => {
 
     // Populate slideshow
     const slidesWrapper = document.getElementById("project-slides");
+    const imageLoadPromises = [];
     if (Array.isArray(project.images)) {
         project.images.forEach((img) => {
+            const imgEl = createElement("img", {
+                attrs: {
+                    src: img,
+                    alt: `${project.title} image`,
+                    draggable: "false"
+                }
+            });
+
+            const loadPromise = new Promise((resolve) => {
+                imgEl.onload = resolve;
+                imgEl.onerror = resolve; // resolve even on error to prevent hanging
+            });
+            imageLoadPromises.push(loadPromise);
+
             const slide = createElement("div", {
-                className: "slide", children: [
-                    createElement("img", { attrs: { src: img, alt: `${project.title} image`, draggable: "false" } })
-                ]
+                className: "slide",
+                children: [imgEl]
             });
             slidesWrapper.appendChild(slide);
+        });
+        Promise.all(imageLoadPromises).then(() => {
+            slidesWrapper.closest(".slideshow")?.classList.add("visible");
         });
     }
 
