@@ -29,7 +29,7 @@ const initializeProjectPage = () => {
 
             const loadPromise = new Promise((resolve) => {
                 imgEl.onload = resolve;
-                imgEl.onerror = resolve; // resolve even on error to prevent hanging
+                imgEl.onerror = resolve;
             });
             imageLoadPromises.push(loadPromise);
 
