@@ -1,26 +1,3 @@
-:root {
-  --text-color: black;
-  --subtitle-text-color: gray;
-  --link-hover-color: inherit;
-
-  --font-size: 1.2rem;
-  --title-size-desktop: 2.5rem;
-  --title-size-mobile: 1.2rem;
-  --subtitle-size: 0.96rem;
-
-  --row-gap-desktop: 1rem;
-  --row-gap-mobile: .5rem;
-  --link-horizontal-spacing: 80px;
-  --subtitle-spacing-top: 0.25rem;
-  --nav-height: 4rem;
-
-  --transition-duration: 0.5s;
-  --hover-scale: 1.05;
-
-  --overlay-opacity: 0.5;
-  --overlay-z-index: 100;
-}
-
 html,
 body {
   overflow-x: hidden;
