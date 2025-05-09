@@ -20,10 +20,15 @@ const initializeProjectPage = () => {
         project.images.forEach((img) => {
             const slide = document.createElement("div");
             slide.classList.add("slide");
-            slide.innerHTML = `<img src="${img}" alt="${project.title} image">`;
+            slide.innerHTML = `<img src="${img}" alt="${project.title} image" draggable="false">`;
             slidesWrapper.appendChild(slide);
         });
     }
+
+    // Disable context menu on slideshow
+    slidesWrapper?.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+    });
 
     // Populate date
     const dateEl = document.getElementById("project-date");
