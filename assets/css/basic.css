@@ -14,7 +14,7 @@ body {
 }
 
 h1 {
-    font-size: var(--title-font-size-desktop);
+    font-size: var(--title-size-desktop);
     text-transform: uppercase;
     text-align: center;
 }
