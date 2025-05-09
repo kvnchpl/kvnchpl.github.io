@@ -373,6 +373,8 @@ import {
         } else {
             initializeIndividualPage(path);
         }
+        // Dispatch config-ready event after initialization
+        window.dispatchEvent(new Event('config-ready'));
     };
 
     // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)

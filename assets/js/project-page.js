@@ -61,12 +61,6 @@ const initializeProjectPage = () => {
     }
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-    setTimeout(() => {
-        if (window.config?.projects) {
-            initializeProjectPage();
-        } else {
-            logError("window.config.projects not available after short delay.");
-        }
-    }, 50);
+window.addEventListener("config-ready", () => {
+    initializeProjectPage();
 });
