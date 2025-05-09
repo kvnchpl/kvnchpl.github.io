@@ -12,7 +12,7 @@
     --font-weight: 400;
     --font-weight-bold: 600;
     --body-font-size: 1.2rem;
-    --title-size-desktop: calc(1.5rem + 1vw);
+    --title-size-desktop: calc(1.5rem + 2vw);
     --title-size-mobile: calc(1rem + 0.5vw);
     --subtitle-size: 0.96rem;
     --line-height: 1.6;

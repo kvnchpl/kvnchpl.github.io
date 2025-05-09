@@ -119,3 +119,9 @@ ul {
 #project-date {
     text-align: left;
 }
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: var(--title-size-mobile);
+    }
+}
