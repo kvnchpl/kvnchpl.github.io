@@ -1,21 +1,5 @@
 import { logError, isMobileDevice } from './utils.js';
 
-const waitForProjects = async () => {
-    let attempts = 0;
-    while ((!window.config || !window.config.projects) && attempts < 20) {
-        await new Promise((r) => setTimeout(r, 100));
-        console.log(`Attempt ${attempts + 1}: Waiting for config.projects to be available...`);
-        attempts++;
-    }
-
-    if (!window.config?.projects) {
-        logError("Timed out waiting for config.projects to be available.");
-        return;
-    }
-
-    initializeProjectPage();
-};
-
 const initializeProjectPage = () => {
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
     console.log("Normalized current path:", rawPath);
@@ -77,4 +61,10 @@ const initializeProjectPage = () => {
     }
 };
 
-document.addEventListener("DOMContentLoaded", waitForProjects);
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.config?.projects) {
+        initializeProjectPage();
+    } else {
+        logError("window.config.projects not available at DOMContentLoaded.");
+    }
+});
