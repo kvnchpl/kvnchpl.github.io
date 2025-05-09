@@ -1,0 +1,37 @@
+:root {
+  --background-color: #EAF4F6;
+  --text-color: black;
+  --subtitle-text-color: gray;
+  --link-color: black;
+  --link-hover-color: blue;
+  --focus-color: black;
+
+  --font-family: "Apolline Std", serif;
+  --font-weight: 400;
+  --font-weight-bold: 600;
+  --line-height: 1.6;
+  --font-size: 1.2rem;
+  --title-size-desktop: 2.5rem;
+  --title-size-mobile: 1.2rem;
+  --subtitle-size: 0.96rem;
+
+  --body-padding: 1rem;
+  --max-content-width: 700px;
+  --row-gap-desktop: 1rem;
+  --row-gap-mobile: .5rem;
+  --link-horizontal-spacing: 80px;
+  --subtitle-spacing-top: 0.25rem;
+  --nav-height: 4rem;
+  --nav-font-size: 1rem;
+  --slideshow-spacing: 2rem auto;
+  --content-spacing-top: 2rem;
+  --content-first-para-spacing-top: 4rem;
+
+  --transition-duration: 0.3s;
+  --hover-scale: 1.05;
+
+  --slideshow-btn-font-size: 2rem;
+
+  --overlay-opacity: 0.5;
+  --overlay-z-index: 100;
+}
