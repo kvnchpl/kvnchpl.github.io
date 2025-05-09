@@ -69,7 +69,6 @@ footer {
 .link-wrapper a:hover {
   transform: scale(var(--hover-scale));
   color: var(--link-hover-color);
-  text-shadow: var(--text-shadow, none);
 }
 
 #title-row {
