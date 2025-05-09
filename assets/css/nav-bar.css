@@ -1,10 +1,3 @@
-:root {
-  --gap-size-desktop: 1.5rem;
-  --nav-font-size: 1rem;
-  --text-color: #333;
-  --link-hover-color: #007acc;
-}
-
 #site-nav {
   margin-bottom: var(--gap-size-desktop);
   font-size: var(--nav-font-size);
