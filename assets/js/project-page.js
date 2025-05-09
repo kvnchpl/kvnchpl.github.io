@@ -2,13 +2,13 @@
 import { logError, isMobileDevice, normalizePath } from './utils.js';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const path = normalizePath(window.location.pathname);
+    const rawPath = window.location.pathname;
     const project = window.config?.projects?.find(
-        (p) => normalizePath(p.permalink) === normalizePath(window.location.pathname)
+        (p) => p.permalink === rawPath
     );
 
     if (!project) {
-        logError("Project not found for path:", path);
+        logError("Project not found for path:", rawPath);
         return;
     }
 
