@@ -1,12 +1,26 @@
-// /assets/js/project-page.js
-import { logError, isMobileDevice, normalizePath } from './utils.js';
+import { logError, isMobileDevice } from './utils.js';
 
-document.addEventListener("DOMContentLoaded", () => {
+const waitForProjects = async () => {
+    let attempts = 0;
+    while ((!window.config || !window.config.projects) && attempts < 20) {
+        await new Promise((r) => setTimeout(r, 100));
+        attempts++;
+    }
+
+    if (!window.config?.projects) {
+        logError("Timed out waiting for config.projects to be available.");
+        return;
+    }
+
+    initializeProjectPage();
+};
+
+const initializeProjectPage = () => {
     const rawPath = window.location.pathname.replace(/^\/+|\/+$/g, "");
-    // TEMP DEBUG LOGS
     console.log("Normalized current path:", rawPath);
-    console.log("Available project permalinks:", window.config?.projects?.map(p => p.permalink));
-    const project = window.config?.projects?.find(
+    console.log("Available project permalinks:", window.config.projects.map(p => p.permalink));
+
+    const project = window.config.projects.find(
         (p) => p.permalink.replace(/^\/+|\/+$/g, "") === rawPath
     );
 
@@ -16,12 +30,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Populate title
-    const titleEl = document.getElementById("project-title");
-    if (titleEl) titleEl.textContent = project.title;
+    document.getElementById("project-title").textContent = project.title;
 
     // Populate slideshow
     const slidesWrapper = document.getElementById("project-slides");
-    if (slidesWrapper && Array.isArray(project.images)) {
+    if (Array.isArray(project.images)) {
         project.images.forEach((img) => {
             const slide = document.createElement("div");
             slide.classList.add("slide");
@@ -61,4 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         showSlide(current);
     }
-});
+};
+
+document.addEventListener("DOMContentLoaded", waitForProjects);
