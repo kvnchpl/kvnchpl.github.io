@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: var(--scroll-behavior);
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -72,6 +76,7 @@ li {
 .link-wrapper a:hover {
   transform: scale(var(--hover-scale));
   color: var(--link-hover-color);
+  text-shadow: var(--text-shadow, none);
 }
 
 #title-row {
@@ -100,6 +105,7 @@ a {
   text-transform: lowercase;
   margin-top: var(--subtitle-spacing-top);
   color: var(--subtitle-text-color);
+  font-weight: var(--font-weight);
 }
 
 /* Image overlay */
@@ -113,13 +119,13 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity var(--transition-duration, 0.5s) ease-in-out;
-  z-index: var(--overlay-z-index, 100);
+  transition: opacity var(--transition-duration) ease-in-out;
+  z-index: var(--overlay-z-index);
   pointer-events: none;
 }
 
 .image-overlay.visible {
-  opacity: var(--overlay-opacity, 0.5);
+  opacity: var(--overlay-opacity);
 }
 
 /* Mobile styles */

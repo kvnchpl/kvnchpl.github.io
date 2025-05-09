@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: var(--scroll-behavior);
+}
+
 body {
     background-color: var(--background-color);
     color: var(--text-color);
@@ -79,7 +83,8 @@ ul {
 .slide img {
     max-width: 100%;
     height: auto;
-    border-radius: 4px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow-default);
     display: block;
     margin: 0 auto;
 }
