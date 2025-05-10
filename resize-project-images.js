@@ -23,9 +23,8 @@ async function processImage(filePath, projectName) {
         await fs.ensureDir(outputDir);
 
         if (width === null) {
-            // Copy original file as-is into 'full'
             const rawCopyPath = path.join(outputDir, `${fileName}${ext}`);
-            await fs.copyFile(filePath, rawCopyPath);
+            await fs.move(filePath, rawCopyPath, { overwrite: true });
         } else {
             const outputPath = path.join(outputDir, `${fileName}.webp`);
             const exists = await fs.pathExists(outputPath);
