@@ -1,0 +1,59 @@
+const sharp = require('sharp');
+const fs = require('fs-extra');
+const path = require('path');
+
+const inputRoot = './assets/images/projects';
+const outputSizes = {
+  small: 600,
+  medium: 1280,
+  full: null, // just copies original
+};
+
+const supportedExtensions = ['.png', '.jpg', '.jpeg'];
+
+async function processImage(filePath, projectName) {
+  const ext = path.extname(filePath).toLowerCase();
+  if (!supportedExtensions.includes(ext)) return;
+
+  const fileName = path.basename(filePath, ext);
+  const inputDir = path.dirname(filePath);
+
+  for (const [label, width] of Object.entries(outputSizes)) {
+    const outputDir = path.join(inputDir, label);
+    await fs.ensureDir(outputDir);
+
+    const outputPath = path.join(outputDir, `${fileName}.webp`);
+    if (width === null) {
+      // Copy original file as-is into 'full'
+      const rawCopyPath = path.join(outputDir, `${fileName}${ext}`);
+      await fs.copyFile(filePath, rawCopyPath);
+    } else {
+      await sharp(filePath)
+        .resize({ width })
+        .toFormat('webp')
+        .toFile(outputPath);
+      console.log(`✓ ${projectName}: ${label} version saved → ${outputPath}`);
+    }
+  }
+}
+
+async function run() {
+  const projectDirs = await fs.readdir(inputRoot);
+
+  for (const project of projectDirs) {
+    const projectPath = path.join(inputRoot, project);
+    const files = await fs.readdir(projectPath);
+
+    for (const file of files) {
+      const fullPath = path.join(projectPath, file);
+      const stats = await fs.stat(fullPath);
+      if (stats.isFile()) {
+        await processImage(fullPath, project);
+      }
+    }
+  }
+
+  console.log('\nAll project images processed.');
+}
+
+run().catch(console.error);
