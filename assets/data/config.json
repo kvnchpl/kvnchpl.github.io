@@ -9,6 +9,12 @@
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
     "imageBasePath": "/assets/images/projects",
+    "imageWidths": {
+        "small": "600w",
+        "medium": "1280w"
+    },
+    "imageSizesHint": "(max-width: 768px) 90vw, 60vw",
+    "defaultImageFallbackSize": "small",
     "linkMargins": {
         "mobile": 40,
         "desktop": 80

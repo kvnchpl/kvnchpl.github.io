@@ -18,12 +18,22 @@ const initializeProjectPage = () => {
     const slidesWrapper = document.getElementById("project-slides");
     const imageLoadPromises = [];
     if (Array.isArray(project.images)) {
+        const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
+
         project.images.forEach((img) => {
             const imgEl = createElement("img", {
                 attrs: {
-                    src: img,
-                    alt: `${project.title} image`,
-                    draggable: "false"
+                    src: `${basePath}/${config.defaultImageFallbackSize}/${img.filename}`,
+                    alt: img.alt || `${project.title} image`,
+                    draggable: "false",
+                    srcset: img.srcset
+                        .split(",")
+                        .map(entry => {
+                            const [path, size] = entry.trim().split(" ");
+                            return `${basePath}/${path} ${size}`;
+                        })
+                        .join(", "),
+                    sizes: config.imageSizesHint || "(max-width: 768px) 90vw, 60vw"
                 }
             });
 
