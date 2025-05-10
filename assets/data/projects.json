@@ -5,9 +5,21 @@
         "subtitle": null,
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
         "images": [
-            "/assets/images/projects/viewfinder/viewfinder_1.png",
-            "/assets/images/projects/viewfinder/viewfinder_2.png",
-            "/assets/images/projects/viewfinder/viewfinder_3.png"
+            {
+                "filename": "viewfinder_1.webp",
+                "alt": "viewfinder_1",
+                "srcset": "small/viewfinder_1.webp 600w, medium/viewfinder_1.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_2.webp",
+                "alt": "viewfinder_2",
+                "srcset": "small/viewfinder_2.webp 600w, medium/viewfinder_2.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_3.webp",
+                "alt": "viewfinder_3",
+                "srcset": "small/viewfinder_3.webp 600w, medium/viewfinder_3.webp 1280w"
+            }
         ],
         "publication": null,
         "month": 10,
@@ -20,9 +32,21 @@
         "subtitle": null,
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "images": [
-            "/assets/images/projects/triptych/triptych_1.png",
-            "/assets/images/projects/triptych/triptych_2.png",
-            "/assets/images/projects/triptych/triptych_3.png"
+            {
+                "filename": "triptych_1.webp",
+                "alt": "triptych_1",
+                "srcset": "small/triptych_1.webp 600w, medium/triptych_1.webp 1280w"
+            },
+            {
+                "filename": "triptych_2.webp",
+                "alt": "triptych_2",
+                "srcset": "small/triptych_2.webp 600w, medium/triptych_2.webp 1280w"
+            },
+            {
+                "filename": "triptych_3.webp",
+                "alt": "triptych_3",
+                "srcset": "small/triptych_3.webp 600w, medium/triptych_3.webp 1280w"
+            }
         ],
         "publication": null,
         "month": 5,
@@ -46,9 +70,21 @@
         "subtitle": null,
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "images": [
-            "/assets/images/projects/archipelago/archipelago_1.png",
-            "/assets/images/projects/archipelago/archipelago_2.png",
-            "/assets/images/projects/archipelago/archipelago_3.png"
+            {
+                "filename": "archipelago_1.webp",
+                "alt": "archipelago_1",
+                "srcset": "small/archipelago_1.webp 600w, medium/archipelago_1.webp 1280w"
+            },
+            {
+                "filename": "archipelago_2.webp",
+                "alt": "archipelago_2",
+                "srcset": "small/archipelago_2.webp 600w, medium/archipelago_2.webp 1280w"
+            },
+            {
+                "filename": "archipelago_3.webp",
+                "alt": "archipelago_3",
+                "srcset": "small/archipelago_3.webp 600w, medium/archipelago_3.webp 1280w"
+            }
         ],
         "publication": null,
         "month": 2,
