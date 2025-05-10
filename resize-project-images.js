@@ -28,11 +28,15 @@ async function processImage(filePath, projectName) {
       const rawCopyPath = path.join(outputDir, `${fileName}${ext}`);
       await fs.copyFile(filePath, rawCopyPath);
     } else {
-      await sharp(filePath)
-        .resize({ width })
-        .toFormat('webp')
-        .toFile(outputPath);
-      console.log(`✓ ${projectName}: ${label} version saved → ${outputPath}`);
+      try {
+        await sharp(filePath)
+          .resize({ width })
+          .toFormat('webp')
+          .toFile(outputPath);
+        console.log(`✓ ${projectName}: ${label} version saved → ${outputPath}`);
+      } catch (err) {
+        console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for ${label} size — ${err.message}`);
+      }
     }
   }
 }
