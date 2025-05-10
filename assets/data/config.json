@@ -8,6 +8,7 @@
     "titleRowId": "title-row",
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
+    "imageBasePath": "/assets/images/projects",
     "linkMargins": {
         "mobile": 40,
         "desktop": 80
