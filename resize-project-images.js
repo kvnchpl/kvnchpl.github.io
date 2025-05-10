@@ -29,7 +29,7 @@ async function processImage(filePath, projectName) {
             const outputPath = path.join(outputDir, `${fileName}.webp`);
             const exists = await fs.pathExists(outputPath);
             if (exists) {
-                console.log(`⏩ ${projectName}: ${label} version already exists — skipping`);
+                console.log(`${projectName}: ${label} version already exists — skipping`);
                 continue;
             }
             try {
