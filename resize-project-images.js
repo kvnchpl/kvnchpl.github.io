@@ -38,16 +38,21 @@ async function processImage(filePath, projectName) {
 }
 
 async function run() {
-  const projectDirs = await fs.readdir(inputRoot);
+  let projectDirs = await fs.readdir(inputRoot);
+  // Filter out .DS_Store and non-directories
+  projectDirs = projectDirs.filter((dir) => dir !== '.DS_Store');
 
   for (const project of projectDirs) {
     const projectPath = path.join(inputRoot, project);
+    const stats = await fs.stat(projectPath);
+    if (!stats.isDirectory()) continue;
+
     const files = await fs.readdir(projectPath);
 
     for (const file of files) {
       const fullPath = path.join(projectPath, file);
-      const stats = await fs.stat(fullPath);
-      if (stats.isFile()) {
+      const fileStats = await fs.stat(fullPath);
+      if (fileStats.isFile()) {
         await processImage(fullPath, project);
       }
     }
