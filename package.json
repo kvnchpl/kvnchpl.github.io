@@ -1,0 +1,26 @@
+{
+  "name": "kvnchpl.github.io",
+  "version": "1.0.0",
+  "description": "- portfolio and creative brain-dump for kevin cunanan chappelle   - exploring digital sacredness, experimental ecologies, and speculative design",
+  "main": "resize-project-images.js",
+  "dependencies": {
+    "fs-extra": "^11.3.0",
+    "path": "^0.12.7",
+    "sharp": "^0.34.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kvnchpl/kvnchpl.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kvnchpl/kvnchpl.github.io/issues"
+  },
+  "homepage": "https://github.com/kvnchpl/kvnchpl.github.io#readme"
+}
