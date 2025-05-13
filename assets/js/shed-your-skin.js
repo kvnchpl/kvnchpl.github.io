@@ -8,6 +8,38 @@
     document.addEventListener("DOMContentLoaded", () => {
         const passages = extractPassages();
         initializeNavigation(passages);
+
+        // Find and render the start passage
+        const storyData = document.querySelector("storydata");
+        const startPid = storyData?.getAttribute("startnode");
+
+        if (startPid) {
+            // Find passage name with matching pid
+            const startPassage = Object.entries(passages).find(
+                ([_, value]) => value.pid === startPid
+            );
+
+            if (startPassage) {
+                const [name] = startPassage;
+                navigateToPassage(name, passages);
+            } else {
+                console.error(`No passage found with pid=${startPid}`);
+            }
+        } else {
+            console.error("No startnode attribute found in <storydata>");
+        }
+
+        const hash = decodeURIComponent(location.hash.slice(1));
+        if (hash && passages[hash]) {
+            navigateToPassage(hash, passages);
+        }
+
+        window.addEventListener("hashchange", () => {
+            const hash = decodeURIComponent(location.hash.slice(1));
+            if (hash && passages[hash]) {
+                navigateToPassage(hash, passages);
+            }
+        });
     });
 
     // Function to extract passages from the DOM
@@ -58,6 +90,15 @@
                 event.preventDefault();
                 navigateBack(passages);
             });
+
+            const updateBackButtonState = () => {
+                if (historyStack.length === 0) {
+                    backButton.classList.add("disabled");
+                } else {
+                    backButton.classList.remove("disabled");
+                }
+            };
+            updateBackButtonState();
         }
     }
 
@@ -71,19 +112,42 @@
         }
 
         if (storyContainer) {
+            if (storyContainer.getAttribute("data-current-passage") === passageName) {
+                return; // No need to re-render
+            }
+
             // Push the current passage to the history stack
             const currentPassage = storyContainer.getAttribute("data-current-passage");
             if (currentPassage) {
                 historyStack.push(currentPassage);
+                const backButton = document.querySelector("#backArrow a");
+                if (backButton) {
+                    if (historyStack.length === 0) {
+                        backButton.classList.add("disabled");
+                    } else {
+                        backButton.classList.remove("disabled");
+                    }
+                }
             }
 
             // Update the story container with the new passage content
             const passage = passages[passageName];
             storyContainer.innerHTML = passage.content;
+
+            // Convert [[link]] syntax into clickable anchor elements
+            storyContainer.innerHTML = storyContainer.innerHTML.replace(/\[\[(.*?)\]\]/g, (match, linkText) => {
+                const [label, target] = linkText.split("|");
+                const text = target ? label.trim() : linkText.trim();
+                const passage = target ? target.trim() : linkText.trim();
+                return `<a href="#" data-passage="${passage}">${text}</a>`;
+            });
+
             storyContainer.setAttribute("data-current-passage", passageName);
 
             // Reinitialize any scripts or behaviors specific to the new passage
             reinitializePassageScripts(passageName);
+
+            window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
             console.error("No <story> container found in the DOM.");
         }
