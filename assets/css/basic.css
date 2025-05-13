@@ -5,7 +5,7 @@ html {
 
 body {
     margin: 0;
-    padding: var(--body-padding);
+    padding: var(--body-padding) var(--body-padding) calc(var(--body-padding) * 4) var(--body-padding);
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-family);
