@@ -106,6 +106,10 @@ ul {
     transition: padding-top var(--transition-duration-default) ease;
 }
 
+.slides-wrapper.image-loaded {
+    padding-top: 0 !important;
+}
+
 .slide {
     display: none;
     text-align: center;
