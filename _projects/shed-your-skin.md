@@ -12,7 +12,7 @@ description: Interactive story by Kevin Cunanan Chappelle
         <a href="javascript:void(0)">← Back</a>
     </div>
     <noscript>
-        <noscript>JavaScript needs to be enabled.</noscript>
+        JavaScript needs to be enabled.
     </noscript>
 </story>
 
