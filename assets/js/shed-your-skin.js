@@ -5,20 +5,12 @@
     const historyStack = [];
 
     // Initialize navigation and passage rendering
-    document.addEventListener("DOMContentLoaded", () => {
-        const passages = extractPassages();
+    document.addEventListener("DOMContentLoaded", async () => {
+        const { passages, startPid } = await extractPassagesFromJSON();
         initializeNavigation(passages);
 
-        // Find and render the start passage
-        const storyData = document.querySelector("storydata");
-        const startPid = storyData?.getAttribute("startnode");
-
-        if (startPid) {
-            // Find passage name with matching pid
-            const startPassage = Object.entries(passages).find(
-                ([_, value]) => value.pid === startPid
-            );
-
+        if (startPid && passages) {
+            const startPassage = Object.entries(passages).find(([_, value]) => value.pid === startPid);
             if (startPassage) {
                 const [name] = startPassage;
                 navigateToPassage(name, passages);
@@ -26,7 +18,7 @@
                 console.error(`No passage found with pid=${startPid}`);
             }
         } else {
-            console.error("No startnode attribute found in <storydata>");
+            console.error("Missing startnode or passages in story data.");
         }
 
         const hash = decodeURIComponent(location.hash.slice(1));
@@ -42,31 +34,20 @@
         });
     });
 
-    // Function to extract passages from the DOM
-    function extractPassages() {
-        const storyData = document.querySelector("storydata");
-        if (!storyData) {
-            console.error("No <storydata> element found in the DOM.");
-            return {};
+    async function extractPassagesFromJSON() {
+        try {
+            const response = await fetch("/assets/data/shed-your-skin.json");
+            if (!response.ok) throw new Error("Failed to fetch story JSON");
+            const data = await response.json();
+            const passages = {};
+            data.passages.forEach((p) => {
+                passages[p.name] = { pid: p.pid, content: p.content };
+            });
+            return { passages, startPid: data.startnode };
+        } catch (error) {
+            console.error("Error loading story JSON:", error);
+            return { passages: {}, startPid: null };
         }
-
-        const passageElements = storyData.querySelectorAll("passagedata");
-        const passages = {};
-
-        passageElements.forEach((passage) => {
-            const name = passage.getAttribute("name");
-            const pid = passage.getAttribute("pid");
-            const content = passage.innerHTML.trim();
-
-            if (name && pid) {
-                passages[name] = {
-                    pid: pid,
-                    content: content,
-                };
-            }
-        });
-
-        return passages;
     }
 
     // Function to initialize navigation
