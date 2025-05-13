@@ -20,9 +20,8 @@
     /* Layout and Spacing */
     --spacing-unit: 1rem;
     --body-padding: var(--spacing-unit);
-    --subtitle-spacing-top: var(--spacing-unit) * 0.25;
-    --content-spacing-top: calc(var(--spacing-unit) * 2);
-    --content-first-para-spacing-top: calc(var(--spacing-unit) * 2 + 1vh);
+    --subtitle-spacing: var(--spacing-unit) * 0.25;
+    --content-spacing: calc(var(--spacing-unit) * 2);
     --max-container-width-desktop: 50vw;
     --max-content-width-desktop: calc(var(--max-container-width-desktop) - var(--spacing-unit) * 2);
     --max-container-width-mobile: 80vw;

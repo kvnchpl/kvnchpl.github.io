@@ -85,7 +85,7 @@ footer {
   display: block;
   font-size: var(--subtitle-size);
   text-transform: lowercase;
-  margin-top: var(--subtitle-spacing-top);
+  margin-top: var(--subtitle-spacing);
   color: var(--subtitle-text-color);
   font-weight: var(--font-weight);
 }
