@@ -36,7 +36,9 @@ import {
     };
 
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
+        const slideshowWrapper = createElement("div", { className: "slideshow" });
         const groupWrapper = createElement("div", { className: "slides-wrapper" });
+        slideshowWrapper.appendChild(groupWrapper);
 
         images.forEach((imgBase, index) => {
             const extension = config.imageExtension;
@@ -99,8 +101,8 @@ import {
                 showSlide(current);
             });
 
-            groupWrapper.appendChild(prevBtn);
-            groupWrapper.appendChild(nextBtn);
+            slideshowWrapper.appendChild(prevBtn);
+            slideshowWrapper.appendChild(nextBtn);
 
             // Swipe gesture support
             if (isMobileDevice()) {
@@ -114,7 +116,7 @@ import {
         // Always show first slide
         showSlide(0);
 
-        return groupWrapper;
+        return slideshowWrapper;
     };
 
     const renderContentBlock = (content) => {
