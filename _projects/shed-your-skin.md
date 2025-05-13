@@ -7,7 +7,6 @@ description: Interactive story by Kevin Cunanan Chappelle
 
 <link rel="stylesheet" href="/assets/css/shed-your-skin.css" />
 
-
 <div id="storyWrapper">
     <div id="backArrow" class="navigation">
         <a href="javascript:void(0)">← Back</a>
@@ -75,7 +74,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             the smile you’ve been waiting for all day
             // / / /
             // /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="8" name="not like a snake but an old ringing bell.txt" tags="" position="800,425" size="100,100">
         <pre>
@@ -85,7 +84,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             glowing with loud impossibilities
             / / / / / / /
             /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
         <div id="terminalContainer">
@@ -166,7 +165,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             invitations of love / to love in love / / ///
             / / / / / / / / ///
             / / / / / / / / ///
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="11" name="in other words a script.txt" tags="" position="1200,800" size="100,100">
         <pre>
@@ -176,7 +175,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             how many breaths?
             /// //// ////////
             ////////
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="12" name="the rhythm of your presence.txt" tags="" position="1200,925" size="100,100">
         <pre>
@@ -188,7 +187,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             at once ///// ///////// // //////// ////////
             // //// ///// ///////// // //////// ////////
             //// ///// ///////// // ////////
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300" size="100,100">
         <div id="storyContainer"></div>
@@ -250,7 +249,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             you forgot you remember too / / / /
             / / / / / /
             / /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="15" name="sometimes its more you than you.txt" tags="" position="1200,1550" size="100,100">
         <pre>
@@ -258,7 +257,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             / often / the sum of everything /
             / you know / it makes you laugh /
             / / / / / / / / / / / / / / / / / /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
         <pre>
@@ -331,7 +330,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             / feeling duration and its certainty
             / / ////////
             / / /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="19" name="anytime.txt" tags="" position="1400,1675" size="100,100">
         <pre>
@@ -344,7 +343,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             gradually our breaths swim upstream ///
             /// /// /// ///
             /// /// ///
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="20" name="that crucial moment.txt" tags="" position="1400,1800" size="100,100">
         <pre>
@@ -358,14 +357,14 @@ description: Interactive story by Kevin Cunanan Chappelle
             up and out / up and out /
             // / / / / / / /
             / / /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="21" name="thursday.txt" tags="" position="1400,1925" size="100,100">
         <pre>
             / / / / / / / / / / / / / / / / / / / / / / /
             / it’s another thursday it’s every thursday /
             / / / / / / / / / / / / / / / / / / / / / / /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="22" name="and yet we were all born within.txt" tags="" position="1200,2050" size="100,100">
         <pre>
@@ -381,14 +380,14 @@ description: Interactive story by Kevin Cunanan Chappelle
             hollowness / the essence escaped
             / / / / / / / /
             / / / /
-        <pre>
+        </pre>
     </passagedata>
     <passagedata pid="23" name="are you my teacher.txt" tags="" position="1200,2175" size="100,100">
         <pre>
             ///////////////////////////////////////////////////
             who will dissolve me? ask for what you already have
             ///////////////////////////////////////////////////
-        <pre>
+        </pre>
     </passagedata>
 </storydata>
 
