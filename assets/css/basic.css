@@ -70,17 +70,16 @@ ul {
 }
 
 .slides-wrapper {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    aspect-ratio: var(--aspect-ratio);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    max-height: var(--slide-max-height);
     margin: var(--slideshow-spacing);
 }
 
 .slides-wrapper button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    flex: 0 0 auto;
     background: none;
     border: none;
     font-size: var(--slideshow-btn-font-size);
@@ -93,15 +92,9 @@ ul {
     color: var(--link-hover-color);
 }
 
-.slides-wrapper button.prev {
-    left: var(--spacing-unit);
-}
-
-.slides-wrapper button.next {
-    right: var(--spacing-unit);
-}
-
 .slide {
+    flex: 1 1 auto;
+    max-width: 100%;
     display: none;
     text-align: center;
 }
