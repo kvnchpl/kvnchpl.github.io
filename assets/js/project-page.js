@@ -1,9 +1,9 @@
 import { logError, isMobileDevice, normalizePath, createElement } from './utils.js';
 
 (() => {
+    const main = document.getElementById("main-content");
 
     const createTitleElement = (title) => {
-        const main = document.getElementById("main-content");
         if (!main) {
             logError("Missing #main-content element in DOM.");
             return;
@@ -16,7 +16,6 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
     };
 
     const createContentWrapper = () => {
-        const main = document.getElementById("main-content");
         if (!main) {
             logError("Missing #main-content element in DOM.");
             return null;
