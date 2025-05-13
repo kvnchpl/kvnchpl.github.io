@@ -63,6 +63,12 @@ ul {
     transition-duration: var(--transition-duration-fast);
 }
 
+#main-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--content-spacing-top);
+}
+
 #content-wrapper {
     max-width: var(--max-container-width-desktop);
     margin: 0 auto;
