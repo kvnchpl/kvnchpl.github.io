@@ -11,9 +11,7 @@ description: Interactive story by Kevin Cunanan Chappelle
     <div id="backArrow" class="navigation">
         <a href="javascript:void(0)">← Back</a>
     </div>
-    <noscript>
-        JavaScript needs to be enabled.
-    </noscript>
+    <noscript>JavaScript needs to be enabled.</noscript>
 </story>
 
 <storydata name="shed your skin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe"
