@@ -92,11 +92,13 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
             groupWrapper.appendChild(nextBtn);
 
             // Swipe gesture support
-            addSwipeNavigation(
-                groupWrapper,
-                () => { current = (current + 1) % slides.length; showSlide(current); },
-                () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); }
-            );
+            if (isMobileDevice()) {
+                addSwipeNavigation(
+                    groupWrapper,
+                    () => { current = (current + 1) % slides.length; showSlide(current); },
+                    () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); }
+                );
+            }
         }
         // Always show first slide
         showSlide(0);
