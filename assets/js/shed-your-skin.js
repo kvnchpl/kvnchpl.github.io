@@ -5,8 +5,8 @@
     const historyStack = [];
 
     // Initialize navigation and passage rendering
-    document.addEventListener("DOMContentLoaded", async () => {
-        const { passages, startPid } = await extractPassagesFromJSON();
+    document.addEventListener("DOMContentLoaded", () => {
+        const { passages, startPid } = extractPassagesFromDOM();
         initializeNavigation(passages);
 
         if (startPid && passages) {
@@ -34,20 +34,26 @@
         });
     });
 
-    async function extractPassagesFromJSON() {
-        try {
-            const response = await fetch("/assets/data/shed-your-skin.json");
-            if (!response.ok) throw new Error("Failed to fetch story JSON");
-            const data = await response.json();
-            const passages = {};
-            data.passages.forEach((p) => {
-                passages[p.name] = { pid: p.pid, content: p.content };
-            });
-            return { passages, startPid: data.startnode };
-        } catch (error) {
-            console.error("Error loading story JSON:", error);
-            return { passages: {}, startPid: null };
+    function extractPassagesFromDOM() {
+        const storyData = document.querySelector("storydata");
+        const passages = {};
+        let startPid = storyData?.getAttribute("startnode") || null;
+
+        if (!storyData) {
+            console.error("No <storydata> found in DOM.");
+            return { passages: {}, startPid };
         }
+
+        storyData.querySelectorAll("passagedata").forEach((el) => {
+            const name = el.getAttribute("name");
+            const pid = el.getAttribute("pid");
+            const content = el.innerHTML.trim();
+            if (name && pid) {
+                passages[name] = { pid, content };
+            }
+        });
+
+        return { passages, startPid };
     }
 
     // Function to initialize navigation
