@@ -75,6 +75,9 @@ ul {
 
 .grid-left {
     grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-center {
@@ -83,6 +86,9 @@ ul {
 
 .grid-right {
     grid-column: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .content {
