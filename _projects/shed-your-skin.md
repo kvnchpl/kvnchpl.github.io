@@ -24,7 +24,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             [[not like a snake but an old ringing bell.txt]]
             [[sheddings.js]]
             [[all halls lead here >]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="2" name="all halls lead here >" tags="" position="800,675" size="100,100">
         <pre>
@@ -32,14 +32,14 @@ description: Interactive story by Kevin Cunanan Chappelle
             [[the breath >]]
             [[the ghost >]]
             [[the guardian >]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="3" name="the breath >" tags="" position="1000,800" size="100,100">
         <pre>
             [[in other words a script.txt]]
             [[the rhythm of your presence.txt]]
             [[dont forget to breathe >]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="4" name="the ghost >" tags="" position="1000,1300" size="100,100">
         <pre>
@@ -47,19 +47,19 @@ description: Interactive story by Kevin Cunanan Chappelle
             [[before birth after death.txt]]
             [[sometimes its more you than you.txt]]
             [[small routines >]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="5" name="the guardian >" tags="" position="1000,2050" size="100,100">
         <pre>
             [[and yet we were all born within.txt]]
             [[are you my teacher.txt]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="6" name="dont forget to breathe >" tags="" position="1200,1050" size="100,100">
         <pre>
             [[breathe.js]]
             [[wind hall.txt]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="7" name="can you see yourself.txt" tags="" position="800,300" size="100,100">
         <pre>
@@ -264,7 +264,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             [[anytime.txt]]
             [[that crucial moment.txt]]
             [[thursday.txt]]
-            </pre>
+        </pre>
     </passagedata>
     <passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
         <div id="breathContainer"></div>
