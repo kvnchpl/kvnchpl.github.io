@@ -1,31 +1,19 @@
 import { logError, isMobileDevice, normalizePath, createElement } from './utils.js';
 
-const initializeProjectPage = () => {
-    const rawPath = normalizePath(window.location.pathname);
-    const project = window.config.projects.find(
-        (p) => normalizePath(p.permalink) === rawPath
-    );
+(() => {
 
-    if (!project) {
-        logError("Project not found for path:", rawPath);
-        return;
-    }
+    const createTitleElement = (title) => {
+        const titleEl = document.getElementById("project-title");
+        if (titleEl) {
+            titleEl.textContent = title;
+        }
+    };
 
-    const contentWrapper = document.getElementById("content-wrapper");
+    const createContentWrapper = () => {
+        return document.getElementById("content-wrapper");
+    };
 
-    const titleEl = createElement("h1", {
-        attrs: { id: "project-title" },
-        children: [project.title]
-    });
-    contentWrapper.before(titleEl);
-
-    const imageLoadPromises = [];
-
-    const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
-    const contentBlocks = project.content || [];
-    const imageGroups = project.images || [];
-
-    function renderSlideshowGroup(images, basePath, groupIndex) {
+    const renderSlideshowGroup = (images, basePath, groupIndex) => {
         const groupWrapper = createElement("div", { className: "slides-wrapper" });
 
         images.forEach((imgBase, index) => {
@@ -92,16 +80,13 @@ const initializeProjectPage = () => {
         }
 
         return groupWrapper;
-    }
+    };
 
-    const maxBlocks = Math.max(contentBlocks.length, imageGroups.length);
+    const renderDescriptionBlock = (content) => {
+        return createElement("p", { children: [document.createTextNode(content)] });
+    };
 
-    const layoutSequence = (project.layout || "")
-        .split(",")
-        .map(part => part.trim())
-        .filter(Boolean);
-
-    if (layoutSequence.length > 0) {
+    const renderLayoutSequence = (layoutSequence, contentBlocks, imageGroups, basePath, contentWrapper) => {
         layoutSequence.forEach((block) => {
             const [type, indexStr] = block.split("-");
             const index = parseInt(indexStr, 10) - 1;
@@ -112,46 +97,85 @@ const initializeProjectPage = () => {
             }
 
             if (type === "description" && contentBlocks[index]) {
-                const p = createElement("p", { children: [document.createTextNode(contentBlocks[index])] });
+                const p = renderDescriptionBlock(contentBlocks[index]);
                 contentWrapper.appendChild(p);
             }
         });
-    } else {
+    };
+
+    const renderDefaultLayout = (maxBlocks, contentBlocks, imageGroups, basePath, contentWrapper) => {
         for (let i = 0; i < maxBlocks; i++) {
             if (imageGroups[i]) {
                 const groupWrapper = renderSlideshowGroup(imageGroups[i], basePath, i);
                 contentWrapper.appendChild(groupWrapper);
             }
             if (contentBlocks[i]) {
-                const p = createElement("p", { children: [document.createTextNode(contentBlocks[i])] });
+                const p = renderDescriptionBlock(contentBlocks[i]);
                 contentWrapper.appendChild(p);
             }
         }
-    }
+    };
 
-    Promise.all(imageLoadPromises).then(() => {
-        document.querySelectorAll(".slides-wrapper").forEach(wrapper => {
-            wrapper.closest(".slideshow")?.classList.add("visible");
+    const appendProjectDate = (project, contentWrapper) => {
+        if (project.month && project.year && Array.isArray(window.config?.monthNames)) {
+            const monthName = window.config.monthNames[project.month - 1] || project.month;
+            const dateEl = createElement("p", {
+                className: "project-date",
+                attrs: { id: "project-date" },
+                children: [`—${monthName} ${project.year}`]
+            });
+            contentWrapper.appendChild(dateEl);
+        }
+    };
+
+    let imageLoadPromises = [];
+
+    const initializeProjectPage = () => {
+        imageLoadPromises = [];
+        const rawPath = normalizePath(window.location.pathname);
+        const project = window.config.projects.find(
+            (p) => normalizePath(p.permalink) === rawPath
+        );
+
+        if (!project) {
+            logError("Project not found for path:", rawPath);
+            return;
+        }
+
+        createTitleElement(project.title);
+
+        const contentWrapper = createContentWrapper();
+
+        const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
+        const contentBlocks = project.content || [];
+        const imageGroups = project.images || [];
+
+        const maxBlocks = Math.max(contentBlocks.length, imageGroups.length);
+
+        const layoutSequence = (project.layout || "")
+            .split(",")
+            .map(part => part.trim())
+            .filter(Boolean);
+
+        if (layoutSequence.length > 0) {
+            renderLayoutSequence(layoutSequence, contentBlocks, imageGroups, basePath, contentWrapper);
+        } else {
+            renderDefaultLayout(maxBlocks, contentBlocks, imageGroups, basePath, contentWrapper);
+        }
+
+        Promise.all(imageLoadPromises).then(() => {
+            document.querySelectorAll(".slides-wrapper").forEach(wrapper => {
+                wrapper.closest(".slideshow")?.classList.add("visible");
+            });
         });
-    });
 
-    // Disable context menu on slideshow
-    contentWrapper?.addEventListener("contextmenu", (e) => {
-        e.preventDefault();
-    });
-
-    // Populate date at the very end of #content-wrapper
-    if (project.month && project.year && Array.isArray(window.config?.monthNames)) {
-        const monthName = window.config.monthNames[project.month - 1] || project.month;
-        const dateEl = createElement("p", {
-            className: "project-date",
-            attrs: { id: "project-date" },
-            children: [`—${monthName} ${project.year}`]
+        // Disable context menu on slideshow
+        contentWrapper?.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
         });
-        contentWrapper.appendChild(dateEl);
-    }
-};
 
-window.addEventListener("config-ready", () => {
-    initializeProjectPage();
-});
+        appendProjectDate(project, contentWrapper);
+    };
+
+    window.addEventListener("config-ready", initializeProjectPage);
+})();
