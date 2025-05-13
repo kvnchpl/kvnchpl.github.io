@@ -7,10 +7,12 @@ description: Interactive story by Kevin Cunanan Chappelle
 
 <link rel="stylesheet" href="/assets/css/shed-your-skin.css" />
 
+
+<div id="backArrow" class="navigation">
+  <a href="javascript:void(0)">← Back</a>
+</div>
+
 <div id="story">
-    <div id="backArrow" class="navigation">
-        <a href="javascript:void(0)">← Back</a>
-    </div>
     <noscript>JavaScript needs to be enabled.</noscript>
 </div>
 
