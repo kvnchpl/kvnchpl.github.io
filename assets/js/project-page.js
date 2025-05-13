@@ -26,7 +26,6 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
         return wrapper;
     };
 
-
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
         const groupWrapper = createElement("div", { className: "slides-wrapper" });
 
