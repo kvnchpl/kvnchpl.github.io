@@ -32,7 +32,8 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
         const groupWrapper = createElement("div", { className: "slides-wrapper" });
 
         images.forEach((imgBase, index) => {
-            const filename = `${imgBase}.webp`;
+            const extension = config.imageExtension;
+            const filename = `${imgBase}.${extension}`;
             const altText = imgBase;
             const fallbackSize = isMobileDevice() ? "small" : config.defaultImageFallbackSize;
             const src = `${basePath}/${fallbackSize}/${filename}`;
