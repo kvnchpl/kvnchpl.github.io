@@ -21,6 +21,7 @@ footer {
   padding: 0;
   height: auto;
   min-height: calc(100vh - var(--nav-height));
+  width: 100vw;
   position: relative;
   overflow-x: hidden;
   overflow-y: visible;
