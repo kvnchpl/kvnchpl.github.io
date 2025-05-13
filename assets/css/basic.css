@@ -112,6 +112,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-height: var(--slide-max-height);
     width: 100%;
     max-width: 100%;
     aspect-ratio: var(--aspect-ratio);
