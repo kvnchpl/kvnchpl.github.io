@@ -134,7 +134,8 @@ ul {
 
 .slide img {
     display: block;
-    width: 100%;
+    width: auto;
+    max-width: 100%;
     height: 100%;
     max-height: var(--slide-max-height);
     object-fit: contain;
