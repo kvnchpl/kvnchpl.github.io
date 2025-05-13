@@ -77,6 +77,29 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
             groupWrapper.appendChild(prevBtn);
             groupWrapper.appendChild(nextBtn);
             showSlide(current);
+
+            // Swipe gesture support
+            let startX = 0;
+            let endX = 0;
+
+            groupWrapper.addEventListener("touchstart", (e) => {
+                startX = e.touches[0].clientX;
+            }, { passive: true });
+
+            groupWrapper.addEventListener("touchmove", (e) => {
+                endX = e.touches[0].clientX;
+            }, { passive: true });
+
+            groupWrapper.addEventListener("touchend", () => {
+                const threshold = 50; // minimum distance for swipe
+                if (startX - endX > threshold) {
+                    current = (current + 1) % slides.length;
+                    showSlide(current);
+                } else if (endX - startX > threshold) {
+                    current = (current - 1 + slides.length) % slides.length;
+                    showSlide(current);
+                }
+            });
         }
 
         return groupWrapper;
