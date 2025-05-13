@@ -67,7 +67,7 @@
 #storyWrapper {
   display: flex;
   align-items: flex-start;
-  gap: 1em; /* spacing between arrow and story content */
+  gap: 1em;
   max-width: var(--container-max-width);
   margin: var(--story-margin);
 }
