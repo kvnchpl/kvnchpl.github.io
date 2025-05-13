@@ -70,17 +70,11 @@ ul {
 }
 
 .content {
-    margin: var(--content-spacing-top) auto;
     text-align: justify;
     max-width: var(--max-content-width-desktop);
 }
 
-.content p:first-of-type {
-    margin-top: var(--content-first-para-spacing-top);
-}
-
 #project-date {
-    margin: 0 auto;
     text-align: left;
 }
 
