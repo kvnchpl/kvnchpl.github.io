@@ -14,18 +14,24 @@ const initializeProjectPage = () => {
     // Populate title
     document.getElementById("project-title").textContent = project.title;
 
-    // Populate slideshow
-    const slidesWrapper = document.getElementById("project-slides");
-    const imageLoadPromises = [];
-    if (Array.isArray(project.images)) {
-        const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
+    const contentWrapper = document.getElementById("content-wrapper");
 
-        project.images.forEach((group, groupIndex) => {
+    const imageLoadPromises = [];
+
+    const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
+    const contentBlocks = project.content || [];
+    const imageGroups = project.images || [];
+
+    const maxBlocks = Math.max(contentBlocks.length, imageGroups.length);
+
+    for (let i = 0; i < maxBlocks; i++) {
+        // Render slideshow if available
+        if (imageGroups[i]) {
             const groupWrapper = createElement("div", {
                 className: "slides-wrapper"
             });
 
-            group.forEach((imgBase, index) => {
+            imageGroups[i].forEach((imgBase, index) => {
                 const filename = `${imgBase}.webp`;
                 const altText = imgBase;
                 const src = `${basePath}/${config.defaultImageFallbackSize}/${filename}`;
@@ -45,7 +51,7 @@ const initializeProjectPage = () => {
 
                 const loadPromise = new Promise((resolve) => {
                     imgEl.onload = () => {
-                        if (groupIndex === 0 && index === 0 && imgEl.naturalWidth && imgEl.naturalHeight) {
+                        if (i === 0 && index === 0 && imgEl.naturalWidth && imgEl.naturalHeight) {
                             const percent = (imgEl.naturalHeight / imgEl.naturalWidth) * 100;
                             groupWrapper.style.paddingTop = `${percent}%`;
                             groupWrapper.style.position = "relative";
@@ -64,24 +70,15 @@ const initializeProjectPage = () => {
                 groupWrapper.appendChild(slide);
             });
 
-            slidesWrapper.appendChild(groupWrapper);
-
+            // Navigation
             const slides = groupWrapper.querySelectorAll(".slide");
             if (slides.length > 0) {
                 let current = 0;
-
                 const showSlide = (index) => {
-                    slides.forEach((s, i) => s.classList.toggle("active", i === index));
+                    slides.forEach((s, j) => s.classList.toggle("active", j === index));
                 };
-
-                const prevBtn = createElement("button", {
-                    className: "prev",
-                    children: ["←"]
-                });
-                const nextBtn = createElement("button", {
-                    className: "next",
-                    children: ["→"]
-                });
+                const prevBtn = createElement("button", { className: "prev", children: ["←"] });
+                const nextBtn = createElement("button", { className: "next", children: ["→"] });
 
                 prevBtn.addEventListener("click", () => {
                     current = (current - 1 + slides.length) % slides.length;
@@ -95,17 +92,27 @@ const initializeProjectPage = () => {
 
                 groupWrapper.appendChild(prevBtn);
                 groupWrapper.appendChild(nextBtn);
-
                 showSlide(current);
             }
-        });
-        Promise.all(imageLoadPromises).then(() => {
-            slidesWrapper.closest(".slideshow")?.classList.add("visible");
-        });
+
+            contentWrapper.appendChild(groupWrapper);
+        }
+
+        // Render description if available
+        if (contentBlocks[i]) {
+            const p = createElement("p", { children: [contentBlocks[i]] });
+            contentWrapper.appendChild(p);
+        }
     }
 
+    Promise.all(imageLoadPromises).then(() => {
+        document.querySelectorAll(".slides-wrapper").forEach(wrapper => {
+            wrapper.closest(".slideshow")?.classList.add("visible");
+        });
+    });
+
     // Disable context menu on slideshow
-    slidesWrapper?.addEventListener("contextmenu", (e) => {
+    contentWrapper?.addEventListener("contextmenu", (e) => {
         e.preventDefault();
     });
 
