@@ -10,7 +10,10 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
     };
 
     const createContentWrapper = () => {
-        return document.getElementById("content-wrapper");
+        const main = document.getElementById("main-content");
+        const wrapper = createElement("div", { attrs: { id: "content-wrapper" } });
+        main.appendChild(wrapper);
+        return wrapper;
     };
 
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
