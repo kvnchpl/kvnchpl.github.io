@@ -93,6 +93,10 @@ ul {
 
 .slides-wrapper {
     flex: 1;
+    padding-top: 0;
+    overflow: hidden;
+    background: transparent;
+    transition: padding-top 0.5s ease;
 }
 
 .slide {
