@@ -119,8 +119,8 @@ ul {
 
 .content {
     margin: var(--content-spacing-top) auto;
-    text-align: left;
-    max-width: var(--max-content-width-desktop);
+    text-align: justify;
+
 }
 
 .content p:first-of-type {
@@ -130,7 +130,6 @@ ul {
 #project-date {
     margin: 0 auto;
     text-align: left;
-    max-width: var(--max-content-width-desktop);
 }
 
 @media (max-width: 768px) {
@@ -140,15 +139,6 @@ ul {
 
     #content-wrapper {
         max-width: var(--max-container-width-mobile);
-    }
-
-
-    .content {
-        max-width: var(--max-content-width-mobile);
-    }
-
-    #project-date {
-        max-width: var(--max-content-width-mobile);
     }
 
     .slides-wrapper {
