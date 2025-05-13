@@ -4,8 +4,8 @@
     --line-height: 1.5;
     --text-color: inherit;
     --background-color: none;
-    --link-color: #00bfff;
-    --link-hover-color: #dd4b39;
+    --link-color: var(--text-color);
+    --link-hover-color: inherit;
     --container-padding: 1em;
     --container-max-width: 800px;
     --back-arrow-font-size: 1.2em;
@@ -52,17 +52,18 @@
     z-index: 1000;
 }
 
+#backArrow.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
 #backArrow a {
     color: var(--text-color);
     text-decoration: none;
     transition: color var(--transition-duration) ease-in-out;
 }
 
-#backArrow a:hover {
-    color: var(--link-hover-color);
-}
-
-story {
+#story {
     font-family: var(--font-family);
     color: var(--text-color);
     background: var(--background-color);
@@ -75,14 +76,14 @@ passage {
     display: block;
 }
 
-link {
+a[data-passage] {
     color: var(--link-color);
-    text-decoration: none;
+    text-decoration: underline;
     cursor: pointer;
     transition: color var(--transition-duration) ease-in-out;
 }
 
-link:hover {
+a[data-passage]:hover {
     color: var(--link-hover-color);
 }
 
