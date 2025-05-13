@@ -66,9 +66,23 @@ ul {
 }
 
 #content-wrapper {
-    max-width: var(--max-container-width-desktop);
-    margin: 0 auto;
-    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr minmax(auto, var(--max-content-width-desktop)) 1fr;
+    row-gap: var(--content-spacing-top);
+    column-gap: var(--spacing-unit);
+    align-items: start;
+}
+
+.grid-left {
+    grid-column: 1;
+}
+
+.grid-center {
+    grid-column: 2;
+}
+
+.grid-right {
+    grid-column: 3;
 }
 
 .content {
