@@ -117,7 +117,11 @@ import {
             // Always show first slide
             showSlide(0);
 
-            return [left, center, right];
+            const slideshowRow = createElement("div", {
+                className: "slideshow",
+                children: [left, center, right]
+            });
+            return [slideshowRow];
         } else {
             const left = createElement("div", { className: "grid-left" });
             const center = createElement("div", { className: "grid-center", children: [slidesWrapper] });
@@ -126,7 +130,11 @@ import {
             // Always show first slide
             showSlide(0);
 
-            return [left, center, right];
+            const slideshowRow = createElement("div", {
+                className: "slideshow",
+                children: [left, center, right]
+            });
+            return [slideshowRow];
         }
     };
 
