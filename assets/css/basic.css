@@ -61,7 +61,8 @@ ul {
 #main-content {
     display: flex;
     flex-direction: column;
-    gap: var(--content-spacing-top);
+    margin-top: var(--content-spacing);
+    gap: var(--content-spacing);
 }
 
 #content-wrapper {
