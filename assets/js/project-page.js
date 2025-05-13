@@ -20,7 +20,7 @@ const initializeProjectPage = () => {
     if (Array.isArray(project.images)) {
         const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
 
-        project.images.forEach((img) => {
+        project.images.forEach((img, index) => {
             const imgEl = createElement("img", {
                 attrs: {
                     src: `${basePath}/${config.defaultImageFallbackSize}/${img.filename}`,
@@ -38,7 +38,14 @@ const initializeProjectPage = () => {
             });
 
             const loadPromise = new Promise((resolve) => {
-                imgEl.onload = resolve;
+                imgEl.onload = () => {
+                    if (index === 0 && imgEl.naturalWidth && imgEl.naturalHeight) {
+                        const percent = (imgEl.naturalHeight / imgEl.naturalWidth) * 100;
+                        slidesWrapper.style.paddingTop = `${percent}%`;
+                        slidesWrapper.style.position = "relative";
+                    }
+                    resolve();
+                };
                 imgEl.onerror = resolve;
             });
             imageLoadPromises.push(loadPromise);
