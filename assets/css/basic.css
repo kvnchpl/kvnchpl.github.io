@@ -160,18 +160,18 @@ ul {
     }
 
     .slides-wrapper button {
-      font-size: 1.5rem;
+      font-size: var(--slideshow-btn-font-size);
       top: auto;
       bottom: 0.5rem;
       transform: none;
     }
 
     .slides-wrapper button.prev {
-      left: 1rem;
+      left: var(--spacing-unit);
     }
 
     .slides-wrapper button.next {
-      right: 1rem;
+      right: var(--spacing-unit);
     }
 
     .slide img {
