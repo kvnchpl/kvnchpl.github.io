@@ -63,7 +63,6 @@ import {
                 imgEl.onload = () => {
                     if (groupIndex === 0 && index === 0 && imgEl.naturalWidth && imgEl.naturalHeight) {
                         slidesWrapper.style.aspectRatio = `${imgEl.naturalWidth} / ${imgEl.naturalHeight}`;
-                        slidesWrapper.style.removeProperty("padding-top");
                     }
                     resolve();
                 };
