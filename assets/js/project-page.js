@@ -117,7 +117,7 @@ import {
         return groupWrapper;
     };
 
-    const renderDescriptionBlock = (content) => {
+    const renderContentBlock = (content) => {
         return createElement("p", { className: "content", children: [document.createTextNode(content)] });
     };
 
@@ -133,12 +133,12 @@ import {
                 } else {
                     logError(`Layout reference error: slideshow index ${index + 1} out of range.`);
                 }
-            } else if (type === "description") {
+            } else if (type === "content") {
                 if (contentBlocks[index]) {
-                    const p = renderDescriptionBlock(contentBlocks[index]);
+                    const p = renderContentBlock(contentBlocks[index]);
                     contentWrapper.appendChild(p);
                 } else {
-                    logError(`Layout reference error: description index ${index + 1} out of range.`);
+                    logError(`Layout reference error: content index ${index + 1} out of range.`);
                 }
             }
         });
@@ -151,7 +151,7 @@ import {
                 contentWrapper.appendChild(groupWrapper);
             }
             if (contentBlocks[i]) {
-                const p = renderDescriptionBlock(contentBlocks[i]);
+                const p = renderContentBlock(contentBlocks[i]);
                 contentWrapper.appendChild(p);
             }
         }
