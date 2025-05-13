@@ -11,10 +11,13 @@ const initializeProjectPage = () => {
         return;
     }
 
-    // Populate title
-    document.getElementById("project-title").textContent = project.title;
-
     const contentWrapper = document.getElementById("content-wrapper");
+
+    const titleEl = createElement("h1", {
+        attrs: { id: "project-title" },
+        children: [project.title]
+    });
+    contentWrapper.before(titleEl);
 
     const imageLoadPromises = [];
 
