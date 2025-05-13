@@ -78,6 +78,7 @@ ul {
 .content {
     margin: var(--content-spacing-top) auto;
     text-align: justify;
+    max-width: var(--max-content-width-desktop);
 }
 
 .content p:first-of-type {
@@ -184,6 +185,10 @@ ul {
         max-height: var(--slide-max-height);
         object-fit: contain;
         padding: 0 var(--spacing-unit);
+    }
+
+    .content {
+        max-width: var(--max-content-width-mobile);
     }
 }
 
