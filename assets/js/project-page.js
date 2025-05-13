@@ -2,8 +2,9 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
 
 (() => {
 
+    const main = document.getElementById("main-content");
+
     const createTitleElement = (title) => {
-        const main = document.getElementById("main-content");
         if (!main) {
             logError("Missing #main-content element in DOM.");
             return;
@@ -16,7 +17,6 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
     };
 
     const createContentWrapper = () => {
-        const main = document.getElementById("main-content");
         if (!main) {
             logError("Missing #main-content element in DOM.");
             return null;
@@ -217,9 +217,8 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
             document.querySelectorAll(".slides-wrapper").forEach(wrapper => {
                 // Removed outdated .slideshow visibility line
             });
-            const mainContent = document.getElementById("main-content");
-            if (mainContent) {
-                mainContent.classList.add("ready");
+            if (main) {
+                main.classList.add("ready");
             }
         });
 
