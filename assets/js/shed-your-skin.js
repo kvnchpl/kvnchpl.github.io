@@ -104,7 +104,7 @@
 
     // Function to navigate to a specific passage
     function navigateToPassage(passageName, passages) {
-        const storyContainer = document.querySelector("story");
+        const storyContainer = document.getElementById("story");
 
         if (!passages[passageName]) {
             console.error(`Passage "${passageName}" not found.`);
