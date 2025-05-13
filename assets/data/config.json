@@ -9,7 +9,11 @@
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
     "imageBasePath": "/assets/images/projects",
-    "imageWidths": {
+    "imageFolders": {
+        "small": "small",
+        "medium": "medium"
+    },
+    "imageSizes": {
         "small": "600w",
         "medium": "1280w"
     },
