@@ -9,6 +9,7 @@
     "subtitleClass": "subtitle",
     "imageOverlayId": "image-overlay",
     "imageBasePath": "/assets/images/projects",
+    "imageExtension": "webp",
     "imageFolders": {
         "small": "small",
         "medium": "medium"
@@ -67,6 +68,7 @@
         "subtitle",
         "description",
         "images",
+        "layout",
         "publication",
         "month",
         "year",
