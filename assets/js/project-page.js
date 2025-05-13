@@ -38,7 +38,7 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
                 imgEl.onload = () => {
                     if (groupIndex === 0 && index === 0 && imgEl.naturalWidth && imgEl.naturalHeight) {
                         const percent = (imgEl.naturalHeight / imgEl.naturalWidth) * 100;
-                        groupWrapper.style.paddingTop = `${percent}%`;
+                        groupWrapper.style.setProperty('--aspect-ratio', `${percent}%`);
                         groupWrapper.style.position = "relative";
                         groupWrapper.style.removeProperty("padding-top");
                     }
@@ -91,14 +91,20 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
             const [type, indexStr] = block.split("-");
             const index = parseInt(indexStr, 10) - 1;
 
-            if (type === "slideshow" && imageGroups[index]) {
-                const groupWrapper = renderSlideshowGroup(imageGroups[index], basePath, index);
-                contentWrapper.appendChild(groupWrapper);
-            }
-
-            if (type === "description" && contentBlocks[index]) {
-                const p = renderDescriptionBlock(contentBlocks[index]);
-                contentWrapper.appendChild(p);
+            if (type === "slideshow") {
+                if (imageGroups[index]) {
+                    const groupWrapper = renderSlideshowGroup(imageGroups[index], basePath, index);
+                    contentWrapper.appendChild(groupWrapper);
+                } else {
+                    logError(`Layout reference error: slideshow index ${index + 1} out of range.`);
+                }
+            } else if (type === "description") {
+                if (contentBlocks[index]) {
+                    const p = renderDescriptionBlock(contentBlocks[index]);
+                    contentWrapper.appendChild(p);
+                } else {
+                    logError(`Layout reference error: description index ${index + 1} out of range.`);
+                }
             }
         });
     };
@@ -167,6 +173,10 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
             document.querySelectorAll(".slides-wrapper").forEach(wrapper => {
                 wrapper.closest(".slideshow")?.classList.add("visible");
             });
+            const mainContent = document.getElementById("main-content");
+            if (mainContent) {
+                mainContent.classList.add("ready");
+            }
         });
 
         // Disable context menu on slideshow
