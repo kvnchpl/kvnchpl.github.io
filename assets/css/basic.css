@@ -73,7 +73,7 @@ ul {
     position: relative;
     width: 100%;
     overflow: hidden;
-    aspect-ratio: var(--aspect-ratio, 4 / 3);
+    aspect-ratio: var(--aspect-ratio);
     margin: var(--slideshow-spacing);
 }
 
