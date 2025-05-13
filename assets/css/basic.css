@@ -75,7 +75,6 @@ ul {
 .grid-left,
 .grid-right {
     display: flex;
-    align-items: center;
 }
 
 .grid-left {
