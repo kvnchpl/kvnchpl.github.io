@@ -57,11 +57,6 @@ ul {
     margin: 0 0.5rem;
 }
 
-#site-nav a:hover {
-    text-transform: uppercase;
-    margin: 0 0.5rem;
-}
-
 #main-content {
     display: flex;
     flex-direction: column;
