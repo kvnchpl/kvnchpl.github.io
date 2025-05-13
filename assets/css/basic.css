@@ -67,7 +67,7 @@ ul {
 #content-wrapper {
     display: grid;
     grid-template-columns: 1fr minmax(auto, var(--max-content-width-desktop)) 1fr;
-    row-gap: var(--content-spacing-top);
+    row-gap: var(--content-spacing);
     column-gap: var(--spacing-unit);
     align-items: start;
 }
