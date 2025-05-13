@@ -153,4 +153,33 @@ ul {
     #project-date {
         max-width: var(--max-content-width-mobile);
     }
+
+    .slides-wrapper {
+      aspect-ratio: auto;
+      height: auto;
+    }
+
+    .slides-wrapper button {
+      font-size: 1.5rem;
+      top: auto;
+      bottom: 0.5rem;
+      transform: none;
+    }
+
+    .slides-wrapper button.prev {
+      left: 1rem;
+    }
+
+    .slides-wrapper button.next {
+      right: 1rem;
+    }
+
+    .slide img {
+      max-height: 70vh;
+      object-fit: contain;
+    }
+}
+
+.slides-wrapper:has(.slide:nth-child(2)):not(:has(.slide:nth-child(3))) button {
+  display: none;
 }
