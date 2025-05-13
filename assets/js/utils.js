@@ -89,7 +89,15 @@ export const createElement = (tag, { className, attrs = {}, children = [], event
     Object.entries(events).forEach(([event, handler]) => {
         el.addEventListener(event, handler);
     });
-    children.forEach(child => el.appendChild(child));
+    children.forEach(child => {
+        if (typeof child === "string") {
+            el.appendChild(document.createTextNode(child));
+        } else if (child instanceof Node) {
+            el.appendChild(child);
+        } else {
+            console.error("Invalid child passed to createElement:", child);
+        }
+    });
     return el;
 };
 
