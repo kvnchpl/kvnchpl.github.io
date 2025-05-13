@@ -140,7 +140,8 @@ ul {
     object-fit: contain;
 }
 
-.slideshow button {
+.slideshow .prev,
+.slideshow .next {
     flex: 0 0 auto;
     background: none;
     border: none;
@@ -148,17 +149,22 @@ ul {
     color: var(--text-color);
     cursor: pointer;
     z-index: var(--z-index-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }
 
-.slideshow button:hover {
+.slideshow .prev:hover,
+.slideshow .next:hover {
     color: var(--link-hover-color);
 }
 
-.slideshow button.prev {
+.slideshow .prev {
     order: -1;
 }
 
-.slideshow button.next {
+.slideshow .next {
     order: 1;
 }
 
@@ -175,20 +181,22 @@ ul {
         height: auto;
     }
 
-    .slideshow button {
+    .slideshow .prev,
+    .slideshow .next {
         position: relative;
         top: unset;
         bottom: unset;
         transform: none;
         padding: 0 var(--spacing-unit);
         font-size: var(--slideshow-btn-font-size);
+        height: 100%;
     }
 
-    .slideshow button.prev {
+    .slideshow .prev {
         left: var(--spacing-unit);
     }
 
-    .slideshow button.next {
+    .slideshow .next {
         right: var(--spacing-unit);
     }
 
@@ -203,6 +211,7 @@ ul {
     }
 }
 
-.slideshow:has(.slide:nth-child(2)):not(:has(.slide:nth-child(3))) button {
+.slideshow:has(.slide:nth-child(2)):not(:has(.slide:nth-child(3))) .prev,
+.slideshow:has(.slide:nth-child(2)):not(:has(.slide:nth-child(3))) .next {
     display: none;
 }
