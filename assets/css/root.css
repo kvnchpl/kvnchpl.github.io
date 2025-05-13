@@ -23,9 +23,9 @@
     --subtitle-spacing: var(--spacing-unit) * 0.25;
     --content-spacing: calc(var(--spacing-unit) * 2);
     --max-container-width-desktop: 50vw;
-    --max-content-width-desktop: calc(var(--max-container-width-desktop) - var(--spacing-unit) * 2);
+    --max-content-width-desktop: calc(var(--max-container-width-desktop) - var(--slideshow-btn-font-size) * 2);
     --max-container-width-mobile: 80vw;
-    --max-container-width-mobile: calc(var(--max-container-width-mobile) - var(--spacing-unit) * 2);
+    --max-container-width-mobile: calc(var(--max-container-width-mobile) - var(--slideshow-btn-font-size) * 2);
     --nav-height: 4rem;
     --nav-font-size: 1rem;
     --link-horizontal-spacing: 80px;
