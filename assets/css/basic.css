@@ -60,7 +60,6 @@ ul {
 #site-nav a:hover {
     text-transform: uppercase;
     margin: 0 0.5rem;
-    transition-duration: var(--transition-duration-fast);
 }
 
 #main-content {
