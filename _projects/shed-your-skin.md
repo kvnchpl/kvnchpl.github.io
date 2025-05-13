@@ -3,62 +3,64 @@ layout: default
 permalink: /projects/shed-your-skin/
 ---
 
-    <story>
-        <div id="backArrow" class="navigation">
-            <a href="javascript:void(0)">← Back</a>
-        </div>
-        <noscript>
-            <noscript>JavaScript needs to be enabled.</noscript>
-        </noscript>
-    </story>
+<link rel="stylesheet" href="/assets/css/shed-your-skin.css" />
 
-    <storydata name="shed your skin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe"
-        format-version="3.3.9" ifid="8CF19DB7-183D-4DFC-9D35-17A1997CD2FA" options="" tags="" zoom="1" hidden>
-        <passagedata pid="1" name="shed your skin" tags="" position="600,300" size="100,100">
-            <pre>
+<story>
+    <div id="backArrow" class="navigation">
+        <a href="javascript:void(0)">← Back</a>
+    </div>
+    <noscript>
+        <noscript>JavaScript needs to be enabled.</noscript>
+    </noscript>
+</story>
+
+<storydata name="shed your skin" startnode="1" creator="Twine" creator-version="2.10.0" format="Harlowe"
+    format-version="3.3.9" ifid="8CF19DB7-183D-4DFC-9D35-17A1997CD2FA" options="" tags="" zoom="1" hidden>
+    <passagedata pid="1" name="shed your skin" tags="" position="600,300" size="100,100">
+        <pre>
             [[can you see yourself.txt]]
             [[not like a snake but an old ringing bell.txt]]
             [[sheddings.js]]
             [[all halls lead here >]]
             </pre>
-        </passagedata>
-        <passagedata pid="2" name="all halls lead here >" tags="" position="800,675" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="2" name="all halls lead here >" tags="" position="800,675" size="100,100">
+        <pre>
             [[overlapping overlapping.txt]]
             [[the breath >]]
             [[the ghost >]]
             [[the guardian >]]
             </pre>
-        </passagedata>
-        <passagedata pid="3" name="the breath >" tags="" position="1000,800" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="3" name="the breath >" tags="" position="1000,800" size="100,100">
+        <pre>
             [[in other words a script.txt]]
             [[the rhythm of your presence.txt]]
             [[dont forget to breathe >]]
             </pre>
-        </passagedata>
-        <passagedata pid="4" name="the ghost >" tags="" position="1000,1300" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="4" name="the ghost >" tags="" position="1000,1300" size="100,100">
+        <pre>
             [[all the stories that follow.js]]
             [[before birth after death.txt]]
             [[sometimes its more you than you.txt]]
             [[small routines >]]
             </pre>
-        </passagedata>
-        <passagedata pid="5" name="the guardian >" tags="" position="1000,2050" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="5" name="the guardian >" tags="" position="1000,2050" size="100,100">
+        <pre>
             [[and yet we were all born within.txt]]
             [[are you my teacher.txt]]
             </pre>
-        </passagedata>
-        <passagedata pid="6" name="dont forget to breathe >" tags="" position="1200,1050" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="6" name="dont forget to breathe >" tags="" position="1200,1050" size="100,100">
+        <pre>
             [[breathe.js]]
             [[wind hall.txt]]
             </pre>
-        </passagedata>
-        <passagedata pid="7" name="can you see yourself.txt" tags="" position="800,300" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="7" name="can you see yourself.txt" tags="" position="800,300" size="100,100">
+        <pre>
             `
             // /
             // /
@@ -73,10 +75,9 @@ permalink: /projects/shed-your-skin/
             // /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="8" name="not like a snake but an old ringing bell.txt" tags="" position="800,425"
-            size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="8" name="not like a snake but an old ringing bell.txt" tags="" position="800,425" size="100,100">
+        <pre>
             `
             /
             / / / /
@@ -86,74 +87,74 @@ permalink: /projects/shed-your-skin/
             /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
-            <div id="terminalContainer">
-                <label for="intentionInput">what do you want to shed?</label>
-                <div id="terminalPrompt">
-                    <span>> </span>
-                    <input type="text" id="intentionInput" autofocus>
-                </div>
+    </passagedata>
+    <passagedata pid="9" name="sheddings.js" tags="" position="800,550" size="100,100">
+        <div id="terminalContainer">
+            <label for="intentionInput">what do you want to shed?</label>
+            <div id="terminalPrompt">
+                <span>> </span>
+                <input type="text" id="intentionInput" autofocus>
             </div>
-            <script>
-                (() => {
-                    const terminalContainer = document.getElementById("terminalContainer");
+        </div>
+        <script>
+            (() => {
+                const terminalContainer = document.getElementById("terminalContainer");
 
-                    const promptForInput = () => {
-                        const prompt = document.createElement("div");
-                        prompt.innerHTML = `<span>> </span><input type="text"
+                const promptForInput = () => {
+                    const prompt = document.createElement("div");
+                    prompt.innerHTML = `<span>> </span><input type="text"
             id="intentionInput" autofocus>`;
-                        terminalContainer.appendChild(prompt);
+                    terminalContainer.appendChild(prompt);
 
-                        const terminalInput = prompt.querySelector("#intentionInput");
-                        terminalInput.addEventListener("keydown", (event) => {
-                            if (event.key === "Enter") {
-                                event.preventDefault();
-                                handleInput(terminalInput.value.trim(), prompt);
-                            }
-                        });
+                    const terminalInput = prompt.querySelector("#intentionInput");
+                    terminalInput.addEventListener("keydown", (event) => {
+                        if (event.key === "Enter") {
+                            event.preventDefault();
+                            handleInput(terminalInput.value.trim(), prompt);
+                        }
+                    });
 
-                        terminalInput.focus();
+                    terminalInput.focus();
+                };
+
+                const handleInput = (intention, prompt) => {
+                    if (!intention) return;
+
+                    const terminalInput = prompt.querySelector("#intentionInput");
+                    terminalInput.disabled = true;
+
+                    const skin = intention.split('');
+                    let sheddable = skin.map((char, i) => (char !== ' ' ? i : null)).filter(i => i !== null);
+
+                    const displaySkin = () => {
+                        const line = document.createElement("div");
+                        line.textContent = skin.join('');
+                        terminalContainer.appendChild(line);
+                        terminalContainer.scrollTop = terminalContainer.scrollHeight;
                     };
 
-                    const handleInput = (intention, prompt) => {
-                        if (!intention) return;
-
-                        const terminalInput = prompt.querySelector("#intentionInput");
-                        terminalInput.disabled = true;
-
-                        const skin = intention.split('');
-                        let sheddable = skin.map((char, i) => (char !== ' ' ? i : null)).filter(i => i !== null);
-
-                        const displaySkin = () => {
-                            const line = document.createElement("div");
-                            line.textContent = skin.join('');
-                            terminalContainer.appendChild(line);
-                            terminalContainer.scrollTop = terminalContainer.scrollHeight;
-                        };
-
-                        const shedSkin = () => {
-                            if (!sheddable.length) return;
-                            const fate = Math.floor(Math.random() * sheddable.length);
-                            const choice = sheddable[fate];
-                            skin[choice] = skin[choice] === "|" ? "!" : skin[choice] === "!" ?
-                                "." : "|";
-                            if (skin[choice] === ".") sheddable.splice(fate, 1);
-                            displaySkin();
-                            setTimeout(shedSkin, 500);
-                        };
-
+                    const shedSkin = () => {
+                        if (!sheddable.length) return;
+                        const fate = Math.floor(Math.random() * sheddable.length);
+                        const choice = sheddable[fate];
+                        skin[choice] = skin[choice] === "|" ? "!" : skin[choice] === "!" ?
+                            "." : "|";
+                        if (skin[choice] === ".") sheddable.splice(fate, 1);
                         displaySkin();
-                        setTimeout(shedSkin, 1000);
+                        setTimeout(shedSkin, 500);
                     };
 
-                    terminalContainer.innerHTML = `<div>what do you want to shed?</div>`;
-                    promptForInput();
-                })();
-            </script>
-        </passagedata>
-        <passagedata pid="10" name="overlapping overlapping.txt" tags="" position="1000,675" size="100,100">
-            <pre>
+                    displaySkin();
+                    setTimeout(shedSkin, 1000);
+                };
+
+                terminalContainer.innerHTML = `<div>what do you want to shed?</div>`;
+                promptForInput();
+            })();
+        </script>
+    </passagedata>
+    <passagedata pid="10" name="overlapping overlapping.txt" tags="" position="1000,675" size="100,100">
+        <pre>
             `
             / / / / / / / / ///
             / / / / / / / / ///
@@ -169,9 +170,9 @@ permalink: /projects/shed-your-skin/
             / / / / / / / / ///
             `
             </pre>
-        </passagedata>
-        <passagedata pid="11" name="in other words a script.txt" tags="" position="1200,800" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="11" name="in other words a script.txt" tags="" position="1200,800" size="100,100">
+        <pre>
             `
             /////////
             /// //// // //// //// /// ///////// //// [space]
@@ -181,9 +182,9 @@ permalink: /projects/shed-your-skin/
             ////////
             `
             </pre>
-        </passagedata>
-        <passagedata pid="12" name="the rhythm of your presence.txt" tags="" position="1200,925" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="12" name="the rhythm of your presence.txt" tags="" position="1200,925" size="100,100">
+        <pre>
             `
             ///// /// /// ///// /////// /// ////
             /// ///// /// /// ///// /////// /// //// //////// [time]
@@ -195,56 +196,56 @@ permalink: /projects/shed-your-skin/
             //// ///// ///////// // ////////
             `
             </pre>
-        </passagedata>
-        <passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300" size="100,100">
-            <div id="storyContainer"></div>
-            <script>
-                (() => {
-                    const storyContainer = document.getElementById("storyContainer");
+    </passagedata>
+    <passagedata pid="13" name="all the stories that follow.js" tags="" position="1200,1300" size="100,100">
+        <div id="storyContainer"></div>
+        <script>
+            (() => {
+                const storyContainer = document.getElementById("storyContainer");
 
-                    const gentleWhisperInYourEar = () => {
-                        const question = document.createElement("div");
-                        question.textContent = "you are not the first to ask this question.";
-                        storyContainer.appendChild(question);
+                const gentleWhisperInYourEar = () => {
+                    const question = document.createElement("div");
+                    question.textContent = "you are not the first to ask this question.";
+                    storyContainer.appendChild(question);
 
-                        const prompt = document.createElement("div");
-                        prompt.innerHTML = `remember this memory again? [y/n] <input type="text"
+                    const prompt = document.createElement("div");
+                    prompt.innerHTML = `remember this memory again? [y/n] <input type="text"
             id="responseInput" autofocus>`;
-                        storyContainer.appendChild(prompt);
+                    storyContainer.appendChild(prompt);
 
-                        const responseInput = prompt.querySelector("#responseInput");
-                        responseInput.addEventListener("keydown", (event) => {
-                            if (event.key === "Enter") {
-                                event.preventDefault();
-                                handleResponse(responseInput.value.trim().toLowerCase(), prompt);
-                            }
-                        });
-
-                        responseInput.focus();
-                    };
-
-                    const handleResponse = (choice, prompt) => {
-                        prompt.querySelector("#responseInput").disabled = true;
-
-                        if (choice === "y" || choice === "yes") {
-                            gentleWhisperInYourEar();
-                        } else if (choice === "n" || choice === "no") {
-                            const farewell = document.createElement("div");
-                            farewell.textContent = "may you find more selves in the memories you choose to keep.";
-                            storyContainer.appendChild(farewell);
-                        } else {
-                            const thirdPath = document.createElement("div");
-                            thirdPath.textContent = "you are courageous to take the third path.";
-                            storyContainer.appendChild(thirdPath);
+                    const responseInput = prompt.querySelector("#responseInput");
+                    responseInput.addEventListener("keydown", (event) => {
+                        if (event.key === "Enter") {
+                            event.preventDefault();
+                            handleResponse(responseInput.value.trim().toLowerCase(), prompt);
                         }
-                    };
+                    });
 
-                    gentleWhisperInYourEar();
-                })();
-            </script>
-        </passagedata>
-        <passagedata pid="14" name="before birth after death.txt" tags="" position="1200,1425" size="100,100">
-            <pre>
+                    responseInput.focus();
+                };
+
+                const handleResponse = (choice, prompt) => {
+                    prompt.querySelector("#responseInput").disabled = true;
+
+                    if (choice === "y" || choice === "yes") {
+                        gentleWhisperInYourEar();
+                    } else if (choice === "n" || choice === "no") {
+                        const farewell = document.createElement("div");
+                        farewell.textContent = "may you find more selves in the memories you choose to keep.";
+                        storyContainer.appendChild(farewell);
+                    } else {
+                        const thirdPath = document.createElement("div");
+                        thirdPath.textContent = "you are courageous to take the third path.";
+                        storyContainer.appendChild(thirdPath);
+                    }
+                };
+
+                gentleWhisperInYourEar();
+            })();
+        </script>
+    </passagedata>
+    <passagedata pid="14" name="before birth after death.txt" tags="" position="1200,1425" size="100,100">
+        <pre>
             `
             / /
             / / / / / /
@@ -259,9 +260,9 @@ permalink: /projects/shed-your-skin/
             / /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="15" name="sometimes its more you than you.txt" tags="" position="1200,1550" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="15" name="sometimes its more you than you.txt" tags="" position="1200,1550" size="100,100">
+        <pre>
             `
             / / / / / / / / / / / / / / / / / /
             / often / the sum of everything /
@@ -269,66 +270,66 @@ permalink: /projects/shed-your-skin/
             / / / / / / / / / / / / / / / / / /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
+        <pre>
             [[anytime.txt]]
             [[that crucial moment.txt]]
             [[thursday.txt]]
             </pre>
-        </passagedata>
-        <passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
-            <div id="breathContainer"></div>
+    </passagedata>
+    <passagedata pid="17" name="breathe.js" tags="" position="1400,1050" size="100,100">
+        <div id="breathContainer"></div>
 
-            <script>
-                (() => {
-                    const YOUR_HEARTBEAT = [300, 800];
-                    const YOUR_PACE = 10;
-                    const breathContainer = document.getElementById("breathContainer");
+        <script>
+            (() => {
+                const YOUR_HEARTBEAT = [300, 800];
+                const YOUR_PACE = 10;
+                const breathContainer = document.getElementById("breathContainer");
 
-                    const guideWind = async (phase) => {
-                        let conduit, start, end, step;
+                const guideWind = async (phase) => {
+                    let conduit, start, end, step;
 
-                        switch (phase) {
-                            case "draw_in":
-                                conduit = ">";
-                                start = 1;
-                                end = YOUR_PACE;
-                                step = 1;
-                                break;
-                            case "stillness":
-                                conduit = "=";
-                                start = YOUR_PACE;
-                                end = YOUR_PACE;
-                                step = 0;
-                                break;
-                            case "let_out":
-                                conduit = "<";
-                                start = YOUR_PACE;
-                                end = 1;
-                                step = -1;
-                                break;
-                        }
+                    switch (phase) {
+                        case "draw_in":
+                            conduit = ">";
+                            start = 1;
+                            end = YOUR_PACE;
+                            step = 1;
+                            break;
+                        case "stillness":
+                            conduit = "=";
+                            start = YOUR_PACE;
+                            end = YOUR_PACE;
+                            step = 0;
+                            break;
+                        case "let_out":
+                            conduit = "<";
+                            start = YOUR_PACE;
+                            end = 1;
+                            step = -1;
+                            break;
+                    }
 
-                        for (let i = start, moment = 0; step === 0 ? moment < YOUR_PACE : i !== end + step; i += step, moment++) {
-                            breathContainer.textContent += conduit.repeat(i) + "\n";
-                            breathContainer.scrollTop = breathContainer.scrollHeight;
-                            await new Promise((resolve) => setTimeout(resolve, YOUR_HEARTBEAT[moment % YOUR_HEARTBEAT.length]));
-                        }
-                    };
+                    for (let i = start, moment = 0; step === 0 ? moment < YOUR_PACE : i !== end + step; i += step, moment++) {
+                        breathContainer.textContent += conduit.repeat(i) + "\n";
+                        breathContainer.scrollTop = breathContainer.scrollHeight;
+                        await new Promise((resolve) => setTimeout(resolve, YOUR_HEARTBEAT[moment % YOUR_HEARTBEAT.length]));
+                    }
+                };
 
-                    (async () => {
-                        await new Promise((resolve) => setTimeout(resolve, 1000));
-                        await guideWind("draw_in");
-                        await guideWind("stillness");
-                        await guideWind("let_out");
-                        await new Promise((resolve) => setTimeout(resolve, 1000));
-                    })();
+                (async () => {
+                    await new Promise((resolve) => setTimeout(resolve, 1000));
+                    await guideWind("draw_in");
+                    await guideWind("stillness");
+                    await guideWind("let_out");
+                    await new Promise((resolve) => setTimeout(resolve, 1000));
                 })();
-            </script>
-        </passagedata>
-        <passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175" size="100,100">
-            <pre>
+            })();
+        </script>
+    </passagedata>
+    <passagedata pid="18" name="wind hall.txt" tags="" position="1400,1175" size="100,100">
+        <pre>
             `
             / / / /
             / / / / /////
@@ -344,9 +345,9 @@ permalink: /projects/shed-your-skin/
             / / /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="19" name="anytime.txt" tags="" position="1400,1675" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="19" name="anytime.txt" tags="" position="1400,1675" size="100,100">
+        <pre>
             `
             /// ///
             /// /// ///
@@ -359,9 +360,9 @@ permalink: /projects/shed-your-skin/
             /// /// ///
             `
             </pre>
-        </passagedata>
-        <passagedata pid="20" name="that crucial moment.txt" tags="" position="1400,1800" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="20" name="that crucial moment.txt" tags="" position="1400,1800" size="100,100">
+        <pre>
             `
             / /
             ////////// / / / / / / /
@@ -375,18 +376,18 @@ permalink: /projects/shed-your-skin/
             / / /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="21" name="thursday.txt" tags="" position="1400,1925" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="21" name="thursday.txt" tags="" position="1400,1925" size="100,100">
+        <pre>
             `
             / / / / / / / / / / / / / / / / / / / / / / /
             / it’s another thursday it’s every thursday /
             / / / / / / / / / / / / / / / / / / / / / / /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="22" name="and yet we were all born within.txt" tags="" position="1200,2050" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="22" name="and yet we were all born within.txt" tags="" position="1200,2050" size="100,100">
+        <pre>
             `
             / / / / / / / / / /
             / / / / / / / / / / / / / /
@@ -402,15 +403,16 @@ permalink: /projects/shed-your-skin/
             / / / /
             `
             </pre>
-        </passagedata>
-        <passagedata pid="23" name="are you my teacher.txt" tags="" position="1200,2175" size="100,100">
-            <pre>
+    </passagedata>
+    <passagedata pid="23" name="are you my teacher.txt" tags="" position="1200,2175" size="100,100">
+        <pre>
             `
             ///////////////////////////////////////////////////
             who will dissolve me? ask for what you already have
             ///////////////////////////////////////////////////
             `
             </pre>
-        </passagedata>
-    </storydata>
-    <script src="/assets/js/shed-your-skin.js"></script>
+    </passagedata>
+</storydata>
+
+<script src="/assets/js/shed-your-skin.js"></script>
