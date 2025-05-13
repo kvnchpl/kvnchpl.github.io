@@ -26,6 +26,31 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
         return wrapper;
     };
 
+    // Utility: get project base path
+    const getProjectBasePath = (permalink) => {
+        return `${config.imageBasePath}/${normalizePath(permalink).split("/").pop()}`;
+    };
+
+    // Utility: swipe navigation
+    const addSwipeNavigation = (container, onSwipeLeft, onSwipeRight) => {
+        let startX = 0;
+        let endX = 0;
+
+        container.addEventListener("touchstart", (e) => {
+            startX = e.touches[0].clientX;
+        }, { passive: true });
+
+        container.addEventListener("touchmove", (e) => {
+            endX = e.touches[0].clientX;
+        }, { passive: true });
+
+        container.addEventListener("touchend", () => {
+            const threshold = 50;
+            if (startX - endX > threshold) onSwipeLeft();
+            else if (endX - startX > threshold) onSwipeRight();
+        });
+    };
+
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
         const groupWrapper = createElement("div", { className: "slides-wrapper" });
 
@@ -69,11 +94,12 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
         });
 
         const slides = groupWrapper.querySelectorAll(".slide");
+        let current = 0;
+        const showSlide = (index) => {
+            slides.forEach((s, j) => s.classList.toggle("active", j === index));
+        };
+
         if (slides.length > 1) {
-            let current = 0;
-            const showSlide = (index) => {
-                slides.forEach((s, j) => s.classList.toggle("active", j === index));
-            };
             const prevBtn = createElement("button", { className: "prev", children: ["←"] });
             const nextBtn = createElement("button", { className: "next", children: ["→"] });
 
@@ -89,36 +115,16 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
 
             groupWrapper.appendChild(prevBtn);
             groupWrapper.appendChild(nextBtn);
-            showSlide(current);
 
             // Swipe gesture support
-            let startX = 0;
-            let endX = 0;
-
-            groupWrapper.addEventListener("touchstart", (e) => {
-                startX = e.touches[0].clientX;
-            }, { passive: true });
-
-            groupWrapper.addEventListener("touchmove", (e) => {
-                endX = e.touches[0].clientX;
-            }, { passive: true });
-
-            groupWrapper.addEventListener("touchend", () => {
-                const threshold = 50; // minimum distance for swipe
-                if (startX - endX > threshold) {
-                    current = (current + 1) % slides.length;
-                    showSlide(current);
-                } else if (endX - startX > threshold) {
-                    current = (current - 1 + slides.length) % slides.length;
-                    showSlide(current);
-                }
-            });
-        } else {
-            const showSlide = (index) => {
-                slides.forEach((s, j) => s.classList.toggle("active", j === index));
-            };
-            showSlide(0); // show single slide without navigation
+            addSwipeNavigation(
+                groupWrapper,
+                () => { current = (current + 1) % slides.length; showSlide(current); },
+                () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); }
+            );
         }
+        // Always show first slide
+        showSlide(0);
 
         return groupWrapper;
     };
@@ -196,7 +202,7 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
             return;
         }
 
-        const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
+        const basePath = getProjectBasePath(project.permalink);
         const contentBlocks = project.content || [];
         const imageGroups = project.images || [];
 

@@ -121,3 +121,36 @@ export const debounce = (func, delay) => {
  * @returns {string} The normalized path, or "index" if empty.
  */
 export const normalizePath = (permalink) => (permalink || "").replace(/^\/+|\/+$/g, "") || "index";
+
+/**
+ * Constructs the base path for a project's assets based on its permalink.
+ * @param {string} permalink - The permalink of the project.
+ * @returns {string} The base path for the project's assets.
+ */
+export const getProjectBasePath = (permalink) =>
+    `${config.imageBasePath}/${normalizePath(permalink).split("/").pop()}`;
+
+/**
+ * Adds swipe gesture navigation to a container element.
+ * @param {HTMLElement} container - The DOM element to attach swipe handlers to.
+ * @param {Function} onSwipeLeft - Function to call on left swipe.
+ * @param {Function} onSwipeRight - Function to call on right swipe.
+ */
+export const addSwipeNavigation = (container, onSwipeLeft, onSwipeRight) => {
+    let startX = 0;
+    let endX = 0;
+
+    container.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    container.addEventListener("touchmove", (e) => {
+        endX = e.touches[0].clientX;
+    }, { passive: true });
+
+    container.addEventListener("touchend", () => {
+        const threshold = 50;
+        if (startX - endX > threshold) onSwipeLeft();
+        else if (endX - startX > threshold) onSwipeRight();
+    });
+};
