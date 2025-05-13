@@ -114,7 +114,6 @@ ul {
     justify-content: center;
     width: 100%;
     max-width: 100%;
-    height: var(--slide-max-height);
     aspect-ratio: var(--aspect-ratio);
     overflow: hidden;
 }
