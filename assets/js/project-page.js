@@ -43,6 +43,7 @@ const initializeProjectPage = () => {
                         const percent = (imgEl.naturalHeight / imgEl.naturalWidth) * 100;
                         slidesWrapper.style.paddingTop = `${percent}%`;
                         slidesWrapper.style.position = "relative";
+                        slidesWrapper.classList.add("image-loaded");
                     }
                     resolve();
                 };
