@@ -39,7 +39,7 @@ const initializeProjectPage = () => {
                     alt: altText,
                     draggable: "false",
                     srcset,
-                    sizes: config.imageSizesHint || "(max-width: 768px) 90vw, 60vw"
+                    sizes: config.imageSizesHint
                 }
             });
 
