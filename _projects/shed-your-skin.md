@@ -253,10 +253,10 @@ description: Interactive story by Kevin Cunanan Chappelle
     </passagedata>
     <passagedata pid="15" name="sometimes its more you than you.txt" tags="" position="1200,1550" size="100,100">
         <pre>
-            / / / / / / / / / / / / / / / / / /
+            / / / / / / / / / / / / / / / / /
             / often / the sum of everything /
             / you know / it makes you laugh /
-            / / / / / / / / / / / / / / / / / /
+            / / / / / / / / / / / / / / / / /
         </pre>
     </passagedata>
     <passagedata pid="16" name="small routines >" tags="" position="1200,1675" size="100,100">
