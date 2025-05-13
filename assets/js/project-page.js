@@ -49,7 +49,7 @@ const initializeProjectPage = () => {
                         const percent = (imgEl.naturalHeight / imgEl.naturalWidth) * 100;
                         groupWrapper.style.paddingTop = `${percent}%`;
                         groupWrapper.style.position = "relative";
-                        groupWrapper.classList.add("image-loaded");
+                        groupWrapper.style.removeProperty("padding-top");
                     }
                     resolve();
                 };
