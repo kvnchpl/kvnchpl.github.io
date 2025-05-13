@@ -1,13 +1,13 @@
 import { logError, isMobileDevice, normalizePath, createElement } from './utils.js';
 
 (() => {
-    const main = document.getElementById("main-content");
-    if (!main) {
-        logError("Missing #main-content element in DOM.");
-        return;
-    }
 
     const createTitleElement = (title) => {
+        const main = document.getElementById("main-content");
+        if (!main) {
+            logError("Missing #main-content element in DOM.");
+            return;
+        }
         const titleEl = createElement("h1", {
             attrs: { id: "project-title" },
             children: [title]
@@ -16,6 +16,11 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
     };
 
     const createContentWrapper = () => {
+        const main = document.getElementById("main-content");
+        if (!main) {
+            logError("Missing #main-content element in DOM.");
+            return null;
+        }
         const wrapper = createElement("div", { attrs: { id: "content-wrapper" } });
         main.appendChild(wrapper);
         return wrapper;
