@@ -47,7 +47,7 @@ ul {
 }
 
 #site-nav {
-    margin-bottom: var(--gap-size-desktop);
+    margin-bottom: var(--row-gap-desktop);
     font-size: var(--nav-font-size);
     font-weight: var(--font-weight);
 }
