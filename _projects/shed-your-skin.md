@@ -3,17 +3,6 @@ layout: default
 permalink: /projects/shed-your-skin/
 ---
 
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>shed your skin</title>
-    <link rel="stylesheet" href="/assets/css/shed-your-skin.css">
-</head>
-
-<body>
-
     <story>
         <div id="backArrow" class="navigation">
             <a href="javascript:void(0)">← Back</a>
@@ -425,7 +414,3 @@ permalink: /projects/shed-your-skin/
         </passagedata>
     </storydata>
     <script src="/assets/js/shed-your-skin.js"></script>
-
-</body>
-
-</html>
