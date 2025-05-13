@@ -37,7 +37,7 @@
     --slideshow-spacing: calc(var(--spacing-unit) + 1vw) auto;
 
     /* UI Behavior */
-    --transition-duration: 0.3s;
+    --transition-duration: 0.6s;
     --hover-scale: 1.05;
     --scroll-behavior: smooth;
 
