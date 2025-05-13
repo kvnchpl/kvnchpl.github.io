@@ -19,6 +19,7 @@ import {
             return;
         }
         const titleEl = createElement("h1", {
+            className: "grid-center",
             attrs: { id: "project-title" },
             children: [title]
         });
@@ -38,7 +39,7 @@ import {
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
         const slideshowWrapper = createElement("div", { className: "slideshow" });
         const slidesWrapper = createElement("div", { className: "slides-wrapper" });
-        
+
         images.forEach((imgBase, index) => {
             const extension = config.imageExtension;
             const filename = `${imgBase}.${extension}`;
@@ -173,7 +174,7 @@ import {
         if (project.month && project.year && Array.isArray(window.config?.monthNames)) {
             const monthName = window.config.monthNames[project.month - 1] || project.month;
             const dateEl = createElement("p", {
-                className: "project-date",
+                className: "project-date grid-center",
                 attrs: { id: "project-date" },
                 children: [`—${monthName} ${project.year}`]
             });
