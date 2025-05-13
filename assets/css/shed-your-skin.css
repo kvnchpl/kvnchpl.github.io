@@ -13,7 +13,7 @@
     --back-arrow-position-left: 10px;
     --story-padding: 5%;
     --story-margin: 0 auto;
-    --transition-duration: 0.2s;
+    --transition-duration-default: 0.2s;
 }
 
 #storyContainer,
@@ -57,7 +57,7 @@
 #backArrow a {
     color: var(--text-color);
     text-decoration: none;
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration-default) ease-in-out;
 }
 
 #story {
@@ -80,7 +80,7 @@ a[data-passage] {
     color: var(--link-color);
     text-decoration: underline;
     cursor: pointer;
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration-default) ease-in-out;
 }
 
 a[data-passage]:hover {

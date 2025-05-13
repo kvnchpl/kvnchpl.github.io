@@ -48,7 +48,7 @@ footer {
 
 .link-wrapper {
   position: relative;
-  transition: left var(--transition-duration) ease-in-out, transform var(--transition-duration) ease-in-out;
+  transition: left var(--transition-duration-default) ease-in-out, transform var(--transition-duration-default) ease-in-out;
   min-height: var(--body-font-size);
 }
 
@@ -63,7 +63,7 @@ footer {
 .link-wrapper a {
   display: inline-block;
   text-decoration: none;
-  transition: transform var(--transition-duration) ease-in-out;
+  transition: transform var(--transition-duration-default) ease-in-out;
   color: var(--text-color);
 }
 
@@ -101,7 +101,7 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: opacity var(--transition-duration) ease-in-out;
+  transition: opacity var(--transition-duration-default) ease-in-out;
   z-index: var(--overlay-z-index);
   pointer-events: none;
 }

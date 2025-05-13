@@ -28,7 +28,7 @@ a {
     color: var(--link-color);
     text-decoration: none;
     white-space: nowrap;
-    transition: color var(--transition-duration) ease-in-out;
+    transition: color var(--transition-duration-default) ease-in-out;
 }
 
 a:focus {
@@ -54,6 +54,12 @@ ul {
 #site-nav a {
     text-transform: uppercase;
     margin: 0 0.5rem;
+}
+
+#site-nav a:hover {
+    text-transform: uppercase;
+    margin: 0 0.5rem;
+    transition-duration: var(--transition-duration-fast);
 }
 
 .centered-container {
@@ -97,7 +103,7 @@ ul {
     padding-top: 0;
     overflow: hidden;
     background: transparent;
-    transition: padding-top var(--transition-duration) ease;
+    transition: padding-top var(--transition-duration-default) ease;
 }
 
 .slide {
