@@ -19,6 +19,36 @@
                 "filename": "viewfinder_3.webp",
                 "alt": "viewfinder_3",
                 "srcset": "small/viewfinder_3.webp 600w, medium/viewfinder_3.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_4.webp",
+                "alt": "viewfinder_4",
+                "srcset": "small/viewfinder_4.webp 600w, medium/viewfinder_4.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_5.webp",
+                "alt": "viewfinder_5",
+                "srcset": "small/viewfinder_5.webp 600w, medium/viewfinder_5.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_6.webp",
+                "alt": "viewfinder_6",
+                "srcset": "small/viewfinder_6.webp 600w, medium/viewfinder_6.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_7.webp",
+                "alt": "viewfinder_7",
+                "srcset": "small/viewfinder_7.webp 600w, medium/viewfinder_7.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_8.webp",
+                "alt": "viewfinder_8",
+                "srcset": "small/viewfinder_8.webp 600w, medium/viewfinder_8.webp 1280w"
+            },
+            {
+                "filename": "viewfinder_9.webp",
+                "alt": "viewfinder_9",
+                "srcset": "small/viewfinder_9.webp 600w, medium/viewfinder_9.webp 1280w"
             }
         ],
         "publication": null,
