@@ -85,8 +85,8 @@ import {
         };
 
         if (slides.length > 1) {
-            const prevBtn = createElement("button", { className: "prev", children: ["←"] });
-            const nextBtn = createElement("button", { className: "next", children: ["→"] });
+            const prevBtn = createElement("div", { className: "prev", children: ["←"] });
+            const nextBtn = createElement("div", { className: "next", children: ["→"] });
 
             prevBtn.addEventListener("click", () => {
                 current = (current - 1 + slides.length) % slides.length;
