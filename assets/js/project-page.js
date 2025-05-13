@@ -3,14 +3,24 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
 (() => {
 
     const createTitleElement = (title) => {
-        const titleEl = document.getElementById("project-title");
-        if (titleEl) {
-            titleEl.textContent = title;
+        const main = document.getElementById("main-content");
+        if (!main) {
+            logError("Missing #main-content element in DOM.");
+            return;
         }
+        const titleEl = createElement("h1", {
+            attrs: { id: "project-title" },
+            children: [title]
+        });
+        main.appendChild(titleEl);
     };
 
     const createContentWrapper = () => {
         const main = document.getElementById("main-content");
+        if (!main) {
+            logError("Missing #main-content element in DOM.");
+            return null;
+        }
         const wrapper = createElement("div", { attrs: { id: "content-wrapper" } });
         main.appendChild(wrapper);
         return wrapper;
@@ -33,7 +43,7 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
                     alt: altText,
                     draggable: "false",
                     srcset,
-                    sizes: config.imageSizesHint
+                    sizes: config.imageSizesHint || "(max-width: 768px) 100vw"
                 }
             });
 
@@ -59,7 +69,7 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
         });
 
         const slides = groupWrapper.querySelectorAll(".slide");
-        if (slides.length > 0) {
+        if (slides.length > 1) {
             let current = 0;
             const showSlide = (index) => {
                 slides.forEach((s, j) => s.classList.toggle("active", j === index));
@@ -103,6 +113,11 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
                     showSlide(current);
                 }
             });
+        } else {
+            const showSlide = (index) => {
+                slides.forEach((s, j) => s.classList.toggle("active", j === index));
+            };
+            showSlide(0); // show single slide without navigation
         }
 
         return groupWrapper;
@@ -177,6 +192,9 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
         createTitleElement(project.title);
 
         const contentWrapper = createContentWrapper();
+        if (!contentWrapper) {
+            return;
+        }
 
         const basePath = `${config.imageBasePath}/${normalizePath(project.permalink).split("/").pop()}`;
         const contentBlocks = project.content || [];
@@ -197,7 +215,7 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
 
         Promise.all(imageLoadPromises).then(() => {
             document.querySelectorAll(".slides-wrapper").forEach(wrapper => {
-                wrapper.closest(".slideshow")?.classList.add("visible");
+                // Removed outdated .slideshow visibility line
             });
             const mainContent = document.getElementById("main-content");
             if (mainContent) {
