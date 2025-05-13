@@ -118,7 +118,7 @@ import {
     };
 
     const renderDescriptionBlock = (content) => {
-        return createElement("p", { children: [document.createTextNode(content)] });
+        return createElement("p", { className: "content", children: [document.createTextNode(content)] });
     };
 
     const renderLayoutSequence = (layoutSequence, contentBlocks, imageGroups, basePath, contentWrapper) => {
