@@ -136,7 +136,7 @@ ul {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 100%;
+    max-height: var(--slide-max-height);
     object-fit: contain;
 }
 
