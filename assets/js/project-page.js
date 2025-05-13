@@ -1,4 +1,11 @@
-import { logError, isMobileDevice, normalizePath, createElement, getProjectBasePath, addSwipeNavigation } from './utils.js';
+import {
+    logError,
+    isMobileDevice,
+    normalizePath,
+    createElement,
+    getProjectBasePath,
+    addSwipeNavigation
+} from './utils.js';
 
 (() => {
 
