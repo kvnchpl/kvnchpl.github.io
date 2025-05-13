@@ -76,6 +76,7 @@ ul {
     gap: var(--spacing-unit);
     max-height: var(--slide-max-height);
     margin: var(--slideshow-spacing);
+    width: 100%;
 }
 
 .slides-wrapper button {
@@ -94,9 +95,9 @@ ul {
 
 .slide {
     flex: 1 1 auto;
-    max-width: 100%;
     display: none;
     text-align: center;
+    max-height: 100%;
 }
 
 .slide.active {
@@ -140,10 +141,12 @@ ul {
     }
 
     .slides-wrapper button {
-        font-size: var(--slideshow-btn-font-size);
-        top: auto;
-        bottom: 0.5rem;
+        position: relative;
+        top: unset;
+        bottom: unset;
         transform: none;
+        padding: 0 var(--spacing-unit);
+        font-size: var(--slideshow-btn-font-size);
     }
 
     .slides-wrapper button.prev {
