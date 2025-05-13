@@ -37,9 +37,8 @@ import {
 
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
         const slideshowWrapper = createElement("div", { className: "slideshow" });
-        const groupWrapper = createElement("div", { className: "slides-wrapper" });
-        slideshowWrapper.appendChild(groupWrapper);
-
+        const slidesWrapper = createElement("div", { className: "slides-wrapper" });
+        
         images.forEach((imgBase, index) => {
             const extension = config.imageExtension;
             const filename = `${imgBase}.${extension}`;
@@ -63,10 +62,8 @@ import {
             const loadPromise = new Promise((resolve) => {
                 imgEl.onload = () => {
                     if (groupIndex === 0 && index === 0 && imgEl.naturalWidth && imgEl.naturalHeight) {
-                        const percent = (imgEl.naturalHeight / imgEl.naturalWidth) * 100;
-                        groupWrapper.style.setProperty('--aspect-ratio', `${percent}%`);
-                        groupWrapper.style.position = "relative";
-                        groupWrapper.style.removeProperty("padding-top");
+                        slidesWrapper.style.aspectRatio = `${imgEl.naturalWidth} / ${imgEl.naturalHeight}`;
+                        slidesWrapper.style.removeProperty("padding-top");
                     }
                     resolve();
                 };
@@ -78,10 +75,10 @@ import {
                 className: "slide",
                 children: [imgEl]
             });
-            groupWrapper.appendChild(slide);
+            slidesWrapper.appendChild(slide);
         });
 
-        const slides = groupWrapper.querySelectorAll(".slide");
+        const slides = slidesWrapper.querySelectorAll(".slide");
         let current = 0;
         const showSlide = (index) => {
             slides.forEach((s, j) => s.classList.toggle("active", j === index));
@@ -102,16 +99,19 @@ import {
             });
 
             slideshowWrapper.appendChild(prevBtn);
+            slideshowWrapper.appendChild(slidesWrapper);
             slideshowWrapper.appendChild(nextBtn);
 
             // Swipe gesture support
             if (isMobileDevice()) {
                 addSwipeNavigation(
-                    groupWrapper,
+                    slidesWrapper,
                     () => { current = (current + 1) % slides.length; showSlide(current); },
                     () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); }
                 );
             }
+        } else {
+            slideshowWrapper.appendChild(slidesWrapper);
         }
         // Always show first slide
         showSlide(0);
@@ -130,8 +130,8 @@ import {
 
             if (type === "slideshow") {
                 if (imageGroups[index]) {
-                    const groupWrapper = renderSlideshowGroup(imageGroups[index], basePath, index);
-                    contentWrapper.appendChild(groupWrapper);
+                    const slidesWrapper = renderSlideshowGroup(imageGroups[index], basePath, index);
+                    contentWrapper.appendChild(slidesWrapper);
                 } else {
                     logError(`Layout reference error: slideshow index ${index + 1} out of range.`);
                 }
@@ -149,8 +149,8 @@ import {
     const renderDefaultLayout = (maxBlocks, contentBlocks, imageGroups, basePath, contentWrapper) => {
         for (let i = 0; i < maxBlocks; i++) {
             if (imageGroups[i]) {
-                const groupWrapper = renderSlideshowGroup(imageGroups[i], basePath, i);
-                contentWrapper.appendChild(groupWrapper);
+                const slidesWrapper = renderSlideshowGroup(imageGroups[i], basePath, i);
+                contentWrapper.appendChild(slidesWrapper);
             }
             if (contentBlocks[i]) {
                 const p = renderContentBlock(contentBlocks[i]);
