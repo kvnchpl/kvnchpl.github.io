@@ -4,6 +4,8 @@
     // History stack to track visited passages
     const historyStack = [];
 
+    let backButton = null;
+
     // Initialize navigation and passage rendering
     document.addEventListener("DOMContentLoaded", () => {
         const { passages, startPid } = extractPassagesFromDOM();
@@ -14,6 +16,7 @@
             if (startPassage) {
                 const [name] = startPassage;
                 navigateToPassage(name, passages);
+                window.updateBackButtonState?.();
             } else {
                 console.error(`No passage found with pid=${startPid}`);
             }
@@ -71,21 +74,21 @@
         });
 
         // Attach functionality to the back button
-        const backButton = document.querySelector("#backArrow a");
+        backButton = document.querySelector("#backArrow a");
         if (backButton) {
             backButton.addEventListener("click", (event) => {
                 event.preventDefault();
                 navigateBack(passages);
             });
 
-            const updateBackButtonState = () => {
+            window.updateBackButtonState = () => {
                 if (historyStack.length === 0) {
                     backButton.classList.add("disabled");
                 } else {
                     backButton.classList.remove("disabled");
                 }
             };
-            updateBackButtonState();
+            window.updateBackButtonState();
         }
     }
 
@@ -107,7 +110,6 @@
             const currentPassage = storyContainer.getAttribute("data-current-passage");
             if (currentPassage) {
                 historyStack.push(currentPassage);
-                const backButton = document.querySelector("#backArrow a");
                 if (backButton) {
                     if (historyStack.length === 0) {
                         backButton.classList.add("disabled");
