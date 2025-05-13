@@ -75,7 +75,7 @@ ul {
 .grid-left,
 .grid-right {
     display: flex;
-    align-self: center;
+    align-items: center;
 }
 
 .grid-left {
@@ -136,8 +136,9 @@ ul {
     display: block;
     width: 100%;
     height: auto;
-    max-height: var(--slide-max-height);
+    max-height: 100%;
     object-fit: contain;
+    pointer-events: none;
 }
 
 .slideshow .prev,
@@ -150,6 +151,7 @@ ul {
     cursor: pointer;
     z-index: var(--z-index-base);
     display: flex;
+    align-items: center;
     justify-content: center;
     height: 100%;
 }
