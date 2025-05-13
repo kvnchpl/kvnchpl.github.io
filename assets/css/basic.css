@@ -63,7 +63,7 @@ ul {
     transition-duration: var(--transition-duration-fast);
 }
 
-.centered-container {
+.content-wrapper {
     max-width: var(--max-container-width-desktop);
     margin: 0 auto;
     text-align: center;
@@ -148,7 +148,7 @@ ul {
         font-size: var(--title-size-mobile);
     }
 
-    .centered-container {
+    .content-wrapper {
         max-width: var(--max-container-width-mobile);
     }
 
