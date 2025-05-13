@@ -109,7 +109,7 @@ const initializeProjectPage = () => {
             }
 
             if (type === "description" && contentBlocks[index]) {
-                const p = createElement("p", { children: [contentBlocks[index]] });
+                const p = createElement("p", { children: [document.createTextNode(contentBlocks[index])] });
                 contentWrapper.appendChild(p);
             }
         });
@@ -120,7 +120,7 @@ const initializeProjectPage = () => {
                 contentWrapper.appendChild(groupWrapper);
             }
             if (contentBlocks[i]) {
-                const p = createElement("p", { children: [contentBlocks[i]] });
+                const p = createElement("p", { children: [document.createTextNode(contentBlocks[i])] });
                 contentWrapper.appendChild(p);
             }
         }
