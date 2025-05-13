@@ -24,7 +24,9 @@
     --content-spacing-top: calc(var(--spacing-unit) * 2);
     --content-first-para-spacing-top: calc(var(--spacing-unit) * 2 + 1vh);
     --max-container-width-desktop: 50vw;
+    --max-content-width-desktop: calc(var(--max-container-width-desktop) - var(--spacing-unit) * 2);
     --max-container-width-mobile: 80vw;
+    --max-container-width-mobile: calc(var(--max-container-width-mobile) - var(--spacing-unit) * 2);
     --nav-height: 4rem;
     --nav-font-size: 1rem;
     --link-horizontal-spacing: 80px;
