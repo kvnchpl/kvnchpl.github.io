@@ -97,9 +97,12 @@ import {
                 showSlide(current);
             });
 
-            slideshowWrapper.appendChild(prevBtn);
-            slideshowWrapper.appendChild(slidesWrapper);
-            slideshowWrapper.appendChild(nextBtn);
+            const left = createElement("div", { className: "grid-left" });
+            const center = createElement("div", { className: "grid-center", children: [slidesWrapper] });
+            const right = createElement("div", { className: "grid-right" });
+
+            left.appendChild(prevBtn);
+            right.appendChild(nextBtn);
 
             // Swipe gesture support
             if (isMobileDevice()) {
@@ -109,17 +112,25 @@ import {
                     () => { current = (current - 1 + slides.length) % slides.length; showSlide(current); }
                 );
             }
-        } else {
-            slideshowWrapper.appendChild(slidesWrapper);
-        }
-        // Always show first slide
-        showSlide(0);
 
-        return slideshowWrapper;
+            // Always show first slide
+            showSlide(0);
+
+            return [left, center, right];
+        } else {
+            const left = createElement("div", { className: "grid-left" });
+            const center = createElement("div", { className: "grid-center", children: [slidesWrapper] });
+            const right = createElement("div", { className: "grid-right" });
+
+            // Always show first slide
+            showSlide(0);
+
+            return [left, center, right];
+        }
     };
 
     const renderContentBlock = (content) => {
-        return createElement("p", { className: "content", children: [document.createTextNode(content)] });
+        return createElement("p", { className: "content grid-center", children: [document.createTextNode(content)] });
     };
 
     const renderLayoutSequence = (layoutSequence, contentBlocks, imageGroups, basePath, contentWrapper) => {
@@ -129,8 +140,8 @@ import {
 
             if (type === "slideshow") {
                 if (imageGroups[index]) {
-                    const slidesWrapper = renderSlideshowGroup(imageGroups[index], basePath, index);
-                    contentWrapper.appendChild(slidesWrapper);
+                    const group = renderSlideshowGroup(imageGroups[index], basePath, index);
+                    group.forEach(el => contentWrapper.appendChild(el));
                 } else {
                     logError(`Layout reference error: slideshow index ${index + 1} out of range.`);
                 }
@@ -148,8 +159,8 @@ import {
     const renderDefaultLayout = (maxBlocks, contentBlocks, imageGroups, basePath, contentWrapper) => {
         for (let i = 0; i < maxBlocks; i++) {
             if (imageGroups[i]) {
-                const slidesWrapper = renderSlideshowGroup(imageGroups[i], basePath, i);
-                contentWrapper.appendChild(slidesWrapper);
+                const group = renderSlideshowGroup(imageGroups[i], basePath, i);
+                group.forEach(el => contentWrapper.appendChild(el));
             }
             if (contentBlocks[i]) {
                 const p = renderContentBlock(contentBlocks[i]);
