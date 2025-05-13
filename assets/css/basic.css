@@ -81,10 +81,13 @@ ul {
 
 .slides-wrapper {
     flex: 1 1 auto;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    aspect-ratio: var(--aspect-ratio);
     max-width: 100%;
+    aspect-ratio: var(--aspect-ratio);
+    overflow: hidden;
 }
 
 .slideshow button {
@@ -111,18 +114,19 @@ ul {
 
 .slide {
     display: none;
+    flex: 1 1 auto;
     text-align: center;
 }
 
 .slide.active {
-    display: block;
+    display: flex;
 }
 
 .slide img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    height: auto;
+    max-height: 100%;
     object-fit: contain;
 }
 
