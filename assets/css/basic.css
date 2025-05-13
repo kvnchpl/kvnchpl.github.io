@@ -11,6 +11,7 @@ body {
     font-family: var(--font-family);
     font-weight: var(--font-weight);
     line-height: var(--line-height);
+    font-size: var(--body-font-size);
 }
 
 h1 {
@@ -96,7 +97,7 @@ ul {
     padding-top: 0;
     overflow: hidden;
     background: transparent;
-    transition: padding-top 0.5s ease;
+    transition: padding-top var(--transition-duration) ease;
 }
 
 .slide {
