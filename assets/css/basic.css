@@ -84,9 +84,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-unit);
     max-height: var(--slide-max-height);
-    margin: var(--slideshow-spacing);
     width: 100%;
 }
 
