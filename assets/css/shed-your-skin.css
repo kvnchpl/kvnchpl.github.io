@@ -42,9 +42,9 @@
 }
 
 #backArrow {
-    position: fixed;
-    top: var(--back-arrow-position-top);
-    left: var(--back-arrow-position-left);
+    position: absolute;
+    top: 0;
+    left: -3em;
     font-size: var(--back-arrow-font-size);
     font-family: var(--font-family);
     color: var(--text-color);
@@ -64,6 +64,7 @@
 }
 
 #story {
+    position: relative;
     font-family: var(--font-family);
     color: var(--text-color);
     background: var(--background-color);
