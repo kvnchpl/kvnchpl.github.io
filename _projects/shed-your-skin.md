@@ -1,6 +1,8 @@
 ---
 layout: default
 permalink: /projects/shed-your-skin/
+title: Shed Your Skin
+description: Interactive story by Kevin Cunanan Chappelle
 ---
 
 <link rel="stylesheet" href="/assets/css/shed-your-skin.css" />
