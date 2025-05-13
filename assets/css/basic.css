@@ -19,6 +19,7 @@ h1 {
     font-size: var(--title-size-desktop);
     text-transform: uppercase;
     text-align: center;
+    margin-bottom: 0;
 }
 
 p {
