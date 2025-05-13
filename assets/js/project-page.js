@@ -4,6 +4,8 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
 
     const main = document.getElementById("main-content");
 
+    let imageLoadPromises = [];
+
     const createTitleElement = (title) => {
         if (!main) {
             logError("Missing #main-content element in DOM.");
@@ -32,7 +34,8 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
         images.forEach((imgBase, index) => {
             const filename = `${imgBase}.webp`;
             const altText = imgBase;
-            const src = `${basePath}/${config.defaultImageFallbackSize}/${filename}`;
+            const fallbackSize = isMobileDevice() ? "small" : config.defaultImageFallbackSize;
+            const src = `${basePath}/${fallbackSize}/${filename}`;
             const srcset = Object.entries(config.imageFolders)
                 .map(([size, folder]) => `${basePath}/${folder}/${filename} ${config.imageSizes[size]}`)
                 .join(", ");
@@ -157,8 +160,6 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
             contentWrapper.appendChild(dateEl);
         }
     };
-
-    let imageLoadPromises = [];
 
     const initializeProjectPage = () => {
         imageLoadPromises = [];
