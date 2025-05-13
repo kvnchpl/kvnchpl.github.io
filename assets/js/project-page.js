@@ -46,7 +46,7 @@ import { logError, isMobileDevice, normalizePath, createElement, getProjectBaseP
                     alt: altText,
                     draggable: "false",
                     srcset,
-                    sizes: config.imageSizesHint || "(max-width: 768px) 100vw"
+                    sizes: config.imageSizesHint
                 }
             });
 
