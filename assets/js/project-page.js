@@ -1,4 +1,4 @@
-import { logError, isMobileDevice, normalizePath, createElement } from './utils.js';
+import { logError, isMobileDevice, normalizePath, createElement, getProjectBasePath, addSwipeNavigation } from './utils.js';
 
 (() => {
 
@@ -26,30 +26,6 @@ import { logError, isMobileDevice, normalizePath, createElement } from './utils.
         return wrapper;
     };
 
-    // Utility: get project base path
-    const getProjectBasePath = (permalink) => {
-        return `${config.imageBasePath}/${normalizePath(permalink).split("/").pop()}`;
-    };
-
-    // Utility: swipe navigation
-    const addSwipeNavigation = (container, onSwipeLeft, onSwipeRight) => {
-        let startX = 0;
-        let endX = 0;
-
-        container.addEventListener("touchstart", (e) => {
-            startX = e.touches[0].clientX;
-        }, { passive: true });
-
-        container.addEventListener("touchmove", (e) => {
-            endX = e.touches[0].clientX;
-        }, { passive: true });
-
-        container.addEventListener("touchend", () => {
-            const threshold = 50;
-            if (startX - endX > threshold) onSwipeLeft();
-            else if (endX - startX > threshold) onSwipeRight();
-        });
-    };
 
     const renderSlideshowGroup = (images, basePath, groupIndex) => {
         const groupWrapper = createElement("div", { className: "slides-wrapper" });
