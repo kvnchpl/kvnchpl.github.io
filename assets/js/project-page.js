@@ -137,11 +137,15 @@ const initializeProjectPage = () => {
         e.preventDefault();
     });
 
-    // Populate date
-    const dateEl = document.getElementById("project-date");
-    if (dateEl && project.month && project.year && Array.isArray(window.config?.monthNames)) {
+    // Populate date at the very end of #content-wrapper
+    if (project.month && project.year && Array.isArray(window.config?.monthNames)) {
         const monthName = window.config.monthNames[project.month - 1] || project.month;
-        dateEl.textContent = `—${monthName} ${project.year}`;
+        const dateEl = createElement("p", {
+            className: "project-date",
+            attrs: { id: "project-date" },
+            children: [`—${monthName} ${project.year}`]
+        });
+        contentWrapper.appendChild(dateEl);
     }
 };
 
