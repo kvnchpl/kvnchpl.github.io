@@ -66,7 +66,7 @@ description: Interactive story by Kevin Cunanan Chappelle
             // /
             // /
             it’s been a long time hasn’t it /
-            the stench and softness of dew / clinging
+            the perfume and softness of dew / clinging
             to you // sliding from you / / / /
             in sixteen directions / / /
             we never see with our eyes / first
