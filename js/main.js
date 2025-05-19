@@ -1,7 +1,6 @@
 import {
     loadJSON,
-    getMetaContent,
-    injectPartials
+    getMetaContent
 } from './utils.js';
 
 import {
@@ -10,14 +9,14 @@ import {
     updateDescription,
     insertContent,
     renderNav,
-    renderGallery
+    renderGallery,
+    injectHeadPartial,
+    injectFooterPartial
 } from './dom.js';
 
 (async function () {
-    await injectPartials({
-        head: '/partials/head.html',
-        '#footer': '/partials/footer.html'
-    });
+    await injectHeadPartial('/partials/head.html');
+    await injectFooterPartial('/partials/footer.html');
 
     const page = document.body.dataset.page || "index";
 

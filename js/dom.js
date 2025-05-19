@@ -9,6 +9,39 @@ export function applyBackgroundColor(color) {
 }
 
 /**
+ * Injects the head partial HTML into the <head> element.
+ * @param {string} url - The URL of the head partial.
+ */
+export async function injectHeadPartial(url) {
+    try {
+        const res = await fetch(url);
+        const html = await res.text();
+        document.head.insertAdjacentHTML('beforeend', html);
+    } catch (err) {
+        console.error("Error injecting head partial:", err);
+    }
+}
+
+/**
+ * Injects the footer partial HTML into the #footer element.
+ * @param {string} url - The URL of the footer partial.
+ */
+export async function injectFooterPartial(url) {
+    try {
+        const res = await fetch(url);
+        const html = await res.text();
+        const footer = document.querySelector('#footer');
+        if (footer) {
+            footer.insertAdjacentHTML('beforeend', html);
+        } else {
+            console.warn('Footer element not found for partial injection.');
+        }
+    } catch (err) {
+        console.error("Error injecting footer partial:", err);
+    }
+}
+
+/**
  * Updates the document title.
  * @param {string} title - The title to set.
  */
