@@ -9,6 +9,8 @@
     if (page === "readings") type = "reading";
     if (page === "writings") type = "writing";
 
+    const basePath = `/${type}s/`;
+
     const listSection = document.getElementById(siteConfig.elementIds.collectionList);
     if (listSection && type) {
         const ul = document.createElement("ul");
@@ -16,7 +18,7 @@
             if (data.type === type) {
                 const li = document.createElement("li");
                 const a = document.createElement("a");
-                a.href = `/projects/${slug}.html`;
+                a.href = `${basePath}${slug}.html`;
                 a.textContent = data.title || slug;
                 li.appendChild(a);
                 ul.appendChild(li);
