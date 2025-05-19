@@ -18,7 +18,7 @@ import {
     await injectPartials({
         head: '/partials/head.html',
         '#nav': '/partials/nav.html',
-        body: '/partials/footer.html'
+        '#footer': '/partials/footer.html'
     });
 
     const page = document.body.dataset.page || "index";
@@ -52,6 +52,22 @@ import {
             elementIds,
             tagNames
         } = siteConfig;
+
+        // Validate required config values
+        if (!elementIds || !elementIds.intro || !elementIds.nav || !elementIds.gallery) {
+            console.error("Missing required elementIds in config.json");
+            return;
+        }
+
+        if (!tagNames || !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
+            console.error("Missing required tagNames in config.json");
+            return;
+        }
+
+        if (!galleryFolder || typeof imageCount !== "number") {
+            console.error(`Missing gallery data for page: ${page}`);
+            return;
+        }
 
         applyBackgroundColor(backgroundColor);
         updateTitle(title);
