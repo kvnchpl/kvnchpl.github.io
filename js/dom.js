@@ -84,7 +84,7 @@ export function renderGallery(galleryId, folder, prefix, ext, count, tagNames, b
     if (folder && count) {
         const path = `${basePath}/${folder}/${size}`;
         const images = Array.from({ length: count }, (_, i) => {
-            const filename = `${prefix}${String(i + 1).padStart(1, "0")}${ext}`;
+            const filename = `${prefix}${String(i + 1).padStart(2, "0")}${ext}`;
             return {
                 filename,
                 path: `${path}/${filename}`
