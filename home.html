@@ -1,35 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Home – Kevin Cunanan Chappelle</title>
-    <!-- Inject meta, root variables, and fonts from partials/head.html -->
-    <script>
-      fetch('/partials/head.html')
-        .then(res => res.text())
-        .then(html => document.head.insertAdjacentHTML('beforeend', html));
-    </script>
+    <title>KEVIN CUNANAN CHAPPELLE :)</title>
     <link rel="stylesheet" href="/css/home.css">
+    <script type="module" src="/js/main.js"></script>
 </head>
 <body data-page="home">
     <main id="homeMain">
         <h1>Welcome</h1>
-        <section id="homeLinks">
-            <ul>
-                <li><a href="/projects.html">Projects</a></li>
-                <li><a href="/readings.html">Readings</a></li>
-                <li><a href="/writings.html">Writings</a></li>
-                <li><a href="https://kvnchpl-thoughts.tumblr.com/" target="_blank" rel="noopener">Thoughts</a></li>
-                <li><a href="https://letterboxd.com/kvnchpl/" target="_blank" rel="noopener">Watchings</a></li>
-                <li><a href="https://open.spotify.com/user/kevchap" target="_blank" rel="noopener">Listenings</a></li>
-                <li><a href="https://hydranthunt.com/" target="_blank" rel="noopener">Hydrants</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-        </section>
+        <section id="homeLinks"></section>
     </main>
     <footer id="footer"></footer>
-    <script type="module">
-      import { injectFooter } from '/js/dom.js';
-      injectFooter('/partials/footer.html');
-    </script>
 </body>
 </html>
