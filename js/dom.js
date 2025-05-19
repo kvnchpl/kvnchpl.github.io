@@ -156,6 +156,8 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     }
 
     // Clear and append blocks
-    container.innerHTML = "";
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    }
     blocks.forEach(block => container.appendChild(block));
 }
