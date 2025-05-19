@@ -1,3 +1,7 @@
+/**
+ * Fetches HTML content from the provided URLs and inserts it into the specified selectors in the document.
+ * @param {Object} partials - An object where keys are selectors and values are URLs to fetch HTML from.
+ */
 export async function injectPartials(partials) {
     try {
         const entries = Object.entries(partials);
