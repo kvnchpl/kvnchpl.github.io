@@ -1,15 +1,9 @@
-const COLLECTIONS = {
-    projects: { type: "project", basePath: "/projects/" },
-    readings: { type: "reading", basePath: "/readings/" },
-    writings: { type: "writing", basePath: "/writings/" }
-};
-
 (async function () {
     const page = document.body.dataset.page;
     const siteConfig = window.siteConfig;
     const pages = window.pages;
 
-    const collection = COLLECTIONS[page];
+    const collection = siteConfig.collections[page];
     if (!collection) return;
 
     const { type, basePath } = collection;

@@ -19,5 +19,10 @@
         "nav": "nav-data",
         "pages": "pages-data",
         "gallery": "gallery-data"
+    },
+    "collections": {
+        "projects": { "type": "project", "basePath": "/projects/" },
+        "readings": { "type": "reading", "basePath": "/readings/" },
+        "writings": { "type": "writing", "basePath": "/writings/" }
     }
 }
