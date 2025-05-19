@@ -19,7 +19,9 @@
         "config": "config-data",
         "nav": "nav-data",
         "pages": "pages-data",
-        "gallery": "gallery-data"
+        "gallery": "gallery-data",
+        "head": "head-data",
+        "footer": "footer-data"
     },
     "collections": {
         "projects": {
