@@ -18,7 +18,7 @@
     "metaTags": {
         "config": "config-data",
         "nav": "nav-data",
-        "pages": "pages-data",
+        "pages": "projects-data",
         "gallery": "gallery-data",
         "head": "head-data",
         "footer": "footer-data"
