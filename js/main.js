@@ -68,12 +68,14 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         // Navigation
         const nav = document.getElementById(elementIds.nav);
         if (nav && navData) {
+            const navFragment = document.createDocumentFragment();
             navData.forEach(link => {
                 const a = document.createElement("a");
                 a.href = link.href;
                 a.textContent = link.label;
-                nav.appendChild(a);
+                navFragment.appendChild(a);
             });
+            nav.appendChild(navFragment);
         }
 
         // Gallery
@@ -90,14 +92,16 @@ import { generateGalleryImages, loadJSON } from './utils.js';
                 imageCount
             );
 
+            const fragment = document.createDocumentFragment();
             images.forEach(({ filename, path }) => {
                 const figure = document.createElement(tagNames.galleryItemWrapper);
                 const img = document.createElement(tagNames.galleryImage);
                 img.src = path;
                 img.alt = filename;
                 figure.appendChild(img);
-                gallery.appendChild(figure);
+                fragment.appendChild(figure);
             });
+            gallery.appendChild(fragment);
         }
 
     } catch (err) {
