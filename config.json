@@ -1,24 +1,10 @@
 {
-    "index": {
-        "backgroundColor": "#0c0c0c",
-        "title": "KEVIN CHAPPELLE :)",
-        "image": "img/og-image.jpg",
-        "intro": "Welcome to my digital playground. Handmade, small, weird."
-    },
-    "triptych": {
-        "title": "Triptych",
-        "intro": "Three meditations on sight.",
-        "backgroundColor": "#111111",
-        "galleryFolder": "img/triptych/medium",
-        "imagePrefix": "triptych_",
-        "imageExt": ".webp"
-    },
-    "archipelago": {
-        "title": "Archipelago",
-        "intro": "Drifting moments in space.",
-        "backgroundColor": "#0f0f0f",
-        "galleryFolder": "img/archipelago/medium",
-        "imagePrefix": "archipelago_",
-        "imageExt": ".webp"
-    }
+  "imageExt": ".webp",
+  "defaultImageSize": "medium",
+  "metaTags": {
+    "nav": "nav-data",
+    "pages": "pages-data",
+    "gallery": "gallery-data"
+  },
+  "galleryBasePath": "img"
 }

@@ -4,33 +4,43 @@ import { generateGalleryImages, loadJSON } from './utils.js';
     const page = document.body.dataset.page || "index";
 
     try {
-        const [config, navData] = await Promise.all([
+        const [siteConfig, pages, navData] = await Promise.all([
             loadJSON("config.json"),
+            loadJSON("pages.json"),
             loadJSON("nav.json")
         ]);
 
-        const settings = config[page];
-
-        if (!settings) {
-            console.warn(`No config entry for page: ${page}`);
+        const content = pages[page];
+        if (!content) {
+            console.warn(`No page data found for: ${page}`);
             return;
         }
 
-        // Apply background color
-        if (settings.backgroundColor) {
-            document.body.style.backgroundColor = settings.backgroundColor;
+        const backgroundColor = content.backgroundColor;
+        const title = content.title;
+        const intro = content.intro;
+        const galleryFolder = content.galleryFolder;
+        const imagePrefix = content.imagePrefix;
+        const imageCount = content.imageCount;
+
+        const imageExt = siteConfig.imageExt;
+        const defaultImageSize = siteConfig.defaultImageSize;
+        const galleryBasePath = siteConfig.galleryBasePath;
+
+        if (backgroundColor) {
+            document.body.style.backgroundColor = backgroundColor;
         }
 
-        // Set title + intro
-        if (settings.title) {
-            document.title = settings.title;
-            document.querySelector("h1")?.textContent = settings.title;
-        }
-        if (settings.intro) {
-            document.getElementById("intro")?.textContent = settings.intro;
+        if (title) {
+            document.title = title;
+            document.querySelector("h1")?.textContent = title;
         }
 
-        // Build nav
+        if (intro) {
+            document.getElementById("intro")?.textContent = intro;
+        }
+
+        // Navigation
         const nav = document.getElementById("nav");
         if (nav && navData) {
             navData.forEach(link => {
@@ -41,14 +51,15 @@ import { generateGalleryImages, loadJSON } from './utils.js';
             });
         }
 
-        // Build gallery dynamically
+        // Gallery
         const gallery = document.getElementById("gallery");
-        if (gallery && settings.galleryFolder && settings.imageCount) {
+        if (gallery && galleryFolder && imageCount) {
+            const path = `${galleryBasePath}/${galleryFolder}/${defaultImageSize}`;
             const images = generateGalleryImages(
-                settings.galleryFolder,
-                settings.imagePrefix || "",
-                settings.imageExt || ".webp",
-                settings.imageCount
+                path,
+                imagePrefix,
+                imageExt,
+                imageCount
             );
 
             images.forEach(({ filename, path }) => {
@@ -62,6 +73,6 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         }
 
     } catch (err) {
-        console.error("Error loading config or data:", err);
+        console.error("Error loading site data:", err);
     }
 })();
