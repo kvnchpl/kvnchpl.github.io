@@ -28,6 +28,20 @@ export function updateTitle(title) {
 }
 
 /**
+ * Updates or inserts a meta description tag in the document head.
+ * @param {string} description - The meta description text to insert.
+ */
+export function updateMetaDescription(description) {
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = 'description';
+        document.head.appendChild(meta);
+    }
+    meta.content = description || "Default site description.";
+}
+
+/**
  * Inserts an introduction text into a specified element.
  * @param {string} intro - The introduction text to insert.
  * @param {string} introId - The ID of the element where the intro will be inserted.
