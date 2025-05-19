@@ -28,7 +28,9 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         const {
             imageExt,
             defaultImageSize,
-            galleryBasePath
+            galleryBasePath,
+            elementIds,
+            tagNames
         } = siteConfig;
 
         if (backgroundColor) {
@@ -41,11 +43,11 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         }
 
         if (intro) {
-            document.getElementById("intro")?.textContent = intro;
+            document.getElementById(elementIds.intro)?.textContent = intro;
         }
 
         // Navigation
-        const nav = document.getElementById("nav");
+        const nav = document.getElementById(elementIds.nav);
         if (nav && navData) {
             navData.forEach(link => {
                 const a = document.createElement("a");
@@ -56,7 +58,7 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         }
 
         // Gallery
-        const gallery = document.getElementById("gallery");
+        const gallery = document.getElementById(elementIds.gallery);
         if (gallery && galleryFolder && imageCount) {
             const path = `${galleryBasePath}/${galleryFolder}/${defaultImageSize}`;
             const images = generateGalleryImages(
@@ -67,8 +69,8 @@ import { generateGalleryImages, loadJSON } from './utils.js';
             );
 
             images.forEach(({ filename, path }) => {
-                const figure = document.createElement("figure");
-                const img = document.createElement("img");
+                const figure = document.createElement(tagNames.galleryItemWrapper);
+                const img = document.createElement(tagNames.galleryImage);
                 img.src = path;
                 img.alt = filename;
                 figure.appendChild(img);
