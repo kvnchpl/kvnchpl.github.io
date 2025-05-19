@@ -1,15 +1,18 @@
+const COLLECTIONS = {
+    projects: { type: "project", basePath: "/projects/" },
+    readings: { type: "reading", basePath: "/readings/" },
+    writings: { type: "writing", basePath: "/writings/" }
+};
+
 (async function () {
-    // Use window.siteConfig, window.pages, window.navData if set by main.js
     const page = document.body.dataset.page;
     const siteConfig = window.siteConfig;
     const pages = window.pages;
 
-    let type;
-    if (page === "projects") type = "project";
-    if (page === "readings") type = "reading";
-    if (page === "writings") type = "writing";
+    const collection = COLLECTIONS[page];
+    if (!collection) return;
 
-    const basePath = `/${type}s/`;
+    const { type, basePath } = collection;
 
     const listSection = document.getElementById(siteConfig.elementIds.collectionList);
     if (listSection && type) {
