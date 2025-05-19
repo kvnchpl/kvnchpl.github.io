@@ -6,6 +6,7 @@ body {
   background-color: #000;
   max-width: 700px;
   margin-inline: auto;
+  text-transform: lowercase;
 }
 
 img {
@@ -13,4 +14,12 @@ img {
   height: auto;
   margin-bottom: 1em;
   border: 1px solid #444;
+}
+
+a {
+  text-transform: uppercase;
+}
+
+a:hover {
+  color: red;
 }
