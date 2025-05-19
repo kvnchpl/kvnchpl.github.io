@@ -10,6 +10,7 @@
 *.css text
 *.js text
 *.xml text
+*.ts text
 
 # Binary files
 *.woff binary
@@ -19,7 +20,8 @@
 *.png binary
 *.ico binary
 *.svg binary
+*.webp binary
 
 # Don't count generated content in GitHub language stats
 _site/ linguist-vendored
-assets/fonts/ linguist-vendored
+fonts/ linguist-vendored
