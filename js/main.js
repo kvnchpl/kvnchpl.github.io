@@ -29,8 +29,8 @@ import {
             loadJSON(getMetaContent("nav-data"))
         ]);
 
-        const content = pages[page];
-        if (!content) {
+        const pageContent = pages[page];
+        if (!pageContent) {
             console.warn(`No page data found for: ${page}`);
             return;
         }
@@ -40,10 +40,7 @@ import {
             title,
             intro,
             shortTitle
-        } = content;
-
-        const galleryFolder = shortTitle;
-        const imagePrefix = `${shortTitle}_`;
+        } = pageContent;
 
         const {
             imageExt,
@@ -64,20 +61,19 @@ import {
             return;
         }
 
-        if (!galleryFolder) {
-            console.error(`Missing gallery data for page: ${page}`);
+        if (!shortTitle) {
+            console.error(`Missing shortTitle for page: ${page}`);
             return;
         }
 
         applyBackgroundColor(backgroundColor);
         updateTitle(title);
-        updateDescription(content.description);
+        updateDescription(pageContent.description);
         insertIntro(intro, elementIds.intro);
         renderNav(elementIds.nav, navData);
         renderGallery(
             elementIds.gallery,
-            galleryFolder,
-            imagePrefix,
+            shortTitle,
             imageExt,
             tagNames,
             galleryBasePath,
