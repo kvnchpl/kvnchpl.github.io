@@ -8,7 +8,7 @@ import {
     applyBackgroundColor,
     updateTitle,
     updateDescription,
-    insertIntro,
+    insertContent,
     renderNav,
     renderGallery
 } from './dom.js';
@@ -38,7 +38,7 @@ import {
         const {
             backgroundColor,
             title,
-            intro,
+            content,
             shortTitle
         } = pageContent;
 
@@ -51,7 +51,7 @@ import {
         } = siteConfig;
 
         // Validate required config values
-        if (!elementIds || !elementIds.intro || !elementIds.nav || !elementIds.gallery) {
+        if (!elementIds || !elementIds.content || !elementIds.nav || !elementIds.gallery) {
             console.error("Missing required elementIds in config.json");
             return;
         }
@@ -69,7 +69,7 @@ import {
         applyBackgroundColor(backgroundColor);
         updateTitle(title);
         updateDescription(pageContent.description);
-        insertIntro(intro, elementIds.intro);
+        insertContent(content, elementIds.content);
         renderNav(elementIds.nav, navData);
         renderGallery(
             elementIds.gallery,

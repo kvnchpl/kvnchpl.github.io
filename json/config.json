@@ -4,7 +4,7 @@
     "galleryBasePath": "img",
     "elementIds": {
         "nav": "nav",
-        "intro": "intro",
+        "content": "content",
         "gallery": "gallery"
     },
     "tagNames": {

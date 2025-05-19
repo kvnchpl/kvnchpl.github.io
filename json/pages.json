@@ -2,13 +2,14 @@
     "triptych": {
         "title": "Triptych",
         "shortTitle": "triptych",
-        "intro": "Three meditations on sight.",
+        "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
+        "content": "Three meditations on sight.",
         "backgroundColor": "#111111"
     },
     "archipelago": {
         "title": "Archipelago",
         "shortTitle": "archipelago",
-        "intro": "Drifting moments in space.",
+        "content": "Drifting moments in space.",
         "backgroundColor": "#0f0f0f"
     }
 }
