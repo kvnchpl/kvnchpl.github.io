@@ -1,7 +1,7 @@
 import {
-  loadJSON,
-  getMetaContent,
-  injectPartials
+    loadJSON,
+    getMetaContent,
+    injectPartials
 } from './utils.js';
 
 import {
@@ -74,7 +74,6 @@ import {
         renderGallery(
             elementIds.gallery,
             shortTitle,
-            imageExt,
             tagNames,
             galleryBasePath,
             defaultImageSize

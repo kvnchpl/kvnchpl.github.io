@@ -73,13 +73,12 @@ export function renderNav(navId, navData) {
  * Dynamically fetches the image list from a JSON file in the gallery folder.
  * @param {string} galleryId - The ID of the gallery element.
  * @param {string} shortTitle - The short title used to derive folder and prefix.
- * @param {string} ext - The file extension for the images (e.g., ".jpg").
  * @param {Object} tagNames - An object containing the tag names for the gallery item wrapper and image.
  * @param {string} basePath - The base path for the images.
  * @param {string} size - The size of the images (e.g., "large", "small").
  * @returns {Promise<object>} - The gallery element.
  */
-export async function renderGallery(galleryId, shortTitle, ext, tagNames, basePath, size) {
+export async function renderGallery(galleryId, shortTitle, tagNames, basePath, size) {
     const gallery = document.getElementById(galleryId);
     if (!gallery) {
         console.warn(`No gallery container found.`);
