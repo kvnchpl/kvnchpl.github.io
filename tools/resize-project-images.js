@@ -2,7 +2,7 @@ const sharp = require('sharp');
 const fs = require('fs-extra');
 const path = require('path');
 
-const inputRoot = './assets/images/projects';
+const inputRoot = '/img';
 const outputSizes = {
     small: 600,
     medium: 1280,
