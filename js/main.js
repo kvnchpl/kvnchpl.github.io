@@ -39,9 +39,11 @@ import {
             backgroundColor,
             title,
             intro,
-            galleryFolder,
-            imagePrefix
+            shortTitle
         } = content;
+
+        const galleryFolder = shortTitle;
+        const imagePrefix = `${shortTitle}_`;
 
         const {
             imageExt,

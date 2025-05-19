@@ -1,16 +1,14 @@
 {
     "triptych": {
         "title": "Triptych",
+        "shortTitle": "triptych",
         "intro": "Three meditations on sight.",
-        "backgroundColor": "#111111",
-        "galleryFolder": "triptych",
-        "imagePrefix": "triptych_"
+        "backgroundColor": "#111111"
     },
     "archipelago": {
         "title": "Archipelago",
+        "shortTitle": "archipelago",
         "intro": "Drifting moments in space.",
-        "backgroundColor": "#0f0f0f",
-        "galleryFolder": "archipelago",
-        "imagePrefix": "archipelago_"
+        "backgroundColor": "#0f0f0f"
     }
 }
