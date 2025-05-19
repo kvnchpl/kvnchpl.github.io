@@ -7,6 +7,7 @@ import {
     applyBackgroundColor,
     updateTitle,
     updateDescription,
+    updateMainHeading,
     renderNav,
     injectHead,
     injectFooter,
@@ -66,6 +67,7 @@ import {
         applyBackgroundColor(backgroundColor);
         updateTitle(title);
         updateDescription(pageContent.description);
+        updateMainHeading(title);
         renderNav(elementIds.nav, navData);
 
         const main = document.querySelector('main');
