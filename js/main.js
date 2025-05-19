@@ -78,6 +78,9 @@ import { generateGalleryImages, loadJSON } from './utils.js';
 
         // Gallery
         const gallery = document.getElementById(elementIds.gallery);
+        if (!gallery) {
+            console.warn(`No gallery container found for page: ${page}`);
+        }
         if (gallery && galleryFolder && imageCount) {
             const path = `${galleryBasePath}/${galleryFolder}/${defaultImageSize}`;
             const images = generateGalleryImages(
