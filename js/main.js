@@ -7,11 +7,10 @@ import {
     applyBackgroundColor,
     updateTitle,
     updateDescription,
-    insertContent,
     renderNav,
-    renderGallery,
     injectHead,
-    injectFooter
+    injectFooter,
+    renderProjectLayout // <-- add this import
 } from './dom.js';
 
 (async function () {
@@ -67,14 +66,16 @@ import {
         applyBackgroundColor(backgroundColor);
         updateTitle(title);
         updateDescription(pageContent.description);
-        insertContent(content, elementIds.content);
         renderNav(elementIds.nav, navData);
-        renderGallery(
-            elementIds.gallery,
-            shortTitle,
+
+        const main = document.querySelector('main');
+        renderProjectLayout(
+            main,
+            pageContent,
             tagNames,
             galleryBasePath,
-            defaultImageSize
+            defaultImageSize,
+            imageExt
         );
 
     } catch (err) {

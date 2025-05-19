@@ -66,23 +66,6 @@ export function updateDescription(description) {
 }
 
 /**
- * Inserts text content into a specified element.
- * @param {string} content - The content to insert.
- * @param {string} contentId - The ID of the element where the content will be inserted.
- */
-export function insertContent(content, contentId) {
-    const contentElement = document.getElementById(contentId);
-    if (content && contentElement) {
-        const contentFragment = document.createDocumentFragment();
-        const p = document.createElement("p");
-        p.textContent = content;
-        contentFragment.appendChild(p);
-        contentElement.innerHTML = "";
-        contentElement.appendChild(contentFragment);
-    }
-}
-
-/**
  * Renders a navigation menu based on provided data.
  * @param {string} navId - The ID of the navigation element.
  * @param {Array} navData - An array of objects containing href and label for each link.
@@ -102,42 +85,66 @@ export function renderNav(navId, navData) {
 }
 
 /**
- * Renders a gallery of images based on provided parameters.
- * Dynamically fetches the image list from a JSON file in the gallery folder.
- * @param {string} galleryId - The ID of the gallery element.
- * @param {string} shortTitle - The short title used to derive folder and prefix.
- * @param {Object} tagNames - An object containing the tag names for the gallery item wrapper and image.
- * @param {string} basePath - The base path for the images.
- * @param {string} size - The size of the images (e.g., "large", "small").
- * @returns {Promise<object>} - The gallery element.
+ * Renders a project page layout using images and content arrays from pages.json.
+ * Supports a custom layout array or defaults to alternating images/content.
+ * @param {HTMLElement} container - The main element to render into.
+ * @param {Object} pageData - The project data from pages.json.
+ * @param {Object} tagNames - Tag names from config.
+ * @param {string} basePath - Base path for images.
+ * @param {string} size - Image size.
+ * @param {string} imageExt - Image file extension.
  */
-export async function renderGallery(galleryId, shortTitle, tagNames, basePath, size) {
-    const gallery = document.getElementById(galleryId);
-    if (!gallery) {
-        console.warn(`No gallery container found.`);
-        return;
-    }
-    if (shortTitle) {
-        const folder = shortTitle;
-        const path = `${basePath}/${folder}/${size}`;
-        // Fetch the image list JSON
-        try {
-            const response = await fetch(`${basePath}/${folder}/images.json`);
-            if (!response.ok) throw new Error("Image list not found");
-            const images = await response.json();
+export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
+    if (!container || !pageData) return;
 
-            const fragment = document.createDocumentFragment();
-            images.forEach(filename => {
-                const figure = document.createElement(tagNames.galleryItemWrapper);
-                const img = document.createElement(tagNames.galleryImage);
-                img.src = `${path}/${filename}`;
-                img.alt = filename;
-                figure.appendChild(img);
-                fragment.appendChild(figure);
-            });
-            gallery.appendChild(fragment);
-        } catch (e) {
-            console.warn("Could not load image list for gallery:", e);
+    const images = pageData.images || [];
+    const content = pageData.content || [];
+    const layout = pageData.layout;
+
+    // Helper to render an image gallery block
+    function renderImagesBlock(imagesArr) {
+        const fragment = document.createDocumentFragment();
+        imagesArr.forEach(filename => {
+            const figure = document.createElement(tagNames.galleryItemWrapper);
+            const img = document.createElement(tagNames.galleryImage);
+            img.src = `/${basePath}/${pageData.shortTitle}/${size}/${filename}${imageExt}`;
+            img.alt = filename;
+            figure.appendChild(img);
+            fragment.appendChild(figure);
+        });
+        return fragment;
+    }
+
+    // Helper to render a content block
+    function renderContentBlock(text) {
+        const p = document.createElement("p");
+        p.textContent = text;
+        return p;
+    }
+
+    // Determine the order of blocks
+    let blocks = [];
+    if (Array.isArray(layout) && layout.length > 0) {
+        // Custom layout: e.g. ["images-1", "content-1", ...]
+        layout.forEach(item => {
+            const [type, idxStr] = item.split("-");
+            const idx = parseInt(idxStr, 10) - 1;
+            if (type === "images" && images[idx]) {
+                blocks.push(renderImagesBlock(images[idx]));
+            } else if (type === "content" && content[idx]) {
+                blocks.push(renderContentBlock(content[idx]));
+            }
+        });
+    } else {
+        // Default: alternate images/content
+        const maxLen = Math.max(images.length, content.length);
+        for (let i = 0; i < maxLen; i++) {
+            if (images[i]) blocks.push(renderImagesBlock(images[i]));
+            if (content[i]) blocks.push(renderContentBlock(content[i]));
         }
     }
+
+    // Clear and append blocks
+    container.innerHTML = "";
+    blocks.forEach(block => container.appendChild(block));
 }
