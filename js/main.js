@@ -24,6 +24,75 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         }
     }
 
+    function applyBackgroundColor(color) {
+        if (color) {
+            document.body.style.backgroundColor = color;
+        }
+    }
+
+    function updateTitle(title) {
+        if (title) {
+            document.title = title;
+            const h1 = document.querySelector("h1");
+            if (h1) {
+                const titleFragment = document.createDocumentFragment();
+                const span = document.createElement("span");
+                span.textContent = title;
+                titleFragment.appendChild(span);
+                h1.innerHTML = "";
+                h1.appendChild(titleFragment);
+            }
+        }
+    }
+
+    function insertIntro(intro, introId) {
+        const introElement = document.getElementById(introId);
+        if (intro && introElement) {
+            const introFragment = document.createDocumentFragment();
+            const p = document.createElement("p");
+            p.textContent = intro;
+            introFragment.appendChild(p);
+            introElement.innerHTML = "";
+            introElement.appendChild(introFragment);
+        }
+    }
+
+    function renderNav(navId, navData) {
+        const nav = document.getElementById(navId);
+        if (nav && navData) {
+            const navFragment = document.createDocumentFragment();
+            navData.forEach(link => {
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                navFragment.appendChild(a);
+            });
+            nav.appendChild(navFragment);
+        }
+    }
+
+    function renderGallery(galleryId, folder, prefix, ext, count, tagNames, basePath, size) {
+        const gallery = document.getElementById(galleryId);
+        if (!gallery) {
+            console.warn(`No gallery container found.`);
+            return;
+        }
+        if (folder && count) {
+            const path = `${basePath}/${folder}/${size}`;
+            const images = generateGalleryImages(path, prefix, ext, count);
+            const fragment = document.createDocumentFragment();
+            images.forEach(({ filename, path }) => {
+                const figure = document.createElement(tagNames.galleryItemWrapper);
+                const img = document.createElement(tagNames.galleryImage);
+                img.src = path;
+                img.alt = filename;
+                figure.appendChild(img);
+                fragment.appendChild(figure);
+            });
+            gallery.appendChild(fragment);
+        }
+    }
+
     await injectPartials({
         head: '/partials/head.html',
         '#nav': '/partials/nav.html',
@@ -62,73 +131,20 @@ import { generateGalleryImages, loadJSON } from './utils.js';
             tagNames
         } = siteConfig;
 
-        if (backgroundColor) {
-            document.body.style.backgroundColor = backgroundColor;
-        }
-
-        if (title) {
-            document.title = title;
-            const h1 = document.querySelector("h1");
-            if (h1) {
-                const titleFragment = document.createDocumentFragment();
-                const span = document.createElement("span");
-                span.textContent = title;
-                titleFragment.appendChild(span);
-                h1.innerHTML = "";
-                h1.appendChild(titleFragment);
-            }
-        }
-
-        if (intro) {
-            const introElement = document.getElementById(elementIds.intro);
-            if (introElement) {
-                const introFragment = document.createDocumentFragment();
-                const p = document.createElement("p");
-                p.textContent = intro;
-                introFragment.appendChild(p);
-                introElement.innerHTML = "";
-                introElement.appendChild(introFragment);
-            }
-        }
-
-        // Navigation
-        const nav = document.getElementById(elementIds.nav);
-        if (nav && navData) {
-            const navFragment = document.createDocumentFragment();
-            navData.forEach(link => {
-                const a = document.createElement("a");
-                a.href = link.href;
-                a.textContent = link.label;
-                navFragment.appendChild(a);
-            });
-            nav.appendChild(navFragment);
-        }
-
-        // Gallery
-        const gallery = document.getElementById(elementIds.gallery);
-        if (!gallery) {
-            console.warn(`No gallery container found for page: ${page}`);
-        }
-        if (gallery && galleryFolder && imageCount) {
-            const path = `${galleryBasePath}/${galleryFolder}/${defaultImageSize}`;
-            const images = generateGalleryImages(
-                path,
-                imagePrefix,
-                imageExt,
-                imageCount
-            );
-
-            const fragment = document.createDocumentFragment();
-            images.forEach(({ filename, path }) => {
-                const figure = document.createElement(tagNames.galleryItemWrapper);
-                const img = document.createElement(tagNames.galleryImage);
-                img.src = path;
-                img.alt = filename;
-                figure.appendChild(img);
-                fragment.appendChild(figure);
-            });
-            gallery.appendChild(fragment);
-        }
+        applyBackgroundColor(backgroundColor);
+        updateTitle(title);
+        insertIntro(intro, elementIds.intro);
+        renderNav(elementIds.nav, navData);
+        renderGallery(
+            elementIds.gallery,
+            galleryFolder,
+            imagePrefix,
+            imageExt,
+            imageCount,
+            tagNames,
+            galleryBasePath,
+            defaultImageSize
+        );
 
     } catch (err) {
         console.error("Error loading site data:", err);
