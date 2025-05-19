@@ -8,7 +8,8 @@
         "gallery": "gallery",
         "homeLinks": "homeLinks",
         "footer": "footer",
-        "mainHeading": "mainHeading"
+        "mainHeading": "mainHeading",
+        "collectionList": "collectionList"
     },
     "tagNames": {
         "galleryItemWrapper": "figure",
