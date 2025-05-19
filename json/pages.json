@@ -1,16 +1,46 @@
 {
     "triptych": {
+        "type": "project",
         "title": "Triptych",
         "shortTitle": "triptych",
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "content": "Three meditations on sight.",
-        "backgroundColor": "#111111"
+        "backgroundColor": "#111111",
+        "images": [
+            [
+                "triptych-1",
+                "triptych-2",
+                "triptych-3"
+            ]
+        ],
+        "publication": null,
+        "month": 10,
+        "year": 2024,
+        "external": false
     },
     "archipelago": {
+        "type": "project",
         "title": "Archipelago",
         "shortTitle": "archipelago",
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "content": "Drifting moments in space.",
-        "backgroundColor": "#0f0f0f"
+        "backgroundColor": "#0f0f0f",
+        "images": [
+            [
+                "archipelago-1",
+                "archipelago-2",
+                "archipelago-3",
+                "archipelago-4",
+                "archipelago-5",
+                "archipelago-6",
+                "archipelago-7",
+                "archipelago-8",
+                "archipelago-9"
+            ]
+        ],
+        "publication": null,
+        "month": 2,
+        "year": 2024,
+        "external": false
     }
 }
