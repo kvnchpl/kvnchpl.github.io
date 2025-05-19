@@ -96,10 +96,10 @@ export function renderNav(navId, navData) {
 }
 
 /**
- * Renders a project page layout using images and content arrays from pages.json.
+ * Renders a project page layout using images and content arrays from projects.json.
  * Images go to #gallery, text goes to #content.
  * @param {HTMLElement} container - The main element to render into.
- * @param {Object} pageData - The project data from pages.json.
+ * @param {Object} pageData - The project data from projects.json.
  * @param {Object} tagNames - Tag names from config.
  * @param {string} basePath - Base path for images.
  * @param {string} size - Image size.
