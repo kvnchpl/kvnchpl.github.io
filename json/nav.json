@@ -1,18 +1,110 @@
 [
-  {
-    "label": "Home",
-    "href": "/"
-  },
-  {
-    "label": "Triptych",
-    "href": "/projects/triptych.html"
-  },
-  {
-    "label": "Archipelago",
-    "href": "/projects/archipelago.html"
-  },
-  {
-    "label": "Compiler Buddha",
-    "href": "/projects/compiler-buddha.html"
-  }
+    {
+        "title": "Kevin Cunanan Chappelle :)",
+        "href": "/",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "Home",
+        "navBar": true,
+        "isTitle": true,
+        "metaName": "index-data",
+        "format": "default"
+    },
+    {
+        "title": "See what I’m working on",
+        "href": "/projects",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "Projects",
+        "navBar": true,
+        "isTitle": false,
+        "metaName": "projects-data",
+        "format": "default"
+    },
+    {
+        "title": "See what I’m thinking about",
+        "href": "https://kvnchpl-thoughts.tumblr.com/",
+        "collection": false,
+        "external": false,
+        "newTab": true,
+        "label": "Thoughts",
+        "navBar": true,
+        "isTitle": false,
+        "metaName": null,
+        "format": null
+    },
+    {
+        "title": "See what I’m writing",
+        "href": "/writings",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "Writings",
+        "navBar": true,
+        "isTitle": false,
+        "metaName": "writings-data",
+        "format": "default"
+    },
+    {
+        "title": "See what I’m reading",
+        "href": "/readings",
+        "collection": true,
+        "external": false,
+        "newTab": false,
+        "label": "Readings",
+        "navBar": true,
+        "isTitle": false,
+        "metaName": "readings-data",
+        "format": "detailed"
+    },
+    {
+        "title": "See what I’m watching",
+        "href": "https://letterboxd.com/kvnchpl/",
+        "collection": false,
+        "external": true,
+        "newTab": true,
+        "label": "Watchings",
+        "navBar": false,
+        "isTitle": false,
+        "metaName": null,
+        "format": null
+    },
+    {
+        "title": "See what I’m listening to",
+        "href": "https://open.spotify.com/user/kevchap",
+        "collection": false,
+        "external": true,
+        "newTab": true,
+        "label": "Listenings",
+        "navBar": false,
+        "isTitle": false,
+        "metaName": null,
+        "format": null
+    },
+    {
+        "title": "Go hunting for hydrants",
+        "href": "https://hydranthunt.com/",
+        "collection": false,
+        "external": true,
+        "newTab": true,
+        "label": "Hydrants",
+        "navBar": false,
+        "isTitle": false,
+        "metaName": null,
+        "format": null
+    },
+    {
+        "title": "Say hi",
+        "href": "/contact",
+        "collection": false,
+        "external": false,
+        "newTab": false,
+        "label": "Contact",
+        "navBar": true,
+        "isTitle": false,
+        "metaName": null,
+        "format": null
+    }
 ]
