@@ -12,7 +12,7 @@
     --enter-text-right: 1em;
     --enter-text-font-size: 5vw;
     --enter-text-font-weight: bold;
-    --enter-text-color: #fff;
+    --enter-text-color: var(--color-text);
     --enter-text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
     --enter-text-letter-spacing: 0.1em;
     --enter-text-z-index: 2;
