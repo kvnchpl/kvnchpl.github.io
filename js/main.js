@@ -28,7 +28,32 @@ import {
         ]);
 
         if (page === "index") {
-            renderNav(siteConfig.elementIds.nav, navData);
+            return;
+        }
+
+        if (page === "home") {
+            // Render links from navData into #homeLinks
+            const homeLinksSection = document.getElementById("homeLinks");
+            if (homeLinksSection && Array.isArray(navData)) {
+                const ul = document.createElement("ul");
+                navData.forEach(link => {
+                    // Only include links you want on the home page
+                    // Here, we include all links with a label (customize as needed)
+                    if (link.label) {
+                        const li = document.createElement("li");
+                        const a = document.createElement("a");
+                        a.href = link.href;
+                        a.textContent = link.label;
+                        if (link.newTab) {
+                            a.target = "_blank";
+                            a.rel = "noopener";
+                        }
+                        li.appendChild(a);
+                        ul.appendChild(li);
+                    }
+                });
+                homeLinksSection.appendChild(ul);
+            }
             return;
         }
 
