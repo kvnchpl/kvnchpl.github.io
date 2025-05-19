@@ -58,7 +58,15 @@ import { generateGalleryImages, loadJSON } from './utils.js';
 
         if (title) {
             document.title = title;
-            document.querySelector("h1")?.textContent = title;
+            const h1 = document.querySelector("h1");
+            if (h1) {
+                const titleFragment = document.createDocumentFragment();
+                const span = document.createElement("span");
+                span.textContent = title;
+                titleFragment.appendChild(span);
+                h1.innerHTML = "";
+                h1.appendChild(titleFragment);
+            }
         }
 
         if (intro) {
