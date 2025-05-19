@@ -1,5 +1,6 @@
 import {
-    loadJSON
+    loadJSON,
+    getMetaContent
 } from './utils.js';
 
 import {
@@ -24,11 +25,6 @@ import {
     const page = document.body.dataset.page || "index";
 
     try {
-        const getMetaContent = (name) => {
-            const el = document.querySelector(`meta[name="${name}"]`);
-            return el?.content || null;
-        };
-
         const [siteConfig, pages, navData] = await Promise.all([
             loadJSON(getMetaContent("config-data")),
             loadJSON(getMetaContent("pages-data")),
