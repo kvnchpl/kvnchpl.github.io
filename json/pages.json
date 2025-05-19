@@ -3,6 +3,7 @@
         "type": "project",
         "title": "Viewfinder",
         "shortTitle": "viewfinder",
+        "permalink": "default",
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
         "subtitle": null,
         "backgroundColor": "#111111",
@@ -32,6 +33,7 @@
         "type": "project",
         "title": "Triptych",
         "shortTitle": "triptych",
+        "permalink": "default",
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "subtitle": null,
         "backgroundColor": "#111111",
@@ -40,9 +42,9 @@
         ],
         "images": [
             [
-                "triptych-1",
-                "triptych-2",
-                "triptych-3"
+                "triptych_1",
+                "triptych_2",
+                "triptych_3"
             ]
         ],
         "layout": null,
@@ -55,6 +57,7 @@
         "type": "project",
         "title": "Archipelago",
         "shortTitle": "archipelago",
+        "permalink": "default",
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
@@ -63,15 +66,15 @@
         ],
         "images": [
             [
-                "archipelago-1",
-                "archipelago-2",
-                "archipelago-3",
-                "archipelago-4",
-                "archipelago-5",
-                "archipelago-6",
-                "archipelago-7",
-                "archipelago-8",
-                "archipelago-9"
+                "archipelago_1",
+                "archipelago_2",
+                "archipelago_3",
+                "archipelago_4",
+                "archipelago_5",
+                "archipelago_6",
+                "archipelago_7",
+                "archipelago_8",
+                "archipelago_9"
             ]
         ],
         "layout": null,

@@ -1,0 +1,28 @@
+{
+    "technics-and-time": {
+        "type": "reading",
+        "title": "Technics and Time",
+        "shortTitle": "technics-and-time",
+        "permalink": "https://example.com",
+        "subtitle": "Bernard Stiegler",
+        "publication": "Example Journal",
+        "month": 1,
+        "year": 1994,
+        "external": true,
+        "description": null,
+        "images": []
+    },
+    "a-thousand-plateaus": {
+        "type": "reading",
+        "title": "A Thousand Plateaus",
+        "shortTitle": "a-thousand-plateaus",
+        "permalink": "https://example.com",
+        "subtitle": "Deleuze & Guattari",
+        "publication": "Example Publication",
+        "month": "Fall",
+        "year": 1980,
+        "external": true,
+        "description": null,
+        "images": []
+    }
+}
