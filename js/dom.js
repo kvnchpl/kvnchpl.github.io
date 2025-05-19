@@ -12,7 +12,7 @@ export function applyBackgroundColor(color) {
  * Injects the head partial HTML into the <head> element.
  * @param {string} url - The URL of the head partial.
  */
-export async function injectHeadPartial(url) {
+export async function injectHead(url) {
     try {
         const res = await fetch(url);
         const html = await res.text();
@@ -26,7 +26,7 @@ export async function injectHeadPartial(url) {
  * Injects the footer partial HTML into the #footer element.
  * @param {string} url - The URL of the footer partial.
  */
-export async function injectFooterPartial(url) {
+export async function injectFooter(url) {
     try {
         const res = await fetch(url);
         const html = await res.text();
