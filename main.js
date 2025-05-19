@@ -1,491 +1,67 @@
-import {
-    isMobileDevice,
-    logError,
-    fetchJSON,
-    settleFetch,
-    debounce,
-    normalizePath,
-    hasRequiredKeys,
-    sortByDateDescending,
-    createElement
-} from './utils.js';
+import { generateGalleryImages, loadJSON } from './utils.js';
 
 (async function () {
-    "use strict";
+    const page = document.body.dataset.page || "index";
 
-    // ==========================
-    // GLOBAL CONSTANTS
-    // ==========================
+    try {
+        const [config, navData] = await Promise.all([
+            loadJSON("config.json"),
+            loadJSON("nav.json")
+        ]);
 
-    let cachedViewportWidth = window.innerWidth;
+        const settings = config[page];
 
-    // ==========================
-    // UTILITY FUNCTIONS
-    // ==========================
-
-    const fetchConfigAndData = async () => {
-        const config = await fetchJSON("config-data", {});
-        if (!Object.keys(config).length) throw new Error("Missing or invalid config.");
-
-        window.config = config;
-
-        const metaTags = config.metaTags;
-        const keysToFetch = Object.entries(metaTags).map(([key, metaName]) => [metaName, []]);
-        const fetchedData = await settleFetch(keysToFetch);
-
-        return { metaTags, fetchedData };
-    };
-
-    // Validate index.json structure for required keys
-    const validateIndexData = (index) => {
-        const requiredKeys = config.requiredIndexKeys;
-        const errors = [];
-
-        index.forEach((item, i) => {
-            const missing = hasRequiredKeys(item, requiredKeys);
-            if (missing.length) {
-                errors.push(`Missing keys ${missing.join(", ")} in index item at position ${i}: ${JSON.stringify(item)}`);
-            }
-        });
-
-        if (errors.length > 0) {
-            logError("Index validation failed with the following issues:\n" + errors.join("\n"));
-            throw new Error("Invalid index.json structure");
-        }
-    };
-
-    // Validate collection data structure for required keys
-    const validateCollectionData = (collectionData, sectionLabel = "unknown") => {
-        const requiredKeys = config.requiredCollectionKeys || [];
-        const errors = [];
-
-        collectionData.forEach((item, i) => {
-            const missing = hasRequiredKeys(item, requiredKeys);
-            if (missing.length) {
-                errors.push(`Missing keys ${missing.join(", ")} in ${sectionLabel} item at position ${i}: ${JSON.stringify(item)}`);
-            }
-        });
-
-        if (errors.length > 0) {
-            logError(`Collection validation failed for section "${sectionLabel}":\n` + errors.join("\n"));
-            throw new Error(`Invalid collection data for "${sectionLabel}"`);
-        }
-    };
-
-    // Utility function to generate a random position for links
-    const generateRandomPosition = (linkWidth, viewportWidth) => {
-        if (viewportWidth <= 0 || linkWidth <= 0) {
-            logError("Invalid dimensions for random position generation.");
-            return 0;
-        }
-        const margin = isMobileDevice()
-            ? config.linkMargins.mobile
-            : config.linkMargins.desktop;
-        const minPosition = margin;
-        const maxPosition = viewportWidth - margin - linkWidth;
-        return Math.random() * (maxPosition - minPosition) + minPosition;
-    };
-
-    // Utility function to update the position of a link
-    const updateLinkPosition = (linkWrapper, linkWidth, viewportWidth) => {
-        const newLeft = generateRandomPosition(linkWidth, viewportWidth);
-        linkWrapper.style.left = `${newLeft}px`;
-    };
-
-    // Format subtitle based on the provided format
-    const formatSubtitle = (item, format) => {
-        const formatDate = (month) => config.monthNames[month - 1] || month;
-        const month = item.month ? formatDate(item.month) : "";
-        const year = item.year || "";
-        const pub = item.publication || "";
-        const subtitle = item.subtitle;
-
-        if (format === "detailed") {
-            const subtitleText = subtitle ?? `${month} ${year}`.trim();
-            return `—${subtitleText}, ${pub}, ${month} ${year}`.trim();
+        if (!settings) {
+            console.warn(`No config entry for page: ${page}`);
+            return;
         }
 
-        return subtitle ?? `${month} ${year}`.trim();
-    };
-
-    const calculateAvailableHeight = (navBar, titleRow) => {
-        const navHeight = navBar ? navBar.offsetHeight : 0;
-        const titleHeight = titleRow ? titleRow.offsetHeight : 0;
-        return window.innerHeight - (navHeight + titleHeight);
-    };
-
-    // ==========================
-    // LINK MANAGEMENT
-    // ==========================
-
-    // Randomize link positions for desktop and alternate positions for mobile
-    const randomizeLinks = (rows) => {
-        rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector(`.${config.linkWrapperClass}`);
-            if (!linkWrapper) {
-                logError(`No .link-wrapper found in row ${index}`);
-                return;
-            }
-
-            const link = linkWrapper.querySelector("a");
-            if (!link) {
-                logError(`No <a> element found in .link-wrapper for row ${index}`);
-                return;
-            }
-
-            const originalText = link.textContent.trim();
-            link.setAttribute("aria-label", originalText);
-
-            // Treat title-row as a left-arrow row but skip appending the arrow
-            const isTitleRow = row.id === config.titleRowId;
-            const isLeftArrow = isTitleRow || index % 2 === 0;
-            if (!isTitleRow) {
-                const leftArrow = config.arrowSymbols?.left;
-                const rightArrow = config.arrowSymbols?.right;
-                link.textContent = isLeftArrow ? `${leftArrow} ${originalText}` : `${originalText} ${rightArrow}`;
-            }
-
-            row.classList.add(isLeftArrow ? "left-arrow" : "right-arrow");
-
-            if (!isMobileDevice()) {
-                const linkWidth = link.offsetWidth;
-                const viewportWidth = window.innerWidth;
-
-                if (viewportWidth === 0 || linkWidth === 0) {
-                    logError("Invalid viewport or link width:", { viewportWidth, linkWidth });
-                    return;
-                }
-
-                updateLinkPosition(linkWrapper, linkWidth, viewportWidth);
-                linkWrapper.classList.add("randomized", "visible");
-            }
-        });
-    };
-
-    // Reset link positions to their original state
-    const resetLinkPositions = (rows) => {
-        rows.forEach((row) => {
-            const linkWrapper = row.querySelector(".link-wrapper");
-            if (!linkWrapper) return;
-
-            const linkWidth = linkWrapper.offsetWidth;
-            const viewportWidth = window.innerWidth;
-
-            if (viewportWidth === 0 || linkWidth === 0) {
-                logError("Invalid viewport or link width:", { viewportWidth, linkWidth });
-                return;
-            }
-
-            updateLinkPosition(linkWrapper, linkWidth, viewportWidth);
-        });
-    };
-
-    const handlePointerEnter = (linkWrapper, rows, index, getNextImage, overlay) => {
-        if (isMobileDevice()) return; // Disable overlay functionality on mobile
-
-        const hoveredRect = linkWrapper.getBoundingClientRect();
-        const containerRect = linkWrapper.offsetParent.getBoundingClientRect(); // Get the parent container's position
-        const hoveredLeft = hoveredRect.left - containerRect.left; // Relative to the parent container
-        const hoveredRight = hoveredRect.right - containerRect.left; // Relative to the parent container
-
-        // Get the row element for this linkWrapper
-        const row = linkWrapper.closest("li");
-        const isTitleRow = row && row.id === config.titleRowId;
-
-        rows.forEach((otherRow, otherIndex) => {
-            if (otherIndex === index) return;
-
-            const otherLinkWrapper = otherRow.querySelector(`.${config.linkWrapperClass}`);
-            if (!otherLinkWrapper) return;
-
-            const otherLinkWidth = otherLinkWrapper.offsetWidth;
-
-            // Treat title-row as a left-arrow row
-            if ((row && row.classList.contains("left-arrow")) || isTitleRow) {
-                otherLinkWrapper.style.left = `${hoveredLeft}px`;
-            } else if (row && row.classList.contains("right-arrow")) {
-                otherLinkWrapper.style.left = `${hoveredRight - otherLinkWidth}px`;
-            }
-        });
-
-        // Show the image overlay
-        const image = getNextImage();
-        if (image) {
-            overlay.style.backgroundImage = `url(${image})`;
-            overlay.classList.add("visible");
-        }
-    };
-
-    const handlePointerLeave = (rows, overlay) => {
-        if (isMobileDevice()) return;
-        resetLinkPositions(rows);
-        overlay.classList.remove("visible");
-    };
-
-    // Enable hover effects for links
-    const enableHoverEffect = (rows, getNextImage, overlay) => {
-        rows.forEach((row, index) => {
-            const linkWrapper = row.querySelector(`.${config.linkWrapperClass}`);
-            if (!linkWrapper) return;
-
-            linkWrapper.addEventListener("pointerenter", () => handlePointerEnter(linkWrapper, rows, index, getNextImage, overlay));
-            linkWrapper.addEventListener("pointerleave", () => handlePointerLeave(rows, overlay));
-        });
-    };
-
-    // ==========================
-    // OVERLAY IMAGE HANDLING
-    // ==========================
-
-    // Modularized overlay image handling
-    const setupOverlayImages = async (images, config = window.config) => {
-        // Replace single overlay lookup with dual overlays
-        const overlayA = document.getElementById("image-overlay-a");
-        const overlayB = document.getElementById("image-overlay-b");
-        if (!overlayA || !overlayB) {
-            logError("Overlay elements not found.");
-            return null;
+        // Apply background color
+        if (settings.backgroundColor) {
+            document.body.style.backgroundColor = settings.backgroundColor;
         }
 
-        let shuffledImages = [];
-        const preloadedImages = new Map();
+        // Set title + intro
+        if (settings.title) {
+            document.title = settings.title;
+            document.querySelector("h1")?.textContent = settings.title;
+        }
+        if (settings.intro) {
+            document.getElementById("intro")?.textContent = settings.intro;
+        }
 
-        const preloadImage = (src) => {
-            return new Promise((resolve, reject) => {
-                const img = new Image();
-                img.src = src;
-                img.onload = () => resolve(src);
-                img.onerror = () => reject(`Failed to preload image: ${src}`);
+        // Build nav
+        const nav = document.getElementById("nav");
+        if (nav && navData) {
+            navData.forEach(link => {
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                nav.appendChild(a);
             });
-        };
+        }
 
-        const getNextImage = (() => {
-            let index = 0;
-            return () => {
-                if (shuffledImages.length === 0) {
-                    logError("No images available for overlay.");
-                    return null;
-                }
-                const image = shuffledImages[index];
-                index = (index + 1) % shuffledImages.length;
-                return image;
-            };
-        })();
-
-        if (Array.isArray(images) && images.length > 0) {
-            shuffledImages = images.sort(() => Math.random() - 0.5);
-
-            const preloadResults = await Promise.allSettled(
-                shuffledImages.map((src) =>
-                    preloadImage(src)
-                        .then((loaded) => preloadedImages.set(loaded, true))
-                        .catch((err) => logError(err))
-                )
+        // Build gallery dynamically
+        const gallery = document.getElementById("gallery");
+        if (gallery && settings.galleryFolder && settings.imageCount) {
+            const images = generateGalleryImages(
+                settings.galleryFolder,
+                settings.imagePrefix || "",
+                settings.imageExt || ".webp",
+                settings.imageCount
             );
 
-            if (preloadedImages.size === 0) {
-                logError("All image preloads failed.");
-                if (config.debugMode) {
-                    alert("Image overlay failed to load.");
-                }
-                return { overlayA, overlayB, getNextImage: () => null };
-            }
-
-            // For mobile: show the first image immediately
-            if (isMobileDevice()) {
-                const firstImage = shuffledImages.find((src) => preloadedImages.has(src));
-                if (firstImage) {
-                    overlayA.style.backgroundImage = `url(${firstImage})`;
-                    overlayA.classList.add("visible");
-                }
-            }
-        } else {
-            logError("No overlay images defined or input is invalid.");
-        }
-
-        return { overlayA, overlayB, getNextImage };
-    };
-
-    const setupScrollBasedOverlay = (overlayA, overlayB, getNextImage) => {
-        if (!isMobileDevice()) return;
-
-        let isAVisible = true;
-
-        // Set different starting images for overlayA and overlayB
-        const firstImage = getNextImage();
-        const secondImage = getNextImage();
-        overlayA.style.backgroundImage = `url(${firstImage})`;
-        overlayB.style.backgroundImage = `url(${secondImage})`;
-        overlayA.classList.add("visible");
-
-        setInterval(() => {
-            const nextImage = getNextImage();
-            if (!nextImage) return;
-
-            const showOverlay = isAVisible ? overlayB : overlayA;
-            const hideOverlay = isAVisible ? overlayA : overlayB;
-
-            showOverlay.style.backgroundImage = `url(${nextImage})`;
-            showOverlay.classList.add("visible");
-            hideOverlay.classList.remove("visible");
-
-            isAVisible = !isAVisible;
-        }, config.shuffleInterval);
-    };
-
-    // ==========================
-    // PAGE INITIALIZATION
-    // ==========================
-
-    const initializePage = async (path, isHomepage, config, metaTags, fetchedData) => {
-        const index = fetchedData[metaTags.index];
-        validateIndexData(index);
-        const images = fetchedData[metaTags.overlayImages];
-        const sectionKey = isHomepage ? "index" : path;
-        const section = index.find(item => normalizePath(item.permalink) === sectionKey);
-        const collectionData = section?.metaName ? fetchedData[section.metaName] : [];
-
-        if (section?.collection && Array.isArray(collectionData)) {
-            // Skip validation for homepage collection based on permalink
-            if (section.permalink !== "/") {
-                validateCollectionData(collectionData, section.label);
-            }
-        }
-
-        const overlaySetup = await setupOverlayImages(images, config);
-
-        if (!overlaySetup || typeof overlaySetup !== "object") {
-            throw new Error("Overlay setup failed or returned invalid object.");
-        }
-        const { getNextImage, overlayA, overlayB } = overlaySetup;
-
-        if (isMobileDevice() && section?.collection) {
-            setupScrollBasedOverlay(overlayA, overlayB, getNextImage);
-        }
-
-        const isCollectionPage = index.some((item) => {
-            const normalizedPermalink = normalizePath(item.permalink);
-            return normalizedPermalink === path && item.collection;
-        });
-
-        if (isCollectionPage) {
-            // Use overlayA for hover overlays; overlayB is used for crossfade
-            initializeCollectionPage(path, section?.format, getNextImage, overlayA, collectionData);
-        } else {
-            initializeIndividualPage(path);
-        }
-        // Dispatch config-ready event after initialization
-        window.dispatchEvent(new Event('config-ready'));
-    };
-
-    // Function to initialize a collection page (e.g., /projects/, /writings/, or the homepage)
-    const initializeCollectionPage = async (path, format, getNextImage, overlay, collectionData) => {
-        console.log(`DEBUG: Initializing collection page: ${path}`);
-
-        const container = document.getElementById(config.linkContainerId);
-        if (!container) {
-            logError(`No link-container found for collection page: ${path}`);
-            return;
-        }
-
-        const list = container.querySelector("ul");
-        if (!list) {
-            logError(`No <ul> element found in link-container for path: ${path}`);
-            return;
-        }
-
-        // Sort by year and month descending before rendering
-        collectionData.sort(sortByDateDescending);
-
-        // Clear existing links and render new ones
-        list.innerHTML = "";
-        const fragment = populateLinks(collectionData, format);
-        list.appendChild(fragment);
-
-        const rows = Array.from(list.children);
-        randomizeLinks(rows);
-        enableHoverEffect(rows, getNextImage, overlay);
-    };
-
-    // Function to initialize an individual page (e.g., /projects/shed-your-skin/)
-    const initializeIndividualPage = (path) => {
-        console.log(`DEBUG: Initializing individual page: ${path}`);
-        // Add any specific logic for individual pages here (if needed)
-    };
-
-    // Render links dynamically
-    const populateLinks = (data, format) => {
-        const fragment = document.createDocumentFragment();
-
-        data.forEach((item) => {
-            const row = document.createElement("li");
-
-            if (item.isTitle) {
-                row.id = config.titleRowId;
-            } else {
-                row.classList.add(config.rowClass);
-            }
-
-            const linkWrapper = createElement("div", {
-                className: config.linkWrapperClass
+            images.forEach(({ filename, path }) => {
+                const figure = document.createElement("figure");
+                const img = document.createElement("img");
+                img.src = path;
+                img.alt = filename;
+                figure.appendChild(img);
+                gallery.appendChild(figure);
             });
-
-            const link = createElement("a", {
-                attrs: {
-                    href: item.permalink,
-                    target: item.newTab ? "_blank" : "_self",
-                    rel: item.external ? "noopener noreferrer" : undefined
-                },
-                children: [document.createTextNode(item.title)]
-            });
-
-            linkWrapper.appendChild(link);
-
-            const subtitleText = formatSubtitle(item, format);
-            if (subtitleText) {
-                const subtitle = createElement("span", {
-                    className: config.subtitleClass,
-                    children: [document.createTextNode(subtitleText)]
-                });
-                linkWrapper.appendChild(subtitle);
-            }
-
-            row.appendChild(linkWrapper);
-            fragment.appendChild(row);
-        });
-
-        return fragment;
-    };
-
-    // ==========================
-    // MAIN INITIALIZATION
-    // ==========================
-
-    const { pathname } = window.location;
-
-    const { metaTags, fetchedData } = await fetchConfigAndData();
-    config.projects = fetchedData[metaTags.projects];
-    const path = normalizePath(pathname);
-    const isHomepage = path === config.indexFallbackKey;
-
-    await initializePage(path, isHomepage, config, metaTags, fetchedData);
-
-    // Adjust link container height on load and resize
-    const adjustLinkContainerHeight = () => {
-        const navBar = document.getElementById(config.navBarId);
-        const titleRow = document.getElementById(config.titleRowId);
-        const linkContainer = document.getElementById(config.linkContainerId);
-
-        if (linkContainer) {
-            linkContainer.style.height = `${calculateAvailableHeight(navBar, titleRow)}px`;
         }
-    };
 
-    window.addEventListener("load", adjustLinkContainerHeight);
-    window.addEventListener(
-        "resize",
-        debounce(() => {
-            cachedViewportWidth = window.innerWidth;
-        }, config.debounceTime)
-    );
+    } catch (err) {
+        console.error("Error loading config or data:", err);
+    }
 })();

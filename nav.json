@@ -1,0 +1,6 @@
+[
+  { "label": "Home", "href": "/" },
+  { "label": "Triptych", "href": "/triptych.html" },
+  { "label": "Archipelago", "href": "/archipelago.html" },
+  { "label": "Compiler Buddha", "href": "/compiler-buddha.html" }
+]
