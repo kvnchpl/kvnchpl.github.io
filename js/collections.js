@@ -1,25 +1,15 @@
-import { loadJSON, getMetaContent } from './utils.js';
-import { injectHead, injectFooter, renderNav, updateMainHeading } from './dom.js';
-
 (async function () {
-    await injectHead('/partials/head.html');
-    await injectFooter('/partials/footer.html');
-
+    // Use window.siteConfig, window.pages, window.navData if set by main.js
     const page = document.body.dataset.page;
-    const [siteConfig, pages, navData] = await Promise.all([
-        loadJSON(getMetaContent("config-data")),
-        loadJSON(getMetaContent("pages-data")),
-        loadJSON(getMetaContent("nav-data"))
-    ]);
-
-    renderNav(siteConfig.elementIds.nav, navData);
+    const siteConfig = window.siteConfig;
+    const pages = window.pages;
 
     let type;
     if (page === "projects") type = "project";
     if (page === "readings") type = "reading";
     if (page === "writings") type = "writing";
 
-    const listSection = document.getElementById("collectionList");
+    const listSection = document.getElementById(siteConfig.elementIds.collectionList);
     if (listSection && type) {
         const ul = document.createElement("ul");
         Object.entries(pages).forEach(([slug, data]) => {
