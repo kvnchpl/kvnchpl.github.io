@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /_site/
-Disallow: /private/
-Allow: /
-
-Sitemap: /sitemap.xml
