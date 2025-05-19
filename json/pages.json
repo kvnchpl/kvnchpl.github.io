@@ -5,7 +5,6 @@
         "backgroundColor": "#111111",
         "galleryFolder": "triptych",
         "imagePrefix": "triptych_",
-        "imageCount": 3
     },
     "archipelago": {
         "title": "Archipelago",
@@ -13,6 +12,5 @@
         "backgroundColor": "#0f0f0f",
         "galleryFolder": "archipelago",
         "imagePrefix": "archipelago_",
-        "imageCount": 6
     }
 }

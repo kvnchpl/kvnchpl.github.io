@@ -39,8 +39,7 @@ import {
             title,
             intro,
             galleryFolder,
-            imagePrefix,
-            imageCount
+            imagePrefix
         } = content;
 
         const {
@@ -62,7 +61,7 @@ import {
             return;
         }
 
-        if (!galleryFolder || typeof imageCount !== "number") {
+        if (!galleryFolder) {
             console.error(`Missing gallery data for page: ${page}`);
             return;
         }
@@ -76,7 +75,6 @@ import {
             galleryFolder,
             imagePrefix,
             imageExt,
-            imageCount,
             tagNames,
             galleryBasePath,
             defaultImageSize
