@@ -11,7 +11,7 @@ import {
     renderNav,
     injectHead,
     injectFooter,
-    renderProjectLayout // <-- add this import
+    renderProjectLayout
 } from './dom.js';
 
 (async function () {
@@ -21,24 +21,34 @@ import {
     const page = document.body.dataset.page || "index";
 
     try {
+        // Load config, pages, nav data
         const [siteConfig, pages, navData] = await Promise.all([
             loadJSON(getMetaContent("config-data")),
             loadJSON(getMetaContent("pages-data")),
             loadJSON(getMetaContent("nav-data"))
         ]);
 
+        // Expose globally for other scripts (like collections.js)
+        window.siteConfig = siteConfig;
+        window.pages = pages;
+        window.navData = navData;
+
+        // Always render nav if nav element exists
+        if (siteConfig.elementIds && siteConfig.elementIds.nav) {
+            renderNav(siteConfig.elementIds.nav, navData);
+        }
+
+        // Special case: index page (homepage splash)
         if (page === "index") {
             return;
         }
 
+        // Special case: home page (list all nav links)
         if (page === "home") {
-            // Render links from navData into #homeLinks
-            const homeLinksSection = document.getElementById("homeLinks");
+            const homeLinksSection = document.getElementById(siteConfig.elementIds.homeLinks);
             if (homeLinksSection && Array.isArray(navData)) {
                 const ul = document.createElement("ul");
                 navData.forEach(link => {
-                    // Only include links you want on the home page
-                    // Here, we include all links with a label (customize as needed)
                     if (link.label) {
                         const li = document.createElement("li");
                         const a = document.createElement("a");
@@ -57,6 +67,12 @@ import {
             return;
         }
 
+        // Skip project rendering for collection pages (handled by collections.js)
+        if (["projects", "readings", "writings"].includes(page)) {
+            return;
+        }
+
+        // Render project or content page
         const pageContent = pages[page];
         if (!pageContent) {
             console.warn(`No page data found for: ${page}`);
@@ -98,7 +114,6 @@ import {
         updateTitle(title);
         updateDescription(pageContent.description);
         updateMainHeading(title);
-        renderNav(elementIds.nav, navData);
 
         const main = document.querySelector('main');
         renderProjectLayout(
