@@ -97,7 +97,7 @@ export function renderNav(navId, navData) {
 
 /**
  * Renders a project page layout using images and content arrays from pages.json.
- * Supports a custom layout array or defaults to alternating images/content.
+ * Images go to #gallery, text goes to #content.
  * @param {HTMLElement} container - The main element to render into.
  * @param {Object} pageData - The project data from pages.json.
  * @param {Object} tagNames - Tag names from config.
@@ -107,6 +107,10 @@ export function renderNav(navId, navData) {
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
     if (!container || !pageData) return;
+
+    const galleryEl = container.querySelector('#gallery');
+    const contentEl = container.querySelector('#content');
+    if (!galleryEl || !contentEl) return;
 
     const images = pageData.images || [];
     const content = pageData.content || [];
@@ -133,31 +137,32 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         return p;
     }
 
-    // Determine the order of blocks
-    let blocks = [];
+    // Clear previous content
+    while (galleryEl.firstChild) {
+        galleryEl.removeChild(galleryEl.firstChild);
+    }
+    while (contentEl.firstChild) {
+        contentEl.removeChild(contentEl.firstChild);
+    }
+
+    // If custom layout, respect it (alternating blocks)
     if (Array.isArray(layout) && layout.length > 0) {
-        // Custom layout: e.g. ["images-1", "content-1", ...]
         layout.forEach(item => {
             const [type, idxStr] = item.split("-");
             const idx = parseInt(idxStr, 10) - 1;
             if (type === "images" && images[idx]) {
-                blocks.push(renderImagesBlock(images[idx]));
+                galleryEl.appendChild(renderImagesBlock(images[idx]));
             } else if (type === "content" && content[idx]) {
-                blocks.push(renderContentBlock(content[idx]));
+                contentEl.appendChild(renderContentBlock(content[idx]));
             }
         });
     } else {
-        // Default: alternate images/content
-        const maxLen = Math.max(images.length, content.length);
-        for (let i = 0; i < maxLen; i++) {
-            if (images[i]) blocks.push(renderImagesBlock(images[i]));
-            if (content[i]) blocks.push(renderContentBlock(content[i]));
-        }
+        // Default: all images in gallery, all text in content
+        images.forEach(imgArr => {
+            galleryEl.appendChild(renderImagesBlock(imgArr));
+        });
+        content.forEach(text => {
+            contentEl.appendChild(renderContentBlock(text));
+        });
     }
-
-    // Clear and append blocks
-    while (container.firstChild) {
-        container.removeChild(container.firstChild);
-    }
-    blocks.forEach(block => container.appendChild(block));
 }
