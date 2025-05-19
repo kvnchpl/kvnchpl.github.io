@@ -45,7 +45,7 @@ export async function injectFooter(url) {
  * Updates the document title.
  * @param {string} title - The title to set.
  */
-export function updateTitle(title) {
+export function updateMetaTitle(title) {
     if (title) {
         document.title = title;
     }
@@ -55,7 +55,7 @@ export function updateTitle(title) {
  * Updates or inserts a meta description tag in the document head.
  * @param {string} description - The meta description text to insert.
  */
-export function updateDescription(description) {
+export function updateMetaDescription(description) {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
         meta = document.createElement('meta');
