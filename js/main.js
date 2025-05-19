@@ -1,24 +1,34 @@
 import { generateGalleryImages, loadJSON } from './utils.js';
 
 (async function () {
-    async function injectPartials() {
+    async function injectPartials(partials) {
         try {
-            const [headPartial, footerPartial] = await Promise.all([
-                fetch('/partials/head.html').then(res => res.text()),
-                fetch('/partials/footer.html').then(res => res.text())
-            ]);
+            const entries = Object.entries(partials);
+            const fetches = await Promise.all(entries.map(([_, url]) =>
+                fetch(url).then(res => res.text())
+            ));
 
-            document.head.insertAdjacentHTML('beforeend', headPartial);
-
-            const footerContainer = document.createElement('div');
-            footerContainer.innerHTML = footerPartial;
-            document.body.appendChild(footerContainer);
+            entries.forEach(([selector, _], i) => {
+                const html = fetches[i];
+                const target = selector === 'head'
+                    ? document.head
+                    : document.querySelector(selector);
+                if (target) {
+                    target.insertAdjacentHTML('beforeend', html);
+                } else {
+                    console.warn(`Target "${selector}" not found for partial.`);
+                }
+            });
         } catch (err) {
             console.error("Error injecting partials:", err);
         }
     }
 
-    await injectPartials();
+    await injectPartials({
+        head: '/partials/head.html',
+        '#nav': '/partials/nav.html',
+        body: '/partials/footer.html'
+    });
 
     const page = document.body.dataset.page || "index";
 
