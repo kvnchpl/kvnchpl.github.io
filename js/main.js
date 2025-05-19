@@ -15,15 +15,21 @@ import {
 } from './dom.js';
 
 (async function () {
-    await injectHead(siteConfig.partials.head);
-    await injectFooter(siteConfig.partials.head);
+    // Load config first to get metaTag names
+    const siteConfig = await loadJSON(getMetaContent("config-data"));
+
+    // Get partials' paths from meta tags using config
+    const headPartialPath = getMetaContent(siteConfig.metaTags.head);
+    const footerPartialPath = getMetaContent(siteConfig.metaTags.footer);
+
+    await injectHead(headPartialPath);
+    await injectFooter(footerPartialPath);
 
     const page = document.body.dataset.page || "index";
 
     try {
-        // Load config, pages, nav data
-        const [siteConfig, pages, navData] = await Promise.all([
-            loadJSON(getMetaContent(siteConfig.metaTags.config)),
+        // Load pages and nav data using meta tag names from config
+        const [pages, navData] = await Promise.all([
             loadJSON(getMetaContent(siteConfig.metaTags.pages)),
             loadJSON(getMetaContent(siteConfig.metaTags.nav))
         ]);
