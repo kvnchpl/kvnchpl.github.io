@@ -1,77 +1,24 @@
 {
-    "debounceTime": 200,
-    "shuffleInterval": 5000,
-    "navBarId": "site-nav",
-    "linkContainerId": "link-container",
-    "linkWrapperClass": "link-wrapper",
-    "rowClass": "row",
-    "titleRowId": "title-row",
-    "subtitleClass": "subtitle",
-    "imageOverlayId": "image-overlay",
-    "imageBasePath": "/assets/images/projects",
-    "imageExtension": "webp",
-    "imageFolders": {
-        "small": "small",
-        "medium": "medium"
+    "index": {
+        "backgroundColor": "#0c0c0c",
+        "title": "KEVIN CHAPPELLE :)",
+        "image": "img/og-image.jpg",
+        "intro": "Welcome to my digital playground. Handmade, small, weird."
     },
-    "imageSizes": {
-        "small": "600w",
-        "medium": "1280w"
+    "triptych": {
+        "title": "Triptych",
+        "intro": "Three meditations on sight.",
+        "backgroundColor": "#111111",
+        "galleryFolder": "img/triptych/medium",
+        "imagePrefix": "triptych_",
+        "imageExt": ".webp"
     },
-    "imageSizesHint": "(max-width: 768px) 90vw, 60vw",
-    "defaultImageFallbackSize": "small",
-    "linkMargins": {
-        "mobile": 40,
-        "desktop": 80
-    },
-    "arrowSymbols": {
-        "left": "←",
-        "right": "→"
-    },
-    "metaTags": {
-        "index": "index-data",
-        "overlayImages": "overlay-images-data",
-        "projects": "projects-data",
-        "readings": "readings-data",
-        "writings": "writings-data"
-    },
-    "indexFallbackKey": "index",
-    "monthNames": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ],
-    "requiredIndexKeys": [
-        "title",
-        "permalink",
-        "collection",
-        "external",
-        "newTab",
-        "label",
-        "navBar",
-        "isTitle",
-        "metaName",
-        "format"
-    ],
-    "requiredCollectionKeys": [
-        "title",
-        "permalink",
-        "subtitle",
-        "description",
-        "images",
-        "layout",
-        "publication",
-        "month",
-        "year",
-        "external"
-    ]
+    "archipelago": {
+        "title": "Archipelago",
+        "intro": "Drifting moments in space.",
+        "backgroundColor": "#0f0f0f",
+        "galleryFolder": "img/archipelago/medium",
+        "imagePrefix": "archipelago_",
+        "imageExt": ".webp"
+    }
 }
