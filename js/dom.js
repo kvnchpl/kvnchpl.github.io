@@ -45,7 +45,7 @@ export async function injectFooter(url) {
  * Updates the document title.
  * @param {string} title - The title to set.
  */
-export function updateMetaTitle(title) {
+export function updateTitle(title) {
     if (title) {
         document.title = title;
     }
@@ -55,7 +55,7 @@ export function updateMetaTitle(title) {
  * Updates or inserts a meta description tag in the document head.
  * @param {string} description - The meta description text to insert.
  */
-export function updateMetaDescription(description) {
+export function updateDescription(description) {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
         meta = document.createElement('meta');
@@ -63,6 +63,17 @@ export function updateMetaDescription(description) {
         document.head.appendChild(meta);
     }
     meta.content = description || "Default site description.";
+}
+
+/**
+ * Updates the main <h1> element with the page title.
+ * @param {string} title - The title to set in the <h1>.
+ */
+export function updateTitle(title) {
+    const h1 = document.querySelector('main h1');
+    if (h1 && title) {
+        h1.textContent = title;
+    }
 }
 
 /**
