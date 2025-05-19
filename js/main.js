@@ -1,6 +1,7 @@
 import {
-    loadJSON,
-    getMetaContent
+  loadJSON,
+  getMetaContent,
+  injectPartials
 } from './utils.js';
 
 import {
@@ -10,10 +11,6 @@ import {
     renderNav,
     renderGallery
 } from './dom.js';
-
-import {
-    injectPartials
-} from './partials.js';
 
 (async function () {
     await injectPartials({
