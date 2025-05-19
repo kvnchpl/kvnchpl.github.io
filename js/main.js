@@ -10,13 +10,13 @@ import {
     insertContent,
     renderNav,
     renderGallery,
-    injectHeadPartial,
-    injectFooterPartial
+    injectHead,
+    injectFooter
 } from './dom.js';
 
 (async function () {
-    await injectHeadPartial('/partials/head.html');
-    await injectFooterPartial('/partials/footer.html');
+    await injectHead('/partials/head.html');
+    await injectFooter('/partials/footer.html');
 
     const page = document.body.dataset.page || "index";
 
