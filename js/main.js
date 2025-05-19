@@ -27,6 +27,11 @@ import {
             loadJSON(getMetaContent("nav-data"))
         ]);
 
+        if (page === "index") {
+            renderNav(siteConfig.elementIds.nav, navData);
+            return;
+        }
+
         const pageContent = pages[page];
         if (!pageContent) {
             console.warn(`No page data found for: ${page}`);
