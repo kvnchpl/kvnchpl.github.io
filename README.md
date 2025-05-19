@@ -1,4 +1,4 @@
-# kvnchpl.github.io
+# kvnchpl.github.io (kvnchpl.com)
 
 **Portfolio and brain dump for Kevin Cunanan Chappelle, creator of multimedia projects and performances. Based in New
 York City.**
