@@ -15,17 +15,17 @@ import {
 } from './dom.js';
 
 (async function () {
-    await injectHead('/partials/head.html');
-    await injectFooter('/partials/footer.html');
+    await injectHead(siteConfig.partials.head);
+    await injectFooter(siteConfig.partials.head);
 
     const page = document.body.dataset.page || "index";
 
     try {
         // Load config, pages, nav data
         const [siteConfig, pages, navData] = await Promise.all([
-            loadJSON(getMetaContent("config-data")),
-            loadJSON(getMetaContent("pages-data")),
-            loadJSON(getMetaContent("nav-data"))
+            loadJSON(getMetaContent(siteConfig.metaTags.config)),
+            loadJSON(getMetaContent(siteConfig.metaTags.pages)),
+            loadJSON(getMetaContent(siteConfig.metaTags.nav))
         ]);
 
         // Expose globally for other scripts (like collections.js)
