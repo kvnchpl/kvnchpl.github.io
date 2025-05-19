@@ -1,0 +1,53 @@
+#homepageMain {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+    padding: 0;
+    margin: 0;
+}
+
+#homepageTitle {
+    width: 100vw;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    object-fit: contain;
+}
+
+#skyContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100vw;
+    margin-top: 2rem;
+}
+
+#skyGif {
+    max-width: 90vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+#enterText {
+    position: absolute;
+    top: 0.5em;
+    right: 1em;
+    font-size: 5vw;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    user-select: none;
+    letter-spacing: 0.1em;
+    z-index: 2;
+    mix-blend-mode: lighten;
+}
