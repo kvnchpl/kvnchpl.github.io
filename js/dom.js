@@ -12,7 +12,7 @@ export function applyBackgroundColor(color) {
  * Updates the document title and the first <h1> element's text content.
  * @param {string} title - The title to set.
  */
-export function updateTitle(title) {
+export function updateMetaTitle(title) {
     if (title) {
         document.title = title;
         const h1 = document.querySelector("h1");
