@@ -62,7 +62,15 @@ import { generateGalleryImages, loadJSON } from './utils.js';
         }
 
         if (intro) {
-            document.getElementById(elementIds.intro)?.textContent = intro;
+            const introElement = document.getElementById(elementIds.intro);
+            if (introElement) {
+                const introFragment = document.createDocumentFragment();
+                const p = document.createElement("p");
+                p.textContent = intro;
+                introFragment.appendChild(p);
+                introElement.innerHTML = "";
+                introElement.appendChild(introFragment);
+            }
         }
 
         // Navigation
