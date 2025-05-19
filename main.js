@@ -16,16 +16,20 @@ import { generateGalleryImages, loadJSON } from './utils.js';
             return;
         }
 
-        const backgroundColor = content.backgroundColor;
-        const title = content.title;
-        const intro = content.intro;
-        const galleryFolder = content.galleryFolder;
-        const imagePrefix = content.imagePrefix;
-        const imageCount = content.imageCount;
+        const {
+            backgroundColor,
+            title,
+            intro,
+            galleryFolder,
+            imagePrefix,
+            imageCount
+        } = content;
 
-        const imageExt = siteConfig.imageExt;
-        const defaultImageSize = siteConfig.defaultImageSize;
-        const galleryBasePath = siteConfig.galleryBasePath;
+        const {
+            imageExt,
+            defaultImageSize,
+            galleryBasePath
+        } = siteConfig;
 
         if (backgroundColor) {
             document.body.style.backgroundColor = backgroundColor;
