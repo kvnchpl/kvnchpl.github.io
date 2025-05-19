@@ -1,25 +1,37 @@
+:root {
+  --font-family-main: 'Apolline Std', monospace;
+  --color-text: #e6e6e6;
+  --color-bg: #000;
+  --color-link-hover: red;
+  --color-img-border: #444;
+  --max-width-main: 700px;
+  --padding-body: 2em;
+  --text-transform-body: lowercase;
+  --text-transform-link: uppercase;
+}
+
 body {
   margin: 0;
-  padding: 2em;
-  font-family: 'Apolline Std', monospace;
-  color: #e6e6e6;
-  background-color: #000;
-  max-width: 700px;
+  padding: var(--padding-body);
+  font-family: var(--font-family-main);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  max-width: var(--max-width-main);
   margin-inline: auto;
-  text-transform: lowercase;
+  text-transform: var(--text-transform-body);
 }
 
 img {
   width: 100%;
   height: auto;
   margin-bottom: 1em;
-  border: 1px solid #444;
+  border: 1px solid var(--color-img-border);
 }
 
 a {
-  text-transform: uppercase;
+  text-transform: var(--text-transform-link);
 }
 
 a:hover {
-  color: red;
+  color: var(--color-link-hover);
 }
