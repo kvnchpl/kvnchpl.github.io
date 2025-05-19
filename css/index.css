@@ -1,19 +1,40 @@
+:root {
+    --homepage-bg: #fff;
+    --homepage-title-width: 100vw;
+    --homepage-title-max-width: 100%;
+    --homepage-title-margin: 0;
+    --sky-container-margin-top: 2rem;
+    --sky-gif-max-width: 90vw;
+    --sky-gif-max-height: 60vh;
+    --sky-gif-border-radius: 12px;
+    --sky-gif-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --enter-text-top: 0.5em;
+    --enter-text-right: 1em;
+    --enter-text-font-size: 5vw;
+    --enter-text-font-weight: bold;
+    --enter-text-color: #fff;
+    --enter-text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    --enter-text-letter-spacing: 0.1em;
+    --enter-text-z-index: 2;
+    --enter-text-blend-mode: lighten;
+}
+
 #homepageMain {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: #fff;
+    background: var(--homepage-bg);
     padding: 0;
     margin: 0;
 }
 
 #homepageTitle {
-    width: 100vw;
-    max-width: 100%;
+    width: var(--homepage-title-width);
+    max-width: var(--homepage-title-max-width);
     height: auto;
     display: block;
-    margin: 0;
+    margin: var(--homepage-title-margin);
     object-fit: contain;
 }
 
@@ -24,30 +45,30 @@
     align-items: center;
     flex: 1;
     width: 100vw;
-    margin-top: 2rem;
+    margin-top: var(--sky-container-margin-top);
 }
 
 #skyGif {
-    max-width: 90vw;
-    max-height: 60vh;
+    max-width: var(--sky-gif-max-width);
+    max-height: var(--sky-gif-max-height);
     width: auto;
     height: auto;
     display: block;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    border-radius: var(--sky-gif-border-radius);
+    box-shadow: var(--sky-gif-box-shadow);
 }
 
 #enterText {
     position: absolute;
-    top: 0.5em;
-    right: 1em;
-    font-size: 5vw;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    top: var(--enter-text-top);
+    right: var(--enter-text-right);
+    font-size: var(--enter-text-font-size);
+    font-weight: var(--enter-text-font-weight);
+    color: var(--enter-text-color);
+    text-shadow: var(--enter-text-shadow);
     pointer-events: none;
     user-select: none;
-    letter-spacing: 0.1em;
-    z-index: 2;
-    mix-blend-mode: lighten;
+    letter-spacing: var(--enter-text-letter-spacing);
+    z-index: var(--enter-text-z-index);
+    mix-blend-mode: var(--enter-text-blend-mode);
 }
