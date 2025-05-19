@@ -71,8 +71,7 @@ export function renderNav(navId, navData) {
 /**
  * Renders a gallery of images based on provided parameters.
  * @param {string} galleryId - The ID of the gallery element.
- * @param {string} folder - The folder containing the images.
- * @param {string} prefix - The prefix for the image filenames.
+ * @param {string} shortTitle - The short title used to derive folder and prefix.
  * @param {string} ext - The file extension for the images (e.g., ".jpg").
  * @param {number} count - The number of images to render.
  * @param {Object} tagNames - An object containing the tag names for the gallery item wrapper and image.
@@ -80,13 +79,15 @@ export function renderNav(navId, navData) {
  * @param {string} size - The size of the images (e.g., "large", "small").
  * @returns {object} - The gallery element.
  */
-export function renderGallery(galleryId, folder, prefix, ext, count, tagNames, basePath, size) {
+export function renderGallery(galleryId, shortTitle, ext, count, tagNames, basePath, size) {
     const gallery = document.getElementById(galleryId);
     if (!gallery) {
         console.warn(`No gallery container found.`);
         return;
     }
-    if (folder && count) {
+    if (shortTitle && count) {
+        const folder = shortTitle;
+        const prefix = `${shortTitle}_`;
         const path = `${basePath}/${folder}/${size}`;
         const images = Array.from({ length: count }, (_, i) => {
             const filename = `${prefix}${String(i + 1).padStart(2, "0")}${ext}`;
