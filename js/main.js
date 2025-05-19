@@ -1,5 +1,4 @@
 import {
-    generateGalleryImages,
     loadJSON
 } from './utils.js';
 
