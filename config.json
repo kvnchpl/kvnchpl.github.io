@@ -1,10 +1,19 @@
 {
-  "imageExt": ".webp",
-  "defaultImageSize": "medium",
-  "metaTags": {
-    "nav": "nav-data",
-    "pages": "pages-data",
-    "gallery": "gallery-data"
-  },
-  "galleryBasePath": "img"
+    "imageExt": ".webp",
+    "defaultImageSize": "medium",
+    "galleryBasePath": "img",
+    "elementIds": {
+        "nav": "nav",
+        "intro": "intro",
+        "gallery": "gallery"
+    },
+    "tagNames": {
+        "galleryItemWrapper": "figure",
+        "galleryImage": "img"
+    },
+    "metaTags": {
+        "nav": "nav-data",
+        "pages": "pages-data",
+        "gallery": "gallery-data"
+    }
 }
