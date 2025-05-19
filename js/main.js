@@ -5,8 +5,8 @@ import {
 
 import {
     applyBackgroundColor,
-    updateMetaTitle,
-    updateMetaDescription,
+    updateTitle,
+    updateDescription,
     renderNav,
     injectHead,
     injectFooter,
@@ -64,8 +64,8 @@ import {
         }
 
         applyBackgroundColor(backgroundColor);
-        updateMetaTitle(title);
-        updateMetaDescription(pageContent.description);
+        updateTitle(title);
+        updateDescription(pageContent.description);
         renderNav(elementIds.nav, navData);
 
         const main = document.querySelector('main');
