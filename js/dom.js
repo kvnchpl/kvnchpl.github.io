@@ -66,11 +66,11 @@ export function updateDescription(description) {
 }
 
 /**
- * Updates the main <h1> element with the page title.
- * @param {string} title - The title to set in the <h1>.
+ * Updates the main heading element with the page title.
+ * @param {string} title - The title to set in the main heading.
  */
 export function updateMainHeading(heading) {
-    const h1 = document.querySelector('main h1');
+    const h1 = document.getElementById('mainHeading')
     if (h1 && heading) {
         h1.textContent = heading;
     }
