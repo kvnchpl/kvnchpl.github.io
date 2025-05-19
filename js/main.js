@@ -16,7 +16,6 @@ import {
 (async function () {
     await injectPartials({
         head: '/partials/head.html',
-        '#nav': '/partials/nav.html',
         '#footer': '/partials/footer.html'
     });
 
