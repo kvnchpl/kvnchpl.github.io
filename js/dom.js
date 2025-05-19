@@ -73,19 +73,18 @@ export function renderNav(navId, navData) {
  * @param {string} galleryId - The ID of the gallery element.
  * @param {string} shortTitle - The short title used to derive folder and prefix.
  * @param {string} ext - The file extension for the images (e.g., ".jpg").
- * @param {number} count - The number of images to render.
  * @param {Object} tagNames - An object containing the tag names for the gallery item wrapper and image.
  * @param {string} basePath - The base path for the images.
  * @param {string} size - The size of the images (e.g., "large", "small").
  * @returns {object} - The gallery element.
  */
-export function renderGallery(galleryId, shortTitle, ext, count, tagNames, basePath, size) {
+export function renderGallery(galleryId, shortTitle, ext, tagNames, basePath, size) {
     const gallery = document.getElementById(galleryId);
     if (!gallery) {
         console.warn(`No gallery container found.`);
         return;
     }
-    if (shortTitle && count) {
+    if (shortTitle) {
         const folder = shortTitle;
         const prefix = `${shortTitle}_`;
         const path = `${basePath}/${folder}/${size}`;
