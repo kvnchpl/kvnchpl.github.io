@@ -1,5 +1,5 @@
 :root {
-    --homepage-bg: #fff;
+    --homepage-bg: var(--color-bg);
     --homepage-title-width: 100vw;
     --homepage-title-max-width: 100%;
     --homepage-title-margin: 0;
