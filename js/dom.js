@@ -33,19 +33,19 @@ export function updateDescription(description) {
 }
 
 /**
- * Inserts an introduction text into a specified element.
- * @param {string} intro - The introduction text to insert.
- * @param {string} introId - The ID of the element where the intro will be inserted.
+ * Inserts text content into a specified element.
+ * @param {string} content - The content to insert.
+ * @param {string} contentId - The ID of the element where the content will be inserted.
  */
-export function insertIntro(intro, introId) {
-    const introElement = document.getElementById(introId);
-    if (intro && introElement) {
-        const introFragment = document.createDocumentFragment();
+export function insertContent(content, contentId) {
+    const contentElement = document.getElementById(contentId);
+    if (content && contentElement) {
+        const contentFragment = document.createDocumentFragment();
         const p = document.createElement("p");
-        p.textContent = intro;
-        introFragment.appendChild(p);
-        introElement.innerHTML = "";
-        introElement.appendChild(introFragment);
+        p.textContent = content;
+        contentFragment.appendChild(p);
+        contentElement.innerHTML = "";
+        contentElement.appendChild(contentFragment);
     }
 }
 
