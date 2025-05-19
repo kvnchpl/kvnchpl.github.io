@@ -9,21 +9,12 @@ export function applyBackgroundColor(color) {
 }
 
 /**
- * Updates the document title and the first <h1> element's text content.
+ * Updates the document title.
  * @param {string} title - The title to set.
  */
-export function updateMetaTitle(title) {
+export function updateTitle(title) {
     if (title) {
         document.title = title;
-        const h1 = document.querySelector("h1");
-        if (h1) {
-            const titleFragment = document.createDocumentFragment();
-            const span = document.createElement("span");
-            span.textContent = title;
-            titleFragment.appendChild(span);
-            h1.innerHTML = "";
-            h1.appendChild(titleFragment);
-        }
     }
 }
 
@@ -31,7 +22,7 @@ export function updateMetaTitle(title) {
  * Updates or inserts a meta description tag in the document head.
  * @param {string} description - The meta description text to insert.
  */
-export function updateMetaDescription(description) {
+export function updateDescription(description) {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
         meta = document.createElement('meta');

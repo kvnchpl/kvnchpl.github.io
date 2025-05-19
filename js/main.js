@@ -6,11 +6,11 @@ import {
 
 import {
     applyBackgroundColor,
-    updateMetaTitle,
+    updateTitle,
     insertIntro,
     renderNav,
     renderGallery,
-    updateMetaDescription
+    updateDescription
 } from './dom.js';
 
 (async function () {
@@ -68,8 +68,8 @@ import {
         }
 
         applyBackgroundColor(backgroundColor);
-        updateMetaTitle(title);
-        updateMetaDescription(content.description);
+        updateTitle(title);
+        updateDescription(content.description);
         insertIntro(intro, elementIds.intro);
         renderNav(elementIds.nav, navData);
         renderGallery(
