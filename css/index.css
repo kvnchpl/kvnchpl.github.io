@@ -72,3 +72,15 @@
     z-index: var(--enter-text-z-index);
     mix-blend-mode: var(--enter-text-blend-mode);
 }
+
+#enterText a {
+    color: inherit;
+    text-decoration: none;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    text-shadow: inherit;
+    pointer-events: auto;
+    user-select: auto;
+    display: inline-block;
+}
