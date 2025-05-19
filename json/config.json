@@ -5,7 +5,10 @@
     "elementIds": {
         "nav": "nav",
         "content": "content",
-        "gallery": "gallery"
+        "gallery": "gallery",
+        "homeLinks": "homeLinks",
+        "footer": "footer",
+        "mainHeading": "mainHeading"
     },
     "tagNames": {
         "galleryItemWrapper": "figure",
