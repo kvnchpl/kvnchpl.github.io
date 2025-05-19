@@ -7,10 +7,10 @@ import {
 import {
     applyBackgroundColor,
     updateTitle,
+    updateDescription,
     insertIntro,
     renderNav,
-    renderGallery,
-    updateDescription
+    renderGallery
 } from './dom.js';
 
 (async function () {
