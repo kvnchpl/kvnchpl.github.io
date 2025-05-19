@@ -70,15 +70,16 @@ export function renderNav(navId, navData) {
 
 /**
  * Renders a gallery of images based on provided parameters.
+ * Dynamically fetches the image list from a JSON file in the gallery folder.
  * @param {string} galleryId - The ID of the gallery element.
  * @param {string} shortTitle - The short title used to derive folder and prefix.
  * @param {string} ext - The file extension for the images (e.g., ".jpg").
  * @param {Object} tagNames - An object containing the tag names for the gallery item wrapper and image.
  * @param {string} basePath - The base path for the images.
  * @param {string} size - The size of the images (e.g., "large", "small").
- * @returns {object} - The gallery element.
+ * @returns {Promise<object>} - The gallery element.
  */
-export function renderGallery(galleryId, shortTitle, ext, tagNames, basePath, size) {
+export async function renderGallery(galleryId, shortTitle, ext, tagNames, basePath, size) {
     const gallery = document.getElementById(galleryId);
     if (!gallery) {
         console.warn(`No gallery container found.`);
@@ -86,25 +87,25 @@ export function renderGallery(galleryId, shortTitle, ext, tagNames, basePath, si
     }
     if (shortTitle) {
         const folder = shortTitle;
-        const prefix = `${shortTitle}_`;
         const path = `${basePath}/${folder}/${size}`;
-        const images = Array.from({ length: count }, (_, i) => {
-            const filename = `${prefix}${String(i + 1).padStart(2, "0")}${ext}`;
-            return {
-                filename,
-                path: `${path}/${filename}`
-            };
-        });
+        // Fetch the image list JSON
+        try {
+            const response = await fetch(`${basePath}/${folder}/images.json`);
+            if (!response.ok) throw new Error("Image list not found");
+            const images = await response.json();
 
-        const fragment = document.createDocumentFragment();
-        images.forEach(({ filename, path }) => {
-            const figure = document.createElement(tagNames.galleryItemWrapper);
-            const img = document.createElement(tagNames.galleryImage);
-            img.src = path;
-            img.alt = filename;
-            figure.appendChild(img);
-            fragment.appendChild(figure);
-        });
-        gallery.appendChild(fragment);
+            const fragment = document.createDocumentFragment();
+            images.forEach(filename => {
+                const figure = document.createElement(tagNames.galleryItemWrapper);
+                const img = document.createElement(tagNames.galleryImage);
+                img.src = `${path}/${filename}`;
+                img.alt = filename;
+                figure.appendChild(img);
+                fragment.appendChild(figure);
+            });
+            gallery.appendChild(fragment);
+        } catch (e) {
+            console.warn("Could not load image list for gallery:", e);
+        }
     }
 }
