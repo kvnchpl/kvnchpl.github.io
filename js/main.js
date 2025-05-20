@@ -18,6 +18,8 @@ import {
 
 (async function () {
     const page = document.body.dataset.page || "index";
+
+    // Early returns for pages that don't need further processing
     if (page === "404" || page === "index") return;
 
     // Load config first to get metaTag names and collections
@@ -31,13 +33,16 @@ import {
     // Cache frequently used properties from siteConfig
     const { elementIds, tagNames, metaTags, collections, imageExt, defaultImageSize, galleryBasePath } = siteConfig;
 
-    // Validate required config values early
+    // Early return if required config values are missing
     if (!elementIds || !tagNames) {
         console.error("Missing required config values in config.json");
         return;
     }
 
     const collectionPages = Object.keys(collections);
+
+    // Early return for collection pages (handled by collections.js)
+    if (collectionPages.includes(page)) return;
 
     // Get partials' paths from meta tags using config
     const headPartialPath = getMetaContent(metaTags.head);
@@ -48,9 +53,7 @@ import {
 
     try {
         // Dynamically determine which data file to load for collection pages
-        let pagesMetaTag = collectionPages.includes(page)
-            ? metaTags[page]
-            : metaTags.projects;
+        let pagesMetaTag = metaTags.projects;
 
         const resources = await loadResources({
             pages: pagesMetaTag,
@@ -72,8 +75,6 @@ import {
             renderHomeLinks(navData, document.getElementById(elementIds.homeLinks));
             return;
         }
-
-        if (collectionPages.includes(page)) return;
 
         // Render project or content page
         const pageContent = pages[page];
