@@ -1,6 +1,6 @@
 /**
- * Applies a background color to the document body.
- * @param {string} color - The color to apply (e.g., "#ff0000").
+ * Sets the background color of the site, used for project and collection pages.
+ * @param {string} color - Hex or CSS color string (e.g., "#ff0000").
  */
 export function applyBackgroundColor(color) {
     if (color) {
@@ -9,10 +9,11 @@ export function applyBackgroundColor(color) {
 }
 
 /**
- * Injects HTML from a partial into a specified element or selector.
- * @param {string} url - The URL of the partial HTML.
- * @param {string|HTMLElement} target - A CSS selector or an element.
- * @param {'beforeend'|'afterbegin'} position - Where to insert the HTML.
+ * Injects an HTML partial (e.g., head or footer) into a specified element or selector.
+ * Used for loading shared site head and footer content.
+ * @param {string} url - The URL of the partial HTML file.
+ * @param {string|HTMLElement} target - CSS selector or DOM element to inject into.
+ * @param {'beforeend'|'afterbegin'} position - Where to insert the HTML in the target.
  */
 export async function injectPartial(url, target, position = 'beforeend') {
     try {
@@ -30,8 +31,8 @@ export async function injectPartial(url, target, position = 'beforeend') {
 }
 
 /**
- * Updates the document title.
- * @param {string} title - The title to set.
+ * Updates the document's <title> tag, used for dynamic page titles on project/content pages.
+ * @param {string} title - The new page title.
  */
 export function updateTitle(title) {
     if (title) {
@@ -40,8 +41,9 @@ export function updateTitle(title) {
 }
 
 /**
- * Updates or inserts a meta description tag in the document head.
- * @param {string} description - The meta description text to insert.
+ * Updates or creates the meta description tag in the <head>.
+ * Used for SEO and sharing, set per project/content page.
+ * @param {string} description - The meta description text.
  */
 export function updateDescription(description) {
     let meta = document.querySelector('meta[name="description"]');
@@ -54,8 +56,8 @@ export function updateDescription(description) {
 }
 
 /**
- * Updates the main heading element with the page title.
- * @param {string} title - The title to set in the main heading.
+ * Updates the main <h1> heading for the page, typically the project or collection title.
+ * @param {string} heading - The text to set in the main heading.
  */
 export function updateMainHeading(heading) {
     const h1 = document.getElementById('mainHeading')
@@ -65,9 +67,10 @@ export function updateMainHeading(heading) {
 }
 
 /**
- * Renders a navigation menu based on provided data.
- * @param {string} navId - The ID of the navigation element.
- * @param {Array} navData - An array of objects containing href and label for each link.
+ * Renders the main navigation bar using nav data from nav.json.
+ * Populates the <nav> element with links for site navigation.
+ * @param {string} navId - The ID of the <nav> element.
+ * @param {Array} navData - Array of nav link objects ({ href, label, ... }).
  */
 export function renderNav(navId, navData) {
     const nav = document.getElementById(navId);
@@ -84,9 +87,10 @@ export function renderNav(navId, navData) {
 }
 
 /**
- * Renders home links in a specified section.
- * @param {Array} navData - An array of objects containing href and label for each link.
- * @param {HTMLElement} homeLinksSection - The section to render the links into.
+ * Renders the home page links section using nav data.
+ * Populates the #homeLinks section with a list of navigation links.
+ * @param {Array} navData - Array of nav link objects ({ href, label, ... }).
+ * @param {HTMLElement} homeLinksSection - The section element to render links into.
  */
 export function renderHomeLinks(navData, homeLinksSection) {
     if (homeLinksSection && Array.isArray(navData)) {
@@ -110,14 +114,14 @@ export function renderHomeLinks(navData, homeLinksSection) {
 }
 
 /**
- * Renders a project page layout using images and content arrays from projects.json.
- * Images go to #gallery, text goes to #content.
- * @param {HTMLElement} container - The main element to render into.
- * @param {Object} pageData - The project data from projects.json.
- * @param {Object} tagNames - Tag names from config.
- * @param {string} basePath - Base path for images.
- * @param {string} size - Image size.
- * @param {string} imageExt - Image file extension.
+ * Renders a project page layout with images and text content.
+ * Populates #gallery with images and #content with text, using layout from projects.json.
+ * @param {HTMLElement} container - The <main> element to render into.
+ * @param {Object} pageData - The project data object.
+ * @param {Object} tagNames - Tag names from config.json (e.g., galleryItemWrapper, galleryImage).
+ * @param {string} basePath - Base path for images (from config).
+ * @param {string} size - Image size (e.g., "medium").
+ * @param {string} imageExt - Image file extension (e.g., ".webp").
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
     if (!container || !pageData) return;
@@ -130,7 +134,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     const content = pageData.content || [];
     const layout = pageData.layout;
 
-    // Helper to render an image gallery block
+    // Helper to render a block of images for the gallery
     function renderImagesBlock(imagesArr) {
         const fragment = document.createDocumentFragment();
         imagesArr.forEach(filename => {
@@ -144,7 +148,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         return fragment;
     }
 
-    // Helper to render a content block
+    // Helper to render a block of text content
     function renderContentBlock(text) {
         const p = document.createElement("p");
         p.textContent = text;
@@ -159,7 +163,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         contentEl.removeChild(contentEl.firstChild);
     }
 
-    // If custom layout, respect it (alternating blocks)
+    // If a custom layout is specified, alternate blocks as defined in layout array
     if (Array.isArray(layout) && layout.length > 0) {
         layout.forEach(item => {
             const [type, idxStr] = item.split("-");
