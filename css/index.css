@@ -80,3 +80,8 @@ html {
     font-family: var(--font-family-main, monospace);
     text-transform: var(--text-transform-link, uppercase);
 }
+
+#enterText a {
+    color: var(--color-text, #fff);
+    text-decoration: none;
+}
