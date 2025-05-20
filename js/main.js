@@ -22,6 +22,10 @@ import {
 
     // Load config first to get metaTag names
     const siteConfig = await loadJSON(getMetaContent("config-data"));
+    if (!configPath) {
+        console.error('Missing meta tag: config-data');
+        return;
+    }
 
     // Get partials' paths from meta tags using config
     const headPartialPath = getMetaContent(siteConfig.metaTags.head);
