@@ -96,6 +96,32 @@ export function renderNav(navId, navData) {
 }
 
 /**
+ * Renders home links in a specified section.
+ * @param {Array} navData - An array of objects containing href and label for each link.
+ * @param {HTMLElement} homeLinksSection - The section to render the links into.
+ */
+export function renderHomeLinks(navData, homeLinksSection) {
+    if (homeLinksSection && Array.isArray(navData)) {
+        const ul = document.createElement("ul");
+        navData.forEach(link => {
+            if (link.label) {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = link.href;
+                a.textContent = link.label;
+                if (link.newTab) {
+                    a.target = "_blank";
+                    a.rel = "noopener";
+                }
+                li.appendChild(a);
+                ul.appendChild(li);
+            }
+        });
+        homeLinksSection.appendChild(ul);
+    }
+}
+
+/**
  * Renders a project page layout using images and content arrays from projects.json.
  * Images go to #gallery, text goes to #content.
  * @param {HTMLElement} container - The main element to render into.

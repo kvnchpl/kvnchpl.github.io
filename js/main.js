@@ -10,6 +10,7 @@ import {
     updateDescription,
     updateMainHeading,
     renderNav,
+    renderHomeLinks,
     injectHead,
     injectFooter,
     renderProjectLayout
@@ -17,7 +18,8 @@ import {
 
 (async function () {
     const page = document.body.dataset.page || "index";
-    if (page === "404") return;
+    if (page === "404" || page === "index") return;
+
 
     // Load config first to get metaTag names and collections
     const configPath = getMetaContent("config-data");
@@ -62,37 +64,14 @@ import {
             renderNav(siteConfig.elementIds.nav, navData);
         }
 
-        // Special case: index page (homepage splash)
-        if (page === "index") {
-            return;
-        }
-
         // Special case: home page (list all nav links)
         if (page === "home") {
-            const homeLinksSection = document.getElementById(siteConfig.elementIds.homeLinks);
-            if (homeLinksSection && Array.isArray(navData)) {
-                const ul = document.createElement("ul");
-                navData.forEach(link => {
-                    if (link.label) {
-                        const li = document.createElement("li");
-                        const a = document.createElement("a");
-                        a.href = link.href;
-                        a.textContent = link.label;
-                        if (link.newTab) {
-                            a.target = "_blank";
-                            a.rel = "noopener";
-                        }
-                        li.appendChild(a);
-                        ul.appendChild(li);
-                    }
-                });
-                homeLinksSection.appendChild(ul);
-            }
+            renderHomeLinks(navData, document.getElementById(siteConfig.elementIds.homeLinks));
             return;
         }
 
         // Skip project rendering for collection pages (handled by collections.js)
-        if (["projects", "readings", "writings"].includes(page)) {
+        if (collectionPages.includes(page)) {
             return;
         }
 
