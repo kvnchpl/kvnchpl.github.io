@@ -19,7 +19,6 @@ body {
   font-family: var(--font-family-main);
   color: var(--color-text);
   background-color: var(--color-bg);
-  max-width: var(--max-width-main);
   margin-inline: auto;
   text-transform: var(--text-transform-body);
 }
@@ -27,7 +26,6 @@ body {
 img {
   width: 100%;
   height: auto;
-  margin-bottom: 1em;
   border: 1px solid var(--color-img-border);
 }
 
