@@ -16,10 +16,6 @@ import {
 } from './utils.js';
 
 (async function () {
-    const page = document.body.dataset.page || "index";
-
-    // Early returns for pages that don't need further processing
-    if (page === "404" || page === "index") return;
 
     // Load config first to get metaTag names and collections
     const metaTagNames = {
@@ -42,12 +38,6 @@ import {
         return;
     }
 
-    const collectionPages = Object.keys(collections);
-    const isCollectionPage = collectionPages.includes(page);
-
-    // Early return for collection pages (handled by collections.js)
-    if (isCollectionPage) return;
-
     // Fetch head and footer partial paths at once
     const { head: headMeta, footer: footerMeta } = siteConfig.metaTags;
     const { headPartialPath, footerPartialPath } = getMetaContents({
@@ -57,6 +47,13 @@ import {
 
     await injectPartial(headPartialPath, 'head', 'beforeend');
     await injectPartial(footerPartialPath, '#footer', 'beforeend');
+
+    const page = document.body.dataset.page || "index";
+    const collectionPages = Object.keys(collections);
+    const isCollectionPage = collectionPages.includes(page);
+
+    // Early return for pages that only need head/footer injection
+    if (isCollectionPage || page === "404" || page === "index") return;
 
     try {
         // Dynamically determine which data file to load for collection pages
