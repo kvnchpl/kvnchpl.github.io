@@ -13,10 +13,19 @@
     background: var(--color-bg, #000);
 }
 
-#homepageTitle {
+.homepageTitle {
+    position: absolute;
     width: 100vw;
     display: block;
     margin: 0;
+}
+
+#upperTitle {
+    top: 0;
+}
+
+#lowerTitle {
+    bottom: 0;
 }
 
 #skyContainer {
