@@ -55,12 +55,15 @@ html {
     max-width: 90vw;
     max-height: 60vh;
     display: block;
+    position: relative;
+    z-index: 1;
 }
 
 #enterText {
     position: absolute;
-    top: var(--enter-text-top, 0.5em);
-    right: var(--enter-text-right, 1em);
+    left: 50%;
+    top: 50%;
+    transform: translate(45%, -45%);
     font-size: var(--enter-text-size, 5vw);
     font-weight: var(--enter-text-weight, bold);
     color: var(--color-text, #fff);
