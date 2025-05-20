@@ -3,7 +3,6 @@
     --homepage-title-width: 100vw;
     --homepage-title-max-width: 100%;
     --homepage-title-margin: 0;
-    --sky-container-margin-top: 2rem;
     --sky-gif-max-width: 90vw;
     --sky-gif-max-height: 60vh;
     --enter-text-top: 0.5em;
@@ -15,10 +14,6 @@
     --enter-text-letter-spacing: 0.1em;
     --enter-text-z-index: 2;
     --enter-text-blend-mode: lighten;
-}
-
-body {
-    max-width: var(--homepage-title-width);
 }
 
 #homepageMain {
@@ -47,7 +42,6 @@ body {
     align-items: center;
     flex: 1;
     width: 100vw;
-    margin-top: var(--sky-container-margin-top);
 }
 
 #skyGif {
