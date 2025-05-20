@@ -6,8 +6,6 @@
     --sky-container-margin-top: 2rem;
     --sky-gif-max-width: 90vw;
     --sky-gif-max-height: 60vh;
-    --sky-gif-border-radius: 12px;
-    --sky-gif-box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     --enter-text-top: 0.5em;
     --enter-text-right: 1em;
     --enter-text-font-size: 5vw;
@@ -54,8 +52,6 @@
     width: auto;
     height: auto;
     display: block;
-    border-radius: var(--sky-gif-border-radius);
-    box-shadow: var(--sky-gif-box-shadow);
 }
 
 #enterText {
