@@ -1,14 +1,17 @@
 import {
-    loadJSON,
-    getMetaContents,
-    loadResources,
     applyBackgroundColor,
+    injectPartial,
+    updateMainHeading,
+
     updateTitle,
     updateDescription,
-    updateMainHeading,
+    getMetaContents,
+
+    loadJSON,
+    loadResources,
+
     renderNav,
     renderHomeLinks,
-    injectPartial,
     renderProjectLayout
 } from './utils.js';
 
