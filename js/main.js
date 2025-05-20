@@ -1,6 +1,7 @@
 import {
     loadJSON,
     getMetaContent,
+    getMetaContents,
     loadResources
 } from './utils.js';
 
@@ -23,7 +24,11 @@ import {
     if (page === "404" || page === "index") return;
 
     // Load config first to get metaTag names and collections
-    const configPath = getMetaContent("config-data");
+    const metaTagNames = {
+        configPath: "config-data"
+    };
+    const { configPath } = getMetaContents(metaTagNames);
+
     if (!configPath) {
         console.error('Missing meta tag: config-data');
         return;
@@ -44,9 +49,12 @@ import {
     // Early return for collection pages (handled by collections.js)
     if (collectionPages.includes(page)) return;
 
-    // Get partials' paths from meta tags using config
-    const headPartialPath = getMetaContent(metaTags.head);
-    const footerPartialPath = getMetaContent(metaTags.footer);
+    // Fetch head and footer partial paths at once
+    const { head: headMeta, footer: footerMeta } = siteConfig.metaTags;
+    const { headPartialPath, footerPartialPath } = getMetaContents({
+        headPartialPath: headMeta,
+        footerPartialPath: footerMeta
+    });
 
     await injectHead(headPartialPath);
     await injectFooter(footerPartialPath);
