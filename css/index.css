@@ -1,7 +1,6 @@
 :root {
     --homepage-bg: var(--color-bg);
     --homepage-title-width: 100vw;
-    --homepage-title-max-width: 100%;
     --homepage-title-margin: 0;
     --sky-gif-max-width: 90vw;
     --sky-gif-max-height: 60vh;
@@ -28,7 +27,6 @@
 
 #homepageTitle {
     width: var(--homepage-title-width);
-    max-width: var(--homepage-title-max-width);
     height: auto;
     display: block;
     margin: var(--homepage-title-margin);
