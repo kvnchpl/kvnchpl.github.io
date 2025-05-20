@@ -20,7 +20,6 @@ import {
     const page = document.body.dataset.page || "index";
     if (page === "404" || page === "index") return;
 
-
     // Load config first to get metaTag names and collections
     const configPath = getMetaContent("config-data");
     if (!configPath) {
@@ -29,7 +28,12 @@ import {
     }
     const siteConfig = await loadJSON(configPath);
 
-    // Dynamically get collection page keys from config
+    // Validate required config values early
+    if (!siteConfig.elementIds || !siteConfig.tagNames) {
+        console.error("Missing required config values in config.json");
+        return;
+    }
+
     const collectionPages = Object.keys(siteConfig.collections);
 
     // Get partials' paths from meta tags using config
@@ -41,12 +45,9 @@ import {
 
     try {
         // Dynamically determine which data file to load for collection pages
-        let pagesMetaTag;
-        if (collectionPages.includes(page)) {
-            pagesMetaTag = siteConfig.metaTags[page]; // e.g., "projects-data"
-        } else {
-            pagesMetaTag = siteConfig.metaTags.projects; // fallback for project subpages
-        }
+        let pagesMetaTag = collectionPages.includes(page)
+            ? siteConfig.metaTags[page]
+            : siteConfig.metaTags.projects;
 
         const resources = await loadResources({
             pages: pagesMetaTag,
@@ -60,20 +61,16 @@ import {
         window.navData = navData;
 
         // Always render nav if nav element exists
-        if (siteConfig.elementIds && siteConfig.elementIds.nav) {
+        if (siteConfig.elementIds.nav) {
             renderNav(siteConfig.elementIds.nav, navData);
         }
 
-        // Special case: home page (list all nav links)
         if (page === "home") {
             renderHomeLinks(navData, document.getElementById(siteConfig.elementIds.homeLinks));
             return;
         }
 
-        // Skip project rendering for collection pages (handled by collections.js)
-        if (collectionPages.includes(page)) {
-            return;
-        }
+        if (collectionPages.includes(page)) return;
 
         // Render project or content page
         const pageContent = pages[page];
@@ -97,17 +94,14 @@ import {
             tagNames
         } = siteConfig;
 
-        // Validate required config values
-        if (!elementIds || !elementIds.content || !elementIds.nav || !elementIds.gallery) {
+        if (!elementIds.content || !elementIds.nav || !elementIds.gallery) {
             console.error("Missing required elementIds in config.json");
             return;
         }
-
-        if (!tagNames || !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
+        if (!tagNames.galleryItemWrapper || !tagNames.galleryImage) {
             console.error("Missing required tagNames in config.json");
             return;
         }
-
         if (!shortTitle) {
             console.error(`Missing shortTitle for page: ${page}`);
             return;
