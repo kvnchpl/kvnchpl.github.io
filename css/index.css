@@ -5,19 +5,28 @@
     --enter-text-weight: bold;
 }
 
+body,
+html {
+    height: 100%;
+}
+
 #homepageMain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
     min-height: 100vh;
+    overflow: hidden;
     background: var(--color-bg, #000);
 }
 
 .homepageTitle {
     position: absolute;
+    left: 0;
     width: 100vw;
     display: block;
     margin: 0;
+    pointer-events: none;
+    user-select: none;
 }
 
 #upperTitle {
@@ -29,11 +38,17 @@
 }
 
 #skyContainer {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100vw;
+    height: 100vh;
+    pointer-events: none;
 }
 
 #skyGif {
@@ -50,7 +65,7 @@
     font-weight: var(--enter-text-weight, bold);
     color: var(--color-text, #fff);
     z-index: 2;
-    pointer-events: none;
+    pointer-events: auto;
     user-select: none;
     font-family: var(--font-family-main, monospace);
     text-transform: var(--text-transform-link, uppercase);
