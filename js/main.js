@@ -45,9 +45,10 @@ import {
     }
 
     const collectionPages = Object.keys(collections);
+    const isCollectionPage = collectionPages.includes(page);
 
     // Early return for collection pages (handled by collections.js)
-    if (collectionPages.includes(page)) return;
+    if (isCollectionPage) return;
 
     // Fetch head and footer partial paths at once
     const { head: headMeta, footer: footerMeta } = siteConfig.metaTags;
