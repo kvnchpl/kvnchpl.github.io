@@ -21,11 +21,12 @@ import {
     }
 
     // Load config first to get metaTag names
-    const siteConfig = await loadJSON(getMetaContent("config-data"));
+    const configPath = getMetaContent("config-data");
     if (!configPath) {
         console.error('Missing meta tag: config-data');
         return;
     }
+    const siteConfig = await loadJSON(configPath);
 
     // Get partials' paths from meta tags using config
     const headPartialPath = getMetaContent(siteConfig.metaTags.head);
@@ -35,9 +36,16 @@ import {
     await injectFooter(footerPartialPath);
 
     try {
-        // Load pages and nav data using meta tag names from config
+        // Determine which data file to load for collection pages
+        let pagesMetaTag;
+        if (["projects", "readings", "writings"].includes(page)) {
+            pagesMetaTag = siteConfig.metaTags[page]; // e.g., "projects-data"
+        } else {
+            pagesMetaTag = siteConfig.metaTags.projects; // fallback for project subpages
+        }
+
         const [pages, navData] = await Promise.all([
-            loadJSON(getMetaContent(siteConfig.metaTags.pages)),
+            loadJSON(getMetaContent(pagesMetaTag)),
             loadJSON(getMetaContent(siteConfig.metaTags.nav))
         ]);
 
