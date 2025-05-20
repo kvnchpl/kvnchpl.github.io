@@ -16,17 +16,18 @@ import {
 
 (async function () {
     const page = document.body.dataset.page || "index";
-    if (document.body.dataset.page === "404") {
-        return;
-    }
+    if (page === "404") return;
 
-    // Load config first to get metaTag names
+    // Load config first to get metaTag names and collections
     const configPath = getMetaContent("config-data");
     if (!configPath) {
         console.error('Missing meta tag: config-data');
         return;
     }
     const siteConfig = await loadJSON(configPath);
+
+    // Dynamically get collection page keys from config
+    const collectionPages = Object.keys(siteConfig.collections);
 
     // Get partials' paths from meta tags using config
     const headPartialPath = getMetaContent(siteConfig.metaTags.head);
@@ -36,9 +37,9 @@ import {
     await injectFooter(footerPartialPath);
 
     try {
-        // Determine which data file to load for collection pages
+        // Dynamically determine which data file to load for collection pages
         let pagesMetaTag;
-        if (["projects", "readings", "writings"].includes(page)) {
+        if (collectionPages.includes(page)) {
             pagesMetaTag = siteConfig.metaTags[page]; // e.g., "projects-data"
         } else {
             pagesMetaTag = siteConfig.metaTags.projects; // fallback for project subpages
