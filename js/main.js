@@ -15,6 +15,11 @@ import {
 } from './dom.js';
 
 (async function () {
+
+    if (document.body.dataset.page === "404") {
+        return;
+    }
+
     // Load config first to get metaTag names
     const siteConfig = await loadJSON(getMetaContent("config-data"));
 
