@@ -15,7 +15,7 @@ import {
 } from './dom.js';
 
 (async function () {
-
+    const page = document.body.dataset.page || "index";
     if (document.body.dataset.page === "404") {
         return;
     }
@@ -29,8 +29,6 @@ import {
 
     await injectHead(headPartialPath);
     await injectFooter(footerPartialPath);
-
-    const page = document.body.dataset.page || "index";
 
     try {
         // Load pages and nav data using meta tag names from config
