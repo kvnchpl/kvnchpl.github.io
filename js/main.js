@@ -1,6 +1,7 @@
 import {
     loadJSON,
-    getMetaContent
+    getMetaContent,
+    loadResources
 } from './utils.js';
 
 import {
@@ -45,10 +46,11 @@ import {
             pagesMetaTag = siteConfig.metaTags.projects; // fallback for project subpages
         }
 
-        const [pages, navData] = await Promise.all([
-            loadJSON(getMetaContent(pagesMetaTag)),
-            loadJSON(getMetaContent(siteConfig.metaTags.nav))
-        ]);
+        const resources = await loadResources({
+            pages: pagesMetaTag,
+            navData: siteConfig.metaTags.nav
+        });
+        const { pages, navData } = resources;
 
         // Expose globally for other scripts (like collections.js)
         window.siteConfig = siteConfig;

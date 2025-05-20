@@ -17,3 +17,17 @@ export function getMetaContent(name) {
   const el = document.querySelector(`meta[name="${name}"]`);
   return el?.content || null;
 }
+
+export async function loadResources(metaTagMap) {
+    const entries = await Promise.all(
+        Object.entries(metaTagMap).map(async ([key, metaTag]) => {
+            const path = getMetaContent(metaTag);
+            if (!path) {
+                throw new Error(`Missing meta tag: ${metaTag}`);
+            }
+            const data = await loadJSON(path);
+            return [key, data];
+        })
+    );
+    return Object.fromEntries(entries);
+}
