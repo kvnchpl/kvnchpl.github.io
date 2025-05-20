@@ -1,6 +1,9 @@
+// =========================
+// DOM Manipulation Utilities
+// =========================
+
 /**
  * Sets the background color of the site, used for project and collection pages.
- * @param {string} color - Hex or CSS color string (e.g., "#ff0000").
  */
 export function applyBackgroundColor(color) {
     if (color) {
@@ -11,9 +14,6 @@ export function applyBackgroundColor(color) {
 /**
  * Injects an HTML partial (e.g., head or footer) into a specified element or selector.
  * For <head>, parses and appends nodes for reliability.
- * @param {string} url - The URL of the partial HTML file.
- * @param {string|HTMLElement} target - CSS selector or DOM element to inject into.
- * @param {'beforeend'|'afterbegin'} position - Where to insert the HTML in the target.
  */
 export async function injectPartial(url, target, position = 'beforeend') {
     try {
@@ -22,7 +22,6 @@ export async function injectPartial(url, target, position = 'beforeend') {
         let el = typeof target === 'string' ? document.querySelector(target) : target;
         if (el) {
             if (el.tagName === 'HEAD') {
-                // Parse and append each node for <head>
                 const temp = document.createElement('div');
                 temp.innerHTML = html;
                 Array.from(temp.children).forEach(node => {
@@ -40,8 +39,21 @@ export async function injectPartial(url, target, position = 'beforeend') {
 }
 
 /**
- * Updates the document's <title> tag, used for dynamic page titles on project/content pages.
- * @param {string} title - The new page title.
+ * Updates the main <h1> heading for the page.
+ */
+export function updateMainHeading(heading) {
+    const h1 = document.getElementById('mainHeading')
+    if (h1 && heading) {
+        h1.textContent = heading;
+    }
+}
+
+// =========================
+// Metadata Utilities
+// =========================
+
+/**
+ * Updates the document's <title> tag.
  */
 export function updateTitle(title) {
     if (title) {
@@ -51,8 +63,6 @@ export function updateTitle(title) {
 
 /**
  * Updates or creates the meta description tag in the <head>.
- * Used for SEO and sharing, set per project/content page.
- * @param {string} description - The meta description text.
  */
 export function updateDescription(description) {
     let meta = document.querySelector('meta[name="description"]');
@@ -65,21 +75,48 @@ export function updateDescription(description) {
 }
 
 /**
- * Updates the main <h1> heading for the page, typically the project or collection title.
- * @param {string} heading - The text to set in the main heading.
+ * Gets meta tag contents by name(s).
  */
-export function updateMainHeading(heading) {
-    const h1 = document.getElementById('mainHeading')
-    if (h1 && heading) {
-        h1.textContent = heading;
+export function getMetaContents(names) {
+    const result = {};
+    for (const [key, metaName] of Object.entries(names)) {
+        const meta = document.querySelector(`meta[name="${metaName}"]`);
+        result[key] = meta ? meta.content : undefined;
     }
+    return result;
+}
+
+// =========================
+// Data Loading Utilities
+// =========================
+
+/**
+ * Loads a JSON file from the given URL.
+ */
+export async function loadJSON(url) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Failed to load JSON: ${url}`);
+    return await res.json();
 }
 
 /**
+ * Loads multiple resources (JSON files) in parallel.
+ */
+export async function loadResources(metaTags) {
+    const metaContents = getMetaContents(metaTags);
+    const entries = Object.entries(metaContents);
+    const results = await Promise.all(
+        entries.map(async ([key, url]) => [key, url ? await loadJSON(url) : undefined])
+    );
+    return Object.fromEntries(results);
+}
+
+// =========================
+// Rendering Utilities
+// =========================
+
+/**
  * Renders the main navigation bar using nav data from nav.json.
- * Populates the <nav> element with links for site navigation.
- * @param {string} navId - The ID of the <nav> element.
- * @param {Array} navData - Array of nav link objects ({ href, label, ... }).
  */
 export function renderNav(navId, navData) {
     const nav = document.getElementById(navId);
@@ -97,9 +134,6 @@ export function renderNav(navId, navData) {
 
 /**
  * Renders the home page links section using nav data.
- * Populates the #homeLinks section with a list of navigation links.
- * @param {Array} navData - Array of nav link objects ({ href, label, ... }).
- * @param {HTMLElement} homeLinksSection - The section element to render links into.
  */
 export function renderHomeLinks(navData, homeLinksSection) {
     if (homeLinksSection && Array.isArray(navData)) {
@@ -124,13 +158,6 @@ export function renderHomeLinks(navData, homeLinksSection) {
 
 /**
  * Renders a project page layout with images and text content.
- * Populates #gallery with images and #content with text, using layout from projects.json.
- * @param {HTMLElement} container - The <main> element to render into.
- * @param {Object} pageData - The project data object.
- * @param {Object} tagNames - Tag names from config.json (e.g., galleryItemWrapper, galleryImage).
- * @param {string} basePath - Base path for images (from config).
- * @param {string} size - Image size (e.g., "medium").
- * @param {string} imageExt - Image file extension (e.g., ".webp").
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
     if (!container || !pageData) return;
@@ -192,43 +219,4 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
             contentEl.appendChild(renderContentBlock(text));
         });
     }
-}
-
-/**
- * Loads a JSON file from the given URL.
- * @param {string} url - The URL to fetch.
- * @returns {Promise<any>} - The parsed JSON.
- */
-export async function loadJSON(url) {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Failed to load JSON: ${url}`);
-    return await res.json();
-}
-
-/**
- * Gets meta tag contents by name(s).
- * @param {Object} names - Object with keys as desired return keys and values as meta tag names.
- * @returns {Object} - Object with keys and meta content values.
- */
-export function getMetaContents(names) {
-    const result = {};
-    for (const [key, metaName] of Object.entries(names)) {
-        const meta = document.querySelector(`meta[name="${metaName}"]`);
-        result[key] = meta ? meta.content : undefined;
-    }
-    return result;
-}
-
-/**
- * Loads multiple resources (JSON files) in parallel.
- * @param {Object} metaTags - Object with keys and meta tag names.
- * @returns {Promise<Object>} - Object with keys and loaded JSON data.
- */
-export async function loadResources(metaTags) {
-    const metaContents = getMetaContents(metaTags);
-    const entries = Object.entries(metaContents);
-    const results = await Promise.all(
-        entries.map(async ([key, url]) => [key, url ? await loadJSON(url) : undefined])
-    );
-    return Object.fromEntries(results);
 }
