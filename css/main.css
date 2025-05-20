@@ -5,15 +5,17 @@
   --color-link-hover: red;
   --color-img-border: #444;
   --max-width-main: 700px;
-  --padding-body: 2em;
   --text-transform-body: lowercase;
   --text-transform-h1: uppercase;
   --text-transform-link: uppercase;
 }
 
-body {
+html, body {
   margin: 0;
-  padding: var(--padding-body);
+  padding: 0;
+}
+
+body {
   font-family: var(--font-family-main);
   color: var(--color-text);
   background-color: var(--color-bg);
