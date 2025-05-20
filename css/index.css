@@ -54,7 +54,6 @@ html {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    /* pointer-events: none; <-- REMOVE THIS LINE */
 }
 
 #skyGif {
