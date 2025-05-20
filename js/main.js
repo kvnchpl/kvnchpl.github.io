@@ -1,10 +1,7 @@
 import {
     loadJSON,
     getMetaContents,
-    loadResources
-} from './utils.js';
-
-import {
+    loadResources,
     applyBackgroundColor,
     updateTitle,
     updateDescription,
@@ -13,7 +10,7 @@ import {
     renderHomeLinks,
     injectPartial,
     renderProjectLayout
-} from './dom.js';
+} from './utils.js';
 
 (async function () {
     const page = document.body.dataset.page || "index";
