@@ -19,6 +19,8 @@
         "config": "config-data",
         "nav": "nav-data",
         "projects": "projects-data",
+        "readings": "readings-data",
+        "writings": "writings-data",
         "gallery": "gallery-data",
         "head": "head-data",
         "footer": "footer-data"
