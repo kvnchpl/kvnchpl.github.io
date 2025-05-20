@@ -18,6 +18,11 @@ export function getMetaContent(name) {
   return el?.content || null;
 }
 
+/**
+ * Loads multiple JSON resources based on a mapping of keys to meta tag names
+ * @param {Object} metaTagMap
+ * @returns {Promise<Object>}
+ */
 export async function loadResources(metaTagMap) {
     const entries = await Promise.all(
         Object.entries(metaTagMap).map(async ([key, metaTag]) => {
