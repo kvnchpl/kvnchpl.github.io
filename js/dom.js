@@ -9,35 +9,23 @@ export function applyBackgroundColor(color) {
 }
 
 /**
- * Injects the head partial HTML into the <head> element.
- * @param {string} url - The URL of the head partial.
+ * Injects HTML from a partial into a specified element or selector.
+ * @param {string} url - The URL of the partial HTML.
+ * @param {string|HTMLElement} target - A CSS selector or an element.
+ * @param {'beforeend'|'afterbegin'} position - Where to insert the HTML.
  */
-export async function injectHead(url) {
+export async function injectPartial(url, target, position = 'beforeend') {
     try {
         const res = await fetch(url);
         const html = await res.text();
-        document.head.insertAdjacentHTML('beforeend', html);
-    } catch (err) {
-        console.error("Error injecting head partial:", err);
-    }
-}
-
-/**
- * Injects the footer partial HTML into the #footer element.
- * @param {string} url - The URL of the footer partial.
- */
-export async function injectFooter(url) {
-    try {
-        const res = await fetch(url);
-        const html = await res.text();
-        const footer = document.querySelector('#footer');
-        if (footer) {
-            footer.insertAdjacentHTML('beforeend', html);
+        let el = typeof target === 'string' ? document.querySelector(target) : target;
+        if (el) {
+            el.insertAdjacentHTML(position, html);
         } else {
-            console.warn('Footer element not found for partial injection.');
+            console.warn(`Element not found for partial injection: ${target}`);
         }
     } catch (err) {
-        console.error("Error injecting footer partial:", err);
+        console.error(`Error injecting partial (${url}):`, err);
     }
 }
 
