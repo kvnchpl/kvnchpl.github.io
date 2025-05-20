@@ -17,6 +17,10 @@
     --enter-text-blend-mode: lighten;
 }
 
+body {
+    max-width: var(--homepage-title-width);
+}
+
 #homepageMain {
     display: flex;
     flex-direction: column;
