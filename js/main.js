@@ -28,17 +28,20 @@ import {
     }
     const siteConfig = await loadJSON(configPath);
 
+    // Cache frequently used properties from siteConfig
+    const { elementIds, tagNames, metaTags, collections, imageExt, defaultImageSize, galleryBasePath } = siteConfig;
+
     // Validate required config values early
-    if (!siteConfig.elementIds || !siteConfig.tagNames) {
+    if (!elementIds || !tagNames) {
         console.error("Missing required config values in config.json");
         return;
     }
 
-    const collectionPages = Object.keys(siteConfig.collections);
+    const collectionPages = Object.keys(collections);
 
     // Get partials' paths from meta tags using config
-    const headPartialPath = getMetaContent(siteConfig.metaTags.head);
-    const footerPartialPath = getMetaContent(siteConfig.metaTags.footer);
+    const headPartialPath = getMetaContent(metaTags.head);
+    const footerPartialPath = getMetaContent(metaTags.footer);
 
     await injectHead(headPartialPath);
     await injectFooter(footerPartialPath);
@@ -46,12 +49,12 @@ import {
     try {
         // Dynamically determine which data file to load for collection pages
         let pagesMetaTag = collectionPages.includes(page)
-            ? siteConfig.metaTags[page]
-            : siteConfig.metaTags.projects;
+            ? metaTags[page]
+            : metaTags.projects;
 
         const resources = await loadResources({
             pages: pagesMetaTag,
-            navData: siteConfig.metaTags.nav
+            navData: metaTags.nav
         });
         const { pages, navData } = resources;
 
@@ -61,12 +64,12 @@ import {
         window.navData = navData;
 
         // Always render nav if nav element exists
-        if (siteConfig.elementIds.nav) {
-            renderNav(siteConfig.elementIds.nav, navData);
+        if (elementIds.nav) {
+            renderNav(elementIds.nav, navData);
         }
 
         if (page === "home") {
-            renderHomeLinks(navData, document.getElementById(siteConfig.elementIds.homeLinks));
+            renderHomeLinks(navData, document.getElementById(elementIds.homeLinks));
             return;
         }
 
@@ -85,14 +88,6 @@ import {
             content,
             shortTitle
         } = pageContent;
-
-        const {
-            imageExt,
-            defaultImageSize,
-            galleryBasePath,
-            elementIds,
-            tagNames
-        } = siteConfig;
 
         if (!elementIds.content || !elementIds.nav || !elementIds.gallery) {
             console.error("Missing required elementIds in config.json");
