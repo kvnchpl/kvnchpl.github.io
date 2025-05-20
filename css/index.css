@@ -1,33 +1,15 @@
-:root {
-    --homepage-bg: var(--color-bg);
-    --homepage-title-width: 100vw;
-    --homepage-title-margin: 0;
-    --sky-gif-max-width: 90vw;
-    --sky-gif-max-height: 60vh;
-    --enter-text-top: 0.5em;
-    --enter-text-right: 1em;
-    --enter-text-font-size: 5vw;
-    --enter-text-font-weight: bold;
-    --enter-text-z-index: 2;
-
-}
-
 #homepageMain {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: var(--homepage-bg);
-    padding: 0;
-    margin: 0;
+    background: #000;
 }
 
 #homepageTitle {
-    width: var(--homepage-title-width);
-    height: auto;
+    width: 100vw;
     display: block;
-    margin: var(--homepage-title-margin);
-    object-fit: contain;
+    margin: 0;
 }
 
 #skyContainer {
@@ -35,25 +17,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
     width: 100vw;
 }
 
 #skyGif {
-    max-width: var(--sky-gif-max-width);
-    max-height: var(--sky-gif-max-height);
-    width: auto;
-    height: auto;
+    max-width: 90vw;
+    max-height: 60vh;
     display: block;
 }
 
 #enterText {
     position: absolute;
-    top: var(--enter-text-top);
-    right: var(--enter-text-right);
-    font-size: var(--enter-text-font-size);
-    font-weight: var(--enter-text-font-weight);
+    top: 0.5em;
+    right: 1em;
+    font-size: 5vw;
+    font-weight: bold;
+    color: #fff;
+    z-index: 2;
     pointer-events: none;
     user-select: none;
-    z-index: var(--enter-text-z-index);
 }
