@@ -1,3 +1,10 @@
+:root {
+    --enter-text-top: 0.5em;
+    --enter-text-right: 1em;
+    --enter-text-size: 5vw;
+    --enter-text-weight: bold;
+}
+
 #homepageMain {
     display: flex;
     flex-direction: column;
@@ -28,21 +35,22 @@
 
 #enterText {
     position: absolute;
-    top: 0.5em;
-    right: 1em;
-    font-size: 5vw;
-    font-weight: bold;
+    top: var(--enter-text-top, 0.5em);
+    right: var(--enter-text-right, 1em);
+    font-size: var(--enter-text-size, 5vw);
+    font-weight: var(--enter-text-weight, bold);
     color: var(--color-text, #fff);
     z-index: 2;
     pointer-events: none;
     user-select: none;
+    font-family: var(--font-family-main, monospace);
+    text-transform: var(--text-transform-link, uppercase);
 }
 
 #enterText a {
-    color: inherit;
-    text-transform: var(--text-transform-link, uppercase);
+    text-transform: inherit;
     text-decoration: none;
-    font-family: var(--font-family-main, monospace);
+    font-family: inherit;
 }
 
 #enterText a:hover {
