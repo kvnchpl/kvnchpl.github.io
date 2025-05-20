@@ -48,9 +48,7 @@
 }
 
 #enterText a {
-    text-transform: inherit;
     text-decoration: none;
-    font-family: inherit;
 }
 
 #enterText a:hover {
