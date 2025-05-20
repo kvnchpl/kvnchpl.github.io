@@ -21,7 +21,16 @@ export async function injectPartial(url, target, position = 'beforeend') {
         const html = await res.text();
         let el = typeof target === 'string' ? document.querySelector(target) : target;
         if (el) {
-            el.insertAdjacentHTML(position, html);
+            if (el.tagName === 'HEAD') {
+                // Parse and append each node for <head>
+                const temp = document.createElement('div');
+                temp.innerHTML = html;
+                Array.from(temp.children).forEach(node => {
+                    el.appendChild(node);
+                });
+            } else {
+                el.insertAdjacentHTML(position, html);
+            }
         } else {
             console.warn(`Element not found for partial injection: ${target}`);
         }
