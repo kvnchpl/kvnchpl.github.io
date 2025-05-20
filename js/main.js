@@ -1,6 +1,5 @@
 import {
     loadJSON,
-    getMetaContent,
     getMetaContents,
     loadResources
 } from './utils.js';
@@ -12,8 +11,7 @@ import {
     updateMainHeading,
     renderNav,
     renderHomeLinks,
-    injectHead,
-    injectFooter,
+    injectPartial,
     renderProjectLayout
 } from './dom.js';
 
@@ -57,8 +55,8 @@ import {
         footerPartialPath: footerMeta
     });
 
-    await injectHead(headPartialPath);
-    await injectFooter(footerPartialPath);
+    await injectPartial(headPartialPath, 'head', 'beforeend');
+    await injectPartial(footerPartialPath, '#footer', 'beforeend');
 
     try {
         // Dynamically determine which data file to load for collection pages
