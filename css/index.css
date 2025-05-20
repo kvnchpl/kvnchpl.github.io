@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: #000;
+    background: var(--color-bg, #000);
 }
 
 #homepageTitle {
@@ -32,8 +32,19 @@
     right: 1em;
     font-size: 5vw;
     font-weight: bold;
-    color: #fff;
+    color: var(--color-text, #fff);
     z-index: 2;
     pointer-events: none;
     user-select: none;
+}
+
+#enterText a {
+    color: inherit;
+    text-transform: var(--text-transform-link, uppercase);
+    text-decoration: none;
+    font-family: var(--font-family-main, monospace);
+}
+
+#enterText a:hover {
+    color: var(--color-link-hover, red);
 }
