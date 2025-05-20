@@ -55,6 +55,8 @@ html {
 #skyGif {
     max-width: 90vw;
     max-height: 60vh;
+    width: auto;
+    height: auto;
     display: block;
     position: relative;
 }
