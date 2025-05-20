@@ -19,20 +19,33 @@ export function getMetaContent(name) {
 }
 
 /**
+ * Fetches multiple meta tag contents at once.
+ * @param {Object} metaTagMap - { key: metaTagName }
+ * @returns {Object} - { key: metaTagContent }
+ */
+export function getMetaContents(metaTagMap) {
+  const result = {};
+  for (const [key, metaTagName] of Object.entries(metaTagMap)) {
+    result[key] = getMetaContent(metaTagName);
+  }
+  return result;
+}
+
+/**
  * Loads multiple JSON resources based on a mapping of keys to meta tag names
  * @param {Object} metaTagMap
  * @returns {Promise<Object>}
  */
 export async function loadResources(metaTagMap) {
-    const entries = await Promise.all(
-        Object.entries(metaTagMap).map(async ([key, metaTag]) => {
-            const path = getMetaContent(metaTag);
-            if (!path) {
-                throw new Error(`Missing meta tag: ${metaTag}`);
-            }
-            const data = await loadJSON(path);
-            return [key, data];
-        })
-    );
-    return Object.fromEntries(entries);
+  const entries = await Promise.all(
+    Object.entries(metaTagMap).map(async ([key, metaTag]) => {
+      const path = getMetaContent(metaTag);
+      if (!path) {
+        throw new Error(`Missing meta tag: ${metaTag}`);
+      }
+      const data = await loadJSON(path);
+      return [key, data];
+    })
+  );
+  return Object.fromEntries(entries);
 }
