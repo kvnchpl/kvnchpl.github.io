@@ -38,6 +38,11 @@ html {
     bottom: 0;
 }
 
+.skyGifWrapper {
+    position: relative;
+    display: inline-block;
+}
+
 #skyContainer {
     position: absolute;
     top: 0;
@@ -49,7 +54,7 @@ html {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    pointer-events: none;
+    /* pointer-events: none; <-- REMOVE THIS LINE */
 }
 
 #skyGif {
@@ -63,9 +68,9 @@ html {
 
 #enterText {
     position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(45%, -45%);
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
     font-size: var(--enter-text-size, 5vw);
     font-weight: var(--enter-text-weight, bold);
     color: var(--color-text, #fff);
@@ -74,12 +79,4 @@ html {
     user-select: none;
     font-family: var(--font-family-main, monospace);
     text-transform: var(--text-transform-link, uppercase);
-}
-
-#enterText a {
-    text-decoration: none;
-}
-
-#enterText a:hover {
-    color: var(--color-link-hover, red);
 }
