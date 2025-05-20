@@ -3,7 +3,6 @@
   --color-text: #e6e6e6;
   --color-bg: #000;
   --color-link-hover: red;
-  --color-img-border: #444;
   --max-width-main: 700px;
   --text-transform-body: lowercase;
   --text-transform-h1: uppercase;
@@ -26,7 +25,6 @@ body {
 img {
   width: 100%;
   height: auto;
-  border: 1px solid var(--color-img-border);
 }
 
 h1 {
