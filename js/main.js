@@ -41,9 +41,7 @@ import {
     const collectionPages = Object.keys(collections);
     const isCollectionPage = collectionPages.includes(page);
 
-    // Early return for pages that only need head/footer injection
-    if (isCollectionPage || page === "404" || page === "index") return;
-
+    // Always load resources and set globals for all pages
     try {
         // Dynamically determine which data file to load for collection pages
         let pagesMetaTag = metaTags.projects;
@@ -63,6 +61,9 @@ import {
         if (elementIds.nav) {
             renderNav(elementIds.nav, navData);
         }
+
+        // Early return for collection/index/404 pages after globals are set
+        if (isCollectionPage || page === "404" || page === "index") return;
 
         if (page === "home") {
             renderHomeLinks(navData, document.getElementById(elementIds.homeLinks));
