@@ -33,6 +33,7 @@ h1 {
 }
 
 a {
+  color: var(--color-link);
   text-decoration: none;
   text-transform: var(--text-transform-link);
 }
