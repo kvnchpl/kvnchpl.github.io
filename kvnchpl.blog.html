@@ -316,6 +316,10 @@
         #pagination a.previous:after {
             display: none;
         }
+
+        .post-wrapper {
+            background: none !important;
+        }
     </style>
 </head>
 
@@ -2603,8 +2607,8 @@
                     data-total-pages="{TotalPages}">&lt; Previous<span class="bg"></span></a>
                 {/block:PreviousPage}
                 {block:NextPage}
-                <a href="{NextPage}" class="next" data-current-page="{CurrentPage}"
-                    data-total-pages="{TotalPages}">Next &gt;<span class="bg"></span></a>
+                <a href="{NextPage}" class="next" data-current-page="{CurrentPage}" data-total-pages="{TotalPages}">Next
+                    &gt;<span class="bg"></span></a>
                 {/block:NextPage}
                 <div class="loader">
                     <div class="loader-bar"></div>
