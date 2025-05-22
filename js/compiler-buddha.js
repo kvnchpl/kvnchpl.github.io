@@ -16,12 +16,25 @@ const getPerceivable = () => {
     return out;
 };
 
+const measureCharSize = () => {
+    const span = document.createElement("span");
+    span.style.position = "absolute";
+    span.style.visibility = "hidden";
+    span.style.fontFamily = "monospace";
+    span.style.fontSize = "1rem";
+    span.textContent = ".".repeat(100);
+    document.body.appendChild(span);
+    const charWidth = span.offsetWidth / 100;
+    const charHeight = span.offsetHeight;
+    document.body.removeChild(span);
+    return { charWidth, charHeight };
+};
+
 const revisualize = (image, frameHeight = 60) => {
     return new Promise((resolve) => {
         const img = new Image();
         // Cap rows/cols based on screen size
-        const charWidth = 7; // approx width of monospace character in pixels
-        const charHeight = 15; // approx height of line in pixels
+        const { charWidth, charHeight } = measureCharSize();
         const maxCols = Math.floor(window.innerWidth / (charWidth * attention));
         const maxRows = Math.floor(window.innerHeight / charHeight);
         img.onload = () => {
