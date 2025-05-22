@@ -43,8 +43,19 @@ import {
 
     // Always load resources and set globals for all pages
     try {
-        // Dynamically determine which data file to load for collection pages
+        // Dynamically determine which data file to load for collection pages or project subpages
         let pagesMetaTag = metaTags[page];
+        if (!pagesMetaTag) {
+            // Try to find which collection this page belongs to
+            for (const [collectionKey, collection] of Object.entries(collections)) {
+                if (metaTags[collectionKey]) {
+                    // Check if this page exists in the collection's data file
+                    // Use the metaTag if the collection type matches
+                    pagesMetaTag = metaTags[collectionKey];
+                    break;
+                }
+            }
+        }
 
         const resources = await loadResources({
             pages: pagesMetaTag,
