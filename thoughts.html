@@ -331,6 +331,10 @@
             display: none;
             /* If not needed visually, but helps with semantic markup */
         }
+
+        .date-notes .post-date.post-date {
+            display: inline-block !important;
+        }
     </style>
 </head>
 
@@ -1119,9 +1123,12 @@
                                                     {/block:PermalinkPage}
                                                 </span>
                                                 {/block:NoteCount}
-                                                <span style="display:block">
-                                                    <a href="{Permalink}"
-                                                        class="meta-item post-date">{Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}</a>
+                                                <span class="meta-item post-date-wrapper"
+                                                    style="display: inline-block;">
+                                                    <a href="{Permalink}" class="meta-item post-date"
+                                                        title="{12Hour}:{Minutes}{AmPm}">
+                                                        {Year}.{MonthNumberWithZero}.{DayOfMonthWithZero}
+                                                    </a>
                                                 </span>
                                             </div>
                                         </section>
@@ -1130,7 +1137,7 @@
                                             <div class="controls-wrapper">
                                                 <div class="control share-control">
                                                     <nav class="pop">
-                                                        <a href="#" class="share selector"></a>
+                                                        <a href="javascript:void(0)" class="share selector" data-post="{PostID}"></a>
                                                         <div class="pop-menu share-menu south" id="share_{PostID}">
                                                             <ul>
                                                                 <li class="open-in-app"><a href="#"
