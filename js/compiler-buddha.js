@@ -19,11 +19,17 @@ const getPerceivable = () => {
 const revisualize = (image, frameHeight = 60) => {
     return new Promise((resolve) => {
         const img = new Image();
+        // Cap rows/cols based on screen size
+        const charWidth = 7; // approx width of monospace character in pixels
+        const charHeight = 15; // approx height of line in pixels
+        const maxCols = Math.floor(window.innerWidth / (charWidth * attention));
+        const maxRows = Math.floor(window.innerHeight / charHeight);
         img.onload = () => {
             const clarity = attention / expansion;
             const width = img.width;
-            const maxDisplayHeight = 30;
-            const height = Math.min(Math.floor(frameHeight * clarity), maxDisplayHeight);
+            // const maxDisplayHeight = 30;
+            // const height = Math.min(Math.floor(frameHeight * clarity), maxDisplayHeight);
+            const height = Math.min(Math.floor(frameHeight * clarity), maxRows);
             canvas.width = width;
             canvas.height = height;
             ctx.drawImage(img, 0, 0, width, height);
@@ -35,7 +41,7 @@ const revisualize = (image, frameHeight = 60) => {
 
             for (let y = 0; y < height; y++) {
                 const fragments = [];
-                for (let x = 0; x < width; x++) {
+                for (let x = 0; x < Math.min(width, maxCols); x++) {
                     const i = (y * width + x) * 4;
                     const grayscale = Math.floor(
                         0.299 * imageData[i] +
