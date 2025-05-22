@@ -43,11 +43,6 @@ html {
     display: inline-block;
 }
 
-/* Hide #enterText until the image is loaded */
-.skyGifWrapper > #skyGif:not([complete]) + #enterText {
-    visibility: hidden;
-}
-
 #skyContainer {
     position: absolute;
     top: 0;
