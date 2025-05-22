@@ -35,10 +35,12 @@
     <link rel="stylesheet" href="https://assets.tumblr.com/default-theme/r1/main-min.css">
     <link rel="stylesheet" href="https://kvnchpl.com/css/main.css" />
     <link rel="stylesheet" href="https://kvnchpl.com/css/fonts.css" />
+    <script type="module" src="/js/main.js"></script>
     {block:IfSyntaxHighlighting}
     <link rel="stylesheet" href="https://static.tumblr.com/ehm1tdz/2VWnye81h/tumblr-highlightjs.css">
     {/block:IfSyntaxHighlighting}
     {PostTypographyStyles}
+    
 
     <!-- HTML5 Shiv -->
     <!--[if lt IE 9]>
@@ -458,7 +460,7 @@
                 {block:HideHeaderImage}no-image {/block:HideHeaderImage}
                 {block:HideAvatar}avatar-hidden{/block:HideAvatar}
                 {block:ShowAvatar}avatar-style-{AvatarShape}{/block:ShowAvatar}">
-
+            <nav id="nav"></nav>
             <header id="header" class="top-blog-header">
                 {block:ShowHeaderImage}
                 <div class="header-image-wrapper {block:NoStretchHeaderImage}contain{/block:NoStretchHeaderImage}">
@@ -501,6 +503,7 @@
             </header>
         </div>
         {block:IfShowNavigation}
+        <!--
         <div
             class="{block:HideTitle}{block:HideDescription}no-title-desc {/block:HideDescription}{/block:HideTitle}nav-wrapper nav-responsive">
             <nav class="nav-menu">
@@ -543,6 +546,7 @@
                 </ul>
             </nav>
         </div>
+    -->
         {/block:IfShowNavigation}
         {block:SearchPage}
         {block:NoSearchResults}
