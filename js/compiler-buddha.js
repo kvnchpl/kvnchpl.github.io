@@ -1,8 +1,8 @@
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
 
-const attention = 6; // string slice length
-const threshold = 128; // brightness threshold
+const attention = 5;
+const threshold = 128;
 const expansion = 1.3;
 const intention = `The Compiler Buddha reflects on code and light.
 It reshapes itself in response to what is seen.
