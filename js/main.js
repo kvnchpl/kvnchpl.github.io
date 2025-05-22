@@ -44,7 +44,7 @@ import {
     // Always load resources and set globals for all pages
     try {
         // Dynamically determine which data file to load for collection pages
-        let pagesMetaTag = metaTags.projects;
+        let pagesMetaTag = metaTags[page];
 
         const resources = await loadResources({
             pages: pagesMetaTag,
