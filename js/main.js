@@ -1,6 +1,5 @@
 import {
     applyBackgroundColor,
-    injectPartial,
     updateMainHeading,
 
     updateTitle,
@@ -37,16 +36,6 @@ import {
         console.error("Missing required config values in config.json");
         return;
     }
-
-    // Fetch head and footer partial paths at once
-    const { head: headMeta, footer: footerMeta } = siteConfig.metaTags;
-    const { headPartialPath, footerPartialPath } = getMetaContents({
-        headPartialPath: headMeta,
-        footerPartialPath: footerMeta
-    });
-
-    await injectPartial(headPartialPath, 'head', 'beforeend');
-    await injectPartial(footerPartialPath, '#footer', 'beforeend');
 
     const page = document.body.dataset.page || "index";
     const collectionPages = Object.keys(collections);
