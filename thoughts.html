@@ -320,6 +320,17 @@
         .post-wrapper {
             background: none !important;
         }
+
+        .meta-item.post-date {
+            display: inline-block;
+            font-size: 0.875em;
+            color: inherit;
+        }
+
+        .dt-published {
+            display: none;
+            /* If not needed visually, but helps with semantic markup */
+        }
     </style>
 </head>
 
@@ -1108,10 +1119,13 @@
                                                     {/block:PermalinkPage}
                                                 </span>
                                                 {/block:NoteCount}
-                                                <a href="{Permalink}" title="{TimeAgo}"
-                                                    class="meta-item post-date">{ShortMonth}
-                                                    {DayOfMonth}{DayOfMonthSuffix}, {Year}</a><time class="dt-published"
-                                                    datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}"></time>
+                                                <span style="display:block">
+                                                    <a href="{Permalink}" title="{TimeAgo}"
+                                                        class="meta-item post-date">{ShortMonth}
+                                                        {DayOfMonth}{DayOfMonthSuffix}, {Year}</a>
+                                                    <time class="dt-published"
+                                                        datetime="{Year}-{MonthNumberWithZero}-{DayOfMonthWithZero} {24HourWithZero}:{Minutes}:{Seconds}"></time>
+                                                </span>
                                             </div>
                                         </section>
 
