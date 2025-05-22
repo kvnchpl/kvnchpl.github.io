@@ -79,6 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const fileInput = document.getElementById("buddha-upload");
     const output = document.getElementById("manifestation");
 
+    const defaultButton = document.getElementById("load-default");
+    defaultButton.addEventListener("click", async () => {
+        const result = await revisualize("/img/compiler-buddha/buddha.png");
+        output.textContent = result;
+    });
+
     fileInput.addEventListener("change", async (e) => {
         const file = e.target.files[0];
         if (!file) return;
