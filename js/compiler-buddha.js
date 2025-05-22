@@ -83,27 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
     defaultButton.addEventListener("click", async () => {
         const result = await revisualize("/img/compiler-buddha/buddha.png");
         output.textContent = result;
-
-        // Display thumbnail
-        let thumb = document.getElementById("buddha-thumbnail");
-        if (!thumb) {
-            thumb = document.createElement("img");
-            thumb.id = "buddha-thumbnail";
-            thumb.style.maxWidth = "100px";
-            thumb.style.marginTop = "10px";
-            fileInput.insertAdjacentElement("afterend", thumb);
-        }
-        thumb.src = "/img/compiler-buddha/buddha.png";
-
-        // Update label text next to file input
-        let label = document.getElementById("buddha-label");
-        if (!label) {
-            label = document.createElement("span");
-            label.id = "buddha-label";
-            label.style.marginLeft = "10px";
-            fileInput.insertAdjacentElement("afterend", label);
-        }
-        label.textContent = "buddha.png";
     });
 
     fileInput.addEventListener("change", async (e) => {
