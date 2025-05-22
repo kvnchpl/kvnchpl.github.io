@@ -309,6 +309,15 @@
             border: 1px solid currentColor;
             border-radius: 3px;
             word-break: break-word;
+            position: relative;
+            padding-right: 2em;
+
+        #pagination a.next:after,
+        #pagination a.previous:after {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0.75em;
         }
     </style>
 </head>
