@@ -122,11 +122,14 @@ export function renderNav(navId, navData) {
     const nav = document.getElementById(navId);
     if (nav && navData) {
         const navFragment = document.createDocumentFragment();
-        navData.forEach(link => {
+        navData.forEach((link, idx) => {
             const a = document.createElement("a");
             a.href = link.href;
             a.textContent = link.label;
             navFragment.appendChild(a);
+            if (idx < navData.length - 1) {
+                navFragment.appendChild(document.createTextNode(' '));
+            }
         });
         nav.appendChild(navFragment);
     }
