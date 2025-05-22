@@ -87,6 +87,6 @@ html {
 }
 
 #enterText a:hover {
-    color: inherit;
-    text-decoration: inherit;
+    color: var(--color-link-hover);
+    text-transform: var(--text-transform-link-hover);
 }
