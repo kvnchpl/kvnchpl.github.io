@@ -38,7 +38,6 @@ import {
     }
 
     const page = document.body.dataset.page;
-    console.log(`Page: ${page}`);
     const collectionPages = Object.keys(collections);
     const isCollectionPage = collectionPages.includes(page);
 
