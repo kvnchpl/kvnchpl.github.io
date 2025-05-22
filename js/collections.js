@@ -1,4 +1,11 @@
+// Wait for window.siteConfig to be set by main.js
+async function waitForSiteConfig() {
+    while (!window.siteConfig) {
+        await new Promise(r => setTimeout(r, 10));
+    }
+}
 (async function () {
+    await waitForSiteConfig();
     const page = document.body.dataset.page;
     const siteConfig = window.siteConfig;
     const pages = window.pages;
