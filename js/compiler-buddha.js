@@ -22,7 +22,8 @@ const revisualize = (image, frameHeight = 60) => {
         img.onload = () => {
             const clarity = attention / expansion;
             const width = img.width;
-            const height = Math.floor(frameHeight * clarity);
+            const maxDisplayHeight = 30;
+            const height = Math.min(Math.floor(frameHeight * clarity), maxDisplayHeight);
             canvas.width = width;
             canvas.height = height;
             ctx.drawImage(img, 0, 0, width, height);
