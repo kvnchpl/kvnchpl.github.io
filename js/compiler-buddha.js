@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 const attention = 5;
 const threshold = 128;
-const expansion = 1.3;
+const expansion = 1;
 const intention = `The Compiler Buddha reflects on code and light.
 It reshapes itself in response to what is seen.
 It is recursive, meditative, and strange.`.replace(/\s+/g, "");
