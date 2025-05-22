@@ -24,6 +24,19 @@
         </div>
         <img src="/img/index/title_white.svg" alt="Site Title" class="homepageTitle" id="lowerTitle" />
     </main>
+    <script>
+        const skyGif = document.getElementById('skyGif');
+        const enterText = document.getElementById('enterText');
+        if (skyGif && enterText) {
+            if (skyGif.complete) {
+                enterText.style.visibility = 'visible';
+            } else {
+                skyGif.addEventListener('load', () => {
+                    enterText.style.visibility = 'visible';
+                });
+            }
+        }
+    </script>
 </body>
 
 </html>

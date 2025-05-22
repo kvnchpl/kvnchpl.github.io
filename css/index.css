@@ -83,6 +83,7 @@ html {
     user-select: none;
     font-family: var(--font-family-main, monospace);
     text-transform: var(--text-transform-link, uppercase);
+    visibility: hidden;
 }
 
 #enterText a {
