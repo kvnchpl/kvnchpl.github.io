@@ -83,9 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
     manifestor.addEventListener("click", async () => {
         closeChannels();
         const offering = vessel.files[0];
+        const predestined = !offering;
         const vision = await createImageBitmap(await summon(
-            offering || "/img/compiler-buddha/buddha.png",
-            !!offering
+            predestined ? "/img/compiler-buddha/buddha.png" : offering,
+            predestined
         ));
         const sacredNumber = 108;
         let recitation = 0;
