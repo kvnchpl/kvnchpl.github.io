@@ -128,9 +128,6 @@ export function renderNav(navId, navData) {
             a.href = link.href;
             a.textContent = link.label;
             navFragment.appendChild(a);
-            if (idx < filteredNavData.length - 1) {
-                navFragment.appendChild(document.createTextNode(' '));
-            }
         });
         nav.appendChild(navFragment);
     }
