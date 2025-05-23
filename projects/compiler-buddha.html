@@ -29,16 +29,6 @@
         <pre id="portal" aria-label="Compiled Buddha output"></pre>
     </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelector("label[for='vessel']").addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            document.getElementById("vessel").click();
-          }
-        });
-      });
-    </script>
     <script type="module" src="/js/compiler-buddha.js"></script>
 </body>
 
