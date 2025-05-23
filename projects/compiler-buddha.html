@@ -20,15 +20,25 @@
     <main>
         <h1 id="mainHeading"></h1>
         <div class="controls">
-            <button id="manifestor" class="manifestor">Compile</button>
-            <button id="way-back" class="way-back">Return</button>
-            <label for="vessel" class="vessel">Offer Vision</label>
+            <button id="manifestor" class="manifestor" aria-label="Compile Buddha code">Compile</button>
+            <button id="way-back" class="way-back" aria-label="Return to original state">Return</button>
+            <label for="vessel" class="vessel" tabindex="0" aria-label="Upload image for vision">Offer Vision</label>
             <input type="file" id="vessel" accept="image/*" style="display: none;" />
             <span id="confirmation" class="confirmation"></span>
         </div>
-        <pre id="portal"></pre>
+        <pre id="portal" aria-label="Compiled Buddha output"></pre>
     </main>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("label[for='vessel']").addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            document.getElementById("vessel").click();
+          }
+        });
+      });
+    </script>
     <script type="module" src="/js/compiler-buddha.js"></script>
 </body>
 
