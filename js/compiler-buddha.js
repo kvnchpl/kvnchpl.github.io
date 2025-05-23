@@ -58,8 +58,6 @@ function returnToSource() {
 
 document.addEventListener("DOMContentLoaded", returnToSource);
 
-document.getElementById("return").addEventListener("click", returnToSource);
-
 document.getElementById("compile").addEventListener("click", async () => {
     const vessel = document.getElementById("vessel");
     const offering = vessel.files[0];
@@ -69,6 +67,8 @@ document.getElementById("compile").addEventListener("click", async () => {
     const manifestation = revisualize(vision);
     document.getElementById("portal").textContent = manifestation;
 });
+
+document.getElementById("return").addEventListener("click", returnToSource);
 
 document.getElementById("vessel").addEventListener("change", (event) => {
     const confirmation = document.getElementById("confirmation");
