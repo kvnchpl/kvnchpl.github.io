@@ -47,7 +47,10 @@ main {
 }
 
 .confirmation {
-    cursor: default;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .confirmation:empty {
