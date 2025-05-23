@@ -41,4 +41,5 @@ pre {
     text-transform: none;
     cursor: default;
     user-select: none;
+    -webkit-user-select: none;
 }
