@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <script type="module" src="/js/main.js"></script>
-    <script type="module" src="/js/compiler-buddha.js"></script>
     <style></style>
 </head>
 
@@ -27,16 +26,7 @@
         </pre>
     </main>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            fetch("/js/compiler-buddha.js")
-                .then(response => response.text())
-                .then(intention => {
-                    document.getElementById("portal").textContent = intention;
-                });
-        });
-    </script>
-
+    <script type="module" src="/js/compiler-buddha.js"></script>
 </body>
 
 </html>
