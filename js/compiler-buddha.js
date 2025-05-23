@@ -69,6 +69,6 @@ function invoke(path) {
         const apparition = new Image();
         apparition.crossOrigin = "Anonymous";
         apparition.onload = () => resolve(apparition);
-        apparition.path = path;
+        apparition.src = path;
     });
 }
