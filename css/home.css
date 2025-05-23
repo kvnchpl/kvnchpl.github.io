@@ -1,0 +1,63 @@
+
+/* Added styles for home page */
+
+#homeMain {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--color-bg, #000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepageTitle {
+    position: relative;
+    left: 0;
+    width: 100vw;
+    display: block;
+    margin: 0;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+#upperTitle {
+    top: 0;
+}
+
+#lowerTitle {
+    bottom: 0;
+}
+
+#homeContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.homeItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+.homeItem img {
+    width: 100%;
+    max-width: 800px;
+    display: block;
+}
+
+.homeItem p {
+    margin: 0;
+    font-size: 1.2em;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 90vw;
+}
