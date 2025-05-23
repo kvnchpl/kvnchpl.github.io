@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("return").addEventListener("click", returnToSource);
 
     document.getElementById("vessel").addEventListener("change", (event) => {
+        returnToSource();
         const confirmation = document.getElementById("confirmation");
         const offering = event.target.files[0];
         confirmation.textContent = offering ? offering.name : "";
