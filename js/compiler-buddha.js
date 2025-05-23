@@ -99,13 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let recitation = 0;
 
         const firstMantra = manifest(vision);
+        const lines = firstMantra.split("\n");
         portal.textContent = "";
         let focus = 0;
         bringForth = setInterval(() => {
-            const syllable = firstMantra[focus];
-            portal.textContent += syllable;
+            portal.textContent += lines[focus] + "\n";
             focus++;
-            if (focus >= firstMantra.length) {
+            if (focus >= lines.length) {
                 clearInterval(bringForth);
                 bringForth = null;
                 setTimeout(() => {
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 1000);
                 }, 1000);
             }
-        }, 1);
+        }, 10);
     });
 
     wayBack.addEventListener("click", () => {
