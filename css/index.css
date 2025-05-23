@@ -38,11 +38,6 @@ html {
     bottom: 0;
 }
 
-.skyGifWrapper {
-    position: relative;
-    display: inline-block;
-}
-
 #skyContainer {
     position: absolute;
     top: 0;
@@ -54,6 +49,21 @@ html {
     align-items: center;
     width: 100vw;
     height: 100vh;
+}
+
+.skyGifWrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#enterHome {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+#enterHome:hover {
+    cursor: pointer;
 }
 
 #skyGif {
