@@ -62,4 +62,3 @@ document.getElementById("invoke-buddha").addEventListener("click", async () => {
     const manifestation = revisualize(vision);
     document.getElementById("portal").textContent = manifestation;
 });
-
