@@ -48,6 +48,14 @@ function summon(offering, predestined = false) {
     });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    fetch("/js/compiler-buddha.js")
+        .then(response => response.text())
+        .then(intention => {
+            document.getElementById("portal").textContent = intention;
+        });
+});
+
 document.getElementById("offer-vision").addEventListener("change", async (event) => {
     const offering = event.target.files[0];
     if (offering) {
