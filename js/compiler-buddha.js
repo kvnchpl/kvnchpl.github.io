@@ -28,7 +28,9 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], e
         const syllables = [];
         for (let extension = 0; extension < expanse; extension++) {
             const impression = (descent * expanse + extension) * 4;
-            const red = impressions[impression], green = impressions[impression + 1], blue = impressions[impression + 2];
+            const red = impressions[impression],
+                green = impressions[impression + 1],
+                blue = impressions[impression + 2];
             const emergence = Math.round(0.299 * red + 0.587 * green + 0.114 * blue);
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             syllables.push(perceived);
@@ -58,21 +60,21 @@ function returnToSource() {
 document.addEventListener("DOMContentLoaded", () => {
     returnToSource();
 
+    document.getElementById("compile").addEventListener("click", async () => {
+        const vessel = document.getElementById("vessel");
+        const offering = vessel.files[0];
+        const vision = offering ?
+            await createImageBitmap(await summon(offering)) :
+            await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+        const manifestation = revisualize(vision);
+        document.getElementById("portal").textContent = manifestation;
+    });
+
     document.getElementById("return").addEventListener("click", returnToSource);
 
     document.getElementById("vessel").addEventListener("change", (event) => {
         const confirmation = document.getElementById("confirmation");
         const offering = event.target.files[0];
         confirmation.textContent = offering ? offering.name : "";
-
-        document.getElementById("compile").addEventListener("click", async () => {
-            const vessel = document.getElementById("vessel");
-            const offering = vessel.files[0];
-            const vision = offering
-                ? await createImageBitmap(await summon(offering))
-                : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
-            const manifestation = revisualize(vision);
-            document.getElementById("portal").textContent = manifestation;
-        });
     });
 });
