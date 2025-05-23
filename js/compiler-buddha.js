@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     manifestor.addEventListener("click", async () => {
         closeChannels();
-        portal.textContent = "manifesting...";
 
         const offering = vessel.files[0];
         const predestined = !offering;
@@ -95,14 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const sacredNumber = 108;
         let recitation = 0;
 
+        portal.textContent = manifest(vision);
+
         loop = setInterval(() => {
-            if (recitation >= sacredNumber) {
+            if (recitation >= sacredNumber - 1) {
                 clearInterval(loop);
                 loop = null;
                 return;
             }
-            const manifestation = manifest(vision);
-            portal.textContent = manifestation;
+            portal.textContent = manifest(vision);
             recitation++;
         }, 1000);
     });
