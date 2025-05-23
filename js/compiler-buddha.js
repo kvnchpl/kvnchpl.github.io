@@ -51,24 +51,16 @@ document.getElementById("offer-vision").addEventListener("change", async (event)
 });
 
 document.getElementById("invoke-buddha").addEventListener("click", async () => {
-    const vision = await createImageBitmap(await invoke("/img/compiler-buddha/buddha.png"));
+    const vision = await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
     const manifestation = revisualize(vision);
     document.getElementById("manifestation").textContent = manifestation;
 });
 
-function summon(offering) {
+function summon(offering, predestined = false) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
-        apparition.src = URL.createObjectURL(offering);
-    });
-}
-
-function invoke(path) {
-    return new Promise((resolve) => {
-        const apparition = new Image();
         apparition.crossOrigin = "Anonymous";
-        apparition.onload = () => resolve(apparition);
-        apparition.src = path;
+        apparition.src = predestined ? offering : URL.createObjectURL(offering);
     });
 }
