@@ -1,5 +1,5 @@
-.compile,
-.return,
+.manifestor,
+.way-back,
 .vessel {
     display: inline-block;
     padding: 0.5em 1em;
@@ -14,8 +14,8 @@
     text-align: center;
 }
 
-.compile:hover,
-.return:hover,
+.manifestor:hover,
+.way-back:hover,
 .vessel:hover {
     background: #555;
 }

@@ -61,29 +61,39 @@ function returnToSource() {
         });
 }
 document.addEventListener("DOMContentLoaded", () => {
+    const manifestor = document.getElementById("manifestor");
+    const wayBack = document.getElementById("way-back");
+    const vessel = document.getElementById("vessel");
+    const portal = document.getElementById("portal");
+    const confirmation = document.getElementById("confirmation");
+
+    const openChannels = () => manifestor.disabled = false;
+    const closeChannels = () => manifestor.disabled = true;
+
+    const getVision = async () => {
+        const offering = vessel.files[0];
+        return offering
+            ? await createImageBitmap(await summon(offering))
+            : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+    };
+
     returnToSource();
 
-    document.getElementById("compile").addEventListener("click", async () => {
-        document.getElementById("compile").disabled = true;
-        const vessel = document.getElementById("vessel");
-        const offering = vessel.files[0];
-        const vision = offering ?
-            await createImageBitmap(await summon(offering)) :
-            await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+    manifestor.addEventListener("click", async () => {
+        closeChannels();
+        const vision = await getVision();
         const manifestation = revisualize(vision);
-        document.getElementById("portal").textContent = manifestation;
+        portal.textContent = manifestation;
     });
 
-    document.getElementById("return").addEventListener("click", () => {
-        document.getElementById("compile").disabled = false;
+    wayBack.addEventListener("click", () => {
+        openChannels();
         returnToSource();
     });
 
-    document.getElementById("vessel").addEventListener("change", (event) => {
-        document.getElementById("compile").disabled = false;
+    vessel.addEventListener("change", (event) => {
+        openChannels();
         returnToSource();
-        const confirmation = document.getElementById("confirmation");
-        const offering = event.target.files[0];
-        confirmation.textContent = offering ? offering.name : "";
+        confirmation.textContent = event.target.files[0]?.name || "";
     });
 });
