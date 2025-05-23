@@ -1,5 +1,3 @@
-let loop;
-
 function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.546) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
@@ -66,6 +64,7 @@ function returnToSource() {
             document.getElementById("portal").textContent = intention;
         });
 }
+
 document.addEventListener("DOMContentLoaded", () => {
     const manifestor = document.getElementById("manifestor");
     const wayBack = document.getElementById("way-back");
@@ -107,3 +106,5 @@ document.addEventListener("DOMContentLoaded", () => {
         confirmation.textContent = event.target.files[0]?.name || "";
     });
 });
+
+let loop;
