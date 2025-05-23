@@ -14,7 +14,8 @@ main {
 
 .manifestor,
 .way-back,
-.vessel {
+.vessel,
+.confirmation {
     display: inline-block;
     padding: 0.5em 1em;
     background: #333;
