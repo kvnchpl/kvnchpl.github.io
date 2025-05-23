@@ -4,10 +4,10 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], e
     const channel = portal.getContext("2d");
 
     const clarity = attention / expansion;
-    const reframe = [frame[0], Math.floor(frame[1] * clarity)];
+    const form = vision.height / vision.width;
 
-    const expanse = reframe[0];
-    const depth = reframe[1];
+    const expanse = frame;
+    const depth = Math.floor(frame * form * clarity);
 
     portal.width = expanse;
     portal.height = depth;
