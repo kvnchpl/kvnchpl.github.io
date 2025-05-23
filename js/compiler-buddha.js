@@ -55,13 +55,13 @@ document.getElementById("offer-vision").addEventListener("change", async (event)
     if (offering) {
         const vision = await createImageBitmap(await summon(offering));
         const manifestation = revisualize(vision);
-        document.getElementById("manifestation").textContent = manifestation;
+        document.getElementById("portal").textContent = manifestation;
     }
 });
 
 document.getElementById("invoke-buddha").addEventListener("click", async () => {
     const vision = await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
     const manifestation = revisualize(vision);
-    document.getElementById("manifestation").textContent = manifestation;
+    document.getElementById("portal").textContent = manifestation;
 });
 
