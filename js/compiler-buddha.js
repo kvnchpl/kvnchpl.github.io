@@ -84,6 +84,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wayBack.addEventListener("click", () => {
         openChannels();
+        vessel.value = "";
+        confirmation.textContent = "";
         returnToSource();
     });
 
