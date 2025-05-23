@@ -125,8 +125,12 @@ export function renderNav(navId, navData) {
         const filteredNavData = navData.filter(link => link.navBar);
         filteredNavData.forEach((link, idx) => {
             const a = document.createElement("a");
+            const currentPage = document.body.getAttribute('data-page');
             a.href = link.href;
             a.textContent = link.label;
+            if (link.label.toLowerCase() === currentPage) {
+                a.textContent = `*${link.label.toUpperCase()}*`;
+            }
             navFragment.appendChild(a);
         });
         nav.appendChild(navFragment);
