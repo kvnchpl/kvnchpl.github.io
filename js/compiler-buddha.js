@@ -6,8 +6,8 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
     const clarity = attention / expansion;
     const frame = vision.height / vision.width;
 
-    const expanse = breadth;
-    const depth = Math.floor(breadth * frame * clarity);
+    const expanse = Math.min(breadth * 2, vision.width);
+    const depth = Math.floor(expanse * frame * clarity);
 
     portal.width = expanse;
     portal.height = depth;
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     vessel.addEventListener("change", (event) => {
-        if (!event.target.files.length) return;
+        if (!event?.target?.files?.length) return;
         openChannels();
         returnToSource();
         confirmation.textContent = event.target.files[0]?.name || "";
