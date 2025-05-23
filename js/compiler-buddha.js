@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 1000);
                 }, 1000);
             }
-        }, 1);
+        }, 0.2);
     });
 
     wayBack.addEventListener("click", () => {
