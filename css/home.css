@@ -6,7 +6,7 @@
     background: var(--color-bg, #000);
     display: grid;
     grid-template-rows: auto 1fr auto;
-    align-items: stretch;
+    align-items: center;
     justify-items: stretch;
 }
 
@@ -54,7 +54,7 @@
 .homeItem img {
     width: auto;
     height: 100%;
-    max-width: 20vw;
+    max-width: 50%;
     display: block;
 }
 
