@@ -9,7 +9,7 @@
     font-family: inherit;
     font-size: 1rem;
     border: none;
-    cursor: pointer;
+    cursor: default;
     margin-right: 1em;
     text-align: center;
 }
@@ -24,7 +24,7 @@
     background: #777;
     color: #ccc;
     opacity: 0.6;
-    cursor: pointer;
+    cursor: default;
 }
 
 .offering {
@@ -39,5 +39,5 @@ pre {
     font-family: inherit;
     font-size: 0.5rem;
     text-transform: none;
-    cursor: pointer;
+    cursor: default;
 }
