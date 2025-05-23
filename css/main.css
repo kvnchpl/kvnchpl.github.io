@@ -10,7 +10,8 @@
   --text-transform-link-hover: lowercase;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -21,6 +22,14 @@ body {
   background-color: var(--color-bg);
   margin-inline: auto;
   text-transform: var(--text-transform-body);
+}
+
+#nav {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  width: 100%;
+  padding: 1em;
 }
 
 img {
