@@ -99,13 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let recitation = 0;
 
         const firstMantra = manifest(vision);
-        const lines = firstMantra.split("\n");
+        const incantations = firstMantra.split("\n");
         portal.textContent = "";
         let focus = 0;
         bringForth = setInterval(() => {
-            portal.textContent += lines[focus] + "\n";
+            portal.textContent += incantations[focus] + "\n";
             focus++;
-            if (focus >= lines.length) {
+            if (focus >= incantations.length) {
                 clearInterval(bringForth);
                 bringForth = null;
                 setTimeout(() => {
