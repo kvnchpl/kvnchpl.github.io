@@ -30,7 +30,7 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
 
     const perceivable = sampleIntention(attention);
     const inattention = ".".repeat(attention);
-    const sutra = [];
+    const mantra = [];
 
     for (let d = 0; d < depth; d++) {
         const fragments = [];
@@ -41,10 +41,10 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             fragments.push(perceived);
         }
-        sutra.push("/" + fragments.join("/") + "/");
+        mantra.push("/" + fragments.join("/") + "/");
     }
 
-    return sutra.join("\n");
+    return mantra.join("\n");
 }
 
 document.getElementById("vision-upload").addEventListener("change", async (event) => {
