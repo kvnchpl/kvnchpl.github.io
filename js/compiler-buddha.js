@@ -62,6 +62,9 @@ function returnToSource() {
         .then(response => response.text())
         .then(intention => {
             document.getElementById("portal").textContent = intention;
+        })
+        .catch(() => {
+            document.getElementById("portal").textContent = "Source code could not be loaded.";
         });
 }
 
@@ -80,22 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
     manifestor.addEventListener("click", async () => {
         closeChannels();
         const offering = vessel.files[0];
-        const revisualize = async () => {
-            const vision = offering ?
-                await createImageBitmap(await summon(offering)) :
-                await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
-            const manifestation = manifest(vision);
-            portal.textContent = manifestation;
+        const imagePath = offering || "/img/compiler-buddha/buddha.png";
+        const vision = await createImageBitmap(await summon(imagePath, !offering));
+        const manifestation = () => {
+            const output = manifest(vision);
+            portal.textContent = output;
         };
         const sacredNumber = 108;
         let recitation = 0;
-        loop = setInterval(async () => {
+        loop = setInterval(() => {
             if (recitation >= sacredNumber) {
                 clearInterval(loop);
                 loop = null;
                 return;
             }
-            await revisualize();
+            manifestation();
             recitation++;
         }, 1000);
     });
@@ -108,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     vessel.addEventListener("change", (event) => {
+        if (!event.target.files.length) return;
         openChannels();
         returnToSource();
         confirmation.textContent = event.target.files[0]?.name || "";
