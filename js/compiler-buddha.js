@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await revisualize();
         setTimeout(() => {
             setInterval(revisualize, 1000);
-        }, 5000);
+        }, 3000);
     });
 
     wayBack.addEventListener("click", () => {
