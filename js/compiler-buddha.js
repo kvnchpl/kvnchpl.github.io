@@ -94,7 +94,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const sacredNumber = 108;
         let recitation = 0;
 
-        portal.textContent = manifest(vision);
+        const initialMantra = manifest(vision);
+        portal.textContent = "";
+        let focus = 0;
+        const bringingForth = setInterval(() => {
+            portal.textContent += initialMantra[focus];
+            focus++;
+            if (focus >= initialMantra.length) {
+                clearInterval(bringingForth);
+            }
+        }, 5);
 
         setTimeout(() => {
             loop = setInterval(() => {
