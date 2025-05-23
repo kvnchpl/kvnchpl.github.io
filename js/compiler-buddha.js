@@ -102,20 +102,19 @@ document.addEventListener("DOMContentLoaded", () => {
             focus++;
             if (focus >= initialMantra.length) {
                 clearInterval(bringingForth);
+                setTimeout(() => {
+                    loop = setInterval(() => {
+                        if (recitation >= sacredNumber - 1) {
+                            clearInterval(loop);
+                            loop = null;
+                            return;
+                        }
+                        portal.textContent = manifest(vision);
+                        recitation++;
+                    }, 1000);
+                }, 1000);
             }
         }, 5);
-
-        setTimeout(() => {
-            loop = setInterval(() => {
-                if (recitation >= sacredNumber - 1) {
-                    clearInterval(loop);
-                    loop = null;
-                    return;
-                }
-                portal.textContent = manifest(vision);
-                recitation++;
-            }, 1000);
-        }, 1000);
     });
 
     wayBack.addEventListener("click", () => {
