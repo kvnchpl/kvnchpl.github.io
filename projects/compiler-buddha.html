@@ -12,12 +12,9 @@
     <link rel="stylesheet" href="/css/fonts.css" />
     <script type="module" src="/js/main.js"></script>
     <style>
-        pre {
-            text-transform: none;
-        }
-
-        .vessel,
-        .compile {
+        .compile,
+        .return,
+        .vessel {
             display: inline-block;
             padding: 0.5em 1em;
             background: #333;
@@ -30,8 +27,9 @@
             text-align: center;
         }
 
-        .vessel:hover,
-        .compile:hover {
+        .compile:hover,
+        .return:hover,
+        .vessel:hover {
             background: #555;
         }
 
@@ -40,6 +38,10 @@
             font-family: monospace;
             display: inline-block;
             vertical-align: middle;
+        }
+
+        pre {
+            text-transform: none;
         }
     </style>
 </head>
