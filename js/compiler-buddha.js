@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     returnToSource();
 
     document.getElementById("compile").addEventListener("click", async () => {
+        document.getElementById("compile").disabled = true;
         const vessel = document.getElementById("vessel");
         const offering = vessel.files[0];
         const vision = offering ?
@@ -73,9 +74,13 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("portal").textContent = manifestation;
     });
 
-    document.getElementById("return").addEventListener("click", returnToSource);
+    document.getElementById("return").addEventListener("click", () => {
+        document.getElementById("compile").disabled = false;
+        returnToSource();
+    });
 
     document.getElementById("vessel").addEventListener("change", (event) => {
+        document.getElementById("compile").disabled = false;
         returnToSource();
         const confirmation = document.getElementById("confirmation");
         const offering = event.target.files[0];
