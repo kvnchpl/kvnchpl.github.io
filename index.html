@@ -19,8 +19,10 @@
         <img src="/img/index/title_white.svg" alt="Site Title" class="homepageTitle" id="upperTitle" />
         <div id="skyContainer">
             <div class="skyGifWrapper">
-                <img src="/img/index/sky.gif" alt="Enter" id="skyGif" />
-                <span id="enterText"><a href="/home">ENTER</a></span>
+                <a href="/home" id="enterHome">
+                    <img src="/img/index/sky.gif" alt="Enter" id="skyGif" />
+                    <span id="enterText">Enter</span>
+                </a>
             </div>
         </div>
         <img src="/img/index/title_white.svg" alt="Site Title" class="homepageTitle" id="lowerTitle" />
@@ -28,7 +30,7 @@
 
     <script>
         const skyGif = document.getElementById('skyGif');
-        const enterText = document.getElementById('enterText');
+        const enterText = document.querySelector('#enterHome #enterText');
         if (skyGif && enterText) {
             if (skyGif.complete) {
                 enterText.style.visibility = 'visible';
