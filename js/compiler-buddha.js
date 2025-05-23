@@ -1,6 +1,5 @@
 function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], expansion = 1.3) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
-    console.log(intention);
     const portal = document.createElement("canvas");
     const scribe = portal.getContext("2d");
 
