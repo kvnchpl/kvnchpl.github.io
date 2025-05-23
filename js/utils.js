@@ -137,30 +137,6 @@ export function renderNav(navId, navData) {
 }
 
 /**
- * Renders the home page links section using nav data.
- */
-export function renderHomeLinks(navData, homeLinksSection) {
-    if (homeLinksSection && Array.isArray(navData)) {
-        const ul = document.createElement("ul");
-        navData.forEach(link => {
-            if (link.label) {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = link.href;
-                a.textContent = link.label;
-                if (link.newTab) {
-                    a.target = "_blank";
-                    a.rel = "noopener";
-                }
-                li.appendChild(a);
-                ul.appendChild(li);
-            }
-        });
-        homeLinksSection.appendChild(ul);
-    }
-}
-
-/**
  * Renders a project page layout with images and text content.
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
