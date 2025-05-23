@@ -87,10 +87,10 @@ document.addEventListener("DOMContentLoaded", () => {
             const manifestation = manifest(vision);
             portal.textContent = manifestation;
         };
-        const sacredCycle = 108;
+        const sacredNumber = 108;
         let recitation = 0;
         loop = setInterval(async () => {
-            if (recitation >= sacredCycle) {
+            if (recitation >= sacredNumber) {
                 clearInterval(loop);
                 loop = null;
                 return;
