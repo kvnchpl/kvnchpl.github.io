@@ -33,6 +33,13 @@
         .compile:hover {
             background: #555;
         }
+
+        .offering {
+            color: white;
+            font-family: monospace;
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
 </head>
 
@@ -43,6 +50,7 @@
         <h1 id="mainHeading"></h1>
         <label for="vessel" class="vessel">OFFER VISION</label>
         <input type="file" id="vessel" accept="image/*" style="display: none;" />
+        <span id="offering" class="offering"></span>
         <button id="compile" class="compile">COMPILE</button>
         <pre id="portal">
 

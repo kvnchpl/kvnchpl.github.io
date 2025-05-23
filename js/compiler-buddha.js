@@ -65,3 +65,9 @@ document.getElementById("compile").addEventListener("click", async () => {
     const manifestation = revisualize(vision);
     document.getElementById("portal").textContent = manifestation;
 });
+
+document.getElementById("vessel").addEventListener("change", (event) => {
+    const offering = document.getElementById("offering");
+    const file = event.target.files[0];
+    offering.textContent = file ? file.name : "";
+});
