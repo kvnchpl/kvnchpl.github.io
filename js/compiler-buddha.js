@@ -1,4 +1,4 @@
-function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], expansion = 1) {
+function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], expansion = 1.4) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
     const channel = portal.getContext("2d");
