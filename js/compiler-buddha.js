@@ -82,8 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     manifestor.addEventListener("click", async () => {
         closeChannels();
-        const offering = vessel.files[0] || "/img/compiler-buddha/buddha.png";
-        const vision = await createImageBitmap(await summon(offering));
+        const offering = vessel.files[0];
+        const predestined = !offering;
+        const vision = await createImageBitmap(await summon(
+            predestined ?
+                "/img/compiler-buddha/buddha.png" :
+                offering, predestined
+        ));
         const manifestation = () => {
             const output = manifest(vision);
             portal.textContent = output;
