@@ -64,7 +64,7 @@ function returnToSource() {
             document.getElementById("portal").textContent = intention;
         })
         .catch(() => {
-            document.getElementById("portal").textContent = "Source code could not be loaded.";
+            document.getElementById("portal").textContent = "ERROR";
         });
 }
 
