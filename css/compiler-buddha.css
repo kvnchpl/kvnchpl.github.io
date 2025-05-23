@@ -23,7 +23,6 @@
 .manifestor:disabled {
     background: #777;
     color: #ccc;
-    cursor: not-allowed;
     opacity: 0.6;
 }
 
@@ -35,6 +34,7 @@
 }
 
 pre {
+    margin-top: 0.67em;
     font-family: inherit;
     font-size: 0.5rem;
     text-transform: none;
