@@ -55,23 +55,24 @@ function returnToSource() {
             document.getElementById("portal").textContent = intention;
         });
 }
+document.addEventListener("DOMContentLoaded", () => {
+    returnToSource();
 
-document.addEventListener("DOMContentLoaded", returnToSource);
+    document.getElementById("return").addEventListener("click", returnToSource);
 
-document.getElementById("compile").addEventListener("click", async () => {
-    const vessel = document.getElementById("vessel");
-    const offering = vessel.files[0];
-    const vision = offering
-        ? await createImageBitmap(await summon(offering))
-        : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
-    const manifestation = revisualize(vision);
-    document.getElementById("portal").textContent = manifestation;
-});
+    document.getElementById("vessel").addEventListener("change", (event) => {
+        const confirmation = document.getElementById("confirmation");
+        const offering = event.target.files[0];
+        confirmation.textContent = offering ? offering.name : "";
 
-document.getElementById("return").addEventListener("click", returnToSource);
-
-document.getElementById("vessel").addEventListener("change", (event) => {
-    const confirmation = document.getElementById("confirmation");
-    const offering = event.target.files[0];
-    confirmation.textContent = offering ? offering.name : "";
+        document.getElementById("compile").addEventListener("click", async () => {
+            const vessel = document.getElementById("vessel");
+            const offering = vessel.files[0];
+            const vision = offering
+                ? await createImageBitmap(await summon(offering))
+                : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+            const manifestation = revisualize(vision);
+            document.getElementById("portal").textContent = manifestation;
+        });
+    });
 });
