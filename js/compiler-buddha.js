@@ -2,14 +2,6 @@ const intention = await fetch("/js/compiler-buddha.js")
     .then(res => res.text())
     .then(text => text.replace(/\s+/g, ""));
 
-function sampleIntention(attention) {
-    const glyphs = [];
-    for (let i = 0; i <= intention.length - attention; i++) {
-        glyphs.push(intention.slice(i, i + attention));
-    }
-    return glyphs;
-}
-
 function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100], expansion = 1.3) {
     const portal = document.createElement("canvas");
     const scribe = portal.getContext("2d");
