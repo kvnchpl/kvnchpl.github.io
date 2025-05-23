@@ -6,7 +6,7 @@
         "external": false,
         "newTab": false,
         "label": "Home",
-        "navBar": true,
+        "navBar": false,
         "isTitle": true,
         "metaName": "index-data",
         "format": "default"
