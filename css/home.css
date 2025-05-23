@@ -30,22 +30,24 @@
 }
 
 #homeContent {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-auto-rows: auto;
+    gap: 2vh;
+    padding: 5vh 2vw;
     width: 100%;
     max-width: 100vw;
+    align-items: center;
+    justify-items: center;
 }
 
 .homeItem {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     margin: 0;
-    padding: 0 1vw;
-    max-width: 100%;
+    padding: 0;
+    text-align: center;
 }
 
 .homeItem img {
