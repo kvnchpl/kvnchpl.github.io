@@ -10,11 +10,10 @@ function sampleIntention(attention) {
     return glyphs;
 }
 
-function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100]) {
+function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100], expansion = 1.3) {
     const portal = document.createElement("canvas");
     const scribe = portal.getContext("2d");
 
-    const expansion = 1.3;
     const clarity = attention / expansion;
     const reframe = [frame[0], Math.floor(frame[1] * clarity)];
 
@@ -28,7 +27,10 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
     const translation = scribe.getImageData(0, 0, expanse, depth);
     const impressions = translation.data;
 
-    const perceivable = sampleIntention(attention);
+    const perceivable = [];
+    for (let i = 0; i <= intention.length - attention; i++) {
+        perceivable.push(intention.slice(i, i + attention));
+    }
     const inattention = ".".repeat(attention);
     const mantra = [];
 
@@ -47,7 +49,7 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
     return mantra.join("\n");
 }
 
-document.getElementById("vision-upload").addEventListener("change", async (event) => {
+document.getElementById("offer-vision").addEventListener("change", async (event) => {
     const vessel = event.target.files[0];
     if (vessel) {
         const vision = await createImageBitmap(await summon(vessel));
@@ -56,7 +58,7 @@ document.getElementById("vision-upload").addEventListener("change", async (event
     }
 });
 
-document.getElementById("load-default").addEventListener("click", async () => {
+document.getElementById("invoke-buddha").addEventListener("click", async () => {
     const vision = await createImageBitmap(await invoke("/img/compiler-buddha/buddha.png"));
     const manifestation = revisualize(vision);
     document.getElementById("manifestation").textContent = manifestation;
