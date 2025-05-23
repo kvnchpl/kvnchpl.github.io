@@ -24,6 +24,7 @@
     background: #777;
     color: #ccc;
     opacity: 0.6;
+    cursor: pointer;
 }
 
 .offering {
@@ -38,4 +39,5 @@ pre {
     font-family: inherit;
     font-size: 0.5rem;
     text-transform: none;
+    cursor: pointer;
 }
