@@ -6,7 +6,7 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
     const clarity = attention / expansion;
     const frame = vision.height / vision.width;
 
-    const expanse = Math.min(breadth * 2, vision.width);
+    const expanse = breadth;
     const depth = Math.floor(expanse * frame * clarity);
 
     portal.width = expanse;
