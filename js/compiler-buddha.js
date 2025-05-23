@@ -87,10 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
             offering || "/img/compiler-buddha/buddha.png",
             !!offering
         ));
-        const manifestation = () => {
-            const output = manifest(vision);
-            portal.textContent = output;
-        };
         const sacredNumber = 108;
         let recitation = 0;
         loop = setInterval(() => {
@@ -99,7 +95,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 loop = null;
                 return;
             }
-            manifestation();
+            const manifestation = manifest(vision);
+            portal.textContent = manifestation;
             recitation++;
         }, 1000);
     });
