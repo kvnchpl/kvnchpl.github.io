@@ -1,3 +1,5 @@
+let loop;
+
 function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.546) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
@@ -54,6 +56,10 @@ function summon(offering, predestined = false) {
 }
 
 function returnToSource() {
+    if (loop) {
+        clearInterval(loop);
+        loop = null;
+    }
     fetch("/js/compiler-buddha.js")
         .then(response => response.text())
         .then(intention => {
@@ -84,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         await revisualize();
         setTimeout(() => {
-            setInterval(revisualize, 1000);
+            loop = setInterval(revisualize, 1000);
         }, 3000);
     });
 
