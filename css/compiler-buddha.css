@@ -6,6 +6,12 @@ main {
     min-height: 100vh;
 }
 
+.controls {
+    display: flex;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+
 .manifestor,
 .way-back,
 .vessel {
