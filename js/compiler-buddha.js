@@ -1,4 +1,3 @@
-import { createImageBitmap } from '/js/utils/imageUtils.js';
 const intention = await fetch("/js/compiler-buddha.js")
     .then(res => res.text())
     .then(text => text.replace(/\s+/g, ""));
@@ -12,9 +11,8 @@ function sampleIntention(attention) {
 }
 
 function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100]) {
-    // preserve poetic variable naming for metaphorical resonance
-    const scroll = document.createElement("canvas");
-    const scribe = scroll.getContext("2d");
+    const portal = document.createElement("canvas");
+    const scribe = portal.getContext("2d");
 
     const expansion = 1.3;
     const clarity = attention / expansion;
@@ -23,8 +21,8 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
     const expanse = reframe[0];
     const depth = reframe[1];
 
-    scroll.width = expanse;
-    scroll.height = depth;
+    portal.width = expanse;
+    portal.height = depth;
     scribe.drawImage(vision, 0, 0, expanse, depth);
 
     const translation = scribe.getImageData(0, 0, expanse, depth);
@@ -52,19 +50,19 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
 document.getElementById("vision-upload").addEventListener("change", async (event) => {
     const vessel = event.target.files[0];
     if (vessel) {
-        const vision = await createImageBitmap(await summonVision(vessel));
+        const vision = await createImageBitmap(await summon(vessel));
         const manifestation = revisualize(vision);
         document.getElementById("manifestation").textContent = manifestation;
     }
 });
 
 document.getElementById("load-default").addEventListener("click", async () => {
-    const vision = await createImageBitmap(await invokeVision("/img/compiler-buddha/buddha.png"));
+    const vision = await createImageBitmap(await invoke("/img/compiler-buddha/buddha.png"));
     const manifestation = revisualize(vision);
     document.getElementById("manifestation").textContent = manifestation;
 });
 
-function summonVision(vessel) {
+function summon(vessel) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
@@ -72,7 +70,7 @@ function summonVision(vessel) {
     });
 }
 
-function invokeVision(src) {
+function invoke(src) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.crossOrigin = "Anonymous";
