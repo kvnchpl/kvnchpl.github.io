@@ -2,18 +2,9 @@ import numpy as np
 from PIL import Image
 import random
 import argparse
-import os
 
-def get_last_manifestation():
-    files = [f for f in os.listdir() if f.startswith("manifestation_") and f.endswith(".txt")]
-    if not files:
-        with open(__file__, "r", encoding="utf-8") as self:
-            return "".join(self.read().split())
-    latest = max(files, key=os.path.getctime)
-    with open(latest, "r", encoding="utf-8") as f:
-        return "".join(f.read().split())
-
-intention = get_last_manifestation()
+with open(__file__, "r", encoding="utf-8") as self:
+    intention = "".join(self.read().split())
 
 
 def revisualize(where_is_the_vision, threshold, attention, frame):
@@ -84,18 +75,8 @@ if __name__ == "__main__":
         default=[100, 100],
         metavar=("DEPTH", "EXPANSE"),
     )
-    parser.add_argument(
-        "--reset",
-        action="store_true",
-    )
 
     args = parser.parse_args()
-
-    if args.reset:
-        with open(__file__, "r", encoding="utf-8") as self:
-            intention = "".join(self.read().split())
-    else:
-        intention = get_last_manifestation()
 
     revisualize(
         where_is_the_vision=args.where_is_the_vision,
