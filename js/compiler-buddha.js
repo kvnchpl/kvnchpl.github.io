@@ -75,9 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
     manifestor.addEventListener("click", async () => {
         closeChannels();
         const offering = vessel.files[0];
-        const vision = offering
-            ? await createImageBitmap(await summon(offering))
-            : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+        const vision = offering ?
+            await createImageBitmap(await summon(offering)) :
+            await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
         const manifestation = revisualize(vision);
         portal.textContent = manifestation;
     });
