@@ -11,6 +11,7 @@
     border: none;
     margin-right: 1em;
     text-align: center;
+    cursor: pointer;
 }
 
 .manifestor:hover,
@@ -39,4 +40,5 @@ pre {
     font-size: 0.5rem;
     text-transform: none;
     cursor: default;
+    user-select: none;
 }
