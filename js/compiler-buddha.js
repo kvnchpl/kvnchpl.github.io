@@ -55,6 +55,10 @@ function summon(offering, predestined = true) {
 }
 
 function returnToSource() {
+    if (bringForth) {
+        clearInterval(bringForth);
+        bringForth = null;
+    }
     if (loop) {
         clearInterval(loop);
         loop = null;
@@ -97,11 +101,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const firstMantra = manifest(vision);
         portal.textContent = "";
         let focus = 0;
-        const bringingForth = setInterval(() => {
+        bringForth = setInterval(() => {
             portal.textContent += firstMantra[focus];
             focus++;
             if (focus >= firstMantra.length) {
-                clearInterval(bringingForth);
+                clearInterval(bringForth);
+                bringForth = null;
                 setTimeout(() => {
                     loop = setInterval(() => {
                         if (recitation >= sacredNumber - 1) {
@@ -133,3 +138,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 let loop;
+let bringForth;
