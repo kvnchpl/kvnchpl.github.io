@@ -26,7 +26,7 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
     scribe.drawImage(vision, 0, 0, expanse, depth);
 
     const translation = scribe.getImageData(0, 0, expanse, depth);
-    const particles = translation.data;
+    const impressions = translation.data;
 
     const perceivable = sampleIntention(attention);
     const inattention = ".".repeat(attention);
@@ -36,7 +36,7 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
         const fragments = [];
         for (let e = 0; e < expanse; e++) {
             const impression = (d * expanse + e) * 4;
-            const red = particles[impression], g = particles[impression + 1], b = particles[impression + 2];
+            const red = impressions[impression], g = impressions[impression + 1], b = impressions[impression + 2];
             const emergence = Math.round(0.299 * red + 0.587 * g + 0.114 * b);
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             fragments.push(perceived);
