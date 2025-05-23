@@ -50,6 +50,10 @@ main {
     cursor: default;
 }
 
+.confirmation:empty {
+    display: none;
+}
+
 pre {
     margin-top: 4em;
     font-family: inherit;
