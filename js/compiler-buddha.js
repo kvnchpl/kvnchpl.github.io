@@ -56,17 +56,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 });
 
-document.getElementById("offer-vision").addEventListener("change", async (event) => {
-    const offering = event.target.files[0];
-    if (offering) {
-        const vision = await createImageBitmap(await summon(offering));
-        const manifestation = revisualize(vision);
-        document.getElementById("portal").textContent = manifestation;
-    }
-});
-
-document.getElementById("invoke-buddha").addEventListener("click", async () => {
-    const vision = await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+document.getElementById("compile").addEventListener("click", async () => {
+    const vessel = document.getElementById("vessel");
+    const offering = vessel.files[0];
+    const vision = offering
+        ? await createImageBitmap(await summon(offering))
+        : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
     const manifestation = revisualize(vision);
     document.getElementById("portal").textContent = manifestation;
 });
