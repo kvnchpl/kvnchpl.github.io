@@ -1,7 +1,7 @@
 function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], expansion = 1.3) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
-    const scribe = portal.getContext("2d");
+    const channel = portal.getContext("2d");
 
     const clarity = attention / expansion;
     const reframe = [frame[0], Math.floor(frame[1] * clarity)];
@@ -11,9 +11,9 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], e
 
     portal.width = expanse;
     portal.height = depth;
-    scribe.drawImage(vision, 0, 0, expanse, depth);
+    channel.drawImage(vision, 0, 0, expanse, depth);
 
-    const translation = scribe.getImageData(0, 0, expanse, depth);
+    const translation = channel.getImageData(0, 0, expanse, depth);
     const impressions = translation.data;
 
     const perceivable = [];
