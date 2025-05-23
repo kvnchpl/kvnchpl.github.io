@@ -20,8 +20,8 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100],
     const impressions = translation.data;
 
     const perceivable = [];
-    for (let i = 0; i <= intention.length - attention; i++) {
-        perceivable.push(intention.slice(i, i + attention));
+    for (let focus = 0; focus <= intention.length - attention; focus++) {
+        perceivable.push(intention.slice(focus, focus + attention));
     }
     const inattention = ".".repeat(attention);
     const mantra = [];
