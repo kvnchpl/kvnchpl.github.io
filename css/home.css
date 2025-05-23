@@ -42,17 +42,22 @@
 
 .homeItem {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
+    gap: 1vw;
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: left;
+    max-width: 100%;
 }
 
 .homeItem img {
-    width: 100%;
-    max-width: 800px;
+    width: auto;
+    max-height: 100px;
+    max-width: 40vw;
     display: block;
+    height: auto;
 }
 
 .homeItem p {
@@ -60,5 +65,5 @@
     font-size: 1.2em;
     white-space: normal;
     word-break: break-word;
-    max-width: 90vw;
+    max-width: 50vw;
 }
