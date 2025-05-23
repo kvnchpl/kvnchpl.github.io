@@ -1,6 +1,4 @@
-const intention = await fetch("/js/compiler-buddha.js")
-    .then(res => res.text())
-    .then(text => text.replace(/\s+/g, ""));
+const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
 
 function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100], expansion = 1.3) {
     const portal = document.createElement("canvas");
