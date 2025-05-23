@@ -102,7 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
         portal.textContent = "";
         let focus = 0;
         bringForth = setInterval(() => {
-            portal.textContent += firstMantra[focus];
+            const syllable = firstMantra[focus];
+            portal.textContent += syllable;
             focus++;
             if (focus >= firstMantra.length) {
                 clearInterval(bringForth);
@@ -119,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 1000);
                 }, 1000);
             }
-        }, 0.2);
+        }, 1);
     });
 
     wayBack.addEventListener("click", () => {
