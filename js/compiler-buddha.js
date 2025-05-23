@@ -20,6 +20,7 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
     for (let focus = 0; focus <= intention.length - attention; focus++) {
         perceivable.push(intention.slice(focus, focus + attention));
     }
+    
     const inattention = ".".repeat(attention);
     const mantra = [];
 
@@ -82,14 +83,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     manifestor.addEventListener("click", async () => {
         closeChannels();
+        portal.textContent = "manifesting...";
+
         const offering = vessel.files[0];
         const predestined = !offering;
         const vision = await createImageBitmap(await summon(
             predestined ? "/img/compiler-buddha/buddha.png" : offering,
             predestined
         ));
+
         const sacredNumber = 108;
         let recitation = 0;
+
         loop = setInterval(() => {
             if (recitation >= sacredNumber) {
                 clearInterval(loop);
