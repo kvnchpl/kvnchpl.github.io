@@ -11,7 +11,7 @@ function sampleIntention(attention) {
     return samples;
 }
 
-function revisualize(imageBitmap, threshold = 128, attention = 5, frame = [100, 100]) {
+function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100]) {
     // preserve poetic variable naming for metaphorical resonance
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
@@ -25,10 +25,10 @@ function revisualize(imageBitmap, threshold = 128, attention = 5, frame = [100, 
 
     canvas.width = expanse;
     canvas.height = depth;
-    ctx.drawImage(imageBitmap, 0, 0, expanse, depth);
+    ctx.drawImage(vision, 0, 0, expanse, depth);
 
-    const imgData = ctx.getImageData(0, 0, expanse, depth);
-    const data = imgData.data;
+    const translation = ctx.getImageData(0, 0, expanse, depth);
+    const particles = translation.data;
 
     const perceivable = sampleIntention(attention);
     const inattention = ".".repeat(attention);
@@ -38,7 +38,7 @@ function revisualize(imageBitmap, threshold = 128, attention = 5, frame = [100, 
         const fragments = [];
         for (let e = 0; e < expanse; e++) {
             const index = (d * expanse + e) * 4;
-            const r = data[index], g = data[index + 1], b = data[index + 2];
+            const r = particles[index], g = particles[index + 1], b = particles[index + 2];
             const emergence = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             fragments.push(perceived);
@@ -52,19 +52,19 @@ function revisualize(imageBitmap, threshold = 128, attention = 5, frame = [100, 
 document.getElementById("vision-upload").addEventListener("change", async (event) => {
     const file = event.target.files[0];
     if (file) {
-        const bitmap = await createImageBitmap(await fileToImage(file));
-        const result = revisualize(bitmap);
-        document.getElementById("manifestation").textContent = result;
+        const vision = await createImageBitmap(await summonVision(file));
+        const manifestation = revisualize(vision);
+        document.getElementById("manifestation").textContent = manifestation;
     }
 });
 
 document.getElementById("load-default").addEventListener("click", async () => {
-    const bitmap = await createImageBitmap(await loadImage("/img/compiler-buddha/buddha.png"));
-    const result = revisualize(bitmap);
-    document.getElementById("manifestation").textContent = result;
+    const vision = await createImageBitmap(await invokeVision("/img/compiler-buddha/buddha.png"));
+    const manifestation = revisualize(vision);
+    document.getElementById("manifestation").textContent = manifestation;
 });
 
-function fileToImage(file) {
+function summonVision(file) {
     return new Promise((resolve) => {
         const img = new Image();
         img.onload = () => resolve(img);
@@ -72,7 +72,7 @@ function fileToImage(file) {
     });
 }
 
-function loadImage(src) {
+function invokeVision(src) {
     return new Promise((resolve) => {
         const img = new Image();
         img.crossOrigin = "Anonymous";
