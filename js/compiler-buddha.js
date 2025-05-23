@@ -1,4 +1,4 @@
-function revisualize(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.546) {
+function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.546) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
     const channel = portal.getContext("2d");
@@ -75,16 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
     manifestor.addEventListener("click", async () => {
         closeChannels();
         const offering = vessel.files[0];
-        const compileAndDisplay = async () => {
+        const revisualize = async () => {
             const vision = offering ?
                 await createImageBitmap(await summon(offering)) :
                 await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
-            const manifestation = revisualize(vision);
+            const manifestation = manifest(vision);
             portal.textContent = manifestation;
         };
-        await compileAndDisplay(); // initial compile
+        await revisualize();
         setTimeout(() => {
-            setInterval(compileAndDisplay, 1000); // repeat every second after 5s
+            setInterval(revisualize, 1000);
         }, 5000);
     });
 
