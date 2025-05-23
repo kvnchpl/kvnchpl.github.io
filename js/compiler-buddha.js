@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
         await revisualize();
         setTimeout(() => {
             loop = setInterval(revisualize, 1000);
-        }, 2000);
+        }, 1000);
     });
 
     wayBack.addEventListener("click", () => {
