@@ -1,13 +1,13 @@
-function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], expansion = 1.546) {
+function revisualize(vision, threshold = 128, attention = 5, breadth = [20, 20], expansion = 1.546) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
     const channel = portal.getContext("2d");
 
     const clarity = attention / expansion;
-    const form = vision.height / vision.width;
+    const frame = vision.height / vision.width;
 
-    const expanse = frame;
-    const depth = Math.floor(frame * form * clarity);
+    const expanse = breadth;
+    const depth = Math.floor(breadth * frame * clarity);
 
     portal.width = expanse;
     portal.height = depth;
