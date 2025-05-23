@@ -20,7 +20,7 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
     for (let focus = 0; focus <= intention.length - attention; focus++) {
         perceivable.push(intention.slice(focus, focus + attention));
     }
-    
+
     const inattention = ".".repeat(attention);
     const mantra = [];
 
@@ -96,14 +96,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         portal.textContent = manifest(vision);
 
-        loop = setInterval(() => {
-            if (recitation >= sacredNumber - 1) {
-                clearInterval(loop);
-                loop = null;
-                return;
-            }
-            portal.textContent = manifest(vision);
-            recitation++;
+        setTimeout(() => {
+            loop = setInterval(() => {
+                if (recitation >= sacredNumber - 1) {
+                    clearInterval(loop);
+                    loop = null;
+                    return;
+                }
+                portal.textContent = manifest(vision);
+                recitation++;
+            }, 1000);
         }, 1000);
     });
 
