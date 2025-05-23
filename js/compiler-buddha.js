@@ -48,13 +48,17 @@ function summon(offering, predestined = false) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function returnToSource() {
     fetch("/js/compiler-buddha.js")
         .then(response => response.text())
         .then(intention => {
             document.getElementById("portal").textContent = intention;
         });
-});
+}
+
+document.addEventListener("DOMContentLoaded", returnToSource);
+
+document.getElementById("return").addEventListener("click", returnToSource);
 
 document.getElementById("compile").addEventListener("click", async () => {
     const vessel = document.getElementById("vessel");
@@ -67,7 +71,7 @@ document.getElementById("compile").addEventListener("click", async () => {
 });
 
 document.getElementById("vessel").addEventListener("change", (event) => {
-    const offering = document.getElementById("offering");
-    const file = event.target.files[0];
-    offering.textContent = file ? file.name : "";
+    const confirmation = document.getElementById("confirmation");
+    const offering = event.target.files[0];
+    confirmation.textContent = offering ? offering.name : "";
 });
