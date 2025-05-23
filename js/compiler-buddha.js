@@ -75,11 +75,17 @@ document.addEventListener("DOMContentLoaded", () => {
     manifestor.addEventListener("click", async () => {
         closeChannels();
         const offering = vessel.files[0];
-        const vision = offering ?
-            await createImageBitmap(await summon(offering)) :
-            await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
-        const manifestation = revisualize(vision);
-        portal.textContent = manifestation;
+        const compileAndDisplay = async () => {
+            const vision = offering ?
+                await createImageBitmap(await summon(offering)) :
+                await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
+            const manifestation = revisualize(vision);
+            portal.textContent = manifestation;
+        };
+        await compileAndDisplay(); // initial compile
+        setTimeout(() => {
+            setInterval(compileAndDisplay, 1000); // repeat every second after 5s
+        }, 5000);
     });
 
     wayBack.addEventListener("click", () => {
