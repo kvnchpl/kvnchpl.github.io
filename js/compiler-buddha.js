@@ -12,6 +12,7 @@ function sampleIntention(attention) {
 }
 
 function revisualize(imageBitmap, threshold = 128, attention = 5, frame = [100, 100]) {
+    // preserve poetic variable naming for metaphorical resonance
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -19,24 +20,27 @@ function revisualize(imageBitmap, threshold = 128, attention = 5, frame = [100, 
     const clarity = attention / expansion;
     const reframe = [frame[0], Math.floor(frame[1] * clarity)];
 
-    canvas.width = reframe[0];
-    canvas.height = reframe[1];
-    ctx.drawImage(imageBitmap, 0, 0, canvas.width, canvas.height);
+    const expanse = reframe[0];
+    const depth = reframe[1];
 
-    const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    canvas.width = expanse;
+    canvas.height = depth;
+    ctx.drawImage(imageBitmap, 0, 0, expanse, depth);
+
+    const imgData = ctx.getImageData(0, 0, expanse, depth);
     const data = imgData.data;
 
-    const samples = sampleIntention(attention);
+    const perceivable = sampleIntention(attention);
     const inattention = ".".repeat(attention);
     const build = [];
 
-    for (let y = 0; y < canvas.height; y++) {
+    for (let d = 0; d < depth; d++) {
         const fragments = [];
-        for (let x = 0; x < canvas.width; x++) {
-            const index = (y * canvas.width + x) * 4;
+        for (let e = 0; e < expanse; e++) {
+            const index = (d * expanse + e) * 4;
             const r = data[index], g = data[index + 1], b = data[index + 2];
-            const luminance = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
-            const perceived = luminance >= threshold ? samples[Math.floor(Math.random() * samples.length)] : inattention;
+            const emergence = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
+            const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             fragments.push(perceived);
         }
         build.push("/" + fragments.join("/") + "/");
