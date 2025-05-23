@@ -10,7 +10,6 @@ import {
     loadResources,
 
     renderNav,
-    renderHomeLinks,
     renderProjectLayout
 } from './utils.js';
 
