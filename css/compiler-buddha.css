@@ -13,10 +13,10 @@ main {
 
 .manifestor,
 .way-back,
-.vessel {
+.vessel,
+.confirmation {
     display: inline-block;
     padding: 0.5em 1em;
-    background: #333;
     color: white;
     text-transform: uppercase;
     font-family: inherit;
@@ -24,6 +24,12 @@ main {
     border: none;
     margin-right: 1em;
     text-align: center;
+}
+
+.manifestor,
+.way-back,
+.vessel {
+    background: #333;
     cursor: pointer;
 }
 
@@ -41,10 +47,7 @@ main {
 }
 
 .confirmation {
-    color: white;
-    font-family: monospace;
-    display: inline-block;
-    vertical-align: middle;
+    cursor: default;
 }
 
 pre {
