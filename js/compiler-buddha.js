@@ -70,18 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const openChannels = () => manifestor.disabled = false;
     const closeChannels = () => manifestor.disabled = true;
 
-    const getVision = async () => {
-        const offering = vessel.files[0];
-        return offering
-            ? await createImageBitmap(await summon(offering))
-            : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
-    };
-
     returnToSource();
 
     manifestor.addEventListener("click", async () => {
         closeChannels();
-        const vision = await getVision();
+        const offering = vessel.files[0];
+        const vision = offering
+            ? await createImageBitmap(await summon(offering))
+            : await createImageBitmap(await summon("/img/compiler-buddha/buddha.png", true));
         const manifestation = revisualize(vision);
         portal.textContent = manifestation;
     });
