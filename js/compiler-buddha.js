@@ -75,6 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const portal = document.getElementById("portal");
     const confirmation = document.getElementById("confirmation");
 
+    const vesselLabel = document.querySelector("label[for='vessel']");
+    vesselLabel.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            vessel.click();
+        }
+    });
+
     const openChannels = () => manifestor.disabled = false;
     const closeChannels = () => manifestor.disabled = true;
 
