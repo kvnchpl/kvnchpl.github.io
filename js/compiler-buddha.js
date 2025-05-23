@@ -88,15 +88,15 @@ document.addEventListener("DOMContentLoaded", () => {
             portal.textContent = manifestation;
         };
         const sacredCycle = 108;
-        let count = 0;
+        let recitation = 0;
         loop = setInterval(async () => {
-            if (count >= sacredCycle) {
+            if (recitation >= sacredCycle) {
                 clearInterval(loop);
                 loop = null;
                 return;
             }
             await revisualize();
-            count++;
+            recitation++;
         }, 1000);
     });
 
