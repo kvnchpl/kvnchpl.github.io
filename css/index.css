@@ -83,15 +83,11 @@ html {
     user-select: none;
     font-family: var(--font-family-main, monospace);
     text-transform: var(--text-transform-link, uppercase);
+    text-decoration: none;
     visibility: hidden;
 }
 
-#enterText a {
-    color: var(--color-text, #fff);
-    text-decoration: none;
-}
-
-#enterText a:hover {
+#enterText:hover {
     color: var(--color-link-hover);
     text-transform: var(--text-transform-link-hover);
 }
