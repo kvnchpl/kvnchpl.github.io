@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 1000);
                 }, 1000);
             }
-        }, 5);
+        }, 1);
     });
 
     wayBack.addEventListener("click", () => {
