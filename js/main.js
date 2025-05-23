@@ -73,13 +73,8 @@ import {
             renderNav(elementIds.nav, navData);
         }
 
-        // Early return for collection/index/404 pages after globals are set
-        if (isCollectionPage || page === "404" || page === "index") return;
-
-        if (page === "home") {
-            renderHomeLinks(navData, document.getElementById(elementIds.homeLinks));
-            return;
-        }
+        // Early return for collection/index/home/404 pages after globals are set
+        if (isCollectionPage || page === "index" || page === "home" || page === "404") return;
 
         // Render project or content page
         const pageContent = pages[page];
