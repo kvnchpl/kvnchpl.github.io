@@ -26,12 +26,12 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100],
     const inattention = ".".repeat(attention);
     const mantra = [];
 
-    for (let d = 0; d < depth; d++) {
+    for (let descent = 0; descent < depth; descent++) {
         const syllables = [];
-        for (let e = 0; e < expanse; e++) {
-            const impression = (d * expanse + e) * 4;
-            const red = impressions[impression], g = impressions[impression + 1], b = impressions[impression + 2];
-            const emergence = Math.round(0.299 * red + 0.587 * g + 0.114 * b);
+        for (let extension = 0; extension < expanse; extension++) {
+            const impression = (descent * expanse + extension) * 4;
+            const red = impressions[impression], green = impressions[impression + 1], blue = impressions[impression + 2];
+            const emergence = Math.round(0.299 * red + 0.587 * green + 0.114 * blue);
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             syllables.push(perceived);
         }
@@ -42,9 +42,9 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100],
 }
 
 document.getElementById("offer-vision").addEventListener("change", async (event) => {
-    const vessel = event.target.files[0];
-    if (vessel) {
-        const vision = await createImageBitmap(await summon(vessel));
+    const offering = event.target.files[0];
+    if (offering) {
+        const vision = await createImageBitmap(await summon(offering));
         const manifestation = revisualize(vision);
         document.getElementById("manifestation").textContent = manifestation;
     }
@@ -56,19 +56,19 @@ document.getElementById("invoke-buddha").addEventListener("click", async () => {
     document.getElementById("manifestation").textContent = manifestation;
 });
 
-function summon(vessel) {
+function summon(offering) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
-        apparition.src = URL.createObjectURL(vessel);
+        apparition.src = URL.createObjectURL(offering);
     });
 }
 
-function invoke(src) {
+function invoke(path) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.crossOrigin = "Anonymous";
         apparition.onload = () => resolve(apparition);
-        apparition.src = src;
+        apparition.path = path;
     });
 }
