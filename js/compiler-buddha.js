@@ -32,7 +32,9 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [20, 20], e
                 green = impressions[impression + 1],
                 blue = impressions[impression + 2];
             const emergence = Math.round(0.299 * red + 0.587 * green + 0.114 * blue);
-            const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
+            const perceived = emergence >= threshold ?
+                perceivable[Math.floor(Math.random() * perceivable.length)] :
+                inattention;
             syllables.push(perceived);
         }
         mantra.push("/" + syllables.join("/") + "/");
@@ -46,7 +48,9 @@ function summon(offering, predestined = false) {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
         apparition.crossOrigin = "Anonymous";
-        apparition.src = predestined ? offering : URL.createObjectURL(offering);
+        apparition.src = predestined ?
+            offering :
+            URL.createObjectURL(offering);
     });
 }
 
