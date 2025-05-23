@@ -1,4 +1,4 @@
-function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 5/3) {
+function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.724) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
     const channel = portal.getContext("2d");
