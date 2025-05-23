@@ -42,7 +42,7 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
     return mantra.join("\n");
 }
 
-function summon(offering, predestined = false) {
+function summon(offering, predestined = true) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
@@ -83,11 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
     manifestor.addEventListener("click", async () => {
         closeChannels();
         const offering = vessel.files[0];
-        const predestined = !offering;
         const vision = await createImageBitmap(await summon(
-            predestined ?
-                "/img/compiler-buddha/buddha.png" :
-                offering, predestined
+            offering || "/img/compiler-buddha/buddha.png",
+            !!offering
         ));
         const manifestation = () => {
             const output = manifest(vision);
