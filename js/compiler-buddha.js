@@ -41,6 +41,15 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100],
     return mantra.join("\n");
 }
 
+function summon(offering, predestined = false) {
+    return new Promise((resolve) => {
+        const apparition = new Image();
+        apparition.onload = () => resolve(apparition);
+        apparition.crossOrigin = "Anonymous";
+        apparition.src = predestined ? offering : URL.createObjectURL(offering);
+    });
+}
+
 document.getElementById("offer-vision").addEventListener("change", async (event) => {
     const offering = event.target.files[0];
     if (offering) {
@@ -56,11 +65,3 @@ document.getElementById("invoke-buddha").addEventListener("click", async () => {
     document.getElementById("manifestation").textContent = manifestation;
 });
 
-function summon(offering, predestined = false) {
-    return new Promise((resolve) => {
-        const apparition = new Image();
-        apparition.onload = () => resolve(apparition);
-        apparition.crossOrigin = "Anonymous";
-        apparition.src = predestined ? offering : URL.createObjectURL(offering);
-    });
-}
