@@ -13,8 +13,7 @@ main {
 
 .manifestor,
 .way-back,
-.vessel,
-.confirmation {
+.vessel {
     display: inline-block;
     padding: 0.5em 1em;
     background: #333;
@@ -41,7 +40,11 @@ main {
     cursor: default;
 }
 
-.offering {
+.confirmation {
+
+}
+
+.confirmation {
     color: white;
     font-family: monospace;
     display: inline-block;
