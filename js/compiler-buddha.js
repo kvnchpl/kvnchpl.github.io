@@ -87,9 +87,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const manifestation = manifest(vision);
             portal.textContent = manifestation;
         };
-        await revisualize();
-        setTimeout(() => {
-            loop = setInterval(revisualize, 1000);
+        const sacredCycle = 108;
+        let count = 0;
+        loop = setInterval(async () => {
+            if (count >= sacredCycle) {
+                clearInterval(loop);
+                loop = null;
+                return;
+            }
+            await revisualize();
+            count++;
         }, 1000);
     });
 
