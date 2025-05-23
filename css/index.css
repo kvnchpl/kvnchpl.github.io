@@ -51,11 +51,6 @@ html {
     height: 100vh;
 }
 
-.skyGifWrapper {
-    position: relative;
-    display: inline-block;
-}
-
 #enterHome {
     display: inline-block;
     position: relative;
