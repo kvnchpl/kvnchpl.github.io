@@ -4,17 +4,17 @@ const intention = await fetch("/js/compiler-buddha.js")
     .then(text => text.replace(/\s+/g, ""));
 
 function sampleIntention(attention) {
-    const samples = [];
+    const glyphs = [];
     for (let i = 0; i <= intention.length - attention; i++) {
-        samples.push(intention.slice(i, i + attention));
+        glyphs.push(intention.slice(i, i + attention));
     }
-    return samples;
+    return glyphs;
 }
 
 function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100]) {
     // preserve poetic variable naming for metaphorical resonance
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
+    const scroll = document.createElement("canvas");
+    const scribe = scroll.getContext("2d");
 
     const expansion = 1.3;
     const clarity = attention / expansion;
@@ -23,36 +23,36 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
     const expanse = reframe[0];
     const depth = reframe[1];
 
-    canvas.width = expanse;
-    canvas.height = depth;
-    ctx.drawImage(vision, 0, 0, expanse, depth);
+    scroll.width = expanse;
+    scroll.height = depth;
+    scribe.drawImage(vision, 0, 0, expanse, depth);
 
-    const translation = ctx.getImageData(0, 0, expanse, depth);
+    const translation = scribe.getImageData(0, 0, expanse, depth);
     const particles = translation.data;
 
     const perceivable = sampleIntention(attention);
     const inattention = ".".repeat(attention);
-    const build = [];
+    const sutra = [];
 
     for (let d = 0; d < depth; d++) {
         const fragments = [];
         for (let e = 0; e < expanse; e++) {
-            const index = (d * expanse + e) * 4;
-            const r = particles[index], g = particles[index + 1], b = particles[index + 2];
-            const emergence = Math.round(0.299 * r + 0.587 * g + 0.114 * b);
+            const impression = (d * expanse + e) * 4;
+            const red = particles[impression], g = particles[impression + 1], b = particles[impression + 2];
+            const emergence = Math.round(0.299 * red + 0.587 * g + 0.114 * b);
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
             fragments.push(perceived);
         }
-        build.push("/" + fragments.join("/") + "/");
+        sutra.push("/" + fragments.join("/") + "/");
     }
 
-    return build.join("\n");
+    return sutra.join("\n");
 }
 
 document.getElementById("vision-upload").addEventListener("change", async (event) => {
-    const file = event.target.files[0];
-    if (file) {
-        const vision = await createImageBitmap(await summonVision(file));
+    const vessel = event.target.files[0];
+    if (vessel) {
+        const vision = await createImageBitmap(await summonVision(vessel));
         const manifestation = revisualize(vision);
         document.getElementById("manifestation").textContent = manifestation;
     }
@@ -64,19 +64,19 @@ document.getElementById("load-default").addEventListener("click", async () => {
     document.getElementById("manifestation").textContent = manifestation;
 });
 
-function summonVision(file) {
+function summonVision(vessel) {
     return new Promise((resolve) => {
-        const img = new Image();
-        img.onload = () => resolve(img);
-        img.src = URL.createObjectURL(file);
+        const apparition = new Image();
+        apparition.onload = () => resolve(apparition);
+        apparition.src = URL.createObjectURL(vessel);
     });
 }
 
 function invokeVision(src) {
     return new Promise((resolve) => {
-        const img = new Image();
-        img.crossOrigin = "Anonymous";
-        img.onload = () => resolve(img);
-        img.src = src;
+        const apparition = new Image();
+        apparition.crossOrigin = "Anonymous";
+        apparition.onload = () => resolve(apparition);
+        apparition.src = src;
     });
 }
