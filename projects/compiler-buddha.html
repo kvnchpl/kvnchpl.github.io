@@ -30,9 +30,9 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             fetch("/js/compiler-buddha.js")
-                .then(res => res.text())
-                .then(code => {
-                    document.getElementById("portal").textContent = code;
+                .then(response => response.text())
+                .then(intention => {
+                    document.getElementById("portal").textContent = intention;
                 });
         });
     </script>
