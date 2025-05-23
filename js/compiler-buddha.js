@@ -33,15 +33,15 @@ function revisualize(vision, threshold = 128, attention = 5, frame = [100, 100])
     const mantra = [];
 
     for (let d = 0; d < depth; d++) {
-        const fragments = [];
+        const syllables = [];
         for (let e = 0; e < expanse; e++) {
             const impression = (d * expanse + e) * 4;
             const red = impressions[impression], g = impressions[impression + 1], b = impressions[impression + 2];
             const emergence = Math.round(0.299 * red + 0.587 * g + 0.114 * b);
             const perceived = emergence >= threshold ? perceivable[Math.floor(Math.random() * perceivable.length)] : inattention;
-            fragments.push(perceived);
+            syllables.push(perceived);
         }
-        mantra.push("/" + fragments.join("/") + "/");
+        mantra.push("/" + syllables.join("/") + "/");
     }
 
     return mantra.join("\n");
