@@ -10,7 +10,14 @@
     white-space: nowrap;
     letter-spacing: -0.05em;
     overflow: hidden;
-    translate: -0.3rem 0;
+}
+
+#upperTitle{
+    translate: -0.3rem -0.3rem;
+}
+
+#lowerTitle{
+    translate: -0.3rem 0.3rem;
 }
 
 #homeMain {
