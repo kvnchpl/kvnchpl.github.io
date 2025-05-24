@@ -1,30 +1,6 @@
-.header {
-    width: 100vw;
-    font-size: 6.49vw;
-    color: white;
-    margin: 0;
-    padding: 0;
-    line-height: 1;
-    text-transform: uppercase;
-    text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    position: absolute;
-    left: 0;
-    display: block;
-    pointer-events: none;
-    user-select: none;
-    z-index: 1;
-}
-
-#header-top{
-    translate: -0.3rem -0.3rem;
-    top: 0;
-}
-
-#header-bottom{
-    translate: -0.3rem 0.3rem;
-    bottom: 0;
+body,
+html {
+    height: 100%;
 }
 
 main {
@@ -46,45 +22,39 @@ main {
     align-content: flex-start;
 }
 
-.page-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
+.header {
+    width: 100vw;
+    font-size: 6.49vw;
+    color: white;
     margin: 0;
     padding: 0;
-    text-align: left;
-    height: 100%;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
 }
 
-.page-link img {
-    max-width: none;
-    height: 100px;
-    width: auto;
+#header-top {
+    translate: -0.3rem -0.3rem;
+    top: 0;
 }
 
-.page-link p {
-    margin: 0;
-}
-
-body,
-html {
-    height: 100%;
+#header-bottom {
+    translate: -0.3rem 0.3rem;
+    bottom: 0;
 }
 
 #enterHome {
     display: inline-block;
     position: relative;
     text-align: center;
-}
-
-#skyGif {
-    max-width: 90vw;
-    max-height: 60vh;
-    width: auto;
-    height: auto;
-    display: block;
-    position: relative;
 }
 
 #enterText {
@@ -107,4 +77,34 @@ html {
 #enterText:hover {
     color: var(--color-link-hover);
     text-transform: var(--text-transform-link-hover);
+}
+
+#skyGif {
+    max-width: 90vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    display: block;
+    position: relative;
+}
+
+.page-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    height: 100%;
+}
+
+.page-link img {
+    max-width: none;
+    height: 100px;
+    width: auto;
+}
+
+.page-link p {
+    margin: 0;
 }
