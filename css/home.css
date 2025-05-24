@@ -9,13 +9,6 @@ main {
     justify-items: stretch;
 }
 
-.container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-content: flex-start;
-}
-
 .header {
     width: 100vw;
     font-size: 6.49vw;
@@ -33,6 +26,13 @@ main {
     pointer-events: none;
     user-select: none;
     z-index: 1;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
 }
 
 #header-top {
