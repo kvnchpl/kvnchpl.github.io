@@ -1,4 +1,4 @@
-.homepageHeader {
+.header {
     width: 100vw;
     font-size: 6.49vw;
     color: white;
@@ -17,17 +17,17 @@
     z-index: 1;
 }
 
-#headerTop{
+#header-top{
     translate: -0.3rem -0.3rem;
     top: 0;
 }
 
-#headerBottom{
+#header-bottom{
     translate: -0.3rem 0.3rem;
     bottom: 0;
 }
 
-#homeMain {
+main {
     position: relative;
     width: 100vw;
     min-height: 100vh;
@@ -39,14 +39,14 @@
     justify-items: stretch;
 }
 
-#homeContent {
+#link-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
 }
 
-.homeItem {
+.page-link {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -57,13 +57,13 @@
     height: 100%;
 }
 
-.homeItem img {
+.page-link img {
     max-width: none;
     height: 100px;
     width: auto;
 }
 
-.homeItem p {
+.page-link p {
     margin: 0;
 }
 
