@@ -32,7 +32,8 @@
 #homeContent {
     display: grid;
     grid-template-rows: repeat(4, auto);
-    grid-auto-flow: column;
+    grid-auto-flow: row;
+    grid-auto-columns: max-content;
     place-content: center;
 }
 
@@ -56,5 +57,4 @@
 .homeItem p {
     margin: 0;
     font-size: 1.2em;
-    white-space: nowrap;
 }
