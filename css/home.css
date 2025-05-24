@@ -30,11 +30,11 @@
 }
 
 #homeContent {
-    display: grid;
-    grid-template-rows: repeat(4, auto);
-    grid-auto-flow: row;
-    grid-auto-columns: max-content;
-    place-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    gap: 1em;
 }
 
 .homeItem {
