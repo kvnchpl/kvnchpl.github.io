@@ -34,6 +34,11 @@ main {
     position: relative;
 }
 
+.enterWrapper {
+    position: relative;
+    display: inline-block;
+}
+
 #header-top {
     translate: -0.3rem -0.3rem;
     top: 0;
