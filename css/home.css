@@ -8,8 +8,7 @@ main {
 }
 
 .title {
-    height: auto;
-    width: 100vw;
+    height: 10vh;
     font-size: 6.7vw;
     margin: 0;
     padding: 0;
@@ -22,6 +21,7 @@ main {
 }
 
 .container {
+    height: 100%;
     flex-grow: 1;
     flex-shrink: 1;
     flex-basis: auto;
@@ -34,10 +34,12 @@ main {
 }
 
 .link-container {
+    flex-grow: 1;
+    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-content: flex-start;
 }
 
 #enterWrapper {
