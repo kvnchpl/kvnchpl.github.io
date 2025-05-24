@@ -10,6 +10,8 @@
     text-transform: uppercase;
     text-align: center;
     white-space: nowrap;
+    transform: scaleX(1.05);
+    transform-origin: center;
 }
 
 #homeMain {
