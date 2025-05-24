@@ -18,9 +18,6 @@ main {
     white-space: nowrap;
     overflow: hidden;
     display: block;
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
     z-index: 1;
 }
 
