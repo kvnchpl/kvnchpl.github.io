@@ -1,4 +1,4 @@
-.homepageTitle {
+.homepageHeader {
     width: 100vw;
     font-size: 6.49vw;
     color: white;
@@ -17,12 +17,12 @@
     z-index: 1;
 }
 
-#upperTitle{
+#headerTop{
     translate: -0.3rem -0.3rem;
     top: 0;
 }
 
-#lowerTitle{
+#headerBottom{
     translate: -0.3rem 0.3rem;
     bottom: 0;
 }
