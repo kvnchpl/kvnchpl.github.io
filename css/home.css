@@ -58,12 +58,12 @@ main {
 }
 
 #title-top {
-    translate: -0.3rem -0.6rem;
+    translate: -0.5vw -1.2vh;
     top: 0;
 }
 
 #title-bottom {
-    translate: -0.3rem 0.6rem;
+    translate: -0.5vw 0.8vh;
     bottom: 0;
 }
 
