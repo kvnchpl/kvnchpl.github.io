@@ -130,4 +130,8 @@ main {
         translate: -0.5vw 0.4vh;
         bottom: 0;
     }
+
+    .page-link {
+        width: 100%;
+    }
 }
