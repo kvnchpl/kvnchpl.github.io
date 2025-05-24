@@ -34,7 +34,7 @@ main {
     position: relative;
 }
 
-.enterWrapper {
+#enterWrapper {
     position: relative;
     display: inline-block;
 }
