@@ -122,3 +122,15 @@ main {
 .page-link p {
     margin: 0;
 }
+
+@media (max-width: 768px) {
+#title-top {
+    translate: -0.5vw -0.8vh;
+    top: 0;
+}
+
+#title-bottom {
+    translate: -0.5vw 0.4vh;
+    bottom: 0;
+}
+}
