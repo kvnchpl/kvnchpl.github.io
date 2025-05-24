@@ -58,11 +58,9 @@ main {
     transform: translate(50%, -50%);
     font-size: 5vw;
     font-weight: 700;
-    color: var(--color-text, #fff);
     z-index: 2;
     pointer-events: auto;
     user-select: none;
-    font-family: var(--font-family-main, monospace);
     text-transform: uppercase;
     text-decoration: none;
     visibility: hidden;
