@@ -78,10 +78,6 @@ html {
     text-align: center;
 }
 
-#enterHome:hover {
-    cursor: pointer;
-}
-
 #skyGif {
     max-width: 90vw;
     max-height: 60vh;
