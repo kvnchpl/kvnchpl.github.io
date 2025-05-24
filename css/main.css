@@ -49,4 +49,5 @@ a {
 a:hover {
   color: var(--color-link-hover);
   text-transform: var(--text-transform-link-hover);
+  text-decoration: underline;
 }
