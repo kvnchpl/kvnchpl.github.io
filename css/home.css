@@ -1,15 +1,15 @@
 .homepageTitle {
-    display: block;
     width: 100vw;
-    text-align: justify;
-    font-size: clamp(2rem, 5vw, 6rem);
+    font-size: 10vw;
     color: white;
     margin: 0;
     padding: 0;
     line-height: 1;
     pointer-events: none;
     user-select: none;
-    text-transform: uppercase
+    text-transform: uppercase;
+    text-align: center;
+    white-space: nowrap;
 }
 
 #homeMain {
