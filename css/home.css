@@ -7,7 +7,8 @@ main {
     flex-direction: column;
 }
 
-.header {
+.title {
+    height: 10vh;
     width: 100vw;
     font-size: 6.49vw;
     color: white;
@@ -27,7 +28,12 @@ main {
 }
 
 .container {
-    flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    min-height: 0;
+    overflow: hidden;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,12 +45,12 @@ main {
     display: inline-block;
 }
 
-#header-top {
+#title-top {
     translate: -0.3rem -0.3rem;
     top: 0;
 }
 
-#header-bottom {
+#title-bottom {
     translate: -0.3rem 0.3rem;
     bottom: 0;
 }
