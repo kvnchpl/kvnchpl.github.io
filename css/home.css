@@ -10,7 +10,7 @@ main {
 .title {
     height: auto;
     width: 100vw;
-    font-size: 6.49vw;
+    font-size: 6.7vw;
     color: white;
     margin: 0;
     padding: 0;
@@ -19,10 +19,10 @@ main {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    left: 0;
     display: block;
     pointer-events: none;
     user-select: none;
+    -webkit-user-select: none;
     z-index: 1;
 }
 
@@ -58,12 +58,12 @@ main {
 }
 
 #title-top {
-    translate: -0.3rem -0.3rem;
+    translate: -0.3rem -0.6rem;
     top: 0;
 }
 
 #title-bottom {
-    translate: -0.3rem 0.3rem;
+    translate: -0.3rem 0.6rem;
     bottom: 0;
 }
 
