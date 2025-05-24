@@ -62,11 +62,19 @@ main {
 }
 
 #enterHome {
+    color: inherit;
+    text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
+#enterHome:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
 
 #enterText {
     position: absolute;
@@ -119,13 +127,13 @@ main {
 }
 
 @media (max-width: 768px) {
-#title-top {
-    translate: -0.5vw -0.8vh;
-    top: 0;
-}
+    #title-top {
+        translate: -0.5vw -0.8vh;
+        top: 0;
+    }
 
-#title-bottom {
-    translate: -0.5vw 0.4vh;
-    bottom: 0;
-}
+    #title-bottom {
+        translate: -0.5vw 0.4vh;
+        bottom: 0;
+    }
 }
