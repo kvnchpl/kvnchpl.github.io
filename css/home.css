@@ -10,8 +10,10 @@
     text-transform: uppercase;
     text-align: center;
     white-space: nowrap;
-    transform: scaleX(1.05);
+    letter-spacing: -0.05em;
+    transform: scaleX(1.03);
     transform-origin: center;
+    overflow: hidden;
 }
 
 #homeMain {
