@@ -210,9 +210,8 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
     if (!container || !pageData) return;
 
-    const galleryEl = container.querySelector('#gallery');
-    const contentEl = container.querySelector('#content');
-    if (!galleryEl || !contentEl) return;
+    const galleryEl = container.querySelector('#content-page-container');
+    if (!galleryEl) return;
 
     const images = pageData.images || [];
     const content = pageData.content || [];
@@ -263,7 +262,6 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
     // Clear previous content
     galleryEl.innerHTML = "";
-    contentEl.innerHTML = "";
 
     if (Array.isArray(layout) && layout.length > 0) {
         for (let i = 0; i < layout.length; i += 2) {
