@@ -26,7 +26,7 @@ import { loadJSON, getMetaContents } from "./utils.js";
         }
 
         const p = document.createElement("p");
-        p.textContent = `See what I'm ${link.label.toLowerCase()}`;
+        p.textContent = link.title;
         a.appendChild(p);
         pageLink.appendChild(a);
 
