@@ -269,7 +269,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             console.warn(`No link container found with selector: ${siteConfig.elementIds.linkContainer}`);
             return;
         }
-        if(!Array.isArray(navData)) {
+        if (!Array.isArray(navData)) {
             console.warn("navData is not an array, expected an array of link objects.");
             return;
         }
@@ -279,11 +279,17 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             pageLink.className = "page-link";
 
             const img = document.createElement("img");
-            const skyImages = siteConfig.skyImages || [];
-            const randomSkyImage = skyImages.length > 0
-                ? skyImages[Math.floor(Math.random() * skyImages.length)]
+            let skyImages = siteConfig.skyImages ? [...siteConfig.skyImages] : [];
+            for (let i = skyImages.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [skyImages[i], skyImages[j]] = [skyImages[j], skyImages[i]];
+            }
+            let skyIndex = 0;
+            const nextSkyImage = skyImages.length > 0
+                ? skyImages[skyIndex % skyImages.length]
                 : "/img/home/sky-1.jpg";
-            img.src = link.thumbnail || randomSkyImage;
+            skyIndex++;
+            img.src = link.thumbnail || nextSkyImage;
             img.alt = "Sky";
             pageLink.appendChild(img);
 
