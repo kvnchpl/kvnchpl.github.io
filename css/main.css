@@ -48,7 +48,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-h1 {
+#main-heading {
     text-transform: var(--text-transform-h1)
 }
 

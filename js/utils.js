@@ -61,7 +61,7 @@ export async function injectPartial(url, target, position = 'beforeend') {
  * @param {string} heading - The text to set as the main heading.
  */
 export function updateMainHeading(heading) {
-    const h1 = document.getElementById('mainHeading')
+    const h1 = document.getElementById('main-heading')
     if (h1 && heading) {
         h1.textContent = heading;
     }
