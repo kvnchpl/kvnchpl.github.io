@@ -87,6 +87,7 @@ import {
             console.warn(`No page data found for "${page}". Skipping content rendering.`);
             return;
         }
+        checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
         renderContentPage(page, pages, siteConfig);
 
     } catch (err) {
