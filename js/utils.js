@@ -3,6 +3,20 @@
 // =========================
 
 /**
+ * Returns a shuffled copy of the sky images array from the site config.
+ * @param {Object} siteConfig - The site configuration object.
+ * @returns {Array} - A new shuffled array of sky image URLs.
+ */
+function getShuffledSkyImages(siteConfig) {
+    const images = siteConfig.skyImages ? [...siteConfig.skyImages] : [];
+    for (let i = images.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [images[i], images[j]] = [images[j], images[i]];
+    }
+    return images;
+}
+
+/**
  * Sets the background color of the site, commonly used on project and collection pages.
  * @param {string} color - The color to set as the background (e.g. "#f0f0f0", "lightblue").
  */
@@ -279,11 +293,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             pageLink.className = "page-link";
 
             const img = document.createElement("img");
-            let skyImages = siteConfig.skyImages ? [...siteConfig.skyImages] : [];
-            for (let i = skyImages.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [skyImages[i], skyImages[j]] = [skyImages[j], skyImages[i]];
-            }
+            let skyImages = getShuffledSkyImages(siteConfig);
             let skyIndex = 0;
             const nextSkyImage = skyImages.length > 0
                 ? skyImages[skyIndex % skyImages.length]
@@ -318,7 +328,11 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                img.src = data.thumbnail || "/img/home/sky_1.jpg";
+                let skyImages = getShuffledSkyImages(siteConfig);
+                const randomSkyImage = skyImages.length > 0
+                    ? skyImages[Math.floor(Math.random() * skyImages.length)]
+                    : "/img/home/sky_1.jpg";
+                img.src = data.thumbnail || randomSkyImage;
                 img.alt = data.title || slug;
                 pageLink.appendChild(img);
 
