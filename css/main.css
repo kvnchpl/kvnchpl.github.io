@@ -1,3 +1,19 @@
+
+.slideshow-content-pair {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+}
+
+.slideshow-half,
+.content-half {
+    flex: 1 1 48%;
+    box-sizing: border-box;
+}
 :root {
     --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1.2rem;
@@ -234,5 +250,9 @@ main {
 
     .page-link {
         width: 100%;
+    }
+
+    .slideshow-content-pair {
+        flex-direction: column;
     }
 }
