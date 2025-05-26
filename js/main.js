@@ -1,8 +1,9 @@
 import {
+    getPageType,
     getMetaContents,
     loadJSON,
     loadResources,
-    assessNav,
+    checkRenderNav,  
     renderDynamicLinks,
     renderContentPage
 } from './utils.js';
@@ -32,10 +33,7 @@ import {
     }
 
     const page = document.body.dataset.page;
-    const collectionPages = Object.keys(collections);
-    const isCollectionPage = collectionPages.includes(page);
-    const isHomePage = page === "home";
-    const isContentPage = !(isHomePage || isCollectionPage || page === "index");
+    const { isHomePage, isCollectionPage, isContentPage } = getPageType(page, collections);
 
     try {
         // Dynamically determine which data file to load for collection pages or project subpages
@@ -52,6 +50,10 @@ import {
             }
         }
 
+        if (!pagesMetaTag && isContentPage) {
+            console.warn(`No pages metaTag found for page: ${page}`);
+        }
+
         const resources = await loadResources({
             pages: pagesMetaTag,
             navData: metaTags.nav
@@ -65,12 +67,12 @@ import {
 
         if (isHomePage || isCollectionPage) {
             renderDynamicLinks(page, siteConfig, navData, pages);
-            assessNav(page, elementIds.nav, navData, siteBaseUrl);
+            checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
             return; // Nothing else to do for home or collection pages
         }
 
         if (!isContentPage || page === "thoughts" || page === "404") {
-            assessNav(page, elementIds.nav, navData, siteBaseUrl);
+            checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
             return;
         }
 

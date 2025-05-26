@@ -53,6 +53,18 @@ export function updateMainHeading(heading) {
 // =========================
 
 /**
+ * Returns booleans indicating page type: home, collection, or content.
+ * @param {string} page - The current page identifier.
+ * @param {Object} collections - The collections config object.
+ */
+export function getPageType(page, collections) {
+    const isHomePage = page === "home";
+    const isCollectionPage = Object.keys(collections).includes(page);
+    const isContentPage = !(isHomePage || isCollectionPage || page === "index");
+    return { isHomePage, isCollectionPage, isContentPage };
+}
+
+/**
  * Updates the document's <title> tag.
  */
 export function updateTitle(title) {
@@ -122,7 +134,7 @@ export async function loadResources(metaTags) {
  * @param {Array} navData - The navigation data array from nav.json.
  * @param {string} siteBaseUrl - The base URL for absolute paths.
  */
-export function assessNav(page, navId, navData, siteBaseUrl) {
+export function checkRenderNav(page, navId, navData, siteBaseUrl) {
     if (!navId) return;
     const useAbsolutePaths = (page === "thoughts");
     renderNav(navId, navData, useAbsolutePaths, siteBaseUrl);
