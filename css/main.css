@@ -83,7 +83,6 @@ main {
     width: 100%;
 }
 
-/* Shared container styling */
 .container {
     height: 100%;
     flex: 1 0 auto;
@@ -104,12 +103,6 @@ main {
     width: 100%;
     box-sizing: border-box;
     margin: var(--spacing-large) auto;
-}
-
-#link-container {
-    overflow-y: auto;
-    flex-wrap: wrap;
-    align-content: center;
 }
 
 #link-container {
