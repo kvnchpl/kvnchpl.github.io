@@ -116,9 +116,14 @@ export function getMetaContents(names) {
  * @param {string} url - The URL to fetch JSON data from.
  */
 export async function loadJSON(url) {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`Failed to load JSON: ${url}`);
-    return await res.json();
+    try {
+        const res = await fetch(url);
+        if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+        return await res.json();
+    } catch (err) {
+        console.error(`Failed to load JSON from ${url}`, err);
+        return null;
+    }
 }
 
 /**
