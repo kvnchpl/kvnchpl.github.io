@@ -229,10 +229,10 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         img.alt = imagesArr[0];
 
         const prevBtn = document.createElement("button");
-        prevBtn.textContent = "&lt;";
+        prevBtn.textContent = "<";
         prevBtn.className = "slideshow-prev";
         const nextBtn = document.createElement("button");
-        nextBtn.textContent = "&gt;";
+        nextBtn.textContent = ">";
         nextBtn.className = "slideshow-next";
 
         wrapper.appendChild(prevBtn);
