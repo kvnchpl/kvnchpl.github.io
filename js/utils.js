@@ -270,10 +270,26 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         layout.forEach(item => {
             const [type, idxStr] = item.split("-");
             const idx = parseInt(idxStr, 10) - 1;
-            if (type === "images" && images[idx]) {
-                galleryEl.appendChild(renderSlideshow(images[idx]));
-            } else if (type === "content" && content[idx]) {
-                contentEl.appendChild(renderContentBlock(content[idx]));
+
+            if ((type === "images" && images[idx]) || (type === "content" && content[idx])) {
+                const pairWrapper = document.createElement("div");
+                pairWrapper.className = "slideshow-content-pair";
+
+                if (type === "images" && images[idx]) {
+                    const slideshow = renderSlideshow(images[idx]);
+                    slideshow.classList.add("slideshow-half");
+                    pairWrapper.appendChild(slideshow);
+                }
+
+                if (type === "content" && content[idx]) {
+                    const contentBlock = renderContentBlock(content[idx]);
+                    const contentWrapper = document.createElement("div");
+                    contentWrapper.className = "content-half";
+                    contentWrapper.appendChild(contentBlock);
+                    pairWrapper.appendChild(contentWrapper);
+                }
+
+                galleryEl.appendChild(pairWrapper);
             }
         });
     } else {
