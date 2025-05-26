@@ -219,17 +219,39 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     const layout = pageData.layout;
 
     // Render block of images into gallery
-    function renderImagesBlock(imagesArr) {
-        const fragment = document.createDocumentFragment();
-        imagesArr.forEach(filename => {
-            const figure = document.createElement(tagNames.galleryItemWrapper);
-            const img = document.createElement(tagNames.galleryImage);
-            img.src = `/${basePath}/${pageData.shortTitle}/${size}/${filename}${imageExt}`;
-            img.alt = filename;
-            figure.appendChild(img);
-            fragment.appendChild(figure);
-        });
-        return fragment;
+    function renderSlideshow(imagesArr) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "slideshow-wrapper";
+
+        let currentIndex = 0;
+
+        const img = document.createElement(tagNames.galleryImage);
+        img.src = `/${basePath}/${pageData.shortTitle}/${size}/${imagesArr[0]}${imageExt}`;
+        img.alt = imagesArr[0];
+        wrapper.appendChild(img);
+
+        const prevBtn = document.createElement("button");
+        prevBtn.textContent = "◀";
+        prevBtn.className = "slideshow-prev";
+        const nextBtn = document.createElement("button");
+        nextBtn.textContent = "▶";
+        nextBtn.className = "slideshow-next";
+
+        wrapper.appendChild(prevBtn);
+        wrapper.appendChild(nextBtn);
+
+        function showImage(index) {
+            if (index >= 0 && index < imagesArr.length) {
+                img.src = `/${basePath}/${pageData.shortTitle}/${size}/${imagesArr[index]}${imageExt}`;
+                img.alt = imagesArr[index];
+                currentIndex = index;
+            }
+        }
+
+        prevBtn.addEventListener("click", () => showImage((currentIndex - 1 + imagesArr.length) % imagesArr.length));
+        nextBtn.addEventListener("click", () => showImage((currentIndex + 1) % imagesArr.length));
+
+        return wrapper;
     }
 
     // Render paragraph block into content area
@@ -249,14 +271,14 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
             const [type, idxStr] = item.split("-");
             const idx = parseInt(idxStr, 10) - 1;
             if (type === "images" && images[idx]) {
-                galleryEl.appendChild(renderImagesBlock(images[idx]));
+                galleryEl.appendChild(renderSlideshow(images[idx]));
             } else if (type === "content" && content[idx]) {
                 contentEl.appendChild(renderContentBlock(content[idx]));
             }
         });
     } else {
         images.forEach(imgArr => {
-            galleryEl.appendChild(renderImagesBlock(imgArr));
+            galleryEl.appendChild(renderSlideshow(imgArr));
         });
         content.forEach(text => {
             contentEl.appendChild(renderContentBlock(text));
