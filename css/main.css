@@ -79,8 +79,8 @@ main {
     z-index: 1;
 }
 
-.container,
-.link-container {
+#container,
+#link-container {
     height: 100%;
     flex: 1 0 auto;
     flex-grow: 1;
@@ -92,11 +92,11 @@ main {
     align-items: center;
 }
 
-.container {
+#container {
     position: relative;
 }
 
-.link-container {
+#link-container {
     overflow-y: auto;
     flex-wrap: wrap;
     align-content: center;
