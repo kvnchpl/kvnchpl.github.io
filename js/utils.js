@@ -287,7 +287,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             let skyIndex = 0;
             const nextSkyImage = skyImages.length > 0
                 ? skyImages[skyIndex % skyImages.length]
-                : "/img/home/sky-1.jpg";
+                : "/img/home/sky_1.jpg";
             skyIndex++;
             img.src = link.thumbnail || nextSkyImage;
             img.alt = "Sky";
@@ -318,7 +318,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                img.src = data.thumbnail || "/img/home/sky-1.jpg";
+                img.src = data.thumbnail || "/img/home/sky_1.jpg";
                 img.alt = data.title || slug;
                 pageLink.appendChild(img);
 
