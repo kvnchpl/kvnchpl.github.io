@@ -83,6 +83,10 @@ import {
         }
 
         // Render standard content pages (e.g. writings, readings, project subpages)
+        if (!pages || !pages[page]) {
+            console.warn(`No page data found for "${page}". Skipping content rendering.`);
+            return;
+        }
         renderContentPage(page, pages, siteConfig);
 
     } catch (err) {
