@@ -118,7 +118,7 @@ export async function loadResources(metaTags) {
 /**
  * Renders the main navigation bar using nav data from nav.json.
  */
-export function renderNav(navId, navData, useAbsolutePaths = false) {
+export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl = "") {
     const nav = document.getElementById(navId);
     if (nav && navData) {
         const navFragment = document.createDocumentFragment();
@@ -127,7 +127,7 @@ export function renderNav(navId, navData, useAbsolutePaths = false) {
 
         filteredNavData.forEach(link => {
             const a = document.createElement("a");
-            a.href = useAbsolutePaths ? `https://kvnchpl.com${link.href}` : link.href;
+            a.href = useAbsolutePaths ? `${siteBaseUrl}${link.href}` : link.href;
             a.textContent = (link.label.toLowerCase() === currentPage)
                 ? `*${link.label.toUpperCase()}*`
                 : link.label;
