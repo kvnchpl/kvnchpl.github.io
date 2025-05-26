@@ -45,7 +45,7 @@ main {
     align-content: center;
 }
 
-#enterWrapper {
+#enter-wrapper {
     position: relative;
     display: inline-block;
 }
@@ -62,7 +62,7 @@ main {
     bottom: 0;
 }
 
-#enterHome {
+#enter-home {
     color: inherit;
     text-decoration: none;
     display: flex;
@@ -71,13 +71,13 @@ main {
     justify-content: center;
 }
 
-#enterHome:hover {
+#enter-home:hover {
     color: inherit;
     text-decoration: none;
 }
 
 
-#enterText {
+#enter-text {
     position: absolute;
     top: 0;
     right: 0;
@@ -92,12 +92,12 @@ main {
     visibility: hidden;
 }
 
-#enterText:hover {
+#enter-text:hover {
     color: var(--color-link-hover);
     text-transform: var(--text-transform-link-hover);
 }
 
-#skyGif {
+#sky-gif {
     max-width: 60vw;
     max-height: 60vh;
     width: auto;
