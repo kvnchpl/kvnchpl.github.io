@@ -8,7 +8,7 @@ main {
 }
 
 .title {
-    height: 10vh;
+    height: 20vh;
     font-size: 6.7vw;
     margin: 0;
     padding: 0;
@@ -16,7 +16,8 @@ main {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    display: block;
+    display: flex;
+    justify-content: center;
     z-index: 1;
 }
 
@@ -48,11 +49,13 @@ main {
 }
 
 #title-top {
+    align-items: flex-start;
     translate: -0.5vw -1.3vh;
     top: 0;
 }
 
 #title-bottom {
+    align-items: flex-end;
     translate: -0.5vw 0.8vh;
     bottom: 0;
 }
