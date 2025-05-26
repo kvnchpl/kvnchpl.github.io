@@ -7,10 +7,10 @@
         "nav": "nav",
         "content": "content",
         "gallery": "gallery",
-        "homeLinks": "homeLinks",
+        "linkContainer": "link-container",
         "footer": "footer",
         "mainHeading": "mainHeading",
-        "collectionList": "collectionList"
+        "linkContainer": "linkContainer"
     },
     "tagNames": {
         "galleryItemWrapper": "figure",

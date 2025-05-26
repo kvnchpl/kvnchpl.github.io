@@ -257,7 +257,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const isCollectionPage = siteConfig.collections?.[page];
 
     if (isHomePage) {
-        const container = document.querySelector(siteConfig.elementIds.homeLinks);
+        const container = document.querySelector(siteConfig.elementIds.linkContainer);
         if (!container || !Array.isArray(navData)) return;
 
         navData.filter(link => link.navBar).forEach(link => {
@@ -285,7 +285,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         });
     } else if (isCollectionPage) {
         const { type, basePath } = siteConfig.collections[page];
-        const container = document.getElementById(siteConfig.elementIds.collectionList);
+        const container = document.getElementById(siteConfig.elementIds.linkContainer);
         if (!container || !type) return;
 
         Object.entries(pages).forEach(([slug, data]) => {
