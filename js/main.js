@@ -26,6 +26,7 @@ import {
         return;
     }
     const siteConfig = await loadJSON(configPath);
+    const { siteBaseUrl = "" } = siteConfig;
 
     // Cache frequently used properties from siteConfig
     const { elementIds, tagNames, metaTags, collections, imageExt, defaultImageSize, galleryBasePath } = siteConfig;
@@ -67,10 +68,10 @@ import {
         window.pages = pages;
         window.navData = navData;
 
-        // Always render nav if nav element exists
+        // Render nav bar if it exists
         if (elementIds.nav) {
             const useAbsolutePaths = (page === "thoughts");
-            renderNav(elementIds.nav, navData, useAbsolutePaths);
+            renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
         }
 
         // Early return for collection/thoughts/index/home/404 pages after globals are set
