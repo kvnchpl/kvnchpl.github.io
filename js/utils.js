@@ -3,7 +3,8 @@
 // =========================
 
 /**
- * Sets the background color of the site, used for project and collection pages.
+ * Sets the background color of the site, commonly used on project and collection pages.
+ * @param {string} color - The color to set as the background (e.g. "#f0f0f0", "lightblue").
  */
 export function applyBackgroundColor(color) {
     if (color) {
@@ -12,8 +13,11 @@ export function applyBackgroundColor(color) {
 }
 
 /**
- * Injects an HTML partial (e.g., head or footer) into a specified element or selector.
- * For <head>, parses and appends nodes for reliability.
+ * Loads and injects an external HTML partial into the page.
+ * Supports <head> content and body elements.
+ * @param {string} url - The URL of the HTML partial to inject.
+ * @param {string|HTMLElement} target - The CSS selector or element to inject into.
+ * @param {string} position - The position to insert the HTML (default: 'beforeend').
  */
 export async function injectPartial(url, target, position = 'beforeend') {
     try {
@@ -39,7 +43,8 @@ export async function injectPartial(url, target, position = 'beforeend') {
 }
 
 /**
- * Updates the main <h1> heading for the page.
+ * Updates the main page heading (<h1>) with provided text.
+ * @param {string} heading - The text to set as the main heading.
  */
 export function updateMainHeading(heading) {
     const h1 = document.getElementById('mainHeading')
@@ -53,9 +58,10 @@ export function updateMainHeading(heading) {
 // =========================
 
 /**
- * Returns booleans indicating page type: home, collection, or content.
- * @param {string} page - The current page identifier.
- * @param {Object} collections - The collections config object.
+ * Returns page type flags based on current page identifier and siteConfig collections.
+ * @param {string} page - The current page identifier (e.g. "home", "thoughts").
+ * @param {Object} collections - The collections object from siteConfig.
+ * @return {Object} - An object with flags: isHomePage, isCollectionPage, isContentPage.
  */
 export function getPageType(page, collections) {
     const isHomePage = page === "home";
@@ -65,7 +71,8 @@ export function getPageType(page, collections) {
 }
 
 /**
- * Updates the document's <title> tag.
+ * Updates the document's <title> element.
+ * @param {string} title - The new title for the document.
  */
 export function updateTitle(title) {
     if (title) {
@@ -74,7 +81,8 @@ export function updateTitle(title) {
 }
 
 /**
- * Updates or creates the meta description tag in the <head>.
+ * Updates or inserts the meta description tag with the provided content.
+ * @param {string} description - The content for the meta description tag.
  */
 export function updateDescription(description) {
     let meta = document.querySelector('meta[name="description"]');
@@ -87,7 +95,8 @@ export function updateDescription(description) {
 }
 
 /**
- * Gets meta tag contents by name(s).
+ * Returns a mapping of keys to meta tag content values.
+ * @param {Object} names - {key: metaTagName}
  */
 export function getMetaContents(names) {
     const result = {};
@@ -103,7 +112,8 @@ export function getMetaContents(names) {
 // =========================
 
 /**
- * Loads a JSON file from the given URL.
+ * Loads and parses JSON from a given URL.
+ * @param {string} url - The URL to fetch JSON data from.
  */
 export async function loadJSON(url) {
     const res = await fetch(url);
@@ -112,7 +122,8 @@ export async function loadJSON(url) {
 }
 
 /**
- * Loads multiple resources (JSON files) in parallel.
+ * Loads multiple JSON resources in parallel based on provided meta tag names.
+ * @param {Object} metaTags - An object mapping keys to meta tag names.
  */
 export async function loadResources(metaTags) {
     const metaContents = getMetaContents(metaTags);
@@ -128,11 +139,11 @@ export async function loadResources(metaTags) {
 // =========================
 
 /**
- * Assesses the current page and renders the navigation bar if applicable.
- * @param {string} page - The current page identifier (e.g., "home", "thoughts").
- * @param {string} navId - The ID of the navigation element to render.
- * @param {Array} navData - The navigation data array from nav.json.
- * @param {string} siteBaseUrl - The base URL for absolute paths.
+ * Conditionally renders the site navigation bar based on page type and path logic.
+ * @param {string} page - The current page identifier (e.g. "home", "thoughts").
+ * @param {string} navId - The ID of the navigation element to render into.
+ * @param {Array} navData - The navigation data array containing link objects.
+ * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
 export function checkRenderNav(page, navId, navData, siteBaseUrl) {
     if (!navId) return;
@@ -141,7 +152,11 @@ export function checkRenderNav(page, navId, navData, siteBaseUrl) {
 }
 
 /**
- * Renders the main navigation bar using nav data from nav.json.
+ * Renders the main navigation bar using nav data and highlights the current page.
+ * @param {string} navId - The ID of the navigation element to render into.
+ * @param {Array} navData - The navigation data array containing link objects.
+ * @param {boolean} useAbsolutePaths - Whether to use absolute URLs for links.
+ * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
 export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl = "") {
     const nav = document.getElementById(navId);
@@ -164,7 +179,13 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
 }
 
 /**
- * Renders a project page layout with images and text content.
+ * Renders a project or content page layout using provided data and configuration.
+ * @param {HTMLElement} container - The main container element to render into.
+ * @param {Object} pageData - The data object containing images, content, and layout structure.
+ * @param {Object} tagNames - An object mapping custom tag names for gallery items and images.
+ * @param {string} basePath - The base path for image URLs.
+ * @param {string} size - The image size to use in URLs (e.g. "large", "medium").
+ * @param {string} imageExt - The file extension for images (e.g. ".jpg", ".png").
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
     if (!container || !pageData) return;
@@ -177,7 +198,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     const content = pageData.content || [];
     const layout = pageData.layout;
 
-    // Helper to render a block of images for the gallery
+    // Render block of images into gallery
     function renderImagesBlock(imagesArr) {
         const fragment = document.createDocumentFragment();
         imagesArr.forEach(filename => {
@@ -191,7 +212,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         return fragment;
     }
 
-    // Helper to render a block of text content
+    // Render paragraph block into content area
     function renderContentBlock(text) {
         const p = document.createElement("p");
         p.textContent = text;
@@ -199,14 +220,10 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     }
 
     // Clear previous content
-    while (galleryEl.firstChild) {
-        galleryEl.removeChild(galleryEl.firstChild);
-    }
-    while (contentEl.firstChild) {
-        contentEl.removeChild(contentEl.firstChild);
-    }
+    galleryEl.innerHTML = "";
+    contentEl.innerHTML = "";
 
-    // If a custom layout is specified, alternate blocks as defined in layout array
+    // Render layout using provided structure, or fallback to default
     if (Array.isArray(layout) && layout.length > 0) {
         layout.forEach(item => {
             const [type, idxStr] = item.split("-");
@@ -218,7 +235,6 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
             }
         });
     } else {
-        // Default: all images in gallery, all text in content
         images.forEach(imgArr => {
             galleryEl.appendChild(renderImagesBlock(imgArr));
         });
@@ -229,7 +245,12 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 }
 
 /**
- * Renders page-link elements dynamically for home and collection pages.
+ * Dynamically renders .page-link elements for home or collection pages.
+ * @param {string} page - The current page identifier (e.g. "home", "collection").
+ * @param {Object} siteConfig - The site configuration object containing element IDs and collection data.
+ * @param {Array} navData - The navigation data array containing link information.
+ * @param {Object} pages - The pages data object containing content for each page.
+ * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
 export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const isHomePage = page === "home";
@@ -239,9 +260,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         const container = document.querySelector(siteConfig.elementIds.homeLinks);
         if (!container || !Array.isArray(navData)) return;
 
-        const linksToShow = navData.filter(link => link.navBar);
-
-        linksToShow.forEach(link => {
+        navData.filter(link => link.navBar).forEach(link => {
             const pageLink = document.createElement("div");
             pageLink.className = "page-link";
 
@@ -294,7 +313,10 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 }
 
 /**
- * Renders a content page using layout data, metadata, and gallery content.
+ * Renders a standard content page with background, metadata, and layout.
+ * @param {string} page - The page identifier (e.g. "writings", "readings").
+ * @param {Object} pages - The pages data object containing content for each page.
+ * @param {Object} siteConfig - The site configuration object containing element IDs and other settings.
  */
 export function renderContentPage(page, pages, siteConfig) {
     const pageContent = pages[page];
