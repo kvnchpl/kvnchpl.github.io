@@ -8,8 +8,7 @@
         "subtitle": "default",
         "backgroundColor": "#111111",
         "content": [
-            "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by ai object detection technology. extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” our sense of the world is mediated through technology that was never meant to prize nuance or instinct.",
-            "Here is sample text for the second content block."
+            "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by ai object detection technology. extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
         ],
         "images": [
             [
@@ -17,9 +16,7 @@
                 "viewfinder_2",
                 "viewfinder_3",
                 "viewfinder_4",
-                "viewfinder_5"
-            ],
-            [
+                "viewfinder_5",
                 "viewfinder_6",
                 "viewfinder_7",
                 "viewfinder_8",
