@@ -234,7 +234,7 @@ main {
 
 #gallery,
 #content {
-    max-width: var(--max-width-content);
+    max-width: 100vw;
     width: 100%;
     margin: var(--spacing-large) auto;
     box-sizing: border-box;
