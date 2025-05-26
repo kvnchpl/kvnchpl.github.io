@@ -41,6 +41,8 @@ import {
     const page = document.body.dataset.page;
     const collectionPages = Object.keys(collections);
     const isCollectionPage = collectionPages.includes(page);
+    const isHomePage = page === "home";
+    const isContentPage = !(isHomePage || isCollectionPage || page === "index");
 
     // Always load resources and set globals for all pages
     try {
@@ -77,8 +79,8 @@ import {
             renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
         }
 
-        // Early return for collection/thoughts/index/home/404 pages after globals are set
-        if (isCollectionPage || page === "thoughts" || page === "index" || page === "home" || page === "404") return;
+        // Early return for non-content pages and special cases
+        if (!isContentPage || page === "thoughts" || page === "404") return;
 
         // Render project or content page
         const pageContent = pages[page];
