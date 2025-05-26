@@ -279,7 +279,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             pageLink.className = "page-link";
 
             const img = document.createElement("img");
-            img.src = link.thumbnail || "/img/index/sky-1.jpg";
+            img.src = link.thumbnail || "/img/home/sky-1.jpg";
             img.alt = "Sky";
             pageLink.appendChild(img);
 
@@ -308,7 +308,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                img.src = data.thumbnail || "/img/index/sky-1.jpg";
+                img.src = data.thumbnail || "/img/home/sky-1.jpg";
                 img.alt = data.title || slug;
                 pageLink.appendChild(img);
 
