@@ -15,8 +15,6 @@ import {
         configPath: "config-data"
     };
     const { configPath } = getMetaContents(metaTagNames);
-    
-    console.log("CONFIG PATH:", configPath);
 
     // Abort if config meta tag is missing
     if (!configPath) {
@@ -70,8 +68,6 @@ import {
         window.siteConfig = siteConfig;
         window.pages = pages;
         window.navData = navData;
-
-        console.log("NAV DATA:", navData);
 
         // Render navigation and dynamic links for home or collection pages
         if (isHomePage || isCollectionPage) {
