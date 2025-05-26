@@ -95,6 +95,17 @@ export function updateTitle(title) {
 }
 
 /**
+ * Updates the subtitle <h2> element with provided text.
+ * @param {string} subtitle - The subtitle text to display.
+ */
+export function updateSubtitle(subtitle) {
+    const subtitleEl = document.getElementById('subtitle');
+    if (subtitleEl) {
+        subtitleEl.textContent = subtitle;
+    }
+}
+
+/**
  * Updates or inserts the meta description tag with the provided content.
  * @param {string} description - The content for the meta description tag.
  */
@@ -426,15 +437,12 @@ export function renderContentPage(page, pages, siteConfig) {
     updateDescription(description);
     updateMainHeading(title);
 
-    const subtitleEl = document.getElementById('subtitle');
-    if (subtitleEl) {
-        let subtitleText = subtitle;
-        if (!subtitleText || subtitleText.toLowerCase() === "default") {
-            const date = new Date(pageContent.year, pageContent.month - 1);
-            subtitleText = date.toLocaleString('default', { month: 'long', year: 'numeric' });
-        }
-        subtitleEl.textContent = subtitleText;
+    let subtitleText = subtitle;
+    if (!subtitleText || subtitleText.toLowerCase() === "default") {
+        const date = new Date(pageContent.year, pageContent.month - 1);
+        subtitleText = date.toLocaleString('default', { month: 'long', year: 'numeric' });
     }
+    updateSubtitle(subtitleText);
 
     const main = document.querySelector('main');
     renderProjectLayout(
