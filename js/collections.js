@@ -24,7 +24,7 @@ async function waitForSiteConfig() {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                img.src = data.thumbnail || "/img/index/sky-default.jpg"; // fallback image
+                img.src = data.thumbnail || "/img/index/sky-1.jpg";
                 img.alt = data.title || slug;
                 pageLink.appendChild(img);
 
