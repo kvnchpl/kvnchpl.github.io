@@ -18,10 +18,10 @@
     <main>
         <a href="/" class="title" id="title-top">Kevin Cunanan Chappelle #</a>
         <div class="container">
-            <a href="/home" id="enterHome">
-                <div id="enterWrapper">
-                    <img src="/img/index/sky.gif" alt="Enter" id="skyGif" />
-                    <span id="enterText">Enter</span>
+            <a href="/home" id="enter-home">
+                <div id="enter-wrapper">
+                    <img src="/img/index/sky.gif" alt="Enter" id="sky-gif" />
+                    <span id="enter-text">Enter</span>
                 </div>
             </a>
         </div>
@@ -29,8 +29,8 @@
     </main>
 
     <script>
-        const skyGif = document.getElementById('skyGif');
-        const enterText = document.querySelector('#enterHome #enterText');
+        const skyGif = document.getElementById('sky-gif');
+        const enterText = document.querySelector('#enter-home #enter-text');
         if (skyGif && enterText) {
             if (skyGif.complete) {
                 enterText.style.visibility = 'visible';
