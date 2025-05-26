@@ -2,7 +2,7 @@ import {
     getMetaContents,
     loadJSON,
     loadResources,
-    renderNav,
+    assessNav,
     renderDynamicLinks,
     renderContentPage
 } from './utils.js';
@@ -65,20 +65,12 @@ import {
 
         if (isHomePage || isCollectionPage) {
             renderDynamicLinks(page, siteConfig, navData, pages);
-
-            if (elementIds.nav) {
-                const useAbsolutePaths = (page === "thoughts");
-                renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
-            }
-
+            assessNav(page, elementIds.nav, navData, siteBaseUrl);
             return; // Nothing else to do for home or collection pages
         }
 
         if (!isContentPage || page === "thoughts" || page === "404") {
-            if (elementIds.nav) {
-                const useAbsolutePaths = (page === "thoughts");
-                renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
-            }
+            assessNav(page, elementIds.nav, navData, siteBaseUrl);
             return;
         }
 

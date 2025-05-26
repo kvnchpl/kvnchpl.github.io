@@ -116,6 +116,19 @@ export async function loadResources(metaTags) {
 // =========================
 
 /**
+ * Assesses the current page and renders the navigation bar if applicable.
+ * @param {string} page - The current page identifier (e.g., "home", "thoughts").
+ * @param {string} navId - The ID of the navigation element to render.
+ * @param {Array} navData - The navigation data array from nav.json.
+ * @param {string} siteBaseUrl - The base URL for absolute paths.
+ */
+export function assessNav(page, navId, navData, siteBaseUrl) {
+    if (!navId) return;
+    const useAbsolutePaths = (page === "thoughts");
+    renderNav(navId, navData, useAbsolutePaths, siteBaseUrl);
+}
+
+/**
  * Renders the main navigation bar using nav data from nav.json.
  */
 export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl = "") {
