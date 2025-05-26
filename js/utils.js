@@ -279,7 +279,11 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             pageLink.className = "page-link";
 
             const img = document.createElement("img");
-            img.src = link.thumbnail || "/img/home/sky-1.jpg";
+            const skyImages = siteConfig.skyImages || [];
+            const randomSkyImage = skyImages.length > 0
+                ? skyImages[Math.floor(Math.random() * skyImages.length)]
+                : "/img/home/sky-1.jpg";
+            img.src = link.thumbnail || randomSkyImage;
             img.alt = "Sky";
             pageLink.appendChild(img);
 
