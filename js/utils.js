@@ -207,7 +207,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
  * Renders page-link elements dynamically for home and collection pages.
  */
 export function renderDynamicLinks(page, siteConfig, navData, pages) {
-    const isHomePage = page === "home" || page === "index";
+    const isHomePage = page === "home";
     const isCollectionPage = siteConfig.collections?.[page];
 
     if (isHomePage) {
