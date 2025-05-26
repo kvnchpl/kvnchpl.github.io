@@ -49,7 +49,10 @@ body {
 }
 
 #main-heading {
-    text-transform: var(--text-transform-h1)
+    text-transform: var(--text-transform-h1);
+    text-align: center;
+    margin: var(--spacing-large) auto;
+    width: 100%;
 }
 
 a {
