@@ -38,5 +38,12 @@
             "type": "writing",
             "basePath": "/writings/"
         }
-    }
+    },
+    "skyImages": [
+        "/img/home/sky-1.jpg",
+        "/img/home/sky-2.jpg",
+        "/img/home/sky-3.jpg",
+        "/img/home/sky-4.jpg",
+        "/img/home/sky-5.jpg"
+    ]
 }
