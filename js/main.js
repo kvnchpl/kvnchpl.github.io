@@ -72,8 +72,8 @@ import {
             renderNav(elementIds.nav, navData);
         }
 
-        // Early return for collection/index/home/404 pages after globals are set
-        if (isCollectionPage || page === "index" || page === "home" || page === "404") return;
+        // Early return for collection/thoughts/index/home/404 pages after globals are set
+        if (isCollectionPage || page === "thoughts" || page === "index" || page === "home" || page === "404") return;
 
         // Render project or content page
         const pageContent = pages[page];
