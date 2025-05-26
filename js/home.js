@@ -1,13 +1,19 @@
-import { loadJSON, getMetaContents } from "./utils.js";
+// Wait for window.siteConfig to be set by main.js
+async function waitForSiteConfig() {
+    while (!window.siteConfig) {
+        await new Promise(r => setTimeout(r, 10));
+    }
+}
 
 (async function () {
-    const meta = getMetaContents({ nav: "nav-data" });
-    const navData = await loadJSON(meta.nav);
-    const container = document.querySelector(".link-container");
+    await waitForSiteConfig();
+    const siteConfig = window.siteConfig;
+    const navData = window.navData;
+    const container = document.querySelector(siteConfig.elementIds.homeLinks);
 
     if (!container || !Array.isArray(navData)) return;
 
-    const linksToShow = navData.filter(link => link.navBar); // optionally filter
+    const linksToShow = navData.filter(link => link.navBar);
 
     linksToShow.forEach(link => {
         const pageLink = document.createElement("div");
