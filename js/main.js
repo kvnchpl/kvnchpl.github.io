@@ -1,17 +1,10 @@
 import {
-    applyBackgroundColor,
-    updateMainHeading,
-
-    updateTitle,
-    updateDescription,
     getMetaContents,
-
     loadJSON,
     loadResources,
-
     renderNav,
-    renderProjectLayout,
-    renderDynamicLinks
+    renderDynamicLinks,
+    renderContentPage
 } from './utils.js';
 
 (async function () {
@@ -90,34 +83,7 @@ import {
         }
 
         // Render content page
-        const pageContent = pages[page];
-        if (!pageContent || !pageContent.shortTitle) {
-            console.warn(`Missing or incomplete page data for: ${page}`);
-            return;
-        }
-
-        const { backgroundColor, title, description } = pageContent;
-
-        if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
-            !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
-            console.error("Missing required config values for rendering content pages");
-            return;
-        }
-
-        applyBackgroundColor(backgroundColor);
-        updateTitle(title);
-        updateDescription(description);
-        updateMainHeading(title);
-
-        const main = document.querySelector('main');
-        renderProjectLayout(
-            main,
-            pageContent,
-            tagNames,
-            galleryBasePath,
-            defaultImageSize,
-            imageExt
-        );
+        renderContentPage(page, pages, siteConfig);
 
     } catch (err) {
         console.error("Error loading site data:", err);

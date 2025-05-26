@@ -267,3 +267,38 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         });
     }
 }
+
+/**
+ * Renders a content page using layout data, metadata, and gallery content.
+ */
+export function renderContentPage(page, pages, siteConfig) {
+    const pageContent = pages[page];
+    if (!pageContent || !pageContent.shortTitle) {
+        console.warn(`Missing or incomplete page data for: ${page}`);
+        return;
+    }
+
+    const { backgroundColor, title, description } = pageContent;
+    const { elementIds, tagNames, galleryBasePath, defaultImageSize, imageExt } = siteConfig;
+
+    if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
+        !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
+        console.error("Missing required config values for rendering content pages");
+        return;
+    }
+
+    applyBackgroundColor(backgroundColor);
+    updateTitle(title);
+    updateDescription(description);
+    updateMainHeading(title);
+
+    const main = document.querySelector('main');
+    renderProjectLayout(
+        main,
+        pageContent,
+        tagNames,
+        galleryBasePath,
+        defaultImageSize,
+        imageExt
+    );
+}
