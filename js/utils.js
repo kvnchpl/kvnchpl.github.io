@@ -202,3 +202,68 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         });
     }
 }
+
+/**
+ * Renders page-link elements dynamically for home and collection pages.
+ */
+export function renderDynamicLinks(page, siteConfig, navData, pages) {
+    const isHomePage = page === "home" || page === "index";
+    const isCollectionPage = siteConfig.collections?.[page];
+
+    if (isHomePage) {
+        const container = document.querySelector(siteConfig.elementIds.homeLinks);
+        if (!container || !Array.isArray(navData)) return;
+
+        const linksToShow = navData.filter(link => link.navBar);
+
+        linksToShow.forEach(link => {
+            const pageLink = document.createElement("div");
+            pageLink.className = "page-link";
+
+            const img = document.createElement("img");
+            img.src = link.thumbnail || "/img/index/sky-default.jpg";
+            img.alt = "Sky";
+            pageLink.appendChild(img);
+
+            const a = document.createElement("a");
+            a.href = link.href;
+            if (link.href.startsWith("http")) {
+                a.target = "_blank";
+                a.rel = "noopener";
+            }
+
+            const p = document.createElement("p");
+            p.textContent = link.title;
+            a.appendChild(p);
+            pageLink.appendChild(a);
+
+            container.appendChild(pageLink);
+        });
+    } else if (isCollectionPage) {
+        const { type, basePath } = siteConfig.collections[page];
+        const container = document.getElementById(siteConfig.elementIds.collectionList);
+        if (!container || !type) return;
+
+        Object.entries(pages).forEach(([slug, data]) => {
+            if (data.type === type) {
+                const pageLink = document.createElement("div");
+                pageLink.className = "page-link";
+
+                const img = document.createElement("img");
+                img.src = data.thumbnail || "/img/index/sky-default.jpg";
+                img.alt = data.title || slug;
+                pageLink.appendChild(img);
+
+                const a = document.createElement("a");
+                a.href = `${basePath}${slug}.html`;
+
+                const p = document.createElement("p");
+                p.textContent = data.title || slug;
+                a.appendChild(p);
+
+                pageLink.appendChild(a);
+                container.appendChild(pageLink);
+            }
+        });
+    }
+}
