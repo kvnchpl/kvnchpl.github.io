@@ -10,7 +10,8 @@ import {
     loadResources,
 
     renderNav,
-    renderProjectLayout
+    renderProjectLayout,
+    renderDynamicLinks
 } from './utils.js';
 
 (async function () {
@@ -67,6 +68,8 @@ import {
         window.siteConfig = siteConfig;
         window.pages = pages;
         window.navData = navData;
+
+        renderDynamicLinks(page, siteConfig, navData, pages);
 
         // Render nav bar if it exists
         if (elementIds.nav) {
