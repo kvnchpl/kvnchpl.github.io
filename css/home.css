@@ -111,7 +111,7 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin: 0;
+    margin: 0.5em;
     padding: 0;
     text-align: left;
     height: 100%;
@@ -124,7 +124,7 @@ main {
 }
 
 .page-link p {
-    margin: 0;
+    margin: 0.5em;
 }
 
 @media (max-width: 768px) {
