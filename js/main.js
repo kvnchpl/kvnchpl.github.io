@@ -68,7 +68,7 @@ import {
         window.navData = navData;
 
         // Always render nav if nav element exists
-        if (elementIds.nav) {
+        if (elementIds.nav && page !== "thoughts") {
             renderNav(elementIds.nav, navData);
         }
 
