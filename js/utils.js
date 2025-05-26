@@ -274,7 +274,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             return;
         }
 
-        navData.filter(link => link.navBar).forEach(link => {
+        navData.filter(link => link.homePage).forEach(link => {
             const pageLink = document.createElement("div");
             pageLink.className = "page-link";
 

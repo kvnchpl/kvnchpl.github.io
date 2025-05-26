@@ -7,7 +7,7 @@
         "newTab": false,
         "label": "Home",
         "navBar": true,
-        "isTitle": true,
+        "homePage": false,
         "metaName": "index-data",
         "format": "default"
     },
@@ -19,7 +19,7 @@
         "newTab": false,
         "label": "Projects",
         "navBar": true,
-        "isTitle": false,
+        "homePage": true,
         "metaName": "projects-data",
         "format": "default"
     },
@@ -31,7 +31,7 @@
         "newTab": true,
         "label": "Thoughts",
         "navBar": true,
-        "isTitle": false,
+        "homePage": true,
         "metaName": null,
         "format": null
     },
@@ -43,7 +43,7 @@
         "newTab": false,
         "label": "Writings",
         "navBar": true,
-        "isTitle": false,
+        "homePage": true,
         "metaName": "writings-data",
         "format": "default"
     },
@@ -55,7 +55,7 @@
         "newTab": false,
         "label": "Readings",
         "navBar": true,
-        "isTitle": false,
+        "homePage": true,
         "metaName": "readings-data",
         "format": "detailed"
     },
@@ -67,7 +67,7 @@
         "newTab": true,
         "label": "Watchings",
         "navBar": false,
-        "isTitle": false,
+        "homePage": true,
         "metaName": null,
         "format": null
     },
@@ -79,7 +79,7 @@
         "newTab": true,
         "label": "Listenings",
         "navBar": false,
-        "isTitle": false,
+        "homePage": true,
         "metaName": null,
         "format": null
     },
@@ -91,7 +91,7 @@
         "newTab": true,
         "label": "Hydrants",
         "navBar": false,
-        "isTitle": false,
+        "homePage": true,
         "metaName": null,
         "format": null
     },
@@ -103,7 +103,7 @@
         "newTab": false,
         "label": "Contact",
         "navBar": true,
-        "isTitle": false,
+        "homePage": true,
         "metaName": null,
         "format": null
     }
