@@ -27,7 +27,7 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-#nav {
+nav {
     display: flex;
     justify-content: space-between;
     text-align: center;
