@@ -8,6 +8,7 @@ main {
 }
 
 .title {
+    flex: 0 0 20vh;
     height: 20vh;
     font-size: 6.7vw;
     margin: 0;
@@ -21,27 +22,26 @@ main {
     z-index: 1;
 }
 
-.container {
+.container,
+.link-container{
     height: 100%;
-    padding: 20vh 0;
-    box-sizing: border-box;
+    flex: 1 0 auto;
     flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
+    box-sizing: border-box;
     min-height: 0;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container {
     position: relative;
 }
 
 .link-container {
-    flex-grow: 1;
     overflow-y: auto;
-    display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     align-content: center;
 }
 
