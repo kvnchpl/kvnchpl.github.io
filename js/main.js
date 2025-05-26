@@ -64,21 +64,24 @@ import {
         });
         const { pages, navData } = resources;
 
+
         // Expose loaded config and data to global scope for other scripts (e.g. collections.js)
         window.siteConfig = siteConfig;
         window.pages = pages;
         window.navData = navData;
 
+        if (!(isHomePage || page === "index" || page === "404")) {
+            checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
+        }
+
         // Render navigation and dynamic links for home or collection pages
         if (isHomePage || isCollectionPage) {
             renderDynamicLinks(page, siteConfig, navData, pages);
-            checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
             return; // No further rendering needed for these pages
         }
 
         // Handle non-content pages (special routes like thoughts, 404, etc.)
         if (!isContentPage || page === "thoughts" || page === "404") {
-            checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
             return;
         }
 
@@ -87,7 +90,6 @@ import {
             console.warn(`No page data found for "${page}". Skipping content rendering.`);
             return;
         }
-        checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
         renderContentPage(page, pages, siteConfig);
 
     } catch (err) {
