@@ -228,7 +228,6 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         const img = document.createElement(tagNames.galleryImage);
         img.src = `/${basePath}/${pageData.shortTitle}/${size}/${imagesArr[0]}${imageExt}`;
         img.alt = imagesArr[0];
-        wrapper.appendChild(img);
 
         const prevBtn = document.createElement("button");
         prevBtn.textContent = "◀";
@@ -238,6 +237,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         nextBtn.className = "slideshow-next";
 
         wrapper.appendChild(prevBtn);
+        wrapper.appendChild(img);
         wrapper.appendChild(nextBtn);
 
         function showImage(index) {
