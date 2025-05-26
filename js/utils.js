@@ -412,7 +412,7 @@ export function renderContentPage(page, pages, siteConfig) {
         return;
     }
 
-    const { backgroundColor, title, description } = pageContent;
+    const { backgroundColor, title, description, subtitle } = pageContent;
     const { elementIds, tagNames, galleryBasePath, defaultImageSize, imageExt } = siteConfig;
 
     if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
@@ -425,6 +425,16 @@ export function renderContentPage(page, pages, siteConfig) {
     updateTitle(title);
     updateDescription(description);
     updateMainHeading(title);
+
+    const subtitleEl = document.getElementById('subtitle');
+    if (subtitleEl) {
+        let subtitleText = subtitle;
+        if (!subtitleText || subtitleText.toLowerCase() === "default") {
+            const date = new Date(pageContent.year, pageContent.month - 1);
+            subtitleText = date.toLocaleString('default', { month: 'long', year: 'numeric' });
+        }
+        subtitleEl.textContent = subtitleText;
+    }
 
     const main = document.querySelector('main');
     renderProjectLayout(
