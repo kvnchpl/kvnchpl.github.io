@@ -264,7 +264,15 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
     if (isHomePage) {
         const container = document.querySelector(`.${siteConfig.elementIds.linkContainer}`);
-        if (!container || !Array.isArray(navData)) return;
+
+        if (!container) {
+            console.warn(`No link container found with selector: ${siteConfig.elementIds.linkContainer}`);
+            return;
+        }
+        if(!Array.isArray(navData)) {
+            console.warn("navData is not an array, expected an array of link objects.");
+            return;
+        }
 
         navData.filter(link => link.navBar).forEach(link => {
             const pageLink = document.createElement("div");
