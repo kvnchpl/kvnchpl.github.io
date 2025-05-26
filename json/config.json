@@ -9,8 +9,7 @@
         "gallery": "gallery",
         "linkContainer": "link-container",
         "footer": "footer",
-        "mainHeading": "mainHeading",
-        "linkContainer": "linkContainer"
+        "mainHeading": "mainHeading"
     },
     "tagNames": {
         "galleryItemWrapper": "figure",
