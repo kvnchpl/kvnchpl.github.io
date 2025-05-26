@@ -167,9 +167,10 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
 
         filteredNavData.forEach(link => {
             const a = document.createElement("a");
-            a.href = useAbsolutePaths ? `${siteBaseUrl}${link.href}` : link.href;
+            const isAbsolute = link.href.startsWith("http://") || link.href.startsWith("https://");
+            a.href = useAbsolutePaths && !isAbsolute ? `${siteBaseUrl}${link.href}` : link.href;
             a.textContent = (link.label.toLowerCase() === currentPage)
-                ? `*${link.label.toUpperCase()}*`
+                ? `*${link.label}*`
                 : link.label;
             navFragment.appendChild(a);
         });
