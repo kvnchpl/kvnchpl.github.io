@@ -263,7 +263,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const isCollectionPage = siteConfig.collections?.[page];
 
     if (isHomePage) {
-        const container = document.querySelector(`.${siteConfig.elementIds.linkContainer}`);
+        const container = document.getElementById(siteConfig.elementIds.linkContainer);
 
         if (!container) {
             console.warn(`No link container found with selector: ${siteConfig.elementIds.linkContainer}`);
