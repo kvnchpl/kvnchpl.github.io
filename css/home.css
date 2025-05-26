@@ -8,8 +8,8 @@ main {
 }
 
 .title {
-    flex: 0 0 20vh;
-    height: 20vh;
+    flex: 0 0 auto;
+    height: auto;
     font-size: 6.7vw;
     margin: 0;
     padding: 0;
