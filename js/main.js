@@ -69,7 +69,8 @@ import {
 
         // Always render nav if nav element exists
         if (elementIds.nav) {
-            renderNav(elementIds.nav, navData);
+            const useAbsolutePaths = (page === "thoughts");
+            renderNav(elementIds.nav, navData, useAbsolutePaths);
         }
 
         // Early return for collection/thoughts/index/home/404 pages after globals are set

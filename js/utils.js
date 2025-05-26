@@ -118,21 +118,22 @@ export async function loadResources(metaTags) {
 /**
  * Renders the main navigation bar using nav data from nav.json.
  */
-export function renderNav(navId, navData) {
+export function renderNav(navId, navData, useAbsolutePaths = false) {
     const nav = document.getElementById(navId);
     if (nav && navData) {
         const navFragment = document.createDocumentFragment();
+        const currentPage = document.body.getAttribute('data-page');
         const filteredNavData = navData.filter(link => link.navBar);
-        filteredNavData.forEach((link, idx) => {
+
+        filteredNavData.forEach(link => {
             const a = document.createElement("a");
-            const currentPage = document.body.getAttribute('data-page');
-            a.href = link.href;
-            a.textContent = link.label;
-            if (link.label.toLowerCase() === currentPage) {
-                a.textContent = `*${link.label.toUpperCase()}*`;
-            }
+            a.href = useAbsolutePaths ? `https://kvnchpl.com${link.href}` : link.href;
+            a.textContent = (link.label.toLowerCase() === currentPage)
+                ? `*${link.label.toUpperCase()}*`
+                : link.label;
             navFragment.appendChild(a);
         });
+
         nav.appendChild(navFragment);
     }
 }
