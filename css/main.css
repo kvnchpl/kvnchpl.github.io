@@ -101,6 +101,7 @@ main {
 
 #content-page-container {
     width: 100%;
+    flex-direction: column;
     box-sizing: border-box;
     margin: var(--spacing-large) auto;
 }
