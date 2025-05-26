@@ -9,6 +9,11 @@
     --text-transform-h1: uppercase;
     --text-transform-link: uppercase;
     --text-transform-link-hover: lowercase;
+    --spacing-small: 0.5rem;
+    --spacing-medium: 1rem;
+    --spacing-large: 2rem;
+    --max-width-content: 60vw;
+    --gallery-gap: calc(var(--spacing-small) * 2);
 }
 
 html,
@@ -155,7 +160,7 @@ main {
 }
 
 #sky-gif {
-    max-width: 60vw;
+    max-width: var(--max-width-content);
     max-height: 60vh;
     width: auto;
     height: auto;
@@ -168,7 +173,7 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin: 0.5em;
+    margin: var(--spacing-small);
     padding: 0;
     text-align: left;
     height: 100%;
@@ -176,34 +181,34 @@ main {
 
 .page-link img {
     max-width: none;
-    height: 100px;
+    height: calc(var(--font-size-main) * 4);
     width: auto;
 }
 
 .page-link p {
-    margin: 0.5em;
+    margin: var(--spacing-small);
 }
 
 .contact-text,
 .contact-img {
-    max-width: 60vw;
+    max-width: var(--max-width-content);
     width: 100%;
-    margin: 1rem auto;
+    margin: var(--spacing-medium) auto;
     box-sizing: border-box;
 }
 
 #gallery,
 #content {
-    max-width: 60vw;
+    max-width: var(--max-width-content);
     width: 100%;
-    margin: 2rem auto;
+    margin: var(--spacing-large) auto;
     box-sizing: border-box;
 }
 
 #gallery {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: var(--gallery-gap);
     justify-content: center;
 }
 
