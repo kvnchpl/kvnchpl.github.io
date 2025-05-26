@@ -44,7 +44,6 @@ import {
     const isHomePage = page === "home";
     const isContentPage = !(isHomePage || isCollectionPage || page === "index");
 
-    // Always load resources and set globals for all pages
     try {
         // Dynamically determine which data file to load for collection pages or project subpages
         let pagesMetaTag = metaTags[page];
@@ -71,47 +70,43 @@ import {
         window.pages = pages;
         window.navData = navData;
 
-        renderDynamicLinks(page, siteConfig, navData, pages);
+        if (isHomePage || isCollectionPage) {
+            renderDynamicLinks(page, siteConfig, navData, pages);
 
-        // Render nav bar if it exists
-        if (elementIds.nav) {
-            const useAbsolutePaths = (page === "thoughts");
-            renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
+            if (elementIds.nav) {
+                const useAbsolutePaths = (page === "thoughts");
+                renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
+            }
+
+            return; // Nothing else to do for home or collection pages
         }
 
-        // Early return for non-content pages and special cases
-        if (!isContentPage || page === "thoughts" || page === "404") return;
+        if (!isContentPage || page === "thoughts" || page === "404") {
+            if (elementIds.nav) {
+                const useAbsolutePaths = (page === "thoughts");
+                renderNav(elementIds.nav, navData, useAbsolutePaths, siteBaseUrl);
+            }
+            return;
+        }
 
-        // Render project or content page
+        // Render content page
         const pageContent = pages[page];
-        if (!pageContent) {
-            console.warn(`No page data found for: ${page}`);
+        if (!pageContent || !pageContent.shortTitle) {
+            console.warn(`Missing or incomplete page data for: ${page}`);
             return;
         }
 
-        const {
-            backgroundColor,
-            title,
-            content,
-            shortTitle
-        } = pageContent;
+        const { backgroundColor, title, description } = pageContent;
 
-        if (!elementIds.content || !elementIds.nav || !elementIds.gallery) {
-            console.error("Missing required elementIds in config.json");
-            return;
-        }
-        if (!tagNames.galleryItemWrapper || !tagNames.galleryImage) {
-            console.error("Missing required tagNames in config.json");
-            return;
-        }
-        if (!shortTitle) {
-            console.error(`Missing shortTitle for page: ${page}`);
+        if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
+            !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
+            console.error("Missing required config values for rendering content pages");
             return;
         }
 
         applyBackgroundColor(backgroundColor);
         updateTitle(title);
-        updateDescription(pageContent.description);
+        updateDescription(description);
         updateMainHeading(title);
 
         const main = document.querySelector('main');
