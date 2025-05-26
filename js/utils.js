@@ -259,17 +259,11 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
  * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
 export function renderDynamicLinks(page, siteConfig, navData, pages) {
-    console.log("[DEBUG] renderDynamicLinks:");
-    console.log("  page:", page);
-    console.log("  isHomePage:", isHomePage);
-    console.log("  navData:", navData);
-    console.log("  siteConfig.elementIds.linkContainer:", siteConfig.elementIds.linkContainer);
-
     const isHomePage = page === "home";
     const isCollectionPage = siteConfig.collections?.[page];
 
     if (isHomePage) {
-        const container = document.querySelector(siteConfig.elementIds.linkContainer);
+        const container = document.querySelector(`.${siteConfig.elementIds.linkContainer}`);
         if (!container || !Array.isArray(navData)) return;
 
         navData.filter(link => link.navBar).forEach(link => {
