@@ -265,39 +265,52 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     galleryEl.innerHTML = "";
     contentEl.innerHTML = "";
 
-    // Render layout using provided structure, or fallback to default
     if (Array.isArray(layout) && layout.length > 0) {
-        layout.forEach(item => {
-            const [type, idxStr] = item.split("-");
-            const idx = parseInt(idxStr, 10) - 1;
+        for (let i = 0; i < layout.length; i += 2) {
+            const item1 = layout[i];
+            const item2 = layout[i + 1];
 
-            if ((type === "images" && images[idx]) || (type === "content" && content[idx])) {
-                const pairWrapper = document.createElement("div");
-                pairWrapper.className = "slideshow-content-pair";
+            const pairWrapper = document.createElement("div");
+            pairWrapper.className = "slideshow-content-pair";
 
-                if (type === "images" && images[idx]) {
-                    const slideshow = renderSlideshow(images[idx]);
-                    slideshow.classList.add("slideshow-half");
-                    pairWrapper.appendChild(slideshow);
-                }
-
-                if (type === "content" && content[idx]) {
-                    const contentBlock = renderContentBlock(content[idx]);
-                    const contentWrapper = document.createElement("div");
-                    contentWrapper.className = "content-half";
-                    contentWrapper.appendChild(contentBlock);
-                    pairWrapper.appendChild(contentWrapper);
-                }
-
-                galleryEl.appendChild(pairWrapper);
+            const [type1, idxStr1] = item1.split("-");
+            const idx1 = parseInt(idxStr1, 10) - 1;
+            if (type1 === "images" && images[idx1]) {
+                const slideshow = renderSlideshow(images[idx1]);
+                slideshow.classList.add("slideshow-half");
+                pairWrapper.appendChild(slideshow);
             }
-        });
+
+            const [type2, idxStr2] = item2 ? item2.split("-") : [null, null];
+            const idx2 = item2 ? parseInt(idxStr2, 10) - 1 : null;
+            if (type2 === "content" && content[idx2]) {
+                const contentBlock = renderContentBlock(content[idx2]);
+                const contentWrapper = document.createElement("div");
+                contentWrapper.className = "content-half";
+                contentWrapper.appendChild(contentBlock);
+                pairWrapper.appendChild(contentWrapper);
+            }
+
+            galleryEl.appendChild(pairWrapper);
+        }
     } else {
-        images.forEach(imgArr => {
-            galleryEl.appendChild(renderSlideshow(imgArr));
-        });
-        content.forEach(text => {
-            contentEl.appendChild(renderContentBlock(text));
+        images.forEach((imgArr, idx) => {
+            const pairWrapper = document.createElement("div");
+            pairWrapper.className = "slideshow-content-pair";
+
+            const slideshow = renderSlideshow(imgArr);
+            slideshow.classList.add("slideshow-half");
+            pairWrapper.appendChild(slideshow);
+
+            if (content[idx]) {
+                const contentBlock = renderContentBlock(content[idx]);
+                const contentWrapper = document.createElement("div");
+                contentWrapper.className = "content-half";
+                contentWrapper.appendChild(contentBlock);
+                pairWrapper.appendChild(contentWrapper);
+            }
+
+            galleryEl.appendChild(pairWrapper);
         });
     }
 }
