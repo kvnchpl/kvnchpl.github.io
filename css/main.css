@@ -24,6 +24,7 @@ body {
   background-color: var(--color-bg);
   margin-inline: auto;
   text-transform: var(--text-transform-body);
+  -webkit-font-smoothing: antialiased;
 }
 
 #nav {
