@@ -15,6 +15,7 @@ import {
         configPath: "config-data"
     };
     const { configPath } = getMetaContents(metaTagNames);
+    console.log("CONFIG PATH:", configPath);
 
     // Abort if config meta tag is missing
     if (!configPath) {
