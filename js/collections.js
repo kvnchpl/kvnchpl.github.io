@@ -20,12 +20,23 @@ async function waitForSiteConfig() {
         const ul = document.createElement("ul");
         Object.entries(pages).forEach(([slug, data]) => {
             if (data.type === type) {
-                const li = document.createElement("li");
+                const pageLink = document.createElement("div");
+                pageLink.className = "page-link";
+
+                const img = document.createElement("img");
+                img.src = data.thumbnail || "/img/index/sky-default.jpg"; // fallback image
+                img.alt = data.title || slug;
+                pageLink.appendChild(img);
+
                 const a = document.createElement("a");
                 a.href = `${basePath}${slug}.html`;
-                a.textContent = data.title || slug;
-                li.appendChild(a);
-                ul.appendChild(li);
+
+                const p = document.createElement("p");
+                p.textContent = data.title || slug;
+                a.appendChild(p);
+
+                pageLink.appendChild(a);
+                listSection.appendChild(pageLink);
             }
         });
         listSection.appendChild(ul);

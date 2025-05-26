@@ -1,56 +1,201 @@
 :root {
-  --font-family-main: 'Roboto Mono', monospace;
-  --font-size-main: 1.2rem;
-  --color-text: #e6e6e6;
-  --color-bg: #000;
-  --color-link-hover: red;
-  --max-width-main: 700px;
-  --text-transform-body: lowercase;
-  --text-transform-h1: uppercase;
-  --text-transform-link: uppercase;
-  --text-transform-link-hover: lowercase;
+    --font-family-main: 'Roboto Mono', monospace;
+    --font-size-main: 1.2rem;
+    --color-text: #e6e6e6;
+    --color-bg: #000;
+    --color-link-hover: red;
+    --max-width-main: 700px;
+    --text-transform-body: lowercase;
+    --text-transform-h1: uppercase;
+    --text-transform-link: uppercase;
+    --text-transform-link-hover: lowercase;
 }
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: var(--font-family-main);
-  font-size: var(--font-size-main);
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  margin-inline: auto;
-  text-transform: var(--text-transform-body);
-  -webkit-font-smoothing: antialiased;
+    font-family: var(--font-family-main);
+    font-size: var(--font-size-main);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    margin-inline: auto;
+    text-transform: var(--text-transform-body);
+    -webkit-font-smoothing: antialiased;
 }
 
 #nav {
-  display: flex;
-  justify-content: space-between;
-  text-align: center;
-  width: 100%;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
 }
 
 img {
-  height: auto;
-  display: block;
+    height: auto;
+    display: block;
 }
 
 h1 {
-  text-transform: var(--text-transform-h1)
+    text-transform: var(--text-transform-h1)
 }
 
 a {
-  color: var(--color-link);
-  text-decoration: none;
-  text-transform: var(--text-transform-link);
+    color: var(--color-link);
+    text-decoration: none;
+    text-transform: var(--text-transform-link);
 }
 
 a:hover {
-  color: var(--color-link-hover);
-  text-transform: var(--text-transform-link-hover);
-  text-decoration: underline;
+    color: var(--color-link-hover);
+    text-transform: var(--text-transform-link-hover);
+    text-decoration: underline;
+}
+
+main {
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    flex: 0 0 auto;
+    height: auto;
+    font-size: 6.7vw;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.container,
+.link-container {
+    height: 100%;
+    flex: 1 0 auto;
+    flex-grow: 1;
+    box-sizing: border-box;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    position: relative;
+}
+
+.link-container {
+    overflow-y: auto;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+#enter-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+#title-top {
+    align-items: flex-start;
+    translate: -0.5vw -1.3vh;
+    top: 0;
+}
+
+#title-bottom {
+    align-items: flex-end;
+    translate: -0.5vw 0.8vh;
+    bottom: 0;
+}
+
+#enter-home {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#enter-home:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+#enter-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    font-size: 5vw;
+    font-weight: 700;
+    z-index: 2;
+    pointer-events: auto;
+    user-select: none;
+    text-transform: uppercase;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+#enter-text:hover {
+    color: var(--color-link-hover);
+    text-transform: var(--text-transform-link-hover);
+}
+
+#sky-gif {
+    max-width: 60vw;
+    max-height: 60vh;
+    width: auto;
+    height: auto;
+    display: block;
+    position: relative;
+}
+
+.page-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0.5em;
+    padding: 0;
+    text-align: left;
+    height: 100%;
+}
+
+.page-link img {
+    max-width: none;
+    height: 100px;
+    width: auto;
+}
+
+.page-link p {
+    margin: 0.5em;
+}
+
+@media (max-width: 768px) {
+    #title-top {
+        translate: -0.5vw -0.8vh;
+        top: 0;
+    }
+
+    #title-bottom {
+        translate: -0.5vw 0.4vh;
+        bottom: 0;
+    }
+
+    .page-link {
+        width: 100%;
+    }
 }
