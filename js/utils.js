@@ -63,7 +63,7 @@ export async function injectPartial(url, target, position = 'beforeend') {
 export function updateMainHeading(heading) {
     const h1 = document.getElementById('main-heading')
     if (h1 && heading) {
-        h1.textContent = heading;
+        h1.textContent = `*${heading}*`;
     }
 }
 
