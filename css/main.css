@@ -184,6 +184,14 @@ main {
     margin: 0.5em;
 }
 
+.contact-text,
+.contact-img {
+    max-width: 60vw;
+    width: 100%;
+    margin: 1rem auto;
+    box-sizing: border-box;
+}
+
 @media (max-width: 768px) {
     #title-top {
         translate: -0.5vw -0.8vh;
