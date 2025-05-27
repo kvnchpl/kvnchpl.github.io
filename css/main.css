@@ -223,9 +223,12 @@ main {
 
 .slideshow-wrapper img {
     max-width: 100%;
+    max-height: 90vh;
     height: auto;
     pointer-events: none;
     user-select: none;
+    justify-self: center;
+    align-self: center;
 }
 
 .slideshow-prev,
