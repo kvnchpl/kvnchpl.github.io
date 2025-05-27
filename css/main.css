@@ -1,28 +1,3 @@
-.slideshow-content-pair {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 100%;
-    gap: var(--spacing-medium);
-    margin-bottom: var(--spacing-large);
-}
-
-.slideshow-half,
-.content-half {
-    flex: 1 1 48%;
-    box-sizing: border-box;
-}
-
-.content-half {
-    padding-right: 1em;
-}
-
-.content-half p {
-    margin: 0;
-    padding: 0;
-}
-
 :root {
     --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1.2rem;
@@ -59,6 +34,7 @@ body {
 
 #main-heading,
 #subtitle {
+    font-weight: 400;
     text-align: center;
     margin: 0 auto;
     width: 100%;
@@ -254,6 +230,31 @@ main {
     font-size: 2rem;
     color: var(--color-text);
     cursor: pointer;
+}
+
+.slideshow-content-pair {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--spacing-medium);
+    margin-bottom: var(--spacing-large);
+}
+
+.slideshow-half,
+.content-half {
+    flex: 1 1 48%;
+    box-sizing: border-box;
+}
+
+.content-half {
+    padding-right: 1em;
+}
+
+.content-half p {
+    margin: 0;
+    padding: 0;
 }
 
 #gallery,
