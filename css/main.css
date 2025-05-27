@@ -50,7 +50,6 @@ body {
 
 #main-heading,
 #subtitle {
-    text-transform: var(--text-transform-h1);
     text-align: center;
     margin: var(--spacing-large) auto;
     width: 100%;
