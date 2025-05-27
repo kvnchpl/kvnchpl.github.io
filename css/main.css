@@ -14,6 +14,15 @@
     box-sizing: border-box;
 }
 
+.content-half {
+    padding-right: 1em;
+}
+
+.content-half p {
+    margin: 0;
+    padding: 0 auto;
+}
+
 :root {
     --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1.2rem;
