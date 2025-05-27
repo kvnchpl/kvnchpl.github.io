@@ -51,17 +51,14 @@ body {
 #main-heading,
 #subtitle {
     text-align: center;
-    margin: var(--spacing-large) auto;
+    margin: 0 auto;
     width: 100%;
 }
 
 
 #main-heading {
+    margin-top: var(--spacing-large);
     text-transform: var(--text-transform-h1);
-}
-
-#subtitle {
-    margin: var(--spacing-small) auto;
 }
 
 a {
