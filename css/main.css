@@ -37,7 +37,7 @@ body {
 
 #main-heading,
 #subtitle {
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     text-align: center;
     margin: 0 auto;
     width: 100%;
