@@ -1,6 +1,8 @@
 :root {
     --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1.2rem;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
     --color-text: #e6e6e6;
     --color-bg: #000;
     --color-link-hover: red;
@@ -25,6 +27,7 @@ body {
 body {
     font-family: var(--font-family-main);
     font-size: var(--font-size-main);
+    font-weight: var(--font-weight-normal);
     color: var(--color-text);
     background-color: var(--color-bg);
     margin-inline: auto;
