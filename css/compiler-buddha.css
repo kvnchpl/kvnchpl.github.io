@@ -115,7 +115,7 @@ main {
         overflow: hidden;
     }
 
-    .left-pane img {
+    #buddha-image {
         height: 100%;
         width: auto;
         max-width: 100%;
