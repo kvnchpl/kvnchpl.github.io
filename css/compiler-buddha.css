@@ -96,6 +96,7 @@ main {
     .buddha-display {
         flex-direction: column;
         height: 80vh;
+        margin-bottom: 24em;
     }
 
     .left-pane,
@@ -104,16 +105,11 @@ main {
         max-width: 100% !important;
         flex: 1 1 auto;
         max-height: 40vh;
-        min-height: 10vh;
         display: flex;
         align-items: flex-start;
         justify-content: center;
         padding: 1em;
         box-sizing: border-box;
-    }
-
-    .right-pane {
-        margin-bottom: 24em;
     }
 
     #buddha-image {
