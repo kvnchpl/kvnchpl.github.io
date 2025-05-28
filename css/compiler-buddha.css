@@ -69,13 +69,20 @@ pre {
     display: flex;
     width: 100%;
     margin-top: 2em;
+    overflow: hidden;
 }
 
 .left-pane,
 .right-pane {
     width: 50%;
+    max-width: 50%;
     flex: 1;
     padding: 2em;
+    box-sizing: border-box;
+}
+
+.right-pane {
+    overflow-x: auto;
 }
 
 .left-pane img {
