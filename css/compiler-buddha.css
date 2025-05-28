@@ -93,14 +93,18 @@ main {
 }
 
 @media (max-width: 768px) {
-  .buddha-display {
-    flex-direction: column;
-  }
+    .buddha-display {
+        flex-direction: column;
+    }
 
-  .left-pane,
-  .right-pane {
-    width: 100%;
-    max-width: 100%;
-    padding: 1em;
-  }
+    .left-pane,
+    .right-pane {
+        width: 100%;
+        max-width: 100%;
+        padding: 1em;
+    }
+
+    #portal {
+        font-size: 1.3vw;
+    }
 }
