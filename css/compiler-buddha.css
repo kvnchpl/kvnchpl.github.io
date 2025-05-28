@@ -71,11 +71,7 @@ main {
     box-sizing: border-box;
 }
 
-.right-pane {
-    overflow-x: auto;
-}
-
-.left-pane img {
+#buddha-image {
     max-width: 100%;
     height: auto;
     display: block;
