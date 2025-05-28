@@ -124,6 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wayBack.addEventListener("click", () => {
         openChannels();
+        document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.png";
         returnToSource();
     });
 });
