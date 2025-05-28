@@ -21,14 +21,24 @@
     <main>
         <h1 id="main-heading"></h1>
         <h2 id="subtitle"></h2>
-        <div class="controls">
-            <button id="manifestor" class="manifestor" aria-label="Compile Buddha code">Compile</button>
-            <button id="way-back" class="way-back" aria-label="Return to original state">Return</button>
-            <label for="vessel" class="vessel" tabindex="0" aria-label="Upload image for vision">Offer Vision</label>
-            <input type="file" id="vessel" accept="image/*" class="hidden" />
-            <span id="confirmation" class="confirmation"></span>
-        </div>
-        <pre id="portal" aria-label="Compiled Buddha output" aria-live="polite"></pre>
+        <section class="interface">
+            <div class="controls">
+                <button id="manifestor" class="manifestor" aria-label="Compile Buddha code">Compile</button>
+                <button id="way-back" class="way-back" aria-label="Return to original state">Return</button>
+                <label for="vessel" class="vessel" tabindex="0" aria-label="Upload image for vision">Offer Vision</label>
+                <input type="file" id="vessel" accept="image/*" class="hidden" />
+                <span id="confirmation" class="confirmation"></span>
+            </div>
+            <div class="buddha-display">
+                <div class="left-pane">
+                    <img id="buddha-image" src="/img/compiler-buddha/buddha.png" alt="Buddha Image" />
+                </div>
+                <div class="right-pane">
+                    <pre id="source-code"></pre>
+                </div>
+            </div>
+            <pre id="portal" aria-label="Compiled Buddha output" aria-live="polite"></pre>
+        </section>
     </main>
 
     <script type="module" src="/js/compiler-buddha.js"></script>
