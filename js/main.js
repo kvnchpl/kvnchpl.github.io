@@ -42,10 +42,10 @@ import {
     try {
         // Find the metaTag (data file) for this page type, falling back to first matching collection if needed
         let pagesMetaTag = metaTags[page];
-        if (!pagesMetaTag) {
-            // Fallback: try to find a collection metaTag if page doesn't have a direct match
+        if (!pagesMetaTag && isContentPage) {
             for (const [collectionKey, collection] of Object.entries(collections)) {
-                if (metaTags[collectionKey]) {
+                const basePath = collection.basePath.replace(/^\//, "").replace(/\/$/, "");
+                if (window.location.pathname.includes(basePath)) {
                     pagesMetaTag = metaTags[collectionKey];
                     break;
                 }
