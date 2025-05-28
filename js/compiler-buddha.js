@@ -85,7 +85,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     returnToSource();
 
+    fetch("/js/compiler-buddha.js")
+        .then(response => response.text())
+        .then(code => {
+            document.getElementById("source-code").textContent = code;
+        });
+
     manifestor.addEventListener("click", async () => {
+        document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.gif";
+
         closeChannels();
 
         const offering = vessel.files[0];
