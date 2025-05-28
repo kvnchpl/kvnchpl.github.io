@@ -73,8 +73,9 @@ pre {
 
 .left-pane,
 .right-pane {
+    width: 50%;
     flex: 1;
-    padding: 1em;
+    padding: 2em;
 }
 
 .left-pane img {
