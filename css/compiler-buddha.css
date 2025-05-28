@@ -12,9 +12,7 @@ main {
 }
 
 .manifestor,
-.way-back,
-.vessel,
-.confirmation {
+.way-back {
     display: inline-block;
     padding: 0.5em 1em;
     color: white;
@@ -27,15 +25,13 @@ main {
 }
 
 .manifestor,
-.way-back,
-.vessel {
+.way-back {
     background: #333;
     cursor: pointer;
 }
 
 .manifestor:hover,
-.way-back:hover,
-.vessel:hover {
+.way-back:hover {
     background: #555;
 }
 
@@ -44,18 +40,6 @@ main {
     color: #ccc;
     opacity: 0.6;
     cursor: default;
-}
-
-.confirmation {
-    max-width: 200px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    cursor: default;
-}
-
-.confirmation:empty {
-    display: none;
 }
 
 pre {
