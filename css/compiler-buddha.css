@@ -110,6 +110,14 @@ main {
         padding: 1em;
     }
 
+    .left-pane img {
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        display: block;
+        margin: 0 auto;
+    }
+
     #portal {
         font-size: 1.3vw;
     }
