@@ -1,26 +1,26 @@
 {
-    "technics-and-time": {
+    "in-defense-of-the-poor-image": {
         "type": "reading",
-        "title": "Technics and Time",
-        "shortTitle": "technics-and-time",
-        "permalink": "https://example.com",
-        "subtitle": "Bernard Stiegler",
-        "publication": "Example Journal",
-        "month": 1,
-        "year": 1994,
+        "title": "In Defense of the Poor Image",
+        "shortTitle": "in-defense-of-the-poor-image",
+        "permalink": "http://worker01.e-flux.com/pdf/article_94.pdf",
+        "subtitle": "by Hito Steyerl, e-flux Journal #10 (November 2009)",
+        "publication": "e-flux Journal",
+        "month": 11,
+        "year": 2009,
         "external": true,
         "description": null,
         "images": []
     },
-    "a-thousand-plateaus": {
+    "why-is-everything-so-ugly": {
         "type": "reading",
-        "title": "A Thousand Plateaus",
-        "shortTitle": "a-thousand-plateaus",
-        "permalink": "https://example.com",
-        "subtitle": "Deleuze & Guattari",
-        "publication": "Example Publication",
-        "month": "Fall",
-        "year": 1980,
+        "title": "Why Is Everything So Ugly?",
+        "shortTitle": "why-is-everything-so-ugly",
+        "permalink": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/",
+        "subtitle": "by n+1 Magazine editors, Issue 44 (Winter 2023)",
+        "publication": "n+1 Magazine",
+        "month": "Winter",
+        "year": 2023,
         "external": true,
         "description": null,
         "images": []
