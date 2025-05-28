@@ -44,7 +44,7 @@ main {
 }
 
 pre {
-    margin-top: 4em;
+    margin: 0 auto;
     font-family: inherit;
     font-size: 0.5rem;
     text-transform: none;
