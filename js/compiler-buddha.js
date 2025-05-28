@@ -85,15 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     returnToSource();
 
-    fetch("/js/compiler-buddha.js")
-        .then(response => response.text())
-        .then(intention => {
-            document.getElementById("portal").textContent = intention;
-        })
-        .catch(() => {
-            document.getElementById("portal").textContent = "ERROR";
-        });
-
     manifestor.addEventListener("click", async () => {
         document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.gif";
 
