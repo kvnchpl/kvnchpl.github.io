@@ -43,16 +43,6 @@ main {
     cursor: default;
 }
 
-pre {
-    margin: 0 auto;
-    font-family: inherit;
-    font-size: 0.61vw;
-    text-transform: none;
-    cursor: default;
-    user-select: none;
-    -webkit-user-select: none;
-}
-
 .hidden {
     position: absolute;
     width: 1px;
@@ -92,8 +82,25 @@ pre {
     margin: 0 auto;
 }
 
-#source-code {
-    font-size: 0.5rem;
-    white-space: pre-wrap;
-    word-break: break-word;
+#portal {
+    margin: 0 auto;
+    font-family: inherit;
+    font-size: 0.61vw;
+    text-transform: none;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+@media (max-width: 768px) {
+  .buddha-display {
+    flex-direction: column;
+  }
+
+  .left-pane,
+  .right-pane {
+    width: 100%;
+    max-width: 100%;
+    padding: 1em;
+  }
 }
