@@ -280,6 +280,7 @@ main {
     white-space: pre-wrap;
     box-sizing: border-box;
     padding: var(--spacing-small);
+    text-transform: none;
 }
 
 @media (max-width: 768px) {
