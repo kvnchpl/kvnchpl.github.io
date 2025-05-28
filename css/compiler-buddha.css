@@ -113,6 +113,10 @@ main {
         box-sizing: border-box;
     }
 
+    .right-pane {
+        margin-bottom: 24em;
+    }
+
     #buddha-image {
         height: 100%;
         width: auto;
