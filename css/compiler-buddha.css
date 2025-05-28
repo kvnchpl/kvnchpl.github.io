@@ -94,7 +94,6 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    text-align: center;
 }
 
 @media (max-width: 768px) {
