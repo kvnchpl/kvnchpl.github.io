@@ -88,7 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch("/js/compiler-buddha.js")
         .then(response => response.text())
         .then(intention => {
-            document.getElementById("source-code").textContent = intention;
+            document.getElementById("portal").textContent = intention;
+        })
+        .catch(() => {
+            document.getElementById("portal").textContent = "ERROR";
         });
 
     manifestor.addEventListener("click", async () => {
