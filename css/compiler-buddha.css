@@ -93,7 +93,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
 }
 
@@ -123,6 +123,6 @@ main {
     }
 
     #portal {
-        font-size: 1.3vw;
+        font-size: 0.84vw;
     }
 }
