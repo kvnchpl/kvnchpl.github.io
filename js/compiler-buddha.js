@@ -76,9 +76,7 @@ function returnToSource() {
 document.addEventListener("DOMContentLoaded", () => {
     const manifestor = document.getElementById("manifestor");
     const wayBack = document.getElementById("way-back");
-    const vessel = document.getElementById("vessel");
     const portal = document.getElementById("portal");
-    const confirmation = document.getElementById("confirmation");
 
     const openChannels = () => manifestor.disabled = false;
     const closeChannels = () => manifestor.disabled = true;
@@ -90,10 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeChannels();
 
-        const offering = vessel.files[0];
-        const predestined = !offering;
+        const predestined = true;
         const vision = await createImageBitmap(await summon(
-            predestined ? "/img/compiler-buddha/buddha.png" : offering,
+            "/img/compiler-buddha/buddha.png",
             predestined
         ));
 
@@ -127,16 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wayBack.addEventListener("click", () => {
         openChannels();
-        vessel.value = "";
-        confirmation.textContent = "";
         returnToSource();
-    });
-
-    vessel.addEventListener("change", (event) => {
-        if (!event?.target?.files?.length) return;
-        openChannels();
-        returnToSource();
-        confirmation.textContent = event.target.files[0]?.name || "";
     });
 });
 
