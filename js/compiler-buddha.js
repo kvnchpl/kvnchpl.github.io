@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     returnToSource();
 
     manifestor.addEventListener("click", async () => {
-        document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.gif";
+        document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha_2.png";
 
         closeChannels();
 
