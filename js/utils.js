@@ -302,7 +302,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
             galleryEl.appendChild(pairWrapper);
         }
-    } else {
+    } else if (layout === "default" || !layout) {
         images.forEach((imgArr, idx) => {
             const pairWrapper = document.createElement("div");
             pairWrapper.className = "slideshow-content-pair";
