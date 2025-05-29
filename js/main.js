@@ -79,7 +79,7 @@ import {
             return;
         }
 
-        if (!isContentPage || page === "thoughts" ||  page === "contact" || page === "404") {
+        if (!isContentPage || page === "thoughts" || page === "contact" || page === "404") {
             return;
         }
 
