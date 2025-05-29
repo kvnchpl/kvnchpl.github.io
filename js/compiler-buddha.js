@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             predestined
         ));
 
-        const sacredNumber = 108;
+        const sacredNumber = 10;
         let recitation = 0;
 
         const firstMantra = manifest(vision);
