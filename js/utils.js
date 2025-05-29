@@ -397,7 +397,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.appendChild(img);
 
                 const a = document.createElement("a");
-                a.href = data.external && data.permalink ? data.permalink : `${basePath}${slug}.html`;
+                a.href = data.external && data.permalink ? data.permalink : `${basePath}${slug}`;
                 if (data.external && data.permalink) {
                     a.target = "_blank";
                     a.rel = "noopener";
