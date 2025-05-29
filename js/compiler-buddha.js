@@ -1,4 +1,4 @@
-function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.724) {
+function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.724, sacredNumber = 10) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
     const channel = portal.getContext("2d");
@@ -43,14 +43,12 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
     return mantra.join("\n");
 }
 
-function summon(offering, predestined = true) {
+function summon(offering) {
     return new Promise((resolve) => {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
         apparition.crossOrigin = "Anonymous";
-        apparition.src = predestined ?
-            offering :
-            URL.createObjectURL(offering);
+        apparition.src = offering;
     });
 }
 
@@ -85,13 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeChannels();
 
-        const predestined = true;
-        const vision = await createImageBitmap(await summon(
-            "/img/compiler-buddha/buddha.png",
-            predestined
-        ));
+        await summon("/img/compiler-buddha/buddha.png");
 
-        const sacredNumber = 10;
         let recitation = 0;
 
         const firstMantra = manifest(vision);
