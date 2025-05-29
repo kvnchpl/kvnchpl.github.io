@@ -74,6 +74,7 @@ main {
 #buddha-image {
     max-width: 100%;
     height: auto;
+    max-height: 460px;
     display: block;
     margin: 0 auto;
 }
@@ -81,7 +82,7 @@ main {
 #portal {
     margin: 0 auto;
     font-family: inherit;
-    font-size: 0.55vw;
+    font-size: 0.39vw;
     text-transform: none;
     cursor: default;
     user-select: none;
