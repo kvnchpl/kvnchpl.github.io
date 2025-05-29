@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         closeChannels();
 
-        await summon("/img/compiler-buddha/buddha.png");
+        const vision = await summon("/img/compiler-buddha/buddha.png");
 
         let recitation = 0;
 
