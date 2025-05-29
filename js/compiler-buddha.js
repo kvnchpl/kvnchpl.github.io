@@ -1,4 +1,4 @@
-function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.724, sacredNumber = 10) {
+function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansion = 1.724) {
     const intention = document.getElementById("portal").textContent.replace(/\s+/g, "");
     const portal = document.createElement("canvas");
     const channel = portal.getContext("2d");
@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const vision = await summon("/img/compiler-buddha/buddha.png");
 
+        const sacredNumber = 10;
         let recitation = 0;
 
         const firstMantra = manifest(vision);
