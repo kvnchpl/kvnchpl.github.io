@@ -263,8 +263,13 @@ main {
     box-sizing: border-box;
 }
 
-.content-half {
-    padding-right: 1em;
+.content-half,
+#description {
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: var(--spacing-small);
 }
 
 .content-half p {
