@@ -68,9 +68,6 @@ function returnToSource() {
         .then(intention => {
             document.getElementById("portal").textContent = intention;
         })
-        .catch(() => {
-            document.getElementById("portal").textContent = "ERROR";
-        });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
