@@ -112,6 +112,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         if (recitation >= sacredNumber - 1) {
                             clearInterval(loop);
                             loop = null;
+                            setTimeout(() => {
+                                document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.png";
+                                returnToSource();
+                                openChannels();
+                            }, 1000);
                             return;
                         }
                         portal.textContent = manifest(vision);
