@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const vision = await summon("/img/compiler-buddha/buddha.png");
 
-        const sacredNumber = 10;
+        const sacredNumber = 108;
         let recitation = 0;
 
         const firstMantra = manifest(vision);
