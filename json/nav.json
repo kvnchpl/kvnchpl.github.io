@@ -28,7 +28,7 @@
         "href": "https://kvnchpl-thoughts.tumblr.com/",
         "collection": false,
         "external": false,
-        "newTab": true,
+        "newTab": false,
         "label": "Thoughts",
         "navBar": true,
         "homePage": true,
