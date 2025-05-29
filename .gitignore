@@ -35,3 +35,7 @@ package-lock.json
 
 # Custom private folder (for drafts or personal content)
 private/
+
+# Videos
+.mp4
+.mov
