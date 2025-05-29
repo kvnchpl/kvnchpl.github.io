@@ -293,6 +293,14 @@ main {
     text-transform: none;
 }
 
+#description {
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: var(--spacing-small);
+}
+
 @media (max-width: 768px) {
     #title-top {
         translate: -0.5vw -0.8vh;
