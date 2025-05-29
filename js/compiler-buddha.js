@@ -134,5 +134,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-let loop;
-let bringForth;
+let loop, bringForth;
