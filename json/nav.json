@@ -9,7 +9,7 @@
         "navBar": true,
         "homePage": false,
         "metaName": "index-data",
-        "format": "default"
+        "format": null
     },
     {
         "title": "See what I’m working on",
@@ -21,7 +21,7 @@
         "navBar": true,
         "homePage": true,
         "metaName": "projects-data",
-        "format": "default"
+        "format": null
     },
     {
         "title": "See what I’m thinking about",
@@ -45,7 +45,7 @@
         "navBar": true,
         "homePage": true,
         "metaName": "writings-data",
-        "format": "default"
+        "format": null
     },
     {
         "title": "See what I’m reading",
