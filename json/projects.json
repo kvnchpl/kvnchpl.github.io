@@ -1,6 +1,21 @@
 [
     {
         "type": "project",
+        "title": "Compiler Buddha",
+        "key": "compiler-buddha",
+        "permalink": "default",
+        "description": "",
+        "subtitle": "default",
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [],
+        "layout": "default",
+        "month": 5,
+        "year": 2025,
+        "external": false
+    },
+    {
+        "type": "project",
         "title": "Viewfinder",
         "key": "viewfinder",
         "permalink": "default",
@@ -75,21 +90,6 @@
         "layout": "default",
         "month": 2,
         "year": 2024,
-        "external": false
-    },
-    {
-        "type": "project",
-        "title": "Compiler Buddha",
-        "key": "compiler-buddha",
-        "permalink": "default",
-        "description": "",
-        "subtitle": "default",
-        "backgroundColor": "#0f0f0f",
-        "content": [],
-        "images": [],
-        "layout": "default",
-        "month": 5,
-        "year": 2025,
         "external": false
     },
     {
