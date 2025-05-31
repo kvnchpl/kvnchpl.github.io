@@ -85,7 +85,7 @@
         "title": "Compiler Buddha",
         "shortTitle": "compiler-buddha",
         "permalink": "default",
-        "description": ".",
+        "description": "",
         "subtitle": "default",
         "backgroundColor": "#0f0f0f",
         "content": [],
@@ -94,6 +94,131 @@
         "publication": null,
         "month": 5,
         "year": 2025,
+        "external": false
+    },
+    "intraface": {
+        "type": "project",
+        "title": "Intraface",
+        "shortTitle": "intraface",
+        "permalink": "default",
+        "description": "",
+        "subtitle": "default",
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [
+            [
+                "intraface_1",
+                "intraface_2",
+                "intraface_3",
+                "intraface_4",
+                "intraface_5",
+                "intraface_6"
+            ]
+        ],
+        "layout": "default",
+        "publication": null,
+        "month": 8,
+        "year": 2022,
+        "external": false
+    },
+    "friday-night-never": {
+        "type": "project",
+        "title": "Friday Night Never",
+        "shortTitle": "friday-night-never",
+        "permalink": "default",
+        "description": "",
+        "subtitle": "default",
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [
+            [
+                "friday-night-never_1",
+                "friday-night-never_2",
+                "friday-night-never_3",
+                "friday-night-never_4",
+                "friday-night-never_5",
+                "friday-night-never_6"
+            ]
+        ],
+        "layout": "default",
+        "publication": null,
+        "month": 8,
+        "year": 2022,
+        "external": false
+    },
+    "dimensional-freedom": {
+        "type": "project",
+        "title": "Dimensional Freedom",
+        "shortTitle": "dimensional-freedom",
+        "permalink": "default",
+        "description": "",
+        "subtitle": "default",
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [
+            [
+                "dimensional-freedom_1",
+                "dimensional-freedom_2",
+                "dimensional-freedom_3",
+                "dimensional-freedom_4",
+                "dimensional-freedom_5",
+                "dimensional-freedom_6"
+            ]
+        ],
+        "layout": "default",
+        "publication": null,
+        "month": 5,
+        "year": 2019,
+        "external": false
+    },
+    "520-missing": {
+        "type": "project",
+        "title": "520 Missing",
+        "shortTitle": "520-missing",
+        "permalink": "default",
+        "description": "",
+        "subtitle": "default",
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [
+            [
+                "520-missing_1",
+                "520-missing_2",
+                "520-missing_3",
+                "520-missing_4",
+                "520-missing_5",
+                "520-missing_6"
+            ]
+        ],
+        "layout": "default",
+        "publication": null,
+        "month": 5,
+        "year": 2019,
+        "external": false
+    },
+    "truth-visions": {
+        "type": "project",
+        "title": "Truth Visions",
+        "shortTitle": "truth-visions",
+        "permalink": "default",
+        "description": "",
+        "subtitle": "default",
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [
+            [
+                "truth-visions_1",
+                "truth-visions_2",
+                "truth-visions_3",
+                "truth-visions_4",
+                "truth-visions_5",
+                "truth-visions_6"
+            ]
+        ],
+        "layout": "default",
+        "publication": null,
+        "month": 3,
+        "year": 2019,
         "external": false
     }
 }
