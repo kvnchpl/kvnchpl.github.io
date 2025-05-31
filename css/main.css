@@ -62,10 +62,6 @@ a:hover {
     text-decoration: underline;
 }
 
-a:hover .page-subtitle {
-    text-decoration: none !important;
-}
-
 img {
     pointer-events: none;
     user-select: none;
@@ -235,11 +231,9 @@ main {
 }
 
 .page-subtitle {
-    all: unset;
     margin: var(--spacing-small);
     color: #999;
     text-transform: lowercase;
-    text-decoration: none !important;
 }
 
 .contact-text,
