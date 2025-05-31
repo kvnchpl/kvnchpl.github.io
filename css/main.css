@@ -222,6 +222,10 @@ main {
     margin: var(--spacing-small);
 }
 
+.page-link:hover .page-subtitle {
+    text-decoration: none !important;
+}
+
 .page-title {
     margin: var(--spacing-small);
 }
