@@ -246,9 +246,13 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         nextBtn.textContent = ">";
         nextBtn.className = "slideshow-next";
 
-        wrapper.appendChild(prevBtn);
-        wrapper.appendChild(img);
-        wrapper.appendChild(nextBtn);
+        const inner = document.createElement("div");
+        inner.className = "slideshow-inner";
+        inner.appendChild(prevBtn);
+        inner.appendChild(img);
+        inner.appendChild(nextBtn);
+
+        wrapper.appendChild(inner);
 
         function showImage(index) {
             if (index >= 0 && index < imagesArr.length) {
