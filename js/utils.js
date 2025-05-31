@@ -71,6 +71,15 @@ export function updateMainHeading(heading) {
 // Metadata Utilities
 // =========================
 
+// Custom month/seasonal order for sorting and display
+const customMonthOrder = [
+    "Winter", "January", "February", "March",
+    "Spring", "April", "May", "June",
+    "Summer", "July", "August", "September",
+    "Autumn", "Fall", "October", "November", "December"
+];
+const monthOrderMap = Object.fromEntries(customMonthOrder.map((name, index) => [name, index + 1]));
+
 /**
  * Returns page type flags based on current page identifier and siteConfig collections.
  * @param {string} page - The current page identifier (e.g. "home", "thoughts").
@@ -92,11 +101,15 @@ export function getPageType(page, collections) {
 export function getSubtitleText(data) {
     if (typeof data.subtitle === "string" && data.subtitle.trim() !== "") {
         return data.subtitle;
-    } else if (data.month && data.year) {
-        return new Date(data.year, data.month - 1).toLocaleString('en', {
-            month: 'long',
-            year: 'numeric'
-        });
+    } else if (data.year) {
+        if (typeof data.month === "number") {
+            return new Date(data.year, data.month - 1).toLocaleString('en', {
+                month: 'long',
+                year: 'numeric'
+            });
+        } else if (typeof data.month === "string" && data.month.trim() !== "") {
+            return `${data.month} ${data.year}`;
+        }
     }
     return null;
 }
@@ -413,7 +426,14 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             .filter(data => data.type === type)
             .sort((a, b) => {
                 if (b.year !== a.year) return b.year - a.year;
-                return (b.month || 0) - (a.month || 0);
+
+                const getMonthIndex = (entry) => {
+                    if (typeof entry.month === "number") return entry.month;
+                    if (typeof entry.month === "string") return monthOrderMap[entry.month] || 0;
+                    return 0;
+                };
+
+                return getMonthIndex(b) - getMonthIndex(a);
             })
             .forEach(data => {
                 const pageLink = document.createElement("div");
