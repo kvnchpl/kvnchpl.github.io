@@ -380,12 +380,11 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             pageLink.className = "page-link";
 
             const img = document.createElement("img");
-            let skyImages = getShuffledSkyImages(siteConfig);
+            const skyImages = getShuffledSkyImages(siteConfig);
             let skyIndex = 0;
             const nextSkyImage = skyImages.length > 0
-                ? skyImages[skyIndex % skyImages.length]
+                ? skyImages[skyIndex++ % skyImages.length]
                 : "/img/home/sky_1.jpg";
-            skyIndex++;
             img.src = link.thumbnail || nextSkyImage;
             img.alt = "Sky";
             pageLink.appendChild(img);
@@ -437,11 +436,12 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                let skyImages = getShuffledSkyImages(siteConfig);
-                const randomSkyImage = skyImages.length > 0
-                    ? skyImages[Math.floor(Math.random() * skyImages.length)]
+                const skyImages = getShuffledSkyImages(siteConfig);
+                let skyIndex = 0;
+                const nextSkyImage = skyImages.length > 0
+                    ? skyImages[skyIndex++ % skyImages.length]
                     : "/img/home/sky_1.jpg";
-                img.src = data.thumbnail || randomSkyImage;
+                img.src = data.thumbnail || nextSkyImage;
                 img.alt = data.title || data.key;
                 pageLink.appendChild(img);
 
