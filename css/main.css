@@ -203,6 +203,7 @@ main {
     padding: 0;
     text-align: left;
     height: 100%;
+    text-decoration: none;
 }
 
 .page-link img {
