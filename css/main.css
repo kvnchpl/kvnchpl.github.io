@@ -59,6 +59,9 @@ a {
 a:hover {
     color: var(--color-link-hover);
     text-transform: var(--text-transform-link-hover);
+}
+
+a:hover:not(.page-link) {
     text-decoration: underline;
 }
 
