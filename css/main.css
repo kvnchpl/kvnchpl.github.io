@@ -222,10 +222,6 @@ main {
     margin: var(--spacing-small);
 }
 
-.page-link:hover .page-subtitle {
-    text-decoration: none;
-}
-
 .page-title {
     margin: var(--spacing-small);
 }
@@ -234,6 +230,7 @@ main {
     margin: var(--spacing-small);
     color: #999;
     text-transform: lowercase;
+    text-decoration: none !important;
 }
 
 .contact-text,
