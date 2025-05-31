@@ -81,7 +81,11 @@ export function getPageType(page, collections) {
     const isHomePage = page === "home";
     const isCollectionPage = Object.keys(collections).includes(page);
     const isContentPage = !(isHomePage || isCollectionPage || page === "index");
-    return { isHomePage, isCollectionPage, isContentPage };
+    return {
+        isHomePage,
+        isCollectionPage,
+        isContentPage
+    };
 }
 
 /**
@@ -222,9 +226,9 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
             const a = document.createElement("a");
             const isAbsolute = link.href.startsWith("http://") || link.href.startsWith("https://");
             a.href = useAbsolutePaths && !isAbsolute ? `${siteBaseUrl}${link.href}` : link.href;
-            a.textContent = (link.label.toLowerCase() === currentPage)
-                ? `*${link.label}*`
-                : link.label;
+            a.textContent = (link.label.toLowerCase() === currentPage) ?
+                `*${link.label}*` :
+                link.label;
             navFragment.appendChild(a);
         });
 
@@ -367,10 +371,9 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     let skyIndex = 0;
 
     const getNextSkyImage = () =>
-        skyImages.length > 0
-            ? skyImages[skyIndex++ % skyImages.length]
-            : "/img/home/sky_1.jpg";
-
+        skyImages.length > 0 ?
+            skyImages[skyIndex++ % skyImages.length] :
+            "/img/home/sky_1.jpg";
 
     if (isHomePage) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
@@ -414,7 +417,10 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             container.appendChild(pageLink);
         });
     } else if (isCollectionPage) {
-        const { type, basePath } = siteConfig.collections[page];
+        const {
+            type,
+            basePath
+        } = siteConfig.collections[page];
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
         if (!container || !type) return;
 
@@ -481,8 +487,18 @@ export function renderContentPage(pageContent, siteConfig) {
         return;
     }
 
-    const { backgroundColor, title, description } = pageContent;
-    const { elementIds, tagNames, galleryBasePath, defaultImageSize, imageExt } = siteConfig;
+    const {
+        backgroundColor,
+        title,
+        description
+    } = pageContent;
+    const {
+        elementIds,
+        tagNames,
+        galleryBasePath,
+        defaultImageSize,
+        imageExt
+    } = siteConfig;
 
     if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
         !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
