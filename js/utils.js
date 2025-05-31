@@ -361,7 +361,6 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
  * @param {Object} siteConfig - The site configuration object containing element IDs and collection data.
  * @param {Array} navData - The navigation data array containing link information.
  * @param {Object} pages - The pages data object containing content for each page.
- * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
 export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const isHomePage = page === "home";
