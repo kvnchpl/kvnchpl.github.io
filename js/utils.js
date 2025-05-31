@@ -391,11 +391,13 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         }
 
         const titleP = document.createElement("p");
+        titleP.className = "page-title";
         titleP.textContent = title;
         a.appendChild(titleP);
 
         if (subtitle) {
             const subtitleP = document.createElement("p");
+            subtitleP.className = "page-subtitle";
             subtitleP.textContent = subtitle;
             a.appendChild(subtitleP);
         }
