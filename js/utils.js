@@ -382,8 +382,14 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
         if (!container || !type) return;
 
-        Object.entries(pages).forEach(([slug, data]) => {
-            if (data.type === type) {
+        Object.entries(pages)
+            .filter(([, data]) => data.type === type)
+            .sort(([, a], [, b]) => {
+                // Sort by year descending, then month descending
+                if (b.year !== a.year) return b.year - a.year;
+                return (b.month || 0) - (a.month || 0);
+            })
+            .forEach(([slug, data]) => {
                 const pageLink = document.createElement("div");
                 pageLink.className = "page-link";
 
@@ -409,8 +415,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
                 pageLink.appendChild(a);
                 container.appendChild(pageLink);
-            }
-        });
+            });
     }
 }
 
