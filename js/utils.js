@@ -375,12 +375,12 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             }
 
             const titleP = document.createElement("p");
-            titleP.textContent = data.title || data.key;
+            titleP.textContent = link.title || link.key;
             a.appendChild(titleP);
 
-            if (data.subtitle && data.subtitle.toLowerCase() !== "default") {
+            if (link.subtitle) {
                 const subtitleP = document.createElement("p");
-                subtitleP.textContent = data.subtitle;
+                subtitleP.textContent = link.subtitle;
                 a.appendChild(subtitleP);
             }
             pageLink.appendChild(a);
@@ -455,7 +455,7 @@ export function renderContentPage(pageContent, siteConfig) {
     updateMainHeading(title);
 
     let subtitleText = subtitle;
-    if (!subtitleText || subtitleText.toLowerCase() === "default") {
+    if (!subtitleText) {
         const date = new Date(pageContent.year, pageContent.month - 1);
         subtitleText = date.toLocaleString('default', { month: 'long', year: 'numeric' });
     }
