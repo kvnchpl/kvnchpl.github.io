@@ -71,15 +71,6 @@ export function updateMainHeading(heading) {
 // Metadata Utilities
 // =========================
 
-// Custom month/seasonal order for sorting and display
-const customMonthOrder = [
-    "Winter", "January", "February", "March",
-    "Spring", "April", "May", "June",
-    "Summer", "July", "August", "September",
-    "Autumn", "Fall", "October", "November", "December"
-];
-const monthOrderMap = Object.fromEntries(customMonthOrder.map((name, index) => [name, index + 1]));
-
 /**
  * Returns page type flags based on current page identifier and siteConfig collections.
  * @param {string} page - The current page identifier (e.g. "home", "thoughts").
@@ -426,6 +417,10 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             .filter(data => data.type === type)
             .sort((a, b) => {
                 if (b.year !== a.year) return b.year - a.year;
+
+                const monthOrderMap = Object.fromEntries(
+                    (siteConfig.monthOrder || []).map((name, index) => [name, index + 1])
+                );
 
                 const getMonthIndex = (entry) => {
                     if (typeof entry.month === "number") return entry.month;

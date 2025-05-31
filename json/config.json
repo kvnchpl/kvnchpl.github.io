@@ -39,6 +39,25 @@
             "basePath": "/writings/"
         }
     },
+    "monthOrder": [
+        "Winter",
+        "January",
+        "February",
+        "March",
+        "Spring",
+        "April",
+        "May",
+        "June",
+        "Summer",
+        "July",
+        "August",
+        "September",
+        "Autumn",
+        "Fall",
+        "October",
+        "November",
+        "December"
+    ],
     "skyImages": [
         "/img/home/sky_1.jpg",
         "/img/home/sky_2.jpg",
