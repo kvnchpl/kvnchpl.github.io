@@ -235,11 +235,11 @@ main {
 }
 
 .page-subtitle {
+    all: unset;
     margin: var(--spacing-small);
     color: #999;
     text-transform: lowercase;
     text-decoration: none !important;
-    display: block;
 }
 
 .contact-text,
