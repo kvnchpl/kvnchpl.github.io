@@ -215,6 +215,16 @@ main {
     margin: var(--spacing-small);
 }
 
+.page-title {
+    margin: var(--spacing-small);
+}
+
+.page-subtitle {
+    margin: var(--spacing-small);
+    color: #999;
+    text-transform: lowercase;
+}
+
 .contact-text,
 .contact-img {
     max-width: var(--max-width-content);
