@@ -1,5 +1,5 @@
-{
-    "viewfinder": {
+[
+    {
         "type": "project",
         "title": "Viewfinder",
         "shortTitle": "viewfinder",
@@ -29,7 +29,7 @@
         "year": 2024,
         "external": false
     },
-    "triptych": {
+    {
         "type": "project",
         "title": "Triptych",
         "shortTitle": "triptych",
@@ -53,7 +53,7 @@
         "year": 2024,
         "external": false
     },
-    "archipelago": {
+    {
         "type": "project",
         "title": "Archipelago",
         "shortTitle": "archipelago",
@@ -80,7 +80,7 @@
         "year": 2024,
         "external": false
     },
-    "compiler-buddha": {
+    {
         "type": "project",
         "title": "Compiler Buddha",
         "shortTitle": "compiler-buddha",
@@ -96,7 +96,7 @@
         "year": 2025,
         "external": false
     },
-    "intraface": {
+    {
         "type": "project",
         "title": "Intraface",
         "shortTitle": "intraface",
@@ -121,7 +121,7 @@
         "year": 2022,
         "external": false
     },
-    "friday-night-never": {
+    {
         "type": "project",
         "title": "Friday Night Never",
         "shortTitle": "friday-night-never",
@@ -146,7 +146,7 @@
         "year": 2022,
         "external": false
     },
-    "dimensional-freedom": {
+    {
         "type": "project",
         "title": "Dimensional Freedom",
         "shortTitle": "dimensional-freedom",
@@ -171,7 +171,7 @@
         "year": 2019,
         "external": false
     },
-    "520-missing": {
+    {
         "type": "project",
         "title": "520 Missing",
         "shortTitle": "520-missing",
@@ -196,7 +196,7 @@
         "year": 2019,
         "external": false
     },
-    "truth-visions": {
+    {
         "type": "project",
         "title": "Truth Visions",
         "shortTitle": "truth-visions",
@@ -221,4 +221,4 @@
         "year": 2019,
         "external": false
     }
-}
+]

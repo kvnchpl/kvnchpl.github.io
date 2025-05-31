@@ -83,12 +83,16 @@ import {
             return;
         }
 
-        if (!pages || !pages[page]) {
+        const pageContent = Array.isArray(pages)
+            ? pages.find(p => p.shortTitle === page)
+            : null;
+
+        if (!pageContent) {
             console.warn(`No page data found for "${page}". Skipping content rendering.`);
             return;
         }
 
-        renderContentPage(page, pages, siteConfig);
+        renderContentPage(pageContent, siteConfig);
 
     } catch (err) {
         // Catch-all for errors in loading or rendering

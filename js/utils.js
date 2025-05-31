@@ -420,8 +420,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
  * @param {Object} pages - The pages data object containing content for each page.
  * @param {Object} siteConfig - The site configuration object containing element IDs and other settings.
  */
-export function renderContentPage(page, pages, siteConfig) {
-    const pageContent = pages[page];
+export function renderContentPage(pageContent, siteConfig) {
     if (!pageContent || !pageContent.shortTitle) {
         console.warn(`Missing or incomplete page data for: ${page}`);
         return;
