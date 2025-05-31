@@ -269,7 +269,7 @@ main {
     margin-left: auto;
     margin-right: auto;
     text-align: left;
-    padding: var(--spacing-small);
+    padding-right: var(--spacing-large);
 }
 
 .content-half p {
