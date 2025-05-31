@@ -2,7 +2,7 @@
     {
         "type": "project",
         "title": "Viewfinder",
-        "shortTitle": "viewfinder",
+        "key": "viewfinder",
         "permalink": "default",
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
         "subtitle": "default",
@@ -32,7 +32,7 @@
     {
         "type": "project",
         "title": "Triptych",
-        "shortTitle": "triptych",
+        "key": "triptych",
         "permalink": "default",
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
         "subtitle": "default",
@@ -56,7 +56,7 @@
     {
         "type": "project",
         "title": "Archipelago",
-        "shortTitle": "archipelago",
+        "key": "archipelago",
         "permalink": "default",
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
         "subtitle": "default",
@@ -83,7 +83,7 @@
     {
         "type": "project",
         "title": "Compiler Buddha",
-        "shortTitle": "compiler-buddha",
+        "key": "compiler-buddha",
         "permalink": "default",
         "description": "",
         "subtitle": "default",
@@ -99,7 +99,7 @@
     {
         "type": "project",
         "title": "Intraface",
-        "shortTitle": "intraface",
+        "key": "intraface",
         "permalink": "default",
         "description": "",
         "subtitle": "default",
@@ -124,7 +124,7 @@
     {
         "type": "project",
         "title": "Friday Night Never",
-        "shortTitle": "friday-night-never",
+        "key": "friday-night-never",
         "permalink": "default",
         "description": "",
         "subtitle": "default",
@@ -149,7 +149,7 @@
     {
         "type": "project",
         "title": "Dimensional Freedom",
-        "shortTitle": "dimensional-freedom",
+        "key": "dimensional-freedom",
         "permalink": "default",
         "description": "",
         "subtitle": "default",
@@ -174,7 +174,7 @@
     {
         "type": "project",
         "title": "520 Missing",
-        "shortTitle": "520-missing",
+        "key": "520-missing",
         "permalink": "default",
         "description": "",
         "subtitle": "default",
@@ -199,7 +199,7 @@
     {
         "type": "project",
         "title": "Truth Visions",
-        "shortTitle": "truth-visions",
+        "key": "truth-visions",
         "permalink": "default",
         "description": "",
         "subtitle": "default",

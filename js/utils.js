@@ -236,7 +236,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         let currentIndex = 0;
 
         const img = document.createElement(tagNames.galleryImage);
-        img.src = `/${basePath}/${pageData.shortTitle}/${size}/${imagesArr[0]}${imageExt}`;
+        img.src = `/${basePath}/${pageData.key}/${size}/${imagesArr[0]}${imageExt}`;
         img.alt = imagesArr[0];
 
         const prevBtn = document.createElement("button");
@@ -252,7 +252,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
         function showImage(index) {
             if (index >= 0 && index < imagesArr.length) {
-                img.src = `/${basePath}/${pageData.shortTitle}/${size}/${imagesArr[index]}${imageExt}`;
+                img.src = `/${basePath}/${pageData.key}/${size}/${imagesArr[index]}${imageExt}`;
                 img.alt = imagesArr[index];
                 currentIndex = index;
             }
@@ -421,7 +421,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
  * @param {Object} siteConfig - The site configuration object containing element IDs and other settings.
  */
 export function renderContentPage(pageContent, siteConfig) {
-    if (!pageContent || !pageContent.shortTitle) {
+    if (!pageContent || !pageContent.key) {
         console.warn(`Missing or incomplete page data for: ${page}`);
         return;
     }

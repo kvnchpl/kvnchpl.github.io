@@ -2,7 +2,7 @@
     "plight-of-center": {
         "type": "writing",
         "title": "Plight of Center",
-        "shortTitle": "plight-of-center",
+        "key": "plight-of-center",
         "permalink": "default",
         "description": null,
         "subtitle": "default",
@@ -18,7 +18,7 @@
     "cinder-block": {
         "type": "writing",
         "title": "Cinder Block",
-        "shortTitle": "cinder-block",
+        "key": "cinder-block",
         "permalink": "default",
         "description": null,
         "subtitle": "default",

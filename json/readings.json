@@ -2,7 +2,7 @@
     "in-defense-of-the-poor-image": {
         "type": "reading",
         "title": "In Defense of the Poor Image",
-        "shortTitle": "in-defense-of-the-poor-image",
+        "key": "in-defense-of-the-poor-image",
         "permalink": "http://worker01.e-flux.com/pdf/article_94.pdf",
         "subtitle": "by Hito Steyerl, e-flux Journal #10 (November 2009)",
         "publication": "e-flux Journal",
@@ -15,7 +15,7 @@
     "why-is-everything-so-ugly": {
         "type": "reading",
         "title": "Why Is Everything So Ugly?",
-        "shortTitle": "why-is-everything-so-ugly",
+        "key": "why-is-everything-so-ugly",
         "permalink": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/",
         "subtitle": "by n+1 Magazine editors, Issue 44 (Winter 2023)",
         "publication": "n+1 Magazine",

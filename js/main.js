@@ -84,7 +84,7 @@ import {
         }
 
         const pageContent = Array.isArray(pages)
-            ? pages.find(p => p.shortTitle === page)
+            ? pages.find(p => p.key === page)
             : null;
 
         if (!pageContent) {
