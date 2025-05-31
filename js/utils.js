@@ -422,6 +422,12 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 p.textContent = data.title || data.key;
                 a.appendChild(p);
 
+                if (data.subtitle) {
+                    const subtitleP = document.createElement("p");
+                    subtitleP.textContent = data.subtitle;
+                    a.appendChild(subtitleP);
+                }
+
                 pageLink.appendChild(a);
                 container.appendChild(pageLink);
             });
