@@ -306,7 +306,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
             galleryEl.appendChild(pairWrapper);
         }
-    } else if (layout === "default" || !layout) {
+    } else if (!layout) {
         images.forEach((imgArr, idx) => {
             const pairWrapper = document.createElement("div");
             pairWrapper.className = "slideshow-content-pair";
@@ -457,7 +457,7 @@ export function renderContentPage(pageContent, siteConfig) {
     let subtitleText = subtitle;
     if (!subtitleText) {
         const date = new Date(pageContent.year, pageContent.month - 1);
-        subtitleText = date.toLocaleString('default', { month: 'long', year: 'numeric' });
+        subtitleText = date.toLocaleString('en', { month: 'long', year: 'numeric' });
     }
     updateSubtitle(subtitleText);
 
