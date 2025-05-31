@@ -1,8 +1,8 @@
 /**
  * Usage:
- *   node tools/resize-project-images.js                    → processes all folders
- *   node tools/resize-project-images.js --include a,b,c    → include process folders a, b, c
- *   node tools/resize-project-images.js --exclude x,y      → process all except x, y
+ *   node tools/resize-project-images.js                                → process all folders
+ *   node tools/resize-project-images.js --include project1,project2    → include process folders project1 and project2
+ *   node tools/resize-project-images.js --exclude project1,project2    → process all except project1 and project2
  */
 const sharp = require('sharp');
 const fs = require('fs-extra');
