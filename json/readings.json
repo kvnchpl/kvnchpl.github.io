@@ -1,5 +1,5 @@
-{
-    "in-defense-of-the-poor-image": {
+[
+    {
         "type": "reading",
         "title": "In Defense of the Poor Image",
         "key": "in-defense-of-the-poor-image",
@@ -12,7 +12,7 @@
         "description": null,
         "images": []
     },
-    "why-is-everything-so-ugly": {
+    {
         "type": "reading",
         "title": "Why Is Everything So Ugly?",
         "key": "why-is-everything-so-ugly",
@@ -25,4 +25,4 @@
         "description": null,
         "images": []
     }
-}
+]
