@@ -387,35 +387,37 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             return;
         }
 
-        navData.filter(link => link.homePage).forEach(link => {
-            const pageLink = document.createElement("div");
-            pageLink.className = "page-link";
+        navData
+            .filter(link => link.homePage)
+            .forEach(link => {
+                const pageLink = document.createElement("div");
+                pageLink.className = "page-link";
 
-            const img = document.createElement("img");
-            img.src = link.thumbnail || getNextSkyImage();
-            img.alt = "Sky";
-            pageLink.appendChild(img);
+                const img = document.createElement("img");
+                img.src = link.thumbnail || getNextSkyImage();
+                img.alt = "Sky";
+                pageLink.appendChild(img);
 
-            const a = document.createElement("a");
-            a.href = link.href;
-            if (link.href.startsWith("http")) {
-                a.target = "_blank";
-                a.rel = "noopener";
-            }
+                const a = document.createElement("a");
+                a.href = link.href;
+                if (link.href.startsWith("http")) {
+                    a.target = "_blank";
+                    a.rel = "noopener";
+                }
 
-            const titleP = document.createElement("p");
-            titleP.textContent = link.title || link.key;
-            a.appendChild(titleP);
+                const titleP = document.createElement("p");
+                titleP.textContent = link.title || link.key;
+                a.appendChild(titleP);
 
-            if (link.subtitle) {
-                const subtitleP = document.createElement("p");
-                subtitleP.textContent = link.subtitle;
-                a.appendChild(subtitleP);
-            }
-            pageLink.appendChild(a);
+                if (link.subtitle) {
+                    const subtitleP = document.createElement("p");
+                    subtitleP.textContent = link.subtitle;
+                    a.appendChild(subtitleP);
+                }
+                pageLink.appendChild(a);
 
-            container.appendChild(pageLink);
-        });
+                container.appendChild(pageLink);
+            });
     } else if (isCollectionPage) {
         const {
             type,
@@ -446,7 +448,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                img.src = link.thumbnail || getNextSkyImage();
+                img.src = data.thumbnail || getNextSkyImage();
                 img.alt = data.title || data.key;
                 pageLink.appendChild(img);
 
