@@ -52,7 +52,23 @@ async function processImage(filePath, projectName) {
 }
 
 async function run() {
-    let projectDirs = await fs.readdir(inputRoot);
+    const categoryDirs = await fs.readdir(inputRoot);
+    let projectDirs = [];
+
+    for (const category of categoryDirs) {
+        const categoryPath = path.join(inputRoot, category);
+        const stats = await fs.stat(categoryPath);
+        if (!stats.isDirectory()) continue;
+
+        const subDirs = await fs.readdir(categoryPath);
+        for (const sub of subDirs) {
+            const fullPath = path.join(categoryPath, sub);
+            const subStats = await fs.stat(fullPath);
+            if (subStats.isDirectory()) {
+                projectDirs.push({ name: sub, path: fullPath });
+            }
+        }
+    }
     // Filter out .DS_Store and non-directories
     projectDirs = projectDirs.filter((dir) => {
         if (dir === '.DS_Store') return false;
@@ -61,7 +77,7 @@ async function run() {
         return true;
     });
 
-    for (const project of projectDirs) {
+    for (const { name, path: projectPath } of projectDirs) {
         const projectPath = path.join(inputRoot, project);
         const stats = await fs.stat(projectPath);
         if (!stats.isDirectory()) continue;
@@ -72,7 +88,7 @@ async function run() {
             const fullPath = path.join(projectPath, file);
             const fileStats = await fs.stat(fullPath);
             if (fileStats.isFile()) {
-                await processImage(fullPath, project);
+                await processImage(fullPath, name);
             }
         }
     }
