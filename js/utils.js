@@ -371,58 +371,59 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     let skyIndex = 0;
 
     const getNextSkyImage = () =>
-        skyImages.length > 0 ?
-            skyImages[skyIndex++ % skyImages.length] :
-            "/img/home/sky_1.jpg";
+        skyImages.length > 0
+            ? skyImages[skyIndex++ % skyImages.length]
+            : "/img/home/sky_1.jpg";
+
+    function createPageLink({ href, thumbnail, title, subtitle, isExternal }) {
+        const pageLink = document.createElement("div");
+        pageLink.className = "page-link";
+
+        const img = document.createElement("img");
+        img.src = thumbnail || getNextSkyImage();
+        img.alt = title || "Sky";
+        pageLink.appendChild(img);
+
+        const a = document.createElement("a");
+        a.href = href;
+        if (isExternal) {
+            a.target = "_blank";
+            a.rel = "noopener";
+        }
+
+        const titleP = document.createElement("p");
+        titleP.textContent = title;
+        a.appendChild(titleP);
+
+        if (subtitle) {
+            const subtitleP = document.createElement("p");
+            subtitleP.textContent = subtitle;
+            a.appendChild(subtitleP);
+        }
+
+        pageLink.appendChild(a);
+        return pageLink;
+    }
 
     if (isHomePage) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
-
-        if (!container) {
-            console.warn(`No link container found with selector: ${siteConfig.elementIds.linkContainer}`);
-            return;
-        }
-        if (!Array.isArray(navData)) {
-            console.warn("navData is not an array, expected an array of link objects.");
-            return;
-        }
+        if (!container || !Array.isArray(navData)) return;
 
         navData
             .filter(link => link.homePage)
             .forEach(link => {
-                const pageLink = document.createElement("div");
-                pageLink.className = "page-link";
-
-                const img = document.createElement("img");
-                img.src = link.thumbnail || getNextSkyImage();
-                img.alt = "Sky";
-                pageLink.appendChild(img);
-
-                const a = document.createElement("a");
-                a.href = link.href;
-                if (link.href.startsWith("http")) {
-                    a.target = "_blank";
-                    a.rel = "noopener";
-                }
-
-                const titleP = document.createElement("p");
-                titleP.textContent = link.title || link.key;
-                a.appendChild(titleP);
-
-                if (link.subtitle) {
-                    const subtitleP = document.createElement("p");
-                    subtitleP.textContent = link.subtitle;
-                    a.appendChild(subtitleP);
-                }
-                pageLink.appendChild(a);
-
+                const pageLink = createPageLink({
+                    href: link.href,
+                    thumbnail: link.thumbnail,
+                    title: link.title || link.key,
+                    subtitle: link.subtitle,
+                    isExternal: link.href.startsWith("http")
+                });
                 container.appendChild(pageLink);
             });
-    } else if (isCollectionPage) {
-        const {
-            type,
-            basePath
-        } = siteConfig.collections[page];
+    }
+    else if (isCollectionPage) {
+        const { type, basePath } = siteConfig.collections[page];
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
         if (!container || !type) return;
 
@@ -434,44 +435,27 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 const monthOrderMap = Object.fromEntries(
                     (siteConfig.monthOrder || []).map((name, index) => [name, index + 1])
                 );
-
-                const getMonthIndex = (entry) => {
-                    if (typeof entry.month === "number") return entry.month;
-                    if (typeof entry.month === "string") return monthOrderMap[entry.month] || 0;
-                    return 0;
-                };
+                const getMonthIndex = (entry) =>
+                    typeof entry.month === "number" ? entry.month :
+                        typeof entry.month === "string" ? monthOrderMap[entry.month] || 0 :
+                            0;
 
                 return getMonthIndex(b) - getMonthIndex(a);
             })
             .forEach(data => {
-                const pageLink = document.createElement("div");
-                pageLink.className = "page-link";
-
-                const img = document.createElement("img");
-                img.src = data.thumbnail || getNextSkyImage();
-                img.alt = data.title || data.key;
-                pageLink.appendChild(img);
-
-                const a = document.createElement("a");
-                a.href = data.external && data.permalink ? data.permalink : `${basePath}${data.key}`;
-                if (data.external && data.permalink) {
-                    a.target = "_blank";
-                    a.rel = "noopener";
-                }
-
-                const p = document.createElement("p");
-                p.textContent = data.title || data.key;
-                a.appendChild(p);
-
-                // Use getSubtitleText utility for subtitle or fallback
                 const subtitleText = getSubtitleText(data, siteConfig);
-                if (subtitleText) {
-                    const subtitleP = document.createElement("p");
-                    subtitleP.textContent = subtitleText;
-                    a.appendChild(subtitleP);
-                }
+                const href = data.external && data.permalink
+                    ? data.permalink
+                    : `${basePath}${data.key}`;
+                const isExternal = data.external && data.permalink;
 
-                pageLink.appendChild(a);
+                const pageLink = createPageLink({
+                    href,
+                    thumbnail: data.thumbnail,
+                    title: data.title || data.key,
+                    subtitle: subtitleText,
+                    isExternal
+                });
                 container.appendChild(pageLink);
             });
     }
