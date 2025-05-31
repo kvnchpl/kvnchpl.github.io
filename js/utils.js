@@ -388,17 +388,22 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         img.alt = title || "Sky";
         pageLink.appendChild(img);
 
+        const textBlock = document.createElement("div");
+        textBlock.className = "text-block";
+
         const titleP = document.createElement("p");
         titleP.className = "page-title";
         titleP.textContent = title;
-        pageLink.appendChild(titleP);
+        textBlock.appendChild(titleP);
 
         if (subtitle) {
             const subtitleP = document.createElement("p");
             subtitleP.className = "page-subtitle";
             subtitleP.textContent = subtitle;
-            pageLink.appendChild(subtitleP);
+            textBlock.appendChild(subtitleP);
         }
+
+        pageLink.appendChild(textBlock);
 
         return pageLink;
     }
