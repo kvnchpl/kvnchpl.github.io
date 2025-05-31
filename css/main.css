@@ -239,6 +239,7 @@ main {
     color: #999;
     text-transform: lowercase;
     text-decoration: none !important;
+    display: block;
 }
 
 .contact-text,
