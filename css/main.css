@@ -221,7 +221,7 @@ main {
     position: relative;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
@@ -235,6 +235,13 @@ main {
     user-select: none;
     justify-self: center;
     align-self: center;
+}
+
+.slideshow-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    width: 100%;
 }
 
 .slideshow-prev,
