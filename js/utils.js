@@ -382,14 +382,13 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
         if (!container || !type) return;
 
-        Object.entries(pages)
-            .filter(([, data]) => data.type === type)
-            .sort(([, a], [, b]) => {
-                // Sort by year descending, then month descending
+        Object.values(pages)
+            .filter(data => data.type === type)
+            .sort((a, b) => {
                 if (b.year !== a.year) return b.year - a.year;
                 return (b.month || 0) - (a.month || 0);
             })
-            .forEach(([slug, data]) => {
+            .forEach(data => {
                 const pageLink = document.createElement("div");
                 pageLink.className = "page-link";
 
@@ -399,18 +398,18 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     ? skyImages[Math.floor(Math.random() * skyImages.length)]
                     : "/img/home/sky_1.jpg";
                 img.src = data.thumbnail || randomSkyImage;
-                img.alt = data.title || slug;
+                img.alt = data.title || data.key;
                 pageLink.appendChild(img);
 
                 const a = document.createElement("a");
-                a.href = data.external && data.permalink ? data.permalink : `${basePath}${slug}`;
+                a.href = data.external && data.permalink ? data.permalink : `${basePath}${data.key}`;
                 if (data.external && data.permalink) {
                     a.target = "_blank";
                     a.rel = "noopener";
                 }
 
                 const p = document.createElement("p");
-                p.textContent = data.title || slug;
+                p.textContent = data.title || data.key;
                 a.appendChild(p);
 
                 pageLink.appendChild(a);
