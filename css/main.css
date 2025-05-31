@@ -223,7 +223,6 @@ main {
     grid-template-columns: auto 1fr auto;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
     width: 100%;
     box-sizing: border-box;
 }
