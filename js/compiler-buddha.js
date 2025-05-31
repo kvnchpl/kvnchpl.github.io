@@ -79,11 +79,11 @@ document.addEventListener("DOMContentLoaded", () => {
     returnToSource();
 
     manifestor.addEventListener("click", async () => {
-        document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.gif";
+        document.getElementById("buddha-image").src = "/img/projects/compiler-buddha/buddha.gif";
 
         closeChannels();
 
-        const vision = await summon("/img/compiler-buddha/buddha.png");
+        const vision = await summon("/img/projects/compiler-buddha/buddha.png");
 
         const sacredNumber = 108;
         let recitation = 0;
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             clearInterval(loop);
                             loop = null;
                             setTimeout(() => {
-                                document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.png";
+                                document.getElementById("buddha-image").src = "/img/projects/compiler-buddha/buddha.png";
                                 returnToSource();
                                 openChannels();
                             }, 1000);
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wayBack.addEventListener("click", () => {
         openChannels();
-        document.getElementById("buddha-image").src = "/img/compiler-buddha/buddha.png";
+        document.getElementById("buddha-image").src = "/img/projects/compiler-buddha/buddha.png";
         returnToSource();
     });
 });
