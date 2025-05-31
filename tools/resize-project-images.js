@@ -1,3 +1,9 @@
+/**
+ * Usage:
+ *   node tools/resize-project-images.js                    → processes all folders
+ *   node tools/resize-project-images.js --include a,b,c    → include process folders a, b, c
+ *   node tools/resize-project-images.js --exclude x,y      → process all except x, y
+ */
 const sharp = require('sharp');
 const fs = require('fs-extra');
 const path = require('path');
@@ -48,7 +54,12 @@ async function processImage(filePath, projectName) {
 async function run() {
     let projectDirs = await fs.readdir(inputRoot);
     // Filter out .DS_Store and non-directories
-    projectDirs = projectDirs.filter((dir) => dir !== '.DS_Store');
+    projectDirs = projectDirs.filter((dir) => {
+        if (dir === '.DS_Store') return false;
+        if (includeOnly && !includeOnly.includes(dir)) return false;
+        if (exclude.includes(dir)) return false;
+        return true;
+    });
 
     for (const project of projectDirs) {
         const projectPath = path.join(inputRoot, project);
@@ -68,5 +79,9 @@ async function run() {
 
     console.log('\nAll project images processed.');
 }
+
+const argv = process.argv.slice(2);
+const includeOnly = argv.includes('--include') ? argv[argv.indexOf('--include') + 1].split(',') : null;
+const exclude = argv.includes('--exclude') ? argv[argv.indexOf('--exclude') + 1].split(',') : [];
 
 run().catch(console.error);
