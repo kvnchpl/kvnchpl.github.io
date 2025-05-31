@@ -87,9 +87,10 @@ export function getPageType(page, collections) {
 /**
  * Returns subtitle text, falling back to formatted month and year if needed.
  * @param {Object} data - The page or project data object.
+ * @param {Object} siteConfig - The site configuration object, used for monthOrder.
  * @returns {string|null} - Subtitle string or null if no fallback available.
  */
-export function getSubtitleText(data) {
+export function getSubtitleText(data, siteConfig) {
     if (typeof data.subtitle === "string" && data.subtitle.trim() !== "") {
         return data.subtitle;
     } else if (data.year) {
@@ -99,7 +100,9 @@ export function getSubtitleText(data) {
                 year: 'numeric'
             });
         } else if (typeof data.month === "string" && data.month.trim() !== "") {
-            return `${data.month} ${data.year}`;
+            const monthOrder = siteConfig?.monthOrder || [];
+            const isNamedMonth = monthOrder.includes(data.month);
+            return isNamedMonth ? `${data.month} ${data.year}` : null;
         }
     }
     return null;
@@ -455,7 +458,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 a.appendChild(p);
 
                 // Use getSubtitleText utility for subtitle or fallback
-                const subtitleText = getSubtitleText(data);
+                const subtitleText = getSubtitleText(data, siteConfig);
                 if (subtitleText) {
                     const subtitleP = document.createElement("p");
                     subtitleP.textContent = subtitleText;
@@ -494,7 +497,7 @@ export function renderContentPage(pageContent, siteConfig) {
     updateDescription(description);
     updateMainHeading(title);
 
-    const subtitleText = getSubtitleText(pageContent);
+    const subtitleText = getSubtitleText(pageContent, siteConfig);
     updateSubtitle(subtitleText);
 
     const main = document.querySelector('main');
