@@ -61,8 +61,14 @@ a:hover {
     text-transform: var(--text-transform-link-hover);
 }
 
-a:hover:not(.page-link) {
+a:hover {
+    color: var(--color-link-hover);
+    text-transform: var(--text-transform-link-hover);
     text-decoration: underline;
+}
+
+a:hover .page-subtitle {
+    text-decoration: none !important;
 }
 
 img {
