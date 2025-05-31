@@ -375,34 +375,31 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             : "/img/home/sky_1.jpg";
 
     function createPageLink({ href, thumbnail, title, subtitle, isExternal }) {
-        const pageLink = document.createElement("div");
+        const pageLink = document.createElement("a");
         pageLink.className = "page-link";
+        pageLink.href = href;
+        if (isExternal) {
+            pageLink.target = "_blank";
+            pageLink.rel = "noopener";
+        }
 
         const img = document.createElement("img");
         img.src = thumbnail || getNextSkyImage();
         img.alt = title || "Sky";
         pageLink.appendChild(img);
 
-        const a = document.createElement("a");
-        a.href = href;
-        if (isExternal) {
-            a.target = "_blank";
-            a.rel = "noopener";
-        }
-
         const titleP = document.createElement("p");
         titleP.className = "page-title";
         titleP.textContent = title;
-        a.appendChild(titleP);
+        pageLink.appendChild(titleP);
 
         if (subtitle) {
             const subtitleP = document.createElement("p");
             subtitleP.className = "page-subtitle";
             subtitleP.textContent = subtitle;
-            a.appendChild(subtitleP);
+            pageLink.appendChild(subtitleP);
         }
 
-        pageLink.appendChild(a);
         return pageLink;
     }
 
