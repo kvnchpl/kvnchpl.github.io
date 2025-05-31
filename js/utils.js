@@ -247,6 +247,8 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
     if (!container || !pageData) return;
+    const collection = Object.values(siteConfig.collections).find(c => c.type === pageData.type);
+    const collectionPath = collection ? collection.basePath.replace(/^\/|\/$/g, '') : '';
 
     const galleryEl = container.querySelector('#content-page-container');
     if (!galleryEl) return;
@@ -263,7 +265,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         let currentIndex = 0;
 
         const img = document.createElement(tagNames.galleryImage);
-        img.src = `/${basePath}/${pageData.key}/${size}/${imagesArr[0]}${imageExt}`;
+        img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[0]}${imageExt}`;
         img.alt = imagesArr[0];
 
         const prevBtn = document.createElement("button");
@@ -283,7 +285,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
         function showImage(index) {
             if (index >= 0 && index < imagesArr.length) {
-                img.src = `/${basePath}/${pageData.key}/${size}/${imagesArr[index]}${imageExt}`;
+                img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[index]}${imageExt}`;
                 img.alt = imagesArr[index];
                 currentIndex = index;
             }
