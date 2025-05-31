@@ -3,13 +3,13 @@
         "type": "project",
         "title": "Compiler Buddha",
         "key": "compiler-buddha",
-        "permalink": "default",
+        "permalink": null,
         "description": "",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
         "images": [],
-        "layout": "default",
+        "layout": null,
         "month": 5,
         "year": 2025,
         "external": false
@@ -18,9 +18,9 @@
         "type": "project",
         "title": "Viewfinder",
         "key": "viewfinder",
-        "permalink": "default",
+        "permalink": null,
         "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#111111",
         "content": [
             "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by ai object detection technology. extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
@@ -38,7 +38,7 @@
                 "viewfinder_9"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 10,
         "year": 2024,
         "external": false
@@ -47,9 +47,9 @@
         "type": "project",
         "title": "Triptych",
         "key": "triptych",
-        "permalink": "default",
+        "permalink": null,
         "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#111111",
         "content": [
             "Ode to Francis Bacon, his illegibility, his romance, and his turmoil."
@@ -61,7 +61,7 @@
                 "triptych_3"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 10,
         "year": 2024,
         "external": false
@@ -70,9 +70,9 @@
         "type": "project",
         "title": "Archipelago",
         "key": "archipelago",
-        "permalink": "default",
+        "permalink": null,
         "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "Archipelago centers the rectangular frame as a motif dually representing the digital interfaces we encounter in contemporary life and the psychological framework through which we perceive others. Each banner features a pair of abstract fauna and flora, which mirror each other in relation to or in opposition with the frame, reflecting the emotional effort required to care for others in spite of perceived faults or misunderstandings. The banners’ collage of disparate elements – the AI-generated jungle landscapes, pixelated image scrap, and indeterminate symbols – embraces the spirit of the Philippines, consisting of over 7,000 islands, as a testament of unity across different peoples, cultures, and languages. (Proposal for the Noguchi Museum Open Call for Artist Banners 2024)"
@@ -87,7 +87,7 @@
                 "archipelago_6"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 2,
         "year": 2024,
         "external": false
@@ -96,9 +96,9 @@
         "type": "project",
         "title": "Intraface",
         "key": "intraface",
-        "permalink": "default",
+        "permalink": null,
         "description": "",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
         "images": [
@@ -111,7 +111,7 @@
                 "intraface_6"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 8,
         "year": 2022,
         "external": false
@@ -120,9 +120,9 @@
         "type": "project",
         "title": "Friday Night Never",
         "key": "friday-night-never",
-        "permalink": "default",
+        "permalink": null,
         "description": "",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
         "images": [
@@ -135,7 +135,7 @@
                 "friday-night-never_6"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 8,
         "year": 2022,
         "external": false
@@ -144,9 +144,9 @@
         "type": "project",
         "title": "Dimensional Freedom",
         "key": "dimensional-freedom",
-        "permalink": "default",
+        "permalink": null,
         "description": "",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
         "images": [
@@ -159,7 +159,7 @@
                 "dimensional-freedom_6"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 5,
         "year": 2019,
         "external": false
@@ -168,9 +168,9 @@
         "type": "project",
         "title": "520 Missing",
         "key": "520-missing",
-        "permalink": "default",
+        "permalink": null,
         "description": "",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
         "images": [
@@ -183,7 +183,7 @@
                 "520-missing_6"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 5,
         "year": 2019,
         "external": false
@@ -192,9 +192,9 @@
         "type": "project",
         "title": "Truth Visions",
         "key": "truth-visions",
-        "permalink": "default",
+        "permalink": null,
         "description": "",
-        "subtitle": "default",
+        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
         "images": [
@@ -207,7 +207,7 @@
                 "truth-visions_6"
             ]
         ],
-        "layout": "default",
+        "layout": null,
         "month": 3,
         "year": 2019,
         "external": false
