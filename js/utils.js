@@ -374,9 +374,15 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 a.rel = "noopener";
             }
 
-            const p = document.createElement("p");
-            p.textContent = link.title;
-            a.appendChild(p);
+            const titleP = document.createElement("p");
+            titleP.textContent = data.title || data.key;
+            a.appendChild(titleP);
+
+            if (data.subtitle && data.subtitle.toLowerCase() !== "default") {
+                const subtitleP = document.createElement("p");
+                subtitleP.textContent = data.subtitle;
+                a.appendChild(subtitleP);
+            }
             pageLink.appendChild(a);
 
             container.appendChild(pageLink);
