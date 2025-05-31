@@ -363,6 +363,15 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const isHomePage = page === "home";
     const isCollectionPage = siteConfig.collections?.[page];
 
+    const skyImages = getShuffledSkyImages(siteConfig);
+    let skyIndex = 0;
+
+    const getNextSkyImage = () =>
+        skyImages.length > 0
+            ? skyImages[skyIndex++ % skyImages.length]
+            : "/img/home/sky_1.jpg";
+
+
     if (isHomePage) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
 
@@ -380,12 +389,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             pageLink.className = "page-link";
 
             const img = document.createElement("img");
-            const skyImages = getShuffledSkyImages(siteConfig);
-            let skyIndex = 0;
-            const nextSkyImage = skyImages.length > 0
-                ? skyImages[skyIndex++ % skyImages.length]
-                : "/img/home/sky_1.jpg";
-            img.src = link.thumbnail || nextSkyImage;
+            img.src = link.thumbnail || getNextSkyImage();
             img.alt = "Sky";
             pageLink.appendChild(img);
 
@@ -436,12 +440,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 pageLink.className = "page-link";
 
                 const img = document.createElement("img");
-                const skyImages = getShuffledSkyImages(siteConfig);
-                let skyIndex = 0;
-                const nextSkyImage = skyImages.length > 0
-                    ? skyImages[skyIndex++ % skyImages.length]
-                    : "/img/home/sky_1.jpg";
-                img.src = data.thumbnail || nextSkyImage;
+                img.src = link.thumbnail || getNextSkyImage();
                 img.alt = data.title || data.key;
                 pageLink.appendChild(img);
 
