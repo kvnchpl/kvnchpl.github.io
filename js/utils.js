@@ -100,9 +100,8 @@ export function getSubtitleText(data, siteConfig) {
                 year: 'numeric'
             });
         } else if (typeof data.month === "string" && data.month.trim() !== "") {
-            const monthOrder = siteConfig?.monthOrder || [];
-            const isNamedMonth = monthOrder.includes(data.month);
-            return isNamedMonth ? `${data.month} ${data.year}` : null;
+            const monthOrderMap = Object.fromEntries((siteConfig?.monthOrder || []).map((name, index) => [name, index + 1]));
+            return monthOrderMap[data.month] ? `${data.month} ${data.year}` : null;
         }
     }
     return null;
