@@ -85,6 +85,23 @@ export function getPageType(page, collections) {
 }
 
 /**
+ * Returns subtitle text, falling back to formatted month and year if needed.
+ * @param {Object} data - The page or project data object.
+ * @returns {string|null} - Subtitle string or null if no fallback available.
+ */
+export function getSubtitleText(data) {
+    if (typeof data.subtitle === "string" && data.subtitle.trim() !== "") {
+        return data.subtitle;
+    } else if (data.month && data.year) {
+        return new Date(data.year, data.month - 1).toLocaleString('en', {
+            month: 'long',
+            year: 'numeric'
+        });
+    }
+    return null;
+}
+
+/**
  * Updates the document's <title> element.
  * @param {string} title - The new title for the document.
  */
@@ -422,11 +439,8 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 p.textContent = data.title || data.key;
                 a.appendChild(p);
 
-                // Fallback to month/year if subtitle is missing/null
-                const subtitleText = data.subtitle || (data.month && data.year
-                    ? new Date(data.year, data.month - 1).toLocaleString('en', { month: 'long', year: 'numeric' })
-                    : null);
-
+                // Use getSubtitleText utility for subtitle or fallback
+                const subtitleText = getSubtitleText(data);
                 if (subtitleText) {
                     const subtitleP = document.createElement("p");
                     subtitleP.textContent = subtitleText;
@@ -451,7 +465,7 @@ export function renderContentPage(pageContent, siteConfig) {
         return;
     }
 
-    const { backgroundColor, title, description, subtitle } = pageContent;
+    const { backgroundColor, title, description } = pageContent;
     const { elementIds, tagNames, galleryBasePath, defaultImageSize, imageExt } = siteConfig;
 
     if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
@@ -465,11 +479,7 @@ export function renderContentPage(pageContent, siteConfig) {
     updateDescription(description);
     updateMainHeading(title);
 
-    let subtitleText = subtitle;
-    if (!subtitleText) {
-        const date = new Date(pageContent.year, pageContent.month - 1);
-        subtitleText = date.toLocaleString('en', { month: 'long', year: 'numeric' });
-    }
+    const subtitleText = getSubtitleText(pageContent);
     updateSubtitle(subtitleText);
 
     const main = document.querySelector('main');
