@@ -422,9 +422,14 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 p.textContent = data.title || data.key;
                 a.appendChild(p);
 
-                if (data.subtitle) {
+                // Fallback to month/year if subtitle is missing/null
+                const subtitleText = data.subtitle || (data.month && data.year
+                    ? new Date(data.year, data.month - 1).toLocaleString('en', { month: 'long', year: 'numeric' })
+                    : null);
+
+                if (subtitleText) {
                     const subtitleP = document.createElement("p");
-                    subtitleP.textContent = data.subtitle;
+                    subtitleP.textContent = subtitleText;
                     a.appendChild(subtitleP);
                 }
 
