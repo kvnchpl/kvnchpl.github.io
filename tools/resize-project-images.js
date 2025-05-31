@@ -70,20 +70,15 @@ async function run() {
         }
     }
     // Filter out .DS_Store and non-directories
-    projectDirs = projectDirs.filter((dir) => {
-        if (dir === '.DS_Store') return false;
-        if (includeOnly && !includeOnly.includes(dir)) return false;
-        if (exclude.includes(dir)) return false;
+    projectDirs = projectDirs.filter(({ name }) => {
+        if (name === '.DS_Store') return false;
+        if (includeOnly && !includeOnly.includes(name)) return false;
+        if (exclude.includes(name)) return false;
         return true;
     });
 
     for (const { name, path: projectPath } of projectDirs) {
-        const projectPath = path.join(inputRoot, project);
-        const stats = await fs.stat(projectPath);
-        if (!stats.isDirectory()) continue;
-
         const files = await fs.readdir(projectPath);
-
         for (const file of files) {
             const fullPath = path.join(projectPath, file);
             const fileStats = await fs.stat(fullPath);
