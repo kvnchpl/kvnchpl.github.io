@@ -206,6 +206,12 @@ main {
     text-decoration: none;
 }
 
+.page-link .text-block {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--spacing-small);
+}
+
 .page-link img {
     max-width: none;
     height: calc(var(--font-size-main) * 4);
