@@ -268,18 +268,29 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[0]}${imageExt}`;
         img.alt = imagesArr[0];
 
-        const prevBtn = document.createElement("button");
-        prevBtn.textContent = "<";
-        prevBtn.className = "slideshow-prev";
-        const nextBtn = document.createElement("button");
-        nextBtn.textContent = ">";
-        nextBtn.className = "slideshow-next";
+        const isSingleImage = imagesArr.length === 1;
 
         const inner = document.createElement("div");
         inner.className = "slideshow-inner";
-        inner.appendChild(prevBtn);
-        inner.appendChild(img);
-        inner.appendChild(nextBtn);
+
+        if (!isSingleImage) {
+            const prevBtn = document.createElement("button");
+            prevBtn.textContent = "<";
+            prevBtn.className = "slideshow-prev";
+
+            const nextBtn = document.createElement("button");
+            nextBtn.textContent = ">";
+            nextBtn.className = "slideshow-next";
+
+            prevBtn.addEventListener("click", () => showImage((currentIndex - 1 + imagesArr.length) % imagesArr.length));
+            nextBtn.addEventListener("click", () => showImage((currentIndex + 1) % imagesArr.length));
+
+            inner.appendChild(prevBtn);
+            inner.appendChild(img);
+            inner.appendChild(nextBtn);
+        } else {
+            inner.appendChild(img);
+        }
 
         wrapper.appendChild(inner);
 
@@ -290,9 +301,6 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
                 currentIndex = index;
             }
         }
-
-        prevBtn.addEventListener("click", () => showImage((currentIndex - 1 + imagesArr.length) % imagesArr.length));
-        nextBtn.addEventListener("click", () => showImage((currentIndex + 1) % imagesArr.length));
 
         return wrapper;
     }
