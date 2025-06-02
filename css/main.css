@@ -77,6 +77,13 @@ main {
     flex-direction: column;
 }
 
+.iframe {
+    width: 100vw;
+    height: 56.25vw;
+    border: none;
+    display: block;
+}
+
 #nav {
     display: flex;
     justify-content: space-between;
