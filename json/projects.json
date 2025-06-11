@@ -224,8 +224,10 @@
         ],
         "layout": [
             "images-1-full",
-            "content-1",
-            "images-2"
+            [
+                "images-2",
+                "content-1"
+            ]
         ],
         "month": 5,
         "year": 2019,
