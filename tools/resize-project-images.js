@@ -113,6 +113,9 @@ async function run() {
             for (const file of filesToProcess) {
                 const fullPath = path.join(fullDir, file);
                 await processImage(fullPath, name);
+                if (path.extname(fullPath).toLowerCase() !== '.webp') {
+                    await fs.remove(fullPath);
+                }
             }
         } else {
             for (const file of files) {
