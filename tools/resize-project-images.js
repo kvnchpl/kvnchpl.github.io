@@ -52,7 +52,12 @@ async function processImage(filePath, projectName) {
 
 function hasExpectedSubdirs(projectPath) {
     const expected = ['full', 'medium', 'small', 'thumbnail'];
-    return expected.every(folder => fs.existsSync(path.join(projectPath, folder)));
+    return expected.every(folder => {
+        const folderPath = path.join(projectPath, folder);
+        if (!fs.existsSync(folderPath)) return false;
+        const files = fs.readdirSync(folderPath);
+        return files.some(f => path.extname(f).toLowerCase() === '.webp');
+    });
 }
 
 async function run() {
@@ -82,7 +87,7 @@ async function run() {
     });
 
     for (const { name, path: projectPath } of projectDirs) {
-        if (hasExpectedSubdirs(projectPath)) {
+        if (!force && hasExpectedSubdirs(projectPath)) {
             console.log(`${name}: already structured — skipping`);
             continue;
         }
@@ -119,5 +124,6 @@ async function run() {
 const argv = process.argv.slice(2);
 const includeOnly = argv.includes('--include') ? argv[argv.indexOf('--include') + 1].split(',') : null;
 const exclude = argv.includes('--exclude') ? argv[argv.indexOf('--exclude') + 1].split(',') : [];
+const force = argv.includes('--force');
 
 run().catch(console.error);
