@@ -315,43 +315,77 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     // Clear previous content
     galleryEl.innerHTML = "";
 
-    if (Array.isArray(layout) && layout.length > 0) {
-        for (let i = 0; i < layout.length; i += 2) {
-            const item1 = layout[i];
-            const item2 = layout[i + 1];
-
+    // Flexible layout handling
+    if (Array.isArray(layout)) {
+        layout.forEach(entry => {
             const pairWrapper = document.createElement("div");
             pairWrapper.className = "slideshow-content-pair";
 
-            const [type1, idxStr1] = item1.split("-");
-            const idx1 = parseInt(idxStr1, 10) - 1;
-            if (type1 === "images" && images[idx1]) {
-                const slideshow = renderSlideshow(images[idx1]);
+            let type, indexStr, modifier;
+            if (typeof entry === "string") {
+                const match = entry.match(/^(images|content)-(\d+)(?:-(full|left|right))?$/);
+                if (match) {
+                    [, type, indexStr, modifier] = match;
+                    const index = parseInt(indexStr, 10) - 1;
+
+                    if (type === "images" && images[index]) {
+                        const slideshow = renderSlideshow(images[index]);
+                        if (modifier === "full") {
+                            slideshow.classList.add("slideshow-full");
+                        } else if (modifier === "left") {
+                            slideshow.classList.add("slideshow-half");
+                            pairWrapper.appendChild(slideshow);
+                        } else if (modifier === "right") {
+                            slideshow.classList.add("slideshow-half");
+                            pairWrapper.appendChild(document.createElement("div")); // left placeholder
+                            pairWrapper.appendChild(slideshow);
+                        } else {
+                            slideshow.classList.add("slideshow-half");
+                            pairWrapper.appendChild(slideshow);
+                        }
+
+                        if (modifier === "full") {
+                            galleryEl.appendChild(slideshow);
+                        } else {
+                            galleryEl.appendChild(pairWrapper);
+                        }
+                    }
+
+                    if (type === "content" && content[index]) {
+                        const contentBlock = renderContentBlock(content[index]);
+                        const contentWrapper = document.createElement("div");
+                        contentWrapper.className = "content-half";
+                        contentWrapper.appendChild(contentBlock);
+
+                        if (modifier === "full") {
+                            contentWrapper.className = "content-full";
+                            galleryEl.appendChild(contentWrapper);
+                        } else if (modifier === "left") {
+                            pairWrapper.appendChild(contentWrapper);
+                            galleryEl.appendChild(pairWrapper);
+                        } else if (modifier === "right") {
+                            pairWrapper.appendChild(document.createElement("div")); // left placeholder
+                            pairWrapper.appendChild(contentWrapper);
+                            galleryEl.appendChild(pairWrapper);
+                        } else {
+                            pairWrapper.appendChild(contentWrapper);
+                            galleryEl.appendChild(pairWrapper);
+                        }
+                    }
+                }
+            }
+        });
+    } else {
+        // fallback: pair images and content in order
+        for (let idx = 0; idx < Math.max(images.length, content.length); idx++) {
+            const pairWrapper = document.createElement("div");
+            pairWrapper.className = "slideshow-content-pair";
+
+            if (images[idx]) {
+                const slideshow = renderSlideshow(images[idx]);
                 slideshow.classList.add("slideshow-half");
                 pairWrapper.appendChild(slideshow);
             }
-
-            const [type2, idxStr2] = item2 ? item2.split("-") : [null, null];
-            const idx2 = item2 ? parseInt(idxStr2, 10) - 1 : null;
-            if (type2 === "content" && content[idx2]) {
-                const contentBlock = renderContentBlock(content[idx2]);
-                const contentWrapper = document.createElement("div");
-                contentWrapper.className = "content-half";
-                contentWrapper.appendChild(contentBlock);
-                pairWrapper.appendChild(contentWrapper);
-            }
-
-            galleryEl.appendChild(pairWrapper);
-        }
-    } else if (!layout) {
-        images.forEach((imgArr, idx) => {
-            const pairWrapper = document.createElement("div");
-            pairWrapper.className = "slideshow-content-pair";
-
-            const slideshow = renderSlideshow(imgArr);
-            slideshow.classList.add("slideshow-half");
-            pairWrapper.appendChild(slideshow);
-
             if (content[idx]) {
                 const contentBlock = renderContentBlock(content[idx]);
                 const contentWrapper = document.createElement("div");
@@ -359,9 +393,8 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
                 contentWrapper.appendChild(contentBlock);
                 pairWrapper.appendChild(contentWrapper);
             }
-
             galleryEl.appendChild(pairWrapper);
-        });
+        }
     }
 }
 
