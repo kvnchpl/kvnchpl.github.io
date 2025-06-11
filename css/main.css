@@ -276,6 +276,7 @@ main {
     justify-content: center;
     box-sizing: border-box;
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .slideshow-inner img {
