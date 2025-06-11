@@ -97,12 +97,27 @@ async function run() {
             return supportedExtensions.includes(ext);
         });
 
-        await fs.ensureDir(path.join(projectPath, 'full'));
-        for (const file of files) {
-            const srcPath = path.join(projectPath, file);
-            const dstPath = path.join(projectPath, 'full', file);
-            await fs.copy(srcPath, dstPath);
-            await processImage(dstPath, name);
+        const fullDir = path.join(projectPath, 'full');
+        await fs.ensureDir(fullDir);
+
+        let filesToProcess;
+
+        if (
+            fs.existsSync(fullDir) &&
+            fs.readdirSync(fullDir).some(f => supportedExtensions.includes(path.extname(f).toLowerCase()))
+        ) {
+            filesToProcess = fs.readdirSync(fullDir).filter(f => supportedExtensions.includes(path.extname(f).toLowerCase()));
+            for (const file of filesToProcess) {
+                const fullPath = path.join(fullDir, file);
+                await processImage(fullPath, name);
+            }
+        } else {
+            for (const file of files) {
+                const srcPath = path.join(projectPath, file);
+                const dstPath = path.join(fullDir, file);
+                await fs.copy(srcPath, dstPath);
+                await processImage(dstPath, name);
+            }
         }
 
         // generate thumbnail from the first file
