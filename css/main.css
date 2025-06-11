@@ -347,7 +347,18 @@ main {
 
 @media (max-width: 768px) {
     #nav {
-        font-size: var(--font-size-nav-mobile);
+        font-size: var(--font-size-main);
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: var(--spacing-medium);
+        gap: var(--spacing-small);
+    }
+
+    #nav a {
+        display: block;
+        width: 100%;
+        text-align: left;
     }
 
     #title-top {
