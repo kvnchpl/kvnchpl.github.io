@@ -38,7 +38,10 @@
                 "viewfinder_9"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "images-1-left",
+            "content-1-right"
+        ],
         "month": 10,
         "year": 2024,
         "external": false
@@ -61,7 +64,10 @@
                 "triptych_3"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "images-1",
+            "content-1"
+        ],
         "month": 10,
         "year": 2024,
         "external": false
@@ -87,7 +93,10 @@
                 "archipelago_6"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "content-1",
+            "images-1-full"
+        ],
         "month": 2,
         "year": 2024,
         "external": false
@@ -113,7 +122,10 @@
                 "intraface_6"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "images-1-right",
+            "content-1-left"
+        ],
         "month": 8,
         "year": 2022,
         "external": false
@@ -167,7 +179,12 @@
                 "friday-night-never_3_10"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "images-1",
+            "content-1",
+            "images-2",
+            "images-3"
+        ],
         "month": 8,
         "year": 2022,
         "external": false
@@ -195,7 +212,11 @@
                 "dimensional-freedom_6"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "images-1-full",
+            "content-1",
+            "images-2"
+        ],
         "month": 5,
         "year": 2019,
         "external": false
@@ -221,7 +242,10 @@
                 "520-missing_6"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "images-1-left",
+            "content-1-right"
+        ],
         "month": 5,
         "year": 2019,
         "external": false
@@ -247,7 +271,10 @@
                 "truth-visions_6"
             ]
         ],
-        "layout": null,
+        "layout": [
+            "content-1",
+            "images-1"
+        ],
         "month": 3,
         "year": 2019,
         "external": false
