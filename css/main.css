@@ -271,9 +271,10 @@ main {
 }
 
 .slideshow-inner {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
     width: 100%;
-    display: flex;
-    justify-content: center;
     box-sizing: border-box;
     overflow: hidden;
     margin: 0 auto;
@@ -285,6 +286,7 @@ main {
     max-height: 90vh;
     object-fit: contain;
     display: block;
+    grid-column: 2;
 }
 
 .slideshow-full {
