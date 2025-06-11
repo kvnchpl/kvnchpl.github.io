@@ -29,8 +29,20 @@ async function processImage(filePath, projectName) {
         await fs.ensureDir(outputDir);
 
         if (width === null) {
-            const rawCopyPath = path.join(outputDir, `${fileName}${ext}`);
-            await fs.move(filePath, rawCopyPath, { overwrite: true });
+            const outputPath = path.join(outputDir, `${fileName}.webp`);
+            const exists = await fs.pathExists(outputPath);
+            if (exists) {
+                console.log(`${projectName}: full version already exists — skipping`);
+                continue;
+            }
+            try {
+                await sharp(filePath)
+                    .toFormat('webp')
+                    .toFile(outputPath);
+                console.log(`✓ ${projectName}: full version saved → ${outputPath}`);
+            } catch (err) {
+                console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for full size — ${err.message}`);
+            }
         } else {
             const outputPath = path.join(outputDir, `${fileName}.webp`);
             const exists = await fs.pathExists(outputPath);
