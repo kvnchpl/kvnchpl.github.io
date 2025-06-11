@@ -94,9 +94,11 @@ async function processFullDirImages(fullDir, projectName) {
 }
 
 async function generateThumbnail(projectPath, files) {
-    if (files.length === 0) return;
-    const thumbSrc = path.join(projectPath, 'full', files[0]);
-    const thumbDst = path.join(projectPath, 'thumbnail', path.parse(files[0]).name + '.webp');
+    const fullDir = path.join(projectPath, 'full');
+    const webpFiles = (await fs.readdir(fullDir)).filter(f => path.extname(f).toLowerCase() === '.webp');
+    if (webpFiles.length === 0) return;
+    const thumbSrc = path.join(fullDir, webpFiles[0]);
+    const thumbDst = path.join(projectPath, 'thumbnail', path.parse(webpFiles[0]).name + '.webp');
     await fs.ensureDir(path.join(projectPath, 'thumbnail'));
     await sharp(thumbSrc)
         .resize({ width: 400 })
