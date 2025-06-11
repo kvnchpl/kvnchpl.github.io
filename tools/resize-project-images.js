@@ -54,7 +54,7 @@ async function processImage(filePath, projectName) {
 }
 
 function hasExpectedSubdirs(projectPath) {
-    const expected = ['full', 'medium', 'small', 'thumbnail'];
+    const expected = ['full', 'medium', 'small'];
     return expected.every(folder => {
         const folderPath = path.join(projectPath, folder);
         if (!fs.existsSync(folderPath)) return false;
@@ -63,7 +63,7 @@ function hasExpectedSubdirs(projectPath) {
     });
 }
 
-async function run() {
+async function getProjectDirs() {
     const categoryDirs = await fs.readdir(inputRoot);
     let projectDirs = [];
 
@@ -81,6 +81,33 @@ async function run() {
             }
         }
     }
+    return projectDirs;
+}
+
+async function processFullDirImages(fullDir, projectName) {
+    const filesInFullDir = fs.readdirSync(fullDir).filter(f => supportedExtensions.includes(path.extname(f).toLowerCase()));
+    for (const file of filesInFullDir) {
+        const fullPath = path.join(fullDir, file);
+        await processImage(fullPath, projectName);
+        await fs.remove(fullPath);
+    }
+}
+
+async function generateThumbnail(projectPath, files) {
+    if (files.length === 0) return;
+    const thumbSrc = path.join(projectPath, 'full', files[0]);
+    const thumbDst = path.join(projectPath, 'thumbnail', path.parse(files[0]).name + '.webp');
+    await fs.ensureDir(path.join(projectPath, 'thumbnail'));
+    await sharp(thumbSrc)
+        .resize({ width: 400 })
+        .toFormat('webp')
+        .toFile(thumbDst);
+    console.log(`✓ ${path.basename(projectPath)}: thumbnail generated → ${thumbDst}`);
+}
+
+async function run() {
+    let projectDirs = await getProjectDirs();
+
     // Filter out .DS_Store and non-directories
     projectDirs = projectDirs.filter(({ name }) => {
         if (name === '.DS_Store') return false;
@@ -103,20 +130,11 @@ async function run() {
         const fullDir = path.join(projectPath, 'full');
         await fs.ensureDir(fullDir);
 
-        let filesToProcess;
-
         if (
             fs.existsSync(fullDir) &&
             fs.readdirSync(fullDir).some(f => supportedExtensions.includes(path.extname(f).toLowerCase()))
         ) {
-            filesToProcess = fs.readdirSync(fullDir).filter(f => supportedExtensions.includes(path.extname(f).toLowerCase()));
-            for (const file of filesToProcess) {
-                const fullPath = path.join(fullDir, file);
-                await processImage(fullPath, name);
-                if (path.extname(fullPath).toLowerCase() !== '.webp') {
-                    await fs.remove(fullPath);
-                }
-            }
+            await processFullDirImages(fullDir, name);
         } else {
             for (const file of files) {
                 const srcPath = path.join(projectPath, file);
@@ -126,17 +144,7 @@ async function run() {
             }
         }
 
-        // generate thumbnail from the first file
-        if (files.length > 0) {
-            const thumbSrc = path.join(projectPath, 'full', files[0]);
-            const thumbDst = path.join(projectPath, 'thumbnail', path.parse(files[0]).name + '.webp');
-            await fs.ensureDir(path.join(projectPath, 'thumbnail'));
-            await sharp(thumbSrc)
-                .resize({ width: 400 })
-                .toFormat('webp')
-                .toFile(thumbDst);
-            console.log(`✓ ${name}: thumbnail generated → ${thumbDst}`);
-        }
+        await generateThumbnail(projectPath, files);
     }
 
     console.log('\nAll project images processed.');
