@@ -43,6 +43,9 @@ async function processImage(filePath, projectName) {
             await transformer
                 .toFormat('webp')
                 .toFile(outputPath);
+            if (label === 'full' && supportedExtensions.includes(ext)) {
+                await fs.remove(filePath);
+            }
             console.log(`✓ ${projectName}: ${label} version saved → ${outputPath}`);
         } catch (err) {
             console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for ${label} size — ${err.message}`);
