@@ -22,10 +22,12 @@ async function processImage(filePath, projectName) {
     if (!supportedExtensions.includes(ext)) return;
 
     const fileName = path.basename(filePath, ext);
-    const inputDir = path.dirname(filePath);
+    // The filePath is now expected to be inside the 'full' folder.
+    const projectDir = path.dirname(path.dirname(filePath)); // .../project/full/file
 
     for (const [label, width] of Object.entries(outputSizes)) {
-        const outputDir = path.join(inputDir, label);
+        // Skip 'full' as it's just a copy, but still convert to .webp for consistency
+        const outputDir = path.join(projectDir, label);
         await fs.ensureDir(outputDir);
         const outputPath = path.join(outputDir, `${fileName}.webp`);
         const exists = await fs.pathExists(outputPath);
@@ -46,6 +48,11 @@ async function processImage(filePath, projectName) {
             console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for ${label} size — ${err.message}`);
         }
     }
+}
+
+function hasExpectedSubdirs(projectPath) {
+    const expected = ['full', 'medium', 'small', 'thumbnail'];
+    return expected.every(folder => fs.existsSync(path.join(projectPath, folder)));
 }
 
 async function run() {
@@ -75,13 +82,34 @@ async function run() {
     });
 
     for (const { name, path: projectPath } of projectDirs) {
-        const files = await fs.readdir(projectPath);
+        if (hasExpectedSubdirs(projectPath)) {
+            console.log(`${name}: already structured — skipping`);
+            continue;
+        }
+
+        const files = (await fs.readdir(projectPath)).filter(f => {
+            const ext = path.extname(f).toLowerCase();
+            return supportedExtensions.includes(ext);
+        });
+
+        await fs.ensureDir(path.join(projectPath, 'full'));
         for (const file of files) {
-            const fullPath = path.join(projectPath, file);
-            const fileStats = await fs.stat(fullPath);
-            if (fileStats.isFile()) {
-                await processImage(fullPath, name);
-            }
+            const srcPath = path.join(projectPath, file);
+            const dstPath = path.join(projectPath, 'full', file);
+            await fs.copy(srcPath, dstPath);
+            await processImage(dstPath, name);
+        }
+
+        // generate thumbnail from the first file
+        if (files.length > 0) {
+            const thumbSrc = path.join(projectPath, 'full', files[0]);
+            const thumbDst = path.join(projectPath, 'thumbnail', path.parse(files[0]).name + '.webp');
+            await fs.ensureDir(path.join(projectPath, 'thumbnail'));
+            await sharp(thumbSrc)
+                .resize({ width: 400 })
+                .toFormat('webp')
+                .toFile(thumbDst);
+            console.log(`✓ ${name}: thumbnail generated → ${thumbDst}`);
         }
     }
 
