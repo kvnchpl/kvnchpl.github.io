@@ -301,7 +301,7 @@ main {
     justify-content: space-between;
     width: 100%;
     gap: var(--spacing-medium);
-    margin-bottom: var(--spacing-large);
+    margin: var(--spacing-large) 0;
 }
 
 .slideshow-half,
