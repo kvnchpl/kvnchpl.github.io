@@ -4,7 +4,7 @@
         "title": "Compiler Buddha",
         "key": "compiler-buddha",
         "permalink": null,
-        "description": "",
+        "description": "An experimental project exploring the intersection of coding and spirituality.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [],
@@ -19,11 +19,11 @@
         "title": "Viewfinder",
         "key": "viewfinder",
         "permalink": null,
-        "description": "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms.",
+        "description": "A critical look at how nature is categorized and controlled through technology and surveillance.",
         "subtitle": null,
         "backgroundColor": "#111111",
         "content": [
-            "Nature has been manipulated throughout the course of western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by ai object detection technology. extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
+            "Nature has been manipulated throughout the course of Western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian Renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by AI object detection technology. Extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” Our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
         ],
         "images": [
             [
@@ -48,7 +48,7 @@
         "title": "Triptych",
         "key": "triptych",
         "permalink": null,
-        "description": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil.",
+        "description": "An artistic homage to the complexity and emotional depth of Francis Bacon's work.",
         "subtitle": null,
         "backgroundColor": "#111111",
         "content": [
@@ -71,7 +71,7 @@
         "title": "Archipelago",
         "key": "archipelago",
         "permalink": null,
-        "description": "Proposal for Noguchi Museum open call for artist banners 2024.",
+        "description": "A banner series reflecting unity across cultures through abstract representations of nature and digital motifs.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
@@ -97,11 +97,11 @@
         "title": "Intraface",
         "key": "intraface",
         "permalink": null,
-        "description": "",
+        "description": "Explores the tension between inner abstraction and interface interaction.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
-            "Interfaces are the meeting points where two entities present to each other the abstractions of their inner worlds. as a canonical example, a “submit” button is the compromise between a human user’s desire to finalize something, and the inner machinations of a computer to engage with its storage. how can we drill deeper into our inner interfaces—our “intrafaces”—that represent the infinite compromises made between competing parts of our bodies, mind, and spirit? imagine drop-down menus with all options spelled out. at what point does further definition and deconstruction return to the realm of abstraction?" 
+            "Interfaces are the meeting points where two entities present to each other the abstractions of their inner worlds. As a canonical example, a “submit” button is the compromise between a human user’s desire to finalize something, and the inner machinations of a computer to engage with its storage. How can we drill deeper into our inner interfaces—our “intrafaces”—that represent the infinite compromises made between competing parts of our bodies, mind, and spirit? Imagine drop-down menus with all options spelled out. At what point does further definition and deconstruction return to the realm of abstraction?"
         ],
         "images": [
             [
@@ -123,11 +123,11 @@
         "title": "Friday Night Never",
         "key": "friday-night-never",
         "permalink": null,
-        "description": "",
+        "description": "A contemplative exploration of finality and the recycling of imagery in a post-content world.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
-            "a celebration for the last images on earth, once all content has been recycled and experienced. was this the intended endpoint of evolution all along?"
+            "A celebration for the last images on earth, once all content has been recycled and experienced. Was this the intended endpoint of evolution all along?"
         ],
         "images": [
             [
@@ -177,11 +177,11 @@
         "title": "Dimensional Freedom",
         "key": "dimensional-freedom",
         "permalink": null,
-        "description": "",
+        "description": "Multichannel installation examining the fluidity of digital and physical space.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
-            "Though distinct from the physical world, we can interact with virtual spaces with the same familiarity and utility as real ones. This installation encapsulates the fluidity of a virtual space, urging the viewer to weave through it – an experience that straddles the second and third dimensions. The figures onscreen are also stuck in a 2d space while receding into and escaping from their planes. the track on which they walk facilitates a perpetual movement through time and a perpetual shuffling of identity. The space between the pillars thus becomes unresolvable, destabilizing one’s orientation as in virtual space."
+            "Though distinct from the physical world, we can interact with virtual spaces with the same familiarity and utility as real ones. This installation encapsulates the fluidity of a virtual space, urging the viewer to weave through it – an experience that straddles the second and third dimensions. The figures onscreen are also stuck in a 2d space while receding into and escaping from their planes. The track on which they walk facilitates a perpetual movement through time and a perpetual shuffling of identity. The space between the pillars thus becomes unresolvable, destabilizing one’s orientation as in virtual space."
         ],
         "images": [
             [
@@ -205,11 +205,11 @@
         "title": "520 Missing",
         "key": "520-missing",
         "permalink": null,
-        "description": "",
+        "description": "A performance art project addressing faculty diversity at Stanford University through symbolic posters.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
-            "As of May 2019, In order for the demographics of the Stanford University faculty to accurately reflect the student population, 520 white professors would need to be replaced by professors of color. The 520 missing project was a performance in which I asked members of the public to help me put up posters around campus. I produced 520 posters total, each standing in for one the 'missing' professors. The faces of the faculty members were created using a gan image generator, so as not to implicate the identities of real people."
+            "As of May 2019, in order for the demographics of the Stanford University faculty to accurately reflect the student population, 520 white professors would need to be replaced by professors of color. The 520 Missing project was a performance in which I asked members of the public to help me put up posters around campus. I produced 520 posters total, each standing in for one the 'missing' professors. The faces of the faculty members were created using a GAN image generator, so as not to implicate the identities of real people."
         ],
         "images": [
             [
@@ -231,7 +231,7 @@
         "title": "Truth Visions",
         "key": "truth-visions",
         "permalink": null,
-        "description": "",
+        "description": "An installation exploring the nature of photographic truth in the age of AI-generated imagery.",
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
