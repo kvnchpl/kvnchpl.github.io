@@ -258,14 +258,17 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     const layout = pageData.layout;
 
     // Render block of images into gallery
-    function renderSlideshow(imagesArr) {
+    function renderSlideshow(imagesArr, modifier) {
         const wrapper = document.createElement("div");
         wrapper.className = "slideshow-wrapper";
 
         let currentIndex = 0;
 
+        // Determine effectiveSize based on modifier
+        const effectiveSize = modifier === "full" ? "full" : size;
+
         const img = document.createElement(tagNames.galleryImage);
-        img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[0]}${imageExt}`;
+        img.src = `/${basePath}/${collectionPath}/${pageData.key}/${effectiveSize}/${imagesArr[0]}${imageExt}`;
         img.alt = imagesArr[0];
 
         const isSingleImage = imagesArr.length === 1;
@@ -296,7 +299,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
         function showImage(index) {
             if (index >= 0 && index < imagesArr.length) {
-                img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[index]}${imageExt}`;
+                img.src = `/${basePath}/${collectionPath}/${pageData.key}/${effectiveSize}/${imagesArr[index]}${imageExt}`;
                 img.alt = imagesArr[index];
                 currentIndex = index;
             }
@@ -330,7 +333,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
                         const index = parseInt(indexStr, 10) - 1;
 
                         if (type === "images" && images[index]) {
-                            const slideshow = renderSlideshow(images[index]);
+                            const slideshow = renderSlideshow(images[index], modifier);
                             if (modifier === "full") {
                                 slideshow.classList.add("slideshow-full");
                                 galleryEl.appendChild(slideshow);
@@ -375,7 +378,7 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
             const pairWrapper = document.createElement("div");
             pairWrapper.className = "slideshow-content-pair";
 
-            const slideshow = renderSlideshow(imgArr);
+            const slideshow = renderSlideshow(imgArr, undefined);
             slideshow.classList.add("slideshow-half");
             pairWrapper.appendChild(slideshow);
 
