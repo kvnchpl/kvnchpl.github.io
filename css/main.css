@@ -277,6 +277,14 @@ main {
     box-sizing: border-box;
 }
 
+.slideshow-inner img {
+    width: 100%;
+    height: auto;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+}
+
 .slideshow-full {
     width: 100vw;
     justify-content: center;
