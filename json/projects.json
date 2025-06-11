@@ -38,10 +38,7 @@
                 "viewfinder_9"
             ]
         ],
-        "layout": [
-            "images-1-left",
-            "content-1-right"
-        ],
+        "layout": [["images-1", "content-1"]],
         "month": 10,
         "year": 2024,
         "external": false
@@ -64,10 +61,7 @@
                 "triptych_3"
             ]
         ],
-        "layout": [
-            "images-1",
-            "content-1"
-        ],
+        "layout": [["images-1", "content-1"]],
         "month": 10,
         "year": 2024,
         "external": false
@@ -93,10 +87,7 @@
                 "archipelago_6"
             ]
         ],
-        "layout": [
-            "content-1",
-            "images-1-full"
-        ],
+        "layout": [["images-1", "content-1"]],
         "month": 2,
         "year": 2024,
         "external": false
@@ -122,10 +113,7 @@
                 "intraface_6"
             ]
         ],
-        "layout": [
-            "images-1-right",
-            "content-1-left"
-        ],
+        "layout": [["images-1", "content-1"]],
         "month": 8,
         "year": 2022,
         "external": false
@@ -180,8 +168,7 @@
             ]
         ],
         "layout": [
-            "images-1",
-            "content-1",
+            ["images-1", "content-1"],
             "images-2",
             "images-3"
         ],
@@ -242,10 +229,7 @@
                 "520-missing_6"
             ]
         ],
-        "layout": [
-            "images-1-left",
-            "content-1-right"
-        ],
+        "layout": [["images-1", "content-1"]],
         "month": 5,
         "year": 2019,
         "external": false
@@ -271,10 +255,7 @@
                 "truth-visions_6"
             ]
         ],
-        "layout": [
-            "content-1",
-            "images-1"
-        ],
+        "layout": [["images-1", "content-1"]],
         "month": 3,
         "year": 2019,
         "external": false
