@@ -27,38 +27,23 @@ async function processImage(filePath, projectName) {
     for (const [label, width] of Object.entries(outputSizes)) {
         const outputDir = path.join(inputDir, label);
         await fs.ensureDir(outputDir);
-
-        if (width === null) {
-            const outputPath = path.join(outputDir, `${fileName}.webp`);
-            const exists = await fs.pathExists(outputPath);
-            if (exists) {
-                console.log(`${projectName}: full version already exists — skipping`);
-                continue;
+        const outputPath = path.join(outputDir, `${fileName}.webp`);
+        const exists = await fs.pathExists(outputPath);
+        if (exists) {
+            console.log(`${projectName}: ${label} version already exists — skipping`);
+            continue;
+        }
+        try {
+            let transformer = sharp(filePath);
+            if (width !== null) {
+                transformer = transformer.resize({ width });
             }
-            try {
-                await sharp(filePath)
-                    .toFormat('webp')
-                    .toFile(outputPath);
-                console.log(`✓ ${projectName}: full version saved → ${outputPath}`);
-            } catch (err) {
-                console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for full size — ${err.message}`);
-            }
-        } else {
-            const outputPath = path.join(outputDir, `${fileName}.webp`);
-            const exists = await fs.pathExists(outputPath);
-            if (exists) {
-                console.log(`${projectName}: ${label} version already exists — skipping`);
-                continue;
-            }
-            try {
-                await sharp(filePath)
-                    .resize({ width })
-                    .toFormat('webp')
-                    .toFile(outputPath);
-                console.log(`✓ ${projectName}: ${label} version saved → ${outputPath}`);
-            } catch (err) {
-                console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for ${label} size — ${err.message}`);
-            }
+            await transformer
+                .toFormat('webp')
+                .toFile(outputPath);
+            console.log(`✓ ${projectName}: ${label} version saved → ${outputPath}`);
+        } catch (err) {
+            console.error(`✗ ${projectName}: Failed to process ${fileName}${ext} for ${label} size — ${err.message}`);
         }
     }
 }
