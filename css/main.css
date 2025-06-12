@@ -409,6 +409,7 @@ main {
         flex-direction: row;
         flex-wrap: nowrap;
         align-items: center;
+        padding: 0;
     }
 
     .page-link.reverse {
@@ -422,7 +423,7 @@ main {
         height: auto;
         max-width: 100%;
         max-height: calc(var(--font-size-main) * 4);
-        object-fit: contain;
+        object-fit: fill;
     }
 
     .page-link .text-block {
