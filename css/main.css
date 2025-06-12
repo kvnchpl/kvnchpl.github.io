@@ -220,9 +220,12 @@ main {
 }
 
 .page-link img {
-    max-width: none;
-    height: calc(var(--font-size-main) * 4);
-    width: auto;
+    aspect-ratio: 1 / 1;
+    width: calc(var(--font-size-main) * 4);
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    display: block;
 }
 
 .page-link p {
