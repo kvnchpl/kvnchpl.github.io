@@ -120,9 +120,10 @@ main {
 #link-container {
     overflow-y: auto;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
     gap: var(--spacing-medium);
     flex: 1;
 }
@@ -213,9 +214,6 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
-    max-width: var(--max-width-content);
-    margin: var(--spacing-small) auto;
     padding: 0;
     text-align: left;
     text-decoration: none;
