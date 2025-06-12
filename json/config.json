@@ -11,7 +11,8 @@
         "linkContainer": "link-container",
         "footer": "footer",
         "mainHeading": "main-heading",
-        "subtitle": "subtitle"
+        "subtitle": "subtitle",
+        "galleryContainer": "content-page-container"
     },
     "tagNames": {
         "galleryItemWrapper": "figure",
