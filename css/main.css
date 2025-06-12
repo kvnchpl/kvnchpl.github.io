@@ -231,7 +231,7 @@ main {
 .page-link img {
     width: calc(var(--font-size-main) * 4);
     height: calc(var(--font-size-main) * 4);
-    object-fit: contain;
+    object-fit: fill;
     object-position: center;
     display: block;
     flex-shrink: 0;
