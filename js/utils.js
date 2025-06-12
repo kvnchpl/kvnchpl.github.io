@@ -476,7 +476,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             .forEach((link, index) => {
                 const pageLink = createPageLink({
                     href: link.href,
-                    thumbnail: link.thumbnail || (siteConfig.thumbnailPath && link.key ? siteConfig.thumbnailPath.replaceAll("{key}", link.key) : undefined),
+                    thumbnail: link.thumbnail,
                     title: link.title || link.key,
                     subtitle: link.subtitle,
                     isExternal: link.href.startsWith("http"),
@@ -515,7 +515,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
                 const pageLink = createPageLink({
                     href,
-                    thumbnail: data.thumbnail || (siteConfig.thumbnailPath && data.key ? siteConfig.thumbnailPath.replaceAll("{key}", data.key) : undefined),
+                    thumbnail: data.thumbnail,
                     title: data.title,
                     subtitle: subtitleText,
                     isExternal,
