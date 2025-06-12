@@ -59,9 +59,10 @@ export async function injectPartial(url, target, position = 'beforeend') {
 /**
  * Updates the main page heading (<h1>) with provided text.
  * @param {string} heading - The text to set as the main heading.
+ * @param {Object} siteConfig - The site configuration object.
  */
-export function updateMainHeading(heading) {
-    const h1 = document.getElementById('main-heading');
+export function updateMainHeading(heading, siteConfig) {
+    const h1 = document.getElementById(siteConfig.elementIds.mainHeading);
     if (h1 && heading) {
         h1.textContent = `*${heading}*`;
     }
@@ -561,7 +562,7 @@ export function renderContentPage(pageContent, siteConfig) {
     applyBackgroundColor(backgroundColor);
     updateTitle(title);
     updateDescription(description);
-    updateMainHeading(title);
+    updateMainHeading(title, siteConfig);
 
     const subtitleText = getSubtitleText(pageContent, siteConfig);
     updateSubtitle(subtitleText);
