@@ -10,7 +10,7 @@
         "gallery": "gallery",
         "linkContainer": "link-container",
         "footer": "footer",
-        "mainHeading": "mainHeading"
+        "mainHeading": "main-heading"
     },
     "tagNames": {
         "galleryItemWrapper": "figure",
