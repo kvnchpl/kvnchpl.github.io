@@ -124,6 +124,7 @@ main {
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
+    align-content: center;
     gap: var(--spacing-medium);
     flex: 1;
 }
