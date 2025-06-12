@@ -215,7 +215,7 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 0;
+    padding: 0 var(--spacing-medium);
     text-align: left;
     text-decoration: none;
     box-sizing: border-box;
