@@ -98,13 +98,14 @@ async function generateThumbnail(projectPath, files) {
     const webpFiles = (await fs.readdir(fullDir)).filter(f => path.extname(f).toLowerCase() === '.webp');
     if (webpFiles.length === 0) return;
     const thumbSrc = path.join(fullDir, webpFiles[0]);
-    const thumbDst = path.join(projectPath, 'thumbnail', path.parse(webpFiles[0]).name + '.webp');
+    const projectName = path.basename(projectPath);
+    const thumbDst = path.join(projectPath, 'thumbnail', `${projectName}_thumbnail.webp`);
     await fs.ensureDir(path.join(projectPath, 'thumbnail'));
     await sharp(thumbSrc)
         .resize({ width: 400 })
         .toFormat('webp')
         .toFile(thumbDst);
-    console.log(`✓ ${path.basename(projectPath)}: thumbnail generated → ${thumbDst}`);
+    console.log(`✓ ${projectName}: thumbnail generated → ${thumbDst}`);
 }
 
 async function run() {
