@@ -463,7 +463,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
         navData
             .filter(link => link.homePage)
-            .forEach(link => {
+            .forEach((link, index) => {
                 const pageLink = createPageLink({
                     href: link.href,
                     thumbnail: link.thumbnail,
@@ -471,6 +471,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     subtitle: link.subtitle,
                     isExternal: link.href.startsWith("http")
                 });
+                if (index % 2 === 1) pageLink.classList.add("reverse");
                 container.appendChild(pageLink);
             });
     }
@@ -494,7 +495,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
                 return getMonthIndex(b) - getMonthIndex(a);
             })
-            .forEach(data => {
+            .forEach((data, index) => {
                 const subtitleText = getSubtitleText(data, siteConfig);
                 const href = data.external && data.permalink
                     ? data.permalink
@@ -508,6 +509,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     subtitle: subtitleText,
                     isExternal
                 });
+                if (index % 2 === 1) pageLink.classList.add("reverse");
                 container.appendChild(pageLink);
             });
     }

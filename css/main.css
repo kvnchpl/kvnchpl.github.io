@@ -396,6 +396,15 @@ main {
         width: 100%;
     }
 
+    .page-link.reverse {
+        flex-direction: row-reverse;
+    }
+
+    .page-link.reverse .text-block {
+        margin-left: 0;
+        margin-right: var(--spacing-small);
+    }
+
     .slideshow-content-pair {
         flex-direction: column;
     }
