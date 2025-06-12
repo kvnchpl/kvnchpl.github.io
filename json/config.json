@@ -3,7 +3,6 @@
     "imageExt": ".webp",
     "defaultImageSize": "medium",
     "galleryBasePath": "img",
-    "thumbnailPath": "/img/projects/{key}/thumbnail/{key}_thumbnail.webp",
     "elementIds": {
         "nav": "nav",
         "content": "content",
@@ -31,15 +30,18 @@
     "collections": {
         "projects": {
             "type": "project",
-            "basePath": "/projects/"
+            "basePath": "/projects/",
+            "thumbnailPathTemplate": "/img/projects/{key}/thumbnail/{key}_thumbnail"
         },
         "readings": {
             "type": "reading",
-            "basePath": "/readings/"
+            "basePath": "/readings/",
+            "thumbnailPathTemplate": "/img/readings/{key}/thumbnail/{key}_thumbnail"
         },
         "writings": {
             "type": "writing",
-            "basePath": "/writings/"
+            "basePath": "/writings/",
+            "thumbnailPathTemplate": "/img/writings/{key}/thumbnail/{key}_thumbnail"
         }
     },
     "monthOrder": [
