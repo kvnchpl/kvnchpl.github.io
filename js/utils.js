@@ -125,9 +125,10 @@ export function updateTitle(title) {
 /**
  * Updates the subtitle <h2> element with provided text.
  * @param {string} subtitle - The subtitle text to display.
+ * @param {Object} siteConfig - The site configuration object.
  */
-export function updateSubtitle(subtitle) {
-    const subtitleEl = document.getElementById('subtitle');
+export function updateSubtitle(subtitle, siteConfig) {
+    const subtitleEl = document.getElementById(siteConfig.elementIds.subtitle);
     if (subtitleEl) {
         subtitleEl.textContent = subtitle;
     }
@@ -565,7 +566,7 @@ export function renderContentPage(pageContent, siteConfig) {
     updateMainHeading(title, siteConfig);
 
     const subtitleText = getSubtitleText(pageContent, siteConfig);
-    updateSubtitle(subtitleText);
+    updateSubtitle(subtitleText, siteConfig);
 
     const main = document.querySelector('main');
     renderProjectLayout(
