@@ -374,7 +374,6 @@ main {
         align-items: flex-start;
         text-align: left;
         padding: var(--spacing-medium);
-        gap: var(--spacing-small);
     }
 
     #nav a {
