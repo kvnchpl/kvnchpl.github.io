@@ -452,36 +452,26 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     if (res.ok) {
                         img.src = webpURL;
                     } else {
-                        // .webp not found, log and try gif
-                        console.log(`WEBP not found for ${key}, trying GIF...`);
+                        // Try gif
                         fetch(gifURL, { method: "HEAD" }).then(res2 => {
                             if (res2.ok) {
                                 img.src = gifURL;
                             } else {
-                                // Both webp and gif missing
-                                console.warn(`No thumbnail found for ${key}, using sky image.`);
                                 img.src = getNextSkyImage();
                             }
                         }).catch(() => {
-                            // Both webp and gif missing (gif fetch error)
-                            console.warn(`No thumbnail found for ${key}, using sky image.`);
                             img.src = getNextSkyImage();
                         });
                     }
                 }).catch(() => {
-                    // .webp fetch error, try gif
-                    console.log(`WEBP not found for ${key}, trying GIF...`);
+                    // On error, try gif
                     fetch(gifURL, { method: "HEAD" }).then(res2 => {
                         if (res2.ok) {
                             img.src = gifURL;
                         } else {
-                            // Both webp and gif missing
-                            console.warn(`No thumbnail found for ${key}, using sky image.`);
                             img.src = getNextSkyImage();
                         }
                     }).catch(() => {
-                        // Both webp and gif missing (gif fetch error)
-                        console.warn(`No thumbnail found for ${key}, using sky image.`);
                         img.src = getNextSkyImage();
                     });
                 });
