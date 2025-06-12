@@ -423,7 +423,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             ? skyImages[skyIndex++ % skyImages.length]
             : "/img/home/sky_1.jpg";
 
-    function createPageLink({ href, thumbnail, title, subtitle, isExternal }) {
+    function createPageLink({ href, thumbnail, title, subtitle, isExternal, key }) {
         const pageLink = document.createElement("a");
         pageLink.className = "page-link";
         pageLink.href = href;
@@ -433,7 +433,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         }
 
         const img = document.createElement("img");
-        img.src = thumbnail || getNextSkyImage();
+        img.src = thumbnail || (siteConfig.thumbnailPath && key ? siteConfig.thumbnailPath.replaceAll("{key}", key) : getNextSkyImage());
         img.alt = title || "Sky";
         pageLink.appendChild(img);
 
@@ -466,10 +466,11 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             .forEach((link, index) => {
                 const pageLink = createPageLink({
                     href: link.href,
-                    thumbnail: link.thumbnail,
+                    thumbnail: link.thumbnail || (siteConfig.thumbnailPath && link.key ? siteConfig.thumbnailPath.replaceAll("{key}", link.key) : undefined),
                     title: link.title || link.key,
                     subtitle: link.subtitle,
-                    isExternal: link.href.startsWith("http")
+                    isExternal: link.href.startsWith("http"),
+                    key: link.key
                 });
                 if (index % 2 === 1) pageLink.classList.add("reverse");
                 container.appendChild(pageLink);
@@ -504,10 +505,11 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
                 const pageLink = createPageLink({
                     href,
-                    thumbnail: data.thumbnail,
-                    title: data.title || data.key,
+                    thumbnail: data.thumbnail || (siteConfig.thumbnailPath && data.key ? siteConfig.thumbnailPath.replaceAll("{key}", data.key) : undefined),
+                    title: data.title,
                     subtitle: subtitleText,
-                    isExternal
+                    isExternal,
+                    key: data.key
                 });
                 if (index % 2 === 1) pageLink.classList.add("reverse");
                 container.appendChild(pageLink);

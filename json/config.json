@@ -3,6 +3,7 @@
     "imageExt": ".webp",
     "defaultImageSize": "medium",
     "galleryBasePath": "img",
+    "thumbnailPath": "/img/projects/{key}/thumbnail/{key}_thumbnail.webp",
     "elementIds": {
         "nav": "nav",
         "content": "content",
