@@ -414,6 +414,99 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 }
 
 /**
+ * Creates a .page-link element for use in dynamic link rendering.
+ * @param {Object} params - Parameters for the link.
+ * @param {string} params.href - The link target URL.
+ * @param {string} params.thumbnail - Optional thumbnail image URL.
+ * @param {string} params.title - The title for the page.
+ * @param {string} params.subtitle - Optional subtitle.
+ * @param {boolean} params.isExternal - Whether the link is external.
+ * @param {string} params.key - The unique key for the page/content.
+ * @param {string} params.collectionKey - The collection key if applicable.
+ * @param {Object} siteConfig - The site configuration object.
+ * @param {Function} getNextSkyImage - Function to get the next sky image URL.
+ * @returns {HTMLElement} - The constructed .page-link element.
+ */
+function createPageLink({ href, thumbnail, title, subtitle, isExternal, key, collectionKey }, siteConfig, getNextSkyImage) {
+    const pageLink = document.createElement("a");
+    pageLink.className = "page-link";
+    pageLink.href = href;
+    if (isExternal) {
+        pageLink.target = "_blank";
+        pageLink.rel = "noopener";
+    }
+
+    const img = document.createElement("img");
+    img.alt = title || "Sky";
+
+    if (thumbnail) {
+        img.src = thumbnail;
+    } else if (key && collectionKey && siteConfig.collections?.[collectionKey]?.thumbnailPathTemplate) {
+        // Use template from collection config
+        const template = siteConfig.collections[collectionKey].thumbnailPathTemplate;
+        if (template && typeof template === "string") {
+            const basePath = template.replaceAll("{key}", key);
+            const baseThumbBase = basePath.replace(/\.(webp|gif)$/i, '');
+            const webpURL = `${baseThumbBase}.webp`;
+            const gifURL = `${baseThumbBase}.gif`;
+            // Try webp, fallback to gif, fallback to sky image if both fail
+            fetch(webpURL, { method: "HEAD" }).then(res => {
+                if (res.ok) {
+                    img.src = webpURL;
+                } else {
+                    // Try gif
+                    fetch(gifURL, { method: "HEAD" }).then(res2 => {
+                        if (res2.ok) {
+                            img.src = gifURL;
+                        } else {
+                            img.src = getNextSkyImage();
+                        }
+                    }).catch(() => {
+                        img.src = getNextSkyImage();
+                    });
+                }
+            }).catch(() => {
+                // On error, try gif
+                fetch(gifURL, { method: "HEAD" }).then(res2 => {
+                    if (res2.ok) {
+                        img.src = gifURL;
+                    } else {
+                        img.src = getNextSkyImage();
+                    }
+                }).catch(() => {
+                    img.src = getNextSkyImage();
+                });
+            });
+        } else {
+            // No template, fallback to sky
+            img.src = getNextSkyImage();
+        }
+    } else {
+        img.src = getNextSkyImage();
+    }
+    pageLink.appendChild(img);
+
+    const textBlock = document.createElement("div");
+    textBlock.className = "text-block";
+
+    const titleP = document.createElement("p");
+    titleP.className = "page-title";
+    titleP.textContent = title;
+    textBlock.appendChild(titleP);
+
+    if (subtitle) {
+        const subtitleP = document.createElement("p");
+        subtitleP.className = "page-subtitle";
+        subtitleP.textContent = subtitle;
+        textBlock.appendChild(subtitleP);
+    }
+
+    pageLink.appendChild(textBlock);
+
+    return pageLink;
+}
+
+/**
  * Dynamically renders .page-link elements for home or collection pages.
  * @param {string} page - The current page identifier (e.g. "home", "collection").
  * @param {Object} siteConfig - The site configuration object containing element IDs and collection data.
@@ -432,85 +525,6 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             ? skyImages[skyIndex++ % skyImages.length]
             : "/img/home/sky_1.jpg";
 
-    function createPageLink({ href, thumbnail, title, subtitle, isExternal, key, collectionKey }) {
-        const pageLink = document.createElement("a");
-        pageLink.className = "page-link";
-        pageLink.href = href;
-        if (isExternal) {
-            pageLink.target = "_blank";
-            pageLink.rel = "noopener";
-        }
-
-        const img = document.createElement("img");
-        img.alt = title || "Sky";
-
-        if (thumbnail) {
-            img.src = thumbnail;
-        } else if (key && collectionKey && siteConfig.collections?.[collectionKey]?.thumbnailPathTemplate) {
-            // Use template from collection config
-            const template = siteConfig.collections[collectionKey].thumbnailPathTemplate;
-            if (template && typeof template === "string") {
-                const basePath = template.replaceAll("{key}", key);
-                const baseThumbBase = basePath.replace(/\.(webp|gif)$/i, '');
-                const webpURL = `${baseThumbBase}.webp`;
-                const gifURL = `${baseThumbBase}.gif`;
-                // Try webp, fallback to gif, fallback to sky image if both fail
-                fetch(webpURL, { method: "HEAD" }).then(res => {
-                    if (res.ok) {
-                        img.src = webpURL;
-                    } else {
-                        // Try gif
-                        fetch(gifURL, { method: "HEAD" }).then(res2 => {
-                            if (res2.ok) {
-                                img.src = gifURL;
-                            } else {
-                                img.src = getNextSkyImage();
-                            }
-                        }).catch(() => {
-                            img.src = getNextSkyImage();
-                        });
-                    }
-                }).catch(() => {
-                    // On error, try gif
-                    fetch(gifURL, { method: "HEAD" }).then(res2 => {
-                        if (res2.ok) {
-                            img.src = gifURL;
-                        } else {
-                            img.src = getNextSkyImage();
-                        }
-                    }).catch(() => {
-                        img.src = getNextSkyImage();
-                    });
-                });
-            } else {
-                // No template, fallback to sky
-                img.src = getNextSkyImage();
-            }
-        } else {
-            img.src = getNextSkyImage();
-        }
-        pageLink.appendChild(img);
-
-        const textBlock = document.createElement("div");
-        textBlock.className = "text-block";
-
-        const titleP = document.createElement("p");
-        titleP.className = "page-title";
-        titleP.textContent = title;
-        textBlock.appendChild(titleP);
-
-        if (subtitle) {
-            const subtitleP = document.createElement("p");
-            subtitleP.className = "page-subtitle";
-            subtitleP.textContent = subtitle;
-            textBlock.appendChild(subtitleP);
-        }
-
-        pageLink.appendChild(textBlock);
-
-        return pageLink;
-    }
-
     if (isHomePage) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
         if (!container || !Array.isArray(navData)) return;
@@ -526,7 +540,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     isExternal: link.href.startsWith("http"),
                     key: link.key,
                     collectionKey: page
-                });
+                }, siteConfig, getNextSkyImage);
                 if (index % 2 === 1) pageLink.classList.add("reverse");
                 container.appendChild(pageLink);
             });
@@ -568,7 +582,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     isExternal,
                     key: data.key,
                     collectionKey
-                });
+                }, siteConfig, getNextSkyImage);
                 if (index % 2 === 1) pageLink.classList.add("reverse");
                 container.appendChild(pageLink);
             });
