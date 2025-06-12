@@ -438,14 +438,23 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         // Use thumbnailPath from siteConfig (if present) and replace {key} with key
         const rawPath = siteConfig.thumbnailPath?.replaceAll("{key}", key) || "";
         const baseThumbBase = rawPath.replace(/\.(webp|gif)$/i, '');
-        img.src = thumbnail || `${baseThumbBase}.webp`;
         img.alt = title || "Sky";
 
-        // Try .gif if .webp fails, only if no explicit thumbnail provided
-        if (!thumbnail) {
-            img.onerror = () => {
-                img.src = `${baseThumbBase}.gif`;
-            };
+        if (thumbnail) {
+            img.src = thumbnail;
+        } else {
+            const webpURL = `${baseThumbBase}.webp`;
+            const gifURL = `${baseThumbBase}.gif`;
+
+            fetch(webpURL, { method: "HEAD" }).then(res => {
+                if (res.ok) {
+                    img.src = webpURL;
+                } else {
+                    img.src = gifURL;
+                }
+            }).catch(() => {
+                img.src = gifURL;
+            });
         }
         pageLink.appendChild(img);
 
