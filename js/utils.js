@@ -435,26 +435,23 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         }
 
         const img = document.createElement("img");
-        // Use thumbnailPath from siteConfig (if present) and replace {key} with key
-        const rawPath = siteConfig.thumbnailPath?.replaceAll("{key}", key) || "";
-        const baseThumbBase = rawPath.replace(/\.(webp|gif)$/i, '');
         img.alt = title || "Sky";
 
         if (thumbnail) {
             img.src = thumbnail;
-        } else {
+        } else if (key) {
+            const rawPath = siteConfig.thumbnailPath?.replaceAll("{key}", key) || "";
+            const baseThumbBase = rawPath.replace(/\.(webp|gif)$/i, '');
             const webpURL = `${baseThumbBase}.webp`;
             const gifURL = `${baseThumbBase}.gif`;
 
             fetch(webpURL, { method: "HEAD" }).then(res => {
-                if (res.ok) {
-                    img.src = webpURL;
-                } else {
-                    img.src = gifURL;
-                }
+                img.src = res.ok ? webpURL : gifURL;
             }).catch(() => {
                 img.src = gifURL;
             });
+        } else {
+            img.src = getNextSkyImage();
         }
         pageLink.appendChild(img);
 
