@@ -447,31 +447,41 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 const baseThumbBase = basePath.replace(/\.(webp|gif)$/i, '');
                 const webpURL = `${baseThumbBase}.webp`;
                 const gifURL = `${baseThumbBase}.gif`;
-                // Try webp, fallback to gif, fallback to sky image if both fail
+                // Only assign img.src after confirming resource exists
                 fetch(webpURL, { method: "HEAD" }).then(res => {
                     if (res.ok) {
                         img.src = webpURL;
                     } else {
-                        // Try gif
+                        // .webp not found, log and try gif
+                        console.log(`WEBP not found for ${key}, trying GIF...`);
                         fetch(gifURL, { method: "HEAD" }).then(res2 => {
                             if (res2.ok) {
                                 img.src = gifURL;
                             } else {
+                                // Both webp and gif missing
+                                console.warn(`No thumbnail found for ${key}, using sky image.`);
                                 img.src = getNextSkyImage();
                             }
                         }).catch(() => {
+                            // Both webp and gif missing (gif fetch error)
+                            console.warn(`No thumbnail found for ${key}, using sky image.`);
                             img.src = getNextSkyImage();
                         });
                     }
                 }).catch(() => {
-                    // On error, try gif
+                    // .webp fetch error, try gif
+                    console.log(`WEBP not found for ${key}, trying GIF...`);
                     fetch(gifURL, { method: "HEAD" }).then(res2 => {
                         if (res2.ok) {
                             img.src = gifURL;
                         } else {
+                            // Both webp and gif missing
+                            console.warn(`No thumbnail found for ${key}, using sky image.`);
                             img.src = getNextSkyImage();
                         }
                     }).catch(() => {
+                        // Both webp and gif missing (gif fetch error)
+                        console.warn(`No thumbnail found for ${key}, using sky image.`);
                         img.src = getNextSkyImage();
                     });
                 });
