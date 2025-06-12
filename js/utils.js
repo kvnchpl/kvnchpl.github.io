@@ -49,10 +49,10 @@ export async function injectPartial(url, target, position = 'beforeend') {
                 el.insertAdjacentHTML(position, html);
             }
         } else {
-            console.warn('[utils.js] Element not found for partial injection:', target);
+            console.warn('Element not found for partial injection:', target);
         }
     } catch (err) {
-        console.error('[utils.js] Error injecting partial:', url, err);
+        console.error('Error injecting partial:', url, err);
     }
 }
 
@@ -175,7 +175,7 @@ export async function loadJSON(url) {
         if (!res.ok) throw new Error(`HTTP ${res.status}: ${res.statusText}`);
         return await res.json();
     } catch (err) {
-        console.error('[utils.js] Failed to load JSON from', url, err);
+        console.error('Failed to load JSON from', url, err);
         return null;
     }
 }
@@ -192,7 +192,7 @@ export async function loadResources(metaTags) {
             try {
                 return [key, url ? await loadJSON(url) : undefined];
             } catch (err) {
-                console.error(`[utils.js] Failed to load resource for ${key}:`, err);
+                console.error(`Failed to load resource for ${key}:`, err);
                 return [key, undefined];
             }
         })
@@ -597,7 +597,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
  */
 export function renderContentPage(pageContent, siteConfig) {
     if (!pageContent || !pageContent.key) {
-        console.warn('[utils.js] Missing or incomplete page data for:', page);
+        console.warn('Missing or incomplete page data for:', page);
         return;
     }
 
@@ -616,7 +616,7 @@ export function renderContentPage(pageContent, siteConfig) {
 
     if (!elementIds.content || !elementIds.nav || !elementIds.gallery ||
         !tagNames.galleryItemWrapper || !tagNames.galleryImage) {
-        console.error('[utils.js] Missing required config values for rendering content pages');
+        console.error('Missing required config values for rendering content pages');
         return;
     }
 
