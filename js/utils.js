@@ -95,7 +95,7 @@ export function getPageType(page, collections) {
  * @param {Object} siteConfig - The site configuration object, used for monthOrder.
  * @returns {string|null} - Subtitle string or null if no fallback available.
  */
-export function getSubtitleText(data, siteConfig) {
+export function formatSubtitle(data, siteConfig) {
     if (typeof data.subtitle === "string" && data.subtitle.trim() !== "") {
         return data.subtitle;
     } else if (data.year) {
@@ -509,7 +509,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 return getMonthIndex(b) - getMonthIndex(a);
             })
             .forEach((data, index) => {
-                const subtitleText = getSubtitleText(data, siteConfig);
+                const subtitleText = formatSubtitle(data, siteConfig);
                 const href = data.external && data.permalink
                     ? data.permalink
                     : `${basePath}${data.key}`;
@@ -565,7 +565,7 @@ export function renderContentPage(pageContent, siteConfig) {
     updateDescription(description);
     updateMainHeading(title, siteConfig);
 
-    const subtitleText = getSubtitleText(pageContent, siteConfig);
+    const subtitleText = formatSubtitle(pageContent, siteConfig);
     updateSubtitle(subtitleText, siteConfig);
 
     const main = document.querySelector('main');
