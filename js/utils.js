@@ -247,12 +247,12 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
  * @param {string} size - The image size to use in URLs (e.g. "large", "medium").
  * @param {string} imageExt - The file extension for images (e.g. ".jpg", ".png").
  */
-export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt) {
+export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt, siteConfig) {
     if (!container || !pageData) return;
     const collection = Object.values(siteConfig.collections).find(c => c.type === pageData.type);
     const collectionPath = collection ? collection.basePath.replace(/^\/|\/$/g, '') : '';
 
-    const galleryEl = container.querySelector('#content-page-container');
+    const galleryEl = container.querySelector(`#${siteConfig.elementIds.galleryContainer}`);
     if (!galleryEl) return;
 
     const images = pageData.images || [];
@@ -575,6 +575,7 @@ export function renderContentPage(pageContent, siteConfig) {
         tagNames,
         galleryBasePath,
         defaultImageSize,
-        imageExt
+        imageExt,
+        siteConfig
     );
 }
