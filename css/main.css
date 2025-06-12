@@ -421,6 +421,8 @@ main {
         width: auto;
         height: auto;
         max-width: 100%;
+        max-height: calc(var(--font-size-main) * 4);
+        object-fit: contain;
     }
 
     .page-link .text-block {
