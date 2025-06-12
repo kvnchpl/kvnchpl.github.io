@@ -436,11 +436,9 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
         const img = document.createElement("img");
         img.alt = title || "Sky";
-        let appendedImg = false;
 
         if (thumbnail) {
             img.src = thumbnail;
-            pageLink.appendChild(img);
         } else if (key && collectionKey && siteConfig.collections?.[collectionKey]?.thumbnailPathTemplate) {
             // Use template from collection config
             const template = siteConfig.collections[collectionKey].thumbnailPathTemplate;
@@ -449,29 +447,25 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 const baseThumbBase = basePath.replace(/\.(webp|gif)$/i, '');
                 const webpURL = `${baseThumbBase}.webp`;
                 const gifURL = `${baseThumbBase}.gif`;
-                // Only assign img.src after confirming resource exists
+                // Try webp, fallback to gif, fallback to sky image if both fail
                 fetch(webpURL, { method: "HEAD" }).then(res => {
                     if (res.ok) {
                         img.src = webpURL;
-                        pageLink.appendChild(img);
                     } else {
                         // .webp not found, log and try gif
                         console.log(`WEBP not found for ${key}, trying GIF...`);
                         fetch(gifURL, { method: "HEAD" }).then(res2 => {
                             if (res2.ok) {
                                 img.src = gifURL;
-                                pageLink.appendChild(img);
                             } else {
                                 // Both webp and gif missing
                                 console.warn(`No thumbnail found for ${key}, using sky image.`);
                                 img.src = getNextSkyImage();
-                                pageLink.appendChild(img);
                             }
                         }).catch(() => {
                             // Both webp and gif missing (gif fetch error)
                             console.warn(`No thumbnail found for ${key}, using sky image.`);
                             img.src = getNextSkyImage();
-                            pageLink.appendChild(img);
                         });
                     }
                 }).catch(() => {
@@ -480,29 +474,25 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     fetch(gifURL, { method: "HEAD" }).then(res2 => {
                         if (res2.ok) {
                             img.src = gifURL;
-                            pageLink.appendChild(img);
                         } else {
                             // Both webp and gif missing
                             console.warn(`No thumbnail found for ${key}, using sky image.`);
                             img.src = getNextSkyImage();
-                            pageLink.appendChild(img);
                         }
                     }).catch(() => {
                         // Both webp and gif missing (gif fetch error)
                         console.warn(`No thumbnail found for ${key}, using sky image.`);
                         img.src = getNextSkyImage();
-                        pageLink.appendChild(img);
                     });
                 });
             } else {
                 // No template, fallback to sky
                 img.src = getNextSkyImage();
-                pageLink.appendChild(img);
             }
         } else {
             img.src = getNextSkyImage();
-            pageLink.appendChild(img);
         }
+        pageLink.appendChild(img);
 
         const textBlock = document.createElement("div");
         textBlock.className = "text-block";
