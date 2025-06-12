@@ -405,15 +405,32 @@ main {
 
     .page-link {
         width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
     }
 
     .page-link.reverse {
         flex-direction: row-reverse;
     }
 
+    .page-link img {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: auto;
+        height: auto;
+        max-width: 100%;
+    }
+
+    .page-link .text-block {
+        flex-shrink: 0;
+        margin-left: var(--spacing-small);
+    }
+
     .page-link.reverse .text-block {
-        margin-left: 0;
         margin-right: var(--spacing-small);
+        margin-left: 0;
     }
 
     .slideshow-content-pair {
