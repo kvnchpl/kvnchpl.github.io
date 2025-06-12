@@ -439,17 +439,46 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
         if (thumbnail) {
             img.src = thumbnail;
-        } else if (key) {
-            const rawPath = siteConfig.thumbnailPath?.replaceAll("{key}", key) || "";
-            const baseThumbBase = rawPath.replace(/\.(webp|gif)$/i, '');
-            const webpURL = `${baseThumbBase}.webp`;
-            const gifURL = `${baseThumbBase}.gif`;
-
-            fetch(webpURL, { method: "HEAD" }).then(res => {
-                img.src = res.ok ? webpURL : gifURL;
-            }).catch(() => {
-                img.src = gifURL;
-            });
+        } else if (key && collectionKey && siteConfig.collections?.[collectionKey]?.thumbnailPathTemplate) {
+            // Use template from collection config
+            const template = siteConfig.collections[collectionKey].thumbnailPathTemplate;
+            if (template && typeof template === "string") {
+                const basePath = template.replaceAll("{key}", key);
+                const baseThumbBase = basePath.replace(/\.(webp|gif)$/i, '');
+                const webpURL = `${baseThumbBase}.webp`;
+                const gifURL = `${baseThumbBase}.gif`;
+                // Try webp, fallback to gif, fallback to sky image if both fail
+                fetch(webpURL, { method: "HEAD" }).then(res => {
+                    if (res.ok) {
+                        img.src = webpURL;
+                    } else {
+                        // Try gif
+                        fetch(gifURL, { method: "HEAD" }).then(res2 => {
+                            if (res2.ok) {
+                                img.src = gifURL;
+                            } else {
+                                img.src = getNextSkyImage();
+                            }
+                        }).catch(() => {
+                            img.src = getNextSkyImage();
+                        });
+                    }
+                }).catch(() => {
+                    // On error, try gif
+                    fetch(gifURL, { method: "HEAD" }).then(res2 => {
+                        if (res2.ok) {
+                            img.src = gifURL;
+                        } else {
+                            img.src = getNextSkyImage();
+                        }
+                    }).catch(() => {
+                        img.src = getNextSkyImage();
+                    });
+                });
+            } else {
+                // No template, fallback to sky
+                img.src = getNextSkyImage();
+            }
         } else {
             img.src = getNextSkyImage();
         }
