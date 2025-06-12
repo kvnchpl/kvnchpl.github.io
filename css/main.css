@@ -117,7 +117,7 @@ main {
 #link-container {
     overflow-y: auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
     gap: var(--spacing-medium);
@@ -209,7 +209,6 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    width: 100%;
     max-width: var(--max-width-content);
     margin: var(--spacing-small) auto;
     padding: 0;
@@ -217,8 +216,6 @@ main {
     text-decoration: none;
     box-sizing: border-box;
 }
-
-
 
 .page-link .text-block {
     display: flex;
