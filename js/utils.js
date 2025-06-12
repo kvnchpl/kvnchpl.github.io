@@ -433,11 +433,13 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         }
 
         const img = document.createElement("img");
-        const baseThumbBase = `/img/projects/${key}/thumbnail/${key}_thumbnail`;
+        // Use thumbnailPath from siteConfig (if present) and replace {key} with key
+        const rawPath = siteConfig.thumbnailPath?.replaceAll("{key}", key) || "";
+        const baseThumbBase = rawPath.replace(/\.(webp|gif)$/i, '');
         img.src = thumbnail || `${baseThumbBase}.webp`;
         img.alt = title || "Sky";
 
-        // Try .gif if .webp fails
+        // Try .gif if .webp fails, only if no explicit thumbnail provided
         if (!thumbnail) {
             img.onerror = () => {
                 img.src = `${baseThumbBase}.gif`;
