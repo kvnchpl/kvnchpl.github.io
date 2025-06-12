@@ -1,7 +1,7 @@
 :root {
     --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1.2rem;
-    --font-size-nav-mobile: 0.6rem;
+    --font-size-nav-mobile: 2.4rem;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --color-text: #e6e6e6;
@@ -369,7 +369,8 @@ main {
 @media (max-width: 768px) {
     #nav {
         font-size: var(--font-size-main);
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
         align-items: flex-start;
         text-align: left;
         padding: var(--spacing-medium);
@@ -378,7 +379,6 @@ main {
 
     #nav a {
         display: block;
-        width: 100%;
         text-align: left;
     }
 
