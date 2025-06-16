@@ -293,11 +293,12 @@ main {
 .slideshow-inner img {
     max-height: 100%;
     max-width: 100%;
-    height: auto;
     width: auto;
+    height: auto;
     object-fit: contain;
     display: block;
     grid-column: 2;
+    box-sizing: border-box;
 }
 
 .slideshow-full {
