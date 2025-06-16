@@ -328,9 +328,13 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
     // Render paragraph block into content area
     function renderContentBlock(text) {
-        const p = document.createElement("p");
-        p.textContent = text;
-        return p;
+        const wrapper = document.createElement("div");
+        text.split(/\n+/).forEach(line => {
+            const p = document.createElement("p");
+            p.textContent = line.trim();
+            if (p.textContent) wrapper.appendChild(p);
+        });
+        return wrapper;
     }
 
     // Clear previous content
