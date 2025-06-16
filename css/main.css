@@ -339,7 +339,7 @@ main {
     max-width: var(--max-width-content);
     margin-left: auto;
     margin-right: auto;
-    text-align: left;
+    text-align: justify;
     padding-right: var(--spacing-large);
 }
 
