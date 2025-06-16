@@ -276,7 +276,6 @@ main {
 .slideshow-wrapper {
     height: 90vh;
     max-height: 90vh;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
