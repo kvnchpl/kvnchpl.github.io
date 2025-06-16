@@ -309,6 +309,10 @@ main {
     margin: 0 auto;
 }
 
+.slideshow-full>.slideshow-inner>img {
+    object-fit: cover;
+}
+
 .slideshow-prev,
 .slideshow-next {
     background: transparent;
