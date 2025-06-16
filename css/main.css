@@ -250,7 +250,7 @@ main {
 }
 
 .page-link:hover img {
-    border: 2px solid var(--color-link-hover);
+    /* border: 2px solid var(--color-link-hover); */
     box-shadow: 0 0 10px var(--color-link-hover);
     animation: pulse-border 1s infinite;
 }
