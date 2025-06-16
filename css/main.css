@@ -284,10 +284,10 @@ main {
 .slideshow-inner {
     height: 100%;
     width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
+    display: flex;
     align-items: center;
-    justify-items: center;
+    justify-content: center;
+    gap: var(--spacing-small);
 }
 
 .slideshow-inner img {
@@ -297,7 +297,6 @@ main {
     height: auto;
     object-fit: contain;
     display: block;
-    grid-column: 2;
     box-sizing: border-box;
 }
 
