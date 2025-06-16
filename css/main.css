@@ -249,6 +249,12 @@ main {
     text-decoration: none !important;
 }
 
+.page-link:hover img {
+    border: 2px solid var(--color-link-hover);
+    box-shadow: 0 0 10px var(--color-link-hover);
+    animation: pulse-border 1s infinite;
+}
+
 .page-title {
     margin: var(--spacing-small);
 }
@@ -441,5 +447,19 @@ main {
 
     .slideshow-content-pair {
         flex-direction: column;
+    }
+}
+
+@keyframes pulse-border {
+    0% {
+        box-shadow: 0 0 5px var(--color-link-hover);
+    }
+
+    50% {
+        box-shadow: 0 0 20px var(--color-link-hover);
+    }
+
+    100% {
+        box-shadow: 0 0 5px var(--color-link-hover);
     }
 }
