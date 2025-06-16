@@ -288,6 +288,7 @@ main {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-small);
+    box-sizing: border-box;
 }
 
 .slideshow-inner img {
@@ -316,6 +317,8 @@ main {
     font-size: 2rem;
     color: var(--color-text);
     cursor: pointer;
+    flex-shrink: 0;
+    max-width: 10%;
 }
 
 .slideshow-content-pair {
