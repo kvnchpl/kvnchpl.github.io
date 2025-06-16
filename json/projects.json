@@ -299,10 +299,8 @@
             ]
         ],
         "layout": [
-            [
-                "images-1",
-                "content-1"
-            ]
+            ["images-1-full"],
+            ["content-1-right"]
         ],
         "month": 3,
         "year": 2019,
