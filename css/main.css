@@ -5,6 +5,7 @@
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --color-text: #e6e6e6;
+    --color-subtitle: #999;
     --color-bg: #000;
     --color-link-hover: red;
     --max-width-main: 700px;
@@ -48,6 +49,10 @@ body {
 #main-heading {
     margin-top: var(--spacing-large);
     text-transform: var(--text-transform-h1);
+}
+
+#subtitle {
+    color: var(--color-subtitle);
 }
 
 a {
@@ -250,7 +255,7 @@ main {
 
 .page-subtitle {
     margin: var(--spacing-small);
-    color: #999;
+    color: var(--color-subtitle);
     text-transform: lowercase;
 }
 
