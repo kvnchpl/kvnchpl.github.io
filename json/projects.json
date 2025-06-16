@@ -150,7 +150,9 @@
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
-            "A celebration for the last images on earth, once all content has been recycled and experienced. Was this the intended endpoint of evolution all along?"
+            "A celebration for the last images on earth, once all content has been recycled and experienced. Was this the intended endpoint of evolution all along?",
+            "(Variations)",
+            "(Disintegrations)"
         ],
         "images": [
             [
@@ -195,8 +197,14 @@
                 "images-1",
                 "content-1"
             ],
-            "images-2",
-            "images-3"
+            [
+                "images-2",
+                "content-2"
+            ],
+            [
+                "images-3",
+                "content-3"
+            ]
         ],
         "month": 8,
         "year": 2022,
