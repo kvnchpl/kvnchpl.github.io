@@ -339,13 +339,14 @@ main {
     max-width: var(--max-width-content);
     margin-left: auto;
     margin-right: auto;
-    text-align: justify;
     padding-right: var(--spacing-large);
 }
 
-.content-half p {
+.content-half p,
+.content-full p {
     margin: 0;
     padding: 0;
+    text-align: justify;
 }
 
 .uppercase {
