@@ -303,6 +303,7 @@ main {
 .slideshow-full {
     width: 100vw;
     justify-content: center;
+    text-align: justify;
     display: flex;
     box-sizing: border-box;
     margin: 0 auto;
