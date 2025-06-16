@@ -344,9 +344,12 @@ main {
 
 .content-half p,
 .content-full p {
+    text-align: justify;
+}
+
+.content-full p {
     margin: 0;
     padding: 0;
-    text-align: justify;
 }
 
 .uppercase {
