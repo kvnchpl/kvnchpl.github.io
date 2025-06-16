@@ -342,14 +342,14 @@ main {
     padding-right: var(--spacing-large);
 }
 
-.content-half p {
-    margin: 0;
-    padding: 0;
-}
-
 .content-half p,
 .content-full p {
     text-align: justify;
+}
+
+.content-half p {
+    margin: 0;
+    padding: 0;
 }
 
 .uppercase {
