@@ -295,7 +295,7 @@ main {
     max-height: 100%;
     max-width: 100%;
     width: auto;
-    height: auto;
+    height: 90vh;
     object-fit: contain;
     display: block;
     box-sizing: border-box;
