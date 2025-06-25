@@ -33,7 +33,7 @@
         "type": "writing",
         "title": "Desire Path",
         "key": "desire-path",
-        "permalink": null,
+        "permalink": "https://kvnchpl.com/pdf/desire-path.pdf",
         "description": null,
         "subtitle": null,
         "backgroundColor": "#0f0f0f",
@@ -42,6 +42,6 @@
         "layout": [],
         "month": 1,
         "year": 2025,
-        "external": false
+        "external": true
     }
 ]
