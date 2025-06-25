@@ -41,15 +41,16 @@ export function applyBackgroundColor(color) {
             const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
 
             const root = document.documentElement.style;
+            const rootVars = getComputedStyle(document.documentElement);
 
             if (luminance > 0.5) {
-                // Light background → use dark text
-                root.setProperty('--color-text', '#111');
-                root.setProperty('--color-subtitle', '#444');
+                // Light background → use dark textup
+                root.setProperty('--color-text', rootVars.getPropertyValue('--color-text-dark').trim());
+                root.setProperty('--color-subtitle', rootVars.getPropertyValue('--color-subtitle-dark').trim());
             } else {
                 // Dark background → use light text
-                root.setProperty('--color-text', '#e6e6e6');
-                root.setProperty('--color-subtitle', '#999');
+                root.setProperty('--color-text', rootVars.getPropertyValue('--color-text-light').trim());
+                root.setProperty('--color-subtitle', rootVars.getPropertyValue('--color-subtitle-light').trim());
             }
         }
     }
