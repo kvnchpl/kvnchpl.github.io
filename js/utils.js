@@ -23,6 +23,35 @@ function getShuffledSkyImages(siteConfig) {
 export function applyBackgroundColor(color) {
     if (color) {
         document.body.style.backgroundColor = color;
+
+        // Create a temporary element to compute the luminance
+        const temp = document.createElement("div");
+        temp.style.color = color;
+        document.body.appendChild(temp);
+
+        const computedColor = getComputedStyle(temp).color;
+        document.body.removeChild(temp);
+
+        // Extract RGB components
+        const match = computedColor.match(/\d+/g);
+        if (match && match.length >= 3) {
+            const [r, g, b] = match.map(Number);
+
+            // Calculate relative luminance (per W3C)
+            const luminance = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+
+            const root = document.documentElement.style;
+
+            if (luminance > 0.5) {
+                // Light background → use dark text
+                root.setProperty('--color-text', '#111');
+                root.setProperty('--color-subtitle', '#444');
+            } else {
+                // Dark background → use light text
+                root.setProperty('--color-text', '#e6e6e6');
+                root.setProperty('--color-subtitle', '#999');
+            }
+        }
     }
 }
 
