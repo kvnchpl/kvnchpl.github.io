@@ -96,5 +96,37 @@
         "month": 8,
         "day": 31,
         "year": 2023
+    },
+    {
+        "type": "writing",
+        "title": "Beach",
+        "key": "beach",
+        "month": 8,
+        "day": 2,
+        "year": 2023
+    },
+    {
+        "type": "writing",
+        "title": "The Album",
+        "key": "the-album",
+        "month": 5,
+        "day": 21,
+        "year": 2021
+    },
+    {
+        "type": "writing",
+        "title": "Stack",
+        "key": "stack",
+        "month": 12,
+        "day": 9,
+        "year": 2020
+    },
+    {
+        "type": "writing",
+        "title": "Diego",
+        "key": "diego",
+        "month": 10,
+        "day": 28,
+        "year": 2019
     }
 ]
