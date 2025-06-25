@@ -582,12 +582,20 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                 let href = "#";
                 let isExternal = false;
 
-                if (data.permalink) {
-                    href = data.permalink;
-                    isExternal = data.external === true;
-                } else if (data.originalUrl) {
-                    href = data.originalUrl;
+                if (data.external === true) {
+                    if (data.permalink) {
+                        href = data.permalink;
+                    } else if (data.originalUrl) {
+                        href = data.originalUrl;
+                    }
                     isExternal = true;
+                } else {
+                    if (data.permalink) {
+                        href = data.permalink;
+                    } else {
+                        href = `${basePath}${data.key}`;
+                    }
+                    isExternal = false;
                 }
 
                 const pageLink = createPageLink({
