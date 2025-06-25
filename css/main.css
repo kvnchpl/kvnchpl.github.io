@@ -359,6 +359,10 @@ main {
     text-transform: uppercase;
 }
 
+.italic {
+    font-style: italic;
+}
+
 #gallery {
     max-width: 100vw;
     width: 100%;
