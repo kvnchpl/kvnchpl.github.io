@@ -7,7 +7,8 @@
         "month": 11,
         "year": 2009,
         "external": true,
-        "permalink": "https://kvnchpl.com/pdf/hito-steyerl-in-defense-of-the-poor-image.pdf"
+        "permalink": "/pdf/hito-steyerl-in-defense-of-the-poor-image.pdf",
+        "originalUrl": "http://worker01.e-flux.com/pdf/article_94.pdf"
     },
     {
         "type": "reading",
@@ -17,6 +18,7 @@
         "month": "Winter",
         "year": 2023,
         "external": true,
-        "permalink": "https://kvnchpl.com/pdf/n+1-why-is-everything-so-ugly.pdf"
+        "permalink": "/pdf/n+1-why-is-everything-so-ugly.pdf",
+        "originalUrl": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/"
     }
 ]
