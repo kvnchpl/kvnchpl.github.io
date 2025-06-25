@@ -4,16 +4,14 @@
         "title": "Plight of Center",
         "key": "plight-of-center",
         "month": 4,
-        "year": 2024,
-        "external": false
+        "year": 2024
     },
     {
         "type": "writing",
         "title": "Cinder Block",
         "key": "cinder-block",
         "month": 7,
-        "year": 2024,
-        "external": false
+        "year": 2024
     },
     {
         "type": "writing",
@@ -29,15 +27,13 @@
         "title": "Sneeze",
         "key": "sneeze",
         "month": 3,
-        "year": 2024,
-        "external": false
+        "year": 2024
     },
     {
         "type": "writing",
         "title": "Orchestra",
         "key": "orchestra",
         "month": 1,
-        "year": 2024,
-        "external": false
+        "year": 2024
     }
 ]
