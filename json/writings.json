@@ -43,5 +43,20 @@
         "month": 1,
         "year": 2025,
         "external": true
+    },
+    {
+        "type": "writing",
+        "title": "Sneeze",
+        "key": "sneeze",
+        "permalink": null,
+        "description": null,
+        "subtitle": null,
+        "backgroundColor": "#0f0f0f",
+        "content": [],
+        "images": [],
+        "layout": [],
+        "month": 3,
+        "year": 2024,
+        "external": false
     }
 ]
