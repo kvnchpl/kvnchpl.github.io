@@ -4,6 +4,7 @@
         "title": "Plight of Center",
         "key": "plight-of-center",
         "month": 4,
+        "day": 29,
         "year": 2024
     },
     {
@@ -11,14 +12,16 @@
         "title": "Cinder Block",
         "key": "cinder-block",
         "month": 7,
+        "day": 30,
         "year": 2024
     },
     {
         "type": "writing",
         "title": "Desire Path",
         "key": "desire-path",
-        "month": 1,
-        "year": 2025,
+        "month": 4,
+        "day": 12,
+        "year": 2024,
         "external": true,
         "permalink": "https://kvnchpl.com/pdf/desire-path.pdf"
     },
@@ -27,6 +30,7 @@
         "title": "Sneeze",
         "key": "sneeze",
         "month": 3,
+        "day": 5,
         "year": 2024
     },
     {
@@ -34,6 +38,7 @@
         "title": "Orchestra",
         "key": "orchestra",
         "month": 1,
+        "day":  25,
         "year": 2024
     },
     {
@@ -41,6 +46,7 @@
         "title": "Pearly Mucus",
         "key": "pearly-mucus",
         "month": 12,
+        "day":  14,
         "year": 2023
     },
     {
@@ -48,6 +54,15 @@
         "title": "Belief & Desire",
         "key": "belief-and-desire",
         "month": 12,
+        "day":  14,
+        "year": 2023
+    },
+    {
+        "type": "writing",
+        "title": "Curse of Soil",
+        "key": "curse-of-soil",
+        "month": 12,
+        "day": 13,
         "year": 2023
     }
 ]

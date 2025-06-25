@@ -559,17 +559,23 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
         Object.values(pages)
             .filter(data => data.type === type)
             .sort((a, b) => {
-                if (b.year !== a.year) return b.year - a.year;
+                const toDateValue = (entry) => {
+                    const year = typeof entry.year === "number" ? entry.year : 0;
 
-                const monthOrderMap = Object.fromEntries(
-                    (siteConfig.monthOrder || []).map((name, index) => [name, index + 1])
-                );
-                const getMonthIndex = (entry) =>
-                    typeof entry.month === "number" ? entry.month :
-                        typeof entry.month === "string" ? monthOrderMap[entry.month] || 0 :
-                            0;
+                    let month = 0;
+                    if (typeof entry.month === "number") {
+                        month = entry.month - 1;
+                    } else if (typeof entry.month === "string" && siteConfig.monthOrder) {
+                        const index = siteConfig.monthOrder.indexOf(entry.month);
+                        month = index >= 0 ? index : 0;
+                    }
 
-                return getMonthIndex(b) - getMonthIndex(a);
+                    const day = typeof entry.day === "number" ? entry.day : 1;
+
+                    return new Date(year, month, day).getTime();
+                };
+
+                return toDateValue(b) - toDateValue(a); // descending order
             })
             .forEach((data, index) => {
                 const subtitleText = formatSubtitle(data, siteConfig);
