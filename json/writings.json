@@ -35,5 +35,12 @@
         "key": "orchestra",
         "month": 1,
         "year": 2024
+    },
+    {
+        "type": "writing",
+        "title": "Pearly Mucus",
+        "key": "pearly-mucus",
+        "month": 12,
+        "year": 2023
     }
 ]
