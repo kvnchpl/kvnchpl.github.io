@@ -42,5 +42,12 @@
         "key": "pearly-mucus",
         "month": 12,
         "year": 2023
+    },
+    {
+        "type": "writing",
+        "title": "Belief & Desire",
+        "key": "belief-and-desire",
+        "month": 12,
+        "year": 2023
     }
 ]
