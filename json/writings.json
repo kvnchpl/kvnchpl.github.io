@@ -88,5 +88,13 @@
         "month": 9,
         "day": 7,
         "year": 2023
+    },
+    {
+        "type": "writing",
+        "title": "Theme",
+        "key": "theme",
+        "month": 8,
+        "day": 31,
+        "year": 2023
     }
 ]
