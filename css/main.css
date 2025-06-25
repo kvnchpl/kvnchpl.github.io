@@ -6,6 +6,10 @@
     --font-weight-bold: 700;
     --color-text: #e6e6e6;
     --color-subtitle: #999;
+    --color-text-dark: #111;
+    --color-subtitle-dark: #444;
+    --color-text-light: #e6e6e6;
+    --color-subtitle-light: #999;
     --color-bg: #000;
     --color-link-hover: red;
     --max-width-main: 700px;
