@@ -579,10 +579,16 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             })
             .forEach((data, index) => {
                 const subtitleText = formatSubtitle(data, siteConfig);
-                const href = data.external && data.permalink
-                    ? data.permalink
-                    : `${basePath}${data.key}`;
-                const isExternal = data.external && data.permalink;
+                let href = "#";
+                let isExternal = false;
+
+                if (data.permalink) {
+                    href = data.permalink;
+                    isExternal = data.external === true;
+                } else if (data.originalUrl) {
+                    href = data.originalUrl;
+                    isExternal = true;
+                }
 
                 const pageLink = createPageLink({
                     href,
