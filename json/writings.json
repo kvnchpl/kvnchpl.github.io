@@ -38,7 +38,7 @@
         "title": "Orchestra",
         "key": "orchestra",
         "month": 1,
-        "day":  25,
+        "day": 25,
         "year": 2024
     },
     {
@@ -46,7 +46,7 @@
         "title": "Pearly Mucus",
         "key": "pearly-mucus",
         "month": 12,
-        "day":  14,
+        "day": 14,
         "year": 2023
     },
     {
@@ -54,7 +54,7 @@
         "title": "Belief & Desire",
         "key": "belief-and-desire",
         "month": 12,
-        "day":  14,
+        "day": 14,
         "year": 2023
     },
     {
@@ -79,6 +79,14 @@
         "key": "close-all",
         "month": 9,
         "day": 20,
+        "year": 2023
+    },
+    {
+        "type": "writing",
+        "title": "Sweetness",
+        "key": "sweetness",
+        "month": 9,
+        "day": 7,
         "year": 2023
     }
 ]
