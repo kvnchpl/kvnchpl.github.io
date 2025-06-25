@@ -3,9 +3,7 @@
         "type": "project",
         "title": "Compiler Buddha",
         "key": "compiler-buddha",
-        "permalink": null,
         "description": "An experimental project exploring the intersection of coding and spirituality.",
-        "subtitle": null,
         "thumbnail": "/img/projects/compiler-buddha/buddha_endless-loop.gif",
         "backgroundColor": "#0f0f0f",
         "content": [
@@ -23,9 +21,7 @@
         "type": "project",
         "title": "Viewfinder",
         "key": "viewfinder",
-        "permalink": null,
         "description": "A critical look at how nature is categorized and controlled through technology and surveillance.",
-        "subtitle": null,
         "backgroundColor": "#111111",
         "content": [
             "Nature has been manipulated throughout the course of Western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian Renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by AI object detection technology. Extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” Our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
@@ -57,9 +53,7 @@
         "type": "project",
         "title": "Triptych",
         "key": "triptych",
-        "permalink": null,
         "description": "An artistic homage to the complexity and emotional depth of Francis Bacon's work.",
-        "subtitle": null,
         "backgroundColor": "#111111",
         "content": [
             "Ode to Francis Bacon, his illegibility, his romance, and his turmoil."
@@ -85,9 +79,7 @@
         "type": "project",
         "title": "Archipelago",
         "key": "archipelago",
-        "permalink": null,
         "description": "A banner series reflecting unity across cultures through abstract representations of nature and digital motifs.",
-        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "Archipelago centers the rectangular frame as a motif dually representing the digital interfaces we encounter in contemporary life and the psychological framework through which we perceive others. Each banner features a pair of abstract fauna and flora, which mirror each other in relation to or in opposition with the frame, reflecting the emotional effort required to care for others in spite of perceived faults or misunderstandings. The banners’ collage of disparate elements – the AI-generated jungle landscapes, pixelated image scrap, and indeterminate symbols – embraces the spirit of the Philippines, consisting of over 7,000 islands, as a testament of unity across different peoples, cultures, and languages. (Proposal for the Noguchi Museum Open Call for Artist Banners 2024)"
@@ -116,9 +108,7 @@
         "type": "project",
         "title": "Intraface",
         "key": "intraface",
-        "permalink": null,
         "description": "Explores the tension between inner abstraction and interface interaction.",
-        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "Interfaces are the meeting points where two entities present to each other the abstractions of their inner worlds. As a canonical example, a “submit” button is the compromise between a human user’s desire to finalize something, and the inner machinations of a computer to engage with its storage. How can we drill deeper into our inner interfaces – our “intrafaces” – that represent the infinite compromises made between competing parts of our bodies, mind, and spirit? Imagine drop-down menus with all options spelled out. At what point does further definition and deconstruction return to the realm of abstraction?"
@@ -147,9 +137,7 @@
         "type": "project",
         "title": "Friday Night Never",
         "key": "friday-night-never",
-        "permalink": null,
         "description": "A contemplative exploration of finality and the recycling of imagery in a post-content world.",
-        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "A celebration for the last images on earth, once all content has been recycled and experienced. Was this the intended endpoint of evolution all along?",
@@ -216,9 +204,7 @@
         "type": "project",
         "title": "Dimensional Freedom",
         "key": "dimensional-freedom",
-        "permalink": null,
         "description": "Multichannel installation examining the fluidity of digital and physical space.",
-        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "Though distinct from the physical world, we can interact with virtual spaces with the same familiarity and utility as real ones. This installation encapsulates the fluidity of a virtual space, urging the viewer to weave through it – an experience that straddles the second and third dimensions. The figures onscreen are also stuck in a 2d space while receding into and escaping from their planes. The track on which they walk facilitates a perpetual movement through time and a perpetual shuffling of identity. The space between the pillars thus becomes unresolvable, destabilizing one’s orientation as in virtual space."
@@ -250,9 +236,7 @@
         "type": "project",
         "title": "520 Missing",
         "key": "520-missing",
-        "permalink": null,
         "description": "A performance art project addressing faculty diversity at Stanford University through symbolic posters.",
-        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "As of May 2019, in order for the demographics of the Stanford University faculty to accurately reflect the student population, 520 white professors would need to be replaced by professors of color. The 520 Missing project was a performance in which I asked members of the public to help me put up posters around campus. I produced 520 posters total, each standing in for one the 'missing' professors. The faces of the faculty members were created using a GAN image generator, so as not to implicate the identities of real people."
@@ -281,9 +265,7 @@
         "type": "project",
         "title": "Truth Visions",
         "key": "truth-visions",
-        "permalink": null,
         "description": "An installation exploring the nature of photographic truth in the age of AI-generated imagery.",
-        "subtitle": null,
         "backgroundColor": "#0f0f0f",
         "content": [
             "Just as the photograph altered the function and objectivity of painting one hundred years ago, the advent of CGI – especially AI-generated imagery – similarly altered our understanding of photography. The implicit assumptions we make of photos and videos, such as the presence of a photographer, a camera, and subject, are destabilizing. The ability of photography to depict truth has been debated since its invention. But what does it mean when we can no longer distinguish a photograph from a completely artificial image? From which parts of our vision can we glean truth? This installation as a whole is a truth-telling device. It relies on the veracity of live footage as well as plain reflections in order to distill 'real images.' It features a large television sinking into a mound of sand and displaying a CCTV broadcast of the installation itself. Off to the side are photographs of the installation printed onto clear film, revealing a mirror underlying the images. In all components of the installation, viewers will encounter a form of 'real image.'"
@@ -309,15 +291,14 @@
         "type": "project",
         "title": "JUNGLE",
         "key": "jungle",
-        "permalink": "https://kvnchpl.com/jungle/",
         "description": "Digital zine",
-        "subtitle": null,
         "backgroundColor": "#47561e",
         "content": [],
-        "images": [["jungle_1"]],
+        "images": [],
         "layout": [],
         "month": 6,
         "year": 2025,
-        "external": true
+        "external": true,
+        "permalink": "https://kvnchpl.com/jungle/"
     }
 ]
