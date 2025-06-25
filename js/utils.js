@@ -165,7 +165,7 @@ export function formatSubtitle(data, siteConfig) {
  */
 export function updateTitle(title) {
     if (title) {
-        document.title = title;
+        document.title = title.toUpperCase();
     }
 }
 
