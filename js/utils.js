@@ -90,7 +90,7 @@ export function getPageType(page, collections) {
 }
 
 /**
- * Returns subtitle text, falling back to formatted month and year if needed.
+ * Returns subtitle text, falling back to formatted metadata based on type.
  * @param {Object} data - The page or project data object.
  * @param {Object} siteConfig - The site configuration object, used for monthOrder.
  * @returns {string|null} - Subtitle string or null if no fallback available.
@@ -98,18 +98,35 @@ export function getPageType(page, collections) {
 export function formatSubtitle(data, siteConfig) {
     if (typeof data.subtitle === "string" && data.subtitle.trim() !== "") {
         return data.subtitle;
-    } else if (data.year) {
-        if (typeof data.month === "number") {
-            return new Date(data.year, data.month - 1).toLocaleString('en', {
-                month: 'long',
-                year: 'numeric'
-            });
-        } else if (typeof data.month === "string" && data.month.trim() !== "") {
-            const monthOrderMap = Object.fromEntries((siteConfig?.monthOrder || []).map((name, index) => [name, index + 1]));
-            return monthOrderMap[data.month] ? `${data.month} ${data.year}` : null;
-        }
     }
-    return null;
+
+    const getMonthYear = () => {
+        if (data.year) {
+            if (typeof data.month === "number") {
+                return new Date(data.year, data.month - 1).toLocaleString('en', {
+                    month: 'long',
+                    year: 'numeric'
+                });
+            } else if (typeof data.month === "string" && data.month.trim() !== "") {
+                return `${data.month} ${data.year}`;
+            }
+        }
+        return null;
+    };
+
+    const monthYear = getMonthYear();
+
+    if (data.type === "reading") {
+        const parts = [];
+        if (data.author) parts.push(`by ${data.author}`);
+        if (data.publication) parts.push(data.publication);
+        if (data.issue) parts.push(data.issue);
+        if (monthYear) parts.push(`(${monthYear})`);
+        return parts.length > 0 ? parts.join(', ') : null;
+    }
+
+    // Default for projects, writings, etc.
+    return monthYear;
 }
 
 /**
