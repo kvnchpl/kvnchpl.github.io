@@ -385,6 +385,15 @@ main {
     padding: var(--spacing-small);
 }
 
+.pdf-embed {
+    width: 100%;
+    max-width: var(--max-width-content);
+    height: 80vh;
+    margin: var(--spacing-large) auto;
+    display: block;
+    border: none;
+}
+
 @media (max-width: 768px) {
     #nav {
         font-size: var(--font-size-nav-mobile);
