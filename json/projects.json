@@ -314,8 +314,8 @@
         "subtitle": null,
         "backgroundColor": "#47561e",
         "content": [],
-        "images": [],
-        "layout": [],
+        "images": [["jungle_1"]],
+        "layout": null,
         "month": 6,
         "year": 2025,
         "external": true
