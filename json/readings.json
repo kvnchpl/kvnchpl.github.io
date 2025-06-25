@@ -7,7 +7,7 @@
         "month": 11,
         "year": 2009,
         "external": true,
-        "permalink": "/pdf/hito-steyerl-in-defense-of-the-poor-image.pdf",
+        "permalink": "/pdf/steyerl-in-defense-of-the-poor-image.pdf",
         "originalUrl": "http://worker01.e-flux.com/pdf/article_94.pdf"
     },
     {
@@ -30,5 +30,17 @@
         "year": 2018,
         "external": true,
         "originalUrl": "https://ed.ted.com/lessons/f53lkWpo"
+    },
+    {
+        "type": "reading",
+        "title": "Waste Your Time, Your Life May Depend On It",
+        "key": "waste-your-time-your-life-may-depend-on-it",
+        "subtitle": "by L.M. Sacasas, The Convivial Society (May 2023)",
+        "month": 5,
+        "day": 12,
+        "year": 2023,
+        "external": true,
+        "permalink": "/pdf/sacasas-waste-your-time-your-life-may-depend-on-it.pdf",
+        "originalUrl": "https://theconvivialsociety.substack.com/p/waste-your-time-your-life-may-depend"
     }
 ]
