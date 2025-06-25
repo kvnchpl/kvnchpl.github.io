@@ -3,24 +3,20 @@
         "type": "reading",
         "title": "In Defense of the Poor Image",
         "key": "in-defense-of-the-poor-image",
-        "permalink": "http://worker01.e-flux.com/pdf/article_94.pdf",
         "subtitle": "by Hito Steyerl, e-flux Journal #10 (November 2009)",
         "month": 11,
         "year": 2009,
         "external": true,
-        "description": null,
-        "images": []
+        "permalink": "https://kvnchpl.com/pdf/hito-steyerl-in-defense-of-the-poor-image.pdf"
     },
     {
         "type": "reading",
         "title": "Why Is Everything So Ugly?",
         "key": "why-is-everything-so-ugly",
-        "permalink": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/",
         "subtitle": "by n+1 Magazine editors, Issue 44 (Winter 2023)",
         "month": "Winter",
         "year": 2023,
         "external": true,
-        "description": null,
-        "images": []
+        "permalink": "https://kvnchpl.com/pdf/n+1-why-is-everything-so-ugly.pdf"
     }
 ]
