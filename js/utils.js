@@ -584,7 +584,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const getNextSkyImage = () =>
         skyImages.length > 0
             ? skyImages[skyIndex++ % skyImages.length]
-            : "/img/home/sky_1.jpg";
+            : "/img/home/sky_1.webp";
 
     if (isHomePage) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
