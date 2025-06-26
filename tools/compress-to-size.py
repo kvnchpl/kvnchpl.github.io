@@ -15,10 +15,36 @@ def compress_image_to_target_size(input_path, output_path, target_kb, tolerance=
     best_quality = low
     best_result = None
 
+    ext = os.path.splitext(output_path)[1].lower()
+
     while low <= high:
         mid = (low + high) // 2
         buffer = BytesIO()
-        image.save(buffer, format="JPEG", quality=mid)
+
+        format = None
+        save_kwargs = {}
+
+        if ext in ['.jpg', '.jpeg']:
+            format = 'JPEG'
+            save_kwargs = {"quality": mid, "optimize": True}
+        elif ext == '.webp':
+            format = 'WEBP'
+            save_kwargs = {"quality": mid}
+        elif ext == '.png':
+            format = 'PNG'
+            compression_level = max(0, min(9, 9 - int((mid - min_quality) / (max_quality - min_quality) * 9)))
+            save_kwargs = {"optimize": True, "compress_level": compression_level}
+        elif ext == '.gif':
+            format = 'GIF'
+            if mid < 50:
+                low = mid + 1
+                continue  # Skip low-quality attempts
+            save_kwargs = {}
+        else:
+            print("Unsupported format.")
+            return
+
+        image.save(buffer, format=format, **save_kwargs)
         size = buffer.tell()
 
         if abs(size - target_bytes) <= tolerance * 1024:
