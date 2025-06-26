@@ -211,10 +211,9 @@ main {
 }
 
 #sky-gif {
-    max-width: var(--max-width-content);
-    max-height: 60vh;
-    width: auto;
+    width: 60vw;
     height: auto;
+    max-height: 60vh;
     display: block;
     position: relative;
 }
