@@ -296,8 +296,8 @@ main {
 }
 
 .slideshow-inner img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 90%;
+    max-width: 90%;
     width: auto;
     height: 90vh;
     object-fit: contain;
