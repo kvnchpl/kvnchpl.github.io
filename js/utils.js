@@ -321,14 +321,38 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         let currentIndex = 0;
 
         const img = document.createElement(tagNames.galleryImage);
-        const effectiveSize = size;
-        img.src = `/${basePath}/${collectionPath}/${pageData.key}/${effectiveSize}/${imagesArr[0]}${imageExt}`;
-        img.alt = imagesArr[0];
-        img.onerror = () => {
-            if (effectiveSize !== size) {
-                img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[0]}${imageExt}`;
+
+        // Helper to build srcset for responsive images
+        function getSrcSet(imageName) {
+            const base = `/${basePath}/${collectionPath}/${pageData.key}`;
+            return [
+                `${base}/small/${imageName}${imageExt} 600w`,
+                `${base}/medium/${imageName}${imageExt} 1280w`,
+                `${base}/full/${imageName}${imageExt} 1920w`
+            ].join(', ');
+        }
+
+        // Show image at index, update src, srcset, sizes, alt, etc.
+        function showImage(index) {
+            if (index >= 0 && index < imagesArr.length) {
+                const imageName = imagesArr[index];
+                img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imageName}${imageExt}`;
+                img.srcset = getSrcSet(imageName);
+                img.sizes = "(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw";
+                img.alt = imageName;
+                img.loading = "lazy";
+                img.onerror = () => {
+                    // fallback to default size if needed
+                    if (size !== "full") {
+                        img.src = `/${basePath}/${collectionPath}/${pageData.key}/full/${imageName}${imageExt}`;
+                    }
+                };
+                currentIndex = index;
             }
-        };
+        }
+
+        // Initial image
+        showImage(0);
 
         const isSingleImage = imagesArr.length === 1;
 
@@ -355,20 +379,6 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         }
 
         wrapper.appendChild(inner);
-
-        function showImage(index) {
-            if (index >= 0 && index < imagesArr.length) {
-                const effectiveSize = size;
-                img.src = `/${basePath}/${collectionPath}/${pageData.key}/${effectiveSize}/${imagesArr[index]}${imageExt}`;
-                img.alt = imagesArr[index];
-                img.onerror = () => {
-                    if (effectiveSize !== size) {
-                        img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imagesArr[index]}${imageExt}`;
-                    }
-                };
-                currentIndex = index;
-            }
-        }
 
         return wrapper;
     }
