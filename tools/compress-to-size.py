@@ -2,49 +2,63 @@ import os
 from PIL import Image
 from io import BytesIO
 
-def compress_image_to_target_size(input_path, output_path, target_kb, tolerance=5, min_quality=5, max_quality=95):
+def get_format_and_save_kwargs(ext, quality, min_quality, max_quality):
+    ext = ext.lower()
+    save_kwargs = {}
+    image_format = None
+
+    if ext in ['.jpg', '.jpeg']:
+        image_format = 'JPEG'
+        save_kwargs = {"quality": quality, "optimize": True}
+    elif ext == '.webp':
+        image_format = 'WEBP'
+        save_kwargs = {"quality": quality}
+    elif ext == '.png':
+        image_format = 'PNG'
+        compression_level = max(0, min(9, 9 - int((quality - min_quality) / (max_quality - min_quality) * 9)))
+        save_kwargs = {"optimize": True, "compress_level": compression_level}
+    elif ext == '.gif':
+        image_format = 'GIF'
+        save_kwargs = {}
+    else:
+        return None, None
+    return image_format, save_kwargs
+
+def compress_image_to_target_size(input_path, output_path, target_kb, tolerance=5, min_quality=5, max_quality=95, fixed_quality=None):
     target_bytes = target_kb * 1024
     image = Image.open(input_path)
-    
-    # Convert to RGB to avoid issues with PNGs or other formats
+    ext = os.path.splitext(output_path)[1].lower()
+
     if image.mode in ("RGBA", "P"):
         image = image.convert("RGB")
+
+    if fixed_quality is not None:
+        image_format, save_kwargs = get_format_and_save_kwargs(ext, fixed_quality, min_quality, max_quality)
+        if image_format is None:
+            print("Unsupported format.")
+            return
+        image.save(output_path, format=image_format, **save_kwargs)
+        print(f"✅ Compressed with fixed quality={fixed_quality} to {output_path}")
+        return
 
     low = min_quality
     high = max_quality
     best_quality = low
     best_result = None
 
-    ext = os.path.splitext(output_path)[1].lower()
-
     while low <= high:
         mid = (low + high) // 2
-        buffer = BytesIO()
-
-        format = None
-        save_kwargs = {}
-
-        if ext in ['.jpg', '.jpeg']:
-            format = 'JPEG'
-            save_kwargs = {"quality": mid, "optimize": True}
-        elif ext == '.webp':
-            format = 'WEBP'
-            save_kwargs = {"quality": mid}
-        elif ext == '.png':
-            format = 'PNG'
-            compression_level = max(0, min(9, 9 - int((mid - min_quality) / (max_quality - min_quality) * 9)))
-            save_kwargs = {"optimize": True, "compress_level": compression_level}
-        elif ext == '.gif':
-            format = 'GIF'
-            if mid < 50:
-                low = mid + 1
-                continue  # Skip low-quality attempts
-            save_kwargs = {}
-        else:
+        image_format, save_kwargs = get_format_and_save_kwargs(ext, mid, min_quality, max_quality)
+        if image_format is None:
             print("Unsupported format.")
             return
 
-        image.save(buffer, format=format, **save_kwargs)
+        if ext == '.gif' and mid < 50:
+            low = mid + 1
+            continue  # Skip low-quality attempts for GIF
+
+        buffer = BytesIO()
+        image.save(buffer, format=image_format, **save_kwargs)
         size = buffer.tell()
 
         if abs(size - target_bytes) <= tolerance * 1024:
@@ -69,10 +83,15 @@ def compress_image_to_target_size(input_path, output_path, target_kb, tolerance=
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Compress an image to a target file size.")
+    parser = argparse.ArgumentParser(description="Compress an image to a target file size or quality.")
     parser.add_argument("input", help="Input image path")
     parser.add_argument("output", help="Output image path")
-    parser.add_argument("target_kb", type=int, help="Target size in kilobytes")
+    parser.add_argument("--target-kb", type=int, help="Target size in kilobytes")
+    parser.add_argument("--quality", type=int, help="Fixed quality value (overrides target size)")
 
     args = parser.parse_args()
-    compress_image_to_target_size(args.input, args.output, args.target_kb)
+
+    if (args.quality is None) == (args.target_kb is None):
+        parser.error("You must specify exactly one of --quality or --target-kb.")
+
+    compress_image_to_target_size(args.input, args.output, args.target_kb or 0, fixed_quality=args.quality)
