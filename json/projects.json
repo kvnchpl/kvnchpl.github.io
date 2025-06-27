@@ -5,7 +5,7 @@
         "key": "compiler-buddha",
         "description": "An experimental project exploring the intersection of coding and spirituality.",
         "thumbnail": "/img/projects/compiler-buddha/compiler-buddha_thumbnail.gif",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#022710",
         "content": [
             "An homage to TV Buddha (1974), Nam June Paik’s seminal video sculpture of a Buddha contemplating its own image on a TV screen.\nCompiler Buddha is a generative, self-modifying script that reconfigures its own source code into the shape of a given image – in this case, the Buddha's – while simultaneously distorting that image through AI-generated recursion. Where Paik grappled with television as a medium through which we understand the world – and by extension, ourselves – I consider the compiler. As a critical bridge between the mechanistic 1s and 0s that computers understand, and the rendered world of digital information legible to human perception, the compiler is the invisible conduit by which we receive all digital information. The source code revealed here is not only an executable instruction, but also a poetic text in its own right.\nOnce compiling has begun, two negative feedback loops occur in parallel:\nOn the right, the source code parses and rebuilds itself, fragment by fragment, continually grasping towards the Buddha’s image. Steadily it dissolves, hovering as an ethereal haze of slashes and dots.\nOn the left, the source code’s reference image of a buddha statuette is recursively processed through a Stable Diffusion image generation model. Each generation displaces itself from the original form, reducing the image to abstract fields of color and light.\nAs each half diverges in two technically distinct processes, they also appear to mirror each other in their separate movements towards abstraction. This abstraction reflects a key Buddhist principle: the Buddha is not a fixed image, but a concept encountered personally through practice. Rather than prescribe a singular iconic presence of the Buddha, most Buddhist traditions emphasize individual encounters with enlightenment, often accessed through meditation.\nThe recursive loops recall meditation and the recitation of mantras. (Each loop is specifically set to iterate 108 times, a sacred number in many sects of Buddhism.) As in meditation, repetition and duration transforms the ordinary into something more essential and intangible. This project is best experienced online precisely because it is a reclamation of digital space, one that is self-contained, reflexive, and sacred."
         ],
@@ -21,7 +21,7 @@
         "title": "Viewfinder",
         "key": "viewfinder",
         "description": "A critical look at how nature is categorized and controlled through technology and surveillance.",
-        "backgroundColor": "#111111",
+        "backgroundColor": "#3E3113",
         "content": [
             "Nature has been manipulated throughout the course of Western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian Renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by AI object detection technology. Extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” Our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
         ],
@@ -52,7 +52,7 @@
         "title": "Triptych",
         "key": "triptych",
         "description": "An artistic homage to the complexity and emotional depth of Francis Bacon's work.",
-        "backgroundColor": "#111111",
+        "backgroundColor": "#212C30",
         "content": [
             "Ode to Francis Bacon, his illegibility, his romance, and his turmoil."
         ],
@@ -77,7 +77,7 @@
         "title": "Archipelago",
         "key": "archipelago",
         "description": "A banner series reflecting unity across cultures through abstract representations of nature and digital motifs.",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#332F37",
         "content": [
             "Archipelago centers the rectangular frame as a motif dually representing the digital interfaces we encounter in contemporary life and the psychological framework through which we perceive others. Each banner features a pair of abstract fauna and flora, which mirror each other in relation to or in opposition with the frame, reflecting the emotional effort required to care for others in spite of perceived faults or misunderstandings. The banners’ collage of disparate elements – the AI-generated jungle landscapes, pixelated image scrap, and indeterminate symbols – embraces the spirit of the Philippines, consisting of over 7,000 islands, as a testament of unity across different peoples, cultures, and languages.\n\n(Proposal for the Noguchi Museum Open Call for Artist Banners 2024)"
         ],
@@ -105,7 +105,7 @@
         "title": "Intraface",
         "key": "intraface",
         "description": "Explores the tension between inner abstraction and interface interaction.",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#391104",
         "content": [
             "Interfaces are the meeting points where two entities present to each other the abstractions of their inner worlds. As a canonical example, a “submit” button is the compromise between a human user’s desire to finalize something, and the inner machinations of a computer to engage with its storage. How can we drill deeper into our inner interfaces – our “intrafaces” – that represent the infinite compromises made between competing parts of our bodies, mind, and spirit? Imagine drop-down menus with all options spelled out. At what point does further definition and deconstruction return to the realm of abstraction?"
         ],
@@ -133,7 +133,7 @@
         "title": "Friday Night Never",
         "key": "friday-night-never",
         "description": "A contemplative exploration of finality and the recycling of imagery in a post-content world.",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#00293D",
         "content": [
             "A celebration for the last images on earth, once all content has been recycled and experienced. Was this the intended endpoint of evolution all along?",
             "(Variations)",
@@ -199,7 +199,7 @@
         "title": "Dimensional Freedom",
         "key": "dimensional-freedom",
         "description": "Multichannel installation examining the fluidity of digital and physical space.",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#1C1938",
         "content": [
             "Though distinct from the physical world, we can interact with virtual spaces with the same familiarity and utility as real ones. This installation encapsulates the fluidity of a virtual space, urging the viewer to weave through it – an experience that straddles the second and third dimensions. The figures onscreen are also stuck in a 2d space while receding into and escaping from their planes. The track on which they walk facilitates a perpetual movement through time and a perpetual shuffling of identity. The space between the pillars thus becomes unresolvable, destabilizing one’s orientation as in virtual space."
         ],
@@ -230,7 +230,7 @@
         "title": "520 Missing",
         "key": "520-missing",
         "description": "A performance art project addressing faculty diversity at Stanford University through symbolic posters.",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#300D18",
         "content": [
             "As of May 2019, in order for the demographics of the Stanford University faculty to accurately reflect the student population, 520 white professors would need to be replaced by professors of color. The 520 Missing project was a performance in which I asked members of the public to help me put up posters around campus. I produced 520 posters total, each standing in for one the 'missing' professors. The faces of the faculty members were created using a GAN image generator, so as not to implicate the identities of real people."
         ],
@@ -258,7 +258,7 @@
         "title": "Truth Visions",
         "key": "truth-visions",
         "description": "An installation exploring the nature of photographic truth in the age of AI-generated imagery.",
-        "backgroundColor": "#0f0f0f",
+        "backgroundColor": "#1A2321",
         "content": [
             "Just as the photograph altered the function and objectivity of painting one hundred years ago, the advent of CGI – especially AI-generated imagery – similarly altered our understanding of photography. The implicit assumptions we make of photos and videos, such as the presence of a photographer, a camera, and subject, are destabilizing. The ability of photography to depict truth has been debated since its invention. But what does it mean when we can no longer distinguish a photograph from a completely artificial image? From which parts of our vision can we glean truth? This installation as a whole is a truth-telling device. It relies on the veracity of live footage as well as plain reflections in order to distill 'real images.' It features a large television sinking into a mound of sand and displaying a CCTV broadcast of the installation itself. Off to the side are photographs of the installation printed onto clear film, revealing a mirror underlying the images. In all components of the installation, viewers will encounter a form of 'real image.'"
         ],
@@ -283,7 +283,7 @@
         "title": "JUNGLE",
         "key": "jungle",
         "description": "Digital zine",
-        "backgroundColor": "#47561e",
+        "backgroundColor": "#47561E",
         "content": [],
         "images": [],
         "layout": [],
