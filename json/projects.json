@@ -14,6 +14,7 @@
             "content-1-full"
         ],
         "month": 5,
+        "day": 29,
         "year": 2025
     },
     {
@@ -287,9 +288,25 @@
         "content": [],
         "images": [],
         "layout": [],
-        "month": 6,
+        "month": 5,
+        "day": 30,
         "year": 2025,
         "external": true,
         "permalink": "https://kvnchpl.com/jungle/"
+    },
+    {
+        "type": "project",
+        "title": "EACH ALL",
+        "key": "each-all",
+        "description": "Collaborative collaging project",
+        "backgroundColor": "#FFFFFF",
+        "content": [],
+        "images": [],
+        "layout": [],
+        "month": 6,
+        "day": 28,
+        "year": 2025,
+        "external": true,
+        "permalink": "https://each-all.netlify.app"
     }
 ]
