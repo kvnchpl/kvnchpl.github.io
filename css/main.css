@@ -20,7 +20,7 @@
     --spacing-small: 0.5rem;
     --spacing-medium: 1rem;
     --spacing-large: 2rem;
-    --max-width-content: 60vw;
+    --max-width-content: 60svw;
     --gallery-gap: calc(var(--spacing-small) * 2);
 }
 
@@ -79,8 +79,8 @@ img {
 
 main {
     position: relative;
-    width: 100vw;
-    min-height: 100vh;
+    width: 100svw;
+    min-height: 100svh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -89,8 +89,8 @@ main {
 }
 
 .iframe {
-    width: 100vw;
-    height: 56.25vw;
+    width: 100svw;
+    height: 56.25svw;
     border: none;
     display: block;
 }
@@ -147,7 +147,7 @@ main {
 .title {
     flex: 0 0 auto;
     height: auto;
-    font-size: 6.7vw;
+    font-size: 6.7svw;
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -161,13 +161,13 @@ main {
 
 #title-top {
     align-items: flex-start;
-    translate: -0.5vw -1.3vh;
+    translate: -0.5svw -1.3svh;
     top: 0;
 }
 
 #title-bottom {
     align-items: flex-end;
-    translate: -0.5vw 0.8vh;
+    translate: -0.5svw 0.8svh;
     bottom: 0;
 }
 
@@ -195,7 +195,7 @@ main {
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
-    font-size: 5vw;
+    font-size: 5svw;
     font-weight: 700;
     z-index: 2;
     pointer-events: auto;
@@ -211,9 +211,9 @@ main {
 }
 
 #sky-gif {
-    width: 60vw;
+    width: 60svw;
     height: auto;
-    max-height: 60vh;
+    max-height: 60svh;
     display: block;
     position: relative;
 }
@@ -277,8 +277,8 @@ main {
 }
 
 .slideshow-wrapper {
-    height: 90vh;
-    max-height: 90vh;
+    height: 90svh;
+    max-height: 90svh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -298,14 +298,14 @@ main {
     max-height: 90%;
     max-width: 90%;
     width: auto;
-    height: 90vh;
+    height: 90svh;
     object-fit: contain;
     display: block;
     box-sizing: border-box;
 }
 
 .slideshow-full {
-    width: 100vw;
+    width: 100svw;
     justify-content: center;
     text-align: justify;
     display: flex;
@@ -371,7 +371,7 @@ main {
 }
 
 #gallery {
-    max-width: 100vw;
+    max-width: 100svw;
     width: 100%;
     margin: var(--spacing-large) auto;
     box-sizing: border-box;
@@ -399,7 +399,7 @@ main {
 .pdf-embed {
     width: 100%;
     max-width: var(--max-width-content);
-    height: 80vh;
+    height: 80svh;
     margin: var(--spacing-large) auto;
     display: block;
     border: none;
@@ -421,12 +421,12 @@ main {
     }
 
     #title-top {
-        translate: -0.5vw -0.8vh;
+        translate: -0.5svw -0.8svh;
         top: 0;
     }
 
     #title-bottom {
-        translate: -0.5vw 0.4vh;
+        translate: -0.5svw 0.4svh;
         bottom: 0;
     }
 
