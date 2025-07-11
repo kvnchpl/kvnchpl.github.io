@@ -160,6 +160,11 @@ main {
     z-index: 1;
 }
 
+.post-content .title {
+    font-size: var(--font-size-main) !important;
+    text-wrap: auto;
+}
+
 #title-top {
     align-items: flex-start;
     translate: -0.5dvw -1.8dvh;
