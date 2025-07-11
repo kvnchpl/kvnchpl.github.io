@@ -421,7 +421,7 @@ main {
     }
 
     #title-top {
-        translate: -0.5dvw -0.8dvh;
+        translate: -0.5dvw -0.5dvh;
         top: 0;
     }
 
