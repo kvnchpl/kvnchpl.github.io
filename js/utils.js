@@ -598,7 +598,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     thumbnail: link.thumbnail,
                     title: link.title || link.key,
                     subtitle: link.subtitle,
-                    isExternal: link.href.startsWith("http"),
+                    isExternal: link.external === true,
                     key: link.key,
                     collectionKey: page
                 }, siteConfig, getNextSkyImage);
