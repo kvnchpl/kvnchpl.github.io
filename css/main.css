@@ -468,6 +468,12 @@ main {
     }
 }
 
+@media (min-width: 769px) {
+    #nav {
+        translate: 0 -1dvh;
+    }
+}
+
 @keyframes pulse-border {
     0% {
         box-shadow: 0 0 5px var(--color-link-hover);
