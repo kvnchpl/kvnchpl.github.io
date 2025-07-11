@@ -470,7 +470,7 @@ main {
 
 @media (min-width: 769px) {
     #nav {
-        translate: 0 -1dvh;
+        translate: 0 -0.75dvh;
     }
 }
 
