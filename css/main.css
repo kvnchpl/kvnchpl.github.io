@@ -380,7 +380,7 @@ main {
 
 #content {
     margin: var(--spacing-extra-large) auto;
-    text-align: left;
+    text-align: justify;
     max-width: var(--max-width-content);
     white-space: pre-wrap;
     box-sizing: border-box;
