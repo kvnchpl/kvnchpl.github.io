@@ -460,6 +460,7 @@ main {
     .page-link.reverse .text-block {
         margin-right: var(--spacing-small);
         margin-left: 0;
+        text-align: right;
     }
 
     .slideshow-content-pair {
