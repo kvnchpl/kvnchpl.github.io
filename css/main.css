@@ -160,10 +160,7 @@ main {
     z-index: 1;
 }
 
-.post-content .title {
-    font-size: var(--font-size-main) !important;
-    text-wrap: auto;
-}
+
 
 #title-top {
     align-items: flex-start;
@@ -408,6 +405,17 @@ main {
     margin: var(--spacing-large) auto;
     display: block;
     border: none;
+}
+
+/* Tumblr Specific */
+
+.post-content .title {
+    font-size: var(--font-size-main) !important;
+    text-wrap: auto;
+}
+
+.tmblr-iframe {
+    display: none !important;
 }
 
 @media (max-width: 768px) {
