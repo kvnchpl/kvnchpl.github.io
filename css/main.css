@@ -20,6 +20,7 @@
     --spacing-small: 0.5rem;
     --spacing-medium: 1rem;
     --spacing-large: 2rem;
+    --spacing-extra-large: 3rem;
     --max-width-content: 60dvw;
     --gallery-gap: calc(var(--spacing-small) * 2);
 }
@@ -378,8 +379,7 @@ main {
 }
 
 #content {
-    margin-left: auto;
-    margin-right: auto;
+    margin: var(--spacing-extra-large) auto;
     text-align: left;
     max-width: var(--max-width-content);
     white-space: pre-wrap;
