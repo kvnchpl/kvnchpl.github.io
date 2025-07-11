@@ -25,6 +25,7 @@
     --gallery-gap: calc(var(--spacing-small) * 2);
 }
 
+/* Global Resets and Base Styles */
 html,
 body {
     margin: 0;
@@ -40,42 +41,6 @@ body {
     margin-inline: auto;
     text-transform: var(--text-transform-body);
     -webkit-font-smoothing: antialiased;
-}
-
-#main-heading,
-#subtitle {
-    font-weight: var(--font-weight-normal);
-    text-align: center;
-    margin: 0 auto;
-    width: 100%;
-}
-
-
-#main-heading {
-    margin-top: var(--spacing-large);
-    text-transform: var(--text-transform-h1);
-}
-
-#subtitle {
-    color: var(--color-subtitle);
-}
-
-a {
-    color: var(--color-link);
-    text-decoration: none;
-    text-transform: var(--text-transform-link);
-}
-
-a:hover {
-    color: var(--color-link-hover);
-    text-transform: var(--text-transform-link-hover);
-    text-decoration: underline;
-}
-
-img {
-    pointer-events: none;
-    user-select: none;
-    -webkit-user-select: none;
 }
 
 main {
@@ -96,13 +61,66 @@ main {
     display: block;
 }
 
-#nav {
-    display: flex;
-    justify-content: space-between;
+/* Typography */
+#main-heading,
+#subtitle {
+    font-weight: var(--font-weight-normal);
     text-align: center;
+    margin: 0 auto;
     width: 100%;
 }
 
+#main-heading {
+    margin-top: var(--spacing-large);
+    text-transform: var(--text-transform-h1);
+}
+
+#subtitle {
+    color: var(--color-subtitle);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.strikethrough {
+    text-decoration: line-through;
+}
+
+/* Links */
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    text-transform: var(--text-transform-link);
+}
+
+a:hover {
+    color: var(--color-link-hover);
+    text-transform: var(--text-transform-link-hover);
+    text-decoration: underline;
+}
+
+/* Media (img, iframe) */
+img {
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.pdf-embed {
+    width: 100%;
+    max-width: var(--max-width-content);
+    height: 80dvh;
+    margin: var(--spacing-large) auto;
+    display: block;
+    border: none;
+}
+
+/* Layout Containers */
 .container {
     height: 100%;
     width: 100%;
@@ -116,6 +134,15 @@ main {
     align-items: center;
 }
 
+/* Navigation */
+#nav {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    width: 100%;
+}
+
+/* Page-Specific Layouts */
 #home-container {
     position: relative;
 }
@@ -145,6 +172,7 @@ main {
     align-items: center;
 }
 
+/* Titles and Headings */
 .title {
     flex: 0 0 auto;
     height: auto;
@@ -160,8 +188,6 @@ main {
     z-index: 1;
 }
 
-
-
 #title-top {
     align-items: flex-start;
     translate: -0.5dvw -1.8dvh;
@@ -174,6 +200,7 @@ main {
     bottom: 0;
 }
 
+/* Interactive Elements */
 #enter-wrapper {
     position: relative;
     display: inline-block;
@@ -221,6 +248,7 @@ main {
     position: relative;
 }
 
+/* Page Links */
 .page-link {
     display: flex;
     flex-direction: row;
@@ -271,14 +299,51 @@ main {
     text-transform: lowercase;
 }
 
-.contact-text,
-.contact-img {
-    max-width: var(--max-width-content);
+/* Content and Gallery Styling */
+#gallery {
+    max-width: 100dvw;
     width: 100%;
-    margin: var(--spacing-medium) auto;
+    margin: var(--spacing-large) auto;
     box-sizing: border-box;
 }
 
+#content {
+    margin: var(--spacing-extra-large) auto;
+    text-align: justify;
+    max-width: var(--max-width-content);
+    white-space: pre-wrap;
+    box-sizing: border-box;
+    padding: var(--spacing-small);
+    text-transform: none;
+}
+
+#description {
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: var(--spacing-small);
+}
+
+.content-half,
+#description {
+    max-width: var(--max-width-content);
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: var(--spacing-large);
+}
+
+.content-half p,
+.content-full p {
+    text-align: justify;
+}
+
+.content-half p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Slideshow */
 .slideshow-wrapper {
     height: 90dvh;
     max-height: 90dvh;
@@ -343,72 +408,16 @@ main {
     box-sizing: border-box;
 }
 
-.content-half,
-#description {
+/* Contact Styles */
+.contact-text,
+.contact-img {
     max-width: var(--max-width-content);
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: var(--spacing-large);
-}
-
-.content-half p,
-.content-full p {
-    text-align: justify;
-}
-
-.content-half p {
-    margin: 0;
-    padding: 0;
-}
-
-.uppercase {
-    text-transform: uppercase;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.strikethrough {
-    text-decoration: line-through;
-}
-
-#gallery {
-    max-width: 100dvw;
     width: 100%;
-    margin: var(--spacing-large) auto;
+    margin: var(--spacing-medium) auto;
     box-sizing: border-box;
 }
 
-#content {
-    margin: var(--spacing-extra-large) auto;
-    text-align: justify;
-    max-width: var(--max-width-content);
-    white-space: pre-wrap;
-    box-sizing: border-box;
-    padding: var(--spacing-small);
-    text-transform: none;
-}
-
-#description {
-    max-width: var(--max-width-content);
-    margin-left: auto;
-    margin-right: auto;
-    text-align: left;
-    padding: var(--spacing-small);
-}
-
-.pdf-embed {
-    width: 100%;
-    max-width: var(--max-width-content);
-    height: 80dvh;
-    margin: var(--spacing-large) auto;
-    display: block;
-    border: none;
-}
-
-/* Tumblr Specific */
-
+/* Tumblr-Specific Styles */
 .post-content .title {
     font-size: var(--font-size-main) !important;
     text-wrap: auto;
@@ -418,6 +427,7 @@ main {
     display: none !important;
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     #nav {
         font-size: var(--font-size-nav-mobile);
@@ -487,6 +497,7 @@ main {
     }
 }
 
+/* Animations and Keyframes */
 @keyframes pulse-border {
     0% {
         box-shadow: 0 0 5px var(--color-link-hover);
