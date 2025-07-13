@@ -152,7 +152,13 @@ export function formatSubtitle(data, siteConfig) {
         if (data.publication) parts.push(data.publication);
         if (data.issue) parts.push(data.issue);
         if (monthYear) parts.push(`(${monthYear})`);
-        return parts.length > 0 ? parts.join(', ') : null;
+        
+        // Join parts with commas, except for last two
+        if (parts.length > 0) {
+            const last = parts.pop();
+            return parts.length > 0 ? `${parts.join(', ')} ${last}` : last;
+        }
+        return null;
     }
 
     // Default for projects, writings, etc.
