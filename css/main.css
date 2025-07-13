@@ -335,12 +335,10 @@ img {
 
 .content-half p,
 .content-full p {
-    text-align: justify;
-}
-
-.content-half p {
     margin: 0;
+    margin-bottom: var(--spacing-large);
     padding: 0;
+    text-align: justify;
 }
 
 /* Slideshow */
