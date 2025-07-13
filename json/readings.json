@@ -9,7 +9,7 @@
         "month": 11,
         "year": 2009,
         "external": true,
-        "permalink": "/pdf/steyerl-in-defense-of-the-poor-image.pdf",
+        "permalink": "/pdf/steyerl_in-defense-of-the-poor-image.pdf",
         "originalUrl": "http://worker01.e-flux.com/pdf/article_94.pdf"
     },
     {
@@ -23,7 +23,7 @@
         "month": "Winter",
         "year": 2023,
         "external": true,
-        "permalink": "/pdf/n+1-why-is-everything-so-ugly.pdf",
+        "permalink": "/pdf/n+1_why-is-everything-so-ugly.pdf",
         "originalUrl": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/"
     },
     {
@@ -48,7 +48,7 @@
         "day": 12,
         "year": 2023,
         "external": true,
-        "permalink": "/pdf/sacasas-waste-your-time-your-life-may-depend-on-it.pdf",
+        "permalink": "/pdf/sacasas_waste-your-time-your-life-may-depend-on-it.pdf",
         "originalUrl": "https://theconvivialsociety.substack.com/p/waste-your-time-your-life-may-depend"
     },
     {
@@ -62,7 +62,20 @@
         "day": 6,
         "year": 2023,
         "external": true,
-        "permalink": "/pdf/sacasas-apocalyptic-ai.pdf",
+        "permalink": "/pdf/sacasas_apocalyptic-ai.pdf",
         "originalUrl": "https://theconvivialsociety.substack.com/p/apocalyptic-ai"
+    },
+    {
+        "type": "reading",
+        "title": "Notes on Camp",
+        "key": "notes-on-camp",
+        "author": "Susan Sontag",
+        "publication": "Partisan Review",
+        "issue": "31",
+        "month": "Fall",
+        "year": 1964,
+        "external": true,
+        "permalink": "/pdf/sontag_notes-on-camp.pdf",
+        "originalUrl": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf"
     }
 ]
