@@ -77,5 +77,19 @@
         "external": true,
         "permalink": "/pdf/sontag_notes-on-camp.pdf",
         "originalUrl": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf"
+    },
+    {
+        "type": "reading",
+        "title": "Equipment for Living",
+        "key": "equipment-for-living",
+        "author": "Michael Robbins",
+        "publication": "Poetry Magazine",
+        "issue": "April 2015",
+        "month": 4,
+        "day": 1,
+        "year": 2015,
+        "external": true,
+        "permalink": "/pdf/robbins_equipment-for-living.pdf",
+        "originalUrl": "https://www.poetryfoundation.org/poetrymagazine/articles/70208/equipment-for-living"
     }
 ]
