@@ -18,14 +18,14 @@ function getShuffledSkyImages(siteConfig) {
 
 /**
  * Sets the background color of the site, commonly used on project and collection pages.
- * @param {string} color - The color to set as the background (e.g. "#f0f0f0", "lightblue").
+ * @param {string} color - The color to set as the background (e.g. '#f0f0f0', 'lightblue').
  */
 export function applyBackgroundColor(color) {
     if (color) {
         document.body.style.backgroundColor = color;
 
         // Create a temporary element to compute the luminance
-        const temp = document.createElement("div");
+        const temp = document.createElement('div');
         temp.style.color = color;
         document.body.appendChild(temp);
 
@@ -104,14 +104,14 @@ export function updateMainHeading(heading, siteConfig) {
 
 /**
  * Returns page type flags based on current page identifier and siteConfig collections.
- * @param {string} page - The current page identifier (e.g. "home", "thoughts").
+ * @param {string} page - The current page identifier (e.g. 'home', 'thoughts').
  * @param {Object} collections - The collections object from siteConfig.
  * @return {Object} - An object with flags: isHomePage, isCollectionPage, isContentPage.
  */
 export function getPageType(page, collections) {
-    const isHomePage = page === "home";
+    const isHomePage = page === 'home';
     const isCollectionPage = Object.keys(collections).includes(page);
-    const isContentPage = !(isHomePage || isCollectionPage || page === "index");
+    const isContentPage = !(isHomePage || isCollectionPage || page === 'index');
     return {
         isHomePage,
         isCollectionPage,
@@ -126,18 +126,18 @@ export function getPageType(page, collections) {
  * @returns {string|null} - Subtitle string or null if no fallback available.
  */
 export function formatSubtitle(data, siteConfig) {
-    if (typeof data.subtitle === "string" && data.subtitle.trim() !== "") {
+    if (typeof data.subtitle === 'string' && data.subtitle.trim() !== '') {
         return data.subtitle;
     }
 
     const getMonthYear = () => {
         if (data.year) {
-            if (typeof data.month === "number") {
+            if (typeof data.month === 'number') {
                 return new Date(data.year, data.month - 1).toLocaleString('en', {
                     month: 'long',
                     year: 'numeric'
                 });
-            } else if (typeof data.month === "string" && data.month.trim() !== "") {
+            } else if (typeof data.month === 'string' && data.month.trim() !== '') {
                 return `${data.month} ${data.year}`;
             }
         }
@@ -146,7 +146,7 @@ export function formatSubtitle(data, siteConfig) {
 
     const monthYear = getMonthYear();
 
-    if (data.type === "reading") {
+    if (data.type === 'reading') {
         const parts = [];
         if (data.author) parts.push(`by ${data.author}`);
         if (data.publication) parts.push(data.publication);
@@ -192,7 +192,7 @@ export function updateDescription(description) {
         meta.name = 'description';
         document.head.appendChild(meta);
     }
-    meta.content = description || "Default site description.";
+    meta.content = description || 'Default site description.';
 }
 
 /**
@@ -202,7 +202,7 @@ export function updateDescription(description) {
 export function getMetaContents(names) {
     const result = {};
     for (const [key, metaName] of Object.entries(names)) {
-        const meta = document.querySelector(`meta[name="${metaName}"]`);
+        const meta = document.querySelector(`meta[name='${metaName}']`);
         result[key] = meta ? meta.content : undefined;
     }
     return result;
@@ -253,14 +253,14 @@ export async function loadResources(metaTags) {
 
 /**
  * Conditionally renders the site navigation bar based on page type and path logic.
- * @param {string} page - The current page identifier (e.g. "home", "thoughts").
+ * @param {string} page - The current page identifier (e.g. 'home', 'thoughts').
  * @param {string} navId - The ID of the navigation element to render into.
  * @param {Array} navData - The navigation data array containing link objects.
  * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
 export function checkRenderNav(page, navId, navData, siteBaseUrl) {
     if (!navId) return;
-    const useAbsolutePaths = (page === "thoughts");
+    const useAbsolutePaths = (page === 'thoughts');
     renderNav(navId, navData, useAbsolutePaths, siteBaseUrl);
 }
 
@@ -271,7 +271,7 @@ export function checkRenderNav(page, navId, navData, siteBaseUrl) {
  * @param {boolean} useAbsolutePaths - Whether to use absolute URLs for links.
  * @param {string} siteBaseUrl - The base URL for the site, used for absolute links.
  */
-export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl = "") {
+export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl = '') {
     const nav = document.getElementById(navId);
     if (nav && navData) {
         const navFragment = document.createDocumentFragment();
@@ -279,8 +279,8 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
         const filteredNavData = navData.filter(link => link.navBar);
 
         filteredNavData.forEach(link => {
-            const a = document.createElement("a");
-            const isAbsolute = link.href.startsWith("http://") || link.href.startsWith("https://");
+            const a = document.createElement('a');
+            const isAbsolute = link.href.startsWith('http://') || link.href.startsWith('https://');
             a.href = useAbsolutePaths && !isAbsolute ? `${siteBaseUrl}${link.href}` : link.href;
             a.textContent = (link.label.toLowerCase() === currentPage) ?
                 `*${link.label}*` :
@@ -298,8 +298,8 @@ export function renderNav(navId, navData, useAbsolutePaths = false, siteBaseUrl 
  * @param {Object} pageData - The data object containing images, content, and layout structure.
  * @param {Object} tagNames - An object mapping custom tag names for gallery items and images.
  * @param {string} basePath - The base path for image URLs.
- * @param {string} size - The image size to use in URLs (e.g. "large", "medium").
- * @param {string} imageExt - The file extension for images (e.g. ".jpg", ".png").
+ * @param {string} size - The image size to use in URLs (e.g. 'large', 'medium').
+ * @param {string} imageExt - The file extension for images (e.g. '.jpg', '.png').
  */
 export function renderProjectLayout(container, pageData, tagNames, basePath, size, imageExt, siteConfig) {
     if (!container || !pageData) return;
@@ -315,8 +315,8 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
     // Render block of images into gallery
     function renderSlideshow(imagesArr) {
-        const wrapper = document.createElement("div");
-        wrapper.className = "slideshow-wrapper";
+        const wrapper = document.createElement('div');
+        wrapper.className = 'slideshow-wrapper';
 
         let currentIndex = 0;
 
@@ -338,12 +338,12 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
                 const imageName = imagesArr[index];
                 img.src = `/${basePath}/${collectionPath}/${pageData.key}/${size}/${imageName}${imageExt}`;
                 img.srcset = getSrcSet(imageName);
-                img.sizes = "(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw";
+                img.sizes = '(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw';
                 img.alt = imageName;
-                img.loading = "lazy";
+                img.loading = 'lazy';
                 img.onerror = () => {
                     // fallback to default size if needed
-                    if (size !== "full") {
+                    if (size !== 'full') {
                         img.src = `/${basePath}/${collectionPath}/${pageData.key}/full/${imageName}${imageExt}`;
                     }
                 };
@@ -356,20 +356,20 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
         const isSingleImage = imagesArr.length === 1;
 
-        const inner = document.createElement("div");
-        inner.className = "slideshow-inner";
+        const inner = document.createElement('div');
+        inner.className = 'slideshow-inner';
 
         if (!isSingleImage) {
-            const prevBtn = document.createElement("button");
-            prevBtn.textContent = "<";
-            prevBtn.className = "slideshow-prev";
+            const prevBtn = document.createElement('button');
+            prevBtn.textContent = '<';
+            prevBtn.className = 'slideshow-prev';
 
-            const nextBtn = document.createElement("button");
-            nextBtn.textContent = ">";
-            nextBtn.className = "slideshow-next";
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = '>';
+            nextBtn.className = 'slideshow-next';
 
-            prevBtn.addEventListener("click", () => showImage((currentIndex - 1 + imagesArr.length) % imagesArr.length));
-            nextBtn.addEventListener("click", () => showImage((currentIndex + 1) % imagesArr.length));
+            prevBtn.addEventListener('click', () => showImage((currentIndex - 1 + imagesArr.length) % imagesArr.length));
+            nextBtn.addEventListener('click', () => showImage((currentIndex + 1) % imagesArr.length));
 
             inner.appendChild(prevBtn);
             inner.appendChild(img);
@@ -385,9 +385,9 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
 
     // Render paragraph block into content area
     function renderContentBlock(text) {
-        const wrapper = document.createElement("div");
+        const wrapper = document.createElement('div');
         text.split(/\n+/).forEach(line => {
-            const p = document.createElement("p");
+            const p = document.createElement('p');
             p.textContent = line.trim();
             if (p.textContent) wrapper.appendChild(p);
         });
@@ -395,31 +395,31 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
     }
 
     // Clear previous content
-    galleryEl.innerHTML = "";
+    galleryEl.innerHTML = '';
 
     if (Array.isArray(layout) && layout.length > 0) {
         layout.forEach(entry => {
             const entries = Array.isArray(entry) ? entry : [entry];
-            const pairWrapper = document.createElement("div");
-            pairWrapper.className = "slideshow-content-pair";
+            const pairWrapper = document.createElement('div');
+            pairWrapper.className = 'slideshow-content-pair';
 
             entries.forEach(item => {
                 let type, indexStr, modifier;
-                if (typeof item === "string") {
+                if (typeof item === 'string') {
                     const match = item.match(/^(images|content)-(\d+)(?:-(full|left|right))?$/);
                     if (match) {
                         [, type, indexStr, modifier] = match;
                         const index = parseInt(indexStr, 10) - 1;
 
-                        if (type === "images" && images[index]) {
+                        if (type === 'images' && images[index]) {
                             const slideshow = renderSlideshow(images[index]);
-                            if (modifier === "full") {
-                                slideshow.classList.add("slideshow-full");
+                            if (modifier === 'full') {
+                                slideshow.classList.add('slideshow-full');
                                 galleryEl.appendChild(slideshow);
                             } else {
-                                slideshow.classList.add("slideshow-half");
-                                if (modifier === "right") {
-                                    pairWrapper.appendChild(document.createElement("div")); // left placeholder
+                                slideshow.classList.add('slideshow-half');
+                                if (modifier === 'right') {
+                                    pairWrapper.appendChild(document.createElement('div')); // left placeholder
                                     pairWrapper.appendChild(slideshow);
                                 } else {
                                     pairWrapper.appendChild(slideshow);
@@ -427,17 +427,17 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
                             }
                         }
 
-                        if (type === "content" && content[index]) {
+                        if (type === 'content' && content[index]) {
                             const contentBlock = renderContentBlock(content[index]);
-                            const contentWrapper = document.createElement("div");
-                            contentWrapper.className = modifier === "full" ? "content-full" : "content-half";
+                            const contentWrapper = document.createElement('div');
+                            contentWrapper.className = modifier === 'full' ? 'content-full' : 'content-half';
                             contentWrapper.appendChild(contentBlock);
 
-                            if (modifier === "full") {
+                            if (modifier === 'full') {
                                 galleryEl.appendChild(contentWrapper);
                             } else {
-                                if (modifier === "right") {
-                                    pairWrapper.appendChild(document.createElement("div")); // left placeholder
+                                if (modifier === 'right') {
+                                    pairWrapper.appendChild(document.createElement('div')); // left placeholder
                                     pairWrapper.appendChild(contentWrapper);
                                 } else {
                                     pairWrapper.appendChild(contentWrapper);
@@ -454,17 +454,17 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
         });
     } else if (!layout) {
         images.forEach((imgArr, idx) => {
-            const pairWrapper = document.createElement("div");
-            pairWrapper.className = "slideshow-content-pair";
+            const pairWrapper = document.createElement('div');
+            pairWrapper.className = 'slideshow-content-pair';
 
             const slideshow = renderSlideshow(imgArr);
-            slideshow.classList.add("slideshow-half");
+            slideshow.classList.add('slideshow-half');
             pairWrapper.appendChild(slideshow);
 
             if (content[idx]) {
                 const contentBlock = renderContentBlock(content[idx]);
-                const contentWrapper = document.createElement("div");
-                contentWrapper.className = "content-half";
+                const contentWrapper = document.createElement('div');
+                contentWrapper.className = 'content-half';
                 contentWrapper.appendChild(contentBlock);
                 pairWrapper.appendChild(contentWrapper);
             }
@@ -489,34 +489,34 @@ export function renderProjectLayout(container, pageData, tagNames, basePath, siz
  * @returns {HTMLElement} - The constructed .page-link element.
  */
 function createPageLink({ href, thumbnail, title, subtitle, isExternal, key, collectionKey }, siteConfig, getNextSkyImage) {
-    const pageLink = document.createElement("a");
-    pageLink.className = "page-link";
+    const pageLink = document.createElement('a');
+    pageLink.className = 'page-link';
     pageLink.href = href;
     if (isExternal) {
-        pageLink.target = "_blank";
-        pageLink.rel = "noopener";
+        pageLink.target = '_blank';
+        pageLink.rel = 'noopener';
     }
 
-    const img = document.createElement("img");
-    img.alt = title || "Sky";
+    const img = document.createElement('img');
+    img.alt = title || 'Sky';
 
     if (thumbnail) {
         img.src = thumbnail;
     } else if (key && collectionKey && siteConfig.collections?.[collectionKey]?.thumbnailPathTemplate) {
         // Use template from collection config
         const template = siteConfig.collections[collectionKey].thumbnailPathTemplate;
-        if (template && typeof template === "string") {
-            const basePath = template.replaceAll("{key}", key);
+        if (template && typeof template === 'string') {
+            const basePath = template.replaceAll('{key}', key);
             const baseThumbBase = basePath.replace(/\.(webp|gif)$/i, '');
             const webpURL = `${baseThumbBase}.webp`;
             const gifURL = `${baseThumbBase}.gif`;
             // Try webp, fallback to gif, fallback to sky image if both fail
-            fetch(webpURL, { method: "HEAD" }).then(res => {
+            fetch(webpURL, { method: 'HEAD' }).then(res => {
                 if (res.ok) {
                     img.src = webpURL;
                 } else {
                     // Try gif
-                    fetch(gifURL, { method: "HEAD" }).then(res2 => {
+                    fetch(gifURL, { method: 'HEAD' }).then(res2 => {
                         if (res2.ok) {
                             img.src = gifURL;
                         } else {
@@ -528,7 +528,7 @@ function createPageLink({ href, thumbnail, title, subtitle, isExternal, key, col
                 }
             }).catch(() => {
                 // On error, try gif
-                fetch(gifURL, { method: "HEAD" }).then(res2 => {
+                fetch(gifURL, { method: 'HEAD' }).then(res2 => {
                     if (res2.ok) {
                         img.src = gifURL;
                     } else {
@@ -547,17 +547,17 @@ function createPageLink({ href, thumbnail, title, subtitle, isExternal, key, col
     }
     pageLink.appendChild(img);
 
-    const textBlock = document.createElement("div");
-    textBlock.className = "text-block";
+    const textBlock = document.createElement('div');
+    textBlock.className = 'text-block';
 
-    const titleP = document.createElement("p");
-    titleP.className = "page-title";
+    const titleP = document.createElement('p');
+    titleP.className = 'page-title';
     titleP.textContent = title;
     textBlock.appendChild(titleP);
 
     if (subtitle) {
-        const subtitleP = document.createElement("p");
-        subtitleP.className = "page-subtitle";
+        const subtitleP = document.createElement('p');
+        subtitleP.className = 'page-subtitle';
         subtitleP.textContent = subtitle;
         textBlock.appendChild(subtitleP);
     }
@@ -569,13 +569,13 @@ function createPageLink({ href, thumbnail, title, subtitle, isExternal, key, col
 
 /**
  * Dynamically renders .page-link elements for home or collection pages.
- * @param {string} page - The current page identifier (e.g. "home", "collection").
+ * @param {string} page - The current page identifier (e.g. 'home', 'collection').
  * @param {Object} siteConfig - The site configuration object containing element IDs and collection data.
  * @param {Array} navData - The navigation data array containing link information.
  * @param {Object} pages - The pages data object containing content for each page.
  */
 export function renderDynamicLinks(page, siteConfig, navData, pages) {
-    const isHomePage = page === "home";
+    const isHomePage = page === 'home';
     const isCollectionPage = siteConfig.collections?.[page];
 
     const skyImages = getShuffledSkyImages(siteConfig);
@@ -584,7 +584,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
     const getNextSkyImage = () =>
         skyImages.length > 0
             ? skyImages[skyIndex++ % skyImages.length]
-            : "/img/home/sky_1.webp";
+            : '/img/home/sky_1.webp';
 
     if (isHomePage) {
         const container = document.getElementById(siteConfig.elementIds.linkContainer);
@@ -602,7 +602,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     key: link.key,
                     collectionKey: page
                 }, siteConfig, getNextSkyImage);
-                if (index % 2 === 1) pageLink.classList.add("reverse");
+                if (index % 2 === 1) pageLink.classList.add('reverse');
                 container.appendChild(pageLink);
             });
     }
@@ -617,17 +617,17 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             .filter(data => data.type === type)
             .sort((a, b) => {
                 const toDateValue = (entry) => {
-                    const year = typeof entry.year === "number" ? entry.year : 0;
+                    const year = typeof entry.year === 'number' ? entry.year : 0;
 
                     let month = 0;
-                    if (typeof entry.month === "number") {
+                    if (typeof entry.month === 'number') {
                         month = entry.month - 1;
-                    } else if (typeof entry.month === "string" && siteConfig.monthOrder) {
+                    } else if (typeof entry.month === 'string' && siteConfig.monthOrder) {
                         const index = siteConfig.monthOrder.indexOf(entry.month);
                         month = index >= 0 ? index : 0;
                     }
 
-                    const day = typeof entry.day === "number" ? entry.day : 1;
+                    const day = typeof entry.day === 'number' ? entry.day : 1;
 
                     return new Date(year, month, day).getTime();
                 };
@@ -636,7 +636,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
             })
             .forEach((data, index) => {
                 const subtitleText = formatSubtitle(data, siteConfig);
-                let href = "#";
+                let href = '#';
                 let isExternal = false;
 
                 if (data.external === true) {
@@ -664,7 +664,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
                     key: data.key,
                     collectionKey
                 }, siteConfig, getNextSkyImage);
-                if (index % 2 === 1) pageLink.classList.add("reverse");
+                if (index % 2 === 1) pageLink.classList.add('reverse');
                 container.appendChild(pageLink);
             });
     }
@@ -672,7 +672,7 @@ export function renderDynamicLinks(page, siteConfig, navData, pages) {
 
 /**
  * Renders a standard content page with background, metadata, and layout.
- * @param {string} page - The page identifier (e.g. "writings", "readings").
+ * @param {string} page - The page identifier (e.g. 'writings', 'readings').
  * @param {Object} pages - The pages data object containing content for each page.
  * @param {Object} siteConfig - The site configuration object containing element IDs and other settings.
  */

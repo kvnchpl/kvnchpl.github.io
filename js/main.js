@@ -12,7 +12,7 @@ import {
 
     // Retrieve path to config.json from the appropriate meta tag
     const metaTagNames = {
-        configPath: "config-data"
+        configPath: 'config-data'
     };
     const { configPath } = getMetaContents(metaTagNames);
 
@@ -24,14 +24,14 @@ import {
 
     // Load global site configuration (site-wide settings and metaTag names)
     const siteConfig = await loadJSON(configPath);
-    const { siteBaseUrl = "" } = siteConfig;
+    const { siteBaseUrl = '' } = siteConfig;
 
     // Cache commonly accessed properties for clarity
     const { elementIds, tagNames, metaTags, collections, imageExt, defaultImageSize, galleryBasePath } = siteConfig;
 
     // Abort if critical config values are missing
     if (!elementIds || !tagNames) {
-        console.error("Missing required config values in config.json");
+        console.error('Missing required config values in config.json');
         return;
     }
 
@@ -44,7 +44,7 @@ import {
         let pagesMetaTag = metaTags[page];
         if (!pagesMetaTag && isContentPage) {
             for (const [collectionKey, collection] of Object.entries(collections)) {
-                const basePath = collection.basePath.replace(/^\//, "").replace(/\/$/, "");
+                const basePath = collection.basePath.replace(/^\//, '').replace(/\/$/, '');
                 if (window.location.pathname.includes(basePath)) {
                     pagesMetaTag = metaTags[collectionKey];
                     break;
@@ -70,7 +70,7 @@ import {
         window.pages = pages;
         window.navData = navData;
 
-        if (!(isHomePage || page === "index" || page === "404")) {
+        if (!(isHomePage || page === 'index' || page === '404')) {
             checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
         }
 
@@ -79,7 +79,7 @@ import {
             return;
         }
 
-        if (!isContentPage || page === "thoughts" || page === "contact" || page === "404") {
+        if (!isContentPage || page === 'thoughts' || page === 'contact' || page === '404') {
             return;
         }
 
@@ -88,7 +88,7 @@ import {
             : null;
 
         if (!pageContent) {
-            console.warn(`No page data found for "${page}". Skipping content rendering.`);
+            console.warn(`No page data found for '${page}'. Skipping content rendering.`);
             return;
         }
 
@@ -96,6 +96,6 @@ import {
 
     } catch (err) {
         // Catch-all for errors in loading or rendering
-        console.error("Error loading site data:", err);
+        console.error('Error loading site data:', err);
     }
 })();
