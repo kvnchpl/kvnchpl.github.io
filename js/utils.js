@@ -202,7 +202,7 @@ export function updateDescription(description) {
 export function getMetaContents(names) {
     const result = {};
     for (const [key, metaName] of Object.entries(names)) {
-        const meta = document.querySelector(`meta[name='${metaName}']`);
+        const meta = document.querySelector(`meta[name="${metaName}"]`);
         result[key] = meta ? meta.content : undefined;
     }
     return result;
