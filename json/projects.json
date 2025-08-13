@@ -297,5 +297,19 @@
         "year": 2025,
         "external": true,
         "permalink": "https://kvnchpl.com/each-all/"
+    },
+    {
+        "type": "project",
+        "title": "SPECTER",
+        "key": "specter",
+        "description": "3D environment with fractured narrative and images",
+        "content": [],
+        "images": [],
+        "layout": [],
+        "month": 8,
+        "day": 13,
+        "year": 2025,
+        "external": true,
+        "permalink": "https://newart.city/show/specter"
     }
 ]
