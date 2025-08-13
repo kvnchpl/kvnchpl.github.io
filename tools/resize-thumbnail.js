@@ -1,3 +1,8 @@
+/* resize-thumbnail.js
+ * This script resizes an image to a width of 400 pixels while maintaining the aspect ratio.
+ * Usage: node resize-thumbnail.js <path-to-image>
+ */
+
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
