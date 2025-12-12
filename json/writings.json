@@ -1,6 +1,14 @@
 [
     {
         "type": "writing",
+        "title": "Flex Space",
+        "key": "flex-space",
+        "month": 9,
+        "day": 3,
+        "year": 2025
+    },
+    {
+        "type": "writing",
         "title": "Plight of Center",
         "key": "plight-of-center",
         "month": 4,
