@@ -1,10 +1,18 @@
 [
     {
         "type": "writing",
+        "title": "Gran Turismo",
+        "key": "gran-turismo",
+        "month": 12,
+        "day": 12,
+        "year": 2025
+    },
+    {
+        "type": "writing",
         "title": "Flex Space",
         "key": "flex-space",
-        "month": 9,
-        "day": 3,
+        "month": 8,
+        "day": 21,
         "year": 2025
     },
     {
