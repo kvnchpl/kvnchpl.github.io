@@ -1,6 +1,19 @@
 [
     {
         "type": "reading",
+        "title": "The Art of Editing",
+        "key": "the-art-of-editing",
+        "author": "Claire Atherton",
+        "publication": "e-flux Notes",
+        "day": 3,
+        "month": 11,
+        "year": 2025,
+        "external": true,
+        "permalink": "/pdf/atherton_the-art-of-editing.pdf",
+        "originalUrl": "https://www.e-flux.com/notes/6783413/the-art-of-editing"
+    },
+    {
+        "type": "reading",
         "title": "In Defense of the Poor Image",
         "key": "in-defense-of-the-poor-image",
         "author": "Hito Steyerl",
