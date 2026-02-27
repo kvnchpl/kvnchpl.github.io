@@ -311,5 +311,19 @@
         "year": 2025,
         "external": true,
         "permalink": "https://kvnchpl.com/specter/"
+    },
+    {
+        "type": "project",
+        "title": "EXP",
+        "key": "exp",
+        "description": "Digital zine comprised of collages, poetry, and hyperlinks",
+        "content": [],
+        "images": [],
+        "layout": [],
+        "month": 2,
+        "day": 27,
+        "year": 2026,
+        "external": true,
+        "permalink": "https://kvnchpl.com/exp/"
     }
 ]
