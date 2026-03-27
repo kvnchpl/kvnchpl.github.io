@@ -45,13 +45,13 @@
     },
     {
         "type": "writing",
-        "title": "Desire Path",
-        "key": "desire-path",
-        "month": 4,
-        "day": 12,
-        "year": 2024,
+        "title": "Desire Path (Vol. 1)",
+        "key": "desire-path-vol-1",
+        "month": 3,
+        "day": 27,
+        "year": 2026,
         "external": true,
-        "permalink": "/pdf/desire-path.pdf"
+        "permalink": "/pdf/desire-path_vol-1.pdf"
     },
     {
         "type": "writing",
