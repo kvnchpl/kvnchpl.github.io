@@ -27,12 +27,8 @@ _site/
 .bundle/
 vendor/
 
-# Environment and dependency files
+# Environment files
 .env
-node_modules/
-yarn.lock
-package-lock.json
-package.json
 
 # Custom private folder (for drafts or personal content)
 private/
