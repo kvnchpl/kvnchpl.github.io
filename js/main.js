@@ -1,101 +1,455 @@
-import {
-    getPageType,
-    getMetaContents,
-    loadJSON,
-    loadResources,
-    checkRenderNav,
-    renderDynamicLinks,
-    renderContentPage
-} from './utils.js';
+const SITE_ORIGIN = 'https://kvnchpl.com';
+const IMAGE_SIZE = 'medium';
+const IMAGE_EXT = '.webp';
+const SKY_COUNT = 22;
 
-(async function () {
+const collections = {
+    projects: {
+        type: 'project',
+        basePath: '/projects/',
+        metaName: 'projects-data',
+        thumbnailBase: '/img/projects/{key}/thumbnail/{key}_thumbnail'
+    },
+    readings: {
+        type: 'reading',
+        basePath: '/readings/',
+        metaName: 'readings-data'
+    },
+    writings: {
+        type: 'writing',
+        basePath: '/writings/',
+        metaName: 'writings-data'
+    }
+};
 
-    // Retrieve path to config.json from the appropriate meta tag
-    const metaTagNames = {
-        configPath: 'config-data'
+const monthNames = [
+    null,
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December'
+];
+
+const monthOrder = [
+    'Winter',
+    'January',
+    'February',
+    'March',
+    'Spring',
+    'April',
+    'May',
+    'June',
+    'Summer',
+    'July',
+    'August',
+    'September',
+    'Autumn',
+    'Fall',
+    'October',
+    'November',
+    'December'
+];
+
+const metaContent = (name) =>
+    document.querySelector(`meta[name="${name}"]`)?.content;
+
+async function loadJSON(url) {
+    if (!url) return undefined;
+
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Could not load ${url}: ${response.status}`);
+    }
+
+    return response.json();
+}
+
+function localUrl(href, forceAbsolute = false) {
+    const isAbsolute = href.startsWith('http://') || href.startsWith('https://');
+    return forceAbsolute && !isAbsolute ? `${SITE_ORIGIN}${href}` : href;
+}
+
+function renderNav(navData, page) {
+    const nav = document.getElementById('nav');
+    if (!nav || !Array.isArray(navData)) return;
+
+    const useAbsolutePaths = page === 'thoughts';
+    const fragment = document.createDocumentFragment();
+
+    navData
+        .filter((link) => link.navBar)
+        .forEach((link) => {
+            const a = document.createElement('a');
+            a.href = localUrl(link.href, useAbsolutePaths);
+            a.textContent = link.label.toLowerCase() === page ? `*${link.label}*` : link.label;
+            fragment.appendChild(a);
+        });
+
+    nav.replaceChildren(fragment);
+}
+
+function shuffledSkyImages() {
+    const images = Array.from({ length: SKY_COUNT }, (_, index) => `/img/home/sky_${index + 1}.webp`);
+
+    for (let index = images.length - 1; index > 0; index -= 1) {
+        const swapIndex = Math.floor(Math.random() * (index + 1));
+        [images[index], images[swapIndex]] = [images[swapIndex], images[index]];
+    }
+
+    return images;
+}
+
+function skyImage(index, images) {
+    return images[index % images.length];
+}
+
+function setImageSrc(img, urls) {
+    const candidates = urls.filter(Boolean);
+    let index = 0;
+
+    img.onerror = () => {
+        index += 1;
+        if (candidates[index]) {
+            img.src = candidates[index];
+        } else {
+            img.onerror = null;
+        }
     };
-    const { configPath } = getMetaContents(metaTagNames);
 
-    // Abort if config meta tag is missing
-    if (!configPath) {
-        console.error('Missing meta tag: config-data');
-        return;
+    img.src = candidates[0];
+}
+
+function dateValue(entry) {
+    const year = typeof entry.year === 'number' ? entry.year : 0;
+    const day = typeof entry.day === 'number' ? entry.day : 1;
+    let month = 0;
+
+    if (typeof entry.month === 'number') {
+        month = entry.month - 1;
+    } else if (typeof entry.month === 'string') {
+        const index = monthOrder.indexOf(entry.month);
+        month = index >= 0 ? index : 0;
     }
 
-    // Load global site configuration (site-wide settings and metaTag names)
-    const siteConfig = await loadJSON(configPath);
-    const { siteBaseUrl = '' } = siteConfig;
+    return new Date(year, month, day).getTime();
+}
 
-    // Cache commonly accessed properties for clarity
-    const { elementIds, tagNames, metaTags, collections, imageExt, defaultImageSize, galleryBasePath } = siteConfig;
+function monthYear(entry) {
+    if (!entry.year) return null;
+    if (typeof entry.month === 'number') return `${monthNames[entry.month]} ${entry.year}`;
+    if (typeof entry.month === 'string' && entry.month.trim()) return `${entry.month} ${entry.year}`;
+    return `${entry.year}`;
+}
 
-    // Abort if critical config values are missing
-    if (!elementIds || !tagNames) {
-        console.error('Missing required config values in config.json');
-        return;
+function subtitleFor(entry) {
+    if (typeof entry.subtitle === 'string' && entry.subtitle.trim()) {
+        return entry.subtitle;
     }
 
-    // Determine the current logical page type
+    const date = monthYear(entry);
+
+    if (entry.type !== 'reading') return date;
+
+    const parts = [];
+    if (entry.author) parts.push(`by ${entry.author}`);
+    if (entry.publication) parts.push(entry.publication);
+    if (entry.issue) parts.push(entry.issue);
+    if (date) parts.push(`(${date})`);
+
+    if (!parts.length) return null;
+
+    const last = parts.pop();
+    return parts.length ? `${parts.join(', ')} ${last}` : last;
+}
+
+function pageHref(entry, collection) {
+    if (entry.external) {
+        return entry.permalink || entry.originalUrl || '#';
+    }
+
+    return entry.permalink || `${collection.basePath}${entry.key}`;
+}
+
+function linkThumbnail(entry, collection, index, skyImages) {
+    const fallback = skyImage(index, skyImages);
+
+    if (entry.thumbnail) {
+        return [entry.thumbnail, fallback];
+    }
+
+    if (!collection.thumbnailBase || !entry.key) {
+        return [fallback];
+    }
+
+    const base = collection.thumbnailBase.replaceAll('{key}', entry.key);
+    return [`${base}.webp`, `${base}.gif`, fallback];
+}
+
+function pageLink({ href, title, subtitle, external, thumbnails, reverse }) {
+    const link = document.createElement('a');
+    link.className = reverse ? 'page-link reverse' : 'page-link';
+    link.href = href;
+
+    if (external) {
+        link.target = '_blank';
+        link.rel = 'noopener';
+    }
+
+    const img = document.createElement('img');
+    img.alt = title || '';
+    setImageSrc(img, thumbnails);
+    link.appendChild(img);
+
+    const text = document.createElement('div');
+    text.className = 'text-block';
+
+    const titleEl = document.createElement('p');
+    titleEl.className = 'page-title';
+    titleEl.textContent = title;
+    text.appendChild(titleEl);
+
+    if (subtitle) {
+        const subtitleEl = document.createElement('p');
+        subtitleEl.className = 'page-subtitle';
+        subtitleEl.textContent = subtitle;
+        text.appendChild(subtitleEl);
+    }
+
+    link.appendChild(text);
+    return link;
+}
+
+function renderHomeLinks(navData) {
+    const container = document.getElementById('link-container');
+    if (!container || !Array.isArray(navData)) return;
+
+    const fragment = document.createDocumentFragment();
+    const skyImages = shuffledSkyImages();
+
+    navData
+        .filter((link) => link.homePage)
+        .forEach((link, index) => {
+            fragment.appendChild(pageLink({
+                href: link.href,
+                title: link.title || link.label,
+                subtitle: link.subtitle,
+                external: link.external === true,
+                thumbnails: link.thumbnail ? [link.thumbnail, skyImage(index, skyImages)] : [skyImage(index, skyImages)],
+                reverse: index % 2 === 1
+            }));
+        });
+
+    container.replaceChildren(fragment);
+}
+
+function renderCollectionLinks(page, items) {
+    const container = document.getElementById('link-container');
+    const collection = collections[page];
+    if (!container || !collection || !Array.isArray(items)) return;
+
+    const fragment = document.createDocumentFragment();
+    const skyImages = shuffledSkyImages();
+
+    items
+        .filter((entry) => entry.type === collection.type)
+        .sort((a, b) => dateValue(b) - dateValue(a))
+        .forEach((entry, index) => {
+            fragment.appendChild(pageLink({
+                href: pageHref(entry, collection),
+                title: entry.title,
+                subtitle: subtitleFor(entry),
+                external: entry.external === true,
+                thumbnails: linkThumbnail(entry, collection, index, skyImages),
+                reverse: index % 2 === 1
+            }));
+        });
+
+    container.replaceChildren(fragment);
+}
+
+function updatePageMetadata(entry) {
+    const title = entry.title || '';
+    const heading = document.getElementById('main-heading');
+    const subtitle = document.getElementById('subtitle');
+    const description = document.querySelector('meta[name="description"]') || document.createElement('meta');
+
+    if (title) document.title = title.toUpperCase();
+    if (heading) heading.textContent = `*${title}*`;
+    if (subtitle) subtitle.textContent = subtitleFor(entry) || '';
+
+    if (!description.name) {
+        description.name = 'description';
+        document.head.appendChild(description);
+    }
+    description.content = entry.description || '';
+}
+
+function imageUrl(project, image, size = IMAGE_SIZE) {
+    return `/img/projects/${project.key}/${size}/${image}${IMAGE_EXT}`;
+}
+
+function imageSrcset(project, image) {
+    return [
+        `${imageUrl(project, image, 'small')} 600w`,
+        `${imageUrl(project, image, 'medium')} 1280w`,
+        `${imageUrl(project, image, 'full')} 1920w`
+    ].join(', ');
+}
+
+function projectImages(project, names) {
+    const wrapper = document.createElement('div');
+    wrapper.className = names.length === 1 ? 'slideshow-wrapper is-single' : 'slideshow-wrapper';
+
+    const inner = document.createElement('div');
+    inner.className = 'slideshow-inner';
+
+    names.forEach((name) => {
+        const img = document.createElement('img');
+        img.src = imageUrl(project, name);
+        img.srcset = imageSrcset(project, name);
+        img.sizes = '(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw';
+        img.alt = name;
+        img.loading = 'lazy';
+        inner.appendChild(img);
+    });
+
+    wrapper.appendChild(inner);
+    return wrapper;
+}
+
+function projectText(text) {
+    const wrapper = document.createElement('div');
+
+    text.split(/\n+/)
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .forEach((line) => {
+            const p = document.createElement('p');
+            p.textContent = line;
+            wrapper.appendChild(p);
+        });
+
+    return wrapper;
+}
+
+function layoutNode(project, token) {
+    const match = token.match(/^(images|content)-(\d+)(?:-(full|left|right))?$/);
+    if (!match) return null;
+
+    const [, type, indexText, modifier] = match;
+    const index = Number(indexText) - 1;
+
+    if (type === 'images' && project.images?.[index]) {
+        const node = projectImages(project, project.images[index]);
+        node.classList.add(modifier === 'full' ? 'slideshow-full' : 'slideshow-half');
+        return { node, modifier };
+    }
+
+    if (type === 'content' && project.content?.[index]) {
+        const node = document.createElement('div');
+        node.className = modifier === 'full' ? 'content-full' : 'content-half';
+        node.appendChild(projectText(project.content[index]));
+        return { node, modifier };
+    }
+
+    return null;
+}
+
+function defaultLayout(project) {
+    return (project.images || []).map((_, index) => {
+        const imageToken = `images-${index + 1}`;
+        const contentToken = project.content?.[index] ? [`content-${index + 1}`] : [];
+        return [imageToken, ...contentToken];
+    });
+}
+
+function renderProject(project) {
+    const container = document.getElementById('content-page-container');
+    if (!container || project.type !== 'project') return;
+
+    const layout = project.layout?.length ? project.layout : defaultLayout(project);
+    const fragment = document.createDocumentFragment();
+
+    layout.forEach((entry) => {
+        const tokens = Array.isArray(entry) ? entry : [entry];
+        const row = document.createElement('div');
+        row.className = 'slideshow-content-pair';
+
+        tokens.forEach((token) => {
+            const item = layoutNode(project, token);
+            if (!item) return;
+
+            if (item.modifier === 'full') {
+                fragment.appendChild(item.node);
+                return;
+            }
+
+            if (item.modifier === 'right') {
+                const spacer = document.createElement('div');
+                spacer.className = 'layout-spacer';
+                row.appendChild(spacer);
+            }
+
+            row.appendChild(item.node);
+        });
+
+        if (row.childNodes.length) {
+            fragment.appendChild(row);
+        }
+    });
+
+    container.replaceChildren(fragment);
+}
+
+function contentCollectionForPage(page) {
+    return Object.values(collections).find((collection) => Boolean(metaContent(collection.metaName)));
+}
+
+async function init() {
     const page = document.body.dataset.page;
-    const { isHomePage, isCollectionPage, isContentPage } = getPageType(page, collections);
+    if (!page || page === 'index' || page === '404') return;
 
     try {
-        // Find the metaTag (data file) for this page type, falling back to first matching collection if needed
-        let pagesMetaTag = metaTags[page];
-        if (!pagesMetaTag && isContentPage) {
-            for (const [collectionKey, collection] of Object.entries(collections)) {
-                const basePath = collection.basePath.replace(/^\//, '').replace(/\/$/, '');
-                if (window.location.pathname.includes(basePath)) {
-                    pagesMetaTag = metaTags[collectionKey];
-                    break;
-                }
-            }
-        }
+        const contentCollection = contentCollectionForPage(page);
+        const [navData, pageData] = await Promise.all([
+            loadJSON(metaContent('nav-data') || '/json/nav.json'),
+            contentCollection
+                ? loadJSON(metaContent(contentCollection.metaName))
+                : undefined
+        ]);
 
-        // Warn if a content page is missing a corresponding metaTag (likely misconfiguration)
-        if (!pagesMetaTag && isContentPage) {
-            console.warn(`No pages metaTag found for page: ${page}`);
-        }
-
-        // Load page-specific data and navigation structure
-        const resources = await loadResources({
-            pages: pagesMetaTag,
-            navData: metaTags.nav
-        });
-        const { pages, navData } = resources;
-
-
-        // Expose loaded config and data to global scope for other scripts (e.g. collections.js)
-        window.siteConfig = siteConfig;
-        window.pages = pages;
+        renderNav(navData, page);
         window.navData = navData;
+        window.pages = pageData;
 
-        if (!(isHomePage || page === 'index' || page === '404')) {
-            checkRenderNav(page, elementIds.nav, navData, siteBaseUrl);
-        }
-
-        if (isHomePage || isCollectionPage) {
-            renderDynamicLinks(page, siteConfig, navData, pages);
+        if (page === 'home') {
+            renderHomeLinks(navData);
             return;
         }
 
-        if (!isContentPage || page === 'thoughts' || page === 'contact' || page === '404') {
+        if (collections[page]) {
+            renderCollectionLinks(page, pageData);
             return;
         }
 
-        const pageContent = Array.isArray(pages)
-            ? pages.find(p => p.key === page)
-            : null;
+        if (!Array.isArray(pageData)) return;
 
-        if (!pageContent) {
-            console.warn(`No page data found for '${page}'. Skipping content rendering.`);
-            return;
-        }
+        const entry = pageData.find((item) => item.key === page);
+        if (!entry) return;
 
-        renderContentPage(pageContent, siteConfig);
-
-    } catch (err) {
-        // Catch-all for errors in loading or rendering
-        console.error('Error loading site data:', err);
+        updatePageMetadata(entry);
+        renderProject(entry);
+    } catch (error) {
+        console.error('Error loading site content:', error);
     }
-})();
+}
+
+document.addEventListener('DOMContentLoaded', init);
