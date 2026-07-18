@@ -58,8 +58,15 @@ const monthOrder = [
     'December'
 ];
 
-const metaContent = (name) =>
-    document.querySelector(`meta[name="${name}"]`)?.content;
+function metaContent(name) {
+    const meta = document.querySelector(`meta[name="${name}"]`);
+    return meta ? meta.content : undefined;
+}
+
+function replaceContent(container, fragment) {
+    container.textContent = '';
+    container.appendChild(fragment);
+}
 
 async function loadJSON(url) {
     if (!url) return undefined;
@@ -93,7 +100,7 @@ function renderNav(navData, page) {
             fragment.appendChild(a);
         });
 
-    nav.replaceChildren(fragment);
+    replaceContent(nav, fragment);
 }
 
 function shuffledSkyImages() {
@@ -189,7 +196,7 @@ function linkThumbnail(entry, collection, index, skyImages) {
         return [fallback];
     }
 
-    const base = collection.thumbnailBase.replaceAll('{key}', entry.key);
+    const base = collection.thumbnailBase.split('{key}').join(entry.key);
     return [`${base}.webp`, `${base}.gif`, fallback];
 }
 
@@ -247,7 +254,7 @@ function renderHomeLinks(navData) {
             }));
         });
 
-    container.replaceChildren(fragment);
+    replaceContent(container, fragment);
 }
 
 function renderCollectionLinks(page, items) {
@@ -272,7 +279,7 @@ function renderCollectionLinks(page, items) {
             }));
         });
 
-    container.replaceChildren(fragment);
+    replaceContent(container, fragment);
 }
 
 function updatePageMetadata(entry) {
@@ -347,13 +354,13 @@ function layoutNode(project, token) {
     const [, type, indexText, modifier] = match;
     const index = Number(indexText) - 1;
 
-    if (type === 'images' && project.images?.[index]) {
+    if (type === 'images' && project.images && project.images[index]) {
         const node = projectImages(project, project.images[index]);
         node.classList.add(modifier === 'full' ? 'slideshow-full' : 'slideshow-half');
         return { node, modifier };
     }
 
-    if (type === 'content' && project.content?.[index]) {
+    if (type === 'content' && project.content && project.content[index]) {
         const node = document.createElement('div');
         node.className = modifier === 'full' ? 'content-full' : 'content-half';
         node.appendChild(projectText(project.content[index]));
@@ -366,7 +373,7 @@ function layoutNode(project, token) {
 function defaultLayout(project) {
     return (project.images || []).map((_, index) => {
         const imageToken = `images-${index + 1}`;
-        const contentToken = project.content?.[index] ? [`content-${index + 1}`] : [];
+        const contentToken = project.content && project.content[index] ? [`content-${index + 1}`] : [];
         return [imageToken, ...contentToken];
     });
 }
@@ -375,7 +382,7 @@ function renderProject(project) {
     const container = document.getElementById('content-page-container');
     if (!container || project.type !== 'project') return;
 
-    const layout = project.layout?.length ? project.layout : defaultLayout(project);
+    const layout = project.layout && project.layout.length ? project.layout : defaultLayout(project);
     const fragment = document.createDocumentFragment();
 
     layout.forEach((entry) => {
@@ -406,7 +413,7 @@ function renderProject(project) {
         }
     });
 
-    container.replaceChildren(fragment);
+    replaceContent(container, fragment);
 }
 
 function contentCollectionForPage(page) {
@@ -417,23 +424,28 @@ async function init() {
     const page = document.body.dataset.page;
     if (!page || page === 'index' || page === '404') return;
 
-    try {
-        const contentCollection = contentCollectionForPage(page);
-        const [navData, pageData] = await Promise.all([
-            loadJSON(metaContent('nav-data') || '/json/nav.json'),
-            contentCollection
-                ? loadJSON(metaContent(contentCollection.metaName))
-                : undefined
-        ]);
+    const contentCollection = contentCollectionForPage(page);
+    const navPromise = loadJSON(metaContent('nav-data') || '/json/nav.json');
+    const pagePromise = contentCollection
+        ? loadJSON(metaContent(contentCollection.metaName))
+        : Promise.resolve(undefined);
 
+    try {
+        const navData = await navPromise;
         renderNav(navData, page);
         window.navData = navData;
-        window.pages = pageData;
 
         if (page === 'home') {
             renderHomeLinks(navData);
             return;
         }
+    } catch (error) {
+        console.error('Error loading navigation:', error);
+    }
+
+    try {
+        const pageData = await pagePromise;
+        window.pages = pageData;
 
         if (collections[page]) {
             renderCollectionLinks(page, pageData);
@@ -448,8 +460,12 @@ async function init() {
         updatePageMetadata(entry);
         renderProject(entry);
     } catch (error) {
-        console.error('Error loading site content:', error);
+        console.error('Error loading page content:', error);
     }
 }
 
-document.addEventListener('DOMContentLoaded', init);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, { once: true });
+} else {
+    init();
+}
