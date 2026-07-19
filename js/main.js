@@ -282,21 +282,14 @@ function renderCollectionLinks(page, items) {
     replaceContent(container, fragment);
 }
 
-function updatePageMetadata(entry) {
+function updatePageHeader(entry) {
     const title = entry.title || '';
     const heading = document.getElementById('main-heading');
     const subtitle = document.getElementById('subtitle');
-    const description = document.querySelector('meta[name="description"]') || document.createElement('meta');
 
-    if (title) document.title = title.toUpperCase();
+    if (title) document.title = `${title} | Kevin Cunanan Chappelle`;
     if (heading) heading.textContent = `*${title}*`;
     if (subtitle) subtitle.textContent = subtitleFor(entry) || '';
-
-    if (!description.name) {
-        description.name = 'description';
-        document.head.appendChild(description);
-    }
-    description.content = entry.description || '';
 }
 
 function imageUrl(project, image, size = IMAGE_SIZE) {
@@ -462,7 +455,7 @@ async function init() {
         const entry = pageData.find((item) => item.key === page);
         if (!entry) return;
 
-        updatePageMetadata(entry);
+        updatePageHeader(entry);
         renderProject(entry);
     } catch (error) {
         console.error('Error loading page content:', error);
