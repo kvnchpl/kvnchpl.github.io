@@ -22,7 +22,7 @@ const pageConfigs = {
     },
     'home.html': {
         title: 'Home | Kevin Cunanan Chappelle',
-        description: 'Explore the projects, writings, reading list, and contact information of Brooklyn-based artist Kevin Cunanan Chappelle.',
+        description: 'Explore the projects, writings, and contact information of Brooklyn-based artist Kevin Cunanan Chappelle.',
         canonicalPath: '/home',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
@@ -42,7 +42,7 @@ const pageConfigs = {
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'readings.html': {
-        title: 'Reading List | Kevin Cunanan Chappelle',
+        title: 'Readings | Kevin Cunanan Chappelle',
         description: 'A reading list of essays, criticism, poetry, and books selected by artist Kevin Cunanan Chappelle.',
         canonicalPath: '/readings',
         image: DEFAULT_IMAGE,
