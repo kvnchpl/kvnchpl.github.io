@@ -5,12 +5,14 @@ function imageUrl(project, image, size = 'medium') {
     return `/img/projects/${project}/${size}/${image}.webp`;
 }
 
-function imageSrcset(project, image) {
-    return [
+function imageSrcset(project, image, fullWidth) {
+    const candidates = [
         `${imageUrl(project, image, 'small')} 600w`,
-        `${imageUrl(project, image, 'medium')} 1280w`,
-        `${imageUrl(project, image, 'full')} 1920w`
-    ].join(', ');
+        `${imageUrl(project, image, 'medium')} 1280w`
+    ];
+
+    if (fullWidth > 1280) candidates.push(`${imageUrl(project, image, 'full')} ${fullWidth}w`);
+    return candidates.join(', ');
 }
 
 function initSlideshow(wrapper) {
@@ -18,6 +20,7 @@ function initSlideshow(wrapper) {
     const previousButton = wrapper.querySelector('.slideshow-prev');
     const nextButton = wrapper.querySelector('.slideshow-next');
     const project = wrapper.dataset.project;
+    const fullWidth = Number.parseInt(wrapper.dataset.fullWidth, 10) || 1920;
     let images;
     let currentIndex = 0;
 
@@ -35,7 +38,7 @@ function initSlideshow(wrapper) {
         const position = currentIndex + 1;
 
         image.src = imageUrl(project, name);
-        image.srcset = imageSrcset(project, name);
+        image.srcset = imageSrcset(project, name, fullWidth);
         image.alt = `${image.alt.split(', image ')[0]}, image ${position} of ${images.length}`;
         previousButton.setAttribute('aria-label', `Previous image, ${position} of ${images.length}`);
         nextButton.setAttribute('aria-label', `Next image, ${position} of ${images.length}`);

@@ -35,3 +35,5 @@ Projects use ordered `sections`, each of which may contain `images`, `text`, or 
 ```
 
 Every project has an explicit `thumbnail` path. Link destination and browsing behavior are independent: `external` describes project ownership, while `newTab` controls whether its link opens a new tab. Set `sitemap` to `true` for separately managed same-domain projects, such as JUNGLE, that should appear in the root sitemap.
+
+For project galleries, `small` images are 600 pixels wide and `medium` images are 1280 pixels wide. Set `fullWidth` to the actual width of the corresponding `full` images; full images wider than 1920 pixels should be resized to 1920 pixels before being added.

@@ -326,6 +326,21 @@ function imageUrl(projectKey, image, size = 'medium') {
     return `/img/projects/${projectKey}/${size}/${image}.webp`;
 }
 
+function imageSrcset(project, image) {
+    const fullWidth = project.fullWidth;
+    const candidates = [
+        `${imageUrl(project.key, image, 'small')} 600w`,
+        `${imageUrl(project.key, image, 'medium')} 1280w`
+    ];
+
+    if (!Number.isInteger(fullWidth) || fullWidth < 1) {
+        throw new Error(`Invalid fullWidth for project: ${project.key}`);
+    }
+    if (fullWidth > 1280) candidates.push(`${imageUrl(project.key, image, 'full')} ${fullWidth}w`);
+
+    return candidates.join(', ');
+}
+
 function renderSlideshow(project, images, sectionIndex) {
     for (const image of images) {
         for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(project.key, image, size));
@@ -335,7 +350,7 @@ function renderSlideshow(project, images, sectionIndex) {
     const count = images.length;
     const loading = sectionIndex === 0 ? 'eager' : 'lazy';
     const data = count > 1
-        ? ` data-slideshow data-project="${escapeAttribute(project.key)}" data-images="${escapeAttribute(JSON.stringify(images))}"`
+        ? ` data-slideshow data-project="${escapeAttribute(project.key)}" data-images="${escapeAttribute(JSON.stringify(images))}" data-full-width="${project.fullWidth}"`
         : '';
     const lines = [
         `                <div class="slideshow-wrapper"${data}>`,
@@ -347,7 +362,7 @@ function renderSlideshow(project, images, sectionIndex) {
     }
 
     lines.push(
-        `                        <img src="${imageUrl(project.key, firstImage)}" srcset="${imageUrl(project.key, firstImage, 'small')} 600w, ${imageUrl(project.key, firstImage, 'medium')} 1280w, ${imageUrl(project.key, firstImage, 'full')} 1920w" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw" alt="${escapeAttribute(`${project.title}, image 1 of ${count}`)}" loading="${loading}" decoding="async" />`
+        `                        <img src="${imageUrl(project.key, firstImage)}" srcset="${imageSrcset(project, firstImage)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw" alt="${escapeAttribute(`${project.title}, image 1 of ${count}`)}" loading="${loading}" decoding="async" />`
     );
 
     if (count > 1) {
