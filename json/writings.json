@@ -7,7 +7,8 @@
         "day": 12,
         "year": 2025,
         "external": true,
-        "permalink": "/pdf/gran-turismo.pdf"
+        "permalink": "/pdf/gran-turismo.pdf",
+        "newTab": true
     },
     {
         "type": "writing",
@@ -25,7 +26,8 @@
         "day": 18,
         "year": 2024,
         "external": true,
-        "permalink": "/pdf/loop.pdf"
+        "permalink": "/pdf/loop.pdf",
+        "newTab": true
     },
     {
         "type": "writing",
@@ -51,7 +53,8 @@
         "day": 27,
         "year": 2026,
         "external": true,
-        "permalink": "/pdf/desire-path_vol-1.pdf"
+        "permalink": "/pdf/desire-path_vol-1.pdf",
+        "newTab": true
     },
     {
         "type": "writing",

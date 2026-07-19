@@ -10,7 +10,8 @@
         "year": 2025,
         "external": true,
         "permalink": "/pdf/atherton_the-art-of-editing.pdf",
-        "originalUrl": "https://www.e-flux.com/notes/6783413/the-art-of-editing"
+        "originalUrl": "https://www.e-flux.com/notes/6783413/the-art-of-editing",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -23,7 +24,8 @@
         "year": 2009,
         "external": true,
         "permalink": "/pdf/steyerl_in-defense-of-the-poor-image.pdf",
-        "originalUrl": "http://worker01.e-flux.com/pdf/article_94.pdf"
+        "originalUrl": "http://worker01.e-flux.com/pdf/article_94.pdf",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -37,7 +39,8 @@
         "year": 2023,
         "external": true,
         "permalink": "/pdf/n+1_why-is-everything-so-ugly.pdf",
-        "originalUrl": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/"
+        "originalUrl": "https://www.nplusonemag.com/issue-44/the-intellectual-situation/why-is-everything-so-ugly/",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -48,7 +51,8 @@
         "month": 4,
         "year": 2018,
         "external": true,
-        "originalUrl": "https://ed.ted.com/lessons/f53lkWpo"
+        "originalUrl": "https://ed.ted.com/lessons/f53lkWpo",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -62,7 +66,8 @@
         "year": 2023,
         "external": true,
         "permalink": "/pdf/sacasas_waste-your-time-your-life-may-depend-on-it.pdf",
-        "originalUrl": "https://theconvivialsociety.substack.com/p/waste-your-time-your-life-may-depend"
+        "originalUrl": "https://theconvivialsociety.substack.com/p/waste-your-time-your-life-may-depend",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -76,7 +81,8 @@
         "year": 2023,
         "external": true,
         "permalink": "/pdf/sacasas_apocalyptic-ai.pdf",
-        "originalUrl": "https://theconvivialsociety.substack.com/p/apocalyptic-ai"
+        "originalUrl": "https://theconvivialsociety.substack.com/p/apocalyptic-ai",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -89,7 +95,8 @@
         "year": 1964,
         "external": true,
         "permalink": "/pdf/sontag_notes-on-camp.pdf",
-        "originalUrl": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf"
+        "originalUrl": "https://monoskop.org/images/5/59/Sontag_Susan_1964_Notes_on_Camp.pdf",
+        "newTab": true
     },
     {
         "type": "reading",
@@ -104,6 +111,7 @@
         "year": 2015,
         "external": true,
         "permalink": "/pdf/robbins_equipment-for-living.pdf",
-        "originalUrl": "https://www.poetryfoundation.org/poetrymagazine/articles/70208/equipment-for-living"
+        "originalUrl": "https://www.poetryfoundation.org/poetrymagazine/articles/70208/equipment-for-living",
+        "newTab": true
     }
 ]

@@ -27,7 +27,7 @@
         "title": "See what I’m thinking about",
         "href": "https://kvnchpl-thoughts.tumblr.com/",
         "collection": false,
-        "external": false,
+        "external": true,
         "newTab": false,
         "label": "Thoughts",
         "navBar": true,
