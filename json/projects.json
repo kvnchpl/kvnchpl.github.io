@@ -9,9 +9,6 @@
             "An homage to TV Buddha (1974), Nam June Paik’s seminal video sculpture of a Buddha contemplating its own image on a TV screen.\nCompiler Buddha is a generative, self-modifying script that reconfigures its own source code into the shape of a given image – in this case, the Buddha's – while simultaneously distorting that image through AI-generated recursion. Where Paik grappled with television as a medium through which we understand the world – and by extension, ourselves – I consider the compiler. As a critical bridge between the mechanistic 1s and 0s that computers understand, and the rendered world of digital information legible to human perception, the compiler is the invisible conduit by which we receive all digital information. The source code revealed here is not only an executable instruction, but also a poetic text in its own right.\nOnce compiling has begun, two negative feedback loops occur in parallel:\nOn the right, the source code parses and rebuilds itself, fragment by fragment, continually grasping towards the Buddha’s image. Steadily it dissolves, hovering as an ethereal haze of slashes and dots.\nOn the left, the source code’s reference image of a buddha statuette is recursively processed through a Stable Diffusion image generation model. Each generation displaces itself from the original form, reducing the image to abstract fields of color and light.\nAs each half diverges in two technically distinct processes, they also appear to mirror each other in their separate movements towards abstraction. This abstraction reflects a key Buddhist principle: the Buddha is not a fixed image, but a concept encountered personally through practice. Rather than prescribe a singular iconic presence of the Buddha, most Buddhist traditions emphasize individual encounters with enlightenment, often accessed through meditation.\nThe recursive loops recall meditation and the recitation of mantras. (Each loop is specifically set to iterate 108 times, a sacred number in many sects of Buddhism.) As in meditation, repetition and duration transforms the ordinary into something more essential and intangible. This project is best experienced online precisely because it is a reclamation of digital space, one that is self-contained, reflexive, and sacred."
         ],
         "images": [],
-        "layout": [
-            "content-1-full"
-        ],
         "month": 5,
         "day": 29,
         "year": 2025
@@ -37,12 +34,6 @@
                 "viewfinder_9"
             ]
         ],
-        "layout": [
-            [
-                "images-1",
-                "content-1"
-            ]
-        ],
         "month": 10,
         "year": 2024
     },
@@ -59,12 +50,6 @@
                 "triptych_1",
                 "triptych_2",
                 "triptych_3"
-            ]
-        ],
-        "layout": [
-            [
-                "images-1",
-                "content-1"
             ]
         ],
         "month": 10,
@@ -88,12 +73,6 @@
                 "archipelago_6"
             ]
         ],
-        "layout": [
-            [
-                "images-1",
-                "content-1"
-            ]
-        ],
         "month": 2,
         "year": 2024
     },
@@ -113,12 +92,6 @@
                 "intraface_4",
                 "intraface_5",
                 "intraface_6"
-            ]
-        ],
-        "layout": [
-            [
-                "images-1",
-                "content-1"
             ]
         ],
         "month": 8,
@@ -172,20 +145,6 @@
                 "friday-night-never_3_10"
             ]
         ],
-        "layout": [
-            [
-                "images-1",
-                "content-1"
-            ],
-            [
-                "images-2",
-                "content-2"
-            ],
-            [
-                "images-3",
-                "content-3"
-            ]
-        ],
         "month": 8,
         "year": 2022
     },
@@ -209,13 +168,6 @@
                 "dimensional-freedom_6"
             ]
         ],
-        "layout": [
-            "images-1-full",
-            [
-                "images-2",
-                "content-1"
-            ]
-        ],
         "month": 5,
         "year": 2019
     },
@@ -237,12 +189,6 @@
                 "520-missing_6"
             ]
         ],
-        "layout": [
-            [
-                "images-1",
-                "content-1"
-            ]
-        ],
         "month": 5,
         "year": 2019
     },
@@ -259,14 +205,6 @@
                 "truth-visions_1"
             ]
         ],
-        "layout": [
-            [
-                "images-1-full"
-            ],
-            [
-                "content-1-right"
-            ]
-        ],
         "month": 3,
         "year": 2019
     },
@@ -277,7 +215,6 @@
         "description": "Digital zine",
         "content": [],
         "images": [],
-        "layout": [],
         "month": 5,
         "day": 30,
         "year": 2025,
@@ -291,7 +228,6 @@
         "description": "Collaborative collaging project",
         "content": [],
         "images": [],
-        "layout": [],
         "month": 6,
         "day": 28,
         "year": 2025,
@@ -305,7 +241,6 @@
         "description": "3D environment with fractured narrative and images",
         "content": [],
         "images": [],
-        "layout": [],
         "month": 8,
         "day": 13,
         "year": 2025,

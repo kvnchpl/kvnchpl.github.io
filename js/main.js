@@ -313,20 +313,54 @@ function imageSrcset(project, image) {
 
 function projectImages(project, names) {
     const wrapper = document.createElement('div');
-    wrapper.className = names.length === 1 ? 'slideshow-wrapper is-single' : 'slideshow-wrapper';
+    wrapper.className = 'slideshow-wrapper';
 
     const inner = document.createElement('div');
     inner.className = 'slideshow-inner';
 
-    names.forEach((name) => {
-        const img = document.createElement('img');
+    const img = document.createElement('img');
+    img.sizes = '(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw';
+
+    let currentIndex = 0;
+    let previousButton;
+    let nextButton;
+
+    function showImage(index) {
+        currentIndex = (index + names.length) % names.length;
+        const name = names[currentIndex];
         img.src = imageUrl(project, name);
         img.srcset = imageSrcset(project, name);
-        img.sizes = '(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw';
-        img.alt = name;
-        img.loading = 'lazy';
-        inner.appendChild(img);
-    });
+        img.alt = `${project.title}, image ${currentIndex + 1} of ${names.length}`;
+
+        if (previousButton && nextButton) {
+            previousButton.setAttribute('aria-label', `Previous image, ${currentIndex + 1} of ${names.length}`);
+            nextButton.setAttribute('aria-label', `Next image, ${currentIndex + 1} of ${names.length}`);
+        }
+    }
+
+    if (names.length > 1) {
+        previousButton = document.createElement('button');
+        previousButton.type = 'button';
+        previousButton.className = 'slideshow-control slideshow-prev';
+        previousButton.textContent = '<';
+        previousButton.addEventListener('click', () => showImage(currentIndex - 1));
+
+        nextButton = document.createElement('button');
+        nextButton.type = 'button';
+        nextButton.className = 'slideshow-control slideshow-next';
+        nextButton.textContent = '>';
+        nextButton.addEventListener('click', () => showImage(currentIndex + 1));
+
+        inner.appendChild(previousButton);
+    }
+
+    inner.appendChild(img);
+
+    if (nextButton) {
+        inner.appendChild(nextButton);
+    }
+
+    showImage(0);
 
     wrapper.appendChild(inner);
     return wrapper;
@@ -334,6 +368,7 @@ function projectImages(project, names) {
 
 function projectText(text) {
     const wrapper = document.createElement('div');
+    wrapper.className = 'project-copy';
 
     text.split(/\n+/)
         .map((line) => line.trim())
@@ -347,71 +382,41 @@ function projectText(text) {
     return wrapper;
 }
 
-function layoutNode(project, token) {
-    const match = token.match(/^(images|content)-(\d+)(?:-(full|left|right))?$/);
-    if (!match) return null;
+function projectSection(project, imageNames, text) {
+    const section = document.createElement('section');
+    section.className = 'project-section';
 
-    const [, type, indexText, modifier] = match;
-    const index = Number(indexText) - 1;
-
-    if (type === 'images' && project.images && project.images[index]) {
-        const node = projectImages(project, project.images[index]);
-        node.classList.add(modifier === 'full' ? 'slideshow-full' : 'slideshow-half');
-        return { node, modifier };
+    if (imageNames) {
+        section.appendChild(projectImages(project, imageNames));
     }
 
-    if (type === 'content' && project.content && project.content[index]) {
-        const node = document.createElement('div');
-        node.className = modifier === 'full' ? 'content-full' : 'content-half';
-        node.appendChild(projectText(project.content[index]));
-        return { node, modifier };
+    if (text) {
+        section.appendChild(projectText(text));
     }
 
-    return null;
-}
-
-function defaultLayout(project) {
-    return (project.images || []).map((_, index) => {
-        const imageToken = `images-${index + 1}`;
-        const contentToken = project.content && project.content[index] ? [`content-${index + 1}`] : [];
-        return [imageToken, ...contentToken];
-    });
+    return section;
 }
 
 function renderProject(project) {
     const container = document.getElementById('content-page-container');
     if (!container || project.type !== 'project') return;
 
-    const layout = project.layout && project.layout.length ? project.layout : defaultLayout(project);
+    const imageGroups = (project.images || []).filter((group) => Array.isArray(group) && group.length);
+    const textBlocks = (project.content || []).filter((text) => typeof text === 'string' && text.trim());
     const fragment = document.createDocumentFragment();
 
-    layout.forEach((entry) => {
-        const tokens = Array.isArray(entry) ? entry : [entry];
-        const row = document.createElement('div');
-        row.className = 'slideshow-content-pair';
-
-        tokens.forEach((token) => {
-            const item = layoutNode(project, token);
-            if (!item) return;
-
-            if (item.modifier === 'full') {
-                fragment.appendChild(item.node);
-                return;
-            }
-
-            if (item.modifier === 'right') {
-                const spacer = document.createElement('div');
-                spacer.className = 'layout-spacer';
-                row.appendChild(spacer);
-            }
-
-            row.appendChild(item.node);
+    if (imageGroups.length && imageGroups.length === textBlocks.length) {
+        imageGroups.forEach((group, index) => {
+            fragment.appendChild(projectSection(project, group, textBlocks[index]));
         });
-
-        if (row.childNodes.length) {
-            fragment.appendChild(row);
-        }
-    });
+    } else {
+        imageGroups.forEach((group) => {
+            fragment.appendChild(projectSection(project, group));
+        });
+        textBlocks.forEach((text) => {
+            fragment.appendChild(projectSection(project, null, text));
+        });
+    }
 
     replaceContent(container, fragment);
 }
