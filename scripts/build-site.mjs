@@ -14,7 +14,7 @@ const changedFiles = new Set();
 
 const pageConfigs = {
     'index.html': {
-        title: 'Kevin Cunanan Chappelle | Brooklyn Artist',
+        title: 'Kevin Cunanan Chappelle',
         description: 'Official website of Kevin Cunanan Chappelle, a Brooklyn-based artist exploring how digital technologies reshape perception and presence.',
         canonicalPath: '/',
         image: DEFAULT_IMAGE,
