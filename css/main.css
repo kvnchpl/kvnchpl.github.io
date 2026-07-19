@@ -1,7 +1,7 @@
 :root {
     --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1.2rem;
-    --font-size-nav-mobile: 2.4rem;
+    --font-size-nav-mobile: 1rem;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --color-text: #e6e6e6;
@@ -419,17 +419,28 @@ img {
 /* Responsive Styles */
 @media (max-width: 768px) {
     #nav {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         font-size: var(--font-size-nav-mobile);
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: flex-start;
-        text-align: left;
-        gap: var(--spacing-small);
+        align-items: center;
+        gap: calc(var(--spacing-small) / 2) var(--spacing-small);
+        padding: 0 calc(var(--spacing-small) / 2);
+        box-sizing: border-box;
     }
 
     #nav a {
         display: block;
+        min-width: 0;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    #nav a:nth-child(3n + 1) {
         text-align: left;
+    }
+
+    #nav a:nth-child(3n) {
+        text-align: right;
     }
 
     #title-top {
