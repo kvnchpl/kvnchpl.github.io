@@ -53,6 +53,10 @@ main {
     align-items: center;
 }
 
+body[data-page="404"] main {
+    text-align: center;
+}
+
 .iframe {
     width: 100dvw;
     height: 56.25dvw;
