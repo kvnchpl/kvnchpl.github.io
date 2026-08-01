@@ -120,6 +120,12 @@ function absoluteUrl(value) {
     return new URL(value, SITE_ORIGIN).href;
 }
 
+function metadataTitle(value) {
+    const siteSuffix = ` | ${SITE_NAME}`;
+    if (!value.endsWith(siteSuffix)) return value;
+    return `${value.slice(0, -siteSuffix.length).toLocaleUpperCase('en-US')}${siteSuffix}`;
+}
+
 function assertLocalAsset(url) {
     if (!url?.startsWith('/')) return;
     if (!existsSync(rootPath(url.slice(1)))) {
@@ -213,15 +219,16 @@ function renderSeo(config) {
     const canonical = absoluteUrl(config.canonicalPath);
     const image = absoluteUrl(config.image || DEFAULT_IMAGE);
     const imageAlt = config.imageAlt || DEFAULT_IMAGE_ALT;
+    const title = metadataTitle(config.title);
     const lines = [
-        `    <title>${escapeHtml(config.title)}</title>`,
+        `    <title>${escapeHtml(title)}</title>`,
         `    <meta name="description" content="${escapeAttribute(config.description)}" />`,
         `    <meta name="author" content="${SITE_NAME}" />`,
         '    <meta name="viewport" content="width=device-width, initial-scale=1.0" />',
         `    <link rel="canonical" href="${escapeAttribute(canonical)}" />`,
         `    <meta property="og:type" content="${config.ogType || 'website'}" />`,
         `    <meta property="og:site_name" content="${SITE_NAME}" />`,
-        `    <meta property="og:title" content="${escapeAttribute(config.title)}" />`,
+        `    <meta property="og:title" content="${escapeAttribute(title)}" />`,
         `    <meta property="og:description" content="${escapeAttribute(config.description)}" />`,
         `    <meta property="og:url" content="${escapeAttribute(canonical)}" />`,
         `    <meta property="og:image" content="${escapeAttribute(image)}" />`,
@@ -234,7 +241,7 @@ function renderSeo(config) {
 
     lines.push(
         `    <meta name="twitter:card" content="${config.twitterCard || 'summary_large_image'}" />`,
-        `    <meta name="twitter:title" content="${escapeAttribute(config.title)}" />`,
+        `    <meta name="twitter:title" content="${escapeAttribute(title)}" />`,
         `    <meta name="twitter:description" content="${escapeAttribute(config.description)}" />`,
         `    <meta name="twitter:image" content="${escapeAttribute(image)}" />`,
         `    <meta name="twitter:image:alt" content="${escapeAttribute(imageAlt)}" />`
