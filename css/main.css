@@ -216,10 +216,18 @@ img {
     top: 0;
 }
 
+#title-top::after {
+    content: "\00a0#";
+}
+
 #title-bottom {
     align-items: flex-end;
     translate: -0.5dvw 0.8dvh;
     bottom: 0;
+}
+
+#title-bottom::before {
+    content: "#\00a0";
 }
 
 /* Interactive Elements */
