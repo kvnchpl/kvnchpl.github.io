@@ -69,6 +69,16 @@ function randomizeSkyImages() {
     });
 }
 
+function initAutoplayVideos() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    document.querySelectorAll('video[data-autoplay]').forEach((video) => {
+        video.play().catch(() => {
+            // Controls remain available when the browser declines autoplay.
+        });
+    });
+}
+
 async function renderTumblrNav() {
     if (document.body.dataset.page !== 'thoughts') return;
 
@@ -105,6 +115,7 @@ async function renderTumblrNav() {
 }
 
 function init() {
+    initAutoplayVideos();
     randomizeSkyImages();
     document.querySelectorAll('[data-slideshow]').forEach(initSlideshow);
     renderTumblrNav();

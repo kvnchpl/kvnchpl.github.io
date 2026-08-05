@@ -3,16 +3,11 @@
     --font-size-main: 1.2rem;
     --font-size-nav-mobile: 1rem;
     --font-weight-normal: 400;
-    --font-weight-bold: 700;
     --color-text: #e6e6e6;
     --color-subtitle: #999;
-    --color-text-dark: #111;
-    --color-subtitle-dark: #444;
-    --color-text-light: #e6e6e6;
-    --color-subtitle-light: #999;
     --color-bg: #000;
+    --color-link: var(--color-text);
     --color-link-hover: red;
-    --max-width-main: 700px;
     --text-transform-body: lowercase;
     --text-transform-h1: uppercase;
     --text-transform-link: uppercase;
@@ -44,7 +39,7 @@ body {
 
 main {
     position: relative;
-    width: 100dvw;
+    width: 100%;
     min-height: 100dvh;
     overflow: hidden;
     display: flex;
@@ -117,6 +112,11 @@ a:hover {
     color: var(--color-link-hover);
     text-transform: var(--text-transform-link-hover);
     text-decoration: underline;
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-link-hover);
+    outline-offset: 0.2rem;
 }
 
 /* Media (img, iframe) */
@@ -314,7 +314,6 @@ img {
 }
 
 .page-link:hover img {
-    /* border: 2px solid var(--color-link-hover); */
     box-shadow: 0 0 10px var(--color-link-hover);
     animation: pulse-border 1s infinite;
 }
@@ -523,6 +522,12 @@ img {
 @media (min-width: 769px) {
     #nav {
         translate: 0 -0.75dvh;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-link:hover img {
+        animation: none;
     }
 }
 

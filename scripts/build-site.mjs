@@ -258,8 +258,10 @@ function renderNav(navData, pageId) {
     const links = navData
         .filter((link) => link.navBar)
         .map((link) => {
-            const label = link.label.toLowerCase() === pageId ? `*${link.label}*` : link.label;
-            return `        <a href="${escapeAttribute(link.href)}"${linkAttributes(link.newTab)}>${escapeHtml(label)}</a>`;
+            const isCurrent = link.label.toLowerCase() === pageId;
+            const label = isCurrent ? `*${link.label}*` : link.label;
+            const current = isCurrent ? ' aria-current="page"' : '';
+            return `        <a href="${escapeAttribute(link.href)}"${linkAttributes(link.newTab)}${current}>${escapeHtml(label)}</a>`;
         });
 
     const nav = [
@@ -281,7 +283,7 @@ function renderPageLink({ href, title, subtitle, thumbnail, newTab, reverse, sky
     const loading = index < 4 ? 'eager' : 'lazy';
     const lines = [
         `            <a class="${linkClass}" href="${escapeAttribute(href)}"${linkAttributes(newTab)}>`,
-        `                <img src="${escapeAttribute(image)}" alt="${escapeAttribute(title)}" loading="${loading}" decoding="async"${skyAttribute} />`,
+        `                <img src="${escapeAttribute(image)}" width="80" height="80" alt="${escapeAttribute(title)}" loading="${loading}" decoding="async"${skyAttribute} />`,
         '                <div class="text-block">',
         `                    <p class="page-title">${escapeHtml(title)}</p>`
     ];
@@ -510,7 +512,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
 
     await updateHtml(file, (original) => {
         let html = replaceGeneratedBlock(original, 'seo', renderSeo(config), initialSeoPattern);
-        html = replaceGeneratedBlock(html, 'nav', renderNav(navData, project.key), initialNavPattern);
+        html = replaceGeneratedBlock(html, 'nav', renderNav(navData, 'projects'), initialNavPattern);
         const header = generatedBlock(
             'page-header',
             `        <h1 id="main-heading">*${escapeHtml(project.title)}*</h1>\n        <h2 id="subtitle">${escapeHtml(monthYear(project) || '')}</h2>`,
@@ -536,7 +538,7 @@ for (const writing of writings.filter((entry) => !entry.external)) {
 
     await updateHtml(file, (original) => {
         let html = replaceGeneratedBlock(original, 'seo', renderSeo(config), initialSeoPattern);
-        html = replaceGeneratedBlock(html, 'nav', renderNav(navData, writing.key), initialNavPattern);
+        html = replaceGeneratedBlock(html, 'nav', renderNav(navData, 'writings'), initialNavPattern);
         const header = generatedBlock(
             'page-header',
             `        <h1 id="main-heading">*${escapeHtml(writing.title)}*</h1>\n        <h2 id="subtitle">${escapeHtml(monthYear(writing) || '')}</h2>`,
@@ -555,11 +557,13 @@ if (nextSitemap !== currentSitemap) {
 }
 
 const cssVersion = hash(await readFile(rootPath('css/main.css')));
+const fontsVersion = hash(await readFile(rootPath('css/fonts.css')));
 const jsVersion = hash(await readFile(rootPath('js/main.js')));
 
 for (const htmlPath of await htmlFiles()) {
     const relativePath = path.relative(ROOT, htmlPath);
     await updateHtml(relativePath, (original) => original
+        .replace(/(\/css\/fonts\.css)(?:\?v=[^"']+)?/g, `$1?v=${fontsVersion}`)
         .replace(/(\/css\/main\.css)\?v=[^"']+/g, `$1?v=${cssVersion}`)
         .replace(/(\/js\/main\.js)\?v=[^"']+/g, `$1?v=${jsVersion}`));
 }

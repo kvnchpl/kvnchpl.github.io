@@ -19,6 +19,8 @@ Hosted via [GitHub Pages](https://pages.github.com/).
 2. Run `node scripts/build-site.mjs` from the repository root.
 3. Review and commit both the source data and generated HTML changes.
 
+Run `node scripts/check-site.mjs` to verify local references and generated asset versions. GitHub Actions also checks JavaScript syntax and confirms that generated files are current on every push and pull request.
+
 Content between `generated:*` comments is replaced by the build script and should not be edited directly. The generated files remain committed so GitHub Pages can serve them without a custom deployment process and visitors receive complete pages before JavaScript runs.
 
 Projects use ordered `sections`, each of which may contain `images`, `text`, or both:
