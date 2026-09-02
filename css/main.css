@@ -112,9 +112,13 @@ a {
     text-transform: var(--text-transform-link);
 }
 
+a:hover,
+a:hover * {
+    color: var(--color-link-hover) !important;
+    text-transform: var(--text-transform-link-hover) !important;
+}
+
 a:hover {
-    color: var(--color-link-hover);
-    text-transform: var(--text-transform-link-hover);
     text-decoration: underline;
 }
 

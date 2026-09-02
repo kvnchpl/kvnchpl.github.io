@@ -64,10 +64,14 @@
             text-transform: uppercase;
         }
 
+        a:hover,
+        a:hover * {
+            color: var(--color-link-hover) !important;
+            text-transform: lowercase !important;
+        }
+
         a:hover {
-            color: var(--color-link-hover);
             text-decoration: underline;
-            text-transform: lowercase;
         }
 
         a:focus-visible,
