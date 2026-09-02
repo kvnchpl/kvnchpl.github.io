@@ -54,7 +54,7 @@
         "external": true,
         "newTab": true,
         "label": "Readings",
-        "navBar": true,
+        "navBar": false,
         "homePage": true,
         "metaName": null,
         "format": null
