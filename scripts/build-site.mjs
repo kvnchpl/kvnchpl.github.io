@@ -22,7 +22,7 @@ const pageConfigs = {
     },
     'home.html': {
         title: 'Home | Kevin Cunanan Chappelle',
-        description: 'Explore the projects, writings, and contact information of Brooklyn-based artist Kevin Cunanan Chappelle.',
+        description: 'Explore the projects and writings of Brooklyn-based artist Kevin Cunanan Chappelle, and learn more about their practice.',
         canonicalPath: '/home',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
@@ -49,8 +49,8 @@ const pageConfigs = {
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'contact.html': {
-        title: 'About and Contact | Kevin Cunanan Chappelle',
-        description: 'About and contact information for Kevin Cunanan Chappelle, a Brooklyn-based artist working across digital, physical, and spiritual spaces.',
+        title: 'About | Kevin Cunanan Chappelle',
+        description: 'About Kevin Cunanan Chappelle, a Brooklyn-based artist working across digital, physical, and spiritual spaces.',
         canonicalPath: '/contact',
         image: '/img/contact/self_portrait.webp',
         imageAlt: 'Kevin Cunanan Chappelle',
@@ -258,7 +258,7 @@ function renderNav(navData, pageId) {
     const links = navData
         .filter((link) => link.navBar)
         .map((link) => {
-            const isCurrent = link.label.toLowerCase() === pageId;
+            const isCurrent = link.href === `/${pageId}`;
             const label = isCurrent ? `*${link.label}*` : link.label;
             const current = isCurrent ? ' aria-current="page"' : '';
             return `        <a href="${escapeAttribute(link.href)}"${linkAttributes(link.newTab)}${current}>${escapeHtml(label)}</a>`;

@@ -96,12 +96,12 @@
         "format": null
     },
     {
-        "title": "Say hi (Contact)",
+        "title": "Learn more about me",
         "href": "/contact",
         "collection": false,
         "external": false,
         "newTab": false,
-        "label": "Contact",
+        "label": "About",
         "navBar": true,
         "homePage": true,
         "metaName": null,
