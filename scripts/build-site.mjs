@@ -48,10 +48,10 @@ const pageConfigs = {
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
     },
-    'contact.html': {
+    'about.html': {
         title: 'About',
         description: 'About Kevin Cunanan Chappelle, a Brooklyn-based artist working across digital, physical, and spiritual spaces.',
-        canonicalPath: '/contact',
+        canonicalPath: '/about',
         image: '/img/contact/self_portrait.webp',
         imageAlt: 'Kevin Cunanan Chappelle',
         ogType: 'profile',
@@ -461,7 +461,7 @@ function sitemapXml(projects, writings) {
         if (!writing.external) urls.push(`/writings/${writing.key}`);
         if (writing.permalink?.startsWith('/')) urls.push(writing.permalink);
     }
-    urls.push('/readings', '/contact');
+    urls.push('/readings', '/about');
 
     const uniqueUrls = [...new Set(urls.map(absoluteUrl))];
     const body = uniqueUrls
@@ -486,7 +486,7 @@ for (const [file, config] of Object.entries(pageConfigs)) {
     await updateHtml(file, (original) => {
         const seo = renderSeo(config);
         let html = replaceGeneratedBlock(original, 'seo', seo, initialSeoPattern);
-        if (['projects.html', 'writings.html', 'readings.html', 'contact.html'].includes(file)) {
+        if (['projects.html', 'writings.html', 'readings.html', 'about.html'].includes(file)) {
             const pageId = file.replace('.html', '');
             html = replaceGeneratedBlock(html, 'nav', renderNav(navData, pageId), initialNavPattern);
         }

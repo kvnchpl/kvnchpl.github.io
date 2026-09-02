@@ -97,7 +97,7 @@
     },
     {
         "title": "Learn more about me",
-        "href": "/contact",
+        "href": "/about",
         "collection": false,
         "external": false,
         "newTab": false,
