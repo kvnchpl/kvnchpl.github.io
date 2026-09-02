@@ -52,6 +52,10 @@ body[data-page="404"] main {
     text-align: center;
 }
 
+body[data-page="404"] h1 {
+    text-transform: uppercase;
+}
+
 .iframe {
     width: 100dvw;
     height: 56.25dvw;
@@ -208,6 +212,7 @@ img {
     display: flex;
     justify-content: center;
     z-index: 1;
+    text-transform: uppercase;
 }
 
 #title-top {
@@ -320,6 +325,7 @@ img {
 
 .page-title {
     margin: var(--spacing-small);
+    text-transform: uppercase;
 }
 
 .page-subtitle {
@@ -433,6 +439,11 @@ img {
 .post-content .title {
     font-size: var(--font-size-main) !important;
     text-wrap: auto;
+}
+
+.post-content .title,
+.post-content .title a {
+    text-transform: uppercase;
 }
 
 .tmblr-iframe {

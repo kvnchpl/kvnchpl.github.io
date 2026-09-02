@@ -10,6 +10,7 @@
     <title>{Title}{block:TagPage} ({lang:Posts tagged Tag}){/block:TagPage}{block:SearchPage} ({lang:Search results for
         SearchQuery}){/block:SearchPage}{block:PermalinkPage}{block:PostSummary} —
         {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+    <script>document.title = document.title.toLocaleUpperCase('en-US');</script>
     <meta name="description" content="{MetaDescription}">
     {block:Hidden}
     <meta name="if:Sliding header" content="1">
@@ -59,7 +60,8 @@
             ;
        }
 
-        .blog-title {
+        .blog-title,
+        .blog-title a {
             font-family: {
                 TitleFont
             }
@@ -75,6 +77,7 @@
             }
 
             ;
+            text-transform: uppercase;
        }
 
         .blog-title a,

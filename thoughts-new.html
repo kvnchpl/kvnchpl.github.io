@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>{Title}{block:TagPage} — #{Tag}{/block:TagPage}{block:SearchPage} — {lang:Search results for SearchQuery}{/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
+    <script>document.title = document.title.toLocaleUpperCase('en-US');</script>
     <meta name="description" content="{MetaDescription}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
@@ -166,6 +167,12 @@
         .post-title,
         .link-title {
             font: inherit;
+        }
+
+        .post-title,
+        .post-title a,
+        .link-title {
+            text-transform: uppercase;
         }
 
         .post-title {

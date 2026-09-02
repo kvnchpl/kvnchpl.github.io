@@ -115,8 +115,10 @@ function absoluteUrl(value) {
 
 function metadataTitle(value) {
     const siteSuffix = ` | ${SITE_NAME}`;
-    if (!value.endsWith(siteSuffix)) return value;
-    return `${value.slice(0, -siteSuffix.length).toLocaleUpperCase('en-US')}${siteSuffix}`;
+    const title = value.endsWith(siteSuffix)
+        ? value.slice(0, -siteSuffix.length)
+        : value;
+    return title.toLocaleUpperCase('en-US');
 }
 
 function assertLocalAsset(url) {
@@ -266,7 +268,7 @@ function renderPageLink({ href, title, subtitle, thumbnail, newTab, reverse, sky
         `            <a class="${linkClass}" href="${escapeAttribute(href)}"${linkAttributes(newTab)}>`,
         `                <img src="${escapeAttribute(image)}" width="80" height="80" alt="${escapeAttribute(title)}" loading="${loading}" decoding="async"${skyAttribute} />`,
         '                <div class="text-block">',
-        `                    <p class="page-title">${escapeHtml(title)}</p>`
+        `                    <p class="page-title">${escapeHtml(metadataTitle(title))}</p>`
     ];
 
     if (subtitle) lines.push(`                    <p class="page-subtitle">${escapeHtml(subtitle)}</p>`);
@@ -482,7 +484,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
     const image = projectSocialImage(project);
     assertLocalAsset(image);
     const config = {
-        title: `${project.title} | ${SITE_NAME}`,
+        title: project.title,
         description: project.description,
         canonicalPath: `/projects/${project.key}`,
         image,
@@ -494,7 +496,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
         html = replaceGeneratedBlock(html, 'nav', renderNav(navData, 'projects'), initialNavPattern);
         const header = generatedBlock(
             'page-header',
-            `        <h1 id="main-heading">*${escapeHtml(project.title)}*</h1>\n        <h2 id="subtitle">${escapeHtml(monthYear(project) || '')}</h2>`,
+            `        <h1 id="main-heading">*${escapeHtml(metadataTitle(project.title))}*</h1>\n        <h2 id="subtitle">${escapeHtml(monthYear(project) || '')}</h2>`,
             '        '
         );
         html = replaceGeneratedBlock(html, 'page-header', header, initialHeaderPattern);
@@ -506,7 +508,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
 for (const writing of writings.filter((entry) => !entry.external)) {
     const file = `writings/${writing.key}.html`;
     const config = {
-        title: `${writing.title} | ${SITE_NAME}`,
+        title: writing.title,
         description: `${writing.title} is a work of creative writing by Brooklyn-based artist ${SITE_NAME}.`,
         canonicalPath: `/writings/${writing.key}`,
         image: DEFAULT_IMAGE,
@@ -520,7 +522,7 @@ for (const writing of writings.filter((entry) => !entry.external)) {
         html = replaceGeneratedBlock(html, 'nav', renderNav(navData, 'writings'), initialNavPattern);
         const header = generatedBlock(
             'page-header',
-            `        <h1 id="main-heading">*${escapeHtml(writing.title)}*</h1>\n        <h2 id="subtitle">${escapeHtml(monthYear(writing) || '')}</h2>`,
+            `        <h1 id="main-heading">*${escapeHtml(metadataTitle(writing.title))}*</h1>\n        <h2 id="subtitle">${escapeHtml(monthYear(writing) || '')}</h2>`,
             '        '
         );
         html = replaceGeneratedBlock(html, 'page-header', header, initialHeaderPattern);

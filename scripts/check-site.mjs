@@ -37,6 +37,19 @@ for (const file of htmlFiles) {
     const relativePath = path.relative(ROOT, file);
     const html = await readFile(file, 'utf8');
 
+    const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1].trim();
+    if (!title) {
+        errors.push(`${relativePath}: missing title`);
+    } else {
+        if (title.includes(' | Kevin Cunanan Chappelle')) {
+            errors.push(`${relativePath}: title includes the site-name affix`);
+        }
+        const visibleTitle = title.replaceAll(/&[^;]+;/g, '');
+        if (!title.includes('{') && visibleTitle !== visibleTitle.toLocaleUpperCase('en-US')) {
+            errors.push(`${relativePath}: title is not uppercase`);
+        }
+    }
+
     if (relativePath === 'thoughts.html') continue;
 
     for (const [asset, expectedVersion] of versions) {
