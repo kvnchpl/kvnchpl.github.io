@@ -21,35 +21,35 @@ const pageConfigs = {
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'home.html': {
-        title: 'Home | Kevin Cunanan Chappelle',
+        title: 'Home',
         description: 'Explore the projects and writings of Brooklyn-based artist Kevin Cunanan Chappelle, and learn more about their practice.',
         canonicalPath: '/home',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'projects.html': {
-        title: 'Projects | Kevin Cunanan Chappelle',
+        title: 'Projects',
         description: 'Selected digital art, installations, performance, and experimental projects by Brooklyn-based artist Kevin Cunanan Chappelle.',
         canonicalPath: '/projects',
         image: '/img/projects/compiler-buddha/buddha-site-demo.png',
         imageAlt: 'Compiler Buddha by Kevin Cunanan Chappelle'
     },
     'writings.html': {
-        title: 'Writings | Kevin Cunanan Chappelle',
+        title: 'Writings',
         description: 'Poetry and creative writing by Brooklyn-based artist Kevin Cunanan Chappelle.',
         canonicalPath: '/writings',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'readings.html': {
-        title: 'Readings | Kevin Cunanan Chappelle',
+        title: 'Readings',
         description: 'A reading list of essays, criticism, poetry, and books selected by artist Kevin Cunanan Chappelle.',
         canonicalPath: '/readings',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'contact.html': {
-        title: 'About | Kevin Cunanan Chappelle',
+        title: 'About',
         description: 'About Kevin Cunanan Chappelle, a Brooklyn-based artist working across digital, physical, and spiritual spaces.',
         canonicalPath: '/contact',
         image: '/img/contact/self_portrait.webp',
