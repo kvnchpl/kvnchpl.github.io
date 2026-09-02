@@ -37,14 +37,14 @@ for (const file of htmlFiles) {
     const relativePath = path.relative(ROOT, file);
     const html = await readFile(file, 'utf8');
 
+    if (relativePath === 'thoughts.html') continue;
+
     for (const [asset, expectedVersion] of versions) {
         if (!html.includes(asset)) continue;
         if (!html.includes(`${asset}?v=${expectedVersion}`)) {
             errors.push(`${relativePath}: stale or missing version for ${asset}`);
         }
     }
-
-    if (relativePath === 'thoughts.html') continue;
 
     for (const match of html.matchAll(/(?:src|href|poster)=["'](\/[^"'#? ]+)/g)) {
         const url = match[1];

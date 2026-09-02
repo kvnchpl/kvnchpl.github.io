@@ -49,15 +49,15 @@
     },
     {
         "title": "See what I’m reading",
-        "href": "/readings",
-        "collection": true,
-        "external": false,
-        "newTab": false,
+        "href": "https://www.goodreads.com/kvnchpl",
+        "collection": false,
+        "external": true,
+        "newTab": true,
         "label": "Readings",
         "navBar": true,
         "homePage": true,
-        "metaName": "readings-data",
-        "format": "detailed"
+        "metaName": null,
+        "format": null
     },
     {
         "title": "See what I’m watching",

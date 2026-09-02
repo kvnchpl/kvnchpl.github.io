@@ -7,7 +7,7 @@ Hosted via [GitHub Pages](https://pages.github.com/).
 
 ## Structure
 
-- `json/nav.json`, `json/projects.json`, `json/readings.json`, and `json/writings.json` hold the editable site content.
+- `json/nav.json`, `json/projects.json`, and `json/writings.json` hold the editable site content.
 - `scripts/build-site.mjs` renders shared navigation, collection links, project sections, SEO metadata, the sitemap, and asset version hashes into the HTML files.
 - `js/main.js` only enhances the generated HTML with randomized sky thumbnails, project slideshows, and navigation for the separately hosted Tumblr theme.
 - Individual content pages use two layouts: `project-layout` for ordered media/text sections and `writing-layout` for writing.
