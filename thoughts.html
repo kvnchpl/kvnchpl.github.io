@@ -4,7 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>{Title}{block:TagPage} — #{Tag}{/block:TagPage}{block:SearchPage} — {lang:Search results for SearchQuery}{/block:SearchPage}{block:PermalinkPage}{block:PostSummary} — {PostSummary}{/block:PostSummary}{/block:PermalinkPage}</title>
-    <script>document.title = document.title.toLocaleUpperCase('en-US');</script>
+    <script>
+        document.title = document.title
+            .replace({JSPlaintextTitle}, 'THOUGHTS')
+            .toLocaleUpperCase('en-US');
+    </script>
     <meta name="description" content="{MetaDescription}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#000000">
@@ -550,7 +554,7 @@
     </nav>
 
     <main>
-        <h1 class="visually-hidden">{Title}</h1>
+        <h1 class="visually-hidden">THOUGHTS</h1>
 
         {block:TagPage}
         <h2 class="page-context">#{Tag}</h2>
