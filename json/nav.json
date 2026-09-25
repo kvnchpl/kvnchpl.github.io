@@ -96,6 +96,18 @@
         "format": null
     },
     {
+        "title": "Read Homestuck with me",
+        "href": "https://kvnchpl.com/homestuck-book-club/",
+        "collection": false,
+        "external": true,
+        "newTab": true,
+        "label": "Homestuck",
+        "navBar": false,
+        "homePage": true,
+        "metaName": null,
+        "format": null
+    },
+    {
         "title": "Learn more about me",
         "href": "/about",
         "collection": false,
