@@ -26,15 +26,42 @@
         "sections": [
             {
                 "images": [
-                    "viewfinder_1",
-                    "viewfinder_2",
-                    "viewfinder_3",
-                    "viewfinder_4",
-                    "viewfinder_5",
-                    "viewfinder_6",
-                    "viewfinder_7",
-                    "viewfinder_8",
-                    "viewfinder_9"
+                    {
+                        "file": "viewfinder_1",
+                        "alt": "Pale foliage and pink flowers overlaid with a red detection box and a red sign reading MEGA."
+                    },
+                    {
+                        "file": "viewfinder_2",
+                        "alt": "Layered white petals and green foliage beneath a blue BREAK label, with a red box around a flower."
+                    },
+                    {
+                        "file": "viewfinder_3",
+                        "alt": "A dark red flower enclosed by a red detection box, beside a glowing red NEED sign."
+                    },
+                    {
+                        "file": "viewfinder_4",
+                        "alt": "A red box isolates a pink flower among pale stems, above a blurred green NEW label."
+                    },
+                    {
+                        "file": "viewfinder_5",
+                        "alt": "A red detection box surrounds a small tree above dense pink foliage and an INDUSTRY sign."
+                    },
+                    {
+                        "file": "viewfinder_6",
+                        "alt": "A red box frames a small dark form against a pink and yellow sky, above foliage and a SOLD label."
+                    },
+                    {
+                        "file": "viewfinder_7",
+                        "alt": "A tall, warped black-and-white sign overlaps foliage outlined by a red detection box."
+                    },
+                    {
+                        "file": "viewfinder_8",
+                        "alt": "A red box encloses a hanging, folded plant form beneath a red FIGHT label."
+                    },
+                    {
+                        "file": "viewfinder_9",
+                        "alt": "An empty red detection box floats against an almost white field streaked with pink and yellow."
+                    }
                 ],
                 "text": "Nature has been manipulated throughout the course of Western civilization to be packaged into consumable forms. Originating in ideals of order and beauty, Italian Renaissance gardens were meant to idealize human dominion over the untamed wilderness. This compulsion to classify and control has evolved over time, culminating in our current era of surveillance that is swiftly automated and accelerated by AI object detection technology. Extending to the digital sphere, both images and their referents are now reduced to categories. Objects do not necessarily “exist.” Our sense of the world is mediated through technology that was never meant to prize nuance or instinct."
             }
@@ -47,14 +74,23 @@
         "key": "triptych",
         "fullWidth": 1920,
         "description": "An artistic homage to the complexity and emotional depth of Francis Bacon's work.",
-        "month": 10,
+        "month": 5,
         "year": 2024,
         "sections": [
             {
                 "images": [
-                    "triptych_1",
-                    "triptych_2",
-                    "triptych_3"
+                    {
+                        "file": "triptych_1",
+                        "alt": "A red face and fragmented torso overlap dark, mottled textures on white, crossed by a blue arrow curving upward."
+                    },
+                    {
+                        "file": "triptych_2",
+                        "alt": "A red reclining figure stretches across a white field beneath a blue arrow curving upward."
+                    },
+                    {
+                        "file": "triptych_3",
+                        "alt": "Red fragments of a bent figure sit beside a dark rectangular image, crossed by a long blue arrow pointing upward."
+                    }
                 ],
                 "text": "Ode to Francis Bacon, his illegibility, his romance, and his turmoil."
             }
@@ -72,12 +108,30 @@
         "sections": [
             {
                 "images": [
-                    "archipelago_1",
-                    "archipelago_2",
-                    "archipelago_3",
-                    "archipelago_4",
-                    "archipelago_5",
-                    "archipelago_6"
+                    {
+                        "file": "archipelago_1",
+                        "alt": "A narrow banner layers blue and green digital fragments, black rectangular outlines, and two black organic silhouettes above the word noguchi."
+                    },
+                    {
+                        "file": "archipelago_2",
+                        "alt": "A vertical banner pairs black and lavender organic silhouettes with a framed patch of blue sky and clouds above the title archipelago."
+                    },
+                    {
+                        "file": "archipelago_3",
+                        "alt": "Black and red branching silhouettes cross overlapping rectangular frames on a blue, green, and white collage banner."
+                    },
+                    {
+                        "file": "archipelago_4",
+                        "alt": "Green and black pointed organic silhouettes interrupt rectangular outlines and streaks of blue and white on a narrow banner."
+                    },
+                    {
+                        "file": "archipelago_5",
+                        "alt": "Two black winglike silhouettes overlap a yellow rectangle, black frames, and blue-green digital textures."
+                    },
+                    {
+                        "file": "archipelago_6",
+                        "alt": "Black and orange branching silhouettes cross a rectangular frame amid purple, blue, and green landscape fragments."
+                    }
                 ],
                 "text": "\"The Noguchi Museum continues to celebrate and amplify creative voices in our local Asian American and Pacific Islander (AAPI) communities with the third annual Open Call for Artist Banners. As an institution founded by Japanese American artist Isamu Noguchi, The Noguchi Museum stands in solidarity with AAPI communities and any community targeted by discrimination, oppression, or racism. In 2024, the Museum invited emerging AAPI artists based in New York City to submit designs for the Museum's outdoor banners addressing the theme of \"labor and love.\"\"\nArchipelago centers the rectangular frame as a motif dually representing the digital interfaces we encounter in contemporary life and the psychological framework through which we perceive others. Each banner features a pair of abstract fauna and flora, which mirror each other in relation to or in opposition with the frame, reflecting the emotional effort required to care for others in spite of perceived faults or misunderstandings. The banners’ collage of disparate elements – the AI-generated jungle landscapes, pixelated image scrap, and indeterminate symbols – embraces the spirit of the Philippines, consisting of over 7,000 islands, as a testament of unity across different peoples, cultures, and languages.\n(Proposal for the Noguchi Museum Open Call for Artist Banners 2024)"
             }
@@ -95,12 +149,30 @@
         "sections": [
             {
                 "images": [
-                    "intraface_1",
-                    "intraface_2",
-                    "intraface_3",
-                    "intraface_4",
-                    "intraface_5",
-                    "intraface_6"
+                    {
+                        "file": "intraface_1",
+                        "alt": "A dense grid of tiny game rooms sits above a blue strip and larger isometric rooms arranged on black."
+                    },
+                    {
+                        "file": "intraface_2",
+                        "alt": "Isometric rooms and strips of game interface panels form a collage on a purple background."
+                    },
+                    {
+                        "file": "intraface_3",
+                        "alt": "A bright green collage of interface windows, sliders, and small panels surrounds an isometric room."
+                    },
+                    {
+                        "file": "intraface_4",
+                        "alt": "Rows of isometric spaces and green interface panels sit above two large black windows."
+                    },
+                    {
+                        "file": "intraface_5",
+                        "alt": "A room-design window with furniture icons floats over an enlarged geometric interior in beige, green, and red."
+                    },
+                    {
+                        "file": "intraface_6",
+                        "alt": "Overlapping blue and green interface windows contain trees, houses, rooms, and grids of small icons."
+                    }
                 ],
                 "text": "Interfaces are the meeting points where two entities present to each other the abstractions of their inner worlds. As a canonical example, a “submit” button is the compromise between a human user’s desire to finalize something, and the inner machinations of a computer to engage with its storage. How can we drill deeper into our inner interfaces – our “intrafaces” – that represent the infinite compromises made between competing parts of our bodies, mind, and spirit? Imagine drop-down menus with all options spelled out. At what point does further definition and deconstruction return to the realm of abstraction?"
             }
@@ -118,46 +190,136 @@
         "sections": [
             {
                 "images": [
-                    "friday-night-never_1_1",
-                    "friday-night-never_1_2",
-                    "friday-night-never_1_3",
-                    "friday-night-never_1_4",
-                    "friday-night-never_1_5",
-                    "friday-night-never_1_6",
-                    "friday-night-never_1_7",
-                    "friday-night-never_1_8",
-                    "friday-night-never_1_9",
-                    "friday-night-never_1_10"
+                    {
+                        "file": "friday-night-never_1_1",
+                        "alt": "A close-up party scene centers a face beneath a reflective sphere, surrounded by colored lights and other faces."
+                    },
+                    {
+                        "file": "friday-night-never_1_2",
+                        "alt": "A group of figures in dark and yellow clothing stands together in a warmly lit room."
+                    },
+                    {
+                        "file": "friday-night-never_1_3",
+                        "alt": "Figures in pale and patterned dresses raise their arms among large pink and white flowers."
+                    },
+                    {
+                        "file": "friday-night-never_1_4",
+                        "alt": "A tightly packed crowd of figures with smooth, distorted faces wears blue, purple, and red clothing."
+                    },
+                    {
+                        "file": "friday-night-never_1_5",
+                        "alt": "Figures dance with arms raised behind their heads; a central figure has a purple face and white shirt."
+                    },
+                    {
+                        "file": "friday-night-never_1_6",
+                        "alt": "A crowd of blue, purple, and yellow faces looks upward as hands reach into a dark space."
+                    },
+                    {
+                        "file": "friday-night-never_1_7",
+                        "alt": "Figures gather on a raised platform in an industrial room, with a pale face and small boxes in the foreground."
+                    },
+                    {
+                        "file": "friday-night-never_1_8",
+                        "alt": "Blurred faces fill the foreground of a dim room lined with stacked rectangular structures."
+                    },
+                    {
+                        "file": "friday-night-never_1_9",
+                        "alt": "Figures with flowerlike faces wear white and yellow garments patterned with red and pink blooms."
+                    },
+                    {
+                        "file": "friday-night-never_1_10",
+                        "alt": "Pale mannequinlike figures stand among dark trees and beds of purple and white flowers."
+                    }
                 ],
                 "text": "A celebration for the last images on earth, once all content has been recycled and experienced. Was this the intended endpoint of evolution all along?"
             },
             {
                 "images": [
-                    "friday-night-never_2_1",
-                    "friday-night-never_2_2",
-                    "friday-night-never_2_3",
-                    "friday-night-never_2_4",
-                    "friday-night-never_2_5",
-                    "friday-night-never_2_6",
-                    "friday-night-never_2_7",
-                    "friday-night-never_2_8",
-                    "friday-night-never_2_9",
-                    "friday-night-never_2_10"
+                    {
+                        "file": "friday-night-never_2_1",
+                        "alt": "A four-panel grid repeats close-up party faces beneath reflective spheres and multicolored lights."
+                    },
+                    {
+                        "file": "friday-night-never_2_2",
+                        "alt": "A grid of dark and yellow scenes shows isolated figures in long coats and suits."
+                    },
+                    {
+                        "file": "friday-night-never_2_3",
+                        "alt": "A grid of scenes combines elongated figures, pale dresses, raised arms, and pink floral forms."
+                    },
+                    {
+                        "file": "friday-night-never_2_4",
+                        "alt": "Two horizontal panels show rows of smooth-headed figures wearing orange, blue, yellow, and pink."
+                    },
+                    {
+                        "file": "friday-night-never_2_5",
+                        "alt": "A two-panel composition repeats dancing figures in purple, pink, and white with arms raised."
+                    },
+                    {
+                        "file": "friday-night-never_2_6",
+                        "alt": "A split composition shows blue-faced figures above a crowd of red and yellow faces and raised hands."
+                    },
+                    {
+                        "file": "friday-night-never_2_7",
+                        "alt": "Three horizontal scenes show scattered figures standing and sitting in a broad, nearly empty interior."
+                    },
+                    {
+                        "file": "friday-night-never_2_8",
+                        "alt": "A six-panel grid shows dim interiors with isolated bright faces, screens, and colored lights."
+                    },
+                    {
+                        "file": "friday-night-never_2_9",
+                        "alt": "Two rows of figures wear floral-patterned clothing, with blossoms replacing or obscuring their faces."
+                    },
+                    {
+                        "file": "friday-night-never_2_10",
+                        "alt": "A four-panel grid shifts from monochrome silhouettes above to figures amid blue, pink, and green foliage below."
+                    }
                 ],
                 "text": "(Variations)"
             },
             {
                 "images": [
-                    "friday-night-never_3_1",
-                    "friday-night-never_3_2",
-                    "friday-night-never_3_3",
-                    "friday-night-never_3_4",
-                    "friday-night-never_3_5",
-                    "friday-night-never_3_6",
-                    "friday-night-never_3_7",
-                    "friday-night-never_3_8",
-                    "friday-night-never_3_9",
-                    "friday-night-never_3_10"
+                    {
+                        "file": "friday-night-never_3_1",
+                        "alt": "A four-panel grid shows distorted close-up faces surrounded by fluorescent green, purple, and pink streaks."
+                    },
+                    {
+                        "file": "friday-night-never_3_2",
+                        "alt": "A four-panel grid reduces standing figures to blurred dark blue and yellow silhouettes."
+                    },
+                    {
+                        "file": "friday-night-never_3_3",
+                        "alt": "A four-panel grid dissolves figures and floral forms into mottled red, green, gray, and white patches."
+                    },
+                    {
+                        "file": "friday-night-never_3_4",
+                        "alt": "Two horizontal panels show tightly packed rows of distorted figures in vivid yellow, blue, red, and pink."
+                    },
+                    {
+                        "file": "friday-night-never_3_5",
+                        "alt": "A four-panel grid shows glossy purple and pink figures with stretched bodies and raised arms."
+                    },
+                    {
+                        "file": "friday-night-never_3_6",
+                        "alt": "A split composition pairs blue figures reaching upward with a lower row of smooth red faces on black."
+                    },
+                    {
+                        "file": "friday-night-never_3_7",
+                        "alt": "A collage shifts between tiny standing figures and large blurred yellow and orange bodies against black."
+                    },
+                    {
+                        "file": "friday-night-never_3_8",
+                        "alt": "A six-panel grid shows glowing colored heads and rectangular lights floating in dark rooms."
+                    },
+                    {
+                        "file": "friday-night-never_3_9",
+                        "alt": "Two rows of elongated figures dissolve into white, red, yellow, and multicolored streaks against black."
+                    },
+                    {
+                        "file": "friday-night-never_3_10",
+                        "alt": "A four-panel grid pairs grainy black-and-white silhouettes with dense blue, pink, and green abstractions."
+                    }
                 ],
                 "text": "(Disintegrations)"
             }
@@ -175,16 +337,34 @@
         "sections": [
             {
                 "images": [
-                    "dimensional-freedom_1"
+                    {
+                        "file": "dimensional-freedom_1",
+                        "alt": "Tall white structures with vertical screens show people outdoors on either side of a gallery space."
+                    }
                 ]
             },
             {
                 "images": [
-                    "dimensional-freedom_2",
-                    "dimensional-freedom_3",
-                    "dimensional-freedom_4",
-                    "dimensional-freedom_5",
-                    "dimensional-freedom_6"
+                    {
+                        "file": "dimensional-freedom_2",
+                        "alt": "A vertical screen set into a freestanding white structure shows a person in a dark top walking away outdoors."
+                    },
+                    {
+                        "file": "dimensional-freedom_3",
+                        "alt": "Three vertical screens in white structures show people standing and walking among trees, including a person in a pink top."
+                    },
+                    {
+                        "file": "dimensional-freedom_4",
+                        "alt": "An angled gallery view shows a row of tall white pillars, each containing a vertical video screen."
+                    },
+                    {
+                        "file": "dimensional-freedom_5",
+                        "alt": "A vertical screen shows a person holding a video camera to their face against green foliage."
+                    },
+                    {
+                        "file": "dimensional-freedom_6",
+                        "alt": "A screen in a white pillar shows a person with long dark hair in a striped top standing outdoors."
+                    }
                 ]
             },
             {
@@ -204,12 +384,30 @@
         "sections": [
             {
                 "images": [
-                    "520-missing_1",
-                    "520-missing_2",
-                    "520-missing_3",
-                    "520-missing_4",
-                    "520-missing_5",
-                    "520-missing_6"
+                    {
+                        "file": "520-missing_1",
+                        "alt": "A poster with a generated smiling portrait reads MISSING STANFORD PROFESSOR and is taped among campus notices."
+                    },
+                    {
+                        "file": "520-missing_2",
+                        "alt": "A MISSING STANFORD PROFESSOR portrait poster is taped to a stone wall beside a broad outdoor staircase."
+                    },
+                    {
+                        "file": "520-missing_3",
+                        "alt": "A MISSING STANFORD PROFESSOR poster with a generated portrait hangs among overlapping flyers on a campus bulletin board."
+                    },
+                    {
+                        "file": "520-missing_4",
+                        "alt": "A portrait poster headed MISSING is attached with blue tape to a rough concrete wall."
+                    },
+                    {
+                        "file": "520-missing_5",
+                        "alt": "A creased MISSING STANFORD PROFESSOR portrait poster lies on a dark horizontal surface."
+                    },
+                    {
+                        "file": "520-missing_6",
+                        "alt": "Rows of portrait posters flank the glass entrance doors to the Stanford Faculty Club."
+                    }
                 ],
                 "text": "As of May 2019, in order for the demographics of the Stanford University faculty to accurately reflect the student population, 520 white professors would need to be replaced by professors of color. The 520 Missing project was a performance in which I asked members of the public to help me put up posters around campus. I produced 520 posters total, each standing in for one the “missing” professors. The faces of the faculty members were created using a GAN image generator, so as not to implicate the identities of real people."
             }
@@ -227,7 +425,10 @@
         "sections": [
             {
                 "images": [
-                    "truth-visions_1"
+                    {
+                        "file": "truth-visions_1",
+                        "alt": "A television embedded in a mound of sand displays a live view of the same sand-and-monitor installation in front of large windows."
+                    }
                 ],
                 "text": "Just as the photograph altered the function and objectivity of painting one hundred years ago, the advent of CGI – especially AI-generated imagery – similarly altered our understanding of photography. The implicit assumptions we make of photos and videos, such as the presence of a photographer, a camera, and subject, are destabilizing. The ability of photography to depict truth has been debated since its invention. But what does it mean when we can no longer distinguish a photograph from a completely artificial image? From which parts of our vision can we glean truth? This installation as a whole is a truth-telling device. It relies on the veracity of live footage as well as plain reflections in order to distill “real images.” It features a large television sinking into a mound of sand and displaying a CCTV broadcast of the installation itself. Off to the side are photographs of the installation printed onto clear film, revealing a mirror underlying the images. In all components of the installation, viewers will encounter a form of “real image.”"
             }

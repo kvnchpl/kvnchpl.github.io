@@ -29,12 +29,17 @@ Projects use ordered `sections`, each of which may contain `images`, `text`, or 
 {
     "sections": [
         {
-            "images": ["project_1", "project_2"],
+            "images": [
+                { "file": "project_1", "alt": "A literal description of the first image." },
+                { "file": "project_2", "alt": "A literal description of the second image." }
+            ],
             "text": "Project description."
         }
     ]
 }
 ```
+
+Each gallery image requires its own `alt` description, used both in the initial HTML and when changing slides. Describe visible forms and installation views rather than repeating the title or filename. Collection thumbnails have empty alt text because their links already contain the work’s title.
 
 Every project has an explicit `thumbnail` path. Link destination and browsing behavior are independent: `external` describes project ownership, while `newTab` controls whether its link opens a new tab. Set `sitemap` to `true` for separately managed same-domain projects, such as JUNGLE, that should appear in the root sitemap.
 

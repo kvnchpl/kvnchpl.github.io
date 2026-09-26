@@ -266,7 +266,7 @@ function renderPageLink({ href, title, subtitle, thumbnail, newTab, reverse, sky
     const loading = index < 4 ? 'eager' : 'lazy';
     const lines = [
         `            <a class="${linkClass}" href="${escapeAttribute(href)}"${linkAttributes(newTab)}>`,
-        `                <img src="${escapeAttribute(image)}" width="80" height="80" alt="${escapeAttribute(title)}" loading="${loading}" decoding="async"${skyAttribute} />`,
+        `                <img src="${escapeAttribute(image)}" width="80" height="80" alt="" loading="${loading}" decoding="async"${skyAttribute} />`,
         '                <div class="text-block">',
         `                    <p class="page-title">${escapeHtml(metadataTitle(title))}</p>`
     ];
@@ -335,7 +335,8 @@ function imageSrcset(project, image) {
 
 function renderSlideshow(project, images, sectionIndex) {
     for (const image of images) {
-        for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(project.key, image, size));
+        if (!image.file || !image.alt?.trim()) throw new Error(`Missing image file or alt text: ${project.key}`);
+        for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(project.key, image.file, size));
     }
 
     const firstImage = images[0];
@@ -354,7 +355,7 @@ function renderSlideshow(project, images, sectionIndex) {
     }
 
     lines.push(
-        `                        <img src="${imageUrl(project.key, firstImage)}" srcset="${imageSrcset(project, firstImage)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw" alt="${escapeAttribute(`${project.title}, image 1 of ${count}`)}" loading="${loading}" decoding="async" />`
+        `                        <img src="${imageUrl(project.key, firstImage.file)}" srcset="${imageSrcset(project, firstImage.file)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw" alt="${escapeAttribute(firstImage.alt)}" loading="${loading}" decoding="async" />`
     );
 
     if (count > 1) {
@@ -400,7 +401,7 @@ function renderProjectSections(project) {
 function projectSocialImage(project) {
     if (project.socialImage) return project.socialImage;
     const firstImage = project.sections.flatMap((section) => section.images || [])[0];
-    return firstImage ? imageUrl(project.key, firstImage, 'full') : project.thumbnail || DEFAULT_IMAGE;
+    return firstImage ? imageUrl(project.key, firstImage.file, 'full') : project.thumbnail || DEFAULT_IMAGE;
 }
 
 function removeRuntimeDataMeta(html) {
@@ -488,7 +489,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
         description: project.description,
         canonicalPath: `/projects/${project.key}`,
         image,
-        imageAlt: `${project.title} by ${SITE_NAME}`
+        imageAlt: project.socialImageAlt || project.sections.flatMap((section) => section.images || [])[0]?.alt || `${project.title} by ${SITE_NAME}`
     };
 
     await updateHtml(file, (original) => {
