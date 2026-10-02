@@ -7,9 +7,9 @@ Hosted via [GitHub Pages](https://pages.github.com/).
 ## Structure
 
 - `json/nav.json`, `json/projects.json`, and `json/writings.json` hold the editable site content.
-- `json/field.json` holds the authored order, symbolic marks, short notes, writing excerpts, optional account sections, and connections between works. Work identity uses `project:key` or `writing:key`, independently of display titles and URLs.
+- `json/field.json` holds the authored order, map positions, symbolic marks, short notes, writing excerpts, optional account sections, and connections between works. Work identity uses `project:key` or `writing:key`, independently of display titles and URLs.
 - `scripts/field.mjs` validates that every catalog entry is present, resolves relationships, and renders both views. `scripts/build-site.mjs` renders the field, work passages, shared navigation, project sections, SEO metadata, the sitemap, and asset version hashes into the HTML files.
-- `js/field.js` enhances the static index with encounter navigation, view preference, retracing, and browser history. Selection and view are encoded in the URL; no server or database is required. Without JavaScript the complete index and ordinary work links remain usable.
+- `js/field.js` enhances the static index with map selection, connected-path highlighting, view preference, retracing, and browser history. Selection and view are encoded in the URL; no server or database is required. Without JavaScript the complete index and ordinary work links remain usable.
 - `css/field.css` styles the two views and the shared frame around work pages. Symbol shapes are inline SVG, avoiding platform-dependent glyph rendering.
 - `js/main.js` only enhances the generated HTML with randomized sky thumbnails, project slideshows, and navigation for the separately hosted Tumblr theme.
 - Individual content pages use two layouts: `project-layout` for ordered media/text sections and `writing-layout` for writing.
@@ -23,9 +23,15 @@ Hosted via [GitHub Pages](https://pages.github.com/).
 
 Run `node --test scripts/field.test.mjs` to check catalog coverage, relationship integrity, escaping, and both collections. Run `node scripts/check-site.mjs` to verify local references and generated asset versions. GitHub Actions also checks JavaScript syntax and confirms that generated files are current on every push and pull request.
 
-To add a work, add its record to the appropriate catalog and its stable identifier to `json/field.json`. Add only deliberate connections; isolated works remain accessible through Index. Each connection is bidirectional and has one shared short phrase. The node order controls the index and numbering, while `start` controls the first encounter. The `marks` vocabulary contains `sun`, `moon`, `fire`, and `earth`; these are presentation marks, not classifications of the work.
+To add a work, add its record to the appropriate catalog and its stable identifier to `json/field.json`. Add only deliberate connections; isolated works remain accessible in both views. Each connection is bidirectional and has one shared short phrase. The node order controls the index and numbering, while `start` controls the initial selection.
+
+Each node has a `position: [x, y]` in percentages, with both coordinates between 5 and 95. Positions are authored independently of catalog order and relationship data. Network draws those relationships as SVG lines behind ordinary HTML links. The diagram uses browser scrolling on narrow screens, with a locate button to return to the selected mark. There is no layout engine, animation loop, map library, or new dependency.
+
+The six marks are `mercury`, `sulfur`, `salt`, `saturn`, `vessel`, and `seal`. The vocabulary mixes alchemical and astrological forms with an invented compound seal; marks are visual punctuation rather than classifications of the work. Their shapes live in one SVG vocabulary in `scripts/field.mjs`.
 
 `note` and `fragment` are optional. `accountSections` explicitly names project section indexes whose explanatory text should appear in a native, initially closed “Read the account” disclosure. The complete original text remains in the project catalog and generated page. Poems remain authored in their existing HTML files.
+
+Shared typography renders prose, navigation, and controls lowercase, with uppercase headings and selected labels. Only `pre.writing-content` preserves its authored casing, including nested links. Original poem text is never rewritten by the generator. Compiler Buddha's displayed source follows the lowercase display rule; its executable source remains unchanged. The separately hosted Thoughts template applies the same casing policy, preserving preformatted writing.
 
 The design brief is in [docs/redesign.md](docs/redesign.md). Rollback and preview instructions are in [docs/rollback.md](docs/rollback.md). Development stays on `redesign/site-2026-10-02`; publishing has not been requested.
 

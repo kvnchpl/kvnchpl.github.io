@@ -64,6 +64,14 @@
             text-transform: uppercase;
         }
 
+        button, input, select, textarea {
+            text-transform: lowercase;
+        }
+
+        body .post-content pre, body .post-content pre * {
+            text-transform: none !important;
+        }
+
         a:hover,
         a:hover * {
             color: var(--color-link-hover) !important;

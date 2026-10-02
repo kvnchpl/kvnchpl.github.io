@@ -83,7 +83,7 @@ main {
     margin: 0 auto;
     font-family: inherit;
     font-size: 0.39vw;
-    text-transform: none;
+    text-transform: lowercase;
     cursor: default;
     user-select: none;
     -webkit-user-select: none;

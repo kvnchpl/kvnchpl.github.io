@@ -1,13 +1,13 @@
 :root {
-    --font-family-main: 'Roboto Mono', monospace;
-    --font-size-main: 1.2rem;
+    --font-family-main: monospace;
+    --font-size-main: 1rem;
     --font-size-nav-mobile: 1rem;
     --font-weight-normal: 400;
-    --color-text: #e6e6e6;
+    --color-text: #fff;
     --color-subtitle: #999;
     --color-bg: #000;
     --color-link: var(--color-text);
-    --color-link-hover: red;
+    --color-link-hover: #fff;
     --text-transform-body: lowercase;
     --text-transform-h1: uppercase;
     --text-transform-link: uppercase;
@@ -34,7 +34,6 @@ body {
     background-color: var(--color-bg);
     margin-inline: auto;
     text-transform: var(--text-transform-body);
-    -webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -103,6 +102,15 @@ body[data-page="404"] h1 {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+body pre.writing-content, body pre.writing-content * {
+    text-transform: none !important;
+}
+
+button, input, select, textarea {
+    font: inherit;
+    text-transform: lowercase;
 }
 
 /* Links */
@@ -347,7 +355,6 @@ img {
     white-space: pre-wrap;
     box-sizing: border-box;
     padding: var(--spacing-small);
-    text-transform: none;
 }
 
 .project-copy {

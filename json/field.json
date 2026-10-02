@@ -1,183 +1,309 @@
 {
   "start": "project:compiler-buddha",
   "marks": [
-    "sun",
-    "moon",
-    "fire",
-    "earth"
+    "mercury",
+    "sulfur",
+    "salt",
+    "saturn",
+    "vessel",
+    "seal"
   ],
   "nodes": [
     {
       "id": "project:compiler-buddha",
-      "mark": "sun",
+      "mark": "mercury",
       "note": "A self-modifying script rebuilds its source code around an image of a Buddha. Alongside it, the reference image passes repeatedly through Stable Diffusion.",
       "accountSections": [
         0
+      ],
+      "position": [
+        45,
+        40
       ]
     },
     {
       "id": "project:truth-visions",
-      "mark": "moon",
+      "mark": "seal",
       "note": "A television sinks into sand, broadcasting the installation that contains it. Printed photographs reveal mirrors beneath their images.",
       "accountSections": [
         0
+      ],
+      "position": [
+        30,
+        40
       ]
     },
     {
       "id": "writing:flex-space",
-      "mark": "earth",
-      "fragment": "are everyone else's hamstrings as tight as mine?"
+      "mark": "salt",
+      "fragment": "are everyone else's hamstrings as tight as mine?",
+      "position": [
+        57,
+        24
+      ]
     },
     {
       "id": "writing:belief-and-desire",
-      "mark": "sun",
-      "fragment": "maybe when i'm dead i'll reincarnate into a spinning wheel, or more precisely, the idea of a spinning wheel"
+      "mark": "sulfur",
+      "fragment": "maybe when i'm dead i'll reincarnate into a spinning wheel, or more precisely, the idea of a spinning wheel",
+      "position": [
+        63,
+        43
+      ]
     },
     {
       "id": "project:intraface",
-      "mark": "fire",
+      "mark": "vessel",
       "note": "Collaged interfaces and rooms. Imagine drop-down menus with all options spelled out.",
       "accountSections": [
         0
+      ],
+      "position": [
+        43,
+        60
       ]
     },
     {
       "id": "writing:close-all",
-      "mark": "moon",
-      "fragment": "how many tabs it would take to start to close the gap between my mind and your body"
+      "mark": "mercury",
+      "fragment": "how many tabs it would take to start to close the gap between my mind and your body",
+      "position": [
+        27,
+        56
+      ]
     },
     {
       "id": "project:viewfinder",
-      "mark": "earth",
+      "mark": "saturn",
       "note": "Flowers, foliage, signs, and detection boxes. A series of digitally processed images.",
       "accountSections": [
         0
+      ],
+      "position": [
+        22,
+        29
       ]
     },
     {
       "id": "writing:cinder-block",
-      "mark": "fire",
-      "fragment": "lets take a look at this cinder block and measure all of its right angles"
+      "mark": "salt",
+      "fragment": "lets take a look at this cinder block and measure all of its right angles",
+      "position": [
+        8,
+        41
+      ]
     },
     {
       "id": "project:archipelago",
-      "mark": "moon",
+      "mark": "seal",
       "note": "Pairs of abstract fauna and flora meet rectangular frames. Banner proposals for the Noguchi Museum’s 2024 open call.",
       "accountSections": [
         0
+      ],
+      "position": [
+        22,
+        12
       ]
     },
     {
       "id": "writing:desire-path-vol-1",
-      "mark": "earth"
+      "mark": "vessel",
+      "position": [
+        36,
+        8
+      ]
     },
     {
       "id": "writing:stack",
-      "mark": "moon",
-      "fragment": "the stucco rearranges into speckled constellation divining me of future hopes"
+      "mark": "saturn",
+      "fragment": "the stucco rearranges into speckled constellation divining me of future hopes",
+      "position": [
+        52,
+        8
+      ]
     },
     {
       "id": "writing:the-album",
-      "mark": "sun",
-      "fragment": "a hum is not a hug that will remind me of something i've never seen"
+      "mark": "mercury",
+      "fragment": "a hum is not a hug that will remind me of something i've never seen",
+      "position": [
+        38,
+        24
+      ]
     },
     {
       "id": "project:each-all",
-      "mark": "sun",
-      "note": "A collaborative collaging project."
+      "mark": "seal",
+      "note": "A collaborative collaging project.",
+      "position": [
+        8,
+        8
+      ]
     },
     {
       "id": "writing:sneeze",
-      "mark": "earth",
-      "fragment": "at last i had something to take care of – a duty emerged from my failure."
+      "mark": "salt",
+      "fragment": "at last i had something to take care of – a duty emerged from my failure.",
+      "position": [
+        10,
+        59
+      ]
     },
     {
       "id": "writing:pearly-mucus",
-      "mark": "moon",
-      "fragment": "she notices yet another tear drip from her lover's chin through the reflection of a steak knife."
+      "mark": "vessel",
+      "fragment": "she notices yet another tear drip from her lover's chin through the reflection of a steak knife.",
+      "position": [
+        24,
+        72
+      ]
     },
     {
       "id": "writing:diego",
-      "mark": "earth",
-      "fragment": "If you will not love me love the broken bowl"
+      "mark": "sulfur",
+      "fragment": "If you will not love me love the broken bowl",
+      "position": [
+        9,
+        76
+      ]
     },
     {
       "id": "writing:cabbage",
-      "mark": "fire",
-      "fragment": "A lone strand of linguini escaped — from box to pot, from pot to beneath the stove grate."
+      "mark": "salt",
+      "fragment": "A lone strand of linguini escaped — from box to pot, from pot to beneath the stove grate.",
+      "position": [
+        9,
+        91
+      ]
     },
     {
       "id": "project:dimensional-freedom",
-      "mark": "earth",
+      "mark": "vessel",
       "note": "An installation of pillars and moving figures. Bodies weave between screens and planes.",
       "accountSections": [
         2
+      ],
+      "position": [
+        61,
+        66
       ]
     },
     {
       "id": "writing:sweetness",
-      "mark": "moon",
-      "fragment": "you and i, speckled pillars yearning to be closer"
+      "mark": "sulfur",
+      "fragment": "you and i, speckled pillars yearning to be closer",
+      "position": [
+        75,
+        79
+      ]
     },
     {
       "id": "writing:beach",
-      "mark": "sun",
-      "fragment": "in which i was an auditorium of one and wondered: how does it feel to really believe something?"
+      "mark": "seal",
+      "fragment": "in which i was an auditorium of one and wondered: how does it feel to really believe something?",
+      "position": [
+        77,
+        48
+      ]
     },
     {
       "id": "writing:orchestra",
-      "mark": "fire",
-      "fragment": "i curse duration — eventually, eventually i will be able to thank myself"
+      "mark": "saturn",
+      "fragment": "i curse duration — eventually, eventually i will be able to thank myself",
+      "position": [
+        78,
+        10
+      ]
     },
     {
       "id": "writing:theme",
-      "mark": "moon",
-      "fragment": "try to tap along using only your pinky and ring finger for me cramps are a loving gesture after all"
+      "mark": "mercury",
+      "fragment": "try to tap along using only your pinky and ring finger for me cramps are a loving gesture after all",
+      "position": [
+        70,
+        27
+      ]
     },
     {
       "id": "writing:plight-of-center",
-      "mark": "sun",
-      "fragment": "dancing free dying—trying anything new and tracing loops"
+      "mark": "vessel",
+      "fragment": "dancing free dying—trying anything new and tracing loops",
+      "position": [
+        91,
+        26
+      ]
     },
     {
       "id": "project:friday-night-never",
-      "mark": "fire",
-      "note": "A celebration for the last images on earth, once all content has been recycled and experienced."
+      "mark": "sulfur",
+      "note": "A celebration for the last images on earth, once all content has been recycled and experienced.",
+      "position": [
+        91,
+        45
+      ]
     },
     {
       "id": "project:triptych",
-      "mark": "moon"
+      "mark": "seal",
+      "position": [
+        91,
+        66
+      ]
     },
     {
       "id": "project:520-missing",
-      "mark": "earth",
+      "mark": "saturn",
       "note": "520 generated faculty portraits, carried onto campus as posters. A public intervention at Stanford in 2019.",
       "accountSections": [
         0
+      ],
+      "position": [
+        7,
+        25
       ]
     },
     {
       "id": "writing:curse-of-soil",
-      "mark": "fire",
-      "fragment": "ghostly(re)appearances in another time, and perhaps, but not necessarily, in another land"
+      "mark": "sulfur",
+      "fragment": "ghostly(re)appearances in another time, and perhaps, but not necessarily, in another land",
+      "position": [
+        43,
+        89
+      ]
     },
     {
       "id": "project:specter",
-      "mark": "moon",
-      "note": "A 3D environment with fractured narrative and images."
+      "mark": "mercury",
+      "note": "A 3D environment with fractured narrative and images.",
+      "position": [
+        43,
+        75
+      ]
     },
     {
       "id": "project:jungle",
-      "mark": "earth",
-      "note": "A digital zine."
+      "mark": "vessel",
+      "note": "A digital zine.",
+      "position": [
+        22,
+        91
+      ]
     },
     {
       "id": "writing:loop",
-      "mark": "sun"
+      "mark": "seal",
+      "position": [
+        63,
+        91
+      ]
     },
     {
       "id": "writing:gran-turismo",
-      "mark": "fire"
+      "mark": "salt",
+      "position": [
+        89,
+        91
+      ]
     }
   ],
   "connections": [

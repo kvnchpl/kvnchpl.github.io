@@ -15,6 +15,9 @@
     const byAnchor = new Map(nodes.map((node) => [node.id, node]));
     const modeLinks = [...shell.querySelectorAll('[data-field-view]')];
     const retrace = shell.querySelector('.field-retrace');
+    const mapNodes = [...shell.querySelectorAll('[data-map-node]')];
+    const mapEdges = [...shell.querySelectorAll('[data-map-edge]')];
+    const mapViewport = shell.querySelector('.map-viewport');
     let trail = [];
     let preferredView;
     try {
@@ -42,6 +45,28 @@
             link.href = target.pathname + target.search + target.hash;
         });
         const selected = byAnchor.get(anchor);
+        const neighbors = new Set();
+        mapEdges.forEach((edge) => {
+            const endpoints = edge.dataset.mapEdge.split(' ');
+            const active = endpoints.includes(anchor);
+            edge.toggleAttribute('data-active', active);
+            if (active) endpoints.forEach((endpoint) => neighbors.add(endpoint));
+        });
+        mapNodes.forEach((node) => {
+            const current = node.dataset.mapNode === anchor;
+            node.toggleAttribute('data-selected', current);
+            node.toggleAttribute('data-neighbor', !current && neighbors.has(node.dataset.mapNode));
+            node.setAttribute('aria-current', String(current));
+        });
+        const currentLink = shell.querySelector('[data-map-current]');
+        const destination = selected.querySelector('.encounter-open');
+        currentLink.textContent = selected.querySelector('h2').textContent;
+        currentLink.href = destination.href;
+        for (const attribute of ['target', 'rel']) {
+            if (destination.hasAttribute(attribute)) currentLink.setAttribute(attribute, destination.getAttribute(attribute));
+            else currentLink.removeAttribute(attribute);
+        }
+        if (destination.target === '_blank') currentLink.append(' ↗');
         shell.querySelectorAll('[data-index-node]').forEach((row) => {
             if (row.dataset.indexNode === selected.dataset.fieldNode) {
                 row.setAttribute('data-selected', 'true');
@@ -52,7 +77,13 @@
         retrace.href = trail.at(-1) || '#';
         try { localStorage.setItem('field-view', view); } catch { /* Optional preference. */ }
         if (announce) shell.querySelector('[data-field-announcement]').textContent = `${view === 'network' ? 'Encounter' : 'Index'}: ${selected.querySelector('h2').textContent}`;
+        if (view === 'network') locate();
     }
+    function locate() {
+        const selected = mapNodes.find((node) => node.hasAttribute('data-selected'));
+        if (selected) mapViewport.scrollTo({left: selected.offsetLeft - mapViewport.clientWidth / 2, top: selected.offsetTop - mapViewport.clientHeight / 2});
+    }
+    shell.querySelector('[data-map-locate]').addEventListener('click', locate);
     function go(target, remember = true) {
         if (target.href === location.href) return;
         if (remember) trail.push(location.pathname + location.search + location.hash);
@@ -73,9 +104,10 @@
             if (!byAnchor.has(target.hash.slice(1))) return;
             event.preventDefault();
             go(target);
-            const heading = byAnchor.get(target.hash.slice(1)).querySelector('h2');
-            heading.tabIndex = -1;
-            heading.focus({preventScroll: true});
+            // A map click retains its link focus; a passage locates the new mark.
+            if (!link.hasAttribute('data-map-node')) {
+                mapNodes.find((node) => node.dataset.mapNode === target.hash.slice(1)).focus({preventScroll: true});
+            }
         } else if (link === retrace) {
             event.preventDefault();
             const previous = trail.pop();
@@ -85,6 +117,7 @@
     // Back/forward restores the URL's mode and encounter without rewriting history.
     window.addEventListener('popstate', () => { trail = []; render(true); });
     window.addEventListener('hashchange', () => render(true));
+    window.addEventListener('resize', () => { if (shell.dataset.view === 'network') locate(); });
     // Encounter hashes identify content, but the masthead and mode switch remain
     // visible on arrival rather than allowing the browser's anchor scroll.
     window.addEventListener('load', () => {

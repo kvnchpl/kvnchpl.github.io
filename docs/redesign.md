@@ -1,7 +1,7 @@
 # Website redesign
 
-Working brief, updated October 2, 2026. Design proposals below are provisional;
-this document does not change the public site.
+Design brief, updated October 2, 2026. Implementation remains local on the
+redesign branch; the public site has not been changed.
 
 ## Direction
 
@@ -17,6 +17,10 @@ geographic coordinates, distance calculations, dimension toggles, and neighborho
 limits are not requirements for this redesign.
 
 Keep a largely black background, white monospace text, and an esoteric atmosphere.
+Use a pared-down web 1.0 vocabulary: system monospace, underlined links, native
+disclosures, small type, dotted boundaries, and ASCII punctuation. Avoid large
+hero typography, polished cards, and decorative animation. All rendered text
+must be lowercase or uppercase except authored preformatted poetry.
 Preserve the particular texture of existing media. Evaluate compression, scale,
 cropping, and repetition in relation to each work instead of applying a uniform
 degradation effect.
@@ -54,10 +58,12 @@ rendering, and provide an appropriate fallback where needed.
 
 Working names: Network and Index.
 
-- Network: encounter a work and follow authored connections into other works or
-  writings. Explore spatial arrangements of titles, fragments, and media; a map
-  or permanently visible diagram is not assumed. Keep a clear way to return,
-  switch views, and reach the complete index.
+- Network: a visible, authored map of all 31 works, using small image fragments,
+  titles, and symbolic marks. Lines show actual curated connections. Selecting a
+  mark highlights its immediate passages, updates the direct work link, and
+  reveals a modest encounter below the diagram. Browser scrolling and a locate
+  button support narrow screens. Keep a clear way to retrace, switch views, and
+  reach the complete index.
 - Index: a considered text-centric composition containing the same works and
   connections. Use typography, spacing, and cross-links to make it interesting
   on its own. Images remain available when opening a work.
@@ -73,7 +79,7 @@ URLs, assets, and external destinations. The writing titled DESIRE PATH (Vol. 1)
 and the separate DESIRE PATH mapping project are distinct works.
 
 Keep `json/projects.json` and `json/writings.json` as the existing work catalogs.
-Introduce a separate authored relationship file when implementation begins.
+Keep relationships and presentation choices in `json/field.json`.
 Relationships should reference stable identifiers, such as
 `project:compiler-buddha` and `writing:flex-space`, rather than array positions,
 display titles, or coordinates. Use type prefixes so future project and writing
