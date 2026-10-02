@@ -3,19 +3,19 @@ import { existsSync } from 'node:fs';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createField, renderField, renderWorkPassages } from './field.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE_ORIGIN = 'https://kvnchpl.com';
 const SITE_NAME = 'Kevin Cunanan Chappelle';
 const DEFAULT_IMAGE = '/img/projects/truth-visions/full/truth-visions_1.webp';
 const DEFAULT_IMAGE_ALT = 'Truth Visions installation by Kevin Cunanan Chappelle';
-const SKY_COUNT = 22;
 const changedFiles = new Set();
 
 const pageConfigs = {
     'index.html': {
         title: 'KEVIN CUNANAN CHAPPELLE',
-        description: 'Official website of Kevin Cunanan Chappelle, a Brooklyn-based artist exploring how digital technologies reshape perception and presence.',
+        description: 'Images, texts, and passages by Kevin Cunanan Chappelle. An artist working with mediation, memory, desire, and uncertainty.',
         canonicalPath: '/',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
@@ -68,26 +68,6 @@ const monthNames = [
     'December'
 ];
 
-const monthOrder = [
-    'Winter',
-    'January',
-    'February',
-    'March',
-    'Spring',
-    'April',
-    'May',
-    'June',
-    'Summer',
-    'July',
-    'August',
-    'September',
-    'Autumn',
-    'Fall',
-    'October',
-    'November',
-    'December'
-];
-
 function rootPath(relativePath) {
     return path.join(ROOT, relativePath);
 }
@@ -132,21 +112,6 @@ function hash(value) {
     return createHash('sha256').update(value).digest('hex').slice(0, 10);
 }
 
-function dateValue(entry) {
-    const year = typeof entry.year === 'number' ? entry.year : 0;
-    const day = typeof entry.day === 'number' ? entry.day : 1;
-    let month = 0;
-
-    if (typeof entry.month === 'number') {
-        month = entry.month - 1;
-    } else if (typeof entry.month === 'string') {
-        const index = monthOrder.indexOf(entry.month);
-        month = index >= 0 ? index : 0;
-    }
-
-    return new Date(year, month, day).getTime();
-}
-
 function monthYear(entry) {
     if (!entry.year) return null;
     if (typeof entry.month === 'number') return `${monthNames[entry.month]} ${entry.year}`;
@@ -157,15 +122,6 @@ function monthYear(entry) {
 function publishedDate(entry) {
     if (!entry.year || typeof entry.month !== 'number' || typeof entry.day !== 'number') return null;
     return [entry.year, String(entry.month).padStart(2, '0'), String(entry.day).padStart(2, '0')].join('-');
-}
-
-function subtitleFor(entry) {
-    if (typeof entry.subtitle === 'string' && entry.subtitle.trim()) return entry.subtitle;
-    return monthYear(entry);
-}
-
-function pageHref(entry, basePath) {
-    return entry.permalink || `${basePath}${entry.key}`;
 }
 
 function markerPattern(name) {
@@ -256,64 +212,6 @@ function renderNav(navData, pageId) {
     return generatedBlock('nav', nav, '    ');
 }
 
-function renderPageLink({ href, title, subtitle, thumbnail, newTab, reverse, skyIndex, index }) {
-    const usesSky = !thumbnail;
-    const image = thumbnail || `/img/home/sky_${(skyIndex % SKY_COUNT) + 1}.webp`;
-    assertLocalAsset(image);
-
-    const linkClass = reverse ? 'page-link reverse' : 'page-link';
-    const skyAttribute = usesSky ? ' data-sky-image' : '';
-    const loading = index < 4 ? 'eager' : 'lazy';
-    const lines = [
-        `            <a class="${linkClass}" href="${escapeAttribute(href)}"${linkAttributes(newTab)}>`,
-        `                <img src="${escapeAttribute(image)}" width="80" height="80" alt="" loading="${loading}" decoding="async"${skyAttribute} />`,
-        '                <div class="text-block">',
-        `                    <p class="page-title">${escapeHtml(metadataTitle(title))}</p>`
-    ];
-
-    if (subtitle) lines.push(`                    <p class="page-subtitle">${escapeHtml(subtitle)}</p>`);
-
-    lines.push(
-        '                </div>',
-        '            </a>'
-    );
-
-    return lines.join('\n');
-}
-
-function renderCollection(items, basePath) {
-    return items
-        .slice()
-        .sort((a, b) => dateValue(b) - dateValue(a))
-        .map((entry, index) => renderPageLink({
-            href: pageHref(entry, basePath),
-            title: entry.title,
-            subtitle: subtitleFor(entry),
-            thumbnail: entry.thumbnail,
-            newTab: entry.newTab === true,
-            reverse: index % 2 === 1,
-            skyIndex: index,
-            index
-        }))
-        .join('\n');
-}
-
-function renderHome(navData) {
-    return navData
-        .filter((link) => link.homePage)
-        .map((link, index) => renderPageLink({
-            href: link.href,
-            title: link.title || link.label,
-            subtitle: link.subtitle,
-            thumbnail: link.thumbnail,
-            newTab: link.newTab === true,
-            reverse: index % 2 === 1,
-            skyIndex: index,
-            index
-        }))
-        .join('\n');
-}
-
 function imageUrl(projectKey, image, size = 'medium') {
     return `/img/projects/${projectKey}/${size}/${image}.webp`;
 }
@@ -371,7 +269,9 @@ function renderSlideshow(project, images, sectionIndex) {
 }
 
 function renderProjectSections(project) {
-    return project.sections
+    const note = field.nodes.get(`project:${project.key}`)?.note;
+    const intro = note ? `            <p class="project-intro">${escapeHtml(note)}</p>\n` : '';
+    return intro + project.sections
         .map((section, index) => {
             const lines = ['            <section class="project-section">'];
 
@@ -385,11 +285,14 @@ function renderProjectSections(project) {
                     .map((line) => line.trim())
                     .filter(Boolean);
 
+                const account = field.nodes.get(`project:${project.key}`)?.accountSections?.includes(index) === true;
+                if (account) lines.push('                <details class="project-account"><summary>Read the account <span aria-hidden="true">[ + ]</span></summary>');
                 lines.push('                <div class="project-copy">');
                 for (const paragraph of paragraphs) {
                     lines.push(`                    <p>${escapeHtml(paragraph)}</p>`);
                 }
                 lines.push('                </div>');
+                if (account) lines.push('                </details>');
             }
 
             lines.push('            </section>');
@@ -455,11 +358,13 @@ function sitemapXml(projects, writings) {
     return `<?xml version="1.0" encoding="UTF-8"?>\n<!-- Generated by scripts/build-site.mjs. -->\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }
 
-const [navData, projects, writings] = await Promise.all([
+const [navData, projects, writings, fieldConfig] = await Promise.all([
     readJson('json/nav.json'),
     readJson('json/projects.json'),
-    readJson('json/writings.json')
+    readJson('json/writings.json'),
+    readJson('json/field.json')
 ]);
+const field = createField(projects, writings, fieldConfig);
 
 const initialSeoPattern = /    <title>[\s\S]*?    <meta name="twitter:image:alt" content="[^"]*" \/>/;
 const initialNavPattern = /    <nav id="nav"><\/nav>/;
@@ -469,13 +374,14 @@ for (const [file, config] of Object.entries(pageConfigs)) {
     await updateHtml(file, (original) => {
         const seo = renderSeo(config);
         let html = replaceGeneratedBlock(original, 'seo', seo, initialSeoPattern);
-        if (['projects.html', 'writings.html', 'about.html'].includes(file)) {
+        if (file === 'about.html') {
             const pageId = file.replace('.html', '');
             html = replaceGeneratedBlock(html, 'nav', renderNav(navData, pageId), initialNavPattern);
         }
-        if (file === 'home.html') html = replaceContainerBlock(html, 'collection', 'link-container', renderHome(navData));
-        if (file === 'projects.html') html = replaceContainerBlock(html, 'collection', 'link-container', renderCollection(projects, '/projects/'));
-        if (file === 'writings.html') html = replaceContainerBlock(html, 'collection', 'link-container', renderCollection(writings, '/writings/'));
+        if (['index.html', 'home.html', 'projects.html', 'writings.html'].includes(file)) {
+            const filter = file === 'projects.html' ? 'project' : file === 'writings.html' ? 'writing' : 'all';
+            html = replaceGeneratedBlock(html, 'field', generatedBlock('field', renderField(field, filter), '        '));
+        }
         return removeRuntimeDataMeta(html);
     });
 }
@@ -486,7 +392,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
     assertLocalAsset(image);
     const config = {
         title: project.title,
-        description: project.description,
+        description: field.nodes.get(`project:${project.key}`)?.note || project.description,
         canonicalPath: `/projects/${project.key}`,
         image,
         imageAlt: project.socialImageAlt || project.sections.flatMap((section) => section.images || [])[0]?.alt || `${project.title} by ${SITE_NAME}`
@@ -502,6 +408,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
         );
         html = replaceGeneratedBlock(html, 'page-header', header, initialHeaderPattern);
         html = replaceContainerBlock(html, 'project', 'content-page-container', renderProjectSections(project));
+        html = replaceGeneratedBlock(html, 'passages', generatedBlock('passages', renderWorkPassages(field, `project:${project.key}`), '        '));
         return removeRuntimeDataMeta(html);
     });
 }
@@ -527,6 +434,7 @@ for (const writing of writings.filter((entry) => !entry.external)) {
             '        '
         );
         html = replaceGeneratedBlock(html, 'page-header', header, initialHeaderPattern);
+        html = replaceGeneratedBlock(html, 'passages', generatedBlock('passages', renderWorkPassages(field, `writing:${writing.key}`), '        '));
         return removeRuntimeDataMeta(html);
     });
 }
@@ -541,6 +449,8 @@ if (nextSitemap !== currentSitemap) {
 const cssVersion = hash(await readFile(rootPath('css/main.css')));
 const fontsVersion = hash(await readFile(rootPath('css/fonts.css')));
 const jsVersion = hash(await readFile(rootPath('js/main.js')));
+const fieldCssVersion = hash(await readFile(rootPath('css/field.css')));
+const fieldJsVersion = hash(await readFile(rootPath('js/field.js')));
 
 for (const htmlPath of await htmlFiles()) {
     const relativePath = path.relative(ROOT, htmlPath);
@@ -549,6 +459,9 @@ for (const htmlPath of await htmlFiles()) {
         .replace(/(\/css\/fonts\.css)(?:\?v=[^"']+)?/g, `$1?v=${fontsVersion}`)
         .replace(/(\/css\/main\.css)\?v=[^"']+/g, `$1?v=${cssVersion}`)
         .replace(/(\/js\/main\.js)\?v=[^"']+/g, `$1?v=${jsVersion}`));
+    await updateHtml(relativePath, (original) => original
+        .replace(/(\/css\/field\.css)(?:\?v=[^"']+)?/g, `$1?v=${fieldCssVersion}`)
+        .replace(/(\/js\/field\.js)(?:\?v=[^"']+)?/g, `$1?v=${fieldJsVersion}`));
 }
 
 console.log(`Built ${projects.length} projects and ${writings.length} writings.`);

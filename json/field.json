@@ -1,0 +1,350 @@
+{
+  "start": "project:compiler-buddha",
+  "marks": [
+    "sun",
+    "moon",
+    "fire",
+    "earth"
+  ],
+  "nodes": [
+    {
+      "id": "project:compiler-buddha",
+      "mark": "sun",
+      "note": "A self-modifying script rebuilds its source code around an image of a Buddha. Alongside it, the reference image passes repeatedly through Stable Diffusion.",
+      "accountSections": [
+        0
+      ]
+    },
+    {
+      "id": "project:truth-visions",
+      "mark": "moon",
+      "note": "A television sinks into sand, broadcasting the installation that contains it. Printed photographs reveal mirrors beneath their images.",
+      "accountSections": [
+        0
+      ]
+    },
+    {
+      "id": "writing:flex-space",
+      "mark": "earth",
+      "fragment": "are everyone else's hamstrings as tight as mine?"
+    },
+    {
+      "id": "writing:belief-and-desire",
+      "mark": "sun",
+      "fragment": "maybe when i'm dead i'll reincarnate into a spinning wheel, or more precisely, the idea of a spinning wheel"
+    },
+    {
+      "id": "project:intraface",
+      "mark": "fire",
+      "note": "Collaged interfaces and rooms. Imagine drop-down menus with all options spelled out.",
+      "accountSections": [
+        0
+      ]
+    },
+    {
+      "id": "writing:close-all",
+      "mark": "moon",
+      "fragment": "how many tabs it would take to start to close the gap between my mind and your body"
+    },
+    {
+      "id": "project:viewfinder",
+      "mark": "earth",
+      "note": "Flowers, foliage, signs, and detection boxes. A series of digitally processed images.",
+      "accountSections": [
+        0
+      ]
+    },
+    {
+      "id": "writing:cinder-block",
+      "mark": "fire",
+      "fragment": "lets take a look at this cinder block and measure all of its right angles"
+    },
+    {
+      "id": "project:archipelago",
+      "mark": "moon",
+      "note": "Pairs of abstract fauna and flora meet rectangular frames. Banner proposals for the Noguchi Museum’s 2024 open call.",
+      "accountSections": [
+        0
+      ]
+    },
+    {
+      "id": "writing:desire-path-vol-1",
+      "mark": "earth"
+    },
+    {
+      "id": "writing:stack",
+      "mark": "moon",
+      "fragment": "the stucco rearranges into speckled constellation divining me of future hopes"
+    },
+    {
+      "id": "writing:the-album",
+      "mark": "sun",
+      "fragment": "a hum is not a hug that will remind me of something i've never seen"
+    },
+    {
+      "id": "project:each-all",
+      "mark": "sun",
+      "note": "A collaborative collaging project."
+    },
+    {
+      "id": "writing:sneeze",
+      "mark": "earth",
+      "fragment": "at last i had something to take care of – a duty emerged from my failure."
+    },
+    {
+      "id": "writing:pearly-mucus",
+      "mark": "moon",
+      "fragment": "she notices yet another tear drip from her lover's chin through the reflection of a steak knife."
+    },
+    {
+      "id": "writing:diego",
+      "mark": "earth",
+      "fragment": "If you will not love me love the broken bowl"
+    },
+    {
+      "id": "writing:cabbage",
+      "mark": "fire",
+      "fragment": "A lone strand of linguini escaped — from box to pot, from pot to beneath the stove grate."
+    },
+    {
+      "id": "project:dimensional-freedom",
+      "mark": "earth",
+      "note": "An installation of pillars and moving figures. Bodies weave between screens and planes.",
+      "accountSections": [
+        2
+      ]
+    },
+    {
+      "id": "writing:sweetness",
+      "mark": "moon",
+      "fragment": "you and i, speckled pillars yearning to be closer"
+    },
+    {
+      "id": "writing:beach",
+      "mark": "sun",
+      "fragment": "in which i was an auditorium of one and wondered: how does it feel to really believe something?"
+    },
+    {
+      "id": "writing:orchestra",
+      "mark": "fire",
+      "fragment": "i curse duration — eventually, eventually i will be able to thank myself"
+    },
+    {
+      "id": "writing:theme",
+      "mark": "moon",
+      "fragment": "try to tap along using only your pinky and ring finger for me cramps are a loving gesture after all"
+    },
+    {
+      "id": "writing:plight-of-center",
+      "mark": "sun",
+      "fragment": "dancing free dying—trying anything new and tracing loops"
+    },
+    {
+      "id": "project:friday-night-never",
+      "mark": "fire",
+      "note": "A celebration for the last images on earth, once all content has been recycled and experienced."
+    },
+    {
+      "id": "project:triptych",
+      "mark": "moon"
+    },
+    {
+      "id": "project:520-missing",
+      "mark": "earth",
+      "note": "520 generated faculty portraits, carried onto campus as posters. A public intervention at Stanford in 2019.",
+      "accountSections": [
+        0
+      ]
+    },
+    {
+      "id": "writing:curse-of-soil",
+      "mark": "fire",
+      "fragment": "ghostly(re)appearances in another time, and perhaps, but not necessarily, in another land"
+    },
+    {
+      "id": "project:specter",
+      "mark": "moon",
+      "note": "A 3D environment with fractured narrative and images."
+    },
+    {
+      "id": "project:jungle",
+      "mark": "earth",
+      "note": "A digital zine."
+    },
+    {
+      "id": "writing:loop",
+      "mark": "sun"
+    },
+    {
+      "id": "writing:gran-turismo",
+      "mark": "fire"
+    }
+  ],
+  "connections": [
+    {
+      "from": "project:compiler-buddha",
+      "to": "project:truth-visions",
+      "phrase": "an image of an image"
+    },
+    {
+      "from": "project:compiler-buddha",
+      "to": "writing:flex-space",
+      "phrase": "a practice of repetition"
+    },
+    {
+      "from": "project:compiler-buddha",
+      "to": "writing:belief-and-desire",
+      "phrase": "turning / wanting"
+    },
+    {
+      "from": "project:compiler-buddha",
+      "to": "project:intraface",
+      "phrase": "an inner mechanism"
+    },
+    {
+      "from": "project:truth-visions",
+      "to": "writing:close-all",
+      "phrase": "mirrorselves"
+    },
+    {
+      "from": "project:truth-visions",
+      "to": "project:viewfinder",
+      "phrase": "what vision holds"
+    },
+    {
+      "from": "project:intraface",
+      "to": "writing:close-all",
+      "phrase": "mind / interface / body"
+    },
+    {
+      "from": "project:intraface",
+      "to": "project:dimensional-freedom",
+      "phrase": "rooms without walls"
+    },
+    {
+      "from": "project:viewfinder",
+      "to": "writing:cinder-block",
+      "phrase": "measuring the world"
+    },
+    {
+      "from": "project:viewfinder",
+      "to": "project:archipelago",
+      "phrase": "a frame around nature"
+    },
+    {
+      "from": "project:archipelago",
+      "to": "writing:desire-path-vol-1",
+      "phrase": "islands / inheritance"
+    },
+    {
+      "from": "project:archipelago",
+      "to": "writing:sneeze",
+      "phrase": "something to care for"
+    },
+    {
+      "from": "writing:desire-path-vol-1",
+      "to": "writing:stack",
+      "phrase": "divining a future"
+    },
+    {
+      "from": "writing:desire-path-vol-1",
+      "to": "writing:the-album",
+      "phrase": "memory / family / image"
+    },
+    {
+      "from": "writing:the-album",
+      "to": "project:each-all",
+      "phrase": "an album made with others"
+    },
+    {
+      "from": "writing:sneeze",
+      "to": "writing:pearly-mucus",
+      "phrase": "what the body leaves"
+    },
+    {
+      "from": "writing:sneeze",
+      "to": "writing:diego",
+      "phrase": "care in a small gesture"
+    },
+    {
+      "from": "writing:diego",
+      "to": "writing:cabbage",
+      "phrase": "a meal / a memory"
+    },
+    {
+      "from": "writing:cabbage",
+      "to": "writing:cinder-block",
+      "phrase": "an object holds a loss"
+    },
+    {
+      "from": "writing:pearly-mucus",
+      "to": "project:truth-visions",
+      "phrase": "a reflection in a surface"
+    },
+    {
+      "from": "project:dimensional-freedom",
+      "to": "writing:sweetness",
+      "phrase": "two pillars"
+    },
+    {
+      "from": "writing:sweetness",
+      "to": "writing:beach",
+      "phrase": "bodies drawing near"
+    },
+    {
+      "from": "writing:beach",
+      "to": "writing:belief-and-desire",
+      "phrase": "to believe something"
+    },
+    {
+      "from": "writing:flex-space",
+      "to": "writing:theme",
+      "phrase": "the body keeping time"
+    },
+    {
+      "from": "writing:theme",
+      "to": "writing:orchestra",
+      "phrase": "a score for a body"
+    },
+    {
+      "from": "writing:orchestra",
+      "to": "writing:plight-of-center",
+      "phrase": "duration / change"
+    },
+    {
+      "from": "writing:plight-of-center",
+      "to": "project:friday-night-never",
+      "phrase": "dancing / tracing loops"
+    },
+    {
+      "from": "project:friday-night-never",
+      "to": "project:triptych",
+      "phrase": "a figure disintegrates"
+    },
+    {
+      "from": "project:520-missing",
+      "to": "project:viewfinder",
+      "phrase": "an image becomes a category"
+    },
+    {
+      "from": "writing:curse-of-soil",
+      "to": "project:specter",
+      "phrase": "ghostly reappearances"
+    },
+    {
+      "from": "project:specter",
+      "to": "project:intraface",
+      "phrase": "an inhabited interior"
+    },
+    {
+      "from": "project:jungle",
+      "to": "project:archipelago",
+      "phrase": "a landscape in fragments"
+    },
+    {
+      "from": "project:jungle",
+      "to": "project:each-all",
+      "phrase": "images gathered together"
+    }
+  ]
+}

@@ -1,14 +1,16 @@
 # kvnchpl.github.io (kvnchpl.com)
 
-**Portfolio for Kevin Cunanan Chappelle, creator of multimedia projects and performances. Based in New
-York City.**
+**A field of images, texts, and passages by Kevin Cunanan Chappelle.**
 
 Hosted via [GitHub Pages](https://pages.github.com/).
 
 ## Structure
 
 - `json/nav.json`, `json/projects.json`, and `json/writings.json` hold the editable site content.
-- `scripts/build-site.mjs` renders shared navigation, collection links, project sections, SEO metadata, the sitemap, and asset version hashes into the HTML files.
+- `json/field.json` holds the authored order, symbolic marks, short notes, writing excerpts, optional account sections, and connections between works. Work identity uses `project:key` or `writing:key`, independently of display titles and URLs.
+- `scripts/field.mjs` validates that every catalog entry is present, resolves relationships, and renders both views. `scripts/build-site.mjs` renders the field, work passages, shared navigation, project sections, SEO metadata, the sitemap, and asset version hashes into the HTML files.
+- `js/field.js` enhances the static index with encounter navigation, view preference, retracing, and browser history. Selection and view are encoded in the URL; no server or database is required. Without JavaScript the complete index and ordinary work links remain usable.
+- `css/field.css` styles the two views and the shared frame around work pages. Symbol shapes are inline SVG, avoiding platform-dependent glyph rendering.
 - `js/main.js` only enhances the generated HTML with randomized sky thumbnails, project slideshows, and navigation for the separately hosted Tumblr theme.
 - Individual content pages use two layouts: `project-layout` for ordered media/text sections and `writing-layout` for writing.
 - `css/main.css` owns the black background, monospace styling, the two responsive layouts, and project slideshows.
@@ -19,7 +21,13 @@ Hosted via [GitHub Pages](https://pages.github.com/).
 2. Run `node scripts/build-site.mjs` from the repository root.
 3. Review and commit both the source data and generated HTML changes.
 
-Run `node scripts/check-site.mjs` to verify local references and generated asset versions. GitHub Actions also checks JavaScript syntax and confirms that generated files are current on every push and pull request.
+Run `node --test scripts/field.test.mjs` to check catalog coverage, relationship integrity, escaping, and both collections. Run `node scripts/check-site.mjs` to verify local references and generated asset versions. GitHub Actions also checks JavaScript syntax and confirms that generated files are current on every push and pull request.
+
+To add a work, add its record to the appropriate catalog and its stable identifier to `json/field.json`. Add only deliberate connections; isolated works remain accessible through Index. Each connection is bidirectional and has one shared short phrase. The node order controls the index and numbering, while `start` controls the first encounter. The `marks` vocabulary contains `sun`, `moon`, `fire`, and `earth`; these are presentation marks, not classifications of the work.
+
+`note` and `fragment` are optional. `accountSections` explicitly names project section indexes whose explanatory text should appear in a native, initially closed “Read the account” disclosure. The complete original text remains in the project catalog and generated page. Poems remain authored in their existing HTML files.
+
+The design brief is in [docs/redesign.md](docs/redesign.md). Rollback and preview instructions are in [docs/rollback.md](docs/rollback.md). Development stays on `redesign/site-2026-10-02`; publishing has not been requested.
 
 Content between `generated:*` comments is replaced by the build script and should not be edited directly. The generated files remain committed so GitHub Pages can serve them without a custom deployment process and visitors receive complete pages before JavaScript runs.
 

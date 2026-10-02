@@ -30,7 +30,9 @@ const htmlFiles = allFiles.filter((file) => file.endsWith('.html'));
 const versions = new Map([
     ['/css/fonts.css', hash(await readFile(path.join(ROOT, 'css/fonts.css')))],
     ['/css/main.css', hash(await readFile(path.join(ROOT, 'css/main.css')))],
-    ['/js/main.js', hash(await readFile(path.join(ROOT, 'js/main.js')))]
+    ['/js/main.js', hash(await readFile(path.join(ROOT, 'js/main.js')))],
+    ['/css/field.css', hash(await readFile(path.join(ROOT, 'css/field.css')))],
+    ['/js/field.js', hash(await readFile(path.join(ROOT, 'js/field.js')))]
 ]);
 
 for (const file of htmlFiles) {

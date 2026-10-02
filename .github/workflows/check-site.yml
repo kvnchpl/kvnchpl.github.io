@@ -21,6 +21,10 @@ jobs:
           node --check scripts/check-site.mjs
           node --check js/main.js
           node --check js/compiler-buddha.js
+          node --check js/field.js
+          node --check scripts/field.mjs
+      - name: Check field structure
+        run: node --test scripts/field.test.mjs
       - name: Build generated files
         run: node scripts/build-site.mjs
       - name: Verify generated files are committed
