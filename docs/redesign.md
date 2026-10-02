@@ -21,6 +21,13 @@ Use a pared-down web 1.0 vocabulary: system monospace, underlined links, native
 disclosures, small type, dotted boundaries, and ASCII punctuation. Avoid large
 hero typography, polished cards, and decorative animation. All rendered text
 must be lowercase or uppercase except authored preformatted poetry.
+The atmosphere should suggest a privately maintained fringe or occult website
+from the late 1990s. Build that feeling through symbolic margins, personal
+inscriptions, spare directories, and diagrams whose associations emerge through
+use. A recurring original sigil and faint circular constructions give the site
+its own language. Draw inscriptions from the actual writings. Keep the navigation
+direct and the works particular; avoid simulated age, fake counters, novelty
+badges, and stock occult slogans.
 Preserve the particular texture of existing media. Evaluate compression, scale,
 cropping, and repetition in relation to each work instead of applying a uniform
 degradation effect.

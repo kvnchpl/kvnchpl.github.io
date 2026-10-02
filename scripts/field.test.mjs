@@ -38,6 +38,8 @@ test('invalid relationship data fails before any generated HTML is written', () 
         (c) => { delete c.nodes[0].position; },
         (c) => { c.nodes[0].accountSections = [999]; },
         (c) => { c.start = 'missing'; },
+        (c) => { c.inscription = 'missing'; },
+        (c) => { c.inscription = c.start; },
         (c) => { c.connections[0].to = 'missing'; },
         (c) => { c.connections[0].to = c.connections[0].from; },
         (c) => c.connections.push({...c.connections[0], from: c.connections[0].to, to: c.connections[0].from}),

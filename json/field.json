@@ -1,5 +1,6 @@
 {
   "start": "project:compiler-buddha",
+  "inscription": "writing:stack",
   "marks": [
     "mercury",
     "sulfur",

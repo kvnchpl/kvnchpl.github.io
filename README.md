@@ -29,6 +29,8 @@ Each node has a `position: [x, y]` in percentages, with both coordinates between
 
 The six marks are `mercury`, `sulfur`, `salt`, `saturn`, `vessel`, and `seal`. The vocabulary mixes alchemical and astrological forms with an invented compound seal; marks are visual punctuation rather than classifications of the work. Their shapes live in one SVG vocabulary in `scripts/field.mjs`.
 
+An optional `inscription` names a node with an existing `fragment` to show at the site's threshold. It links to that writing and follows the same navigation as other passages. The recurring original sigil and faint diagram rings are decorative, static SVG in the shared renderer; they add no navigation logic or dependencies.
+
 `note` and `fragment` are optional. `accountSections` explicitly names project section indexes whose explanatory text should appear in a native, initially closed “Read the account” disclosure. The complete original text remains in the project catalog and generated page. Poems remain authored in their existing HTML files.
 
 Shared typography renders prose, navigation, and controls lowercase, with uppercase headings and selected labels. Only `pre.writing-content` preserves its authored casing, including nested links. Original poem text is never rewritten by the generator. Compiler Buddha's displayed source follows the lowercase display rule; its executable source remains unchanged. The separately hosted Thoughts template applies the same casing policy, preserving preformatted writing.

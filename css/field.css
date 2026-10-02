@@ -5,10 +5,15 @@ body.field-page { font-size: 13px; }
 .field-page a, .work-passages a { text-transform: lowercase; text-decoration: underline; }
 .field-page a:focus-visible, .field-page summary:focus-visible, .map-caption button:focus-visible { outline: 1px dotted white; outline-offset: 3px; }
 main.field-main { display: block; overflow: visible; }
-.field-shell { max-width: 1120px; margin: auto; padding: 20px; }
+.field-shell { max-width: 1040px; margin: auto; padding: 20px; }
 .field-header, .field-toolbar, .field-utilities, .field-modes, .field-footer, .map-caption { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 20px; }
 .field-header { margin-bottom: 20px; justify-content: space-between; }
 .field-name { text-transform: uppercase !important; }
+.field-threshold { display: flex; align-items: center; gap: 28px; padding: 5px 0 22px; }
+.threshold-device { display: flex; align-items: center; gap: 10px; flex-shrink: 0; color: var(--field-dim); font-size: 10px; }
+.field-emblem { display: block; width: 54px; height: 54px; }
+.field-page a.threshold-fragment { max-width: 48ch; font-size: 11px; line-height: 1.6; color: var(--field-dim); text-decoration: none; }
+.field-page a.threshold-fragment:hover { text-decoration: underline; }
 .field-toolbar { margin-bottom: 16px; }
 .field-modes a[aria-current="true"]::before { content: '> '; }
 .field-caption { margin-left: auto; color: var(--field-dim); }
@@ -19,16 +24,18 @@ main.field-main { display: block; overflow: visible; }
 .map-caption { margin: 0 0 10px; font-size: 12px; }
 .map-caption > span:first-child { color: var(--field-dim); }
 .map-caption button { margin-left: auto; color: white; background: black; border: 1px solid var(--field-rule); padding: 2px 5px; cursor: pointer; }
-.map-viewport { overflow: auto; border: 1px dotted var(--field-rule); }
+.map-viewport { overflow: auto; border-block: 1px dotted var(--field-rule); }
 .field-map { position: relative; min-width: 960px; height: 720px; }
 .map-lines { position: absolute; width: 100%; height: 100%; pointer-events: none; }
+.map-inscriptions { position: absolute; width: 100%; height: 100%; pointer-events: none; stroke: #333; stroke-width: 1; }
 .map-lines line { stroke: #555; stroke-width: 1; stroke-dasharray: 2 5; }
 .map-lines line[data-active] { stroke: white; stroke-dasharray: none; }
-.map-bearing { position: absolute; top: 45%; left: 51%; white-space: pre; text-align: center; font-size: 10px; color: #777; }
+.map-bearing { position: absolute; top: 50%; left: 51%; transform: translate(-50%, -50%); color: #888; pointer-events: none; }
+.map-bearing .field-emblem { width: 72px; height: 72px; }
 .field-page a.map-node { position: absolute; width: 112px; transform: translate(-50%, -50%); text-align: center; line-height: 1.25; font-size: 10px; text-decoration: none; background: black; padding: 3px; box-sizing: border-box; }
-.map-token { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; }
+.map-token { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 46px; }
 .map-token .field-mark { width: 25px; height: 25px; }
-.map-token img { width: 42px; height: 36px; object-fit: contain; }
+.map-token img { width: 58px; height: 46px; object-fit: contain; }
 .map-number { color: var(--field-dim); font-size: 10px; }
 .map-title { display: block; margin-top: 4px; text-transform: lowercase; }
 .map-node[data-selected] { outline: 1px dotted white; }
@@ -55,7 +62,7 @@ main.field-main { display: block; overflow: visible; }
 .passage-phrase { color: var(--field-dim); font-size: 11px; }
 .passage-title { display: block; font-size: 12px; }
 .field-empty { font-size: 12px; line-height: 1.6; }
-.field-index { padding: 10px 0 24px; }
+.field-index { max-width: 780px; padding: 16px 0 24px; border-top: 1px dotted var(--field-rule); }
 .index-heading { margin-bottom: 20px; }
 .index-heading h1 { font-size: 16px; font-weight: normal; margin: 0 0 12px; }
 .index-heading nav { display: flex; gap: 20px; }
@@ -71,7 +78,7 @@ main.field-main { display: block; overflow: visible; }
 .index-actions { display: flex; gap: 25px; margin: 12px 0; }
 .index-actions > [data-field-passage] { display: none; }
 .field-ready .index-actions > [data-field-passage] { display: inline; }
-.field-footer { margin-top: 20px; font-size: 11px; }
+.field-footer { margin-top: 20px; padding-top: 12px; border-top: 1px dotted var(--field-rule); font-size: 11px; }
 .field-footer > span { color: var(--field-dim); }
 .field-nojs { line-height: 1.6; }
 /* Work pages share the same plain frame. Their media and poem bodies stay authored. */
@@ -90,6 +97,9 @@ body.field-work .slideshow-wrapper { height: 65dvh; max-height: 650px; }
 @media (max-width: 600px) {
     .field-shell { padding: 15px; }
     .field-header { gap: 14px; }
+    .field-threshold { gap: 15px; padding-bottom: 20px; }
+    .threshold-device > span { display: none; }
+    .field-emblem { width: 42px; height: 42px; }
     .field-caption { margin-left: 0; }
     .map-caption { gap: 10px; }
     .map-caption > span:first-child { display: none; }
