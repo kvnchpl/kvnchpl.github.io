@@ -27,6 +27,8 @@ To add a work, add its record to the appropriate catalog and its stable identifi
 
 Each node has a `position: [x, y]` in percentages, with both coordinates between 5 and 95. Positions are authored independently of catalog order and relationship data. Network draws those relationships as SVG lines behind ordinary HTML links. The diagram uses browser scrolling on narrow screens, with a locate button to return to the selected mark. There is no layout engine, animation loop, map library, or new dependency.
 
+Presentation is deliberately uneven. Optional `size` (70–230 pixels, default 112), `tilt` (−15–15 degrees, default 0), and `echo` (boolean) set the scale, angle, and torn duplicate image strip for each map node. These settings affect only previews. Poetry fragments appear among the images, with full work text available at its original URL. The layout is authored and repeatable: links do not move when you try to select them, and generated files stay deterministic. Hover, keyboard focus, and selection raise a node above overlapping fragments. The Index keeps its logical order with uneven visual spacing.
+
 The six marks are `mercury`, `sulfur`, `salt`, `saturn`, `vessel`, and `seal`. The vocabulary mixes alchemical and astrological forms with an invented compound seal; marks are visual punctuation rather than classifications of the work. Their shapes live in one SVG vocabulary in `scripts/field.mjs`.
 
 An optional `inscription` names a node with an existing `fragment` to show at the site's threshold. It links to that writing and follows the same navigation as other passages. The recurring original sigil and faint diagram rings are decorative, static SVG in the shared renderer; they add no navigation logic or dependencies.

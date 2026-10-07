@@ -18,9 +18,12 @@
         0
       ],
       "position": [
-        45,
-        40
-      ]
+        43,
+        39
+      ],
+      "size": 195,
+      "tilt": -7,
+      "echo": true
     },
     {
       "id": "project:truth-visions",
@@ -30,27 +33,34 @@
         0
       ],
       "position": [
-        30,
-        40
-      ]
+        25,
+        42
+      ],
+      "size": 180,
+      "tilt": 4,
+      "echo": true
     },
     {
       "id": "writing:flex-space",
       "mark": "salt",
       "fragment": "are everyone else's hamstrings as tight as mine?",
       "position": [
-        57,
-        24
-      ]
+        62,
+        21
+      ],
+      "size": 135,
+      "tilt": 8
     },
     {
       "id": "writing:belief-and-desire",
       "mark": "sulfur",
       "fragment": "maybe when i'm dead i'll reincarnate into a spinning wheel, or more precisely, the idea of a spinning wheel",
       "position": [
-        63,
-        43
-      ]
+        65,
+        44
+      ],
+      "size": 180,
+      "tilt": -5
     },
     {
       "id": "project:intraface",
@@ -60,18 +70,23 @@
         0
       ],
       "position": [
-        43,
-        60
-      ]
+        44,
+        63
+      ],
+      "size": 220,
+      "tilt": 3,
+      "echo": true
     },
     {
       "id": "writing:close-all",
       "mark": "mercury",
       "fragment": "how many tabs it would take to start to close the gap between my mind and your body",
       "position": [
-        27,
-        56
-      ]
+        22,
+        60
+      ],
+      "size": 140,
+      "tilt": -8
     },
     {
       "id": "project:viewfinder",
@@ -81,9 +96,12 @@
         0
       ],
       "position": [
-        22,
+        19,
         29
-      ]
+      ],
+      "size": 115,
+      "tilt": -11,
+      "echo": true
     },
     {
       "id": "writing:cinder-block",
@@ -91,8 +109,10 @@
       "fragment": "lets take a look at this cinder block and measure all of its right angles",
       "position": [
         8,
-        41
-      ]
+        47
+      ],
+      "size": 105,
+      "tilt": 3
     },
     {
       "id": "project:archipelago",
@@ -102,80 +122,99 @@
         0
       ],
       "position": [
-        22,
-        12
-      ]
+        28,
+        13
+      ],
+      "size": 105,
+      "tilt": 9
     },
     {
       "id": "writing:desire-path-vol-1",
       "mark": "vessel",
       "position": [
-        36,
-        8
-      ]
+        41,
+        9
+      ],
+      "size": 75,
+      "tilt": -10
     },
     {
       "id": "writing:stack",
       "mark": "saturn",
       "fragment": "the stucco rearranges into speckled constellation divining me of future hopes",
       "position": [
-        52,
-        8
-      ]
+        58,
+        10
+      ],
+      "size": 195,
+      "tilt": -4
     },
     {
       "id": "writing:the-album",
       "mark": "mercury",
       "fragment": "a hum is not a hug that will remind me of something i've never seen",
       "position": [
-        38,
+        40,
         24
-      ]
+      ],
+      "size": 140,
+      "tilt": 6
     },
     {
       "id": "project:each-all",
       "mark": "seal",
       "note": "A collaborative collaging project.",
       "position": [
-        8,
-        8
-      ]
+        10,
+        12
+      ],
+      "size": 145,
+      "tilt": -3,
+      "echo": true
     },
     {
       "id": "writing:sneeze",
       "mark": "salt",
       "fragment": "at last i had something to take care of – a duty emerged from my failure.",
       "position": [
-        10,
-        59
-      ]
+        12,
+        65
+      ],
+      "size": 140,
+      "tilt": 8
     },
     {
       "id": "writing:pearly-mucus",
       "mark": "vessel",
       "fragment": "she notices yet another tear drip from her lover's chin through the reflection of a steak knife.",
       "position": [
-        24,
-        72
-      ]
+        26,
+        78
+      ],
+      "size": 135,
+      "tilt": -4
     },
     {
       "id": "writing:diego",
       "mark": "sulfur",
       "fragment": "If you will not love me love the broken bowl",
       "position": [
-        9,
-        76
-      ]
+        11,
+        81
+      ],
+      "size": 95,
+      "tilt": -11
     },
     {
       "id": "writing:cabbage",
       "mark": "salt",
       "fragment": "A lone strand of linguini escaped — from box to pot, from pot to beneath the stove grate.",
       "position": [
-        9,
+        13,
         91
-      ]
+      ],
+      "size": 160,
+      "tilt": 2
     },
     {
       "id": "project:dimensional-freedom",
@@ -185,9 +224,11 @@
         2
       ],
       "position": [
-        61,
-        66
-      ]
+        64,
+        67
+      ],
+      "size": 145,
+      "tilt": -8
     },
     {
       "id": "writing:sweetness",
@@ -195,35 +236,43 @@
       "fragment": "you and i, speckled pillars yearning to be closer",
       "position": [
         75,
-        79
-      ]
+        83
+      ],
+      "size": 130,
+      "tilt": 10
     },
     {
       "id": "writing:beach",
       "mark": "seal",
       "fragment": "in which i was an auditorium of one and wondered: how does it feel to really believe something?",
       "position": [
-        77,
-        48
-      ]
+        78,
+        49
+      ],
+      "size": 125,
+      "tilt": 5
     },
     {
       "id": "writing:orchestra",
       "mark": "saturn",
       "fragment": "i curse duration — eventually, eventually i will be able to thank myself",
       "position": [
-        78,
-        10
-      ]
+        80,
+        12
+      ],
+      "size": 145,
+      "tilt": -7
     },
     {
       "id": "writing:theme",
       "mark": "mercury",
       "fragment": "try to tap along using only your pinky and ring finger for me cramps are a loving gesture after all",
       "position": [
-        70,
-        27
-      ]
+        73,
+        30
+      ],
+      "size": 135,
+      "tilt": -12
     },
     {
       "id": "writing:plight-of-center",
@@ -231,25 +280,33 @@
       "fragment": "dancing free dying—trying anything new and tracing loops",
       "position": [
         91,
-        26
-      ]
+        25
+      ],
+      "size": 90,
+      "tilt": 8
     },
     {
       "id": "project:friday-night-never",
       "mark": "sulfur",
       "note": "A celebration for the last images on earth, once all content has been recycled and experienced.",
       "position": [
-        91,
-        45
-      ]
+        88,
+        44
+      ],
+      "size": 175,
+      "tilt": 11,
+      "echo": true
     },
     {
       "id": "project:triptych",
       "mark": "seal",
       "position": [
-        91,
-        66
-      ]
+        89,
+        68
+      ],
+      "size": 175,
+      "tilt": -4,
+      "echo": true
     },
     {
       "id": "project:520-missing",
@@ -259,44 +316,55 @@
         0
       ],
       "position": [
-        7,
-        25
-      ]
+        8,
+        30
+      ],
+      "size": 115,
+      "tilt": 5
     },
     {
       "id": "writing:curse-of-soil",
       "mark": "sulfur",
       "fragment": "ghostly(re)appearances in another time, and perhaps, but not necessarily, in another land",
       "position": [
-        43,
-        89
-      ]
+        44,
+        88
+      ],
+      "size": 195,
+      "tilt": -6
     },
     {
       "id": "project:specter",
       "mark": "mercury",
       "note": "A 3D environment with fractured narrative and images.",
       "position": [
-        43,
-        75
-      ]
+        48,
+        78
+      ],
+      "size": 115,
+      "tilt": 12,
+      "echo": true
     },
     {
       "id": "project:jungle",
       "mark": "vessel",
       "note": "A digital zine.",
       "position": [
-        22,
-        91
-      ]
+        27,
+        92
+      ],
+      "size": 115,
+      "tilt": -7
     },
     {
       "id": "writing:loop",
       "mark": "seal",
       "position": [
-        63,
-        91
-      ]
+        62,
+        92
+      ],
+      "size": 80,
+      "tilt": 4
     },
     {
       "id": "writing:gran-turismo",
@@ -304,7 +372,9 @@
       "position": [
         89,
         91
-      ]
+      ],
+      "size": 95,
+      "tilt": -8
     }
   ],
   "connections": [

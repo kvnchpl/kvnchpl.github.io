@@ -28,6 +28,12 @@ use. A recurring original sigil and faint circular constructions give the site
 its own language. Draw inscriptions from the actual writings. Keep the navigation
 direct and the works particular; avoid simulated age, fake counters, novelty
 badges, and stock occult slogans.
+Push the composition beyond a tidy archive: abrupt changes of scale, colliding
+image fragments, tilted text, torn repetitions, and uneven directory spacing.
+Glitch is composed from the actual media and writing. Keep these choices in the
+presentation data and shared CSS. The visible disorder must remain editable,
+repeatable, and reversible. Links retain their identity and keyboard access;
+the full poems and source artworks remain available at their existing URLs.
 Preserve the particular texture of existing media. Evaluate compression, scale,
 cropping, and repetition in relation to each work instead of applying a uniform
 degradation effect.
