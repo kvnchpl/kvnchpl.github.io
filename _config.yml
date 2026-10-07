@@ -1,0 +1,26 @@
+# Maintenance sources are tracked, but are not public website files.
+exclude:
+  - README.md
+  - scripts
+  - docs
+  - thoughts.html
+  - json/projects.json
+  - json/writings.json
+  - json/field.json
+  - .archive
+  - .repo-backups
+  - .codex
+  - .agents
+  - .github
+  - node_modules
+  - artifacts
+  - qa
+  - test-results
+  - playwright-report
+  - coverage
+  - "*.log"
+  - "*.tmp"
+  - "*.har"
+  - "*.trace"
+
+# json/nav.json remains public for the separately hosted Thoughts theme.

@@ -1,6 +1,3 @@
-const SITE_ORIGIN = 'https://kvnchpl.com';
-const SKY_COUNT = 22;
-
 function imageUrl(project, image, size = 'medium') {
     return `/img/projects/${project}/${size}/${image}.webp`;
 }
@@ -48,27 +45,6 @@ function initSlideshow(wrapper) {
     nextButton.addEventListener('click', () => showImage(currentIndex + 1));
 }
 
-function shuffledSkyImages() {
-    const images = Array.from({ length: SKY_COUNT }, (_, index) => `/img/home/sky_${index + 1}.webp`);
-
-    for (let index = images.length - 1; index > 0; index -= 1) {
-        const swapIndex = Math.floor(Math.random() * (index + 1));
-        [images[index], images[swapIndex]] = [images[swapIndex], images[index]];
-    }
-
-    return images;
-}
-
-function randomizeSkyImages() {
-    const images = document.querySelectorAll('[data-sky-image]');
-    if (!images.length) return;
-
-    const sources = shuffledSkyImages();
-    images.forEach((image, index) => {
-        image.src = sources[index % sources.length];
-    });
-}
-
 function initAutoplayVideos() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -79,46 +55,9 @@ function initAutoplayVideos() {
     });
 }
 
-async function renderTumblrNav() {
-    if (document.body.dataset.page !== 'thoughts') return;
-
-    const nav = document.getElementById('nav');
-    const dataUrl = document.querySelector('meta[name="nav-data"]')?.content;
-    if (!nav || !dataUrl) return;
-
-    try {
-        const response = await fetch(dataUrl);
-        if (!response.ok) throw new Error(`Could not load ${dataUrl}: ${response.status}`);
-
-        const navData = await response.json();
-        const fragment = document.createDocumentFragment();
-
-        navData
-            .filter((link) => link.navBar)
-            .forEach((link) => {
-                const anchor = document.createElement('a');
-                anchor.href = new URL(link.href, SITE_ORIGIN).href;
-                anchor.textContent = link.label.toLowerCase() === 'thoughts' ? `*${link.label}*` : link.label;
-
-                if (link.newTab) {
-                    anchor.target = '_blank';
-                    anchor.rel = 'noopener noreferrer';
-                }
-
-                fragment.appendChild(anchor);
-            });
-
-        nav.replaceChildren(fragment);
-    } catch (error) {
-        console.error('Error loading Tumblr navigation:', error);
-    }
-}
-
 function init() {
     initAutoplayVideos();
-    randomizeSkyImages();
     document.querySelectorAll('[data-slideshow]').forEach(initSlideshow);
-    renderTumblrNav();
 }
 
 if (document.readyState === 'loading') {

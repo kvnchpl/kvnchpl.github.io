@@ -1,6 +1,9 @@
 {
+  "landing": {
+    "work": "project:viewfinder",
+    "image": "/img/projects/viewfinder/full/viewfinder_1.webp"
+  },
   "start": "project:compiler-buddha",
-  "inscription": "writing:stack",
   "marks": [
     "mercury",
     "sulfur",

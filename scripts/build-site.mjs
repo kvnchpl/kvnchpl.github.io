@@ -326,7 +326,7 @@ async function htmlFiles(directory = ROOT) {
     const files = [];
 
     for (const entry of entries) {
-        if (entry.name === '.git') continue;
+        if (entry.name.startsWith('.') || entry.name.startsWith('_')) continue;
         const fullPath = path.join(directory, entry.name);
         if (entry.isDirectory()) files.push(...await htmlFiles(fullPath));
         if (entry.isFile() && entry.name.endsWith('.html')) files.push(fullPath);
@@ -365,6 +365,12 @@ const [navData, projects, writings, fieldConfig] = await Promise.all([
     readJson('json/field.json')
 ]);
 const field = createField(projects, writings, fieldConfig);
+assertLocalAsset(field.landing.image);
+// About remains authored in its standalone page; the popup shares that copy.
+const aboutPage = await readFile(rootPath('about.html'), 'utf8');
+const aboutCopy = aboutPage.match(/<p class="contact-text">[\s\S]*?<\/p>/)?.[0];
+if (!aboutCopy) throw new Error('Missing about copy');
+const aboutPopup = `${aboutCopy}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" />`;
 
 const initialSeoPattern = /    <title>[\s\S]*?    <meta name="twitter:image:alt" content="[^"]*" \/>/;
 const initialNavPattern = /    <nav id="nav"><\/nav>/;
@@ -380,7 +386,7 @@ for (const [file, config] of Object.entries(pageConfigs)) {
         }
         if (['index.html', 'home.html', 'projects.html', 'writings.html'].includes(file)) {
             const filter = file === 'projects.html' ? 'project' : file === 'writings.html' ? 'writing' : 'all';
-            html = replaceGeneratedBlock(html, 'field', generatedBlock('field', renderField(field, filter), '        '));
+            html = replaceGeneratedBlock(html, 'field', generatedBlock('field', renderField(field, filter, aboutPopup), '        '));
         }
         return removeRuntimeDataMeta(html);
     });

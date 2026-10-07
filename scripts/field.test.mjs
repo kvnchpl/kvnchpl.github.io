@@ -41,8 +41,8 @@ test('invalid relationship data fails before any generated HTML is written', () 
         (c) => { c.nodes[0].echo = 'yes'; },
         (c) => { c.nodes[0].accountSections = [999]; },
         (c) => { c.start = 'missing'; },
-        (c) => { c.inscription = 'missing'; },
-        (c) => { c.inscription = c.start; },
+        (c) => { c.landing.work = 'missing'; },
+        (c) => { c.landing.image = 'https://invalid.example/image'; },
         (c) => { c.connections[0].to = 'missing'; },
         (c) => { c.connections[0].to = c.connections[0].from; },
         (c) => c.connections.push({...c.connections[0], from: c.connections[0].to, to: c.connections[0].from}),
@@ -68,7 +68,7 @@ test('map routes connect the authored positions without diagonal segments', () =
 });
 test('previews share one closed dialog and retain ordinary work destinations', () => {
     const html = renderField(field);
-    assert.equal((html.match(/<dialog\b/g) || []).length, 1);
+    assert.equal((html.match(/data-field-popup/g) || []).length, 1);
     assert.ok(!html.match(/<dialog[^>]*\bopen\b/));
     assert.ok(html.includes('data-popup-close'));
     for (const node of field.nodes.values()) {

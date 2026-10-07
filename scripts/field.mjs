@@ -43,7 +43,8 @@ export function createField(projects, writings, config) {
     });
     if (nodes.size !== records.size) throw new Error('Every catalog work must have a field node');
     if (!nodes.has(config.start)) throw new Error('Invalid field start');
-    if (config.inscription !== undefined && !nodes.get(config.inscription)?.fragment) throw new Error('Invalid field inscription');
+    const landing = config.landing || {work: config.start};
+    if (!nodes.has(landing.work) || (landing.image !== undefined && (typeof landing.image !== 'string' || !landing.image.startsWith('/img/')))) throw new Error('Invalid landing artwork');
     const edges = new Set();
     for (const edge of config.connections) {
         if (!nodes.has(edge.from) || !nodes.has(edge.to) || edge.from === edge.to || typeof edge.phrase !== 'string' || !edge.phrase.trim()) throw new Error(`Invalid connection: ${edge.from} / ${edge.to}`);
@@ -53,7 +54,7 @@ export function createField(projects, writings, config) {
         nodes.get(edge.from).neighbors.push({node: nodes.get(edge.to), phrase: edge.phrase});
         nodes.get(edge.to).neighbors.push({node: nodes.get(edge.from), phrase: edge.phrase});
     }
-    return {nodes, start: config.start, inscription: config.inscription, connections: config.connections};
+    return {nodes, start: config.start, connections: config.connections, landing};
 }
 const number = (n) => String(n + 1).padStart(2, '0');
 const destinationAttributes = (node) => node.newTab ? ' target="_blank" rel="noopener noreferrer"' : '';
@@ -82,10 +83,9 @@ export function renderConnections(node) {
     if (!node.neighbors.length) return '<p class="field-empty">An open end. <a href="?view=index">Continue through the index <span aria-hidden="true">--&gt;</span></a></p>';
     return `<ul class="field-connections">${node.neighbors.map(({node: next, phrase}) => `<li><a data-field-passage data-field-target="${next.anchor}" href="${escape(next.href)}"${destinationAttributes(next)}><span class="passage-phrase">${escape(phrase)}</span><span class="passage-title"><span aria-hidden="true">↳</span> ${escape(next.title)}${next.newTab ? ' ↗<span class="visually-hidden"> (opens a new tab)</span>' : ''}</span></a></li>`).join('')}</ul>`;
 }
-export function renderField(field, filter = 'all') {
+export function renderField(field, filter = 'all', about = '') {
     const nodes = [...field.nodes.values()];
     const visible = nodes.filter((node) => filter === 'all' || node.type === filter);
-    const threshold = field.nodes.get(field.inscription);
     const encounters = nodes.map((node) => {
         const image = node.sections?.flatMap((s) => s.images || [])[0];
         const preview = previewFor(node);
@@ -99,15 +99,23 @@ export function renderField(field, filter = 'all') {
         </section>`;
     }).join('\n');
     const index = visible.map((node) => `<li class="field-index-row" data-index-node="${escape(node.id)}"><a data-field-preview data-field-target="${node.anchor}" href="${escape(node.href)}"${destinationAttributes(node)}><span class="index-number">${number(node.index)}</span> <span class="index-title">${escape(node.title)}</span></a><span class="index-meta">[ ${metadata(node)} ]</span></li>`).join('\n');
-    return `<div class="field-shell" data-field-start="${anchorFor(field.start)}" data-default-view="${filter === 'all' ? 'network' : 'index'}">
-        <header class="field-header"><a class="field-name" href="/"><span>Kevin Cunanan<br/>Chappelle</span><span class="field-name-echo" aria-hidden="true">Kevin Cunanan<br/>Chappelle</span></a><nav class="field-utilities" aria-label="Primary"><a href="/about">About</a><a href="https://kvnchpl-thoughts.tumblr.com/">Thoughts ↗</a></nav></header>
-        <div class="field-threshold">${threshold?.fragment ? `<a class="threshold-fragment" data-field-passage data-field-target="${threshold.anchor}" href="${escape(threshold.href)}">${escape(threshold.fragment)}</a>` : ''}</div>
-        <div class="field-toolbar"><nav class="field-modes" aria-label="Display mode"><a data-field-view="network" href="?view=network">Network <span aria-hidden="true">[ * ]</span></a><a data-field-view="index" href="?view=index">Index <span aria-hidden="true">[ = ]</span></a></nav><span class="field-caption">${filter === 'all' ? 'works & writings' : filter === 'project' ? 'works' : 'writings'} / ${visible.length}</span><a class="field-retrace" href="#" hidden>Retrace <span aria-hidden="true">&lt;--</span></a></div>
-        <noscript><p class="field-nojs">Open a work from the index below.</p></noscript>
+    const featured = field.nodes.get(field.landing.work);
+    const featuredImage = field.landing.image || previewFor(featured);
+    return `<div class="field-shell" data-field-start="${anchorFor(field.start)}" data-default-view="${filter === 'all' ? 'landing' : 'index'}">
+        <div class="landing" data-color-layout="0">
+            <h1 class="landing-name"><a href="/" aria-label="KEVIN CUNANAN CHAPPELLE"><svg viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="0" y="350" font-size="400" textLength="1200" lengthAdjust="spacingAndGlyphs">KEVIN CUNANAN CHAPPELLE</text></svg><span class="visually-hidden">KEVIN CUNANAN CHAPPELLE</span></a></h1>
+            <a class="landing-image" data-field-preview data-field-target="${featured.anchor}" href="${escape(featured.href)}" aria-label="open ${escape(featured.title.toLowerCase())}"><img src="${escape(featuredImage)}" alt="" width="1920" height="2400" fetchpriority="high" /></a>
+            <nav class="landing-links" aria-label="Primary"><a class="landing-about" href="/about" data-about-open>a(bout)</a><a class="landing-projects" href="#field-index-heading" data-field-view="index">(project)s</a><a class="landing-network" href="#field-index-heading" data-field-view="network" aria-label="network">*</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">&amp;&amp;&amp;</a></nav>
+            <div class="color-block color-block-primary" aria-hidden="true"></div><div class="color-block color-block-secondary" aria-hidden="true"></div>
+            <div class="landing-palette" role="group" aria-label="color interventions">${['blue', 'black', 'white', 'red', 'lime', 'cyan', 'magenta', 'yellow', 'gray'].map((color, index) => `<button type="button" data-color="${color}" aria-label="${color}" aria-pressed="${index === 0}" style="--swatch:${color}" title="${color}"></button>`).join('')}</div>
+        </div>
+        <dialog class="field-browser" data-field-browser aria-label="works and writings"><div class="browser-bar"><nav class="field-modes" aria-label="Display mode"><a data-field-view="index" href="?view=index">index [ = ]</a><a data-field-view="network" href="?view=network">network [ * ]</a></nav><button type="button" data-browser-close>close [ x ]</button></div><a class="field-retrace" href="#" hidden>retrace &lt;--</a>
         <div class="field-network" aria-label="Network">${renderMap(field)}</div>
+        <section class="field-index" aria-labelledby="field-index-heading"><div class="index-heading"><h2 id="field-index-heading">${filter === 'all' ? 'An index' : filter === 'project' ? 'Works' : 'Writings'}</h2><nav aria-label="Index collection"><a href="/home?view=index"${filter === 'all' ? ' aria-current="page"' : ''}>All</a><a href="/projects?view=index"${filter === 'project' ? ' aria-current="page"' : ''}>Works</a><a href="/writings?view=index"${filter === 'writing' ? ' aria-current="page"' : ''}>Writings</a></nav></div><ol class="field-index-list">${index}</ol></section>
+        </dialog>
+        <noscript><style>.field-browser:not([open]) { display:block; position:relative; margin:30px auto; } .browser-bar button,.landing-palette { display:none; }</style><p class="field-nojs">open a work from the index.</p></noscript>
         <dialog id="field-preview" class="field-popup" data-field-popup aria-label="Work preview"><button type="button" class="popup-close" data-popup-close>close [ x ]</button>${encounters}</dialog>
-        <section class="field-index" aria-labelledby="field-index-heading"><div class="index-heading"><h1 id="field-index-heading">${filter === 'all' ? 'An index' : filter === 'project' ? 'Works' : 'Writings'}</h1><nav aria-label="Index collection"><a href="/home?view=index"${filter === 'all' ? ' aria-current="page"' : ''}>All</a><a href="/projects?view=index"${filter === 'project' ? ' aria-current="page"' : ''}>Works</a><a href="/writings?view=index"${filter === 'writing' ? ' aria-current="page"' : ''}>Writings</a></nav></div><ol class="field-index-list">${index}</ol></section>
-        <footer class="field-footer"><span aria-hidden="true">+ -- : -- +</span><details><summary>elsewhere</summary><div class="field-elsewhere"><a href="https://www.goodreads.com/kvnchpl">Reading ↗</a><a href="https://letterboxd.com/kvnchpl/">Watching ↗</a><a href="https://soundcloud.com/kvnchpl">Listening ↗</a><a href="https://hydranthunt.com/">Hydrants ↗</a><a href="https://kvnchpl.com/homestuck-book-club/">Homestuck ↗</a></div></details></footer>
+        <dialog class="about-popup field-popup" data-about-popup aria-labelledby="about-popup-heading"><button type="button" class="popup-close" data-about-close>close [ x ]</button><h2 id="about-popup-heading">A(BOUT)</h2>${about}<a href="/about">more [ + ]</a><details><summary>elsewhere</summary><div class="field-elsewhere"><a href="https://www.goodreads.com/kvnchpl">reading ↗</a><a href="https://letterboxd.com/kvnchpl/">watching ↗</a><a href="https://soundcloud.com/kvnchpl">listening ↗</a><a href="https://hydranthunt.com/">hydrants ↗</a><a href="https://kvnchpl.com/homestuck-book-club/">homestuck ↗</a></div></details></dialog>
         <p class="visually-hidden" data-field-announcement role="status" aria-live="polite"></p>
     </div>`;
 }

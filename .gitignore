@@ -32,3 +32,17 @@ vendor/
 
 # Custom private folder (for drafts or personal content)
 private/
+
+# Local history, tooling, and verification output
+.archive/
+.repo-backups/
+.codex/
+.agents/
+node_modules/
+artifacts/
+qa/
+test-results/
+playwright-report/
+coverage/
+*.har
+*.trace

@@ -20,25 +20,26 @@
     const mapViewport = shell.querySelector('.map-viewport');
     const popup = shell.querySelector('[data-field-popup]');
     const closeButton = popup.querySelector('[data-popup-close]');
+    const browser = shell.querySelector('[data-field-browser]');
+    const browserClose = shell.querySelector('[data-browser-close]');
+    const about = shell.querySelector('[data-about-popup]');
+    const aboutClose = shell.querySelector('[data-about-close]');
+    const aboutLink = shell.querySelector('[data-about-open]');
+    aboutLink.setAttribute('aria-haspopup', 'dialog');
+    modeLinks.forEach((link) => link.setAttribute('aria-haspopup', 'dialog'));
     shell.querySelectorAll('[data-field-passage], [data-field-preview]').forEach((link) => {
         link.setAttribute('aria-haspopup', 'dialog');
         link.setAttribute('aria-controls', 'field-preview');
     });
     let trail = [];
-    let preferredView;
-    try {
-        preferredView = localStorage.getItem('field-view');
-    } catch { /* Navigation works when storage is unavailable. */ }
     const initial = new URL(location.href);
-    if (!initial.searchParams.has('view')) {
-        initial.searchParams.set('view', shell.dataset.defaultView === 'index' ? 'index' : preferredView || 'network');
-    }
-    if (!byAnchor.has(initial.hash.slice(1))) initial.hash = shell.dataset.fieldStart;
+    if (!initial.searchParams.has('view') && shell.dataset.defaultView === 'index') initial.searchParams.set('view', 'index');
+    if (initial.hash && !byAnchor.has(initial.hash.slice(1))) initial.hash = '';
     history.replaceState(null, '', initial);
 
     function render(announce = false) {
         const url = new URL(location.href);
-        const view = url.searchParams.get('view') === 'index' ? 'index' : 'network';
+        const view = ['index', 'network'].includes(url.searchParams.get('view')) ? url.searchParams.get('view') : 'landing';
         const anchor = byAnchor.has(url.hash.slice(1)) ? url.hash.slice(1) : shell.dataset.fieldStart;
         shell.dataset.view = view;
         shell.classList.add('field-ready');
@@ -75,16 +76,26 @@
         });
         retrace.hidden = !trail.length;
         retrace.href = trail.at(-1) || '#';
-        try { localStorage.setItem('field-view', view); } catch { /* Optional preference. */ }
-        if (announce) shell.querySelector('[data-field-announcement]').textContent = `${view === 'network' ? 'Encounter' : 'Index'}: ${selected.querySelector('h2').textContent}`;
+        try { if (view !== 'landing') localStorage.setItem('field-view', view); } catch { /* Optional preference. */ }
+        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'landing' ? 'entrance' : `${view}: ${selected.querySelector('h2').textContent}`;
+        if (url.searchParams.get('peek') !== '1' && popup.open) popup.close();
+        if (view === 'landing') {
+            if (browser.open) browser.close();
+        } else if (!browser.open) {
+            browser.showModal();
+            browserClose.focus({preventScroll: true});
+        }
         if (view === 'network') locate();
+        if (url.searchParams.get('about') === '1') {
+            if (!about.open) about.showModal();
+        } else if (about.open) about.close();
         popup.setAttribute('aria-labelledby', selected.querySelector('h2').id);
         popup.dataset.position = nodes.indexOf(selected) % 3;
         if (url.searchParams.get('peek') === '1') {
             if (!popup.open) popup.showModal();
             popup.scrollTop = 0;
             closeButton.focus({preventScroll: true});
-        } else if (popup.open) popup.close();
+        }
     }
     function locate() {
         const selected = mapNodes.find((node) => node.hasAttribute('data-selected'));
@@ -109,6 +120,32 @@
         const rect = popup.getBoundingClientRect();
         if (event.target === popup && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dismiss();
     });
+    function closeLayer(dialog, params) {
+        dialog.close();
+        const url = new URL(location.href);
+        params.forEach((param) => url.searchParams.delete(param));
+        history.replaceState(null, '', url);
+        render();
+    }
+    for (const [dialog, button, params] of [[browser, browserClose, ['view', 'peek']], [about, aboutClose, ['about']]]) {
+        const close = () => closeLayer(dialog, params);
+        button.addEventListener('click', close);
+        dialog.addEventListener('cancel', (event) => { event.preventDefault(); close(); });
+        dialog.addEventListener('click', (event) => {
+            const rect = dialog.getBoundingClientRect();
+            if (event.target === dialog && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) close();
+        });
+    }
+    // Discrete, static compositions: no animation loop or dragging machinery.
+    const landing = shell.querySelector('.landing');
+    const colors = [...shell.querySelectorAll('[data-color]')];
+    let intervention = 0;
+    colors.forEach((button, index) => button.addEventListener('click', () => {
+        colors.forEach((color) => color.setAttribute('aria-pressed', String(color === button)));
+        landing.style.setProperty('--intervention', button.dataset.color);
+        landing.style.setProperty('--counter-color', ['yellow', 'cyan', 'blue'][index % 3]);
+        landing.dataset.colorLayout = String(++intervention % 3);
+    }));
     function go(target, remember = true) {
         if (target.href === location.href) return;
         if (remember) trail.push(location.pathname + location.search + location.hash);
@@ -119,7 +156,12 @@
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const link = event.target.closest('a');
         if (!link) return;
-        if (link.matches('[data-field-view]')) {
+        if (link === aboutLink) {
+            event.preventDefault();
+            const target = new URL(location.href);
+            target.searchParams.set('about', '1');
+            go(target, false);
+        } else if (link.matches('[data-field-view]')) {
             event.preventDefault();
             go(new URL(link.href), false);
         } else if (link.matches('[data-field-passage], [data-field-preview]')) {
