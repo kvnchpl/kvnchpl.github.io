@@ -32,4 +32,4 @@ vendor/
 
 # Custom private folder (for drafts or personal content)
 private/
-README.md
+/README.md
