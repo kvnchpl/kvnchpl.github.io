@@ -1,4 +1,4 @@
-/* A fixed, authored diagram; browser scrolling and native disclosures do the work. */
+/* A fixed, authored diagram; browser scrolling and a single native dialog do the work. */
 :root { --field-dim: #aaa; --field-rule: #555; }
 .field-mark { width: 20px; height: 20px; vertical-align: middle; }
 body.field-page { font-size: 13px; }
@@ -10,11 +10,8 @@ main.field-main { display: block; overflow: visible; }
 .field-header { margin-bottom: 12px; justify-content: space-between; }
 .field-name { position: relative; font-size: 27px; line-height: .86; letter-spacing: -.08em; text-transform: uppercase !important; }
 .field-name-echo { position: absolute; left: 7px; top: 4px; width: 100%; clip-path: inset(37% 0 38% 0); color: white; pointer-events: none; }
-.field-utilities { margin: 20px 7% 0 0; transform: rotate(2deg); }
-.field-threshold { position: relative; margin: 26px 0 28px 29%; max-width: 38ch; transform: rotate(-4deg); }
-.threshold-device { position: absolute; left: -90px; top: -38px; color: #777; font-size: 10px; pointer-events: none; }
-.threshold-device > span { display: none; }
-.threshold-device .field-emblem { width: 150px; height: 150px; transform: rotate(19deg); opacity: .6; }
+.field-utilities { margin: 20px 7% 0 0; }
+.field-threshold { position: relative; margin: 38px 0 36px 29%; max-width: 28ch; }
 .field-emblem { display: block; width: 54px; height: 54px; }
 .field-page a.threshold-fragment { position: relative; font-size: 13px; line-height: 1.2; color: white; text-decoration: none; background: black; }
 .field-page a.threshold-fragment:hover { text-decoration: underline; }
@@ -29,46 +26,50 @@ main.field-main { display: block; overflow: visible; }
 .map-caption > span:first-child { color: var(--field-dim); }
 .map-caption button { margin-left: auto; color: white; background: black; border: 1px solid var(--field-rule); padding: 2px 5px; cursor: pointer; }
 .map-viewport { overflow: auto; }
-.field-map { position: relative; min-width: 1000px; height: 760px; isolation: isolate; }
+.field-map { position: relative; min-width: 880px; height: 600px; isolation: isolate; }
 .map-lines { position: absolute; width: 100%; height: 100%; pointer-events: none; }
-.map-inscriptions { position: absolute; width: 100%; height: 100%; pointer-events: none; stroke: #444; stroke-width: 1; }
-.map-lines line { stroke: #777; stroke-width: 1; stroke-dasharray: 1 8; }
-.map-lines line[data-active] { stroke: white; stroke-dasharray: none; }
-.map-bearing { position: absolute; top: 56%; left: 56%; transform: rotate(17deg); color: #999; pointer-events: none; }
-.map-bearing .field-emblem { width: 135px; height: 135px; clip-path: inset(0 0 24% 0); }
-.map-bearing > span { display: block; margin: -25px 0 0 -30px; white-space: pre; font-size: 24px; }
-.field-page a.map-node { position: absolute; width: var(--node-size); transform: translate(-50%, -50%) rotate(var(--node-tilt)); text-align: left; line-height: 1.1; font-size: 11px; text-decoration: none; padding: 3px; box-sizing: border-box; }
+.map-lines polyline { display: none; stroke: #555; stroke-width: 1; stroke-dasharray: 1 7; vector-effect: non-scaling-stroke; }
+.map-lines polyline[data-active] { display: block; }
+.map-bearing { position: absolute; top: 56%; left: 56%; color: #999; pointer-events: none; }
+.map-bearing .field-emblem { width: 38px; height: 38px; }
+.map-bearing > span { display: block; margin: 14px 0 0 -18px; white-space: pre; font-size: 11px; }
+.field-page a.map-node { position: absolute; width: 38px; min-height: 30px; transform: translate(-50%, -50%); text-align: left; line-height: 1.1; font-size: 11px; text-decoration: none; padding: 3px; box-sizing: border-box; }
 .map-token { display: block; position: relative; }
-.map-token .field-mark { position: absolute; left: -17px; top: -12px; width: 25px; height: 25px; background: black; }
-.map-token img { display: block; width: 100%; height: auto; max-height: 150px; object-fit: contain; }
-.map-echo { position: absolute; inset: 0; transform: translate(18px, -9px); clip-path: inset(29% 0 45% 0); pointer-events: none; }
+.map-token .field-mark { position: absolute; left: -8px; top: -4px; width: 20px; height: 20px; background: black; }
+.map-token img { display: block; width: 100%; height: auto; max-height: 90px; object-fit: contain; }
+.map-echo { position: absolute; inset: 0; transform: translate(12px, -5px); clip-path: inset(29% 0 45% 0); pointer-events: none; }
 .map-echo img { width: 100%; height: 100%; object-fit: fill; }
-.map-number { color: var(--field-dim); font-size: 10px; }
-.map-fragment { display: block; margin: 2px 0 5px; font-size: 14px; line-height: 1.05; color: #bbb; }
-.map-title { position: relative; background: black; text-transform: lowercase; }
-.map-node:nth-of-type(4n) .map-fragment { font-size: 19px; letter-spacing: -.06em; }
-.map-node:nth-of-type(5n) .field-mark { transform: scale(1.8); }
+.map-number { display: block; margin-left: 16px; color: var(--field-dim); font-size: 9px; }
+.map-preview { display: none; position: relative; margin-top: 12px; }
+.map-node[data-selected], .map-node[data-neighbor] { width: var(--node-size); }
+.map-node[data-selected] .map-preview, .map-node[data-neighbor] .map-preview { display: block; }
+.map-title { display: none; position: relative; background: black; text-transform: lowercase; }
+.map-node[data-selected] .map-title, .map-node[data-neighbor] .map-title, .map-node:hover .map-title, .map-node:focus-visible .map-title { display: block; margin-top: 5px; }
+.map-node:nth-of-type(5n) .field-mark { transform: scale(1.35); }
 .map-node[data-selected], .map-node:hover, .map-node:focus-visible { z-index: 3; }
 .map-node[data-selected] .map-title { color: black !important; background: white; }
 .map-node:focus-visible { outline: 1px dotted white; }
 .map-node[data-neighbor] .map-title { text-decoration: underline; }
 .map-node:hover .map-title { text-decoration: underline; }
 .map-hint { font-size: 11px; color: var(--field-dim); margin: 4px 0 26px 8%; }
-.field-encounter { padding: 16px 0 24px 4%; }
+.field-encounter { padding: 0; }
 .field-encounter[hidden] { display: none; }
 .encounter-number { font-size: 11px; color: var(--field-dim); }
 .encounter-meta { margin-left: 20px; }
-.encounter-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 8%; margin-top: 12px; }
+.encounter-work { margin-top: 18px; }
+.encounter-disclosure { margin-top: 18px; font-size: 12px; }
+.encounter-disclosure summary, .field-footer summary { cursor: pointer; }
+.encounter-disclosure[open] summary { margin-bottom: 12px; }
+.encounter-disclosure .field-connections { margin-top: 12px; }
 .encounter-work h2 { font-size: 16px; font-weight: normal; text-transform: uppercase; margin: 0 0 12px; }
 .encounter-image { display: block; width: fit-content; max-width: 100%; }
-.encounter-image img { display: block; width: auto; max-width: 100%; height: 220px; object-fit: contain; }
+.encounter-image img { display: block; width: auto; max-width: 100%; height: 190px; object-fit: contain; }
 .encounter-open { display: inline-block; margin-top: 12px; }
-.encounter-fragment { margin: 12px 0; font-size: 23px; line-height: 1.15; max-width: 30ch; }
+.encounter-fragment { margin: 12px 0; font-size: 18px; line-height: 1.3; max-width: 30ch; }
 .encounter-text-mark { display: flex; align-items: center; gap: 25px; }
 .encounter-text-mark .field-mark { width: 45px; height: 45px; }
 .encounter-text-mark pre { margin: 10px 0; font-size: 12px; }
-.encounter-note { margin: 0 0 16px; font-size: 12px; line-height: 1.6; max-width: 60ch; }
-.encounter-adjacent h3, .work-passages h2 { font-size: 12px; font-weight: normal; margin: 0 0 12px; }
+.encounter-note { margin: 12px 0 0; font-size: 12px; line-height: 1.6; max-width: 60ch; }
 .field-connections { padding-left: 20px; margin: 0; }
 .field-connections li { margin: 0 0 10px; }
 .passage-phrase { color: var(--field-dim); font-size: 11px; }
@@ -84,23 +85,28 @@ main.field-main { display: block; overflow: visible; }
 .field-index-row:nth-child(4n+2) { margin-left: 11%; margin-bottom: 24px; }
 .field-index-row:nth-child(5n) { margin-left: 26%; }
 .field-index-row:nth-child(7n+1) .index-title { font-size: 19px; letter-spacing: -.07em; }
-.field-index-row summary { cursor: pointer; line-height: 1.7; }
+.index-number { margin-right: 12px; }
 .index-number, .index-meta { color: var(--field-dim); font-size: 11px; }
 .index-title { text-transform: uppercase; }
+.index-meta { margin-left: 18px; }
+.field-index-row > a { line-height: 1.7; }
 .field-index-row[data-selected] .index-number { color: white; }
-.index-content { padding: 4px 0 12px 35px; max-width: 65ch; }
-.index-content p { font-size: 12px; line-height: 1.6; }
-.index-actions { display: flex; gap: 25px; margin: 12px 0; }
-.index-actions > [data-field-passage] { display: none; }
-.field-ready .index-actions > [data-field-passage] { display: inline; }
 .field-footer { margin: 25px 0 0 6%; padding-top: 12px; font-size: 11px; gap: 15px 30px; }
 .field-footer > span { color: var(--field-dim); }
+.field-elsewhere { display: flex; flex-wrap: wrap; gap: 12px 25px; margin-top: 18px; }
 .field-nojs { line-height: 1.6; }
+/* Square, off-center windows; native dialog keeps keyboard and focus behavior simple. */
+.field-popup { color: white; background: black; border: 1px solid #777; border-radius: 0; padding: 22px; width: min(420px, calc(100vw - 64px)); max-height: calc(100dvh - 80px); overflow: auto; font: inherit; box-shadow: 5px 5px 0 #222; }
+.field-popup::backdrop { background: rgb(0 0 0 / .82); }
+.field-popup[data-position="0"] { margin-left: max(20px, calc(50vw - 280px)); }
+.field-popup[data-position="1"] { margin-right: max(20px, calc(50vw - 300px)); }
+.popup-close { display: block; margin: 0 0 24px auto; padding: 0; border: 0; color: white; background: black; cursor: pointer; text-decoration: underline; }
+.popup-close:focus-visible { outline: 1px dotted white; outline-offset: 4px; }
 /* Work pages share the same plain frame. Their media and poem bodies stay authored. */
 body.field-work #nav { font-size: 13px; padding: 20px; box-sizing: border-box; display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 20px; translate: none; }
 body.field-work #nav a { width: auto; text-transform: lowercase; text-decoration: underline; }
-body.field-work #nav a:nth-child(2n) { transform: translateY(5px) rotate(-3deg); }
-body.field-work #main-heading { align-self: flex-start; width: 86%; font-size: 28px; letter-spacing: -.06em; font-weight: normal; margin: 25px 0 0 7%; text-align: left; transform: rotate(-2deg); box-sizing: border-box; }
+body.field-work #nav a:nth-child(2n) { transform: translateY(5px); }
+body.field-work #main-heading { align-self: flex-start; width: 86%; font-size: 28px; letter-spacing: -.06em; font-weight: normal; margin: 25px 0 0 7%; text-align: left; box-sizing: border-box; }
 body.field-work #subtitle { width: 70%; font-size: 12px; margin: 12px 15% 25px auto; text-align: right; }
 body.field-work .project-copy, body.field-work .contact-text, .project-intro { font-size: 14px; line-height: 1.6; text-transform: lowercase; }
 .project-intro { max-width: 65ch; margin: 0 auto 20px; padding: 0 20px; }
@@ -109,6 +115,7 @@ body.field-work .project-copy, body.field-work .contact-text, .project-intro { f
 .project-account .project-copy { margin-top: 15px; max-width: 100%; padding: 0; }
 body.field-work .slideshow-wrapper { height: 65dvh; max-height: 650px; }
 .work-passages { width: min(850px, calc(100% - 40px)); margin: 35px auto; border-top: 1px dotted var(--field-rule); padding-top: 20px; }
+.work-passages h2 { font-size: 12px; font-weight: normal; margin: 0 0 12px; }
 .work-field-return { display: inline-block; font-size: 12px; margin-top: 20px; }
 @media (max-width: 600px) {
     .field-shell { padding: 15px; }
@@ -116,19 +123,14 @@ body.field-work .slideshow-wrapper { height: 65dvh; max-height: 650px; }
     .field-name { font-size: 24px; }
     .field-utilities { margin: 4px 0 0 auto; gap: 12px; font-size: 11px; }
     .field-threshold { margin: 24px 0 24px 24%; }
-    .threshold-device { left: -65px; top: -18px; }
-    .threshold-device .field-emblem { width: 100px; height: 100px; }
-    .threshold-device > span { display: none; }
     .field-emblem { width: 42px; height: 42px; }
     .field-caption { margin-left: 0; }
     .map-caption { gap: 10px; }
     .map-caption > span:first-child { display: none; }
-    .map-viewport { max-height: 60vh; }
-    .encounter-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-    .field-encounter { padding-left: 0; }
+    .map-viewport { max-height: 58vh; }
+    .field-popup[data-position] { margin: auto; max-height: calc(100dvh - 60px); padding: 18px; }
     .encounter-image img { height: 140px; }
-    .index-meta { display: block; margin-left: 58px; }
-    .index-content { padding-left: 20px; }
+    .index-meta { display: none; }
     .field-index-row:nth-child(5n) { margin-left: 13%; }
     body.field-work #nav { padding: 15px; gap: 15px; }
     body.field-work #nav a { flex: none; text-align: left; }

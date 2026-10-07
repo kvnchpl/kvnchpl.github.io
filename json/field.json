@@ -21,8 +21,7 @@
         43,
         39
       ],
-      "size": 195,
-      "tilt": -7,
+      "size": 117,
       "echo": true
     },
     {
@@ -36,8 +35,7 @@
         25,
         42
       ],
-      "size": 180,
-      "tilt": 4,
+      "size": 108,
       "echo": true
     },
     {
@@ -48,8 +46,7 @@
         62,
         21
       ],
-      "size": 135,
-      "tilt": 8
+      "size": 81
     },
     {
       "id": "writing:belief-and-desire",
@@ -59,8 +56,7 @@
         65,
         44
       ],
-      "size": 180,
-      "tilt": -5
+      "size": 108
     },
     {
       "id": "project:intraface",
@@ -73,8 +69,7 @@
         44,
         63
       ],
-      "size": 220,
-      "tilt": 3,
+      "size": 132,
       "echo": true
     },
     {
@@ -85,8 +80,7 @@
         22,
         60
       ],
-      "size": 140,
-      "tilt": -8
+      "size": 84
     },
     {
       "id": "project:viewfinder",
@@ -99,8 +93,7 @@
         19,
         29
       ],
-      "size": 115,
-      "tilt": -11,
+      "size": 70,
       "echo": true
     },
     {
@@ -111,13 +104,12 @@
         8,
         47
       ],
-      "size": 105,
-      "tilt": 3
+      "size": 70
     },
     {
       "id": "project:archipelago",
       "mark": "seal",
-      "note": "Pairs of abstract fauna and flora meet rectangular frames. Banner proposals for the Noguchi Museum’s 2024 open call.",
+      "note": "Pairs of abstract fauna and flora meet rectangular frames. Banner proposals for the Noguchi Museum\u2019s 2024 open call.",
       "accountSections": [
         0
       ],
@@ -125,8 +117,7 @@
         28,
         13
       ],
-      "size": 105,
-      "tilt": 9
+      "size": 70
     },
     {
       "id": "writing:desire-path-vol-1",
@@ -135,8 +126,7 @@
         41,
         9
       ],
-      "size": 75,
-      "tilt": -10
+      "size": 70
     },
     {
       "id": "writing:stack",
@@ -146,8 +136,7 @@
         58,
         10
       ],
-      "size": 195,
-      "tilt": -4
+      "size": 117
     },
     {
       "id": "writing:the-album",
@@ -157,8 +146,7 @@
         40,
         24
       ],
-      "size": 140,
-      "tilt": 6
+      "size": 84
     },
     {
       "id": "project:each-all",
@@ -168,20 +156,18 @@
         10,
         12
       ],
-      "size": 145,
-      "tilt": -3,
+      "size": 87,
       "echo": true
     },
     {
       "id": "writing:sneeze",
       "mark": "salt",
-      "fragment": "at last i had something to take care of – a duty emerged from my failure.",
+      "fragment": "at last i had something to take care of \u2013 a duty emerged from my failure.",
       "position": [
         12,
         65
       ],
-      "size": 140,
-      "tilt": 8
+      "size": 84
     },
     {
       "id": "writing:pearly-mucus",
@@ -191,8 +177,7 @@
         26,
         78
       ],
-      "size": 135,
-      "tilt": -4
+      "size": 81
     },
     {
       "id": "writing:diego",
@@ -202,19 +187,17 @@
         11,
         81
       ],
-      "size": 95,
-      "tilt": -11
+      "size": 70
     },
     {
       "id": "writing:cabbage",
       "mark": "salt",
-      "fragment": "A lone strand of linguini escaped — from box to pot, from pot to beneath the stove grate.",
+      "fragment": "A lone strand of linguini escaped \u2014 from box to pot, from pot to beneath the stove grate.",
       "position": [
         13,
         91
       ],
-      "size": 160,
-      "tilt": 2
+      "size": 96
     },
     {
       "id": "project:dimensional-freedom",
@@ -227,8 +210,7 @@
         64,
         67
       ],
-      "size": 145,
-      "tilt": -8
+      "size": 87
     },
     {
       "id": "writing:sweetness",
@@ -238,8 +220,7 @@
         75,
         83
       ],
-      "size": 130,
-      "tilt": 10
+      "size": 78
     },
     {
       "id": "writing:beach",
@@ -249,19 +230,17 @@
         78,
         49
       ],
-      "size": 125,
-      "tilt": 5
+      "size": 75
     },
     {
       "id": "writing:orchestra",
       "mark": "saturn",
-      "fragment": "i curse duration — eventually, eventually i will be able to thank myself",
+      "fragment": "i curse duration \u2014 eventually, eventually i will be able to thank myself",
       "position": [
         80,
         12
       ],
-      "size": 145,
-      "tilt": -7
+      "size": 87
     },
     {
       "id": "writing:theme",
@@ -271,19 +250,17 @@
         73,
         30
       ],
-      "size": 135,
-      "tilt": -12
+      "size": 81
     },
     {
       "id": "writing:plight-of-center",
       "mark": "vessel",
-      "fragment": "dancing free dying—trying anything new and tracing loops",
+      "fragment": "dancing free dying\u2014trying anything new and tracing loops",
       "position": [
         91,
         25
       ],
-      "size": 90,
-      "tilt": 8
+      "size": 70
     },
     {
       "id": "project:friday-night-never",
@@ -293,8 +270,7 @@
         88,
         44
       ],
-      "size": 175,
-      "tilt": 11,
+      "size": 105,
       "echo": true
     },
     {
@@ -304,8 +280,7 @@
         89,
         68
       ],
-      "size": 175,
-      "tilt": -4,
+      "size": 105,
       "echo": true
     },
     {
@@ -319,8 +294,7 @@
         8,
         30
       ],
-      "size": 115,
-      "tilt": 5
+      "size": 70
     },
     {
       "id": "writing:curse-of-soil",
@@ -330,8 +304,7 @@
         44,
         88
       ],
-      "size": 195,
-      "tilt": -6
+      "size": 117
     },
     {
       "id": "project:specter",
@@ -341,8 +314,7 @@
         48,
         78
       ],
-      "size": 115,
-      "tilt": 12,
+      "size": 70,
       "echo": true
     },
     {
@@ -353,8 +325,7 @@
         27,
         92
       ],
-      "size": 115,
-      "tilt": -7
+      "size": 70
     },
     {
       "id": "writing:loop",
@@ -363,8 +334,7 @@
         62,
         92
       ],
-      "size": 80,
-      "tilt": 4
+      "size": 70
     },
     {
       "id": "writing:gran-turismo",
@@ -373,8 +343,7 @@
         89,
         91
       ],
-      "size": 95,
-      "tilt": -8
+      "size": 70
     }
   ],
   "connections": [

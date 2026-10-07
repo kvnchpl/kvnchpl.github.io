@@ -18,6 +18,12 @@
     const mapNodes = [...shell.querySelectorAll('[data-map-node]')];
     const mapEdges = [...shell.querySelectorAll('[data-map-edge]')];
     const mapViewport = shell.querySelector('.map-viewport');
+    const popup = shell.querySelector('[data-field-popup]');
+    const closeButton = popup.querySelector('[data-popup-close]');
+    shell.querySelectorAll('[data-field-passage], [data-field-preview]').forEach((link) => {
+        link.setAttribute('aria-haspopup', 'dialog');
+        link.setAttribute('aria-controls', 'field-preview');
+    });
     let trail = [];
     let preferredView;
     try {
@@ -42,6 +48,7 @@
             const target = new URL(url);
             target.searchParams.set('view', link.dataset.fieldView);
             target.hash = anchor;
+            target.searchParams.delete('peek');
             link.href = target.pathname + target.search + target.hash;
         });
         const selected = byAnchor.get(anchor);
@@ -60,30 +67,48 @@
         });
         const currentLink = shell.querySelector('[data-map-current]');
         const destination = selected.querySelector('.encounter-open');
-        currentLink.textContent = selected.querySelector('h2').textContent;
+        currentLink.textContent = `${selected.querySelector('h2').textContent} [ + ]`;
         currentLink.href = destination.href;
-        for (const attribute of ['target', 'rel']) {
-            if (destination.hasAttribute(attribute)) currentLink.setAttribute(attribute, destination.getAttribute(attribute));
-            else currentLink.removeAttribute(attribute);
-        }
-        if (destination.target === '_blank') currentLink.append(' ↗');
+        currentLink.dataset.fieldTarget = anchor;
         shell.querySelectorAll('[data-index-node]').forEach((row) => {
-            if (row.dataset.indexNode === selected.dataset.fieldNode) {
-                row.setAttribute('data-selected', 'true');
-                if (view === 'index' && (announce || initial.hash === `#${anchor}`)) row.querySelector('details').open = true;
-            } else row.removeAttribute('data-selected');
+            row.toggleAttribute('data-selected', row.dataset.indexNode === selected.dataset.fieldNode);
         });
         retrace.hidden = !trail.length;
         retrace.href = trail.at(-1) || '#';
         try { localStorage.setItem('field-view', view); } catch { /* Optional preference. */ }
         if (announce) shell.querySelector('[data-field-announcement]').textContent = `${view === 'network' ? 'Encounter' : 'Index'}: ${selected.querySelector('h2').textContent}`;
         if (view === 'network') locate();
+        popup.setAttribute('aria-labelledby', selected.querySelector('h2').id);
+        popup.dataset.position = nodes.indexOf(selected) % 3;
+        if (url.searchParams.get('peek') === '1') {
+            if (!popup.open) popup.showModal();
+            popup.scrollTop = 0;
+            closeButton.focus({preventScroll: true});
+        } else if (popup.open) popup.close();
     }
     function locate() {
         const selected = mapNodes.find((node) => node.hasAttribute('data-selected'));
         if (selected) mapViewport.scrollTo({left: selected.offsetLeft - mapViewport.clientWidth / 2, top: selected.offsetTop - mapViewport.clientHeight / 2});
     }
     shell.querySelector('[data-map-locate]').addEventListener('click', locate);
+    function dismiss() {
+        popup.close();
+        const url = new URL(location.href);
+        url.searchParams.delete('peek');
+        history.replaceState(null, '', url);
+        render();
+    }
+    closeButton.addEventListener('click', dismiss);
+    // Dismiss synchronously; queued native close events must not rewrite history.
+    // The browser still handles focus trapping and returning focus to the opener.
+    popup.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        dismiss();
+    });
+    popup.addEventListener('click', (event) => {
+        const rect = popup.getBoundingClientRect();
+        if (event.target === popup && (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom)) dismiss();
+    });
     function go(target, remember = true) {
         if (target.href === location.href) return;
         if (remember) trail.push(location.pathname + location.search + location.hash);
@@ -97,17 +122,14 @@
         if (link.matches('[data-field-view]')) {
             event.preventDefault();
             go(new URL(link.href), false);
-        } else if (link.matches('[data-field-passage]')) {
+        } else if (link.matches('[data-field-passage], [data-field-preview]')) {
             const target = new URL(location.href);
-            target.searchParams.set('view', 'network');
+            if (link.hasAttribute('data-field-passage')) target.searchParams.set('view', 'network');
+            target.searchParams.set('peek', '1');
             target.hash = link.dataset.fieldTarget || new URL(link.href).hash;
             if (!byAnchor.has(target.hash.slice(1))) return;
             event.preventDefault();
             go(target);
-            // A map click retains its link focus; a passage locates the new mark.
-            if (!link.hasAttribute('data-map-node')) {
-                mapNodes.find((node) => node.dataset.mapNode === target.hash.slice(1)).focus({preventScroll: true});
-            }
         } else if (link === retrace) {
             event.preventDefault();
             const previous = trail.pop();

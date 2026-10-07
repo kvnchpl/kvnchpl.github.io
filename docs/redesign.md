@@ -159,3 +159,16 @@ history, keyboard use, and narrow screens in a browser.
   `redesign/node-traversal` branch are retained.
 - Keep work local until publishing is requested. Use small commits so design and
   editorial changes remain easy to review and revert.
+
+## Sparse popup revision — 2026-10-07
+
+The latest direction replaces tilts and large colliding fragments with sparse,
+level elements. Keep the field irregular through placement, uneven scale, blank
+space, and a few displaced image strips. All marks remain reachable; reveal only
+the selected work and its immediate neighborhood. Relationships use horizontal
+and vertical routes.
+
+Both Network and Index open work previews in one plain native dialog, with notes
+and passages folded until requested. Show one work at a time. Keep direct work
+URLs and the static Index available, with native keyboard dismissal and focus
+behavior. Preserve the preceding collage at `rollback/pre-popups-2026-10-07`.

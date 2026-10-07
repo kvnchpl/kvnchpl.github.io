@@ -23,6 +23,7 @@ Useful field URLs:
 
 - `/?view=network#work-project-compiler-buddha`
 - `/?view=index#work-writing-flex-space`
+- `/?view=network&peek=1#work-writing-flex-space`
 - `/projects.html?view=index`
 - `/writings.html?view=index`
 
@@ -68,3 +69,10 @@ git diff --check
 A second build should report zero updated files. Check Network, Index, direct
 work URLs, browser back/forward, keyboard focus, a narrow viewport, and the static
 index before publishing.
+
+## Design checkpoints
+
+`rollback/pre-chaos-2026-10-07` preserves the earlier orderly map.
+`rollback/pre-popups-2026-10-07` preserves the subsequent collage with tilted
+fragments, before the sparse popup revision. Use the same branch-at-tag workflow
+above to inspect either checkpoint without losing the redesign.

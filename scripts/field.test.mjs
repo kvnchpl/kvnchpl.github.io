@@ -18,7 +18,7 @@ test('every catalog entry is reachable in both views, including PDF and external
         assert.ok(html.includes(`id="${node.anchor}"`));
         assert.ok(html.includes(`href="${node.href}"`));
         assert.ok(renderWorkPassages(field, node.id).includes(node.anchor));
-        assert.ok(html.includes(`style="left:${node.position[0]}%;top:${node.position[1]}%;--node-size:${node.size}px;--node-tilt:${node.tilt}deg"`));
+        assert.ok(html.includes(`style="left:${node.position[0]}%;top:${node.position[1]}%;--node-size:${node.size}px"`));
     }
 });
 test('filtered indexes preserve passages to the full field', () => {
@@ -38,7 +38,6 @@ test('invalid relationship data fails before any generated HTML is written', () 
         (c) => { delete c.nodes[0].position; },
         (c) => { c.nodes[0].size = 500; },
         (c) => { c.nodes[0].size = '120'; },
-        (c) => { c.nodes[0].tilt = 90; },
         (c) => { c.nodes[0].echo = 'yes'; },
         (c) => { c.nodes[0].accountSections = [999]; },
         (c) => { c.start = 'missing'; },
@@ -54,13 +53,29 @@ test('invalid relationship data fails before any generated HTML is written', () 
         assert.throws(() => createField(projects, writings, broken));
     }
 });
-test('map lines connect the authored positions and carry both endpoint identities', () => {
+test('map routes connect the authored positions without diagonal segments', () => {
     const html = renderField(field);
     for (const edge of config.connections) {
         const a = field.nodes.get(edge.from);
         const b = field.nodes.get(edge.to);
-        assert.ok(html.includes(`data-map-edge="${a.anchor} ${b.anchor}" x1="${a.position[0]}%" y1="${a.position[1]}%" x2="${b.position[0]}%" y2="${b.position[1]}%"`));
+        const match = html.match(new RegExp(`data-map-edge="${a.anchor} ${b.anchor}" points="([^"]+)"`));
+        assert.ok(match);
+        const points = match[1].split(' ').map((p) => p.split(',').map(Number));
+        assert.deepEqual(points[0], a.position);
+        assert.deepEqual(points.at(-1), b.position);
+        points.slice(1).forEach((point, i) => assert.ok(point[0] === points[i][0] || point[1] === points[i][1]));
     }
+});
+test('previews share one closed dialog and retain ordinary work destinations', () => {
+    const html = renderField(field);
+    assert.equal((html.match(/<dialog\b/g) || []).length, 1);
+    assert.ok(!html.match(/<dialog[^>]*\bopen\b/));
+    assert.ok(html.includes('data-popup-close'));
+    for (const node of field.nodes.values()) {
+        assert.ok(html.includes(`data-field-preview data-field-target="${node.anchor}" href="${node.href}"`));
+        assert.ok(html.includes(`aria-labelledby="title-${node.anchor}"`));
+    }
+    assert.ok(!html.includes('class="map-fragment"'));
 });
 test('authored copy is escaped, and missing notes need no placeholder caption', () => {
     const changed = structuredClone(config);
