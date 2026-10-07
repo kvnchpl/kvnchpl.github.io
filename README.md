@@ -2,47 +2,87 @@
 
 Static portfolio hosted by GitHub Pages. No application dependencies or server-side runtime.
 
-## Maintain
+## Add a project
 
-Edit project and writing records in `json/projects.json` and `json/writings.json`. Edit map positions, symbols, notes, and connections in `json/field.json`. Writing bodies remain authored in `writings/*.html`; profile copy lives in `about.html` and is reused in its popup.
+From the repository root:
 
-The `landing` record in `json/field.json` sets the entrance's featured work and image. The image is displayed in grayscale on the entrance; its original asset is preserved.
+```sh
+node scripts/add-work.mjs project my-project "My Project" --image /path/to/artwork.webp --alt "Describe the artwork" --date 2026-10-07
+```
 
-Run these commands after editing content or shared code:
+The command copies the image, adds a catalog record, and creates the standard page. It refuses to overwrite an existing work. Edit the new record in `json/projects.json` to add images, sections, optional copy, and dates. A gallery section looks like this:
+
+```json
+{
+    "images": [
+        { "src": "/img/projects/my-project/artwork.webp", "alt": "Describe the first image" },
+        { "src": "/img/projects/my-project/second.webp", "alt": "Describe the second image" }
+    ],
+    "text": "Optional section copy."
+}
+```
+
+One image per file is enough. Existing projects using `file` names and small/medium/full WebP exports continue to work. `thumbnail` is optional; the first image is used when it is absent. For a project without images, omit `--image` and add its content before building. Optional `note` adds a short introduction; `accountSections: [0]` places the first section's copy in a disclosure. These are editorial choices, not required fields.
+
+## Add a writing
+
+Put the text in a UTF-8 file, then run:
+
+```sh
+node scripts/add-work.mjs writing my-poem "My Poem" --body /path/to/poem.txt --date 2026-10-07
+```
+
+The command adds its catalog record and creates `writings/my-poem.html`. Line breaks, indentation, and capitalization are preserved inside `pre.writing-content`. Edit that body directly for later revisions; text outside `generated:*` comments remains authored. The helper never rewrites an existing writing.
+
+For a PDF or independently hosted work, first put the PDF in `pdf/`, or use its website URL:
+
+```sh
+node scripts/add-work.mjs writing my-zine "My Zine" --url /pdf/my-zine.pdf
+node scripts/add-work.mjs project my-site "My Site" --url https://example.com/
+```
+
+`--date` is optional and defaults to today. Titles are displayed in lowercase or uppercase; preformatted poetry keeps its casing. `node scripts/add-work.mjs --help` lists the options.
+
+## Build and check
 
 ```sh
 node scripts/build-site.mjs
-node --test scripts/field.test.mjs
+node --test scripts/*.test.mjs
 node scripts/check-site.mjs
 git diff --check
 ```
 
-Commit both sources and generated HTML. A second build should report zero updated files. Content inside `generated:*` comments is replaced by the generator.
+Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the index, atlas, collection pages, navigation frame, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Collection pages filter both browsing views. An optional `mark` selects a symbol; otherwise one is assigned consistently from the work's key.
 
 ## Structure
 
-- `scripts/field.mjs` validates catalog relationships and renders the entrance, index, map, and previews.
-- `js/field.js` manages native dialogs, URL history, map selection, and discrete color compositions.
-- `css/field.css` styles the entrance, popup windows, and shared work-page frame.
-- `js/main.js` handles galleries and video playback.
-- Actual media and complete work pages stay in `img`, `vid`, `pdf`, `projects`, and `writings`.
+- `json/projects.json` and `json/writings.json`: catalog records and project sections.
+- `json/field.json`: the entrance's featured work and optional image only.
+- `scripts/build-site.mjs`: shared metadata, galleries, catalog views, and sitemap.
+- `scripts/field.mjs`: catalog validation and index/atlas markup.
+- `scripts/work-page.mjs`: one standard shell for new works.
+- `scripts/add-work.mjs`: content scaffolding, with no dependencies.
+- `js/field.js`: index/about dialogs, view history, and static color interventions.
+- `js/main.js`: galleries and video playback.
+- `css/field.css`: entrance, atlas, dialogs, and work-page frame.
+- `projects`, `writings`, `img`, `vid`, `pdf`: full pages and actual media.
 
-The entrance has no automatic animation. Color controls alter static blocks. Browsing and preview state use `view=index`, `view=network`, `peek=1`, `about=1`, and stable work hashes. Native dialogs provide keyboard focus handling; Escape and close controls dismiss them. Without JavaScript, a complete index appears below the entrance and ordinary links reach the full works.
+Work links are ordinary links to complete pages, PDFs, or external projects. There are no work previews or passage links. Index/about dialogs retain native focus and Escape behavior. A work's return link opens its location in the atlas or index. Without JavaScript, a complete linked index appears below the entrance.
 
-Visible interface text is lowercase or uppercase. Authored preformatted poetry preserves its casing. The nameplate uses SVG text; symbolic marks share one inline SVG vocabulary.
+The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. Color rectangles interrupt static compositions. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about popup.
 
 ## Public files and local archive
 
-`_config.yml` excludes maintenance sources and verification output from the GitHub Pages build. `json/nav.json` remains public because the separately hosted Thoughts theme fetches it. Catalog JSON is compiled into HTML and does not need to be served.
+`_config.yml` excludes maintenance sources, catalog JSON, and verification output from the GitHub Pages build. `json/nav.json` remains public because the separately hosted Thoughts theme fetches it.
 
-`.archive/` is ignored and excluded from deployment. It contains local historical documentation, the undeployed Tumblr template, and unused assets. Development reports, logs, caches, and screenshots belong in ignored `qa/`, `artifacts/`, or temporary directories. Git history also preserves previous tracked versions.
+`.archive/` is ignored and excluded from deployment. It contains historical documentation, unused assets, and local design studies. Verification output belongs in ignored archive or temporary directories. Git history preserves previous tracked versions.
 
 ## Restore a checkpoint
 
-Commit or stash current work, then create a branch at an existing tag:
+Commit or stash current work, then create a branch at the checkpoint:
 
 ```sh
-git switch -c restore/checkpoint rollback/pre-reference-redesign-2026-10-07
+git switch -c restore/reference-redesign rollback/pre-direct-navigation-2026-10-07
 ```
 
-This restores the previous sparse map and popup design locally. The original site is preserved at `rollback/pre-redesign-2026-10-02`. Return with `git switch redesign/site-2026-10-02`. Switching branches does not publish a website.
+This returns to the version before direct navigation and the catalog workflow changes. The original site is preserved at `rollback/pre-redesign-2026-10-02`. Return with `git switch redesign/site-2026-10-02`. Switching branches does not publish the website.

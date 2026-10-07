@@ -1,6 +1,6 @@
-// Authored relationships are independent of catalog order, URLs, and presentation.
 const escape = (value = '') => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 export const anchorFor = (id) => `work-${id.replace(':', '-')}`;
+export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff0000'], ['green', '#00ff00'], ['blue', '#0000ff'], ['cyan', '#00ffff'], ['magenta', '#ff00ff'], ['yellow', '#ffff00']];
 const shapes = {
     mercury: '<path d="M7 2a5 5 0 0 0 10 0 M12 15v8 M8 19h8"/><circle cx="12" cy="9" r="6"/>',
     sulfur: '<path d="m12 2 7 12H5Z M12 14v9 M8 19h8"/>',
@@ -12,114 +12,66 @@ const shapes = {
 export function mark(name) {
     return `<svg class="field-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.2">${shapes[name]}</svg>`;
 }
-// An original recurring device, rather than a historical symbol with an assigned meaning.
-function emblem() {
-    return '<svg class="field-emblem" viewBox="0 0 96 96" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1"><circle cx="48" cy="48" r="32"/><path d="M48 2v22 M48 72v22 M2 48h22 M72 48h22 M40 8h16 M40 88h16 M8 40v16 M88 40v16 M48 16 73 60H23Z M48 80 73 36H23Z M20 20l56 56 M20 76l56-56"/><circle cx="48" cy="48" r="9"/><path d="M39 48h18 M48 39v18"/></svg>';
-}
-export function createField(projects, writings, config) {
-    const catalog = [...projects, ...writings];
-    const records = new Map();
-    for (const work of catalog) {
-        if (!['project', 'writing'].includes(work.type) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(work.key)) throw new Error(`Invalid work identity: ${work.key}`);
-        const id = `${work.type}:${work.key}`;
-        if (records.has(id)) throw new Error(`Duplicate work: ${id}`);
-        records.set(id, work);
-    }
-    if (!Array.isArray(config.nodes) || !Array.isArray(config.connections)) throw new Error('Missing field nodes or connections');
-    if (!Array.isArray(config.marks)) throw new Error('Missing symbol vocabulary');
+export function createField(projects, writings, config = {}) {
+    const catalog = [...projects, ...writings].sort((a, b) => (b.year || 0) - (a.year || 0) || (b.month || 0) - (a.month || 0) || (b.day || 0) - (a.day || 0));
     const nodes = new Map();
-    config.nodes.forEach((settings, index) => {
-        const record = records.get(settings.id);
-        if (!record || nodes.has(settings.id)) throw new Error(`Unknown or duplicate node: ${settings.id}`);
-        if (!Object.hasOwn(shapes, settings.mark) || !config.marks.includes(settings.mark)) throw new Error(`Unknown mark: ${settings.mark}`);
-        if (!Array.isArray(settings.position) || settings.position.length !== 2 || settings.position.some((n) => !Number.isFinite(n) || n < 5 || n > 95)) throw new Error(`Invalid map position: ${settings.id}`);
-        if (settings.size !== undefined && (!Number.isFinite(settings.size) || settings.size < 70 || settings.size > 230)) throw new Error(`Invalid map size: ${settings.id}`);
-        if (settings.echo !== undefined && typeof settings.echo !== 'boolean') throw new Error(`Invalid map echo: ${settings.id}`);
-        for (const key of ['note', 'fragment']) {
-            if (settings[key] !== undefined && typeof settings[key] !== 'string') throw new Error(`Invalid ${key}: ${settings.id}`);
+    const marks = Object.keys(shapes);
+    for (const [index, work] of catalog.entries()) {
+        if (!['project', 'writing'].includes(work.type) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(work.key) || !work.title?.trim()) throw new Error(`Invalid work identity: ${work.key}`);
+        const id = `${work.type}:${work.key}`;
+        if (nodes.has(id)) throw new Error(`Duplicate work: ${id}`);
+        if (work.mark !== undefined && !Object.hasOwn(shapes, work.mark)) throw new Error(`Unknown mark: ${work.mark}`);
+        for (const key of ['note']) {
+            if (work[key] !== undefined && typeof work[key] !== 'string') throw new Error(`Invalid ${key}: ${id}`);
         }
-        if (settings.accountSections !== undefined && (!Array.isArray(settings.accountSections) || settings.accountSections.some((i) => !Number.isInteger(i) || !record.sections?.[i]?.text))) throw new Error(`Invalid account section: ${settings.id}`);
-        nodes.set(settings.id, {...record, id: settings.id, mark: settings.mark, position: settings.position, size: settings.size || 112, echo: settings.echo || false, note: settings.note, fragment: settings.fragment, accountSections: settings.accountSections, index, anchor: anchorFor(settings.id), href: record.permalink || `/${record.type}s/${record.key}`, neighbors: []});
-    });
-    if (nodes.size !== records.size) throw new Error('Every catalog work must have a field node');
-    if (!nodes.has(config.start)) throw new Error('Invalid field start');
-    const landing = config.landing || {work: config.start};
-    if (!nodes.has(landing.work) || (landing.image !== undefined && (typeof landing.image !== 'string' || !landing.image.startsWith('/img/')))) throw new Error('Invalid landing artwork');
-    const edges = new Set();
-    for (const edge of config.connections) {
-        if (!nodes.has(edge.from) || !nodes.has(edge.to) || edge.from === edge.to || typeof edge.phrase !== 'string' || !edge.phrase.trim()) throw new Error(`Invalid connection: ${edge.from} / ${edge.to}`);
-        const key = [edge.from, edge.to].sort().join('|');
-        if (edges.has(key)) throw new Error(`Duplicate connection: ${key}`);
-        edges.add(key);
-        nodes.get(edge.from).neighbors.push({node: nodes.get(edge.to), phrase: edge.phrase});
-        nodes.get(edge.to).neighbors.push({node: nodes.get(edge.from), phrase: edge.phrase});
+        if (work.accountSections !== undefined && (!Array.isArray(work.accountSections) || work.accountSections.some((i) => !Number.isInteger(i) || !work.sections?.[i]?.text))) throw new Error(`Invalid account section: ${id}`);
+        if (work.permalink !== undefined && (typeof work.permalink !== 'string' || !/^(?:\/(?!\/)|https?:\/\/)/.test(work.permalink))) throw new Error(`Invalid destination: ${id}`);
+        if (work.external && !work.permalink) throw new Error(`Missing destination: ${id}`);
+        const symbolIndex = [...work.key].reduce((sum, char) => sum + char.charCodeAt(0), 0) % marks.length;
+        nodes.set(id, {...work, id, mark: work.mark || marks[symbolIndex], index, anchor: anchorFor(id), href: work.permalink || `/${work.type}s/${work.key}`});
     }
-    return {nodes, start: config.start, connections: config.connections, landing};
+    if (!nodes.size) throw new Error('The catalog needs at least one work');
+    const landing = config.landing || {work: nodes.keys().next().value};
+    if (!nodes.has(landing.work) || (landing.image !== undefined && (typeof landing.image !== 'string' || !landing.image.startsWith('/img/')))) throw new Error('Invalid landing artwork');
+    return {nodes, landing};
 }
 const number = (n) => String(n + 1).padStart(2, '0');
 const destinationAttributes = (node) => node.newTab ? ' target="_blank" rel="noopener noreferrer"' : '';
-const destinationLabel = (node) => node.href.endsWith('.pdf') ? 'read pdf' : node.external ? 'enter work' : node.type === 'writing' ? 'read work' : 'open work';
 const metadata = (node) => `${node.type === 'writing' ? 'text' : 'work'} / ${node.year || 'undated'}${node.href.endsWith('.pdf') ? ' / pdf' : ''}`;
-const previewFor = (node) => {
+export const previewFor = (node) => {
     const image = node.sections?.flatMap((s) => s.images || [])[0];
-    return image ? `/img/projects/${node.key}/small/${image.file}.webp` : node.thumbnail;
+    return node.thumbnail || image?.src || (image?.file ? `/img/projects/${node.key}/small/${image.file}.webp` : undefined);
 };
-function renderMap(field) {
-    const lines = field.connections.map((edge) => {
-        const from = field.nodes.get(edge.from);
-        const to = field.nodes.get(edge.to);
-        const middle = (from.position[1] + to.position[1]) / 2;
-        return `<polyline data-map-edge="${from.anchor} ${to.anchor}" points="${from.position[0]},${from.position[1]} ${from.position[0]},${middle} ${to.position[0]},${middle} ${to.position[0]},${to.position[1]}"/>`;
-    }).join('');
-    const nodes = [...field.nodes.values()].map((node) => {
+function renderMap(nodes) {
+    const items = nodes.map((node) => {
         const preview = previewFor(node);
-        const image = preview ? `<img src="${escape(preview)}" alt="" loading="lazy" decoding="async" width="600" height="450"/>` : '';
-        return `<a class="map-node" data-map-node="${node.anchor}" data-field-passage data-field-target="${node.anchor}" href="${escape(node.href)}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}" style="left:${node.position[0]}%;top:${node.position[1]}%;--node-size:${node.size}px"><span class="map-token">${mark(node.mark)}<span class="map-number" aria-hidden="true">${number(node.index)}</span><span class="map-preview">${image}${node.echo && image ? `<span class="map-echo" aria-hidden="true">${image}</span>` : ''}</span></span><span class="map-title">${escape(node.title)}</span></a>`;
-    }).join('');
-    const start = field.nodes.get(field.start);
-    return `<div class="map-caption"><span aria-hidden="true">+ / . / +</span><a data-map-current data-field-preview data-field-target="${start.anchor}" href="${escape(start.href)}">${escape(start.title)} [ + ]</a><button type="button" data-map-locate>locate [ + ]</button></div><div class="map-viewport" tabindex="0" role="region" aria-label="Map of works. Scroll to explore; open a mark to trace its passages."><div class="field-map"><svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false" fill="none">${lines}</svg><span class="map-bearing" aria-hidden="true">${emblem()}<span>. . | .<br/>+ . . +</span></span>${nodes}</div></div><p class="map-hint">open a mark / scroll to wander</p>`;
-}
-export function renderConnections(node) {
-    if (!node.neighbors.length) return '<p class="field-empty">An open end. <a href="?view=index">Continue through the index <span aria-hidden="true">--&gt;</span></a></p>';
-    return `<ul class="field-connections">${node.neighbors.map(({node: next, phrase}) => `<li><a data-field-passage data-field-target="${next.anchor}" href="${escape(next.href)}"${destinationAttributes(next)}><span class="passage-phrase">${escape(phrase)}</span><span class="passage-title"><span aria-hidden="true">↳</span> ${escape(next.title)}${next.newTab ? ' ↗<span class="visually-hidden"> (opens a new tab)</span>' : ''}</span></a></li>`).join('')}</ul>`;
+        const art = preview ? `<img src="${escape(preview)}" alt="" loading="lazy" decoding="async" width="600" height="450"/>` : `<span class="map-text-number" aria-hidden="true">${number(node.index)}</span>`;
+        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token">${mark(node.mark)}<span class="map-preview">${art}</span><span class="map-block" aria-hidden="true"></span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${metadata(node)}</span></a>`;
+    }).join('\n');
+    return `<div class="map-caption"><span aria-hidden="true">[ : ]</span><span>${nodes.length} works / texts</span></div><div class="field-map" aria-label="atlas of works">${items}</div>`;
 }
 export function renderField(field, filter = 'all', about = '') {
-    const nodes = [...field.nodes.values()];
-    const visible = nodes.filter((node) => filter === 'all' || node.type === filter);
-    const encounters = nodes.map((node) => {
-        const image = node.sections?.flatMap((s) => s.images || [])[0];
-        const preview = previewFor(node);
-        const art = preview
-            ? `<a class="encounter-image" href="${escape(node.href)}"${destinationAttributes(node)} aria-label="${destinationLabel(node)}: ${escape(node.title.toLowerCase())}"><img src="${escape(preview)}" alt="${escape(image?.alt || '')}" loading="lazy" decoding="async" width="600" height="450" /></a>`
-            : node.fragment ? `<blockquote class="encounter-fragment">${escape(node.fragment)}</blockquote>` : `<div class="encounter-text-mark" aria-hidden="true">${mark(node.mark)}<pre> . : .\n:     :\n ' : '</pre></div>`;
-        return `<section class="field-encounter" id="${node.anchor}" data-field-node="${escape(node.id)}" aria-labelledby="title-${node.anchor}">
-            <div class="encounter-number"><span aria-hidden="true">${mark(node.mark)} :: </span>${number(node.index)} / ${number(nodes.length - 1)}<span class="encounter-meta">${metadata(node)}</span></div>
-            <div class="encounter-work"><h2 id="title-${node.anchor}">${escape(node.title)}</h2>${art}<a class="encounter-open" href="${escape(node.href)}"${destinationAttributes(node)}>${destinationLabel(node)} <span aria-hidden="true">[ + ]${node.newTab ? ' ↗' : ''}</span>${node.newTab ? '<span class="visually-hidden"> (opens a new tab)</span>' : ''}</a></div>
-            ${node.note ? `<details class="encounter-disclosure"><summary>note</summary><p class="encounter-note">${escape(node.note)}</p></details>` : ''}<details class="encounter-disclosure"><summary>passages [ : ]</summary>${renderConnections(node)}</details>
-        </section>`;
-    }).join('\n');
-    const index = visible.map((node) => `<li class="field-index-row" data-index-node="${escape(node.id)}"><a data-field-preview data-field-target="${node.anchor}" href="${escape(node.href)}"${destinationAttributes(node)}><span class="index-number">${number(node.index)}</span> <span class="index-title">${escape(node.title)}</span></a><span class="index-meta">[ ${metadata(node)} ]</span></li>`).join('\n');
+    const visible = [...field.nodes.values()].filter((node) => filter === 'all' || node.type === filter);
+    const index = visible.map((node) => `<li class="field-index-row" data-index-node="${node.anchor}"><a href="${escape(node.href)}"${destinationAttributes(node)}><span class="index-number">${number(node.index)}</span> <span class="index-title">${escape(node.title)}</span></a><span class="index-meta">[ ${metadata(node)} ]</span></li>`).join('\n');
     const featured = field.nodes.get(field.landing.work);
     const featuredImage = field.landing.image || previewFor(featured);
-    return `<div class="field-shell" data-field-start="${anchorFor(field.start)}" data-default-view="${filter === 'all' ? 'landing' : 'index'}">
+    return `<div class="field-shell" data-default-view="${filter === 'all' ? 'landing' : 'index'}">
         <div class="landing" data-color-layout="0">
             <h1 class="landing-name"><a href="/" aria-label="KEVIN CUNANAN CHAPPELLE"><svg viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="0" y="350" font-size="400" textLength="1200" lengthAdjust="spacingAndGlyphs">KEVIN CUNANAN CHAPPELLE</text></svg><span class="visually-hidden">KEVIN CUNANAN CHAPPELLE</span></a></h1>
-            <a class="landing-image" data-field-preview data-field-target="${featured.anchor}" href="${escape(featured.href)}" aria-label="open ${escape(featured.title.toLowerCase())}"><img src="${escape(featuredImage)}" alt="" width="1920" height="2400" fetchpriority="high" /></a>
-            <nav class="landing-links" aria-label="Primary"><a class="landing-about" href="/about" data-about-open>a(bout)</a><a class="landing-projects" href="#field-index-heading" data-field-view="index">(project)s</a><a class="landing-network" href="#field-index-heading" data-field-view="network" aria-label="network">*</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">&amp;&amp;&amp;</a></nav>
+            <a class="landing-image" href="${escape(featured.href)}"${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}">${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="1920" height="2400" fetchpriority="high" />` : ''}</a>
+            <nav class="landing-links" aria-label="primary"><a class="landing-about" href="/about" data-about-open>a(bout)</a><a class="landing-projects" href="#field-index-heading" data-field-view="index">(project)s</a><a class="landing-network" href="#field-index-heading" data-field-view="network" aria-label="atlas">*</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">&amp;&amp;&amp;</a></nav>
             <div class="color-block color-block-primary" aria-hidden="true"></div><div class="color-block color-block-secondary" aria-hidden="true"></div>
-            <div class="landing-palette" role="group" aria-label="color interventions">${['blue', 'black', 'white', 'red', 'lime', 'cyan', 'magenta', 'yellow', 'gray'].map((color, index) => `<button type="button" data-color="${color}" aria-label="${color}" aria-pressed="${index === 0}" style="--swatch:${color}" title="${color}"></button>`).join('')}</div>
+            <div class="landing-palette" role="group" aria-label="color interventions">${palette.map(([name, color]) => `<button type="button" data-color="${color}" aria-label="${name}" aria-pressed="${name === 'blue'}" style="--swatch:${color}" title="${name}"></button>`).join('')}</div>
         </div>
-        <dialog class="field-browser" data-field-browser aria-label="works and writings"><div class="browser-bar"><nav class="field-modes" aria-label="Display mode"><a data-field-view="index" href="?view=index">index [ = ]</a><a data-field-view="network" href="?view=network">network [ * ]</a></nav><button type="button" data-browser-close>close [ x ]</button></div><a class="field-retrace" href="#" hidden>retrace &lt;--</a>
-        <div class="field-network" aria-label="Network">${renderMap(field)}</div>
-        <section class="field-index" aria-labelledby="field-index-heading"><div class="index-heading"><h2 id="field-index-heading">${filter === 'all' ? 'An index' : filter === 'project' ? 'Works' : 'Writings'}</h2><nav aria-label="Index collection"><a href="/home?view=index"${filter === 'all' ? ' aria-current="page"' : ''}>All</a><a href="/projects?view=index"${filter === 'project' ? ' aria-current="page"' : ''}>Works</a><a href="/writings?view=index"${filter === 'writing' ? ' aria-current="page"' : ''}>Writings</a></nav></div><ol class="field-index-list">${index}</ol></section>
+        <dialog class="field-browser" data-field-browser aria-label="works and writings"><div class="browser-bar"><nav class="field-modes" aria-label="display mode"><a data-field-view="index" href="?view=index">index [ = ]</a><a data-field-view="network" href="?view=network">atlas [ * ]</a></nav><button type="button" data-browser-close>close [ x ]</button></div>
+        <div class="field-network" aria-label="atlas">${renderMap(visible)}</div>
+        <section class="field-index" aria-labelledby="field-index-heading"><div class="index-heading"><h2 id="field-index-heading">${filter === 'all' ? 'an index' : filter === 'project' ? 'works' : 'writings'}</h2><nav aria-label="index collection"><a href="/home?view=index"${filter === 'all' ? ' aria-current="page"' : ''}>all</a><a href="/projects?view=index"${filter === 'project' ? ' aria-current="page"' : ''}>works</a><a href="/writings?view=index"${filter === 'writing' ? ' aria-current="page"' : ''}>writings</a></nav></div><ol class="field-index-list">${index}</ol></section>
         </dialog>
-        <noscript><style>.field-browser:not([open]) { display:block; position:relative; margin:30px auto; } .browser-bar button,.landing-palette { display:none; }</style><p class="field-nojs">open a work from the index.</p></noscript>
-        <dialog id="field-preview" class="field-popup" data-field-popup aria-label="Work preview"><button type="button" class="popup-close" data-popup-close>close [ x ]</button>${encounters}</dialog>
+        <noscript><style>.field-browser:not([open]) { display:block; position:relative; margin:30px auto; } .browser-bar,.landing-palette { display:none; }</style><p class="field-nojs">open a work from the index.</p></noscript>
         <dialog class="about-popup field-popup" data-about-popup aria-labelledby="about-popup-heading"><button type="button" class="popup-close" data-about-close>close [ x ]</button><h2 id="about-popup-heading">A(BOUT)</h2>${about}<a href="/about">more [ + ]</a><details><summary>elsewhere</summary><div class="field-elsewhere"><a href="https://www.goodreads.com/kvnchpl">reading ↗</a><a href="https://letterboxd.com/kvnchpl/">watching ↗</a><a href="https://soundcloud.com/kvnchpl">listening ↗</a><a href="https://hydranthunt.com/">hydrants ↗</a><a href="https://kvnchpl.com/homestuck-book-club/">homestuck ↗</a></div></details></dialog>
         <p class="visually-hidden" data-field-announcement role="status" aria-live="polite"></p>
     </div>`;
 }
-export function renderWorkPassages(field, id) {
-    const node = field.nodes.get(id);
-    return `<aside class="work-passages" aria-label="Related works"><h2>${mark(node.mark)} Passages <span aria-hidden="true">: : :</span></h2>${renderConnections(node)}<a class="work-field-return" href="/home?view=network#${node.anchor}">Return to the field <span aria-hidden="true">[ * ]</span></a></aside>`;
+export function renderWorkReturn(id) {
+    return `<a class="work-field-return" href="/home?view=network#${anchorFor(id)}">return [ * ]</a>`;
 }

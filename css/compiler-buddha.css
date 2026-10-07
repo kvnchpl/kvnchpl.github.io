@@ -27,19 +27,20 @@ main {
 
 .manifestor,
 .way-back {
-    background: #333;
+    background: blue;
     cursor: pointer;
 }
 
 .manifestor:hover,
 .way-back:hover {
-    background: #555;
+    background: white;
+    color: black;
 }
 
 .manifestor:disabled {
-    background: #777;
-    color: #ccc;
-    opacity: 0.6;
+    background: black;
+    color: white;
+    outline: 2px dotted white;
     cursor: default;
 }
 

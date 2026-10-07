@@ -8,7 +8,8 @@
         "year": 2025,
         "external": true,
         "permalink": "/pdf/gran-turismo.pdf",
-        "newTab": true
+        "newTab": true,
+        "mark": "salt"
     },
     {
         "type": "writing",
@@ -16,7 +17,8 @@
         "key": "flex-space",
         "month": 8,
         "day": 21,
-        "year": 2025
+        "year": 2025,
+        "mark": "salt"
     },
     {
         "type": "writing",
@@ -27,7 +29,8 @@
         "year": 2024,
         "external": true,
         "permalink": "/pdf/loop.pdf",
-        "newTab": true
+        "newTab": true,
+        "mark": "seal"
     },
     {
         "type": "writing",
@@ -35,7 +38,8 @@
         "key": "plight-of-center",
         "month": 4,
         "day": 29,
-        "year": 2024
+        "year": 2024,
+        "mark": "vessel"
     },
     {
         "type": "writing",
@@ -43,7 +47,8 @@
         "key": "cinder-block",
         "month": 7,
         "day": 30,
-        "year": 2024
+        "year": 2024,
+        "mark": "salt"
     },
     {
         "type": "writing",
@@ -54,7 +59,8 @@
         "year": 2026,
         "external": true,
         "permalink": "/pdf/desire-path_vol-1.pdf",
-        "newTab": true
+        "newTab": true,
+        "mark": "vessel"
     },
     {
         "type": "writing",
@@ -62,7 +68,8 @@
         "key": "sneeze",
         "month": 3,
         "day": 5,
-        "year": 2024
+        "year": 2024,
+        "mark": "salt"
     },
     {
         "type": "writing",
@@ -70,7 +77,8 @@
         "key": "orchestra",
         "month": 1,
         "day": 25,
-        "year": 2024
+        "year": 2024,
+        "mark": "saturn"
     },
     {
         "type": "writing",
@@ -78,7 +86,8 @@
         "key": "pearly-mucus",
         "month": 12,
         "day": 14,
-        "year": 2023
+        "year": 2023,
+        "mark": "vessel"
     },
     {
         "type": "writing",
@@ -86,7 +95,8 @@
         "key": "belief-and-desire",
         "month": 12,
         "day": 14,
-        "year": 2023
+        "year": 2023,
+        "mark": "sulfur"
     },
     {
         "type": "writing",
@@ -94,7 +104,8 @@
         "key": "curse-of-soil",
         "month": 12,
         "day": 13,
-        "year": 2023
+        "year": 2023,
+        "mark": "sulfur"
     },
     {
         "type": "writing",
@@ -102,7 +113,8 @@
         "key": "cabbage",
         "month": 10,
         "day": 24,
-        "year": 2023
+        "year": 2023,
+        "mark": "salt"
     },
     {
         "type": "writing",
@@ -110,7 +122,8 @@
         "key": "close-all",
         "month": 9,
         "day": 20,
-        "year": 2023
+        "year": 2023,
+        "mark": "mercury"
     },
     {
         "type": "writing",
@@ -118,7 +131,8 @@
         "key": "sweetness",
         "month": 9,
         "day": 7,
-        "year": 2023
+        "year": 2023,
+        "mark": "sulfur"
     },
     {
         "type": "writing",
@@ -126,7 +140,8 @@
         "key": "theme",
         "month": 8,
         "day": 31,
-        "year": 2023
+        "year": 2023,
+        "mark": "mercury"
     },
     {
         "type": "writing",
@@ -134,7 +149,8 @@
         "key": "beach",
         "month": 8,
         "day": 2,
-        "year": 2023
+        "year": 2023,
+        "mark": "seal"
     },
     {
         "type": "writing",
@@ -142,7 +158,8 @@
         "key": "the-album",
         "month": 5,
         "day": 21,
-        "year": 2021
+        "year": 2021,
+        "mark": "mercury"
     },
     {
         "type": "writing",
@@ -150,7 +167,8 @@
         "key": "stack",
         "month": 12,
         "day": 9,
-        "year": 2020
+        "year": 2020,
+        "mark": "saturn"
     },
     {
         "type": "writing",
@@ -158,6 +176,7 @@
         "key": "diego",
         "month": 10,
         "day": 28,
-        "year": 2019
+        "year": 2019,
+        "mark": "sulfur"
     }
 ]

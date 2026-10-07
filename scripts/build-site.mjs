@@ -3,7 +3,8 @@ import { existsSync } from 'node:fs';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createField, renderField, renderWorkPassages } from './field.mjs';
+import { createField, renderField, renderWorkReturn } from './field.mjs';
+import { workPage } from './work-page.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE_ORIGIN = 'https://kvnchpl.com';
@@ -15,7 +16,7 @@ const changedFiles = new Set();
 const pageConfigs = {
     'index.html': {
         title: 'KEVIN CUNANAN CHAPPELLE',
-        description: 'Images, texts, and passages by Kevin Cunanan Chappelle. An artist working with mediation, memory, desire, and uncertainty.',
+        description: 'Images and texts by Kevin Cunanan Chappelle. An artist working with mediation, memory, desire, and uncertainty.',
         canonicalPath: '/',
         image: DEFAULT_IMAGE,
         imageAlt: DEFAULT_IMAGE_ALT
@@ -233,8 +234,13 @@ function imageSrcset(project, image) {
 
 function renderSlideshow(project, images, sectionIndex) {
     for (const image of images) {
-        if (!image.file || !image.alt?.trim()) throw new Error(`Missing image file or alt text: ${project.key}`);
-        for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(project.key, image.file, size));
+        if ((!image.file && !image.src) || !image.alt?.trim()) throw new Error(`Missing image file or alt text: ${project.key}`);
+        if (image.src) {
+            if (!image.src.startsWith('/img/')) throw new Error(`Invalid image path: ${project.key}`);
+            assertLocalAsset(image.src);
+        } else {
+            for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(project.key, image.file, size));
+        }
     }
 
     const firstImage = images[0];
@@ -253,7 +259,7 @@ function renderSlideshow(project, images, sectionIndex) {
     }
 
     lines.push(
-        `                        <img src="${imageUrl(project.key, firstImage.file)}" srcset="${imageSrcset(project, firstImage.file)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw" alt="${escapeAttribute(firstImage.alt)}" loading="${loading}" decoding="async" />`
+        `                        <img src="${escapeAttribute(firstImage.src || imageUrl(project.key, firstImage.file))}"${firstImage.src ? '' : ` srcset="${imageSrcset(project, firstImage.file)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw"`} alt="${escapeAttribute(firstImage.alt)}" loading="${loading}" decoding="async" />`
     );
 
     if (count > 1) {
@@ -304,7 +310,7 @@ function renderProjectSections(project) {
 function projectSocialImage(project) {
     if (project.socialImage) return project.socialImage;
     const firstImage = project.sections.flatMap((section) => section.images || [])[0];
-    return firstImage ? imageUrl(project.key, firstImage.file, 'full') : project.thumbnail || DEFAULT_IMAGE;
+    return firstImage ? firstImage.src || imageUrl(project.key, firstImage.file, 'full') : project.thumbnail || DEFAULT_IMAGE;
 }
 
 function removeRuntimeDataMeta(html) {
@@ -394,6 +400,10 @@ for (const [file, config] of Object.entries(pageConfigs)) {
 
 for (const project of projects.filter((entry) => !entry.external)) {
     const file = `projects/${project.key}.html`;
+    if (!existsSync(rootPath(file))) {
+        await writeFile(rootPath(file), workPage('project', project.key));
+        changedFiles.add(file);
+    }
     const image = projectSocialImage(project);
     assertLocalAsset(image);
     const config = {
@@ -414,7 +424,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
         );
         html = replaceGeneratedBlock(html, 'page-header', header, initialHeaderPattern);
         html = replaceContainerBlock(html, 'project', 'content-page-container', renderProjectSections(project));
-        html = replaceGeneratedBlock(html, 'passages', generatedBlock('passages', renderWorkPassages(field, `project:${project.key}`), '        '));
+        html = replaceGeneratedBlock(html, 'return', generatedBlock('return', renderWorkReturn(`project:${project.key}`), '        '));
         return removeRuntimeDataMeta(html);
     });
 }
@@ -440,7 +450,7 @@ for (const writing of writings.filter((entry) => !entry.external)) {
             '        '
         );
         html = replaceGeneratedBlock(html, 'page-header', header, initialHeaderPattern);
-        html = replaceGeneratedBlock(html, 'passages', generatedBlock('passages', renderWorkPassages(field, `writing:${writing.key}`), '        '));
+        html = replaceGeneratedBlock(html, 'return', generatedBlock('return', renderWorkReturn(`writing:${writing.key}`), '        '));
         return removeRuntimeDataMeta(html);
     });
 }

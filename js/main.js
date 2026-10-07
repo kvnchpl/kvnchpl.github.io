@@ -31,11 +31,12 @@ function initSlideshow(wrapper) {
 
     function showImage(index) {
         currentIndex = (index + images.length) % images.length;
-        const { file, alt } = images[currentIndex];
+        const { file, src, alt } = images[currentIndex];
         const position = currentIndex + 1;
 
-        image.src = imageUrl(project, file);
-        image.srcset = imageSrcset(project, file, fullWidth);
+        image.src = src || imageUrl(project, file);
+        if (src) image.removeAttribute('srcset');
+        else image.srcset = imageSrcset(project, file, fullWidth);
         image.alt = alt;
         previousButton.setAttribute('aria-label', `Previous image, ${position} of ${images.length}`);
         nextButton.setAttribute('aria-label', `Next image, ${position} of ${images.length}`);

@@ -1,0 +1,51 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, mkdir, copyFile, readFile, writeFile, symlink, readdir } from 'node:fs/promises';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { execFileSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { addWork } from './add-work.mjs';
+
+const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+test('new project and writing build into both collections, galleries, navigation, and sitemap', async () => {
+    const root = await mkdtemp(path.join(tmpdir(), 'kvn-content-workflow-'));
+    await Promise.all(['json', 'scripts', 'css', 'js', 'img', 'projects', 'writings'].map((dir) => mkdir(path.join(root, dir))));
+    for (const dir of ['scripts', 'css', 'js']) {
+        for (const file of await readdir(path.join(source, dir))) await copyFile(path.join(source, dir, file), path.join(root, dir, file));
+    }
+    for (const name of ['index.html', 'home.html', 'projects.html', 'writings.html', 'about.html', 'sitemap.xml', 'favicon.ico']) await copyFile(path.join(source, name), path.join(root, name));
+    await copyFile(path.join(source, 'json/nav.json'), path.join(root, 'json/nav.json'));
+    // These metadata and profile assets remain read-only; no fixture writes reach the repository.
+    await mkdir(path.join(root, 'img/projects/truth-visions/full'), {recursive: true});
+    await symlink(path.join(source, 'img/contact'), path.join(root, 'img/contact'));
+    await symlink(path.join(source, 'img/projects/truth-visions/full/truth-visions_1.webp'), path.join(root, 'img/projects/truth-visions/full/truth-visions_1.webp'));
+    await mkdir(path.join(root, 'img/projects/compiler-buddha'), {recursive: true});
+    await symlink(path.join(source, 'img/projects/compiler-buddha/buddha-site-demo.png'), path.join(root, 'img/projects/compiler-buddha/buddha-site-demo.png'));
+    await Promise.all(['projects', 'writings'].map((name) => writeFile(path.join(root, `json/${name}.json`), '[]\n')));
+    await writeFile(path.join(root, 'json/field.json'), '{}\n');
+    const text = 'a line with <angles> & symbols\nKEEP This Casing\n  and this indentation.\n';
+    const bodyFile = path.join(root, 'poem.txt');
+    await writeFile(bodyFile, text);
+    const inputImage = path.join(source, 'img/projects/triptych/small/triptych_1.webp');
+    await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', image: inputImage, alt: 'a new image'}, root);
+    await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', body: bodyFile}, root);
+    const jsonBefore = await readFile(path.join(root, 'json/projects.json'), 'utf8');
+    await assert.rejects(addWork({type: 'project', key: 'future-project', title: 'overwrite'}, root), /Already exists/);
+    await assert.rejects(addWork({type: 'writing', key: 'missing-body', title: 'missing body'}, root), /needs --body/);
+    await assert.rejects(addWork({type: 'project', key: 'bad-date', title: 'bad date', date: '2026-02-30'}, root), /valid --date/);
+    assert.equal(await readFile(path.join(root, 'json/projects.json'), 'utf8'), jsonBefore);
+    const run = (script) => execFileSync(process.execPath, [path.join(root, 'scripts', script)], {encoding: 'utf8'});
+    assert.match(run('build-site.mjs'), /Built 1 projects and 1 writings/);
+    const project = await readFile(path.join(root, 'projects/future-project.html'), 'utf8');
+    const writing = await readFile(path.join(root, 'writings/future-writing.html'), 'utf8');
+    const home = await readFile(path.join(root, 'home.html'), 'utf8');
+    assert.match(project, /src="\/img\/projects\/future-project\/artwork.webp"/);
+    assert.match(writing, /a line with &lt;angles&gt; &amp; symbols\nKEEP This Casing\n  and this indentation./);
+    assert.match(home, /data-map-node="work-project-future-project" href="\/projects\/future-project"/);
+    assert.match(home, /data-map-node="work-writing-future-writing" href="\/writings\/future-writing"/);
+    assert.ok(!home.includes('data-field-popup'));
+    assert.match(await readFile(path.join(root, 'sitemap.xml'), 'utf8'), /\/writings\/future-writing/);
+    assert.match(run('build-site.mjs'), /0 files updated/);
+    assert.match(run('check-site.mjs'), /references and asset versions are valid/);
+});

@@ -1,87 +1,61 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkPassages } from './field.mjs';
+import { createField, renderField, renderWorkReturn, palette } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
 const field = createField(projects, writings, config);
 
-test('every catalog entry is reachable in both views, including PDF and external destinations', () => {
+test('every work links directly from both views, including PDF and external destinations', () => {
     const html = renderField(field);
-    assert.equal(field.nodes.size, projects.length + writings.length);
-    assert.equal((html.match(/data-field-node=/g) || []).length, field.nodes.size);
-    assert.equal((html.match(/data-index-node=/g) || []).length, field.nodes.size);
-    assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size);
-    assert.equal((html.match(/data-map-edge=/g) || []).length, config.connections.length);
+    assert.equal((html.match(/data-index-node=/g) || []).length, projects.length + writings.length);
+    assert.equal((html.match(/data-map-node=/g) || []).length, projects.length + writings.length);
     for (const node of field.nodes.values()) {
-        assert.ok(html.includes(`id="${node.anchor}"`));
-        assert.ok(html.includes(`href="${node.href}"`));
-        assert.ok(renderWorkPassages(field, node.id).includes(node.anchor));
-        assert.ok(html.includes(`style="left:${node.position[0]}%;top:${node.position[1]}%;--node-size:${node.size}px"`));
+        assert.ok(html.includes(`id="${node.anchor}" data-map-node="${node.anchor}" href="${node.href}"`));
+        assert.ok(renderWorkReturn(node.id).includes(node.anchor));
     }
+    assert.ok(!html.includes('data-field-preview'));
+    assert.ok(!html.includes('data-field-popup'));
+    assert.ok(!html.includes('passages'));
+    assert.ok(!html.includes('data-map-edge'));
+    assert.equal((html.match(/<dialog/g) || []).length, 2); // Catalog and about only.
 });
-test('filtered indexes preserve passages to the full field', () => {
+test('collection filters apply to both index and atlas', () => {
     for (const [type, count] of [['project', projects.length], ['writing', writings.length]]) {
         const html = renderField(field, type);
         assert.equal((html.match(/data-index-node=/g) || []).length, count);
-        assert.equal((html.match(/data-field-node=/g) || []).length, field.nodes.size);
+        assert.equal((html.match(/data-map-node=/g) || []).length, count);
     }
 });
-test('invalid relationship data fails before any generated HTML is written', () => {
-    for (const mutate of [
-        (c) => c.nodes.pop(),
-        (c) => c.nodes.push(c.nodes[0]),
-        (c) => { c.nodes[0].mark = 'unknown'; },
-        (c) => { c.nodes[0].position = [101, 50]; },
-        (c) => { c.nodes[0].position = ['50', 50]; },
-        (c) => { delete c.nodes[0].position; },
-        (c) => { c.nodes[0].size = 500; },
-        (c) => { c.nodes[0].size = '120'; },
-        (c) => { c.nodes[0].echo = 'yes'; },
-        (c) => { c.nodes[0].accountSections = [999]; },
-        (c) => { c.start = 'missing'; },
-        (c) => { c.landing.work = 'missing'; },
-        (c) => { c.landing.image = 'https://invalid.example/image'; },
-        (c) => { c.connections[0].to = 'missing'; },
-        (c) => { c.connections[0].to = c.connections[0].from; },
-        (c) => c.connections.push({...c.connections[0], from: c.connections[0].to, to: c.connections[0].from}),
-        (c) => { c.connections[0].phrase = ''; }
-    ]) {
-        const broken = structuredClone(config);
-        mutate(broken);
-        assert.throws(() => createField(projects, writings, broken));
-    }
-});
-test('map routes connect the authored positions without diagonal segments', () => {
-    const html = renderField(field);
-    for (const edge of config.connections) {
-        const a = field.nodes.get(edge.from);
-        const b = field.nodes.get(edge.to);
-        const match = html.match(new RegExp(`data-map-edge="${a.anchor} ${b.anchor}" points="([^"]+)"`));
-        assert.ok(match);
-        const points = match[1].split(' ').map((p) => p.split(',').map(Number));
-        assert.deepEqual(points[0], a.position);
-        assert.deepEqual(points.at(-1), b.position);
-        points.slice(1).forEach((point, i) => assert.ok(point[0] === points[i][0] || point[1] === points[i][1]));
-    }
-});
-test('previews share one closed dialog and retain ordinary work destinations', () => {
-    const html = renderField(field);
-    assert.equal((html.match(/data-field-popup/g) || []).length, 1);
-    assert.ok(!html.match(/<dialog[^>]*\bopen\b/));
-    assert.ok(html.includes('data-popup-close'));
+test('a growing catalog needs no manual map records and keeps stable identities and symbols', () => {
+    const additions = Array.from({length: 101}, (_, i) => ({type: 'project', key: `future-${i}`, title: `future ${i}`, year: 2027, sections: []}));
+    const expanded = createField([...projects, ...additions], writings, config);
+    const html = renderField(expanded);
+    assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size + additions.length);
+    assert.equal((html.match(/data-index-node=/g) || []).length, field.nodes.size + additions.length);
     for (const node of field.nodes.values()) {
-        assert.ok(html.includes(`data-field-preview data-field-target="${node.anchor}" href="${node.href}"`));
-        assert.ok(html.includes(`aria-labelledby="title-${node.anchor}"`));
+        assert.equal(expanded.nodes.get(node.id).anchor, node.anchor);
+        assert.equal(expanded.nodes.get(node.id).mark, node.mark);
     }
-    assert.ok(!html.includes('class="map-fragment"'));
+    assert.equal(new Set([...expanded.nodes.values()].map((node) => node.anchor)).size, expanded.nodes.size);
 });
-test('authored copy is escaped, and missing notes need no placeholder caption', () => {
-    const changed = structuredClone(config);
-    changed.nodes[0].note = '<script>"test"</script>';
-    const html = renderField(createField(projects, writings, changed));
+test('invalid content fails validation', () => {
+    for (const changes of [
+        {key: '../escape'}, {title: ''}, {mark: 'unknown'}, {note: 1}, {accountSections: [999]},
+        {permalink: 'javascript:alert(1)'}, {permalink: '//example.com'}, {external: true, permalink: undefined}
+    ]) {
+        assert.throws(() => createField([{...projects[0], ...changes}], [], {}));
+    }
+    assert.throws(() => createField([projects[0], projects[0]], [], {}));
+    assert.throws(() => createField(projects, writings, {landing: {work: 'missing'}}));
+});
+test('palette contains exactly the eight requested colors', () => {
+    assert.deepEqual(palette.map(([name]) => name), ['black', 'white', 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow']);
+    assert.ok(palette.every(([, color]) => /^#(?:00|ff){3}$/.test(color)));
+});
+test('titles and destinations are escaped', () => {
+    const html = renderField(createField([{...projects[0], title: '<script>"test"</script>'}], [], {}));
     assert.ok(html.includes('&lt;script&gt;&quot;test&quot;&lt;/script&gt;'));
     assert.ok(!html.includes('<script>"test"</script>'));
-    assert.equal(field.nodes.get('project:triptych').note, undefined);
 });
