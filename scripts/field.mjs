@@ -4,8 +4,9 @@ export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff
 export const categoryLabel = (category) => category === 'image' ? 'images' : category;
 export const categories = ['image', 'space', 'interface', 'writing'];
 export const tags = ['belief', 'desire', 'truth', 'fire', 'free'];
+// Square brackets mark internal-page navigation; filters and external links omit them.
 // Codes use []*!+?:=<>; tag codes begin with #. Every label has a unique code.
-export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '[:]', watching: '[>]', listening: ':*:', hydrants: '!+!', homestuck: '==>', return: '<<<', all: '***', image: '[+]', space: '<+>', interface: '=+=', writing: ':::', belief: '#?!', desire: '#>!', truth: '#=!', fire: '#!*', free: '#>>'};
+export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '::>', watching: '>!>', listening: ':*:', hydrants: '!+!', homestuck: '==>', return: '[<]', all: '***', image: '+*+', space: '<+>', interface: '=+=', writing: ':::', belief: '#?!', desire: '#>!', truth: '#=!', fire: '#!*', free: '#>>'};
 export function renderNavLabel(key) {
     return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(categoryLabel(key))}</span>`;
 }
@@ -15,7 +16,7 @@ export function formatWorkDate(work) {
     return `${work.year}${Number.isInteger(work.month) && work.month >= 1 && work.month <= 12 ? `.${String(work.month).padStart(2, '0')}` : ''}`;
 }
 function renderPalette() {
-    return `<div class="color-palette" role="group" aria-label="color interventions">${palette.map(([name, color]) => `<button type="button" data-color="${color}" aria-label="${name}" aria-pressed="${name === 'blue'}" style="--swatch:${color}" title="${name}"></button>`).join('')}</div>`;
+    return `<div class="color-palette" role="group" aria-label="color interventions">${palette.map(([name, color]) => `<button type="button" data-color="${color}" aria-label="${name}" aria-pressed="${name === 'blue'}" style="--swatch:${color}"></button>`).join('')}</div>`;
 }
 export function createField(projects, writings, config = {}) {
     const catalog = [...projects, ...writings].sort((a, b) => (b.year || 0) - (a.year || 0) || (b.month || 0) - (a.month || 0) || (b.day || 0) - (a.day || 0));
@@ -75,7 +76,7 @@ export function renderField(field, filter = 'all', about = '', contactImage) {
             <div class="color-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:70%;top:48%;width:25%;height:26%"></span></div>
             ${renderPalette()}
         </div>
-        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav><nav class="field-tags" aria-label="collection tags">${tags.map((tag) => `<a href="/projects?tag=${tag}" data-tag-filter="${tag}" aria-label="#${tag}" title="filter by #${tag}; select again to clear">${ui[tag]}</a>`).join('')}</nav></div>
+        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav><nav class="field-tags" aria-label="collection tags">${tags.map((tag) => `<a href="/projects?tag=${tag}" data-tag-filter="${tag}" aria-label="#${tag}">${ui[tag]}</a>`).join('')}</nav></div>
         <div class="atlas-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:54%;top:47%;width:23%;height:8%"></span></div>
         ${renderMap([...field.nodes.values()])}
         ${renderPalette()}

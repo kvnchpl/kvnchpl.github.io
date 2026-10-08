@@ -14,9 +14,11 @@ test('navigation codes use only the allowed symbols and are unique for every lab
         assert.equal(code.length, 3);
         if (tags.includes(label)) assert.equal(code[0], '#');
         assert.ok([...(tags.includes(label) ? code.slice(1) : code)].every((symbol) => allowed.has(symbol)), code);
+        if (['home', 'about', 'collection', 'return'].includes(label)) assert.match(code, /^\[[^\[\]]\]$/);
+        else assert.ok(!/[\[\]]/.test(code), label);
     }
     assert.equal(new Set(codes).size, codes.length);
-    assert.ok(renderWorkReturn('project:viewfinder').includes('&lt;&lt;&lt;'));
+    assert.ok(renderWorkReturn('project:viewfinder').includes('[&lt;]'));
     assert.ok(renderField(field).includes('&lt;+&gt;'));
     assert.equal(navCodes.homestuck, '==>');
 });
@@ -95,6 +97,7 @@ test('invalid content fails validation', () => {
 test('palette contains exactly the eight requested colors', () => {
     assert.deepEqual(palette.map(([name]) => name), ['black', 'white', 'red', 'green', 'blue', 'cyan', 'magenta', 'yellow']);
     assert.ok(palette.every(([, color]) => /^#(?:00|ff){3}$/.test(color)));
+    assert.ok(!/\btitle=/.test(renderField(field)));
 });
 test('titles and destinations are escaped', () => {
     const html = renderField(createField([{...projects[0], title: '<script>"test"</script>'}], [], {}));
