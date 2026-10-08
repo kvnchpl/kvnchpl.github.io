@@ -14,11 +14,11 @@ test('navigation codes use only the allowed symbols and are unique for every lab
         assert.equal(code.length, 3);
         if (tags.includes(label)) assert.equal(code[0], '#');
         assert.ok([...(tags.includes(label) ? code.slice(1) : code)].every((symbol) => allowed.has(symbol)), code);
-        if (['home', 'about', 'collection', 'return'].includes(label)) assert.match(code, /^\[[^\[\]]\]$/);
+        if (['home', 'about', 'collection'].includes(label)) assert.match(code, /^\[[^\[\]]\]$/);
         else assert.ok(!/[\[\]]/.test(code), label);
     }
     assert.equal(new Set(codes).size, codes.length);
-    assert.ok(renderWorkReturn('project:viewfinder').includes('[&lt;]'));
+    assert.ok(renderWorkReturn('project:viewfinder').includes('&lt;&lt;&lt;'));
     assert.ok(renderField(field).includes('&lt;+&gt;'));
     assert.equal(navCodes.homestuck, '==>');
 });

@@ -37,7 +37,7 @@ main.field-main { display: block; overflow: visible; }
 .landing-hydrants { margin-right: calc(.5 * var(--nav-step)); }
 .color-artifacts, .atlas-artifacts { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
 .color-rectangle { position: absolute; display: block; pointer-events: auto; cursor: pointer; padding: 0; margin: 0; border: 0; border-radius: 0; }
-.rectangle-close { position: absolute; top: 2px; right: 2px; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 0; background: black; color: white; font: 14px/1 var(--font-family-main); cursor: pointer; opacity: 0; }
+.rectangle-close { position: absolute; top: 2px; right: 2px; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 0; background: black; color: white; font: 14px/1 var(--font-family-main); cursor: pointer; opacity: 0; }
 .color-rectangle:hover .rectangle-close, .color-rectangle:focus-visible .rectangle-close { opacity: 1; }
 @media (hover: none), (max-width: 600px) { .rectangle-close { display: none; } }
 .color-palette { position: absolute; z-index: 4; bottom: var(--palette-inset); left: var(--palette-inset); display: flex; gap: 5px; padding: 0; background: transparent; --palette-inset: clamp(16px, 3vmin, 32px); }

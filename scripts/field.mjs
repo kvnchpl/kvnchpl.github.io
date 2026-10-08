@@ -6,7 +6,7 @@ export const categories = ['image', 'space', 'interface', 'writing'];
 export const tags = ['belief', 'desire', 'truth', 'fire', 'free'];
 // Square brackets mark internal-page navigation; filters and external links omit them.
 // Codes use []*!+?:=<>; tag codes begin with #. Every label has a unique code.
-export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '::>', watching: '>!>', listening: ':*:', hydrants: '!+!', homestuck: '==>', return: '[<]', all: '***', image: '+*+', space: '<+>', interface: '=+=', writing: ':::', belief: '#?!', desire: '#>!', truth: '#=!', fire: '#!*', free: '#>>'};
+export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '::>', watching: '>!>', listening: ':*:', hydrants: '!+!', homestuck: '==>', return: '<<<', all: '***', image: '+*+', space: '<+>', interface: '=+=', writing: ':::', belief: '#?!', desire: '#>!', truth: '#=!', fire: '#!*', free: '#>>'};
 export function renderNavLabel(key) {
     return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(categoryLabel(key))}</span>`;
 }
