@@ -4,28 +4,44 @@ import {readFile} from 'node:fs/promises';
 import vm from 'node:vm';
 import {palette} from './field.mjs';
 
-test('swatches toggle independently, retain one color, and preserve other rectangles when toggled', async () => {
+test('swatches and rectangle controls retain one color, preserve other rectangles, and reset on return', async () => {
+    const element = () => ({
+        style: {}, children: [], attributes: {},
+        append(child) {this.children.push(child);},
+        querySelector() {return this.children[0];},
+        setAttribute(key, value) {this.attributes[key] = value;},
+        removeAttribute(key) {delete this.attributes[key];},
+        addEventListener(name, handler) {this[name] = handler;}
+    });
     const buttons = palette.map(([name, color]) => ({
-        dataset: {color}, attributes: {'aria-pressed': String(name === 'blue')},
+        dataset: {color}, attributes: {'aria-label': name, 'aria-pressed': String(name === 'blue')},
         getAttribute(key) {return this.attributes[key];},
         setAttribute(key, value) {this.attributes[key] = value;},
-        addEventListener(name, handler) {this[name] = handler;}
+        addEventListener(name, handler) {this[name] = handler;},
+        focus() {this.focused = true;}
     }));
-    const artifacts = {children: [], replaceChildren(...children) {this.children = children;}, append(child) {this.children.push(child); child.remove = () => {this.children = this.children.filter((item) => item !== child);};}};
+    const artifacts = {...element(), replaceChildren(...children) {this.children = children;}, append(child) {this.children.push(child); child.remove = () => {this.children = this.children.filter((item) => item !== child);};}};
     const composition = {querySelectorAll() {return buttons;}, querySelector() {return artifacts;}};
-    const context = vm.createContext({document: {querySelector() {return null;}, createElement() {return {style: {}};}}});
+    const context = vm.createContext({document: {querySelector() {return null;}, createElement: element}});
     vm.runInContext(await readFile(new URL('../js/field.js', import.meta.url), 'utf8'), context);
     const reset = context.initColorPalette(composition);
     const active = () => buttons.filter((button) => button.attributes['aria-pressed'] === 'true');
     assert.equal(active().length, 1);
     const initialRectangle = artifacts.children[0];
     const initialPosition = {...initialRectangle.style};
+    const soleControl = initialRectangle.children[0];
+    assert.equal(soleControl.attributes['aria-label'], 'reposition blue rectangle');
+    soleControl.click({detail: 1});
+    assert.equal(active().length, 1);
+    assert.equal(artifacts.children[0], initialRectangle);
+    assert.notDeepEqual(initialRectangle.style, initialPosition);
+    const beforeSwatch = {...initialRectangle.style};
     buttons[4].click(); // The sole selected swatch moves its rectangle without deselecting.
     assert.equal(artifacts.children.length, 1);
     assert.equal(artifacts.children[0], initialRectangle);
     assert.equal(initialRectangle.style.width, initialPosition.width);
     assert.equal(initialRectangle.style.height, initialPosition.height);
-    assert.notDeepEqual(initialRectangle.style, initialPosition);
+    assert.notDeepEqual(initialRectangle.style, beforeSwatch);
     assert.equal(active().length, 1);
     const blueRectangle = artifacts.children[0];
     const bluePosition = {...blueRectangle.style};
@@ -39,7 +55,11 @@ test('swatches toggle independently, retain one color, and preserve other rectan
         assert.ok(parseFloat(style.top) >= 18 && parseFloat(style.top) + parseFloat(style.height) <= 86);
     }
     const unchanged = artifacts.children.filter((rectangle) => rectangle.style.background !== '#000000');
-    buttons[0].click();
+    const blackControl = artifacts.children.find((rectangle) => rectangle.style.background === '#000000').children[0];
+    assert.equal(blackControl.attributes['aria-label'], 'close black rectangle');
+    blackControl.click({detail: 0});
+    assert.equal(buttons[0].focused, true);
+    assert.equal(buttons[0].attributes['aria-pressed'], 'false');
     assert.equal(active().length, 7);
     assert.deepEqual(artifacts.children, unchanged);
     const positions = unchanged.map((rectangle) => ({...rectangle.style}));

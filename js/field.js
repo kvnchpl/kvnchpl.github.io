@@ -2,6 +2,9 @@
 function initColorPalette(composition) {
     const buttons = [...composition.querySelectorAll('[data-color]')];
     const artifacts = composition.querySelector('[data-color-artifacts]');
+    artifacts.removeAttribute('aria-hidden');
+    artifacts.setAttribute('role', 'group');
+    artifacts.setAttribute('aria-label', 'color rectangles');
     const selected = new Set(buttons.filter((button) => button.getAttribute('aria-pressed') === 'true').map((button) => button.dataset.color));
     const rectangles = new Map();
     if (!selected.size) selected.add(buttons[0].dataset.color);
@@ -15,6 +18,15 @@ function initColorPalette(composition) {
     function addRectangle(color) {
         const rectangle = document.createElement('span');
         rectangle.className = 'color-rectangle';
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'rectangle-close';
+        close.textContent = 'x';
+        close.addEventListener('click', (event) => {
+            toggleColor(color);
+            if (event.detail === 0 && !selected.has(color)) buttons.find((button) => button.dataset.color === color).focus();
+        });
+        rectangle.append(close);
         const width = random(8, 30);
         const height = random(4, 20);
         Object.assign(rectangle.style, {
@@ -25,7 +37,11 @@ function initColorPalette(composition) {
         artifacts.append(rectangle);
     }
     function updateButtons() {
-        buttons.forEach((button) => button.setAttribute('aria-pressed', String(selected.has(button.dataset.color))));
+        buttons.forEach((button) => {
+            const color = button.dataset.color;
+            button.setAttribute('aria-pressed', String(selected.has(color)));
+            rectangles.get(color)?.querySelector('button').setAttribute('aria-label', `${selected.size === 1 ? 'reposition' : 'close'} ${button.getAttribute('aria-label')} rectangle`);
+        });
     }
     function regenerate() {
         artifacts.replaceChildren();
@@ -33,8 +49,7 @@ function initColorPalette(composition) {
         selected.forEach(addRectangle);
         updateButtons();
     }
-    buttons.forEach((button) => button.addEventListener('click', () => {
-        const color = button.dataset.color;
+    function toggleColor(color) {
         if (selected.has(color)) {
             if (selected.size === 1) {
                 moveRectangle(rectangles.get(color));
@@ -48,7 +63,8 @@ function initColorPalette(composition) {
             addRectangle(color);
         }
         updateButtons();
-    }));
+    }
+    buttons.forEach((button) => button.addEventListener('click', () => toggleColor(button.dataset.color)));
     regenerate();
     return function reset() {
         selected.clear();
