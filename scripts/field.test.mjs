@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate, navCodes, tags } from './field.mjs';
+import { createField, renderField, renderAbout, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate, navCodes, tags } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
@@ -10,13 +10,25 @@ const field = createField(projects, writings, config);
 test('navigation codes use only the allowed symbols and are unique for every label', () => {
     const codes = Object.values(navCodes);
     const allowed = new Set('[]*!+?:=<>');
-    for (const code of codes) {
+    for (const [label, code] of Object.entries(navCodes)) {
         assert.equal(code.length, 3);
-        assert.ok([...code].every((symbol) => allowed.has(symbol)), code);
+        if (tags.includes(label)) assert.equal(code[0], '#');
+        assert.ok([...(tags.includes(label) ? code.slice(1) : code)].every((symbol) => allowed.has(symbol)), code);
     }
     assert.equal(new Set(codes).size, codes.length);
     assert.ok(renderWorkReturn('project:viewfinder').includes('&lt;&lt;&lt;'));
     assert.ok(renderField(field).includes('&lt;+&gt;'));
+    assert.equal(navCodes.homestuck, '==>');
+});
+test('about has accessible names without a visible heading or title frame', () => {
+    for (const popup of [false, true]) {
+        const html = renderAbout('<p>profile copy</p>', popup);
+        assert.ok(html.includes('class="about-room" aria-label="about"'));
+        assert.ok(html.includes('<p>profile copy</p>'));
+        assert.ok(!html.includes('room-heading'));
+        assert.ok(!/<h[12]\b/.test(html));
+    }
+    assert.ok(renderField(field).includes('data-about-popup aria-label="about"'));
 });
 
 test('every work links directly from the atlas, including PDF and external destinations', () => {

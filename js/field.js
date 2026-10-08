@@ -16,14 +16,15 @@ function initColorPalette(composition) {
         });
     }
     function addRectangle(color) {
-        const rectangle = document.createElement('span');
+        const rectangle = document.createElement('button');
+        rectangle.type = 'button';
         rectangle.className = 'color-rectangle';
-        const close = document.createElement('button');
-        close.type = 'button';
+        const close = document.createElement('span');
         close.className = 'rectangle-close';
         close.textContent = 'x';
-        close.addEventListener('click', (event) => {
-            if (event.detail > 0) close.blur();
+        close.setAttribute('aria-hidden', 'true');
+        rectangle.addEventListener('click', (event) => {
+            if (event.detail > 0) rectangle.blur();
             toggleColor(color);
             if (event.detail === 0 && !selected.has(color)) buttons.find((button) => button.dataset.color === color).focus();
         });
@@ -41,7 +42,7 @@ function initColorPalette(composition) {
         buttons.forEach((button) => {
             const color = button.dataset.color;
             button.setAttribute('aria-pressed', String(selected.has(color)));
-            rectangles.get(color)?.querySelector('button').setAttribute('aria-label', `${selected.size === 1 ? 'reposition' : 'close'} ${button.getAttribute('aria-label')} rectangle`);
+            rectangles.get(color)?.setAttribute('aria-label', `${selected.size === 1 ? 'reposition' : 'close'} ${button.getAttribute('aria-label')} rectangle`);
         });
     }
     function regenerate() {

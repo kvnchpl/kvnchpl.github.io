@@ -4,8 +4,8 @@ export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff
 export const categoryLabel = (category) => category === 'image' ? 'images' : category;
 export const categories = ['image', 'space', 'interface', 'writing'];
 export const tags = ['belief', 'desire', 'truth', 'fire', 'free'];
-// Each label has a unique three-character code using only []*!+?:=<>.
-export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '[:]', watching: '[>]', listening: ':*:', hydrants: '!+!', homestuck: '>=>', return: '<<<', all: '***', image: '[+]', space: '<+>', interface: '=+=', writing: ':::'};
+// Codes use []*!+?:=<>; tag codes begin with #. Every label has a unique code.
+export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '[:]', watching: '[>]', listening: ':*:', hydrants: '!+!', homestuck: '==>', return: '<<<', all: '***', image: '[+]', space: '<+>', interface: '=+=', writing: ':::', belief: '#?!', desire: '#>!', truth: '#=!', fire: '#!*', free: '#>>'};
 export function renderNavLabel(key) {
     return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(categoryLabel(key))}</span>`;
 }
@@ -55,7 +55,7 @@ export function renderNavigation(page = '', popup = false) {
 }
 export function renderAbout(about, popup = false, contactImage = '/img/contact/contact_email.webp') {
     return `${renderNavigation('about', popup)}
-        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><header class="room-heading"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}></header><div class="about-copy">${about}<img class="about-image" src="${escape(contactImage)}" alt="contact email" /></div></section>`;
+        <section class="about-room" aria-label="about"><div class="about-copy">${about}<img class="about-image" src="${escape(contactImage)}" alt="contact email" /></div></section>`;
 }
 function renderMap(nodes) {
     return `<div class="field-map" aria-label="collection of projects and writing">${nodes.map((node) => {
@@ -71,17 +71,17 @@ export function renderField(field, filter = 'all', about = '', contactImage) {
         <div class="landing" data-color-composition>
             <h1 class="visually-hidden">KEVIN CUNANAN CHAPPELLE</h1>${renderIdentity('landing-name')}
             <a class="landing-image" href="${escape(field.landing.href || featured.href)}"${field.landing.href === '/about' ? ' data-about-open aria-label="about"' : `${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}"`}>${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="3000" height="3000" fetchpriority="high" />` : ''}</a>
-            <nav class="landing-links" aria-label="primary"><a class="landing-projects" href="/projects" data-atlas-open aria-label="collection">${ui.collection}</a><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a>${[['reading', 'https://www.goodreads.com/kvnchpl'], ['watching', 'https://letterboxd.com/kvnchpl/'], ['listening', 'https://soundcloud.com/kvnchpl'], ['hydrants', 'https://hydranthunt.com/'], ['homestuck', 'https://kvnchpl.com/homestuck-book-club/']].map(([key, href]) => `<a class="landing-${key}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${key}">${ui[key]}</a>`).join('')}</nav>
+            <nav class="landing-links" aria-label="primary"><a class="landing-projects" href="/projects" data-atlas-open aria-label="collection">${ui.collection}</a><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a>${[['reading', 'https://www.goodreads.com/kvnchpl'], ['watching', 'https://letterboxd.com/kvnchpl/'], ['listening', 'https://soundcloud.com/kvnchpl'], ['homestuck', 'https://kvnchpl.com/homestuck-book-club/'], ['hydrants', 'https://hydranthunt.com/']].map(([key, href]) => `<a class="landing-${key}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${key}">${ui[key]}</a>`).join('')}</nav>
             <div class="color-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:70%;top:48%;width:25%;height:26%"></span></div>
             ${renderPalette()}
         </div>
-        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav><nav class="field-tags" aria-label="collection tags">${tags.map((tag) => `<a href="/projects?tag=${tag}" data-tag-filter="${tag}" title="filter by #${tag}; select again to clear">#${tag}</a>`).join('')}</nav></div>
+        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav><nav class="field-tags" aria-label="collection tags">${tags.map((tag) => `<a href="/projects?tag=${tag}" data-tag-filter="${tag}" aria-label="#${tag}" title="filter by #${tag}; select again to clear">${ui[tag]}</a>`).join('')}</nav></div>
         <div class="atlas-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:54%;top:47%;width:23%;height:8%"></span></div>
         ${renderMap([...field.nodes.values()])}
         ${renderPalette()}
         </dialog>
         <noscript><style>.landing{display:none}.field-browser:not([open]){display:block;position:relative;height:auto;overflow:visible}.field-browser [data-browser-close]{display:none}${filter === 'writing' ? '.map-node:not([data-category="writing"]){display:none}' : ''}</style></noscript>
-        <dialog class="field-screen about-screen" data-about-popup aria-labelledby="about-screen-heading">${renderAbout(about, true, contactImage)}</dialog>
+        <dialog class="field-screen about-screen" data-about-popup aria-label="about">${renderAbout(about, true, contactImage)}</dialog>
         <p class="visually-hidden" data-field-announcement role="status" aria-live="polite"></p>
     </div>`;
 }

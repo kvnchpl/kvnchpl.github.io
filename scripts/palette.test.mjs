@@ -5,7 +5,8 @@ import vm from 'node:vm';
 import {palette} from './field.mjs';
 
 test('swatches and rectangle controls retain one color, preserve other rectangles, and reset on return', async () => {
-    const element = () => ({
+    const element = (tag = 'span') => ({
+        tagName: tag.toUpperCase(),
         style: {}, children: [], attributes: {},
         append(child) {this.children.push(child);},
         querySelector() {return this.children[0];},
@@ -31,7 +32,10 @@ test('swatches and rectangle controls retain one color, preserve other rectangle
     assert.equal(active().length, 1);
     const initialRectangle = artifacts.children[0];
     const initialPosition = {...initialRectangle.style};
-    const soleControl = initialRectangle.children[0];
+    const soleControl = initialRectangle;
+    assert.equal(soleControl.tagName, 'BUTTON');
+    assert.equal(soleControl.children[0].tagName, 'SPAN');
+    assert.equal(soleControl.children[0].attributes['aria-hidden'], 'true');
     assert.equal(soleControl.attributes['aria-label'], 'reposition blue rectangle');
     soleControl.focus();
     soleControl.click({detail: 1});
@@ -62,9 +66,15 @@ test('swatches and rectangle controls retain one color, preserve other rectangle
         assert.ok(parseFloat(style.top) >= 18 && parseFloat(style.top) + parseFloat(style.height) <= 86);
     }
     const unchanged = artifacts.children.filter((rectangle) => rectangle.style.background !== '#000000');
-    const blackControl = artifacts.children.find((rectangle) => rectangle.style.background === '#000000').children[0];
+    const blackControl = artifacts.children.find((rectangle) => rectangle.style.background === '#000000');
     assert.equal(blackControl.attributes['aria-label'], 'close black rectangle');
-    blackControl.click({detail: 0});
+    blackControl.click({detail: 1}); // A pointer click anywhere on the rectangle closes it.
+    assert.equal(blackControl.focused, false);
+    assert.equal(active().length, 7);
+    assert.deepEqual(artifacts.children, unchanged);
+    buttons[0].click();
+    const restoredBlack = artifacts.children.find((rectangle) => rectangle.style.background === '#000000');
+    restoredBlack.click({detail: 0}); // Keyboard activation returns focus to the swatch.
     assert.equal(buttons[0].focused, true);
     assert.equal(buttons[0].attributes['aria-pressed'], 'false');
     assert.equal(active().length, 7);
