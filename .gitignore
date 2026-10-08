@@ -46,3 +46,16 @@ playwright-report/
 coverage/
 *.har
 *.trace
+
+# Local authoring and maintenance; the public repository contains publishing files only.
+.private/
+README.md
+package.json
+package-lock.json
+scripts/
+docs/
+thoughts.html
+json/projects.json
+json/writings.json
+json/field.json
+.github/workflows/check-site.yml

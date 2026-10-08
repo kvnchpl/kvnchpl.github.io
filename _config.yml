@@ -1,19 +1,17 @@
-# Maintenance sources are tracked, but are not public website files.
+# Publish site files only. Authoring tools and archives remain local.
 exclude:
+  - .private
+  - .archive
+  - .gitignore
+  - .repo-backups
+  - .codex
+  - .agents
   - README.md
   - package.json
   - package-lock.json
   - scripts
   - docs
   - thoughts.html
-  - json/projects.json
-  - json/writings.json
-  - json/field.json
-  - .archive
-  - .repo-backups
-  - .codex
-  - .agents
-  - .github
   - node_modules
   - artifacts
   - qa
@@ -25,4 +23,4 @@ exclude:
   - "*.har"
   - "*.trace"
 
-# json/nav.json remains public for the separately hosted Thoughts theme.
+# json/nav.json is public: the separately hosted Thoughts theme reads it.

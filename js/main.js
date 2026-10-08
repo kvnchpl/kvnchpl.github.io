@@ -1,5 +1,5 @@
 function imageUrl(image, size = 'medium') {
-    return `/assets/${image}--${size}.webp`;
+    return `/a/${image}--${size}.webp`;
 }
 
 function imageSrcset(image, fullWidth) {
