@@ -1,14 +1,14 @@
-function imageUrl(project, image, size = 'medium') {
-    return `/img/projects/${project}/${size}/${image}.webp`;
+function imageUrl(image, size = 'medium') {
+    return `/assets/${image}--${size}.webp`;
 }
 
-function imageSrcset(project, image, fullWidth) {
+function imageSrcset(image, fullWidth) {
     const candidates = [
-        `${imageUrl(project, image, 'small')} 600w`,
-        `${imageUrl(project, image, 'medium')} 1280w`
+        `${imageUrl(image, 'small')} 600w`,
+        `${imageUrl(image, 'medium')} 1280w`
     ];
 
-    if (fullWidth > 1280) candidates.push(`${imageUrl(project, image, 'full')} ${fullWidth}w`);
+    if (fullWidth > 1280) candidates.push(`${imageUrl(image, 'full')} ${fullWidth}w`);
     return candidates.join(', ');
 }
 
@@ -16,7 +16,6 @@ function initSlideshow(wrapper) {
     const image = wrapper.querySelector('img');
     const previousButton = wrapper.querySelector('.slideshow-prev');
     const nextButton = wrapper.querySelector('.slideshow-next');
-    const project = wrapper.dataset.project;
     const fullWidth = Number.parseInt(wrapper.dataset.fullWidth, 10) || 1920;
     let images;
     let currentIndex = 0;
@@ -27,16 +26,16 @@ function initSlideshow(wrapper) {
         return;
     }
 
-    if (!image || !previousButton || !nextButton || !project || images.length < 2) return;
+    if (!image || !previousButton || !nextButton || images.length < 2) return;
 
     function showImage(index) {
         currentIndex = (index + images.length) % images.length;
         const { file, src, alt } = images[currentIndex];
         const position = currentIndex + 1;
 
-        image.src = src || imageUrl(project, file);
+        image.src = src || imageUrl(file);
         if (src) image.removeAttribute('srcset');
-        else image.srcset = imageSrcset(project, file, fullWidth);
+        else image.srcset = imageSrcset(file, fullWidth);
         image.alt = alt;
         previousButton.setAttribute('aria-label', `Previous image, ${position} of ${images.length}`);
         nextButton.setAttribute('aria-label', `Next image, ${position} of ${images.length}`);

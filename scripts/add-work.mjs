@@ -10,7 +10,7 @@ const help = `Add a work without copying page templates or editing the atlas.
 
 node scripts/add-work.mjs project key "Title" [--image FILE --alt "Description"] [--date YYYY-MM-DD]
 node scripts/add-work.mjs writing key "Title" --body FILE.txt [--date YYYY-MM-DD]
-node scripts/add-work.mjs project|writing key "Title" --url /pdf/file.pdf|https://example.com/ [--date YYYY-MM-DD]
+node scripts/add-work.mjs project|writing key "Title" --url /assets/file.pdf|https://example.com/ [--date YYYY-MM-DD]
 
 --category image|space|interface|writing sets the browsing category.
 --tags belief,desire,truth,fire,free is required; choose one or more collection tags.
@@ -35,8 +35,8 @@ export async function addWork(options, root = ROOT) {
     const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(async (name) => JSON.parse(await readFile(path.join(root, `json/${name}.json`), 'utf8'))));
     const collection = type === 'project' ? projects : writings;
     const page = `${type}s/${key}.html`;
-    const mediaDirectory = `img/projects/${key}`;
-    if (collection.some((work) => work.key === key) || existsSync(path.join(root, page)) || (image && existsSync(path.join(root, mediaDirectory)))) throw new Error(`Already exists: ${key}. Nothing was overwritten.`);
+    const mediaDirectory = 'assets';
+    if (collection.some((work) => work.key === key) || existsSync(path.join(root, page))) throw new Error(`Already exists: ${key}. Nothing was overwritten.`);
     const category = options.category || (type === 'writing' ? 'writing' : 'image');
     if (!categories.includes(category)) throw new Error(`Use --category ${categories.join(', ')}.`);
     const record = {type, title, key, year, month, day, category};
@@ -46,7 +46,8 @@ export async function addWork(options, root = ROOT) {
         const extension = path.extname(image).toLowerCase();
         if (!['.webp', '.jpg', '.jpeg', '.png', '.gif', '.avif', '.svg'].includes(extension)) throw new Error('Use a WebP, JPEG, PNG, GIF, AVIF, or SVG image.');
         await readFile(image); // Verify all inputs before making changes.
-        imageDestination = `${mediaDirectory}/artwork${extension}`;
+        imageDestination = `${mediaDirectory}/${key}-artwork${extension}`;
+        if (existsSync(path.join(root, imageDestination))) throw new Error(`Already exists: ${imageDestination}. Nothing was overwritten.`);
         record.thumbnail = `/${imageDestination}`;
     }
     if (type === 'project') {

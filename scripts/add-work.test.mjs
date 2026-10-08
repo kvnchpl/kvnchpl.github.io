@@ -10,25 +10,25 @@ import { addWork } from './add-work.mjs';
 const source = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 test('new categorized works build into the atlas and pages with visible copy and preserved poetry', async () => {
     const root = await mkdtemp(path.join(tmpdir(), 'kvn-content-workflow-'));
-    await Promise.all(['json', 'scripts', 'css', 'js', 'img', 'projects', 'writings'].map((dir) => mkdir(path.join(root, dir))));
+    await Promise.all(['json', 'scripts', 'css', 'js', 'assets', 'projects', 'writings'].map((dir) => mkdir(path.join(root, dir))));
     for (const dir of ['scripts', 'css', 'js']) {
         for (const file of await readdir(path.join(source, dir))) await copyFile(path.join(source, dir, file), path.join(root, dir, file));
     }
     for (const name of ['index.html', 'home.html', 'projects.html', 'writings.html', 'about.html', 'sitemap.xml', 'favicon.ico']) await copyFile(path.join(source, name), path.join(root, name));
     await copyFile(path.join(source, 'json/nav.json'), path.join(root, 'json/nav.json'));
     // These metadata and profile assets remain read-only; no fixture writes reach the repository.
-    await mkdir(path.join(root, 'img/projects/truth-visions/full'), {recursive: true});
-    await symlink(path.join(source, 'img/placeholders'), path.join(root, 'img/placeholders'));
-    await symlink(path.join(source, 'img/contact'), path.join(root, 'img/contact'));
-    await symlink(path.join(source, 'img/projects/truth-visions/full/truth-visions_1.webp'), path.join(root, 'img/projects/truth-visions/full/truth-visions_1.webp'));
-    await mkdir(path.join(root, 'img/projects/compiler-buddha'), {recursive: true});
-    await symlink(path.join(source, 'img/projects/compiler-buddha/buddha-site-demo.png'), path.join(root, 'img/projects/compiler-buddha/buddha-site-demo.png'));
+    for (const file of await readdir(path.join(source, 'assets'))) {
+        await symlink(path.join(source, 'assets', file), path.join(root, 'assets', file));
+    }
     await Promise.all(['projects', 'writings'].map((name) => writeFile(path.join(root, `json/${name}.json`), '[]\n')));
     await writeFile(path.join(root, 'json/field.json'), '{}\n');
     const text = 'a line with <angles> & symbols\nKEEP This Casing\n  and this indentation.\n';
     const bodyFile = path.join(root, 'poem.txt');
     await writeFile(bodyFile, text);
-    const inputImage = path.join(source, 'img/projects/triptych/small/triptych_1.webp');
+    const inputImage = path.join(source, 'assets/triptych_1--small.webp');
+    await writeFile(path.join(root, 'assets/occupied-artwork.webp'), 'existing asset');
+    await assert.rejects(addWork({type: 'project', key: 'occupied', title: 'occupied', tags: 'free', image: inputImage, alt: 'image'}, root), /Already exists/);
+    assert.equal(await readFile(path.join(root, 'assets/occupied-artwork.webp'), 'utf8'), 'existing asset');
     await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'space', tags: 'belief,free', image: inputImage, alt: 'a new image'}, root);
     await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', tags: 'truth', body: bodyFile}, root);
     const projectRecord = JSON.parse(await readFile(path.join(root, 'json/projects.json'), 'utf8'));
@@ -43,7 +43,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     await assert.rejects(addWork({type: 'project', key: 'invalid-tags', title: 'invalid tags', tags: 'unknown'}, root), /Invalid tags/);
     await assert.rejects(addWork({type: 'writing', key: 'untagged-writing', title: 'untagged writing', body: bodyFile}, root), /Assign at least one/);
     assert.equal(await readFile(path.join(root, 'json/projects.json'), 'utf8'), jsonBefore);
-    const run = (script) => execFileSync(process.execPath, [path.join(root, 'scripts', script)], {encoding: 'utf8'});
+    const run = (script) => execFileSync(process.execPath, [path.join(root, 'scripts', script)], {encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe']});
     assert.match(run('build-site.mjs'), /Built 1 projects and 1 writings/);
     const project = await readFile(path.join(root, 'projects/future-project.html'), 'utf8');
     const writing = await readFile(path.join(root, 'writings/future-writing.html'), 'utf8');
@@ -57,7 +57,9 @@ test('new categorized works build into the atlas and pages with visible copy and
     assert.match(project, /<p>The entire description.<\/p>/);
     assert.match(project, /<p>A second paragraph with &lt;angles&gt;.<\/p>/);
     assert.ok(!project.includes('<details'));
-    assert.match(project, /src="\/img\/projects\/future-project\/artwork.webp"/);
+    assert.match(project, /src="\/assets\/future-project-artwork.webp"/);
+    assert.deepEqual(await readFile(path.join(root, 'assets/future-project-artwork.webp')), await readFile(inputImage));
+    assert.ok((await readdir(path.join(root, 'assets'), {withFileTypes: true})).every((entry) => !entry.isDirectory()));
     assert.match(writing, /<p id="subtitle">2026\.10<\/p>/);
     assert.match(writing, /a line with &lt;angles&gt; &amp; symbols\nKEEP This Casing\n  and this indentation./);
     assert.match(home, /data-map-node="work-project-future-project" href="\/projects\/future-project"/);
@@ -67,4 +69,10 @@ test('new categorized works build into the atlas and pages with visible copy and
     assert.match(await readFile(path.join(root, 'sitemap.xml'), 'utf8'), /\/writings\/future-writing/);
     assert.match(run('build-site.mjs'), /0 files updated/);
     assert.match(run('check-site.mjs'), /references and asset versions are valid/);
+    // The validator must catch paths that the visible first gallery frame does not request.
+    await writeFile(path.join(root, 'projects/future-project.html'), project.replace('src="/assets/future-project-artwork.webp"', 'src="/assets/future-project-artwork.webp" srcset="/assets/missing.webp 600w"'));
+    assert.throws(() => run('check-site.mjs'), /missing \/assets\/missing.webp/);
+    await writeFile(path.join(root, 'projects/future-project.html'), project);
+    await mkdir(path.join(root, 'assets/nested'));
+    assert.throws(() => run('check-site.mjs'), /nested source folders/);
 });

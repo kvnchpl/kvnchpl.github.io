@@ -1,90 +1,105 @@
 # kvnchpl.com
 
-Static portfolio hosted by GitHub Pages. No application dependencies or server-side runtime.
+Static portfolio hosted by GitHub Pages. Requires Node.js 22 or newer for maintenance; no dependencies to install.
+
+## Folder structure
+
+```text
+kvnchpl.github.io/
+├── assets/       images, responsive exports, videos, PDFs, and fonts
+├── css/          styles
+├── js/           browser behavior
+├── json/         catalogs, homepage settings, and public navigation data
+├── projects/     project pages
+├── writings/     authored writing pages
+├── scripts/      build, validation, content helper, and tests
+├── each-all/     existing external-work redirect
+├── specter/      existing external-work redirect
+├── .archive/     ignored local-history ZIP; never deployed
+├── .github/workflows/  required location for GitHub Actions
+└── root pages, hosting configuration, README, and package.json
+```
+
+Every source and asset folder is flat. The only nested infrastructure folders are `.git/` (managed by Git) and `.github/workflows/` (GitHub's required workflow location). Temporary verification output belongs outside the repository. The local archive, former Jekyll cache, and ignored system files are preserved in `.archive/local-history-2026-10-08.zip`.
+
+`assets/` is the one media directory. Use a unique, work-prefixed filename such as `my-project-01.webp` or `my-zine.pdf`. Existing responsive exports use `image-name--small.webp`, `image-name--medium.webp`, and `image-name--full.webp`. No per-project or per-format media subfolders are needed. The root `favicon.ico` remains in its conventional location.
+
+Page URLs are unchanged. Raw media URLs moved from `/img/`, `/vid/`, `/pdf/`, and `/fonts/` to `/assets/`; old direct media URLs and third-party embeds must be updated. Historical direct media links are not redirected by this migration.
 
 ## Add a project
 
 From the repository root:
 
 ```sh
-node scripts/add-work.mjs project my-project "My Project" --image /path/to/artwork.webp --alt "Describe the artwork" --date 2026-10-07 --tags belief,desire
+npm run add -- project my-project "My Project" --image /path/to/artwork.webp --alt "Describe the artwork" --date 2026-10-08 --tags belief,desire
 ```
 
-The command copies the image, adds a catalog record, and creates the standard page. It refuses to overwrite an existing work. Edit the new record in `json/projects.json` to add images, sections, optional copy, and dates. A gallery section looks like this:
+This copies the image to `assets/my-project-artwork.webp`, adds a record in `json/projects.json`, and creates `projects/my-project.html`. Existing pages and assets are never overwritten. Edit the catalog record for its description, additional images, or sections, then run `npm run check`.
 
 ```json
-{
-    "images": [
-        { "src": "/img/projects/my-project/artwork.webp", "alt": "Describe the first image" },
-        { "src": "/img/projects/my-project/second.webp", "alt": "Describe the second image" }
-    ],
-    "text": "Optional section copy."
-}
+"sections": [
+    {
+        "images": [
+            { "src": "/assets/my-project-artwork.webp", "alt": "Describe the first image" },
+            { "src": "/assets/my-project-02.webp", "alt": "Describe the second image" }
+        ],
+        "text": "First paragraph.\nSecond paragraph."
+    }
+]
 ```
 
-One image per file is enough. Existing projects using `file` names and small/medium/full WebP exports continue to work. `thumbnail` is optional; the first image is used when it is absent. Entries without images receive a stable cloud placeholder from the original site, stored in `img/placeholders`. For a project without images, omit `--image` and add its content before building. Section descriptions always render in full on the project page. Optional `displayTitle` adds editorial line breaks to the large project title (for example, `"VIEW\nFINDER"`); the regular `title` remains its catalog and sharing name. Title size adjusts to longer names. Catalog and page dates use `YYYY.MM`; a record without a known month keeps only the year, and missing dates display `undated`.
+Copy additional images directly into `assets/`. One file per image is enough; multiple images in a section automatically become a slideshow. Existing records with `"file": "image-name"` still use the three responsive exports. `thumbnail` is optional; the first image or a stable cloud placeholder is used when it is absent. Omit `--image` for a text-only project and add its sections before building. Descriptions always render in full. Optional `displayTitle` inserts editorial line breaks, for example `"VIEW\nFINDER"`.
 
-## Add a writing
+## Add a writing or PDF
 
-Put the text in a UTF-8 file, then run:
+Save the text in a UTF-8 file:
 
 ```sh
-node scripts/add-work.mjs writing my-poem "My Poem" --body /path/to/poem.txt --date 2026-10-07 --tags desire
+npm run add -- writing my-poem "My Poem" --body /path/to/poem.txt --date 2026-10-08 --tags desire
 ```
 
-The command adds its catalog record and creates `writings/my-poem.html`. Line breaks, indentation, and capitalization are preserved inside `pre.writing-content`. A shared `writing-body` wrapper keeps multiple text blocks in normal flow without overlap. Edit that body directly for later revisions; text outside `generated:*` comments remains authored. The helper never rewrites an existing writing.
+The helper adds its catalog record and creates `writings/my-poem.html`. Revise the writing body in that HTML file; its line breaks, indentation, and capitalization are preserved. Text outside `generated:*` comments stays authored.
 
-For a PDF or independently hosted work, first put the PDF in `pdf/`, or use its website URL:
+For a PDF, first copy it to `assets/`. For an independently hosted work, use its URL:
 
 ```sh
-node scripts/add-work.mjs writing my-zine "My Zine" --url /pdf/my-zine.pdf --tags belief,desire
-node scripts/add-work.mjs project my-site "My Site" --url https://example.com/ --tags free
+npm run add -- writing my-zine "My Zine" --url /assets/my-zine.pdf --tags belief,desire
+npm run add -- project my-site "My Site" --url https://example.com/ --tags free
 ```
 
-`--date` is optional and defaults to today. Titles are displayed in lowercase or uppercase; preformatted poetry keeps its casing. `node scripts/add-work.mjs --help` lists the options.
+`--date` defaults to today. Each work has one category: `image` (displayed as “images”), `space`, `interface`, or `writing`. Defaults are `image` for projects and `writing` for writings; use `--category space` to change it. Every work requires at least one of `belief`, `desire`, `truth`, `fire`, or `free`. Tags are filtering metadata, never visible on work pages. Dates display as `YYYY.MM`. Run `npm run add -- --help` for all options.
 
-## Build and check
+## Build and verify
 
 ```sh
-node scripts/build-site.mjs
-node --test scripts/*.test.mjs
-node scripts/check-site.mjs
-git diff --check
+npm run check
 ```
 
-Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the atlas, category filters, collection pages, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Each record has one `category`: `image` (shown as “images”: image series and collages), `space` (installations, performance, and environments), `interface` (interactive and code-based work), or `writing` (poetry and publications). Use `--category space` when adding a project, or edit its catalog record later. Defaults are `image` for projects and `writing` for writings. The public label is “collection”; `/projects` shows the entire catalog; `/writings` opens the writing filter. The internal project/writing file types remain the same.
+This builds the pages, runs the behavioral tests, and verifies local links, responsive images, fonts, runtime asset paths, catalog paths, cache versions, and folder depth. `npm run build` and `npm test` are also available separately. Building again should report zero updated files.
 
-The second filter row uses five informal tags: `belief`, `desire`, `truth`, `fire`, and `free`. Every project and writing requires at least one valid tag; the build rejects missing, empty, unknown, or duplicate tags. Use `--tags belief,desire` when adding work, or edit its catalog record’s `"tags": ["belief", "desire"]` array. They appear only in the filter row, never in collection items or work pages. One tag can be selected at a time; selecting it again clears it. Categories and tags combine, and both are preserved in the URL and browser history.
+Commit the catalogs, authored content, copied assets, and generated HTML together. New entries automatically appear in the collection, category/tag filters, and sitemap; no separate map or menu records need editing. Review before pushing; local changes do not publish the site.
 
-## Structure
+## Where to edit
 
-- `json/projects.json` and `json/writings.json`: catalog records and project sections.
-- `json/field.json`: the entrance's featured work, optional image, and optional local link destination (`href`). The current portrait opens about.
-- `scripts/build-site.mjs`: shared metadata, galleries, catalog views, and sitemap.
-- `scripts/field.mjs`: catalog validation and atlas/about markup.
-- `scripts/work-page.mjs`: one standard shell for new works.
-- `scripts/add-work.mjs`: content scaffolding, with no dependencies.
-- `js/field.js`: fullscreen atlas/about screens, view history, and stochastic color interventions.
-- `js/main.js`: galleries and video playback.
-- `css/field.css`: entrance, atlas, fullscreen screens, and color room pages.
-- `projects`, `writings`, `img`, `vid`, `pdf`: full pages and actual media.
+- `json/projects.json`: project metadata and page sections.
+- `json/writings.json`: writing metadata and destinations.
+- `json/field.json`: homepage image and its destination.
+- `about.html`: profile copy, also reused by the fullscreen about screen.
+- `scripts/field.mjs`: shared navigation codes, categories, tags, and collection markup.
+- `scripts/build-site.mjs`: metadata, galleries, generated regions, and sitemap.
+- `scripts/work-page.mjs`: standard shell for new work pages.
+- `css/field.css`: homepage, collection, about, and work layouts.
+- `js/field.js`: navigation, filters, and color swatches.
+- `js/main.js`: slideshows and video playback.
 
-Work links are ordinary links to complete pages, PDFs, or external projects. There are no work previews or passage links. Atlas/about screens use borderless, full-viewport native dialogs with focus containment, Escape, and browser history. A work's return link opens its location in the atlas. Without JavaScript, the linked atlas and standalone about page remain usable. Old `?view=network` and `?view=index` links resolve to the atlas.
+`_config.yml` excludes maintenance sources, catalog JSON, and local archives from deployment. `json/nav.json` stays at its existing public URL because the separately hosted Thoughts theme reads it. The site remains static, with ordinary links, no-JavaScript navigation fallbacks, proportional project artwork, and the current interactive behavior.
 
-The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. The atlas’s color rectangles belong to the screen rather than to thumbnails. Its eight-color swatch panel toggles each color independently, with at least one selected and all eight available at once. Each active color contributes a rectangle. Clicking the sole selected color moves its rectangle without deselecting it. Activating another color generates only its rectangle; deactivating it removes only that rectangle. The others keep their positions. Entering a screen generates a fresh composition without animation; returning to the entrance or atlas resets the selection to blue only. Rectangles sit above images and text. Clicking or tapping anywhere on a rectangle deselects its color and removes it, or repositions it when it is the sole selected color. Each rectangle is also a keyboard-accessible button. Its small white x at the top right appears on desktop hover or keyboard focus; mobile and touch screens hide the x. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about screen. Its monochrome contact image sits below the profile copy, without a visible About heading. All eight entrance links follow mirrored inward/outward steps equally inset from the screen edges in a responsive grid, with level text and one text size. External navigation opens new tabs except Thoughts. About, the collection, and work pages share the navigation component in `scripts/field.mjs`. Navigation codes are defined once in `scripts/field.mjs`; each label has a unique three-character code drawn from `[]*!+?:=<>`, followed by its readable label. Square-bracket codes are reserved for internal-page navigation (home, about, and collection); external links and category filters use unbracketed codes. Return retains `<<<`. The five tag codes additionally begin with `#`. Controls have accessible names without hover tooltips. Homestuck uses `==>` and sits to the left of Hydrants on the entrance. Typography uses Roboto Mono with a monospace fallback. Atlas previews reserve a fixed height and may distort images to fill their frames; titles below retain uppercase-to-lowercase hover. The entrance image also fills its frame from the top edge of the screen. Project-page art preserves its proportions, with right-aligned uppercase titles and dates, left-aligned descriptions spanning the slideshow column below the art, and a return link at the content’s left edge. The title and date sit in a padded, thin white frame aligned with the top of the gallery or text section on desktop; narrow screens stack the content. Categories remain in the collection; work-page headers display only the date. Every page has a black background. Homepage and collection rectangles interrupt it without animation; about and work pages have no rectangle overlays. Swatches float without a panel, equally inset from the viewport’s bottom and left. Artwork colors and preformatted poetry are preserved.
+## Rollback
 
-## Public files and local archive
-
-`_config.yml` excludes maintenance sources, catalog JSON, and verification output from the GitHub Pages build. `json/nav.json` remains public because the separately hosted Thoughts theme fetches it.
-
-`.archive/` is ignored and excluded from deployment. It contains historical documentation, unused assets, and local design studies. Verification output belongs in ignored archive or temporary directories. Git history preserves previous tracked versions.
-
-## Restore a checkpoint
-
-Commit or stash current work, then create a branch at the checkpoint:
+The pre-restructure site is preserved at `rollback/pre-flat-assets-2026-10-08`. Commit or stash later work before restoring it:
 
 ```sh
-git switch -c restore/published-site rollback/pre-fullscreen-2026-10-08
+git switch -c restore/pre-flat-assets rollback/pre-flat-assets-2026-10-08
 ```
 
-This restores the published site before the fullscreen and color room revision. The original site is preserved at `rollback/pre-redesign-2026-10-02`. Return with `git switch redesign/fullscreen-color-room-2026-10-08`. Switching branches does not publish the website.
+Return with `git switch refactor/flat-assets-2026-10-08`. Switching branches does not publish. The original design remains at `rollback/pre-redesign-2026-10-02`. The ignored archive ZIP remains available across branch switches.

@@ -36,7 +36,7 @@ export function createField(projects, writings, config = {}) {
     }
     if (!nodes.size) throw new Error('The catalog needs at least one work');
     const landing = config.landing || {work: nodes.keys().next().value};
-    if (!nodes.has(landing.work) || (landing.image !== undefined && (typeof landing.image !== 'string' || !landing.image.startsWith('/img/')))) throw new Error('Invalid landing artwork');
+    if (!nodes.has(landing.work) || (landing.image !== undefined && (typeof landing.image !== 'string' || !/^\/assets\/[^/?#]+$/.test(landing.image)))) throw new Error('Invalid landing artwork');
     if (landing.href !== undefined && (typeof landing.href !== 'string' || !/^\/(?!\/)/.test(landing.href))) throw new Error('Invalid landing destination');
     return {nodes, landing};
 }
@@ -44,7 +44,7 @@ const destinationAttributes = (node) => (node.newTab || /^https?:\/\//.test(node
 export const previewFor = (node) => {
     const image = node.sections?.flatMap((s) => s.images || [])[0];
     const sky = [...node.key].reduce((hash, character) => (hash * 31 + character.charCodeAt(0)) % 22, 0) + 1;
-    return node.thumbnail || image?.src || (image?.file ? `/img/projects/${node.key}/small/${image.file}.webp` : `/img/placeholders/sky_${sky}.webp`);
+    return node.thumbnail || image?.src || (image?.file ? `/assets/${image.file}--small.webp` : `/assets/sky_${sky}.webp`);
 };
 export function renderIdentity(className = '') {
     return `<div class="screen-identity${className ? ` ${className}` : ''}"><a href="/" aria-label="KEVIN CUNANAN CHAPPELLE"><svg viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="0" y="350" font-size="400" textLength="1200" lengthAdjust="spacingAndGlyphs">KEVIN CUNANAN CHAPPELLE</text></svg><span class="visually-hidden">KEVIN CUNANAN CHAPPELLE</span></a></div>`;
@@ -54,7 +54,7 @@ export function renderNavigation(page = '', popup = false) {
     const home = popup ? `<button type="button" data-browser-close aria-label="home">${ui.home}</button>` : `<a href="/" aria-label="home">${ui.home}</a>`;
     return `<div class="screen-chrome page-chrome">${renderIdentity()}<nav class="site-nav" aria-label="primary">${home}<a href="/projects" data-atlas-open aria-label="collection"${page === 'collection' ? ' aria-current="page"' : ''}>${ui.collection}</a><a href="/about" data-about-open aria-label="about"${page === 'about' ? ' aria-current="page"' : ''}>${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
 }
-export function renderAbout(about, popup = false, contactImage = '/img/contact/contact_email.webp') {
+export function renderAbout(about, popup = false, contactImage = '/assets/contact_email.webp') {
     return `${renderNavigation('about', popup)}
         <section class="about-room" aria-label="about"><div class="about-copy">${about}<img class="about-image" src="${escape(contactImage)}" alt="contact email" /></div></section>`;
 }

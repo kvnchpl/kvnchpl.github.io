@@ -9,7 +9,7 @@ import { workPage } from './work-page.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE_ORIGIN = 'https://kvnchpl.com';
 const SITE_NAME = 'Kevin Cunanan Chappelle';
-const DEFAULT_IMAGE = '/img/projects/truth-visions/full/truth-visions_1.webp';
+const DEFAULT_IMAGE = '/assets/truth-visions_1--full.webp';
 const DEFAULT_IMAGE_ALT = 'Truth Visions installation by Kevin Cunanan Chappelle';
 const changedFiles = new Set();
 
@@ -32,7 +32,7 @@ const pageConfigs = {
         title: 'Collection',
         description: 'A collection of images, spaces, interfaces, and writing by Brooklyn-based artist Kevin Cunanan Chappelle.',
         canonicalPath: '/projects',
-        image: '/img/projects/compiler-buddha/buddha-site-demo.png',
+        image: '/assets/buddha-site-demo.png',
         imageAlt: 'Compiler Buddha by Kevin Cunanan Chappelle'
     },
     'writings.html': {
@@ -46,7 +46,7 @@ const pageConfigs = {
         title: 'About',
         description: 'About Kevin Cunanan Chappelle, a Brooklyn-based artist working across digital, physical, and spiritual spaces.',
         canonicalPath: '/about',
-        image: '/img/contact/contact_email.webp',
+        image: '/assets/contact_email.webp',
         imageAlt: 'contact email',
         ogType: 'profile',
         twitterCard: 'summary'
@@ -180,21 +180,21 @@ function renderPageHeader(work) {
     return generatedBlock('page-header', `        ${heading}`, '        ');
 }
 
-function imageUrl(projectKey, image, size = 'medium') {
-    return `/img/projects/${projectKey}/${size}/${image}.webp`;
+function imageUrl(image, size = 'medium') {
+    return `/assets/${image}--${size}.webp`;
 }
 
 function imageSrcset(project, image) {
     const fullWidth = project.fullWidth;
     const candidates = [
-        `${imageUrl(project.key, image, 'small')} 600w`,
-        `${imageUrl(project.key, image, 'medium')} 1280w`
+        `${imageUrl(image, 'small')} 600w`,
+        `${imageUrl(image, 'medium')} 1280w`
     ];
 
     if (!Number.isInteger(fullWidth) || fullWidth < 1) {
         throw new Error(`Invalid fullWidth for project: ${project.key}`);
     }
-    if (fullWidth > 1280) candidates.push(`${imageUrl(project.key, image, 'full')} ${fullWidth}w`);
+    if (fullWidth > 1280) candidates.push(`${imageUrl(image, 'full')} ${fullWidth}w`);
 
     return candidates.join(', ');
 }
@@ -203,10 +203,10 @@ function renderSlideshow(project, images, sectionIndex) {
     for (const image of images) {
         if ((!image.file && !image.src) || !image.alt?.trim()) throw new Error(`Missing image file or alt text: ${project.key}`);
         if (image.src) {
-            if (!image.src.startsWith('/img/')) throw new Error(`Invalid image path: ${project.key}`);
+            if (!/^\/assets\/[^/?#]+$/.test(image.src)) throw new Error(`Use a flat /assets/ image path: ${project.key}`);
             assertLocalAsset(image.src);
         } else {
-            for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(project.key, image.file, size));
+            for (const size of ['small', 'medium', 'full']) assertLocalAsset(imageUrl(image.file, size));
         }
     }
 
@@ -214,7 +214,7 @@ function renderSlideshow(project, images, sectionIndex) {
     const count = images.length;
     const loading = sectionIndex === 0 ? 'eager' : 'lazy';
     const data = count > 1
-        ? ` data-slideshow data-project="${escapeAttribute(project.key)}" data-images="${escapeAttribute(JSON.stringify(images))}" data-full-width="${project.fullWidth}"`
+        ? ` data-slideshow data-images="${escapeAttribute(JSON.stringify(images))}" data-full-width="${project.fullWidth}"`
         : '';
     const lines = [
         `                <div class="slideshow-wrapper"${data}>`,
@@ -226,7 +226,7 @@ function renderSlideshow(project, images, sectionIndex) {
     }
 
     lines.push(
-        `                        <img src="${escapeAttribute(firstImage.src || imageUrl(project.key, firstImage.file))}"${firstImage.src ? '' : ` srcset="${imageSrcset(project, firstImage.file)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw"`} alt="${escapeAttribute(firstImage.alt)}" loading="${loading}" decoding="async" />`
+        `                        <img src="${escapeAttribute(firstImage.src || imageUrl(firstImage.file))}"${firstImage.src ? '' : ` srcset="${imageSrcset(project, firstImage.file)}" sizes="(max-width: 600px) 100vw, (max-width: 1280px) 80vw, 60vw"`} alt="${escapeAttribute(firstImage.alt)}" loading="${loading}" decoding="async" />`
     );
 
     if (count > 1) {
@@ -272,7 +272,7 @@ function renderProjectSections(project) {
 function projectSocialImage(project) {
     if (project.socialImage) return project.socialImage;
     const firstImage = project.sections.flatMap((section) => section.images || [])[0];
-    return firstImage ? firstImage.src || imageUrl(project.key, firstImage.file, 'full') : project.thumbnail || DEFAULT_IMAGE;
+    return firstImage ? firstImage.src || imageUrl(firstImage.file, 'full') : project.thumbnail || DEFAULT_IMAGE;
 }
 
 function removeRuntimeDataMeta(html) {
@@ -338,7 +338,7 @@ const aboutPage = await readFile(rootPath('about.html'), 'utf8');
 const aboutCopy = aboutPage.match(/<p class="contact-text">[\s\S]*?<\/p>/)?.[0];
 if (!aboutCopy) throw new Error('Missing about copy');
 const aboutPopup = aboutCopy;
-const contactImage = `/img/contact/contact_email.webp?v=${hash(await readFile(rootPath('img/contact/contact_email.webp')))}`;
+const contactImage = `/assets/contact_email.webp?v=${hash(await readFile(rootPath('assets/contact_email.webp')))}`;
 
 const initialSeoPattern = /    <title>[\s\S]*?    <meta name="twitter:image:alt" content="[^"]*" \/>/;
 const initialNavPattern = /    <nav id="nav"><\/nav>/;

@@ -1,6 +1,8 @@
 # Maintenance sources are tracked, but are not public website files.
 exclude:
   - README.md
+  - package.json
+  - package-lock.json
   - scripts
   - docs
   - thoughts.html
