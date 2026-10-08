@@ -1,32 +1,44 @@
-// Each screen owns its selected colors; redraw without animation on entry or a toggle.
+// Each screen owns its colors; toggles add or remove only that color's rectangle.
 function initColorPalette(composition) {
     const buttons = [...composition.querySelectorAll('[data-color]')];
     const artifacts = composition.querySelector('[data-color-artifacts]');
     const selected = new Set(buttons.filter((button) => button.getAttribute('aria-pressed') === 'true').map((button) => button.dataset.color));
+    const rectangles = new Map();
     if (!selected.size) selected.add(buttons[0].dataset.color);
     const random = (min, max) => min + Math.random() * (max - min);
-    function regenerate() {
-        buttons.forEach((button) => button.setAttribute('aria-pressed', String(selected.has(button.dataset.color))));
-        const rectangles = [...selected].map((color) => {
-            const rectangle = document.createElement('span');
-            rectangle.className = 'color-rectangle';
-            const width = random(8, 30);
-            const height = random(4, 20);
-            Object.assign(rectangle.style, {
-                background: color, width: `${width}%`, height: `${height}%`,
-                left: `${random(0, 100 - width)}%`, top: `${random(18, 86 - height)}%`
-            });
-            return rectangle;
+    function addRectangle(color) {
+        const rectangle = document.createElement('span');
+        rectangle.className = 'color-rectangle';
+        const width = random(8, 30);
+        const height = random(4, 20);
+        Object.assign(rectangle.style, {
+            background: color, width: `${width}%`, height: `${height}%`,
+            left: `${random(0, 100 - width)}%`, top: `${random(18, 86 - height)}%`
         });
-        artifacts.replaceChildren(...rectangles);
+        rectangles.set(color, rectangle);
+        artifacts.append(rectangle);
+    }
+    function updateButtons() {
+        buttons.forEach((button) => button.setAttribute('aria-pressed', String(selected.has(button.dataset.color))));
+    }
+    function regenerate() {
+        artifacts.replaceChildren();
+        rectangles.clear();
+        selected.forEach(addRectangle);
+        updateButtons();
     }
     buttons.forEach((button) => button.addEventListener('click', () => {
         const color = button.dataset.color;
         if (selected.has(color)) {
             if (selected.size === 1) return;
             selected.delete(color);
-        } else selected.add(color);
-        regenerate();
+            rectangles.get(color).remove();
+            rectangles.delete(color);
+        } else {
+            selected.add(color);
+            addRectangle(color);
+        }
+        updateButtons();
     }));
     regenerate();
     return regenerate;

@@ -36,7 +36,7 @@ export function createField(projects, writings, config = {}) {
     if (landing.href !== undefined && (typeof landing.href !== 'string' || !/^\/(?!\/)/.test(landing.href))) throw new Error('Invalid landing destination');
     return {nodes, landing};
 }
-const destinationAttributes = (node) => node.newTab ? ' target="_blank" rel="noopener noreferrer"' : '';
+const destinationAttributes = (node) => (node.newTab || /^https?:\/\//.test(node.href)) ? ' target="_blank" rel="noopener noreferrer"' : '';
 export const previewFor = (node) => {
     const image = node.sections?.flatMap((s) => s.images || [])[0];
     const sky = [...node.key].reduce((hash, character) => (hash * 31 + character.charCodeAt(0)) % 22, 0) + 1;
@@ -52,13 +52,13 @@ export function renderNavigation(page = '', popup = false) {
 }
 export function renderAbout(about, popup = false) {
     return `${renderNavigation('about', popup)}
-        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div><span class="about-block" aria-hidden="true"></span></section>`;
+        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div></section>`;
 }
 function renderMap(nodes) {
     return `<div class="field-map" aria-label="collection of projects and writing">${nodes.map((node) => {
         const preview = previewFor(node);
         const art = `<img src="${escape(preview)}" alt="" loading="lazy" decoding="async" width="600" height="450"/>`;
-        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}" data-category="${node.category}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token"><span class="map-preview">${art}</span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${node.category} / ${formatWorkDate(node)}${node.href.endsWith('.pdf') ? ' / pdf' : ''}</span></a>`;
+        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}" data-category="${node.category}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token"><span class="map-preview">${art}</span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${node.category} / ${formatWorkDate(node)}</span></a>`;
     }).join('\n')}</div>`;
 }
 export function renderField(field, filter = 'all', about = '') {
@@ -68,7 +68,7 @@ export function renderField(field, filter = 'all', about = '') {
         <div class="landing" data-color-composition>
             <h1 class="visually-hidden">KEVIN CUNANAN CHAPPELLE</h1>${renderIdentity('landing-name')}
             <a class="landing-image" href="${escape(field.landing.href || featured.href)}"${field.landing.href === '/about' ? ' data-about-open aria-label="about"' : `${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}"`}>${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="3000" height="3000" fetchpriority="high" />` : ''}</a>
-            <nav class="landing-links" aria-label="primary"><a class="landing-projects" href="/projects" data-atlas-open aria-label="collection">${ui.collection}</a><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a>${[['reading', 'https://www.goodreads.com/kvnchpl'], ['watching', 'https://letterboxd.com/kvnchpl/'], ['listening', 'https://soundcloud.com/kvnchpl'], ['hydrants', 'https://hydranthunt.com/'], ['homestuck', 'https://kvnchpl.com/homestuck-book-club/']].map(([key, href]) => `<a class="landing-${key}" href="${href}" aria-label="${key}">${ui[key]}</a>`).join('')}</nav>
+            <nav class="landing-links" aria-label="primary"><a class="landing-projects" href="/projects" data-atlas-open aria-label="collection">${ui.collection}</a><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a>${[['reading', 'https://www.goodreads.com/kvnchpl'], ['watching', 'https://letterboxd.com/kvnchpl/'], ['listening', 'https://soundcloud.com/kvnchpl'], ['hydrants', 'https://hydranthunt.com/'], ['homestuck', 'https://kvnchpl.com/homestuck-book-club/']].map(([key, href]) => `<a class="landing-${key}" href="${href}" target="_blank" rel="noopener noreferrer" aria-label="${key}">${ui[key]}</a>`).join('')}</nav>
             <div class="color-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:70%;top:48%;width:25%;height:26%"></span></div>
             ${renderPalette()}
         </div>
