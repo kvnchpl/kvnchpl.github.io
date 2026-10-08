@@ -242,7 +242,6 @@ function renderSlideshow(project, images, sectionIndex) {
 }
 
 function renderProjectSections(project) {
-    const note = project.note?.trim();
     return project.sections
         .map((section, index) => {
             const lines = ['            <section class="project-section">'];
@@ -251,14 +250,13 @@ function renderProjectSections(project) {
                 lines.push(renderSlideshow(project, section.images, index));
             }
 
-            if (section.text?.trim() || (index === 0 && note)) {
+            if (section.text?.trim()) {
                 const paragraphs = (section.text || '')
                     .split(/\n+/)
                     .map((line) => line.trim())
                     .filter(Boolean);
 
                 lines.push('                <div class="project-copy">');
-                if (index === 0 && note && !paragraphs.includes(note)) lines.push(`                    <p class="project-note">${escapeHtml(note)}</p>`);
                 for (const paragraph of paragraphs) {
                     lines.push(`                    <p>${escapeHtml(paragraph)}</p>`);
                 }
@@ -373,7 +371,7 @@ for (const project of projects.filter((entry) => !entry.external)) {
     assertLocalAsset(image);
     const config = {
         title: project.title,
-        description: field.nodes.get(`project:${project.key}`)?.note || project.description,
+        description: project.description,
         canonicalPath: `/projects/${project.key}`,
         image,
         imageAlt: project.socialImageAlt || project.sections.flatMap((section) => section.images || [])[0]?.alt || `${project.title} by ${SITE_NAME}`

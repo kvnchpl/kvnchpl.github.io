@@ -14,7 +14,6 @@
             }
         ],
         "socialImage": "/img/projects/compiler-buddha/buddha-site-demo.png",
-        "note": "A self-modifying script rebuilds its source code around an image of a Buddha. Alongside it, the reference image passes repeatedly through Stable Diffusion.",
         "category": "interface"
     },
     {
@@ -69,7 +68,6 @@
             }
         ],
         "thumbnail": "/img/projects/viewfinder/thumbnail/viewfinder_thumbnail.webp",
-        "note": "Flowers, foliage, signs, and detection boxes. A series of digitally processed images.",
         "category": "image",
         "displayTitle": "VIEW\nFINDER"
     },
@@ -143,7 +141,6 @@
             }
         ],
         "thumbnail": "/img/projects/archipelago/thumbnail/archipelago_thumbnail.webp",
-        "note": "Pairs of abstract fauna and flora meet rectangular frames. Banner proposals for the Noguchi Museum’s 2024 open call.",
         "category": "image"
     },
     {
@@ -186,7 +183,6 @@
             }
         ],
         "thumbnail": "/img/projects/intraface/thumbnail/intraface_thumbnail.webp",
-        "note": "Collaged interfaces and rooms. Imagine drop-down menus with all options spelled out.",
         "category": "image"
     },
     {
@@ -335,7 +331,6 @@
             }
         ],
         "thumbnail": "/img/projects/friday-night-never/thumbnail/friday-night-never_thumbnail.webp",
-        "note": "A celebration for the last images on earth, once all content has been recycled and experienced.",
         "category": "image"
     },
     {
@@ -384,7 +379,6 @@
             }
         ],
         "thumbnail": "/img/projects/dimensional-freedom/thumbnail/dimensional-freedom_thumbnail.gif",
-        "note": "An installation of pillars and moving figures. Bodies weave between screens and planes.",
         "category": "space"
     },
     {
@@ -427,7 +421,6 @@
             }
         ],
         "thumbnail": "/img/projects/520-missing/thumbnail/520-missing_thumbnail.webp",
-        "note": "520 generated faculty portraits, carried onto campus as posters. A public intervention at Stanford in 2019.",
         "category": "space"
     },
     {
@@ -450,7 +443,6 @@
             }
         ],
         "thumbnail": "/img/projects/truth-visions/thumbnail/truth-visions_thumbnail.gif",
-        "note": "A television sinks into sand, broadcasting the installation that contains it. Printed photographs reveal mirrors beneath their images.",
         "category": "space"
     },
     {
@@ -467,7 +459,6 @@
         "thumbnail": "/img/projects/jungle/thumbnail/jungle_thumbnail.gif",
         "newTab": true,
         "sitemap": true,
-        "note": "A digital zine.",
         "category": "interface"
     },
     {
@@ -483,7 +474,6 @@
         "sections": [],
         "thumbnail": "/img/projects/each-all/thumbnail/each-all_thumbnail.gif",
         "newTab": true,
-        "note": "A collaborative collaging project.",
         "category": "interface"
     },
     {
@@ -499,7 +489,6 @@
         "sections": [],
         "thumbnail": "/img/projects/specter/thumbnail/specter_thumbnail.gif",
         "newTab": true,
-        "note": "A 3D environment with fractured narrative and images.",
         "category": "space"
     }
 ]

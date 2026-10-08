@@ -26,7 +26,6 @@ export function createField(projects, writings, config = {}) {
         const category = work.category || (work.type === 'writing' ? 'writing' : 'image');
         if (!categories.includes(category)) throw new Error(`Unknown category: ${category}`);
         if (work.displayTitle !== undefined && (typeof work.displayTitle !== 'string' || !work.displayTitle.trim())) throw new Error(`Invalid display title: ${id}`);
-        if (work.note !== undefined && typeof work.note !== 'string') throw new Error(`Invalid note: ${id}`);
         if (work.permalink !== undefined && (typeof work.permalink !== 'string' || !/^(?:\/(?!\/)|https?:\/\/)/.test(work.permalink))) throw new Error(`Invalid destination: ${id}`);
         if (work.external && !work.permalink) throw new Error(`Missing destination: ${id}`);
         nodes.set(id, {...work, id, category, anchor: anchorFor(id), href: work.permalink || `/${work.type}s/${work.key}`});

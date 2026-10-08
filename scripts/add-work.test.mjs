@@ -32,7 +32,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'space', image: inputImage, alt: 'a new image'}, root);
     await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', body: bodyFile}, root);
     const projectRecord = JSON.parse(await readFile(path.join(root, 'json/projects.json'), 'utf8'));
-    projectRecord[0].note = 'A visible introduction.';
+    projectRecord[0].note = 'A legacy project note that should not appear.';
     projectRecord[0].sections[0].text = 'The entire description.\nA second paragraph with <angles>.';
     await writeFile(path.join(root, 'json/projects.json'), JSON.stringify(projectRecord));
     const jsonBefore = await readFile(path.join(root, 'json/projects.json'), 'utf8');
@@ -48,7 +48,8 @@ test('new categorized works build into the atlas and pages with visible copy and
     const home = await readFile(path.join(root, 'home.html'), 'utf8');
     assert.match(project, /data-category="space"/);
     assert.match(project, /<p id="subtitle">2026\.10<\/p>/);
-    assert.match(project, /<p class="project-note">A visible introduction.<\/p>/);
+    assert.ok(!project.includes('project-note'));
+    assert.ok(!project.includes(projectRecord[0].note));
     assert.match(project, /<p>The entire description.<\/p>/);
     assert.match(project, /<p>A second paragraph with &lt;angles&gt;.<\/p>/);
     assert.ok(!project.includes('<details'));

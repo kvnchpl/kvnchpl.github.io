@@ -101,7 +101,7 @@ body.field-work .slideshow-inner img { max-width: 100%; max-height: 100%; width:
 body.field-work .slideshow-control { position: absolute; bottom: 0; width: auto; height: auto; font: 13px/1.5 var(--font-family-main); text-decoration: underline; }
 body.field-work .slideshow-prev { left: 0; }
 body.field-work .slideshow-next { right: 0; }
-body.field-work .project-copy { grid-column: 1; grid-row: 2; width: auto; max-width: 55ch; padding: 0 10% 0 0; margin: 0 0 50px; font-size: 14px; line-height: 1.7; text-transform: lowercase; }
+body.field-work .project-copy { grid-column: 1; grid-row: 2; width: auto; max-width: none; padding: 0; margin: 0 0 50px; font-size: 14px; line-height: 1.7; text-transform: lowercase; }
 body.field-work .project-section:has(.slideshow-wrapper) .project-copy { margin-top: 32px; }
 body.field-work .project-section:first-child:not(:has(.slideshow-wrapper)) .project-copy { grid-row: 1; }
 body.field-work .project-layout:has(> .interface) .project-section:first-child .project-copy { grid-row: 2; margin-top: 32px; }

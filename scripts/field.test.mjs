@@ -57,7 +57,7 @@ test('a growing catalog needs no manual map records and keeps stable identities 
 });
 test('invalid content fails validation', () => {
     for (const changes of [
-        {key: '../escape'}, {title: ''}, {category: 'unknown'}, {displayTitle: ''}, {note: 1},
+        {key: '../escape'}, {title: ''}, {category: 'unknown'}, {displayTitle: ''},
         {permalink: 'javascript:alert(1)'}, {permalink: '//example.com'}, {external: true, permalink: undefined}
     ]) {
         assert.throws(() => createField([{...projects[0], ...changes}], [], {}));
