@@ -18,6 +18,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     await copyFile(path.join(source, 'json/nav.json'), path.join(root, 'json/nav.json'));
     // These metadata and profile assets remain read-only; no fixture writes reach the repository.
     await mkdir(path.join(root, 'img/projects/truth-visions/full'), {recursive: true});
+    await symlink(path.join(source, 'img/placeholders'), path.join(root, 'img/placeholders'));
     await symlink(path.join(source, 'img/contact'), path.join(root, 'img/contact'));
     await symlink(path.join(source, 'img/projects/truth-visions/full/truth-visions_1.webp'), path.join(root, 'img/projects/truth-visions/full/truth-visions_1.webp'));
     await mkdir(path.join(root, 'img/projects/compiler-buddha'), {recursive: true});

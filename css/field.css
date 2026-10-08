@@ -11,17 +11,17 @@ main.field-main { display: block; overflow: visible; }
 .screen-identity text { fill: white; text-transform: uppercase; font-family: var(--font-family-main); font-weight: 400; }
 .landing { position: relative; height: 100svh; min-height: 600px; overflow: hidden; --intervention: blue; --counter-color: yellow; }
 .landing-name { position: absolute; z-index: 1; left: 3%; top: 2%; width: 94%; height: 28%; margin: 0; font-weight: 400; }
-.landing-image { position: absolute; inset: 32% 0 0 58%; }
-.landing-image img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
+.landing-image { position: absolute; inset: 0 0 0 58%; }
+.landing-image img { display: block; width: 100%; height: 100%; object-fit: fill; }
 .nav-code { display: inline-block; width: 3ch; margin-right: 1ch; white-space: nowrap; }
 .nav-label { white-space: nowrap; }
 .landing-links { position: absolute; z-index: 3; inset: 37% auto 14% 4%; width: 61%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(4, 1fr); grid-template-areas: "projects projects reading" "watching about about" "thoughts listening listening" "hydrants homestuck homestuck"; align-items: start; gap: 10px 18px; }
-.landing-links a { display: flex; align-items: baseline; width: max-content; max-width: 100%; background: black; color: white; font-size: 13px; line-height: 1.4; text-decoration: none; }
+.landing-links a { display: flex; align-items: baseline; width: max-content; max-width: 100%; background: black; color: white; font-size: clamp(14px, 1.7vw, 24px); line-height: 1.4; text-decoration: none; }
 .landing-links a:hover { text-decoration: underline; }
-.landing-links .nav-code { flex: 0 0 3ch; font-size: 13px; }
-.landing-links .landing-projects { grid-area: projects; font-size: clamp(24px, 3.4vw, 52px); }
-.landing-links .landing-about { grid-area: about; font-size: clamp(23px, 3vw, 46px); }
-.landing-links .landing-thoughts { grid-area: thoughts; font-size: clamp(18px, 2vw, 30px); }
+.landing-links .nav-code { flex: 0 0 3ch; }
+.landing-links .landing-projects { grid-area: projects; }
+.landing-links .landing-about { grid-area: about; }
+.landing-links .landing-thoughts { grid-area: thoughts; }
 .landing-reading { grid-area: reading; }
 .landing-watching { grid-area: watching; margin-top: 20px; }
 .landing-listening { grid-area: listening; margin: 12px 0 0 15%; }
@@ -47,8 +47,10 @@ main.field-main { display: block; overflow: visible; }
 .screen-chrome nav a, .screen-chrome button { white-space: nowrap; }
 .screen-chrome a, .screen-chrome button { color: white; text-transform: lowercase; text-decoration: underline; }
 .screen-chrome button { padding: 0; border: 0; background: black; cursor: pointer; }
-.screen-chrome h2 { margin: 40px 0 18px 7%; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: -.05em; }
-.screen-chrome .field-categories { width: auto; margin-left: 7%; gap: 12px 24px; }
+.collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
+.collection-heading h2 { margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: -.05em; }
+.field-categories { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.field-categories a { color: white; }
 .field-categories a[aria-current="page"] { background: blue; text-decoration: none; padding: 3px 8px; margin: -3px -8px; }
 /* Each link owns a cell; irregular offsets remain safe as the catalog grows. */
 .field-map { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px 8% 100px; background: black; }
@@ -60,10 +62,9 @@ main.field-main { display: block; overflow: visible; }
 .field-map .map-node:nth-child(6n) { margin-top: 110px; }
 .field-map .map-node[hidden] { display: none; }
 .map-token, .map-preview { display: block; position: relative; }
-/* A preview is always the same size, including when its text changes case. */
+/* Distorted atlas images stay inside stable slots; work-page art stays proportional. */
 .map-preview { height: 180px; overflow: hidden; }
-.map-token img { display: block; width: 100%; height: 100%; object-fit: contain; }
-.map-text-fragment { display: block; font: 400 clamp(20px,2.5vw,40px)/1.15 var(--font-family-main); letter-spacing: 0; text-transform: uppercase; overflow-wrap: anywhere; }
+.map-token img { display: block; width: 100%; height: 100%; object-fit: fill; }
 /* These rectangles belong to the screen, independently of catalog entries. */
 .field-browser { --intervention: blue; --counter-color: yellow; }
 .field-browser .screen-chrome { z-index: 3; }
@@ -77,7 +78,7 @@ main.field-main { display: block; overflow: visible; }
 .field-browser[data-color-layout="2"] .atlas-artifact-primary { left: 65%; top: 53%; width: 35%; height: 6%; }
 .field-browser[data-color-layout="2"] .atlas-artifact-secondary { left: 0; top: 41%; width: 18%; height: 12%; }
 .map-title { display: block; margin-top: 12px; text-transform: uppercase; line-height: 1.4; }
-.map-node:focus-visible .map-title, .map-node:focus-visible .map-text-fragment { text-transform: lowercase; }
+.map-node:focus-visible .map-title { text-transform: lowercase; }
 .map-meta { display: block; font-size: 11px; margin-top: 8px; }
 .map-node[data-selected] .map-title { color: black; background: yellow; }
 .map-node:hover .map-title, .map-node:focus-visible .map-title { text-decoration: underline; }
@@ -92,14 +93,14 @@ main.field-main { display: block; overflow: visible; }
 body.field-work { --room-color: blue; }
 body.field-work[data-category="space"] { --room-color: #00ff00; }
 body.field-work[data-category="interface"] { --room-color: magenta; }
-.work-chrome { min-height: 120px; font-size: 13px; }
-.work-chrome .screen-identity { height: 50px; width: 26%; }
-body.field-work #nav { display: flex; width: 60%; gap: 16px 28px; justify-content: flex-start; text-align: left; padding: 0; font-size: 13px; }
-body.field-work #nav a { width: auto; text-align: left; }
+.page-chrome { min-height: 120px; font-size: 13px; }
+.page-chrome .screen-identity { height: 50px; width: 26%; }
+.page-chrome #nav { display: flex; width: 60%; gap: 16px 28px; justify-content: flex-start; text-align: left; padding: 0; font-size: 13px; }
+.page-chrome #nav a { width: auto; text-align: left; }
 body.field-work .project-layout { display: grid; grid-template-columns: minmax(0,53%) minmax(0,47%); align-items: start; padding: 20px 5% 60px; box-sizing: border-box; overflow: visible; gap: 0; }
 .room-heading { position: relative; grid-column: 2; grid-row: 1; padding: 45px 7% 40px 5%; min-width: 0; }
-body.field-work #main-heading { width: 100%; margin: 0; text-align: left; font: 400 clamp(36px,min(9vw,calc(54vw / var(--title-length,8))),150px)/.88 var(--font-family-main); letter-spacing: -.065em; overflow-wrap: anywhere; }
-body.field-work #subtitle { width: auto; margin: 40px 0 0 15%; text-align: left; font: 12px/1.6 var(--font-family-main); }
+body.field-work #main-heading { width: 100%; margin: 0; text-align: right; font: 400 clamp(36px,min(9vw,calc(54vw / var(--title-length,8))),150px)/.88 var(--font-family-main); letter-spacing: -.065em; overflow-wrap: anywhere; }
+body.field-work #subtitle { width: auto; margin: 40px 0 0; text-align: right; font: 12px/1.6 var(--font-family-main); }
 .project-layout::before { content: ''; position: absolute; z-index: 5; top: 70px; left: 38%; width: 15%; height: 36px; background: var(--room-color); pointer-events: none; }
 body.field-work .project-content { display: contents; }
 body.field-work .project-section { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0,53%) minmax(0,47%); gap: 30px 0; margin: 65px 0 0; }
@@ -107,7 +108,7 @@ body.field-work .project-section:first-child { display: contents; }
 body.field-work .slideshow-wrapper { grid-column: 1; height: 65svh; max-height: 750px; width: 100%; min-width: 0; }
 body.field-work .project-section:first-child .slideshow-wrapper { grid-row: 1; }
 body.field-work .slideshow-inner { position: relative; align-items: flex-start; padding-bottom: 50px; }
-body.field-work .slideshow-inner img { max-width: 100%; max-height: 100%; }
+body.field-work .slideshow-inner img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 body.field-work .slideshow-control { position: absolute; bottom: 0; width: auto; height: auto; font: 13px/1.5 var(--font-family-main); text-decoration: underline; }
 body.field-work .slideshow-prev { left: 0; }
 body.field-work .slideshow-next { right: 0; }
@@ -124,15 +125,13 @@ body.field-work .writing-layout { display: grid; grid-template-columns: minmax(0
 body.field-work .writing-layout .room-heading { padding-top: 80px; }
 body.field-work .writing-layout #main-heading { font-size: clamp(36px,min(6vw,calc(45vw / var(--title-length,8))),100px); }
 body.field-work .writing-layout .writing-content { grid-column: 1; grid-row: auto; margin: 25px 0; padding: 0 10% 0 0; max-width: none; width: 100%; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; }
-.work-field-return { display: block; grid-column: 1 / -1; width: fit-content; font-size: 12px; margin: 60px 0 0 5%; padding: 14px 20px; background: blue; color: white; }
+.work-field-return { display: block; grid-column: 1 / -1; width: fit-content; font-size: 12px; margin: 60px 0 0; padding: 14px 20px; background: blue; color: white; }
 @media (max-width: 600px) {
     .landing { min-height: 600px; }
     .landing-name { top: 2%; left: 4%; width: 92%; height: 24%; }
-    .landing-image { inset: 29% 0 0 56%; }
+    .landing-image { inset: 0 0 0 56%; }
     .landing-links { inset: 33% auto 14% 6%; width: 88%; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "projects reading" "watching about" "thoughts listening" "hydrants homestuck"; gap: 10px 12px; }
-    .landing-links a { font-size: 12px; }
-    .landing-links .landing-projects, .landing-links .landing-about, .landing-links .landing-thoughts { font-size: clamp(16px, 4.5vw, 23px); }
-    .landing-links .nav-code { font-size: 11px; }
+    .landing-links a { font-size: 14px; }
     .landing-watching, .landing-listening, .landing-homestuck { margin: 0; }
     .landing-reading { margin-top: 24px; }
     .landing-listening { margin-top: 20px; }
@@ -144,26 +143,26 @@ body.field-work .writing-layout .writing-content { grid-column: 1; grid-row: aut
     .color-palette { gap: 5px; padding: 12px; bottom: 3%; }
     .color-palette button { width: 27px; height: 27px; }
     .screen-chrome { padding: 20px 5%; min-height: 200px; }
-    .screen-chrome nav, body.field-work #nav { width: 100%; gap: 15px 20px; font-size: 12px; }
+    .screen-chrome nav, .page-chrome #nav { width: 100%; gap: 15px 20px; font-size: 12px; }
     .screen-chrome .screen-identity { width: 57%; height: 42px; top: 62px; right: 5%; }
-    .screen-chrome h2 { margin: 98px 0 25px; font-size: 42px; }
-    .screen-chrome .field-categories { margin-left: 0; gap: 15px 20px; }
+    .collection-heading { padding: 0 6% 20px; }
+    .collection-heading h2 { margin: 0 0 25px; font-size: 32px; }
+    .field-categories { gap: 15px 20px; }
     .field-map { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 35px 6% 70px; gap: 65px 10%; }
     .field-map .map-node:nth-child(n) { width: 90%; margin: 0; }
     .field-map .map-node:nth-child(2n) { margin-top: 70px; justify-self: end; }
     .map-preview { height: 150px; }
-    .map-text-fragment { font-size: 22px; }
     .about-room { display: grid; grid-template-columns: minmax(0,1fr); padding: 0 7% 60px; gap: 25px; }
     .about-room h1, .about-room h2 { grid-column: 1; grid-row: 1; font-size: 52px; margin: 0; }
     .about-portrait { grid-column: 1; grid-row: 2; width: 70%; max-height: 45svh; justify-self: end; }
     .about-copy { grid-column: 1; grid-row: 3; }
     .about-block { top: 140px; left: 8%; width: 33%; height: 35px; }
     .about-screen .screen-chrome, .about-main .screen-chrome { min-height: 145px; }
-    .work-chrome { min-height: 140px; }
+    .page-chrome { min-height: 140px; }
     body.field-work .project-layout, body.field-work .writing-layout { display: flex; flex-direction: column; align-items: stretch; padding: 15px 6% 45px; }
     .room-heading, body.field-work .writing-layout .room-heading { padding: 0 0 45px; }
     body.field-work #main-heading { font-size: clamp(36px,min(15vw,calc(138vw / var(--title-length,8))),90px); }
-    body.field-work #subtitle { margin: 25px 0 0 40%; }
+    body.field-work #subtitle { margin: 25px 0 0; }
     .project-layout::before { top: 25px; left: auto; right: 0; width: 8%; height: 90px; }
     body.field-work .project-section, body.field-work .project-section:first-child { display: contents; }
     body.field-work .slideshow-wrapper { height: 55svh; margin: 0 0 30px; }

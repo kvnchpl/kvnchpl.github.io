@@ -30,7 +30,7 @@
             link.setAttribute('aria-current', link.dataset.categoryFilter === selectedCategory ? 'page' : 'false');
         });
         if (browser.open && url.hash) nodes.find((node) => node.id === url.hash.slice(1) && !node.hidden)?.scrollIntoView({block: 'center'});
-        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'atlas' ? `${selectedCategory} projects` : view === 'about' ? 'about' : 'entrance';
+        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'atlas' ? `${selectedCategory} collection` : view === 'about' ? 'about' : 'entrance';
     }
     function go(url) {
         if (url.href !== location.href) history.pushState(null, '', url);

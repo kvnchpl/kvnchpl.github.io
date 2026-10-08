@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createField, renderField, renderWorkReturn, renderIdentity, renderAbout, formatWorkDate, ui } from './field.mjs';
+import { createField, renderField, renderWorkReturn, renderNavigation, renderAbout, formatWorkDate } from './field.mjs';
 import { workPage } from './work-page.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -29,8 +29,8 @@ const pageConfigs = {
         imageAlt: DEFAULT_IMAGE_ALT
     },
     'projects.html': {
-        title: 'Projects',
-        description: 'Selected digital art, installations, performance, and experimental projects by Brooklyn-based artist Kevin Cunanan Chappelle.',
+        title: 'Collection',
+        description: 'A collection of images, spaces, interfaces, and writing by Brooklyn-based artist Kevin Cunanan Chappelle.',
         canonicalPath: '/projects',
         image: '/img/projects/compiler-buddha/buddha-site-demo.png',
         imageAlt: 'Compiler Buddha by Kevin Cunanan Chappelle'
@@ -170,8 +170,7 @@ function renderSeo(config) {
 }
 
 function renderNav() {
-    const nav = `<div class="screen-chrome work-chrome">${renderIdentity()}<nav id="nav" aria-label="primary"><a href="/" aria-label="home">${ui.home}</a><a href="/projects" aria-label="projects">${ui.projects}</a><a href="/about" aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
-    return generatedBlock('nav', nav, '    ');
+    return generatedBlock('nav', renderNavigation(), '    ');
 }
 
 function renderPageHeader(work) {
