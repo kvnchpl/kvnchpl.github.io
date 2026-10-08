@@ -2,8 +2,8 @@ const escape = (value = '') => String(value).replaceAll('&', '&amp;').replaceAll
 export const anchorFor = (id) => `work-${id.replace(':', '-')}`;
 export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff0000'], ['green', '#00ff00'], ['blue', '#0000ff'], ['cyan', '#00ffff'], ['magenta', '#ff00ff'], ['yellow', '#ffff00']];
 export const categories = ['image', 'space', 'interface', 'writing'];
-// Keep punctuation and date notation shared across the entrance, atlas, and work pages.
-export const ui = {about: 'a{b:out}', projects: '[pro::jects]', thoughts: '&amp;::&amp;', return: 'return [.:.]', atlas: ':|::|:'};
+// Words remain legible: inquiry, wildcard catalog, continuing thoughts, a home path, and a back arrow.
+export const ui = {about: 'about{?}', projects: 'projects[*]', thoughts: 'thoughts...', home: './home', return: '&lt;-- return', atlas: '[*]'};
 export function formatWorkDate(work) {
     if (!work.year) return 'undated';
     return `${work.year}${Number.isInteger(work.month) && work.month >= 1 && work.month <= 12 ? `.${String(work.month).padStart(2, '0')}` : ''}`;
@@ -29,6 +29,7 @@ export function createField(projects, writings, config = {}) {
     if (!nodes.size) throw new Error('The catalog needs at least one work');
     const landing = config.landing || {work: nodes.keys().next().value};
     if (!nodes.has(landing.work) || (landing.image !== undefined && (typeof landing.image !== 'string' || !landing.image.startsWith('/img/')))) throw new Error('Invalid landing artwork');
+    if (landing.href !== undefined && (typeof landing.href !== 'string' || !/^\/(?!\/)/.test(landing.href))) throw new Error('Invalid landing destination');
     return {nodes, landing};
 }
 const destinationAttributes = (node) => node.newTab ? ' target="_blank" rel="noopener noreferrer"' : '';
@@ -41,7 +42,7 @@ export function renderIdentity(className = '') {
 }
 export function renderAbout(about, popup = false) {
     return `<div class="screen-chrome">${renderIdentity()}<nav aria-label="about navigation">${popup ? `<button type="button" data-about-close aria-label="return">${ui.return}</button>` : `<a href="/" aria-label="return to entrance">${ui.return}</a>`}<a href="/projects" data-about-atlas aria-label="projects">${ui.projects}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>
-        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">A{B:OUT}</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /><nav class="field-elsewhere" aria-label="elsewhere"><a href="https://www.goodreads.com/kvnchpl">reading</a><a href="https://letterboxd.com/kvnchpl/">watching</a><a href="https://soundcloud.com/kvnchpl">listening</a><a href="https://hydranthunt.com/">hydrants</a><a href="https://kvnchpl.com/homestuck-book-club/">homestuck</a></nav></div><span class="about-block" aria-hidden="true"></span></section>`;
+        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">${ui.about.toUpperCase()}</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div><span class="about-block" aria-hidden="true"></span></section>`;
 }
 function renderMap(nodes) {
     return `<div class="field-map" aria-label="atlas of projects and writing">${nodes.map((node) => {
@@ -56,8 +57,9 @@ export function renderField(field, filter = 'all', about = '') {
     return `<div class="field-shell" data-default-view="${filter === 'all' ? 'landing' : 'atlas'}" data-default-category="${filter === 'writing' ? 'writing' : 'all'}">
         <div class="landing" data-color-composition data-color-layout="0">
             <h1 class="visually-hidden">KEVIN CUNANAN CHAPPELLE</h1>${renderIdentity('landing-name')}
-            <a class="landing-image" href="${escape(featured.href)}"${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}">${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="1920" height="2400" fetchpriority="high" />` : ''}</a>
+            <a class="landing-image" href="${escape(field.landing.href || featured.href)}"${field.landing.href === '/about' ? ' data-about-open aria-label="about"' : `${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}"`}>${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="3000" height="3000" fetchpriority="high" />` : ''}</a>
             <nav class="landing-links" aria-label="primary"><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-projects" href="/projects" data-atlas-open aria-label="projects">${ui.projects}</a><a class="landing-network" href="/projects" data-atlas-open aria-label="projects">${ui.atlas}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav>
+            <nav class="landing-elsewhere" aria-label="elsewhere"><a href="https://www.goodreads.com/kvnchpl">reading</a><a href="https://letterboxd.com/kvnchpl/">watching</a><a href="https://soundcloud.com/kvnchpl">listening</a><a href="https://hydranthunt.com/">hydrants</a><a href="https://kvnchpl.com/homestuck-book-club/">homestuck</a></nav>
             <div class="color-block color-block-primary" aria-hidden="true"></div><div class="color-block color-block-secondary" aria-hidden="true"></div>
             ${renderPalette()}
         </div>

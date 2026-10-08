@@ -170,7 +170,7 @@ function renderSeo(config) {
 }
 
 function renderNav() {
-    const nav = `<div class="screen-chrome work-chrome">${renderIdentity()}<nav id="nav" aria-label="primary"><a href="/">k::c::c</a><a href="/projects" aria-label="projects">${ui.projects}</a><a href="/about" aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
+    const nav = `<div class="screen-chrome work-chrome">${renderIdentity()}<nav id="nav" aria-label="primary"><a href="/" aria-label="home">${ui.home}</a><a href="/projects" aria-label="projects">${ui.projects}</a><a href="/about" aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
     return generatedBlock('nav', nav, '    ');
 }
 

@@ -1,6 +1,7 @@
 {
   "landing": {
     "work": "project:viewfinder",
-    "image": "/img/projects/viewfinder/full/viewfinder_1.webp"
+    "image": "/img/contact/homepage-tv-face.jpg",
+    "href": "/about"
   }
 }

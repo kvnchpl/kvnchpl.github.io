@@ -57,7 +57,7 @@ Commit sources, copied media, and generated HTML together. Building again should
 ## Structure
 
 - `json/projects.json` and `json/writings.json`: catalog records and project sections.
-- `json/field.json`: the entrance's featured work and optional image only.
+- `json/field.json`: the entrance's featured work, optional image, and optional local link destination (`href`). The current portrait opens about.
 - `scripts/build-site.mjs`: shared metadata, galleries, catalog views, and sitemap.
 - `scripts/field.mjs`: catalog validation and atlas/about markup.
 - `scripts/work-page.mjs`: one standard shell for new works.
@@ -69,7 +69,7 @@ Commit sources, copied media, and generated HTML together. Building again should
 
 Work links are ordinary links to complete pages, PDFs, or external projects. There are no work previews or passage links. Atlas/about screens use borderless, full-viewport native dialogs with focus containment, Escape, and browser history. A work's return link opens its location in the atlas. Without JavaScript, the linked atlas and standalone about page remain usable. Old `?view=network` and `?view=index` links resolve to the atlas.
 
-The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. The atlas’s color rectangles belong to the screen rather than to thumbnails. Its eight-color swatch panel changes the rectangles’ color and static arrangement independently of the entrance panel. Rectangles allow pointer events through to the catalog links. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about screen. Every page has a black background; color rectangles interrupt it without animating the layout. Artwork colors and preformatted poetry are preserved.
+The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. The atlas’s color rectangles belong to the screen rather than to thumbnails. Its eight-color swatch panel changes the rectangles’ color and static arrangement independently of the entrance panel. Rectangles sit above images and text while allowing pointer events through to the catalog links. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about screen. The five elsewhere links live on the entrance. Every page has a black background; color rectangles interrupt it without animating the layout. Artwork colors and preformatted poetry are preserved.
 
 ## Public files and local archive
 
