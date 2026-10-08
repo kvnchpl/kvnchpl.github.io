@@ -30,7 +30,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     await writeFile(bodyFile, text);
     const inputImage = path.join(source, 'img/projects/triptych/small/triptych_1.webp');
     await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'space', tags: 'belief,free', image: inputImage, alt: 'a new image'}, root);
-    await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', body: bodyFile}, root);
+    await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', tags: 'truth', body: bodyFile}, root);
     const projectRecord = JSON.parse(await readFile(path.join(root, 'json/projects.json'), 'utf8'));
     projectRecord[0].note = 'A legacy project note that should not appear.';
     projectRecord[0].sections[0].text = 'The entire description.\nA second paragraph with <angles>.';
@@ -41,6 +41,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     await assert.rejects(addWork({type: 'project', key: 'bad-date', title: 'bad date', date: '2026-02-30'}, root), /valid --date/);
     await assert.rejects(addWork({type: 'project', key: 'invalid-category', title: 'invalid category', category: 'unknown'}, root), /--category/);
     await assert.rejects(addWork({type: 'project', key: 'invalid-tags', title: 'invalid tags', tags: 'unknown'}, root), /Invalid tags/);
+    await assert.rejects(addWork({type: 'writing', key: 'untagged-writing', title: 'untagged writing', body: bodyFile}, root), /Assign at least one/);
     assert.equal(await readFile(path.join(root, 'json/projects.json'), 'utf8'), jsonBefore);
     const run = (script) => execFileSync(process.execPath, [path.join(root, 'scripts', script)], {encoding: 'utf8'});
     assert.match(run('build-site.mjs'), /Built 1 projects and 1 writings/);

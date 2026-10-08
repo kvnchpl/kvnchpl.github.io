@@ -13,7 +13,7 @@ node scripts/add-work.mjs writing key "Title" --body FILE.txt [--date YYYY-MM-DD
 node scripts/add-work.mjs project|writing key "Title" --url /pdf/file.pdf|https://example.com/ [--date YYYY-MM-DD]
 
 --category image|space|interface|writing sets the browsing category.
---tags belief,desire,truth,fire,free assigns one or more collection tags.
+--tags belief,desire,truth,fire,free is required; choose one or more collection tags.
 
 Then edit the catalog record or writing body, and run:
 node scripts/build-site.mjs

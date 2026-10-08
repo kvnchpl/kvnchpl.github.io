@@ -60,20 +60,20 @@ test('all four categories appear in the unified catalog, including the writing c
     assert.match(html, /data-default-view="atlas" data-default-category="writing"/);
     assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size);
 });
-test('every project has informal tags stored only as filtering metadata on collection items', () => {
+test('every project and writing has informal tags stored only as filtering metadata on collection items', () => {
     assert.deepEqual(tags, ['belief', 'desire', 'truth', 'fire', 'free']);
     const html = renderField(field);
     for (const tag of tags) assert.ok(html.includes(`data-tag-filter="${tag}"`));
-    for (const project of projects) {
-        assert.ok(project.tags.length > 0, project.key);
-        assert.ok(project.tags.every((tag) => tags.includes(tag)));
+    for (const work of [...projects, ...writings]) {
+        assert.ok(work.tags.length > 0, work.key);
+        assert.ok(work.tags.every((tag) => tags.includes(tag)));
     }
     for (const item of html.matchAll(/<a class="map-node"[^>]*>(.*?)<\/a>/g)) {
         assert.ok(!tags.some((tag) => item[1].includes(`#${tag}`)));
     }
 });
 test('a growing catalog needs no manual map records and keeps stable identities and categories', () => {
-    const additions = Array.from({length: 101}, (_, i) => ({type: 'project', key: `future-${i}`, title: `future ${i}`, year: 2027, sections: []}));
+    const additions = Array.from({length: 101}, (_, i) => ({type: 'project', key: `future-${i}`, title: `future ${i}`, year: 2027, sections: [], tags: ['free']}));
     const expanded = createField([...projects, ...additions], writings, config);
     const html = renderField(expanded);
     assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size + additions.length);
@@ -87,7 +87,7 @@ test('invalid content fails validation', () => {
     for (const changes of [
         {key: '../escape'}, {title: ''}, {category: 'unknown'}, {displayTitle: ''},
         {permalink: 'javascript:alert(1)'}, {permalink: '//example.com'}, {external: true, permalink: undefined},
-        {tags: 'belief'}, {tags: ['unknown']}, {tags: ['belief', 'belief']}
+        {tags: undefined}, {tags: []}, {tags: 'belief'}, {tags: ['unknown']}, {tags: ['belief', 'belief']}
     ]) {
         assert.throws(() => createField([{...projects[0], ...changes}], [], {}));
     }

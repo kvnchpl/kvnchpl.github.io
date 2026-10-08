@@ -27,8 +27,8 @@ export function createField(projects, writings, config = {}) {
         if (nodes.has(id)) throw new Error(`Duplicate work: ${id}`);
         const category = work.category || (work.type === 'writing' ? 'writing' : 'image');
         if (!categories.includes(category)) throw new Error(`Unknown category: ${category}`);
-        const workTags = work.tags ?? [];
-        if (!Array.isArray(workTags) || workTags.some((tag) => !tags.includes(tag)) || new Set(workTags).size !== workTags.length) throw new Error(`Invalid tags: ${id}`);
+        const workTags = work.tags;
+        if (!Array.isArray(workTags) || !workTags.length || workTags.some((tag) => !tags.includes(tag)) || new Set(workTags).size !== workTags.length) throw new Error(`Invalid tags: ${id}. Assign at least one of ${tags.join(', ')}.`);
         if (work.displayTitle !== undefined && (typeof work.displayTitle !== 'string' || !work.displayTitle.trim())) throw new Error(`Invalid display title: ${id}`);
         if (work.permalink !== undefined && (typeof work.permalink !== 'string' || !/^(?:\/(?!\/)|https?:\/\/)/.test(work.permalink))) throw new Error(`Invalid destination: ${id}`);
         if (work.external && !work.permalink) throw new Error(`Missing destination: ${id}`);

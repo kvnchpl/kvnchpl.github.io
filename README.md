@@ -29,7 +29,7 @@ One image per file is enough. Existing projects using `file` names and small/med
 Put the text in a UTF-8 file, then run:
 
 ```sh
-node scripts/add-work.mjs writing my-poem "My Poem" --body /path/to/poem.txt --date 2026-10-07
+node scripts/add-work.mjs writing my-poem "My Poem" --body /path/to/poem.txt --date 2026-10-07 --tags desire
 ```
 
 The command adds its catalog record and creates `writings/my-poem.html`. Line breaks, indentation, and capitalization are preserved inside `pre.writing-content`. A shared `writing-body` wrapper keeps multiple text blocks in normal flow without overlap. Edit that body directly for later revisions; text outside `generated:*` comments remains authored. The helper never rewrites an existing writing.
@@ -37,8 +37,8 @@ The command adds its catalog record and creates `writings/my-poem.html`. Line br
 For a PDF or independently hosted work, first put the PDF in `pdf/`, or use its website URL:
 
 ```sh
-node scripts/add-work.mjs writing my-zine "My Zine" --url /pdf/my-zine.pdf
-node scripts/add-work.mjs project my-site "My Site" --url https://example.com/
+node scripts/add-work.mjs writing my-zine "My Zine" --url /pdf/my-zine.pdf --tags belief,desire
+node scripts/add-work.mjs project my-site "My Site" --url https://example.com/ --tags free
 ```
 
 `--date` is optional and defaults to today. Titles are displayed in lowercase or uppercase; preformatted poetry keeps its casing. `node scripts/add-work.mjs --help` lists the options.
@@ -54,7 +54,7 @@ git diff --check
 
 Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the atlas, category filters, collection pages, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Each record has one `category`: `image` (shown as “images”: image series and collages), `space` (installations, performance, and environments), `interface` (interactive and code-based work), or `writing` (poetry and publications). Use `--category space` when adding a project, or edit its catalog record later. Defaults are `image` for projects and `writing` for writings. The public label is “collection”; `/projects` shows the entire catalog; `/writings` opens the writing filter. The internal project/writing file types remain the same.
 
-The second filter row uses five informal tags: `belief`, `desire`, `truth`, `fire`, and `free`. Each existing project has at least one. Use `--tags belief,desire` when adding work, or edit its catalog record’s `"tags": ["belief", "desire"]` array. Tags are optional for writings. They appear only in the filter row, never in collection items or work pages. One tag can be selected at a time; selecting it again clears it. Categories and tags combine, and both are preserved in the URL and browser history. Entries without tags remain visible when no tag is selected.
+The second filter row uses five informal tags: `belief`, `desire`, `truth`, `fire`, and `free`. Every project and writing requires at least one valid tag; the build rejects missing, empty, unknown, or duplicate tags. Use `--tags belief,desire` when adding work, or edit its catalog record’s `"tags": ["belief", "desire"]` array. They appear only in the filter row, never in collection items or work pages. One tag can be selected at a time; selecting it again clears it. Categories and tags combine, and both are preserved in the URL and browser history.
 
 ## Structure
 

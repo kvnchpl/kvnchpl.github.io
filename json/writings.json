@@ -9,7 +9,11 @@
         "external": true,
         "permalink": "/pdf/gran-turismo.pdf",
         "newTab": true,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "fire",
+            "free"
+        ]
     },
     {
         "type": "writing",
@@ -18,7 +22,10 @@
         "month": 8,
         "day": 21,
         "year": 2025,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "truth"
+        ]
     },
     {
         "type": "writing",
@@ -30,7 +37,11 @@
         "external": true,
         "permalink": "/pdf/loop.pdf",
         "newTab": true,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "free"
+        ]
     },
     {
         "type": "writing",
@@ -39,7 +50,11 @@
         "month": 4,
         "day": 29,
         "year": 2024,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "fire",
+            "free"
+        ]
     },
     {
         "type": "writing",
@@ -48,7 +63,11 @@
         "month": 7,
         "day": 30,
         "year": 2024,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire",
+            "fire"
+        ]
     },
     {
         "type": "writing",
@@ -60,7 +79,11 @@
         "external": true,
         "permalink": "/pdf/desire-path_vol-1.pdf",
         "newTab": true,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "desire"
+        ]
     },
     {
         "type": "writing",
@@ -69,7 +92,10 @@
         "month": 3,
         "day": 5,
         "year": 2024,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief"
+        ]
     },
     {
         "type": "writing",
@@ -78,7 +104,11 @@
         "month": 1,
         "day": 25,
         "year": 2024,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "fire",
+            "free"
+        ]
     },
     {
         "type": "writing",
@@ -87,7 +117,10 @@
         "month": 12,
         "day": 14,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire"
+        ]
     },
     {
         "type": "writing",
@@ -96,7 +129,11 @@
         "month": 12,
         "day": 14,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "desire"
+        ]
     },
     {
         "type": "writing",
@@ -105,7 +142,11 @@
         "month": 12,
         "day": 13,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "truth"
+        ]
     },
     {
         "type": "writing",
@@ -114,7 +155,11 @@
         "month": 10,
         "day": 24,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire",
+            "fire"
+        ]
     },
     {
         "type": "writing",
@@ -123,7 +168,11 @@
         "month": 9,
         "day": 20,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire",
+            "free"
+        ]
     },
     {
         "type": "writing",
@@ -132,7 +181,11 @@
         "month": 9,
         "day": 7,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire",
+            "free"
+        ]
     },
     {
         "type": "writing",
@@ -141,7 +194,11 @@
         "month": 8,
         "day": 31,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire",
+            "fire"
+        ]
     },
     {
         "type": "writing",
@@ -150,7 +207,11 @@
         "month": 8,
         "day": 2,
         "year": 2023,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "desire"
+        ]
     },
     {
         "type": "writing",
@@ -159,7 +220,11 @@
         "month": 5,
         "day": 21,
         "year": 2021,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "truth"
+        ]
     },
     {
         "type": "writing",
@@ -168,7 +233,11 @@
         "month": 12,
         "day": 9,
         "year": 2020,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "belief",
+            "desire"
+        ]
     },
     {
         "type": "writing",
@@ -177,6 +246,9 @@
         "month": 10,
         "day": 28,
         "year": 2019,
-        "category": "writing"
+        "category": "writing",
+        "tags": [
+            "desire"
+        ]
     }
 ]
