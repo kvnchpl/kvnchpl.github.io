@@ -90,7 +90,7 @@ main.field-main { display: block; overflow: visible; }
 .page-chrome .site-nav a { width: auto; text-align: left; }
 body.field-work .project-layout { display: grid; grid-template-columns: minmax(0,53%) minmax(0,47%); align-items: start; padding: 20px 5% 60px; box-sizing: border-box; overflow: visible; gap: 0; }
 .room-heading { position: relative; grid-column: 2; grid-row: 1; margin-left: 5%; padding: clamp(18px, 3vw, 40px); border: 1px solid white; box-sizing: border-box; min-width: 0; align-self: start; }
-body.field-work #main-heading { width: 100%; margin: 0; text-align: right; font: 400 clamp(36px,min(9vw,calc(54vw / var(--title-length,8))),150px)/.88 var(--font-family-main); letter-spacing: -.065em; overflow-wrap: anywhere; }
+body.field-work #main-heading { width: 100%; margin: 0; text-align: right; font: 400 clamp(36px,min(9vw,calc(54vw / var(--title-length,8))),150px)/.88 var(--font-family-main); letter-spacing: .015em; overflow-wrap: anywhere; }
 body.field-work #subtitle { width: auto; margin: 40px 0 0; text-align: right; font: 12px/1.6 var(--font-family-main); }
 body.field-work .project-content { display: contents; }
 body.field-work .project-section { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0,53%) minmax(0,47%); gap: 0; margin: 65px 0 0; }
