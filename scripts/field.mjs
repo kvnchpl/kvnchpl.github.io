@@ -2,8 +2,12 @@ const escape = (value = '') => String(value).replaceAll('&', '&amp;').replaceAll
 export const anchorFor = (id) => `work-${id.replace(':', '-')}`;
 export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff0000'], ['green', '#00ff00'], ['blue', '#0000ff'], ['cyan', '#00ffff'], ['magenta', '#ff00ff'], ['yellow', '#ffff00']];
 export const categories = ['image', 'space', 'interface', 'writing'];
-// Words remain legible: inquiry, wildcard catalog, continuing thoughts, a home path, and a back arrow.
-export const ui = {about: 'about{?}', projects: 'projects[*]', thoughts: 'thoughts...', home: './home', return: '&lt;-- return', atlas: '[*]'};
+// Three-character codes stay consistent wherever a destination appears.
+export const navCodes = {home: '^./', about: '?::', projects: '[*]', thoughts: '...', reading: '|:|', watching: '[>]', listening: ')))', hydrants: '!+!', homestuck: '>=>', return: '<--', all: '[*]', image: '[.]', space: '|_|', interface: '>_$', writing: ':::'};
+export function renderNavLabel(key) {
+    return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(key)}</span>`;
+}
+export const ui = Object.fromEntries(Object.keys(navCodes).map((key) => [key, renderNavLabel(key)]));
 export function formatWorkDate(work) {
     if (!work.year) return 'undated';
     return `${work.year}${Number.isInteger(work.month) && work.month >= 1 && work.month <= 12 ? `.${String(work.month).padStart(2, '0')}` : ''}`;
@@ -42,7 +46,7 @@ export function renderIdentity(className = '') {
 }
 export function renderAbout(about, popup = false) {
     return `<div class="screen-chrome">${renderIdentity()}<nav aria-label="about navigation">${popup ? `<button type="button" data-about-close aria-label="return">${ui.return}</button>` : `<a href="/" aria-label="return to entrance">${ui.return}</a>`}<a href="/projects" data-about-atlas aria-label="projects">${ui.projects}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>
-        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">${ui.about.toUpperCase()}</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div><span class="about-block" aria-hidden="true"></span></section>`;
+        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div><span class="about-block" aria-hidden="true"></span></section>`;
 }
 function renderMap(nodes) {
     return `<div class="field-map" aria-label="atlas of projects and writing">${nodes.map((node) => {
@@ -58,12 +62,11 @@ export function renderField(field, filter = 'all', about = '') {
         <div class="landing" data-color-composition data-color-layout="0">
             <h1 class="visually-hidden">KEVIN CUNANAN CHAPPELLE</h1>${renderIdentity('landing-name')}
             <a class="landing-image" href="${escape(field.landing.href || featured.href)}"${field.landing.href === '/about' ? ' data-about-open aria-label="about"' : `${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}"`}>${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="3000" height="3000" fetchpriority="high" />` : ''}</a>
-            <nav class="landing-links" aria-label="primary"><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-projects" href="/projects" data-atlas-open aria-label="projects">${ui.projects}</a><a class="landing-network" href="/projects" data-atlas-open aria-label="projects">${ui.atlas}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav>
-            <nav class="landing-elsewhere" aria-label="elsewhere"><a href="https://www.goodreads.com/kvnchpl">reading</a><a href="https://letterboxd.com/kvnchpl/">watching</a><a href="https://soundcloud.com/kvnchpl">listening</a><a href="https://hydranthunt.com/">hydrants</a><a href="https://kvnchpl.com/homestuck-book-club/">homestuck</a></nav>
+            <nav class="landing-links" aria-label="primary"><a class="landing-projects" href="/projects" data-atlas-open aria-label="projects">${ui.projects}</a><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a>${[['reading', 'https://www.goodreads.com/kvnchpl'], ['watching', 'https://letterboxd.com/kvnchpl/'], ['listening', 'https://soundcloud.com/kvnchpl'], ['hydrants', 'https://hydranthunt.com/'], ['homestuck', 'https://kvnchpl.com/homestuck-book-club/']].map(([key, href]) => `<a class="landing-${key}" href="${href}" aria-label="${key}">${ui[key]}</a>`).join('')}</nav>
             <div class="color-block color-block-primary" aria-hidden="true"></div><div class="color-block color-block-secondary" aria-hidden="true"></div>
             ${renderPalette()}
         </div>
-        <dialog class="field-screen field-browser" data-field-browser data-color-composition data-color-layout="0" aria-labelledby="atlas-heading"><div class="screen-chrome">${renderIdentity()}<nav aria-label="projects navigation"><button type="button" data-browser-close aria-label="return to entrance">${ui.return}</button><a href="/about" data-about-open aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav><h2 id="atlas-heading">${ui.projects}</h2><nav class="field-categories" aria-label="project categories"><a href="/projects" data-category-filter="all">all</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}">${category}</a>`).join('')}</nav></div>
+        <dialog class="field-screen field-browser" data-field-browser data-color-composition data-color-layout="0" aria-labelledby="atlas-heading"><div class="screen-chrome">${renderIdentity()}<nav aria-label="projects navigation"><button type="button" data-browser-close aria-label="return to entrance">${ui.return}</button><a href="/about" data-about-open aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav><h2 id="atlas-heading">PROJECTS</h2><nav class="field-categories" aria-label="project categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${category}">${ui[category]}</a>`).join('')}</nav></div>
         <div class="atlas-artifacts" aria-hidden="true"><span class="atlas-artifact-primary"></span><span class="atlas-artifact-secondary"></span></div>
         ${renderMap([...field.nodes.values()])}
         ${renderPalette()}

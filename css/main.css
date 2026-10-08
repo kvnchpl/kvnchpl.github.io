@@ -1,5 +1,5 @@
 :root {
-    --font-family-main: monospace;
+    --font-family-main: 'Roboto Mono', monospace;
     --font-size-main: 1rem;
     --font-size-nav-mobile: 1rem;
     --font-weight-normal: 400;
