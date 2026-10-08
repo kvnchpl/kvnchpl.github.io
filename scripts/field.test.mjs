@@ -1,15 +1,18 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkReturn, palette } from './field.mjs';
+import { createField, renderField, renderWorkReturn, palette, categories } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
 const field = createField(projects, writings, config);
 
-test('every work links directly from both views, including PDF and external destinations', () => {
+test('every work links directly from the atlas, including PDF and external destinations', () => {
     const html = renderField(field);
-    assert.equal((html.match(/data-index-node=/g) || []).length, projects.length + writings.length);
+    assert.ok(!html.includes('data-index-node'));
+    assert.ok(!html.includes('field-mark'));
+    assert.ok(!html.includes('map-text-number'));
+    assert.ok(!html.includes('index-number'));
     assert.equal((html.match(/data-map-node=/g) || []).length, projects.length + writings.length);
     for (const node of field.nodes.values()) {
         assert.ok(html.includes(`id="${node.anchor}" data-map-node="${node.anchor}" href="${node.href}"`));
@@ -21,28 +24,30 @@ test('every work links directly from both views, including PDF and external dest
     assert.ok(!html.includes('data-map-edge'));
     assert.equal((html.match(/<dialog/g) || []).length, 2); // Catalog and about only.
 });
-test('collection filters apply to both index and atlas', () => {
-    for (const [type, count] of [['project', projects.length], ['writing', writings.length]]) {
-        const html = renderField(field, type);
-        assert.equal((html.match(/data-index-node=/g) || []).length, count);
-        assert.equal((html.match(/data-map-node=/g) || []).length, count);
+test('all four categories appear in the unified catalog, including the writing collection', () => {
+    assert.deepEqual(categories, ['images', 'spaces', 'interfaces', 'writing']);
+    for (const category of categories) {
+        assert.ok([...field.nodes.values()].some((node) => node.category === category));
+        assert.ok(renderField(field).includes(`data-category-filter="${category}"`));
     }
+    const html = renderField(field, 'writing');
+    assert.match(html, /data-default-view="atlas" data-default-category="writing"/);
+    assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size);
 });
-test('a growing catalog needs no manual map records and keeps stable identities and symbols', () => {
+test('a growing catalog needs no manual map records and keeps stable identities and categories', () => {
     const additions = Array.from({length: 101}, (_, i) => ({type: 'project', key: `future-${i}`, title: `future ${i}`, year: 2027, sections: []}));
     const expanded = createField([...projects, ...additions], writings, config);
     const html = renderField(expanded);
     assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size + additions.length);
-    assert.equal((html.match(/data-index-node=/g) || []).length, field.nodes.size + additions.length);
     for (const node of field.nodes.values()) {
         assert.equal(expanded.nodes.get(node.id).anchor, node.anchor);
-        assert.equal(expanded.nodes.get(node.id).mark, node.mark);
+        assert.equal(expanded.nodes.get(node.id).category, node.category);
     }
     assert.equal(new Set([...expanded.nodes.values()].map((node) => node.anchor)).size, expanded.nodes.size);
 });
 test('invalid content fails validation', () => {
     for (const changes of [
-        {key: '../escape'}, {title: ''}, {mark: 'unknown'}, {note: 1}, {accountSections: [999]},
+        {key: '../escape'}, {title: ''}, {category: 'unknown'}, {displayTitle: ''}, {note: 1},
         {permalink: 'javascript:alert(1)'}, {permalink: '//example.com'}, {external: true, permalink: undefined}
     ]) {
         assert.throws(() => createField([{...projects[0], ...changes}], [], {}));

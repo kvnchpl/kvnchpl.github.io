@@ -9,7 +9,7 @@
         "external": true,
         "permalink": "/pdf/gran-turismo.pdf",
         "newTab": true,
-        "mark": "salt"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -18,7 +18,7 @@
         "month": 8,
         "day": 21,
         "year": 2025,
-        "mark": "salt"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -30,7 +30,7 @@
         "external": true,
         "permalink": "/pdf/loop.pdf",
         "newTab": true,
-        "mark": "seal"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -39,7 +39,7 @@
         "month": 4,
         "day": 29,
         "year": 2024,
-        "mark": "vessel"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -48,7 +48,7 @@
         "month": 7,
         "day": 30,
         "year": 2024,
-        "mark": "salt"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -60,7 +60,7 @@
         "external": true,
         "permalink": "/pdf/desire-path_vol-1.pdf",
         "newTab": true,
-        "mark": "vessel"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -69,7 +69,7 @@
         "month": 3,
         "day": 5,
         "year": 2024,
-        "mark": "salt"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -78,7 +78,7 @@
         "month": 1,
         "day": 25,
         "year": 2024,
-        "mark": "saturn"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -87,7 +87,7 @@
         "month": 12,
         "day": 14,
         "year": 2023,
-        "mark": "vessel"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -96,7 +96,7 @@
         "month": 12,
         "day": 14,
         "year": 2023,
-        "mark": "sulfur"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -105,7 +105,7 @@
         "month": 12,
         "day": 13,
         "year": 2023,
-        "mark": "sulfur"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -114,7 +114,7 @@
         "month": 10,
         "day": 24,
         "year": 2023,
-        "mark": "salt"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -123,7 +123,7 @@
         "month": 9,
         "day": 20,
         "year": 2023,
-        "mark": "mercury"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -132,7 +132,7 @@
         "month": 9,
         "day": 7,
         "year": 2023,
-        "mark": "sulfur"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -141,7 +141,7 @@
         "month": 8,
         "day": 31,
         "year": 2023,
-        "mark": "mercury"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -150,7 +150,7 @@
         "month": 8,
         "day": 2,
         "year": 2023,
-        "mark": "seal"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -159,7 +159,7 @@
         "month": 5,
         "day": 21,
         "year": 2021,
-        "mark": "mercury"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -168,7 +168,7 @@
         "month": 12,
         "day": 9,
         "year": 2020,
-        "mark": "saturn"
+        "category": "writing"
     },
     {
         "type": "writing",
@@ -177,6 +177,6 @@
         "month": 10,
         "day": 28,
         "year": 2019,
-        "mark": "sulfur"
+        "category": "writing"
     }
 ]

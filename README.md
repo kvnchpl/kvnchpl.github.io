@@ -22,7 +22,7 @@ The command copies the image, adds a catalog record, and creates the standard pa
 }
 ```
 
-One image per file is enough. Existing projects using `file` names and small/medium/full WebP exports continue to work. `thumbnail` is optional; the first image is used when it is absent. For a project without images, omit `--image` and add its content before building. Optional `note` adds a short introduction; `accountSections: [0]` places the first section's copy in a disclosure. These are editorial choices, not required fields.
+One image per file is enough. Existing projects using `file` names and small/medium/full WebP exports continue to work. `thumbnail` is optional; the first image is used when it is absent. For a project without images, omit `--image` and add its content before building. Optional `note` adds a short introduction, also used for search and sharing. Section descriptions always render in full on the project page. Optional `displayTitle` adds editorial line breaks to the large project title (for example, `"VIEW\nFINDER"`); the regular `title` remains its catalog and sharing name. Title size adjusts to longer names.
 
 ## Add a writing
 
@@ -52,24 +52,24 @@ node scripts/check-site.mjs
 git diff --check
 ```
 
-Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the index, atlas, collection pages, navigation frame, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Collection pages filter both browsing views. An optional `mark` selects a symbol; otherwise one is assigned consistently from the work's key.
+Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the atlas, category filters, collection pages, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Each record has one `category`: `images` (image series and collages), `spaces` (installations, performance, and environments), `interfaces` (interactive and code-based work), or `writing` (poetry and publications). Use `--category spaces` when adding a project, or edit its catalog record later. Defaults are `images` for projects and `writing` for writings. `/projects` shows the entire catalog; `/writings` opens the writing filter. The internal project/writing file types remain the same.
 
 ## Structure
 
 - `json/projects.json` and `json/writings.json`: catalog records and project sections.
 - `json/field.json`: the entrance's featured work and optional image only.
 - `scripts/build-site.mjs`: shared metadata, galleries, catalog views, and sitemap.
-- `scripts/field.mjs`: catalog validation and index/atlas markup.
+- `scripts/field.mjs`: catalog validation and atlas/about markup.
 - `scripts/work-page.mjs`: one standard shell for new works.
 - `scripts/add-work.mjs`: content scaffolding, with no dependencies.
-- `js/field.js`: index/about dialogs, view history, and static color interventions.
+- `js/field.js`: fullscreen atlas/about screens, view history, and static color interventions.
 - `js/main.js`: galleries and video playback.
-- `css/field.css`: entrance, atlas, dialogs, and work-page frame.
+- `css/field.css`: entrance, atlas, fullscreen screens, and color room pages.
 - `projects`, `writings`, `img`, `vid`, `pdf`: full pages and actual media.
 
-Work links are ordinary links to complete pages, PDFs, or external projects. There are no work previews or passage links. Index/about dialogs retain native focus and Escape behavior. A work's return link opens its location in the atlas or index. Without JavaScript, a complete linked index appears below the entrance.
+Work links are ordinary links to complete pages, PDFs, or external projects. There are no work previews or passage links. Atlas/about screens use borderless, full-viewport native dialogs with focus containment, Escape, and browser history. A work's return link opens its location in the atlas. Without JavaScript, the linked atlas and standalone about page remain usable. Old `?view=network` and `?view=index` links resolve to the atlas.
 
-The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. Color rectangles interrupt static compositions. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about popup.
+The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. Color rectangles interrupt static compositions. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about screen. Every page has a black background; color rectangles interrupt it without animating the layout. Artwork colors and preformatted poetry are preserved.
 
 ## Public files and local archive
 
@@ -82,7 +82,7 @@ The interface palette is black, white, red, green, blue, cyan, magenta, and yell
 Commit or stash current work, then create a branch at the checkpoint:
 
 ```sh
-git switch -c restore/reference-redesign rollback/pre-direct-navigation-2026-10-07
+git switch -c restore/published-site rollback/pre-fullscreen-2026-10-08
 ```
 
-This returns to the version before direct navigation and the catalog workflow changes. The original site is preserved at `rollback/pre-redesign-2026-10-02`. Return with `git switch redesign/site-2026-10-02`. Switching branches does not publish the website.
+This restores the published site before the fullscreen and color room revision. The original site is preserved at `rollback/pre-redesign-2026-10-02`. Return with `git switch redesign/fullscreen-color-room-2026-10-08`. Switching branches does not publish the website.

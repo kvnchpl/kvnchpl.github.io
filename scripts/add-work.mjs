@@ -2,7 +2,7 @@ import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createField } from './field.mjs';
+import { createField, categories } from './field.mjs';
 import { workPage } from './work-page.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -11,6 +11,8 @@ const help = `Add a work without copying page templates or editing the atlas.
 node scripts/add-work.mjs project key "Title" [--image FILE --alt "Description"] [--date YYYY-MM-DD]
 node scripts/add-work.mjs writing key "Title" --body FILE.txt [--date YYYY-MM-DD]
 node scripts/add-work.mjs project|writing key "Title" --url /pdf/file.pdf|https://example.com/ [--date YYYY-MM-DD]
+
+--category images|spaces|interfaces|writing sets the browsing category.
 
 Then edit the catalog record or writing body, and run:
 node scripts/build-site.mjs
@@ -34,7 +36,9 @@ export async function addWork(options, root = ROOT) {
     const page = `${type}s/${key}.html`;
     const mediaDirectory = `img/projects/${key}`;
     if (collection.some((work) => work.key === key) || existsSync(path.join(root, page)) || (image && existsSync(path.join(root, mediaDirectory)))) throw new Error(`Already exists: ${key}. Nothing was overwritten.`);
-    const record = {type, title, key, year, month, day};
+    const category = options.category || (type === 'writing' ? 'writing' : 'images');
+    if (!categories.includes(category)) throw new Error(`Use --category ${categories.join(', ')}.`);
+    const record = {type, title, key, year, month, day, category};
     let imageDestination;
     if (image) {
         const extension = path.extname(image).toLowerCase();
@@ -74,7 +78,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
         try {
             const [type, key, title, ...flags] = args;
             const options = {type, key, title};
-            const allowed = new Set(['image', 'alt', 'body', 'url', 'date']);
+            const allowed = new Set(['image', 'alt', 'body', 'url', 'date', 'category']);
             for (let i = 0; i < flags.length; i += 2) {
                 const name = flags[i].slice(2);
                 if (!flags[i].startsWith('--') || !allowed.has(name) || flags[i + 1] === undefined || Object.hasOwn(options, name)) throw new Error(`Invalid option: ${flags[i]}. See --help.`);

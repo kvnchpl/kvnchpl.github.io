@@ -14,11 +14,8 @@
             }
         ],
         "socialImage": "/img/projects/compiler-buddha/buddha-site-demo.png",
-        "mark": "mercury",
         "note": "A self-modifying script rebuilds its source code around an image of a Buddha. Alongside it, the reference image passes repeatedly through Stable Diffusion.",
-        "accountSections": [
-            0
-        ]
+        "category": "interfaces"
     },
     {
         "type": "project",
@@ -72,11 +69,9 @@
             }
         ],
         "thumbnail": "/img/projects/viewfinder/thumbnail/viewfinder_thumbnail.webp",
-        "mark": "saturn",
         "note": "Flowers, foliage, signs, and detection boxes. A series of digitally processed images.",
-        "accountSections": [
-            0
-        ]
+        "category": "images",
+        "displayTitle": "VIEW\nFINDER"
     },
     {
         "type": "project",
@@ -106,7 +101,7 @@
             }
         ],
         "thumbnail": "/img/projects/triptych/thumbnail/triptych_thumbnail.webp",
-        "mark": "seal"
+        "category": "images"
     },
     {
         "type": "project",
@@ -148,11 +143,8 @@
             }
         ],
         "thumbnail": "/img/projects/archipelago/thumbnail/archipelago_thumbnail.webp",
-        "mark": "seal",
         "note": "Pairs of abstract fauna and flora meet rectangular frames. Banner proposals for the Noguchi Museum’s 2024 open call.",
-        "accountSections": [
-            0
-        ]
+        "category": "images"
     },
     {
         "type": "project",
@@ -194,11 +186,8 @@
             }
         ],
         "thumbnail": "/img/projects/intraface/thumbnail/intraface_thumbnail.webp",
-        "mark": "vessel",
         "note": "Collaged interfaces and rooms. Imagine drop-down menus with all options spelled out.",
-        "accountSections": [
-            0
-        ]
+        "category": "images"
     },
     {
         "type": "project",
@@ -346,8 +335,8 @@
             }
         ],
         "thumbnail": "/img/projects/friday-night-never/thumbnail/friday-night-never_thumbnail.webp",
-        "mark": "sulfur",
-        "note": "A celebration for the last images on earth, once all content has been recycled and experienced."
+        "note": "A celebration for the last images on earth, once all content has been recycled and experienced.",
+        "category": "images"
     },
     {
         "type": "project",
@@ -395,11 +384,8 @@
             }
         ],
         "thumbnail": "/img/projects/dimensional-freedom/thumbnail/dimensional-freedom_thumbnail.gif",
-        "mark": "vessel",
         "note": "An installation of pillars and moving figures. Bodies weave between screens and planes.",
-        "accountSections": [
-            2
-        ]
+        "category": "spaces"
     },
     {
         "type": "project",
@@ -441,11 +427,8 @@
             }
         ],
         "thumbnail": "/img/projects/520-missing/thumbnail/520-missing_thumbnail.webp",
-        "mark": "saturn",
         "note": "520 generated faculty portraits, carried onto campus as posters. A public intervention at Stanford in 2019.",
-        "accountSections": [
-            0
-        ]
+        "category": "spaces"
     },
     {
         "type": "project",
@@ -467,11 +450,8 @@
             }
         ],
         "thumbnail": "/img/projects/truth-visions/thumbnail/truth-visions_thumbnail.gif",
-        "mark": "seal",
         "note": "A television sinks into sand, broadcasting the installation that contains it. Printed photographs reveal mirrors beneath their images.",
-        "accountSections": [
-            0
-        ]
+        "category": "spaces"
     },
     {
         "type": "project",
@@ -487,8 +467,8 @@
         "thumbnail": "/img/projects/jungle/thumbnail/jungle_thumbnail.gif",
         "newTab": true,
         "sitemap": true,
-        "mark": "vessel",
-        "note": "A digital zine."
+        "note": "A digital zine.",
+        "category": "writing"
     },
     {
         "type": "project",
@@ -503,8 +483,8 @@
         "sections": [],
         "thumbnail": "/img/projects/each-all/thumbnail/each-all_thumbnail.gif",
         "newTab": true,
-        "mark": "seal",
-        "note": "A collaborative collaging project."
+        "note": "A collaborative collaging project.",
+        "category": "interfaces"
     },
     {
         "type": "project",
@@ -519,7 +499,7 @@
         "sections": [],
         "thumbnail": "/img/projects/specter/thumbnail/specter_thumbnail.gif",
         "newTab": true,
-        "mark": "mercury",
-        "note": "A 3D environment with fractured narrative and images."
+        "note": "A 3D environment with fractured narrative and images.",
+        "category": "spaces"
     }
 ]
