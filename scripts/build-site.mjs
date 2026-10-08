@@ -340,6 +340,7 @@ const aboutPage = await readFile(rootPath('about.html'), 'utf8');
 const aboutCopy = aboutPage.match(/<p class="contact-text">[\s\S]*?<\/p>/)?.[0];
 if (!aboutCopy) throw new Error('Missing about copy');
 const aboutPopup = aboutCopy;
+const contactImage = `/img/contact/contact_email.webp?v=${hash(await readFile(rootPath('img/contact/contact_email.webp')))}`;
 
 const initialSeoPattern = /    <title>[\s\S]*?    <meta name="twitter:image:alt" content="[^"]*" \/>/;
 const initialNavPattern = /    <nav id="nav"><\/nav>/;
@@ -350,13 +351,13 @@ for (const [file, config] of Object.entries(pageConfigs)) {
         const seo = renderSeo(config);
         let html = replaceGeneratedBlock(original, 'seo', seo, initialSeoPattern);
         if (file === 'about.html') {
-            html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/, `<main class="field-main about-main">${renderAbout(aboutCopy)}</main>`);
+            html = html.replace(/<main\b[^>]*>[\s\S]*?<\/main>/, `<main class="field-main about-main">${renderAbout(aboutCopy, false, contactImage)}</main>`);
             html = html.replace(/<body[^>]*>/, '<body data-page="about" class="field-page">');
             html = html.replace(markerPattern('nav'), '');
         }
         if (['index.html', 'home.html', 'projects.html', 'writings.html'].includes(file)) {
             const filter = file === 'projects.html' ? 'catalog' : file === 'writings.html' ? 'writing' : 'all';
-            html = replaceGeneratedBlock(html, 'field', generatedBlock('field', renderField(field, filter, aboutPopup), '        '));
+            html = replaceGeneratedBlock(html, 'field', generatedBlock('field', renderField(field, filter, aboutPopup, contactImage), '        '));
         }
         return removeRuntimeDataMeta(html);
     });

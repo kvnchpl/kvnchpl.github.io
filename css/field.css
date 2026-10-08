@@ -15,7 +15,7 @@ main.field-main { display: block; overflow: visible; }
 .landing-image img { display: block; width: 100%; height: 100%; object-fit: fill; }
 .nav-code { display: inline-block; width: 3ch; margin-right: 1ch; white-space: nowrap; }
 .nav-label { white-space: nowrap; }
-.landing-links { position: absolute; z-index: 3; inset: 37% auto 14% 4%; width: 61%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, 1fr); grid-template-areas: "projects about" "thoughts reading" "watching listening" "hydrants homestuck"; align-items: start; gap: 10px 18px; --nav-step: 2ch; }
+.landing-links { position: absolute; z-index: 3; inset: 37% 4% 14%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, 1fr); grid-template-areas: "projects about" "thoughts reading" "watching listening" "hydrants homestuck"; align-items: start; gap: 10px 18px; --nav-step: clamp(16px, 5vw, 80px); }
 .landing-links a { display: flex; align-items: baseline; width: max-content; max-width: 100%; background: black; color: white; font-size: clamp(14px, 1.7vw, 24px); line-height: 1.4; text-decoration: none; }
 .landing-links a:hover { text-decoration: underline; }
 .landing-links .nav-code { flex: 0 0 3ch; }
@@ -27,11 +27,14 @@ main.field-main { display: block; overflow: visible; }
 .landing-listening { grid-area: listening; }
 .landing-hydrants { grid-area: hydrants; }
 .landing-homestuck { grid-area: homestuck; }
-/* Two parallel staircases introduce diagonality without tilting the text. */
-.landing-thoughts, .landing-reading { margin-left: var(--nav-step); }
-.landing-watching, .landing-listening { margin-left: calc(2 * var(--nav-step)); }
-.landing-hydrants, .landing-homestuck { margin-left: calc(3 * var(--nav-step)); }
-.landing-about, .landing-reading, .landing-listening, .landing-homestuck { margin-top: 3.5svh; }
+/* Mirrored inward/outward steps share equal screen-edge insets. */
+.landing-about, .landing-reading, .landing-listening, .landing-homestuck { justify-self: end; }
+.landing-thoughts { margin-left: var(--nav-step); }
+.landing-reading { margin-right: var(--nav-step); }
+.landing-watching { margin-left: calc(2 * var(--nav-step)); }
+.landing-listening { margin-right: calc(2 * var(--nav-step)); }
+.landing-hydrants { margin-left: calc(.5 * var(--nav-step)); }
+.landing-homestuck { margin-right: calc(.5 * var(--nav-step)); }
 .color-artifacts, .atlas-artifacts { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
 .color-rectangle { position: absolute; display: block; }
 .color-palette { position: absolute; z-index: 4; bottom: var(--palette-inset); left: var(--palette-inset); display: flex; gap: 5px; padding: 0; background: transparent; --palette-inset: clamp(16px, 3vmin, 32px); }
@@ -71,13 +74,12 @@ main.field-main { display: block; overflow: visible; }
 .map-title { display: block; margin-top: 12px; text-transform: uppercase; line-height: 1.4; }
 .map-node:focus-visible .map-title { text-transform: lowercase; }
 .map-meta { display: block; font-size: 11px; margin-top: 8px; }
-.map-node[data-selected] .map-title { color: black; background: yellow; }
 .map-node:hover .map-title, .map-node:focus-visible .map-title { text-decoration: underline; }
-.about-room { position: relative; display: grid; grid-template-columns: 43% 43%; gap: 24px 9%; min-height: 65svh; padding: 0 8% 70px; }
-.about-room h1, .about-room h2 { text-transform: uppercase; grid-column: 2; grid-row: 1; margin: 10px 0 35px; font: 400 clamp(36px,6vw,100px)/.9 var(--font-family-main); letter-spacing: .015em; overflow-wrap: anywhere; }
-.about-image { grid-column: 1; grid-row: 1 / 3; width: 100%; max-height: 70svh; object-fit: contain; object-position: top; }
-.about-copy { grid-column: 2; grid-row: 2; }
-.about-copy .contact-text { max-width: 50ch; width: 100%; margin: 0 0 30px; font-size: 14px; line-height: 1.7; }
+.about-room { position: relative; display: grid; grid-template-columns: minmax(0,53%) minmax(0,47%); align-items: start; min-height: 65svh; padding: 20px 5% 70px; }
+.about-room h1, .about-room h2 { text-transform: uppercase; text-align: right; margin: 0; font: 400 clamp(36px,6vw,100px)/.9 var(--font-family-main); letter-spacing: .015em; }
+.about-copy { grid-column: 1; grid-row: 1; min-width: 0; padding-right: 10%; }
+.about-copy .contact-text { max-width: 50ch; width: 100%; margin: 0 0 32px; font-size: 14px; line-height: 1.7; }
+.about-image { display: block; width: 100%; max-width: 420px; height: auto; }
 /* The color room: art on one side, large type on the other, copy always visible. */
 .page-chrome { min-height: 120px; font-size: 13px; }
 .page-chrome .screen-identity { height: 50px; width: 26%; }
@@ -117,7 +119,7 @@ body.field-work .writing-content + .writing-content { margin-top: 30px; }
     .landing { min-height: 600px; }
     .landing-name { top: 2%; left: 4%; width: 92%; height: 24%; }
     .landing-image { inset: 0 0 0 56%; }
-    .landing-links { inset: 33% auto 14% 6%; width: 88%; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "projects about" "thoughts reading" "watching listening" "hydrants homestuck"; gap: 10px 12px; --nav-step: 1ch; }
+    .landing-links { inset: 33% 6% 14%; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "projects about" "thoughts reading" "watching listening" "hydrants homestuck"; gap: 10px 12px; --nav-step: 1ch; }
     .landing-links a { font-size: 14px; }
     .color-palette { gap: 5px; }
     .color-palette button { width: 27px; height: 27px; }
@@ -131,10 +133,9 @@ body.field-work .writing-content + .writing-content { margin-top: 30px; }
     .field-map .map-node:nth-child(n) { width: 90%; margin: 0; }
     .field-map .map-node:nth-child(2n) { margin-top: 70px; justify-self: end; }
     .map-preview { height: 150px; }
-    .about-room { display: grid; grid-template-columns: minmax(0,1fr); padding: 0 7% 60px; gap: 25px; }
-    .about-room h1, .about-room h2 { grid-column: 1; grid-row: 1; font-size: 52px; margin: 0; }
-    .about-image { grid-column: 1; grid-row: 2; width: 70%; max-height: 45svh; justify-self: end; }
-    .about-copy { grid-column: 1; grid-row: 3; }
+    .about-room { display: flex; flex-direction: column; align-items: stretch; padding: 15px 6% 60px; }
+    .about-room h1, .about-room h2 { font-size: 52px; }
+    .about-copy { padding: 0; }
     .page-chrome { min-height: 140px; }
     body.field-work .project-layout, body.field-work .writing-layout { display: flex; flex-direction: column; align-items: stretch; padding: 15px 6% 45px; }
     .room-heading { margin: 0 0 30px; padding: 20px; align-self: stretch; }

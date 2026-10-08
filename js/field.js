@@ -50,7 +50,11 @@ function initColorPalette(composition) {
         updateButtons();
     }));
     regenerate();
-    return regenerate;
+    return function reset() {
+        selected.clear();
+        selected.add('#0000ff');
+        regenerate();
+    };
 }
 
 (() => {
@@ -60,7 +64,7 @@ function initColorPalette(composition) {
     const about = shell.querySelector('[data-about-popup]');
     const nodes = [...shell.querySelectorAll('[data-map-node]')];
     const filters = [...shell.querySelectorAll('[data-category-filter]')];
-    const regenerateColors = new Map([...shell.querySelectorAll('[data-color-composition]')].map((composition) => [composition, initColorPalette(composition)]));
+    const resetColors = new Map([...shell.querySelectorAll('[data-color-composition]')].map((composition) => [composition, initColorPalette(composition)]));
     let previousView;
     const initial = new URL(location.href);
     // Previously shared atlas/index links both resolve to the single visual catalog.
@@ -79,13 +83,12 @@ function initColorPalette(composition) {
             if (open && !dialog.open) dialog.showModal();
         }
         if (view !== previousView) {
-            regenerateColors.get(view === 'atlas' ? browser : shell.querySelector('.landing'))?.();
+            resetColors.get(view === 'atlas' ? browser : shell.querySelector('.landing'))?.();
             previousView = view;
         }
         document.documentElement.classList.toggle('field-screen-open', browser.open || about.open);
         nodes.forEach((node) => {
             node.hidden = selectedCategory !== 'all' && node.dataset.category !== selectedCategory;
-            node.toggleAttribute('data-selected', node.id === url.hash.slice(1));
         });
         filters.forEach((link) => {
             link.setAttribute('aria-current', link.dataset.categoryFilter === selectedCategory ? 'page' : 'false');
@@ -133,7 +136,16 @@ function initColorPalette(composition) {
         go(url);
         if (browser.open && link.matches('[data-category-filter]')) browser.scrollTop = 0;
     });
-    window.addEventListener('popstate', () => render(true));
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            previousView = undefined;
+            render();
+        }
+    });
+    window.addEventListener('popstate', () => {
+        previousView = undefined;
+        render(true);
+    });
     window.addEventListener('hashchange', () => render(true));
     render();
 })();

@@ -15,7 +15,7 @@ test('swatches toggle independently, retain one color, and preserve other rectan
     const composition = {querySelectorAll() {return buttons;}, querySelector() {return artifacts;}};
     const context = vm.createContext({document: {querySelector() {return null;}, createElement() {return {style: {}};}}});
     vm.runInContext(await readFile(new URL('../js/field.js', import.meta.url), 'utf8'), context);
-    const regenerate = context.initColorPalette(composition);
+    const reset = context.initColorPalette(composition);
     const active = () => buttons.filter((button) => button.attributes['aria-pressed'] === 'true');
     assert.equal(active().length, 1);
     const initialRectangle = artifacts.children[0];
@@ -38,10 +38,6 @@ test('swatches toggle independently, retain one color, and preserve other rectan
         assert.ok(parseFloat(style.left) >= 0 && parseFloat(style.left) + parseFloat(style.width) <= 100);
         assert.ok(parseFloat(style.top) >= 18 && parseFloat(style.top) + parseFloat(style.height) <= 86);
     }
-    const previous = artifacts.children;
-    regenerate();
-    assert.notEqual(artifacts.children[0], previous[0]);
-    assert.notDeepEqual(artifacts.children.map((rectangle) => rectangle.style), previous.map((rectangle) => rectangle.style));
     const unchanged = artifacts.children.filter((rectangle) => rectangle.style.background !== '#000000');
     buttons[0].click();
     assert.equal(active().length, 7);
@@ -55,4 +51,10 @@ test('swatches toggle independently, retain one color, and preserve other rectan
     assert.equal(active().length, 1);
     buttons[7].click();
     assert.equal(active().length, 1);
+    reset(); // Returning to the screen restores blue only, with a fresh rectangle.
+    assert.equal(active().length, 1);
+    assert.equal(active()[0].dataset.color, '#0000ff');
+    assert.equal(artifacts.children.length, 1);
+    assert.equal(artifacts.children[0].style.background, '#0000ff');
+    assert.notEqual(artifacts.children[0], blueRectangle);
 });

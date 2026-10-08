@@ -1,11 +1,12 @@
 const escape = (value = '') => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#39;');
 export const anchorFor = (id) => `work-${id.replace(':', '-')}`;
 export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff0000'], ['green', '#00ff00'], ['blue', '#0000ff'], ['cyan', '#00ffff'], ['magenta', '#ff00ff'], ['yellow', '#ffff00']];
+export const categoryLabel = (category) => category === 'image' ? 'images' : category;
 export const categories = ['image', 'space', 'interface', 'writing'];
 // Three-character codes stay consistent wherever a destination appears.
 export const navCodes = {home: '^./', about: '?::', collection: '[*]', thoughts: '...', reading: '|:|', watching: '[>]', listening: ')))', hydrants: '!+!', homestuck: '>=>', return: '<--', all: '[*]', image: '[.]', space: '|_|', interface: '>_$', writing: ':::'};
 export function renderNavLabel(key) {
-    return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(key)}</span>`;
+    return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(categoryLabel(key))}</span>`;
 }
 export const ui = Object.fromEntries(Object.keys(navCodes).map((key) => [key, renderNavLabel(key)]));
 export function formatWorkDate(work) {
@@ -50,18 +51,18 @@ export function renderNavigation(page = '', popup = false) {
     const home = popup ? `<button type="button" data-browser-close aria-label="home">${ui.home}</button>` : `<a href="/" aria-label="home">${ui.home}</a>`;
     return `<div class="screen-chrome page-chrome">${renderIdentity()}<nav class="site-nav" aria-label="primary">${home}<a href="/projects" data-atlas-open aria-label="collection"${page === 'collection' ? ' aria-current="page"' : ''}>${ui.collection}</a><a href="/about" data-about-open aria-label="about"${page === 'about' ? ' aria-current="page"' : ''}>${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
 }
-export function renderAbout(about, popup = false) {
+export function renderAbout(about, popup = false, contactImage = '/img/contact/contact_email.webp') {
     return `${renderNavigation('about', popup)}
-        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-image" src="/img/contact/contact_email.webp" alt="contact email" /><div class="about-copy">${about}</div></section>`;
+        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><header class="room-heading"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}></header><div class="about-copy">${about}<img class="about-image" src="${escape(contactImage)}" alt="contact email" /></div></section>`;
 }
 function renderMap(nodes) {
     return `<div class="field-map" aria-label="collection of projects and writing">${nodes.map((node) => {
         const preview = previewFor(node);
         const art = `<img src="${escape(preview)}" alt="" loading="lazy" decoding="async" width="600" height="450"/>`;
-        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}" data-category="${node.category}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token"><span class="map-preview">${art}</span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${node.category} / ${formatWorkDate(node)}</span></a>`;
+        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}" data-category="${node.category}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token"><span class="map-preview">${art}</span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${categoryLabel(node.category)} / ${formatWorkDate(node)}</span></a>`;
     }).join('\n')}</div>`;
 }
-export function renderField(field, filter = 'all', about = '') {
+export function renderField(field, filter = 'all', about = '', contactImage) {
     const featured = field.nodes.get(field.landing.work);
     const featuredImage = field.landing.image || previewFor(featured);
     return `<div class="field-shell" data-default-view="${filter === 'all' ? 'landing' : 'atlas'}" data-default-category="${filter === 'writing' ? 'writing' : 'all'}">
@@ -72,13 +73,13 @@ export function renderField(field, filter = 'all', about = '') {
             <div class="color-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:70%;top:48%;width:25%;height:26%"></span></div>
             ${renderPalette()}
         </div>
-        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${category}">${ui[category]}</a>`).join('')}</nav></div>
+        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav></div>
         <div class="atlas-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:54%;top:47%;width:23%;height:8%"></span></div>
         ${renderMap([...field.nodes.values()])}
         ${renderPalette()}
         </dialog>
         <noscript><style>.landing{display:none}.field-browser:not([open]){display:block;position:relative;height:auto;overflow:visible}.field-browser [data-browser-close]{display:none}${filter === 'writing' ? '.map-node:not([data-category="writing"]){display:none}' : ''}</style></noscript>
-        <dialog class="field-screen about-screen" data-about-popup aria-labelledby="about-screen-heading">${renderAbout(about, true)}</dialog>
+        <dialog class="field-screen about-screen" data-about-popup aria-labelledby="about-screen-heading">${renderAbout(about, true, contactImage)}</dialog>
         <p class="visually-hidden" data-field-announcement role="status" aria-live="polite"></p>
     </div>`;
 }

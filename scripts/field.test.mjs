@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkReturn, palette, categories, formatWorkDate } from './field.mjs';
+import { createField, renderField, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
@@ -73,7 +73,7 @@ test('catalog dates use the same year.month notation as work pages', () => {
     const html = renderField(field);
     for (const node of field.nodes.values()) {
         assert.match(formatWorkDate(node), /^\d{4}\.\d{2}$/);
-        assert.ok(html.includes(`${node.category} / ${formatWorkDate(node)}`));
+        assert.ok(html.includes(`${categoryLabel(node.category)} / ${formatWorkDate(node)}`));
     }
 });
 test('atlas color artifacts belong to the screen and each composition has its own palette', () => {
