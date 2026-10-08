@@ -3,6 +3,7 @@ export const anchorFor = (id) => `work-${id.replace(':', '-')}`;
 export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff0000'], ['green', '#00ff00'], ['blue', '#0000ff'], ['cyan', '#00ffff'], ['magenta', '#ff00ff'], ['yellow', '#ffff00']];
 export const categoryLabel = (category) => category === 'image' ? 'images' : category;
 export const categories = ['image', 'space', 'interface', 'writing'];
+export const tags = ['belief', 'desire', 'truth', 'fire', 'free'];
 // Each label has a unique three-character code using only []*!+?:=<>.
 export const navCodes = {home: '[=]', about: '[?]', collection: '[*]', thoughts: '???', reading: '[:]', watching: '[>]', listening: ':*:', hydrants: '!+!', homestuck: '>=>', return: '<<<', all: '***', image: '[+]', space: '<+>', interface: '=+=', writing: ':::'};
 export function renderNavLabel(key) {
@@ -25,10 +26,12 @@ export function createField(projects, writings, config = {}) {
         if (nodes.has(id)) throw new Error(`Duplicate work: ${id}`);
         const category = work.category || (work.type === 'writing' ? 'writing' : 'image');
         if (!categories.includes(category)) throw new Error(`Unknown category: ${category}`);
+        const workTags = work.tags ?? [];
+        if (!Array.isArray(workTags) || workTags.some((tag) => !tags.includes(tag)) || new Set(workTags).size !== workTags.length) throw new Error(`Invalid tags: ${id}`);
         if (work.displayTitle !== undefined && (typeof work.displayTitle !== 'string' || !work.displayTitle.trim())) throw new Error(`Invalid display title: ${id}`);
         if (work.permalink !== undefined && (typeof work.permalink !== 'string' || !/^(?:\/(?!\/)|https?:\/\/)/.test(work.permalink))) throw new Error(`Invalid destination: ${id}`);
         if (work.external && !work.permalink) throw new Error(`Missing destination: ${id}`);
-        nodes.set(id, {...work, id, category, anchor: anchorFor(id), href: work.permalink || `/${work.type}s/${work.key}`});
+        nodes.set(id, {...work, id, category, tags: workTags, anchor: anchorFor(id), href: work.permalink || `/${work.type}s/${work.key}`});
     }
     if (!nodes.size) throw new Error('The catalog needs at least one work');
     const landing = config.landing || {work: nodes.keys().next().value};
@@ -58,7 +61,7 @@ function renderMap(nodes) {
     return `<div class="field-map" aria-label="collection of projects and writing">${nodes.map((node) => {
         const preview = previewFor(node);
         const art = `<img src="${escape(preview)}" alt="" loading="lazy" decoding="async" width="600" height="450"/>`;
-        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}" data-category="${node.category}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token"><span class="map-preview">${art}</span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${categoryLabel(node.category)} / ${formatWorkDate(node)}</span></a>`;
+        return `<a class="map-node" id="${node.anchor}" data-map-node="${node.anchor}" href="${escape(node.href)}" data-category="${node.category}" data-tags="${node.tags.join(' ')}"${destinationAttributes(node)} aria-label="${escape(node.title.toLowerCase())}"><span class="map-token"><span class="map-preview">${art}</span></span><span class="map-title">${escape(node.title)}</span><span class="map-meta">${categoryLabel(node.category)} / ${formatWorkDate(node)}</span></a>`;
     }).join('\n')}</div>`;
 }
 export function renderField(field, filter = 'all', about = '', contactImage) {
@@ -72,7 +75,7 @@ export function renderField(field, filter = 'all', about = '', contactImage) {
             <div class="color-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:70%;top:48%;width:25%;height:26%"></span></div>
             ${renderPalette()}
         </div>
-        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav></div>
+        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${categoryLabel(category)}">${ui[category]}</a>`).join('')}</nav><nav class="field-tags" aria-label="collection tags">${tags.map((tag) => `<a href="/projects?tag=${tag}" data-tag-filter="${tag}" title="filter by #${tag}; select again to clear">#${tag}</a>`).join('')}</nav></div>
         <div class="atlas-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:54%;top:47%;width:23%;height:8%"></span></div>
         ${renderMap([...field.nodes.values()])}
         ${renderPalette()}

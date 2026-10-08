@@ -29,7 +29,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     const bodyFile = path.join(root, 'poem.txt');
     await writeFile(bodyFile, text);
     const inputImage = path.join(source, 'img/projects/triptych/small/triptych_1.webp');
-    await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'space', image: inputImage, alt: 'a new image'}, root);
+    await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'space', tags: 'belief,free', image: inputImage, alt: 'a new image'}, root);
     await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', body: bodyFile}, root);
     const projectRecord = JSON.parse(await readFile(path.join(root, 'json/projects.json'), 'utf8'));
     projectRecord[0].note = 'A legacy project note that should not appear.';
@@ -40,6 +40,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     await assert.rejects(addWork({type: 'writing', key: 'missing-body', title: 'missing body'}, root), /needs --body/);
     await assert.rejects(addWork({type: 'project', key: 'bad-date', title: 'bad date', date: '2026-02-30'}, root), /valid --date/);
     await assert.rejects(addWork({type: 'project', key: 'invalid-category', title: 'invalid category', category: 'unknown'}, root), /--category/);
+    await assert.rejects(addWork({type: 'project', key: 'invalid-tags', title: 'invalid tags', tags: 'unknown'}, root), /Invalid tags/);
     assert.equal(await readFile(path.join(root, 'json/projects.json'), 'utf8'), jsonBefore);
     const run = (script) => execFileSync(process.execPath, [path.join(root, 'scripts', script)], {encoding: 'utf8'});
     assert.match(run('build-site.mjs'), /Built 1 projects and 1 writings/);
@@ -50,6 +51,8 @@ test('new categorized works build into the atlas and pages with visible copy and
     assert.match(project, /<p id="subtitle">2026\.10<\/p>/);
     assert.ok(!project.includes('project-note'));
     assert.ok(!project.includes(projectRecord[0].note));
+    assert.ok(!project.includes('data-tags'));
+    assert.ok(!project.includes('#belief'));
     assert.match(project, /<p>The entire description.<\/p>/);
     assert.match(project, /<p>A second paragraph with &lt;angles&gt;.<\/p>/);
     assert.ok(!project.includes('<details'));
@@ -57,6 +60,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     assert.match(writing, /<p id="subtitle">2026\.10<\/p>/);
     assert.match(writing, /a line with &lt;angles&gt; &amp; symbols\nKEEP This Casing\n  and this indentation./);
     assert.match(home, /data-map-node="work-project-future-project" href="\/projects\/future-project"/);
+    assert.match(home, /data-category="space" data-tags="belief free"/);
     assert.match(home, /data-map-node="work-writing-future-writing" href="\/writings\/future-writing"/);
     assert.ok(!home.includes('data-field-popup'));
     assert.match(await readFile(path.join(root, 'sitemap.xml'), 'utf8'), /\/writings\/future-writing/);

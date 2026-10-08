@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate, navCodes } from './field.mjs';
+import { createField, renderField, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate, navCodes, tags } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
@@ -46,6 +46,18 @@ test('all four categories appear in the unified catalog, including the writing c
     assert.match(html, /data-default-view="atlas" data-default-category="writing"/);
     assert.equal((html.match(/data-map-node=/g) || []).length, field.nodes.size);
 });
+test('every project has informal tags stored only as filtering metadata on collection items', () => {
+    assert.deepEqual(tags, ['belief', 'desire', 'truth', 'fire', 'free']);
+    const html = renderField(field);
+    for (const tag of tags) assert.ok(html.includes(`data-tag-filter="${tag}"`));
+    for (const project of projects) {
+        assert.ok(project.tags.length > 0, project.key);
+        assert.ok(project.tags.every((tag) => tags.includes(tag)));
+    }
+    for (const item of html.matchAll(/<a class="map-node"[^>]*>(.*?)<\/a>/g)) {
+        assert.ok(!tags.some((tag) => item[1].includes(`#${tag}`)));
+    }
+});
 test('a growing catalog needs no manual map records and keeps stable identities and categories', () => {
     const additions = Array.from({length: 101}, (_, i) => ({type: 'project', key: `future-${i}`, title: `future ${i}`, year: 2027, sections: []}));
     const expanded = createField([...projects, ...additions], writings, config);
@@ -60,7 +72,8 @@ test('a growing catalog needs no manual map records and keeps stable identities 
 test('invalid content fails validation', () => {
     for (const changes of [
         {key: '../escape'}, {title: ''}, {category: 'unknown'}, {displayTitle: ''},
-        {permalink: 'javascript:alert(1)'}, {permalink: '//example.com'}, {external: true, permalink: undefined}
+        {permalink: 'javascript:alert(1)'}, {permalink: '//example.com'}, {external: true, permalink: undefined},
+        {tags: 'belief'}, {tags: ['unknown']}, {tags: ['belief', 'belief']}
     ]) {
         assert.throws(() => createField([{...projects[0], ...changes}], [], {}));
     }

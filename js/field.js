@@ -81,6 +81,7 @@ function initColorPalette(composition) {
     const about = shell.querySelector('[data-about-popup]');
     const nodes = [...shell.querySelectorAll('[data-map-node]')];
     const filters = [...shell.querySelectorAll('[data-category-filter]')];
+    const tagFilters = [...shell.querySelectorAll('[data-tag-filter]')];
     const resetColors = new Map([...shell.querySelectorAll('[data-color-composition]')].map((composition) => [composition, initColorPalette(composition)]));
     let previousView;
     const initial = new URL(location.href);
@@ -95,6 +96,8 @@ function initColorPalette(composition) {
         const view = url.searchParams.get('about') === '1' ? 'about' : url.searchParams.get('view') || shell.dataset.defaultView;
         const category = url.searchParams.get('category') || shell.dataset.defaultCategory;
         const selectedCategory = filters.some((link) => link.dataset.categoryFilter === category) ? category : 'all';
+        const tag = url.searchParams.get('tag');
+        const selectedTag = tagFilters.some((link) => link.dataset.tagFilter === tag) ? tag : null;
         for (const [dialog, open] of [[browser, view === 'atlas'], [about, view === 'about']]) {
             if (!open && dialog.open) dialog.close();
             if (open && !dialog.open) dialog.showModal();
@@ -105,13 +108,26 @@ function initColorPalette(composition) {
         }
         document.documentElement.classList.toggle('field-screen-open', browser.open || about.open);
         nodes.forEach((node) => {
-            node.hidden = selectedCategory !== 'all' && node.dataset.category !== selectedCategory;
+            node.hidden = (selectedCategory !== 'all' && node.dataset.category !== selectedCategory)
+                || (selectedTag !== null && !(node.dataset.tags || '').split(' ').includes(selectedTag));
         });
         filters.forEach((link) => {
             link.setAttribute('aria-current', link.dataset.categoryFilter === selectedCategory ? 'page' : 'false');
+            const destination = new URL('/projects', location.href);
+            if (link.dataset.categoryFilter !== 'all') destination.searchParams.set('category', link.dataset.categoryFilter);
+            if (selectedTag) destination.searchParams.set('tag', selectedTag);
+            link.href = destination.href;
+        });
+        tagFilters.forEach((link) => {
+            const active = link.dataset.tagFilter === selectedTag;
+            link.setAttribute('aria-current', active ? 'page' : 'false');
+            const destination = new URL('/projects', location.href);
+            if (selectedCategory !== 'all') destination.searchParams.set('category', selectedCategory);
+            if (!active) destination.searchParams.set('tag', link.dataset.tagFilter);
+            link.href = destination.href;
         });
         if (browser.open && url.hash) nodes.find((node) => node.id === url.hash.slice(1) && !node.hidden)?.scrollIntoView({block: 'center'});
-        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'atlas' ? `${selectedCategory} collection` : view === 'about' ? 'about' : 'entrance';
+        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'atlas' ? `${selectedCategory} collection${selectedTag ? `, #${selectedTag}` : ''}, ${nodes.filter((node) => !node.hidden).length} works` : view === 'about' ? 'about' : 'entrance';
     }
     function go(url) {
         if (url.href !== location.href) history.pushState(null, '', url);
@@ -123,6 +139,7 @@ function initColorPalette(composition) {
         url.searchParams.set('view', 'landing');
         url.searchParams.delete('about');
         url.searchParams.delete('category');
+        url.searchParams.delete('tag');
         url.hash = '';
         go(url);
     }
@@ -143,15 +160,21 @@ function initColorPalette(composition) {
         const url = new URL(location.href);
         if (link.matches('[data-about-open]')) {
             url.searchParams.set('about', '1');
-        } else if (link.matches('[data-atlas-open], [data-category-filter]')) {
+        } else if (link.matches('[data-atlas-open], [data-category-filter], [data-tag-filter]')) {
             url.searchParams.delete('about');
             url.searchParams.set('view', 'atlas');
-            url.searchParams.set('category', link.dataset.categoryFilter || 'all');
+            if (link.matches('[data-tag-filter]')) {
+                if (url.searchParams.get('tag') === link.dataset.tagFilter) url.searchParams.delete('tag');
+                else url.searchParams.set('tag', link.dataset.tagFilter);
+            } else {
+                url.searchParams.set('category', link.dataset.categoryFilter || 'all');
+                if (link.matches('[data-atlas-open]')) url.searchParams.delete('tag');
+            }
             url.hash = '';
         } else return;
         event.preventDefault();
         go(url);
-        if (browser.open && link.matches('[data-category-filter]')) browser.scrollTop = 0;
+        if (browser.open && link.matches('[data-category-filter], [data-tag-filter]')) browser.scrollTop = 0;
     });
     window.addEventListener('pageshow', (event) => {
         if (event.persisted) {

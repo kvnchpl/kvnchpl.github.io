@@ -7,7 +7,7 @@ Static portfolio hosted by GitHub Pages. No application dependencies or server-s
 From the repository root:
 
 ```sh
-node scripts/add-work.mjs project my-project "My Project" --image /path/to/artwork.webp --alt "Describe the artwork" --date 2026-10-07
+node scripts/add-work.mjs project my-project "My Project" --image /path/to/artwork.webp --alt "Describe the artwork" --date 2026-10-07 --tags belief,desire
 ```
 
 The command copies the image, adds a catalog record, and creates the standard page. It refuses to overwrite an existing work. Edit the new record in `json/projects.json` to add images, sections, optional copy, and dates. A gallery section looks like this:
@@ -53,6 +53,8 @@ git diff --check
 ```
 
 Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the atlas, category filters, collection pages, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Each record has one `category`: `image` (shown as “images”: image series and collages), `space` (installations, performance, and environments), `interface` (interactive and code-based work), or `writing` (poetry and publications). Use `--category space` when adding a project, or edit its catalog record later. Defaults are `image` for projects and `writing` for writings. The public label is “collection”; `/projects` shows the entire catalog; `/writings` opens the writing filter. The internal project/writing file types remain the same.
+
+The second filter row uses five informal tags: `belief`, `desire`, `truth`, `fire`, and `free`. Each existing project has at least one. Use `--tags belief,desire` when adding work, or edit its catalog record’s `"tags": ["belief", "desire"]` array. Tags are optional for writings. They appear only in the filter row, never in collection items or work pages. One tag can be selected at a time; selecting it again clears it. Categories and tags combine, and both are preserved in the URL and browser history. Entries without tags remain visible when no tag is selected.
 
 ## Structure
 

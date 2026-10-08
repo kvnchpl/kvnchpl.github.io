@@ -55,9 +55,10 @@ main.field-main { display: block; overflow: visible; }
 .screen-chrome button { padding: 0; border: 0; background: black; cursor: pointer; }
 .collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
 .collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: .015em; }
-.field-categories { display: flex; flex-wrap: wrap; gap: 12px 24px; }
-.field-categories a { color: white; }
-.field-categories a[aria-current="page"] { background: blue; text-decoration: none; padding: 3px 8px; margin: -3px -8px; }
+.field-categories, .field-tags { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.field-tags { margin-top: 18px; }
+.field-categories a, .field-tags a { color: white; }
+.field-categories a[aria-current="page"], .field-tags a[aria-current="page"] { background: blue; text-decoration: none; padding: 3px 8px; margin: -3px -8px; }
 /* Each link owns a cell; irregular offsets remain safe as the catalog grows. */
 .field-map { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px 8% 100px; background: black; }
 .field-page a.map-node { display: block; position: relative; color: white; text-decoration: none; width: 82%; min-width: 0; align-self: start; overflow-wrap: anywhere; }
@@ -131,7 +132,7 @@ body.field-work .writing-content + .writing-content { margin-top: 30px; }
     .screen-chrome .screen-identity { width: 57%; height: 42px; top: 62px; right: 5%; }
     .collection-heading { padding: 0 6% 20px; }
     .collection-heading h2 { margin: 0 0 25px; font-size: 32px; }
-    .field-categories { gap: 15px 20px; }
+    .field-categories, .field-tags { gap: 15px 20px; }
     .field-map { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 35px 6% 70px; gap: 65px 10%; }
     .field-map .map-node:nth-child(n) { width: 90%; margin: 0; }
     .field-map .map-node:nth-child(2n) { margin-top: 70px; justify-self: end; }

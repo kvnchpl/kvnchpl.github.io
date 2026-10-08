@@ -13,6 +13,7 @@ node scripts/add-work.mjs writing key "Title" --body FILE.txt [--date YYYY-MM-DD
 node scripts/add-work.mjs project|writing key "Title" --url /pdf/file.pdf|https://example.com/ [--date YYYY-MM-DD]
 
 --category image|space|interface|writing sets the browsing category.
+--tags belief,desire,truth,fire,free assigns one or more collection tags.
 
 Then edit the catalog record or writing body, and run:
 node scripts/build-site.mjs
@@ -39,6 +40,7 @@ export async function addWork(options, root = ROOT) {
     const category = options.category || (type === 'writing' ? 'writing' : 'image');
     if (!categories.includes(category)) throw new Error(`Use --category ${categories.join(', ')}.`);
     const record = {type, title, key, year, month, day, category};
+    if (options.tags !== undefined) record.tags = options.tags.split(',').map((tag) => tag.trim());
     let imageDestination;
     if (image) {
         const extension = path.extname(image).toLowerCase();
@@ -78,7 +80,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.me
         try {
             const [type, key, title, ...flags] = args;
             const options = {type, key, title};
-            const allowed = new Set(['image', 'alt', 'body', 'url', 'date', 'category']);
+            const allowed = new Set(['image', 'alt', 'body', 'url', 'date', 'category', 'tags']);
             for (let i = 0; i < flags.length; i += 2) {
                 const name = flags[i].slice(2);
                 if (!flags[i].startsWith('--') || !allowed.has(name) || flags[i + 1] === undefined || Object.hasOwn(options, name)) throw new Error(`Invalid option: ${flags[i]}. See --help.`);

@@ -14,7 +14,11 @@
             }
         ],
         "socialImage": "/img/projects/compiler-buddha/buddha-site-demo.png",
-        "category": "interface"
+        "category": "interface",
+        "tags": [
+            "belief",
+            "truth"
+        ]
     },
     {
         "type": "project",
@@ -69,7 +73,11 @@
         ],
         "thumbnail": "/img/projects/viewfinder/thumbnail/viewfinder_thumbnail.webp",
         "category": "image",
-        "displayTitle": "VIEW\nFINDER"
+        "displayTitle": "VIEW\nFINDER",
+        "tags": [
+            "truth",
+            "free"
+        ]
     },
     {
         "type": "project",
@@ -99,7 +107,11 @@
             }
         ],
         "thumbnail": "/img/projects/triptych/thumbnail/triptych_thumbnail.webp",
-        "category": "image"
+        "category": "image",
+        "tags": [
+            "desire",
+            "fire"
+        ]
     },
     {
         "type": "project",
@@ -141,7 +153,11 @@
             }
         ],
         "thumbnail": "/img/projects/archipelago/thumbnail/archipelago_thumbnail.webp",
-        "category": "image"
+        "category": "image",
+        "tags": [
+            "belief",
+            "desire"
+        ]
     },
     {
         "type": "project",
@@ -183,7 +199,11 @@
             }
         ],
         "thumbnail": "/img/projects/intraface/thumbnail/intraface_thumbnail.webp",
-        "category": "image"
+        "category": "image",
+        "tags": [
+            "belief",
+            "desire"
+        ]
     },
     {
         "type": "project",
@@ -331,7 +351,11 @@
             }
         ],
         "thumbnail": "/img/projects/friday-night-never/thumbnail/friday-night-never_thumbnail.webp",
-        "category": "image"
+        "category": "image",
+        "tags": [
+            "desire",
+            "fire"
+        ]
     },
     {
         "type": "project",
@@ -379,7 +403,10 @@
             }
         ],
         "thumbnail": "/img/projects/dimensional-freedom/thumbnail/dimensional-freedom_thumbnail.gif",
-        "category": "space"
+        "category": "space",
+        "tags": [
+            "free"
+        ]
     },
     {
         "type": "project",
@@ -421,7 +448,11 @@
             }
         ],
         "thumbnail": "/img/projects/520-missing/thumbnail/520-missing_thumbnail.webp",
-        "category": "space"
+        "category": "space",
+        "tags": [
+            "truth",
+            "free"
+        ]
     },
     {
         "type": "project",
@@ -443,7 +474,11 @@
             }
         ],
         "thumbnail": "/img/projects/truth-visions/thumbnail/truth-visions_thumbnail.gif",
-        "category": "space"
+        "category": "space",
+        "tags": [
+            "belief",
+            "truth"
+        ]
     },
     {
         "type": "project",
@@ -459,7 +494,11 @@
         "thumbnail": "/img/projects/jungle/thumbnail/jungle_thumbnail.gif",
         "newTab": true,
         "sitemap": true,
-        "category": "interface"
+        "category": "interface",
+        "tags": [
+            "desire",
+            "free"
+        ]
     },
     {
         "type": "project",
@@ -474,7 +513,11 @@
         "sections": [],
         "thumbnail": "/img/projects/each-all/thumbnail/each-all_thumbnail.gif",
         "newTab": true,
-        "category": "interface"
+        "category": "interface",
+        "tags": [
+            "desire",
+            "free"
+        ]
     },
     {
         "type": "project",
@@ -489,6 +532,10 @@
         "sections": [],
         "thumbnail": "/img/projects/specter/thumbnail/specter_thumbnail.gif",
         "newTab": true,
-        "category": "space"
+        "category": "space",
+        "tags": [
+            "belief",
+            "truth"
+        ]
     }
 ]
