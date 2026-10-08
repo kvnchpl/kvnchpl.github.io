@@ -20,7 +20,7 @@ main.field-main { display: block; overflow: visible; }
 .landing-links a:hover { text-decoration: underline; }
 .landing-links .landing-about { left: 26%; top: 75%; }
 .landing-links .landing-projects { left: 26%; top: 85%; }
-.landing-links .landing-network { left: 12.5%; top: 72%; font-size: clamp(55px, 6vw, 110px); }
+.landing-links .landing-network { left: 12.5%; top: 72%; font-size: clamp(28px, 3.6vw, 65px); }
 .landing-links .landing-thoughts { left: 5%; top: 53%; }
 .color-block { position: absolute; z-index: 2; pointer-events: none; }
 .color-block-primary { background: var(--intervention); left: 53.5%; top: 51.5%; width: 25.5%; height: 38.5%; }
@@ -29,9 +29,9 @@ main.field-main { display: block; overflow: visible; }
 .landing[data-color-layout="1"] .color-block-secondary { display: block; left: 64%; top: 84%; width: 33.5%; height: 9.5%; }
 .landing[data-color-layout="2"] .color-block-primary { left: 62%; top: 17%; width: 36%; height: 12%; }
 .landing[data-color-layout="2"] .color-block-secondary { display: block; left: 34%; top: 56%; width: 13%; height: 15%; }
-.landing-palette { position: absolute; z-index: 4; bottom: 4%; left: 0; display: flex; gap: 5px; background: black; padding: 14px 15px; }
-.landing-palette button { width: 25px; height: 25px; border: 1px solid white; border-radius: 0; background: var(--swatch); cursor: pointer; padding: 0; }
-.landing-palette button[aria-pressed="true"] { outline: 1px solid white; outline-offset: 2px; }
+.color-palette { position: absolute; z-index: 4; bottom: 4%; left: 0; display: flex; gap: 5px; background: black; padding: 14px 15px; }
+.color-palette button { width: 25px; height: 25px; border: 1px solid white; border-radius: 0; background: var(--swatch); cursor: pointer; padding: 0; }
+.color-palette button[aria-pressed="true"] { outline: 1px solid white; outline-offset: 2px; }
 
 /* Full-screen native dialogs supply focus containment and Escape, without window chrome. */
 .field-screen { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; box-sizing: border-box; margin: 0; padding: 0; border: 0; border-radius: 0; background: black; color: white; overflow: auto; font: inherit; }
@@ -56,12 +56,19 @@ main.field-main { display: block; overflow: visible; }
 .map-token, .map-preview { display: block; position: relative; }
 .map-token img { display: block; width: 100%; height: 160px; object-fit: contain; }
 .map-text-fragment { display: block; font: 400 clamp(25px,3.6vw,56px)/.95 Arial,sans-serif; letter-spacing: -.06em; text-transform: uppercase; overflow-wrap: anywhere; }
-.map-block { position: absolute; background: blue; width: 35%; height: 38px; right: -8%; top: 45%; pointer-events: none; }
-.field-map .map-node:nth-child(6n+2) .map-block { background: yellow; width: 115%; height: 25px; top: 28%; }
-.field-map .map-node:nth-child(6n+3) .map-block { background: red; width: 26px; height: 75px; right: -4%; top: -8%; }
-.field-map .map-node:nth-child(6n+4) .map-block { background: #00ff00; width: 32%; height: 45px; top: 8%; }
-.field-map .map-node:nth-child(6n+5) .map-block { background: magenta; width: 28%; height: 60px; right: -5%; top: 35%; }
-.field-map .map-node:nth-child(6n) .map-block { background: cyan; width: 100%; height: 32px; right: 20%; top: 20%; }
+/* These rectangles belong to the screen, independently of catalog entries. */
+.field-browser { --intervention: blue; --counter-color: yellow; }
+.field-browser .screen-chrome { z-index: 3; }
+.field-browser .color-palette { position: fixed; }
+.atlas-artifacts { position: fixed; inset: 0; z-index: 2; pointer-events: none; }
+.atlas-artifacts span { position: absolute; display: block; }
+.atlas-artifact-primary { background: var(--intervention); left: 54%; top: 47%; width: 23%; height: 8%; }
+.atlas-artifact-secondary { background: var(--counter-color); left: 13%; top: 76%; width: 32%; height: 5%; }
+.field-browser[data-color-layout="1"] .atlas-artifact-primary { left: 28%; top: 34%; width: 7%; height: 19%; }
+.field-browser[data-color-layout="1"] .atlas-artifact-secondary { left: 70%; top: 63%; width: 30%; height: 4%; }
+.field-browser[data-color-layout="2"] .atlas-artifact-primary { left: 65%; top: 53%; width: 35%; height: 6%; }
+.field-browser[data-color-layout="2"] .atlas-artifact-secondary { left: 0; top: 41%; width: 18%; height: 12%; }
+.map-title, .map-meta { position: relative; z-index: 3; width: fit-content; max-width: 100%; background: black; }
 .map-title { display: block; margin-top: 12px; text-transform: lowercase; line-height: 1.4; }
 .map-meta { display: block; font-size: 11px; margin-top: 8px; }
 .map-node[data-selected] .map-title { color: black; background: yellow; }
@@ -76,8 +83,8 @@ main.field-main { display: block; overflow: visible; }
 .about-block { position: absolute; pointer-events: none; left: 28%; top: 26%; width: 20%; height: 45px; background: red; }
 /* The color room: art on one side, large type on the other, copy always visible. */
 body.field-work { --room-color: blue; }
-body.field-work[data-category="spaces"] { --room-color: #00ff00; }
-body.field-work[data-category="interfaces"] { --room-color: magenta; }
+body.field-work[data-category="space"] { --room-color: #00ff00; }
+body.field-work[data-category="interface"] { --room-color: magenta; }
 .work-chrome { min-height: 120px; font-size: 13px; }
 .work-chrome .screen-identity { height: 50px; width: 26%; }
 body.field-work #nav { display: flex; width: 60%; gap: 16px 28px; justify-content: flex-start; text-align: left; padding: 0; font-size: 13px; }
@@ -118,15 +125,15 @@ body.field-work .writing-layout .writing-content { grid-column: 1; grid-row: aut
     .landing-links a { font-size: clamp(24px,7.5vw,31px); }
     .landing-links .landing-about { left: 7%; top: 64%; }
     .landing-links .landing-projects { left: 7%; top: 73%; }
-    .landing-links .landing-network { left: 27%; top: 51%; font-size: 62px; }
+    .landing-links .landing-network { left: 12%; top: 51%; font-size: 28px; }
     .landing-links .landing-thoughts { left: 7%; top: 40%; }
     .color-block-primary { left: 46%; top: 45%; width: 39%; height: 16%; }
     .landing[data-color-layout="1"] .color-block-primary { left: 18%; top: 20%; width: 47%; height: 20%; }
     .landing[data-color-layout="1"] .color-block-secondary { left: 62%; top: 84%; width: 33%; height: 7%; }
     .landing[data-color-layout="2"] .color-block-primary { left: 65%; top: 38%; width: 32%; height: 8%; }
     .landing[data-color-layout="2"] .color-block-secondary { left: 40%; top: 54%; width: 13%; height: 7%; }
-    .landing-palette { gap: 5px; padding: 12px; bottom: 3%; }
-    .landing-palette button { width: 27px; height: 27px; }
+    .color-palette { gap: 5px; padding: 12px; bottom: 3%; }
+    .color-palette button { width: 27px; height: 27px; }
     .screen-chrome { padding: 20px 5%; min-height: 200px; }
     .screen-chrome nav, body.field-work #nav { width: 100%; gap: 15px 20px; font-size: 12px; }
     .screen-chrome .screen-identity { width: 57%; height: 42px; top: 62px; right: 5%; }

@@ -28,7 +28,7 @@ test('new categorized works build into the atlas and pages with visible copy and
     const bodyFile = path.join(root, 'poem.txt');
     await writeFile(bodyFile, text);
     const inputImage = path.join(source, 'img/projects/triptych/small/triptych_1.webp');
-    await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'spaces', image: inputImage, alt: 'a new image'}, root);
+    await addWork({type: 'project', key: 'future-project', title: 'future project', date: '2026-10-07', category: 'space', image: inputImage, alt: 'a new image'}, root);
     await addWork({type: 'writing', key: 'future-writing', title: 'future writing', date: '2026-10-07', body: bodyFile}, root);
     const projectRecord = JSON.parse(await readFile(path.join(root, 'json/projects.json'), 'utf8'));
     projectRecord[0].note = 'A visible introduction.';
@@ -45,12 +45,14 @@ test('new categorized works build into the atlas and pages with visible copy and
     const project = await readFile(path.join(root, 'projects/future-project.html'), 'utf8');
     const writing = await readFile(path.join(root, 'writings/future-writing.html'), 'utf8');
     const home = await readFile(path.join(root, 'home.html'), 'utf8');
-    assert.match(project, /data-category="spaces"/);
+    assert.match(project, /data-category="space"/);
+    assert.match(project, /2026\.10 \/ space/);
     assert.match(project, /<p class="project-note">A visible introduction.<\/p>/);
     assert.match(project, /<p>The entire description.<\/p>/);
     assert.match(project, /<p>A second paragraph with &lt;angles&gt;.<\/p>/);
     assert.ok(!project.includes('<details'));
     assert.match(project, /src="\/img\/projects\/future-project\/artwork.webp"/);
+    assert.match(writing, /2026\.10 \/ writing/);
     assert.match(writing, /a line with &lt;angles&gt; &amp; symbols\nKEEP This Casing\n  and this indentation./);
     assert.match(home, /data-map-node="work-project-future-project" href="\/projects\/future-project"/);
     assert.match(home, /data-map-node="work-writing-future-writing" href="\/writings\/future-writing"/);

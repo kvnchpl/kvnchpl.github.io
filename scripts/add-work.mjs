@@ -12,7 +12,7 @@ node scripts/add-work.mjs project key "Title" [--image FILE --alt "Description"]
 node scripts/add-work.mjs writing key "Title" --body FILE.txt [--date YYYY-MM-DD]
 node scripts/add-work.mjs project|writing key "Title" --url /pdf/file.pdf|https://example.com/ [--date YYYY-MM-DD]
 
---category images|spaces|interfaces|writing sets the browsing category.
+--category image|space|interface|writing sets the browsing category.
 
 Then edit the catalog record or writing body, and run:
 node scripts/build-site.mjs
@@ -36,7 +36,7 @@ export async function addWork(options, root = ROOT) {
     const page = `${type}s/${key}.html`;
     const mediaDirectory = `img/projects/${key}`;
     if (collection.some((work) => work.key === key) || existsSync(path.join(root, page)) || (image && existsSync(path.join(root, mediaDirectory)))) throw new Error(`Already exists: ${key}. Nothing was overwritten.`);
-    const category = options.category || (type === 'writing' ? 'writing' : 'images');
+    const category = options.category || (type === 'writing' ? 'writing' : 'image');
     if (!categories.includes(category)) throw new Error(`Use --category ${categories.join(', ')}.`);
     const record = {type, title, key, year, month, day, category};
     let imageDestination;

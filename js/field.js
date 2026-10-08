@@ -8,6 +8,8 @@
     const initial = new URL(location.href);
     // Previously shared atlas/index links both resolve to the single visual catalog.
     if (['network', 'index'].includes(initial.searchParams.get('view'))) initial.searchParams.set('view', 'atlas');
+    const renamedCategory = {images: 'image', spaces: 'space', interfaces: 'interface'}[initial.searchParams.get('category')];
+    if (renamedCategory) initial.searchParams.set('category', renamedCategory);
     initial.searchParams.delete('peek');
     history.replaceState(null, '', initial);
     function render(announce = false) {
@@ -70,15 +72,16 @@
         go(url);
         if (browser.open && link.matches('[data-category-filter]')) browser.scrollTop = 0;
     });
-    const landing = shell.querySelector('.landing');
-    const colors = [...shell.querySelectorAll('[data-color]')];
-    let intervention = 0;
-    colors.forEach((button, index) => button.addEventListener('click', () => {
-        colors.forEach((color) => color.setAttribute('aria-pressed', String(color === button)));
-        landing.style.setProperty('--intervention', button.dataset.color);
-        landing.style.setProperty('--counter-color', ['#ffff00', '#00ffff', '#0000ff'][index % 3]);
-        landing.dataset.colorLayout = String(++intervention % 3);
-    }));
+    for (const composition of shell.querySelectorAll('[data-color-composition]')) {
+        const colors = [...composition.querySelectorAll('[data-color]')];
+        let intervention = 0;
+        colors.forEach((button, index) => button.addEventListener('click', () => {
+            colors.forEach((color) => color.setAttribute('aria-pressed', String(color === button)));
+            composition.style.setProperty('--intervention', button.dataset.color);
+            composition.style.setProperty('--counter-color', ['#ffff00', '#00ffff', '#0000ff'][index % 3]);
+            composition.dataset.colorLayout = String(++intervention % 3);
+        }));
+    }
     window.addEventListener('popstate', () => render(true));
     window.addEventListener('hashchange', () => render(true));
     render();

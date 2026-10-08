@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkReturn, palette, categories } from './field.mjs';
+import { createField, renderField, renderWorkReturn, palette, categories, formatWorkDate } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
@@ -25,7 +25,7 @@ test('every work links directly from the atlas, including PDF and external desti
     assert.equal((html.match(/<dialog/g) || []).length, 2); // Catalog and about only.
 });
 test('all four categories appear in the unified catalog, including the writing collection', () => {
-    assert.deepEqual(categories, ['images', 'spaces', 'interfaces', 'writing']);
+    assert.deepEqual(categories, ['image', 'space', 'interface', 'writing']);
     for (const category of categories) {
         assert.ok([...field.nodes.values()].some((node) => node.category === category));
         assert.ok(renderField(field).includes(`data-category-filter="${category}"`));
@@ -63,4 +63,24 @@ test('titles and destinations are escaped', () => {
     const html = renderField(createField([{...projects[0], title: '<script>"test"</script>'}], [], {}));
     assert.ok(html.includes('&lt;script&gt;&quot;test&quot;&lt;/script&gt;'));
     assert.ok(!html.includes('<script>"test"</script>'));
+});
+
+test('catalog dates use the same year.month notation as work pages', () => {
+    assert.equal(formatWorkDate({year: 2025, month: 5}), '2025.05');
+    assert.equal(formatWorkDate({year: 2024, month: 12}), '2024.12');
+    assert.equal(formatWorkDate({year: 2027}), '2027');
+    assert.equal(formatWorkDate({}), 'undated');
+    const html = renderField(field);
+    for (const node of field.nodes.values()) {
+        assert.match(formatWorkDate(node), /^\d{4}\.\d{2}$/);
+        assert.ok(html.includes(`${node.category} / ${formatWorkDate(node)}`));
+    }
+});
+test('atlas color artifacts belong to the screen and each composition has its own palette', () => {
+    const html = renderField(field);
+    assert.ok(!html.includes('map-block'));
+    assert.equal((html.match(/class="atlas-artifacts"/g) || []).length, 1);
+    assert.equal((html.match(/data-color-composition/g) || []).length, 2);
+    assert.equal((html.match(/class="color-palette"/g) || []).length, 2);
+    assert.equal((html.match(/data-color="/g) || []).length, 16);
 });

@@ -3,7 +3,7 @@ import { existsSync } from 'node:fs';
 import { readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { createField, renderField, renderWorkReturn, renderIdentity, renderAbout } from './field.mjs';
+import { createField, renderField, renderWorkReturn, renderIdentity, renderAbout, formatWorkDate, ui } from './field.mjs';
 import { workPage } from './work-page.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -53,21 +53,6 @@ const pageConfigs = {
     }
 };
 
-const monthNames = [
-    null,
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-];
 
 function rootPath(relativePath) {
     return path.join(ROOT, relativePath);
@@ -113,12 +98,6 @@ function hash(value) {
     return createHash('sha256').update(value).digest('hex').slice(0, 10);
 }
 
-function monthYear(entry) {
-    if (!entry.year) return null;
-    if (typeof entry.month === 'number') return `${monthNames[entry.month]} ${entry.year}`;
-    if (typeof entry.month === 'string' && entry.month.trim()) return `${entry.month} ${entry.year}`;
-    return `${entry.year}`;
-}
 
 function publishedDate(entry) {
     if (!entry.year || typeof entry.month !== 'number' || typeof entry.day !== 'number') return null;
@@ -191,7 +170,7 @@ function renderSeo(config) {
 }
 
 function renderNav() {
-    const nav = `<div class="screen-chrome work-chrome">${renderIdentity()}<nav id="nav" aria-label="primary"><a href="/">k / c / c</a><a href="/projects">(project)s</a><a href="/about">a(bout)</a><a href="https://kvnchpl-thoughts.tumblr.com/">&amp;&amp;&amp;</a></nav></div>`;
+    const nav = `<div class="screen-chrome work-chrome">${renderIdentity()}<nav id="nav" aria-label="primary"><a href="/">k::c::c</a><a href="/projects" aria-label="projects">${ui.projects}</a><a href="/about" aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
     return generatedBlock('nav', nav, '    ');
 }
 
@@ -199,7 +178,7 @@ function renderPageHeader(work) {
     const title = metadataTitle(work.displayTitle || work.title);
     const longestWord = Math.max(...title.split(/\s+/).map((word) => word.length));
     const category = field.nodes.get(`${work.type}:${work.key}`).category;
-    const heading = `<header class="room-heading" style="--title-length:${longestWord}"><h1 id="main-heading">${escapeHtml(title).replaceAll('\n', '<br>')}</h1><p id="subtitle">${escapeHtml(monthYear(work) || '')} / ${category}</p></header>`;
+    const heading = `<header class="room-heading" style="--title-length:${longestWord}"><h1 id="main-heading">${escapeHtml(title).replaceAll('\n', '<br>')}</h1><p id="subtitle">${formatWorkDate(work)} / ${category}</p></header>`;
     return generatedBlock('page-header', `        ${heading}`, '        ');
 }
 
@@ -245,7 +224,7 @@ function renderSlideshow(project, images, sectionIndex) {
     ];
 
     if (count > 1) {
-        lines.push(`                        <button type="button" class="slideshow-control slideshow-prev" aria-label="Previous image, 1 of ${count}">&lt;</button>`);
+        lines.push(`                        <button type="button" class="slideshow-control slideshow-prev" aria-label="Previous image, 1 of ${count}">:&lt;:</button>`);
     }
 
     lines.push(
@@ -253,7 +232,7 @@ function renderSlideshow(project, images, sectionIndex) {
     );
 
     if (count > 1) {
-        lines.push(`                        <button type="button" class="slideshow-control slideshow-next" aria-label="Next image, 1 of ${count}">&gt;</button>`);
+        lines.push(`                        <button type="button" class="slideshow-control slideshow-next" aria-label="Next image, 1 of ${count}">:&gt;:</button>`);
     }
 
     lines.push(

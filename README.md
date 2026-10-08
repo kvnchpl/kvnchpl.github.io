@@ -22,7 +22,7 @@ The command copies the image, adds a catalog record, and creates the standard pa
 }
 ```
 
-One image per file is enough. Existing projects using `file` names and small/medium/full WebP exports continue to work. `thumbnail` is optional; the first image is used when it is absent. For a project without images, omit `--image` and add its content before building. Optional `note` adds a short introduction, also used for search and sharing. Section descriptions always render in full on the project page. Optional `displayTitle` adds editorial line breaks to the large project title (for example, `"VIEW\nFINDER"`); the regular `title` remains its catalog and sharing name. Title size adjusts to longer names.
+One image per file is enough. Existing projects using `file` names and small/medium/full WebP exports continue to work. `thumbnail` is optional; the first image is used when it is absent. For a project without images, omit `--image` and add its content before building. Optional `note` adds a short introduction, also used for search and sharing. Section descriptions always render in full on the project page. Optional `displayTitle` adds editorial line breaks to the large project title (for example, `"VIEW\nFINDER"`); the regular `title` remains its catalog and sharing name. Title size adjusts to longer names. Catalog and page dates use `YYYY.MM`; a record without a known month keeps only the year, and missing dates display `undated`.
 
 ## Add a writing
 
@@ -52,7 +52,7 @@ node scripts/check-site.mjs
 git diff --check
 ```
 
-Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the atlas, category filters, collection pages, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Each record has one `category`: `images` (image series and collages), `spaces` (installations, performance, and environments), `interfaces` (interactive and code-based work), or `writing` (poetry and publications). Use `--category spaces` when adding a project, or edit its catalog record later. Defaults are `images` for projects and `writing` for writings. `/projects` shows the entire catalog; `/writings` opens the writing filter. The internal project/writing file types remain the same.
+Commit sources, copied media, and generated HTML together. Building again should report zero updated files. New catalog entries appear automatically in the atlas, category filters, collection pages, and sitemap. The atlas uses growing grid rows with uneven offsets; it has no fixed work count, map coordinates, relationship records, or manually positioned nodes to maintain. Each record has one `category`: `image` (image series and collages), `space` (installations, performance, and environments), `interface` (interactive and code-based work), or `writing` (poetry and publications). Use `--category space` when adding a project, or edit its catalog record later. Defaults are `image` for projects and `writing` for writings. `/projects` shows the entire catalog; `/writings` opens the writing filter. The internal project/writing file types remain the same.
 
 ## Structure
 
@@ -69,7 +69,7 @@ Commit sources, copied media, and generated HTML together. Building again should
 
 Work links are ordinary links to complete pages, PDFs, or external projects. There are no work previews or passage links. Atlas/about screens use borderless, full-viewport native dialogs with focus containment, Escape, and browser history. A work's return link opens its location in the atlas. Without JavaScript, the linked atlas and standalone about page remain usable. Old `?view=network` and `?view=index` links resolve to the atlas.
 
-The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. Color rectangles interrupt static compositions. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about screen. Every page has a black background; color rectangles interrupt it without animating the layout. Artwork colors and preformatted poetry are preserved.
+The interface palette is black, white, red, green, blue, cyan, magenta, and yellow. The atlas’s color rectangles belong to the screen rather than to thumbnails. Its eight-color swatch panel changes the rectangles’ color and static arrangement independently of the entrance panel. Rectangles allow pointer events through to the catalog links. Artwork retains its own colors. Profile copy lives in `about.html` and is reused in the about screen. Every page has a black background; color rectangles interrupt it without animating the layout. Artwork colors and preformatted poetry are preserved.
 
 ## Public files and local archive
 
