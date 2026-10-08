@@ -46,8 +46,8 @@ const pageConfigs = {
         title: 'About',
         description: 'About Kevin Cunanan Chappelle, a Brooklyn-based artist working across digital, physical, and spiritual spaces.',
         canonicalPath: '/about',
-        image: '/img/contact/self_portrait.webp',
-        imageAlt: 'Kevin Cunanan Chappelle',
+        image: '/img/contact/contact_email.webp',
+        imageAlt: 'contact email',
         ogType: 'profile',
         twitterCard: 'summary'
     }

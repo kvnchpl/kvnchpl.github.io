@@ -3,7 +3,7 @@ const escape = (value) => String(value).replaceAll('&', '&amp;').replaceAll('<',
 export function workPage(type, key, body = '') {
     const content = type === 'project'
         ? '<div id="content-page-container" class="project-content">\n        <!-- generated:project:start -->\n        <!-- generated:project:end -->\n        </div>'
-        : `<pre class="writing-content">${escape(body)}</pre>`;
+        : `<div class="writing-body"><pre class="writing-content">${escape(body)}</pre></div>`;
     return `<!DOCTYPE html>
 <html lang="en">
 <head>

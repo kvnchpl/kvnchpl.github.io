@@ -18,7 +18,14 @@ test('swatches toggle independently, retain one color, and preserve other rectan
     const regenerate = context.initColorPalette(composition);
     const active = () => buttons.filter((button) => button.attributes['aria-pressed'] === 'true');
     assert.equal(active().length, 1);
-    buttons[4].click(); // The last selected swatch stays selected.
+    const initialRectangle = artifacts.children[0];
+    const initialPosition = {...initialRectangle.style};
+    buttons[4].click(); // The sole selected swatch moves its rectangle without deselecting.
+    assert.equal(artifacts.children.length, 1);
+    assert.equal(artifacts.children[0], initialRectangle);
+    assert.equal(initialRectangle.style.width, initialPosition.width);
+    assert.equal(initialRectangle.style.height, initialPosition.height);
+    assert.notDeepEqual(initialRectangle.style, initialPosition);
     assert.equal(active().length, 1);
     const blueRectangle = artifacts.children[0];
     const bluePosition = {...blueRectangle.style};

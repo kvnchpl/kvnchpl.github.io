@@ -6,15 +6,21 @@ function initColorPalette(composition) {
     const rectangles = new Map();
     if (!selected.size) selected.add(buttons[0].dataset.color);
     const random = (min, max) => min + Math.random() * (max - min);
+    function moveRectangle(rectangle) {
+        Object.assign(rectangle.style, {
+            left: `${random(0, 100 - parseFloat(rectangle.style.width))}%`,
+            top: `${random(18, 86 - parseFloat(rectangle.style.height))}%`
+        });
+    }
     function addRectangle(color) {
         const rectangle = document.createElement('span');
         rectangle.className = 'color-rectangle';
         const width = random(8, 30);
         const height = random(4, 20);
         Object.assign(rectangle.style, {
-            background: color, width: `${width}%`, height: `${height}%`,
-            left: `${random(0, 100 - width)}%`, top: `${random(18, 86 - height)}%`
+            background: color, width: `${width}%`, height: `${height}%`
         });
+        moveRectangle(rectangle);
         rectangles.set(color, rectangle);
         artifacts.append(rectangle);
     }
@@ -30,7 +36,10 @@ function initColorPalette(composition) {
     buttons.forEach((button) => button.addEventListener('click', () => {
         const color = button.dataset.color;
         if (selected.has(color)) {
-            if (selected.size === 1) return;
+            if (selected.size === 1) {
+                moveRectangle(rectangles.get(color));
+                return;
+            }
             selected.delete(color);
             rectangles.get(color).remove();
             rectangles.delete(color);

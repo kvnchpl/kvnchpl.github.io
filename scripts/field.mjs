@@ -52,7 +52,7 @@ export function renderNavigation(page = '', popup = false) {
 }
 export function renderAbout(about, popup = false) {
     return `${renderNavigation('about', popup)}
-        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div></section>`;
+        <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-image" src="/img/contact/contact_email.webp" alt="contact email" /><div class="about-copy">${about}</div></section>`;
 }
 function renderMap(nodes) {
     return `<div class="field-map" aria-label="collection of projects and writing">${nodes.map((node) => {
