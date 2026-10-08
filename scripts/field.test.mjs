@@ -9,12 +9,14 @@ const field = createField(projects, writings, config);
 
 test('navigation codes use only the allowed symbols and are unique for every label', () => {
     const codes = Object.values(navCodes);
-    const allowed = new Set('[]*!+?:=>');
+    const allowed = new Set('[]*!+?:=<>');
     for (const code of codes) {
         assert.equal(code.length, 3);
         assert.ok([...code].every((symbol) => allowed.has(symbol)), code);
     }
     assert.equal(new Set(codes).size, codes.length);
+    assert.ok(renderWorkReturn('project:viewfinder').includes('&lt;&lt;&lt;'));
+    assert.ok(renderField(field).includes('&lt;+&gt;'));
 });
 
 test('every work links directly from the atlas, including PDF and external destinations', () => {
