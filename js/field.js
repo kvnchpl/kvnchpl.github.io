@@ -23,6 +23,7 @@ function initColorPalette(composition) {
         close.className = 'rectangle-close';
         close.textContent = 'x';
         close.addEventListener('click', (event) => {
+            if (event.detail > 0) close.blur();
             toggleColor(color);
             if (event.detail === 0 && !selected.has(color)) buttons.find((button) => button.dataset.color === color).focus();
         });

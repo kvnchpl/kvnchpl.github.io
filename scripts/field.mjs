@@ -3,8 +3,8 @@ export const anchorFor = (id) => `work-${id.replace(':', '-')}`;
 export const palette = [['black', '#000000'], ['white', '#ffffff'], ['red', '#ff0000'], ['green', '#00ff00'], ['blue', '#0000ff'], ['cyan', '#00ffff'], ['magenta', '#ff00ff'], ['yellow', '#ffff00']];
 export const categoryLabel = (category) => category === 'image' ? 'images' : category;
 export const categories = ['image', 'space', 'interface', 'writing'];
-// Three-character codes stay consistent wherever a destination appears.
-export const navCodes = {home: '^./', about: '?::', collection: '[*]', thoughts: '...', reading: '|:|', watching: '[>]', listening: ')))', hydrants: '!+!', homestuck: '>=>', return: '<--', all: '[*]', image: '[.]', space: '|_|', interface: '>_$', writing: ':::'};
+// Each label has a unique three-character code using only []*!+?:=>.
+export const navCodes = {home: '[!]', about: '?::', collection: '[*]', thoughts: '???', reading: '[:]', watching: '[>]', listening: ']+[', hydrants: '!+!', homestuck: '>=>', return: '!!>', all: '***', image: '[+]', space: '[]=', interface: '>:=', writing: ':::'};
 export function renderNavLabel(key) {
     return `<span class="nav-code" aria-hidden="true">${escape(navCodes[key])}</span><span class="nav-label">${escape(categoryLabel(key))}</span>`;
 }

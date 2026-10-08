@@ -1,11 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
-import { createField, renderField, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate } from './field.mjs';
+import { createField, renderField, renderWorkReturn, palette, categories, categoryLabel, formatWorkDate, navCodes } from './field.mjs';
 
 const read = async (name) => JSON.parse(await readFile(new URL(`../json/${name}.json`, import.meta.url), 'utf8'));
 const [projects, writings, config] = await Promise.all(['projects', 'writings', 'field'].map(read));
 const field = createField(projects, writings, config);
+
+test('navigation codes use only the allowed symbols and are unique for every label', () => {
+    const codes = Object.values(navCodes);
+    const allowed = new Set('[]*!+?:=>');
+    for (const code of codes) {
+        assert.equal(code.length, 3);
+        assert.ok([...code].every((symbol) => allowed.has(symbol)), code);
+    }
+    assert.equal(new Set(codes).size, codes.length);
+});
 
 test('every work links directly from the atlas, including PDF and external destinations', () => {
     const html = renderField(field);

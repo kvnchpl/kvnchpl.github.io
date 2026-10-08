@@ -11,6 +11,8 @@ test('swatches and rectangle controls retain one color, preserve other rectangle
         querySelector() {return this.children[0];},
         setAttribute(key, value) {this.attributes[key] = value;},
         removeAttribute(key) {delete this.attributes[key];},
+        focus() {this.focused = true;},
+        blur() {this.focused = false;},
         addEventListener(name, handler) {this[name] = handler;}
     });
     const buttons = palette.map(([name, color]) => ({
@@ -31,10 +33,15 @@ test('swatches and rectangle controls retain one color, preserve other rectangle
     const initialPosition = {...initialRectangle.style};
     const soleControl = initialRectangle.children[0];
     assert.equal(soleControl.attributes['aria-label'], 'reposition blue rectangle');
+    soleControl.focus();
     soleControl.click({detail: 1});
+    assert.equal(soleControl.focused, false); // Pointer activation must not leave the x visible via focus.
     assert.equal(active().length, 1);
     assert.equal(artifacts.children[0], initialRectangle);
     assert.notDeepEqual(initialRectangle.style, initialPosition);
+    soleControl.focus();
+    soleControl.click({detail: 0});
+    assert.equal(soleControl.focused, true); // Keyboard users can keep activating the control.
     const beforeSwatch = {...initialRectangle.style};
     buttons[4].click(); // The sole selected swatch moves its rectangle without deselecting.
     assert.equal(artifacts.children.length, 1);
