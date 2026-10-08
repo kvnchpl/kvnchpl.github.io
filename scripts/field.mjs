@@ -45,13 +45,13 @@ export const previewFor = (node) => {
 export function renderIdentity(className = '') {
     return `<div class="screen-identity${className ? ` ${className}` : ''}"><a href="/" aria-label="KEVIN CUNANAN CHAPPELLE"><svg viewBox="0 0 1200 400" preserveAspectRatio="none" aria-hidden="true" focusable="false"><text x="0" y="350" font-size="400" textLength="1200" lengthAdjust="spacingAndGlyphs">KEVIN CUNANAN CHAPPELLE</text></svg><span class="visually-hidden">KEVIN CUNANAN CHAPPELLE</span></a></div>`;
 }
-// The collection and individual works share the same navigation and identity.
-export function renderNavigation(collection = false) {
-    const home = collection ? `<button type="button" data-browser-close aria-label="home">${ui.home}</button>` : `<a href="/" aria-label="home">${ui.home}</a>`;
-    return `<div class="screen-chrome page-chrome">${renderIdentity()}<nav id="nav" class="site-nav" aria-label="primary">${home}<a href="/projects" data-atlas-open aria-label="collection"${collection ? ' aria-current="page"' : ''}>${ui.collection}</a><a href="/about" data-about-open aria-label="about">${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
+// About, the collection, and individual works share navigation and identity.
+export function renderNavigation(page = '', popup = false) {
+    const home = popup ? `<button type="button" data-browser-close aria-label="home">${ui.home}</button>` : `<a href="/" aria-label="home">${ui.home}</a>`;
+    return `<div class="screen-chrome page-chrome">${renderIdentity()}<nav class="site-nav" aria-label="primary">${home}<a href="/projects" data-atlas-open aria-label="collection"${page === 'collection' ? ' aria-current="page"' : ''}>${ui.collection}</a><a href="/about" data-about-open aria-label="about"${page === 'about' ? ' aria-current="page"' : ''}>${ui.about}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>`;
 }
 export function renderAbout(about, popup = false) {
-    return `<div class="screen-chrome">${renderIdentity()}<nav aria-label="about navigation">${popup ? `<button type="button" data-about-close aria-label="return">${ui.return}</button>` : `<a href="/" aria-label="return to entrance">${ui.return}</a>`}<a href="/projects" data-about-atlas aria-label="collection">${ui.collection}</a><a href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a></nav></div>
+    return `${renderNavigation('about', popup)}
         <section class="about-room" aria-labelledby="${popup ? 'about-screen-heading' : 'about-heading'}"><h${popup ? '2' : '1'} id="${popup ? 'about-screen-heading' : 'about-heading'}">ABOUT</h${popup ? '2' : '1'}><img class="about-portrait" src="/img/contact/self_portrait.webp" alt="kevin cunanan chappelle" /><div class="about-copy">${about}<img class="about-email" src="/img/contact/contact_email.webp" alt="contact email" /></div><span class="about-block" aria-hidden="true"></span></section>`;
 }
 function renderMap(nodes) {
@@ -65,15 +65,15 @@ export function renderField(field, filter = 'all', about = '') {
     const featured = field.nodes.get(field.landing.work);
     const featuredImage = field.landing.image || previewFor(featured);
     return `<div class="field-shell" data-default-view="${filter === 'all' ? 'landing' : 'atlas'}" data-default-category="${filter === 'writing' ? 'writing' : 'all'}">
-        <div class="landing" data-color-composition data-color-layout="0">
+        <div class="landing" data-color-composition>
             <h1 class="visually-hidden">KEVIN CUNANAN CHAPPELLE</h1>${renderIdentity('landing-name')}
             <a class="landing-image" href="${escape(field.landing.href || featured.href)}"${field.landing.href === '/about' ? ' data-about-open aria-label="about"' : `${destinationAttributes(featured)} aria-label="open ${escape(featured.title.toLowerCase())}"`}>${featuredImage ? `<img src="${escape(featuredImage)}" alt="" width="3000" height="3000" fetchpriority="high" />` : ''}</a>
             <nav class="landing-links" aria-label="primary"><a class="landing-projects" href="/projects" data-atlas-open aria-label="collection">${ui.collection}</a><a class="landing-about" href="/about" data-about-open aria-label="about">${ui.about}</a><a class="landing-thoughts" href="https://kvnchpl-thoughts.tumblr.com/" aria-label="thoughts">${ui.thoughts}</a>${[['reading', 'https://www.goodreads.com/kvnchpl'], ['watching', 'https://letterboxd.com/kvnchpl/'], ['listening', 'https://soundcloud.com/kvnchpl'], ['hydrants', 'https://hydranthunt.com/'], ['homestuck', 'https://kvnchpl.com/homestuck-book-club/']].map(([key, href]) => `<a class="landing-${key}" href="${href}" aria-label="${key}">${ui[key]}</a>`).join('')}</nav>
-            <div class="color-block color-block-primary" aria-hidden="true"></div><div class="color-block color-block-secondary" aria-hidden="true"></div>
+            <div class="color-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:70%;top:48%;width:25%;height:26%"></span></div>
             ${renderPalette()}
         </div>
-        <dialog class="field-screen field-browser" data-field-browser data-color-composition data-color-layout="0" aria-labelledby="atlas-heading">${renderNavigation(true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${category}">${ui[category]}</a>`).join('')}</nav></div>
-        <div class="atlas-artifacts" aria-hidden="true"><span class="atlas-artifact-primary"></span><span class="atlas-artifact-secondary"></span></div>
+        <dialog class="field-screen field-browser" data-field-browser data-color-composition aria-labelledby="atlas-heading">${renderNavigation('collection', true)}<div class="collection-heading"><h2 id="atlas-heading">COLLECTION</h2><nav class="field-categories" aria-label="collection categories"><a href="/projects" data-category-filter="all" aria-label="all">${ui.all}</a>${categories.map((category) => `<a href="/projects?category=${category}" data-category-filter="${category}" aria-label="${category}">${ui[category]}</a>`).join('')}</nav></div>
+        <div class="atlas-artifacts" data-color-artifacts aria-hidden="true"><span class="color-rectangle" style="background:blue;left:54%;top:47%;width:23%;height:8%"></span></div>
         ${renderMap([...field.nodes.values()])}
         ${renderPalette()}
         </dialog>

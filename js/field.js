@@ -1,3 +1,37 @@
+// Each screen owns its selected colors; redraw without animation on entry or a toggle.
+function initColorPalette(composition) {
+    const buttons = [...composition.querySelectorAll('[data-color]')];
+    const artifacts = composition.querySelector('[data-color-artifacts]');
+    const selected = new Set(buttons.filter((button) => button.getAttribute('aria-pressed') === 'true').map((button) => button.dataset.color));
+    if (!selected.size) selected.add(buttons[0].dataset.color);
+    const random = (min, max) => min + Math.random() * (max - min);
+    function regenerate() {
+        buttons.forEach((button) => button.setAttribute('aria-pressed', String(selected.has(button.dataset.color))));
+        const rectangles = [...selected].map((color) => {
+            const rectangle = document.createElement('span');
+            rectangle.className = 'color-rectangle';
+            const width = random(8, 30);
+            const height = random(4, 20);
+            Object.assign(rectangle.style, {
+                background: color, width: `${width}%`, height: `${height}%`,
+                left: `${random(0, 100 - width)}%`, top: `${random(18, 86 - height)}%`
+            });
+            return rectangle;
+        });
+        artifacts.replaceChildren(...rectangles);
+    }
+    buttons.forEach((button) => button.addEventListener('click', () => {
+        const color = button.dataset.color;
+        if (selected.has(color)) {
+            if (selected.size === 1) return;
+            selected.delete(color);
+        } else selected.add(color);
+        regenerate();
+    }));
+    regenerate();
+    return regenerate;
+}
+
 (() => {
     const shell = document.querySelector('.field-shell');
     if (!shell || typeof HTMLDialogElement === 'undefined') return;
@@ -5,6 +39,8 @@
     const about = shell.querySelector('[data-about-popup]');
     const nodes = [...shell.querySelectorAll('[data-map-node]')];
     const filters = [...shell.querySelectorAll('[data-category-filter]')];
+    const regenerateColors = new Map([...shell.querySelectorAll('[data-color-composition]')].map((composition) => [composition, initColorPalette(composition)]));
+    let previousView;
     const initial = new URL(location.href);
     // Previously shared atlas/index links both resolve to the single visual catalog.
     if (['network', 'index'].includes(initial.searchParams.get('view'))) initial.searchParams.set('view', 'atlas');
@@ -20,6 +56,10 @@
         for (const [dialog, open] of [[browser, view === 'atlas'], [about, view === 'about']]) {
             if (!open && dialog.open) dialog.close();
             if (open && !dialog.open) dialog.showModal();
+        }
+        if (view !== previousView) {
+            regenerateColors.get(view === 'atlas' ? browser : shell.querySelector('.landing'))?.();
+            previousView = view;
         }
         document.documentElement.classList.toggle('field-screen-open', browser.open || about.open);
         nodes.forEach((node) => {
@@ -45,16 +85,16 @@
         url.hash = '';
         go(url);
     }
-    for (const [dialog, selector] of [[browser, '[data-browser-close]'], [about, '[data-about-close]']]) {
+    for (const dialog of [browser, about]) {
         const close = dialog === about ? () => {
             const url = new URL(location.href);
             url.searchParams.delete('about');
             go(url);
         } : entrance;
-        dialog.querySelector(selector).addEventListener('click', close);
+        dialog.querySelector('[data-browser-close]').addEventListener('click', entrance);
         dialog.addEventListener('cancel', (event) => { event.preventDefault(); close(); });
     }
-    shell.querySelectorAll('[data-about-open], [data-atlas-open], [data-about-atlas]').forEach((link) => link.setAttribute('aria-haspopup', 'dialog'));
+    shell.querySelectorAll('[data-about-open], [data-atlas-open]').forEach((link) => link.setAttribute('aria-haspopup', 'dialog'));
     shell.addEventListener('click', (event) => {
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const link = event.target.closest('a');
@@ -62,7 +102,7 @@
         const url = new URL(location.href);
         if (link.matches('[data-about-open]')) {
             url.searchParams.set('about', '1');
-        } else if (link.matches('[data-atlas-open], [data-about-atlas], [data-category-filter]')) {
+        } else if (link.matches('[data-atlas-open], [data-category-filter]')) {
             url.searchParams.delete('about');
             url.searchParams.set('view', 'atlas');
             url.searchParams.set('category', link.dataset.categoryFilter || 'all');
@@ -72,16 +112,6 @@
         go(url);
         if (browser.open && link.matches('[data-category-filter]')) browser.scrollTop = 0;
     });
-    for (const composition of shell.querySelectorAll('[data-color-composition]')) {
-        const colors = [...composition.querySelectorAll('[data-color]')];
-        let intervention = 0;
-        colors.forEach((button, index) => button.addEventListener('click', () => {
-            colors.forEach((color) => color.setAttribute('aria-pressed', String(color === button)));
-            composition.style.setProperty('--intervention', button.dataset.color);
-            composition.style.setProperty('--counter-color', ['#ffff00', '#00ffff', '#0000ff'][index % 3]);
-            composition.dataset.colorLayout = String(++intervention % 3);
-        }));
-    }
     window.addEventListener('popstate', () => render(true));
     window.addEventListener('hashchange', () => render(true));
     render();

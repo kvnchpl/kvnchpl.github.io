@@ -1,0 +1,40 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import vm from 'node:vm';
+import {palette} from './field.mjs';
+
+test('swatches toggle independently, retain one color, and regenerate bounded rectangles', async () => {
+    const buttons = palette.map(([name, color]) => ({
+        dataset: {color}, attributes: {'aria-pressed': String(name === 'blue')},
+        getAttribute(key) {return this.attributes[key];},
+        setAttribute(key, value) {this.attributes[key] = value;},
+        addEventListener(name, handler) {this[name] = handler;}
+    }));
+    const artifacts = {replaceChildren(...children) {this.children = children;}};
+    const composition = {querySelectorAll() {return buttons;}, querySelector() {return artifacts;}};
+    const context = vm.createContext({document: {querySelector() {return null;}, createElement() {return {style: {}};}}});
+    vm.runInContext(await readFile(new URL('../js/field.js', import.meta.url), 'utf8'), context);
+    const regenerate = context.initColorPalette(composition);
+    const active = () => buttons.filter((button) => button.attributes['aria-pressed'] === 'true');
+    assert.equal(active().length, 1);
+    buttons[4].click(); // The last selected swatch stays selected.
+    assert.equal(active().length, 1);
+    buttons.filter((button) => button !== buttons[4]).forEach((button) => button.click());
+    assert.equal(active().length, 8);
+    assert.deepEqual(artifacts.children.map((rectangle) => rectangle.style.background).sort(), palette.map(([, color]) => color).sort());
+    for (const {style} of artifacts.children) {
+        assert.ok(parseFloat(style.left) >= 0 && parseFloat(style.left) + parseFloat(style.width) <= 100);
+        assert.ok(parseFloat(style.top) >= 18 && parseFloat(style.top) + parseFloat(style.height) <= 86);
+    }
+    const previous = artifacts.children;
+    regenerate();
+    assert.notEqual(artifacts.children[0], previous[0]);
+    assert.notDeepEqual(artifacts.children.map((rectangle) => rectangle.style), previous.map((rectangle) => rectangle.style));
+    buttons[0].click();
+    assert.equal(active().length, 7);
+    buttons.slice(1, 7).forEach((button) => button.click());
+    assert.equal(active().length, 1);
+    buttons[7].click();
+    assert.equal(active().length, 1);
+});

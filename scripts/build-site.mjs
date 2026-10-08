@@ -176,8 +176,7 @@ function renderNav() {
 function renderPageHeader(work) {
     const title = metadataTitle(work.displayTitle || work.title);
     const longestWord = Math.max(...title.split(/\s+/).map((word) => word.length));
-    const category = field.nodes.get(`${work.type}:${work.key}`).category;
-    const heading = `<header class="room-heading" style="--title-length:${longestWord}"><h1 id="main-heading">${escapeHtml(title).replaceAll('\n', '<br>')}</h1><p id="subtitle">${formatWorkDate(work)} / ${category}</p></header>`;
+    const heading = `<header class="room-heading" style="--title-length:${longestWord}"><h1 id="main-heading">${escapeHtml(title).replaceAll('\n', '<br>')}</h1><p id="subtitle">${formatWorkDate(work)}</p></header>`;
     return generatedBlock('page-header', `        ${heading}`, '        ');
 }
 
@@ -223,7 +222,7 @@ function renderSlideshow(project, images, sectionIndex) {
     ];
 
     if (count > 1) {
-        lines.push(`                        <button type="button" class="slideshow-control slideshow-prev" aria-label="Previous image, 1 of ${count}">:&lt;:</button>`);
+        lines.push(`                        <button type="button" class="slideshow-control slideshow-prev" aria-label="Previous image, 1 of ${count}">&lt;&lt;&lt;</button>`);
     }
 
     lines.push(
@@ -231,7 +230,7 @@ function renderSlideshow(project, images, sectionIndex) {
     );
 
     if (count > 1) {
-        lines.push(`                        <button type="button" class="slideshow-control slideshow-next" aria-label="Next image, 1 of ${count}">:&gt;:</button>`);
+        lines.push(`                        <button type="button" class="slideshow-control slideshow-next" aria-label="Next image, 1 of ${count}">&gt;&gt;&gt;</button>`);
     }
 
     lines.push(
