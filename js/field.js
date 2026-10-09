@@ -81,6 +81,7 @@ function initColorPalette(composition) {
     const browser = shell.querySelector('[data-field-browser]');
     const about = shell.querySelector('[data-about-popup]');
     const nodes = [...shell.querySelectorAll('[data-map-node]')];
+    const empty = shell.querySelector('[data-collection-empty]');
     const filters = [...shell.querySelectorAll('[data-category-filter]')];
     const tagFilters = [...shell.querySelectorAll('[data-tag-filter]')];
     const resetColors = new Map([...shell.querySelectorAll('[data-color-composition]')].map((composition) => [composition, initColorPalette(composition)]));
@@ -112,6 +113,8 @@ function initColorPalette(composition) {
             node.hidden = (selectedCategory !== 'all' && node.dataset.category !== selectedCategory)
                 || (selectedTag !== null && !(node.dataset.tags || '').split(' ').includes(selectedTag));
         });
+        const visibleCount = nodes.filter((node) => !node.hidden).length;
+        if (empty) empty.hidden = visibleCount > 0;
         filters.forEach((link) => {
             link.setAttribute('aria-current', link.dataset.categoryFilter === selectedCategory ? 'page' : 'false');
             const destination = new URL('/projects', location.href);
@@ -128,7 +131,7 @@ function initColorPalette(composition) {
             link.href = destination.href;
         });
         if (browser.open && url.hash) nodes.find((node) => node.id === url.hash.slice(1) && !node.hidden)?.scrollIntoView({block: 'center'});
-        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'atlas' ? `${selectedCategory} collection${selectedTag ? `, #${selectedTag}` : ''}, ${nodes.filter((node) => !node.hidden).length} works` : view === 'about' ? 'about' : 'entrance';
+        if (announce) shell.querySelector('[data-field-announcement]').textContent = view === 'atlas' ? `${selectedCategory} collection${selectedTag ? `, #${selectedTag}` : ''}, ${visibleCount} works` : view === 'about' ? 'about' : 'entrance';
     }
     function go(url) {
         if (url.href !== location.href) history.pushState(null, '', url);

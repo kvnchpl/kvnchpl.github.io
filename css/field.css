@@ -62,6 +62,7 @@ main.field-main { display: block; overflow: visible; }
 .field-categories a[aria-current="page"], .field-tags a[aria-current="page"] { background: blue; text-decoration: none; padding: 3px 8px; margin: -3px -8px; }
 /* Each link owns a cell; irregular offsets remain safe as the catalog grows. */
 .field-map { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px 8% 100px; background: black; }
+.collection-empty { grid-column: 1 / -1; margin: 0; font-size: 13px; line-height: 1.7; }
 .field-page a.map-node { display: block; position: relative; color: white; text-decoration: none; width: 82%; min-width: 0; align-self: start; overflow-wrap: anywhere; }
 .field-map .map-node:nth-child(6n+2) { margin-top: 100px; justify-self: end; }
 .field-map .map-node:nth-child(6n+3) { margin-top: 30px; width: 70%; }
