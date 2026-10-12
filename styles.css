@@ -790,6 +790,12 @@ button {
   print-color-adjust: exact;
 }
 
+.character-intro-link,
+.roster-name,
+.character-handle {
+  text-shadow: var(--character-name-shadow, none);
+}
+
 .character-stats .reference-team-blue {
   color: #0000ff;
 }

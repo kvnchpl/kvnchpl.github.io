@@ -1534,14 +1534,11 @@ window.HOMESTUCK_REFERENCE = {
           "id": "powers",
           "variants": [
             {
-              "from": "act-5-act-2-part-1",
+              "from": "act-5-act-1",
               "label": "Powers",
               "value": "Animal communion",
-              "sourcePage": 3053,
-              "sourcePages": [
-                3057
-              ],
-              "sourceKind": "composite"
+              "sourcePage": 2101,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -2475,6 +2472,13 @@ window.HOMESTUCK_REFERENCE = {
         {
           "id": "powers",
           "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Powers",
+              "value": "Mind control, with limits that vary by target",
+              "sourcePage": 2245,
+              "sourceKind": "direct"
+            },
             {
               "from": "act-5-act-2-part-1",
               "label": "Powers",
@@ -4992,22 +4996,15 @@ window.HOMESTUCK_REFERENCE = {
           "id": "powers",
           "variants": [
             {
-              "from": "act-5-act-2-part-1",
-              "label": "Powers",
-              "value": "Near-omnipotence · Omniscience",
-              "sourcePage": 3238,
-              "sourceKind": "direct"
-            },
-            {
-              "from": "act-5-act-2-part-2",
+              "from": "act-5-act-1",
               "label": "Powers",
               "value": "Near-omnipotence · Omniscience with blind spots",
-              "sourcePage": 3238,
-              "sourceKind": "composite",
+              "sourcePage": 2253,
               "sourcePages": [
-                3627,
-                3757
-              ]
+                2254,
+                2256
+              ],
+              "sourceKind": "composite"
             }
           ]
         },
@@ -8165,7 +8162,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Sprite",
           "aliases": [],
-          "definition": "The guide left when a kernelsprite's kernel divides upon entry, retaining traits of its prototypes and gaining knowledge of the game. A living person can join one, as Dave does to become Davesprite; the trolls mostly prototype dead lusus, gaining guides they can finally speak with.",
+          "definition": "The guide left when a kernelsprite's kernel divides upon entry, retaining traits of its prototypes and gaining knowledge of the game. A living person can join one, as Dave does to become Davesprite; the trolls mostly prototype dead lusii, gaining guides they can finally speak with.",
           "sourcePage": 251,
           "sourcePages": [
             281,
@@ -8178,7 +8175,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Sprite",
           "aliases": [],
-          "definition": "A prototyped guide that gains knowledge of the game and retains traits of its prototypes, which can include living people or dead lusus. Useful conversation is not guaranteed: Becsprite cannot explain things to Jade, who adds her dead dreamself in a second prototyping to create Jadesprite.",
+          "definition": "A prototyped guide that gains knowledge of the game and retains traits of its prototypes, which can include living people or dead lusii. Useful conversation is not guaranteed: Becsprite cannot explain things to Jade, who adds her dead dreamself in a second prototyping to create Jadesprite.",
           "sourcePage": 2088,
           "sourcePages": [
             1657,
@@ -9630,9 +9627,10 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Lusus",
           "aliases": [
             "Lusus naturae",
-            "Custodian"
+            "Custodian",
+            "Lusii"
           ],
-          "definition": "A creature that chooses and raises a young troll in place of biological parents. Most of the players prototype their dead lusus before entering the Medium, allowing them to speak with their custodians as sprites.",
+          "definition": "A creature that chooses and raises a young troll in place of biological parents. Most of the players prototype their dead lusii before entering the Medium, allowing them to speak with their custodians as sprites.",
           "sourcePage": 2069,
           "sourcePages": [
             2088
@@ -9814,7 +9812,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "MOB1US DOUBL3 R34CH4ROUND virus"
           ],
-          "definition": "Sollux's virus, which Karkat runs, curses Karkat, his friends, and everyone they will meet with misfortune. The impending deaths of the trolls' lusus are connected to this curse.",
+          "definition": "Sollux's virus, which Karkat runs, curses Karkat, his friends, and everyone they will meet with misfortune. The impending deaths of the trolls' lusii are connected to this curse.",
           "sourcePage": 2088,
           "sourceKind": "direct"
         }
@@ -10033,7 +10031,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Scratch",
           "aliases": [],
-          "definition": "A rift in paradox space that the game provides a way to create. Aradia says its direct effects are confined to the session invoking it, but the kids' future Scratch will have consequences for the trolls by forcing their powerful enemy out of hiding.",
+          "definition": "Aradia describes a game-supported rift in paradox space whose direct effects are confined to the session invoking it. She believes the kids' future Scratch will nevertheless affect the trolls by forcing their powerful enemy out of hiding.",
           "sourcePage": 2602,
           "sourcePages": [
             2603,
@@ -10046,7 +10044,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Scratch",
           "aliases": [],
-          "definition": "A game-supported rift in paradox space whose direct effects are confined to the session invoking it. The kids are preparing one as part of a plan involving the trolls; it is also what will force their session's Jack Noir into the trolls' session and prevent the trolls from claiming their reward.",
+          "definition": "The trolls describe it as a game-supported rift in paradox space whose direct effects stay within the session invoking it. They expect the kids' planned Scratch to force Jack Noir into the trolls' session, connecting it to the intruder who prevents them from claiming their reward.",
           "sourcePage": 2602,
           "sourcePages": [
             2603,
@@ -10061,7 +10059,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Scratch",
           "aliases": [],
-          "definition": "A hard reset of a failed session that changes conditions in its originating universe long before the players began the game. It is triggered through a special construct on the Time player's planet; anyone remaining in the session faces erasure, and the new lives do not retain their memories. Scratch clarifies that the reset itself does not open the rift the kids expected.",
+          "definition": "A hard reset of a failed session that changes conditions in its originating universe long before the players began the game. It is triggered through a special construct on the Time player's planet; anyone remaining in the session faces erasure, and the new lives do not retain their memories. Doc Scratch clarifies that the reset itself does not open the rift the kids expected.",
           "sourcePage": 3629,
           "sourceKind": "composite",
           "sourcePages": [
@@ -10352,7 +10350,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Quest cocoon"
           ],
-          "definition": "A sacrificial resting place involved in reaching god tier, called a quest cocoon in Vriska's case. John and Vriska ascend after dying on theirs while their dreamselves are alive; Scratch also confirms a second quest bed provides another route to ascension.",
+          "definition": "A sacrificial resting place involved in reaching god tier, called a quest cocoon in Vriska's case. John and Vriska ascend after dying on theirs while their dreamselves are alive; Doc Scratch also confirms a second quest bed provides another route to ascension.",
           "sourcePage": 3630,
           "sourceKind": "composite",
           "sourcePages": [
@@ -10628,9 +10626,14 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Matriorb",
           "aliases": [],
           "from": "act-5-act-2-part-2",
-          "definition": "An egg that can hatch a new mother grub, making it essential to the trolls' plan to repopulate. Kanaya is entrusted with keeping it.",
+          "definition": "An egg capable of hatching a new mother grub, entrusted to Kanaya as the trolls' hope for repopulation. Eridan destroys it during his attack on the meteor, before Kanaya can hatch it.",
           "sourcePage": 3306,
-          "sourceKind": "direct"
+          "sourceKind": "composite",
+          "sourcePages": [
+            3341,
+            3342,
+            3343
+          ]
         }
       ]
     },
@@ -10706,7 +10709,7 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Grimdark",
           "aliases": [],
           "from": "act-5-act-2-part-2",
-          "definition": "The name given to Rose's transformation as her involvement with the horrorterrors deepens. It goes beyond her earlier use of dark magic; Scratch warns that the powers she believed came from her wands were granted by those beings.",
+          "definition": "The name given to Rose's transformation as her involvement with the horrorterrors deepens. It goes beyond her earlier use of dark magic; Doc Scratch warns that the powers she believed came from her wands were granted by those beings.",
           "sourcePage": 3643,
           "sourceKind": "composite",
           "sourcePages": [
@@ -11157,12 +11160,14 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space, now in the Land of Frost and Frogs. Her sprite guide, Jadesprite, combines Becquerel with Jade's dead dreamself, bringing the first guardian's powers into the session's final prototyping.",
+          "definition": "The Witch of Space, now in the Land of Frost and Frogs. Becquerel's pre-entry prototyping gives the enemies his first guardian powers. Jade later adds her dead dreamself to Becsprite, creating her sprite guide Jadesprite.",
           "sourcePage": 2988,
           "sourcePages": [
             3238,
             768,
-            382
+            382,
+            2927,
+            3212
           ],
           "sourceKind": "composite"
         },
@@ -11977,9 +11982,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's first guardian and an officer of Lord English. He has spent centuries preparing for his master's arrival at the end of the universe, combining enormous power with a carefully controlled presentation of what he knows.",
+          "definition": "Alternia's first guardian and an officer of Lord English, preparing for his master's arrival at the end of the universe. He combines near-omnipotence with vast knowledge, though specific blind spots interrupt his claims of omniscience.",
           "sourcePage": 2253,
-          "sourcePages": [],
+          "sourcePages": [
+            2254,
+            2256
+          ],
           "sourceKind": "composite"
         },
         {
@@ -11999,7 +12007,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission-2",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's first guardian and Lord English's servant, now dead. At the end of the trolls' universe, his corpse becomes the vessel from which English physically emerges, completing the arrival Scratch spent centuries preparing.",
+          "definition": "Alternia's first guardian and Lord English's servant, now dead. At the end of the trolls' universe, his corpse becomes the vessel from which English physically emerges, completing the arrival he spent centuries preparing.",
           "sourcePage": 4111,
           "sourcePages": [
             2253
@@ -12182,11 +12190,12 @@ window.HOMESTUCK_REFERENCE = {
             "Sollux",
             "twinArmageddons"
           ],
-          "definition": "The trolls' Mage of Doom and the hacker who adapted Sgrub's code. Now blind, he remains caught among the survivors on the meteor, with his psychic abilities and visions of death central to his role.",
+          "definition": "The trolls' Mage of Doom and the hacker who adapted Sgrub's code. Eridan's attack leaves him blind. The voices of the soon-to-be-dead have gone quiet, giving him an unfamiliar sense of relief amid the meteor's violence.",
           "sourcePage": 2076,
           "sourcePages": [
             2514,
-            3476
+            3476,
+            3477
           ],
           "sourceKind": "composite"
         },
@@ -12394,9 +12403,11 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "A troll devoted to extreme roleplaying, games of chance, and doomsday devices. Her hungry spider lusus makes those games lethal for other young trolls, while her reliance on fortune-telling reflects an obsessive struggle with luck.",
+          "definition": "A troll devoted to extreme roleplaying, games of chance, and doomsday devices. Her hungry spider lusus makes those games lethal for other young trolls. She can control some trolls' minds, but her influence varies by target, and her fortune-telling habit reflects an obsessive struggle with luck.",
           "sourcePage": 2195,
-          "sourcePages": [],
+          "sourcePages": [
+            2245
+          ],
           "sourceKind": "composite"
         },
         {
@@ -12609,14 +12620,15 @@ window.HOMESTUCK_REFERENCE = {
             "Feferi",
             "cuttlefishCuller"
           ],
-          "definition": "The trolls' Witch of Life, who asks the horrorterrors to create dream bubbles where the dead can gather. She appears as a ghost in one of these spaces, introducing their role beyond ordinary dreams.",
+          "definition": "The trolls' Witch of Life, who asks the horrorterrors to create dream bubbles where people can meet in their sleep. She later appears there as a ghost, a separate development from the earlier death of her dreamself.",
           "sourcePage": 2466,
           "sourcePages": [
             2991,
             2992,
             2994,
             2422,
-            2441
+            2441,
+            2993
           ],
           "sourceKind": "composite"
         },
