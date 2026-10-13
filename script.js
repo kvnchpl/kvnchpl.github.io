@@ -242,7 +242,7 @@
     const heading = document.createElement('h3');
     const link = document.createElement('a');
     link.className = 'character-intro-link';
-    link.href = `https://homestuck.com/story/${nameVariant.sourcePage || character.introPage}`;
+    link.href = `https://homestuck.com/story/${nameVariant.introLinkPage || nameVariant.sourcePage || character.introPage}`;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
     link.textContent = nameVariant.value;

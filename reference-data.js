@@ -2875,7 +2875,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "value": "♒ ERIDAN AMPORA",
           "sourcePage": 2408,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 2439
         }
       ],
       "rosterLabel": [
@@ -3026,7 +3027,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "value": "♓ FEFERI PEIXES",
           "sourcePage": 2422,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 2441
         }
       ],
       "rosterLabel": [
@@ -6101,7 +6103,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "JANE CROCKER",
           "sourcePage": 4116,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 4117
         }
       ],
       "rosterLabel": [
@@ -6225,7 +6228,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "JAKE ENGLISH",
           "sourcePage": 4119,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 4120
         }
       ],
       "rosterLabel": [
