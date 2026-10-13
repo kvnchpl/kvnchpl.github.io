@@ -165,15 +165,9 @@
     const color = characterColors[id];
     if (!color) return;
     // Keep the exact character color on a uniform light surface.
-    // Outline pale lettering rather than switching the entire panel to black.
-    const channels = color.slice(1).match(/../g).map(hex => {
-      const value = parseInt(hex, 16) / 255;
-      return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
-    });
-    const luminance = channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
-    const pale = 1.05 / (luminance + 0.05) < 4.5;
+    // Only Doc Scratch's white lettering receives a neutral outline.
     element.style.setProperty('--character-color', color);
-    element.style.setProperty('--character-name-shadow', pale
+    element.style.setProperty('--character-name-shadow', id === 'doc-scratch'
       ? '-1px 0 #555, 1px 0 #555, 0 -1px #555, 0 1px #555'
       : 'none');
   }
