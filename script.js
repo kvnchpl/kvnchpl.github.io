@@ -32,7 +32,9 @@
   const storageKey = 'homestuck-reference-progress';
   const stageIndex = new Map(stages.map((stage, index) => [stage.key, index]));
   // A missing or invalid club cap fails closed to the first reading stage.
-  const availableStage = stages.find(stage => stage.key === data.availableThrough) || stages[0];
+  const clubStage = stages.find(stage => stage.key === data.availableThrough) || stages[0];
+  let availableStage = clubStage;
+  let debugCapActive = false;
 
   // Named accents match the user-supplied site CSS; provenance is in local docs.
   const characterColors = {
@@ -515,38 +517,94 @@
     renderCharacters();
     renderConcepts();
     if (loadingMessage) loadingMessage.hidden = true;
-    if (persist) saveStage(currentStage);
+    if (persist && !debugCapActive) saveStage(currentStage);
   }
 
-  const stageSections = new Map();
-  for (const stage of stages) {
-    const sectionLabel = stage.section || 'Reading segments';
-    if (!stageSections.has(sectionLabel)) {
-      const section = document.createElement('section');
-      section.className = 'reading-progress-section';
-      const heading = document.createElement('h3');
-      heading.id = `reading-section-${stageSections.size + 1}`;
-      heading.textContent = sectionLabel;
-      section.setAttribute('aria-labelledby', heading.id);
-      const segments = document.createElement('div');
-      segments.className = 'reading-progress-segments';
-      section.append(heading, segments);
-      progressScale.append(section);
-      stageSections.set(sectionLabel, segments);
+  function renderStageSelector() {
+    progressScale.replaceChildren();
+    const stageSections = new Map();
+    for (const stage of stages) {
+      const sectionLabel = stage.section || 'Reading segments';
+      if (!stageSections.has(sectionLabel)) {
+        const section = document.createElement('section');
+        section.className = 'reading-progress-section';
+        const heading = document.createElement('h3');
+        heading.id = `reading-section-${stageSections.size + 1}`;
+        heading.textContent = sectionLabel;
+        section.setAttribute('aria-labelledby', heading.id);
+        const segments = document.createElement('div');
+        segments.className = 'reading-progress-segments';
+        section.append(heading, segments);
+        progressScale.append(section);
+        stageSections.set(sectionLabel, segments);
+      }
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'reading-progress-tick';
+      button.dataset.stageKey = stage.key;
+      button.textContent = stage.shortLabel;
+      const locked = stage.value > availableStage.value;
+      button.disabled = locked;
+      button.title = locked ? `${stage.label} - not yet available` : stage.label;
+      button.setAttribute('aria-label', locked ? `${stage.label} - not yet available` : `Show reference through ${stage.label}`);
+      button.setAttribute('aria-pressed', 'false');
+      if (!locked) button.addEventListener('click', () => applyProgress(stage.key));
+      stageSections.get(sectionLabel).append(button);
     }
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'reading-progress-tick';
-    button.dataset.stageKey = stage.key;
-    button.textContent = stage.shortLabel;
-    const locked = stage.value > availableStage.value;
-    button.disabled = locked;
-    button.title = locked ? `${stage.label} - not yet available` : stage.label;
-    button.setAttribute('aria-label', locked ? `${stage.label} - not yet available` : `Show reference through ${stage.label}`);
-    button.setAttribute('aria-pressed', 'false');
-    if (!locked) button.addEventListener('click', () => applyProgress(stage.key));
-    stageSections.get(sectionLabel).append(button);
   }
+
+  const debugDialog = document.getElementById('reference-debug');
+  const debugSelect = document.getElementById('reference-debug-cap');
+  const debugForm = document.getElementById('reference-debug-form');
+  const debugReset = document.getElementById('reference-debug-reset');
+  const debugCancel = document.getElementById('reference-debug-cancel');
+  const capStatus = document.getElementById('reading-progress-limit');
+
+  if (debugDialog && debugSelect && debugForm && debugReset && debugCancel) {
+    for (const stage of stages) {
+      const option = document.createElement('option');
+      option.value = stage.key;
+      option.textContent = stage.label;
+      debugSelect.append(option);
+    }
+
+    window.addEventListener('keydown', event => {
+      if (event.repeat || event.altKey || !event.shiftKey ||
+        !(event.ctrlKey || event.metaKey) || event.code !== 'Period') return;
+      if (typeof debugDialog.showModal !== 'function') return;
+      event.preventDefault();
+      debugSelect.value = availableStage.key;
+      if (!debugDialog.open) debugDialog.showModal();
+      debugSelect.focus();
+    });
+
+    debugForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const requested = stages.find(stage => stage.key === debugSelect.value);
+      if (!requested) return;
+      availableStage = requested;
+      debugCapActive = true;
+      if (capStatus) capStatus.textContent = `Debug cap: ${requested.label} (resets on reload).`;
+      renderStageSelector();
+      applyProgress(requested.key, { persist: false });
+      debugDialog.close();
+      progressOutput.focus();
+    });
+
+    debugReset.addEventListener('click', () => {
+      availableStage = clubStage;
+      debugCapActive = false;
+      if (capStatus) capStatus.textContent = '';
+      renderStageSelector();
+      applyProgress(storedStage().key, { persist: false });
+      debugDialog.close();
+      progressOutput.focus();
+    });
+
+    debugCancel.addEventListener('click', () => debugDialog.close());
+  }
+
+  renderStageSelector();
 
   window.addEventListener('hashchange', () => {
     const id = characterFromHash();

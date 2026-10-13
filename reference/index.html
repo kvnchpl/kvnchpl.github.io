@@ -21,9 +21,9 @@
   <meta name="twitter:image" content="https://kvnchpl.com/homestuck-book-club/assets/homestuck-book-club-preview.webp">
   <meta name="twitter:image:alt" content="A Homestuck-style character standing in a bedroom with movie posters and a computer.">
   <title>REFERENCE - HOMESTUCK BOOK CLUB</title>
-  <link rel="stylesheet" href="../styles.css?v=20261013-2">
-  <script src="../reference-data.js?v=20261013-2" defer></script>
-  <script src="../script.js?v=20261013-2" defer></script>
+  <link rel="stylesheet" href="../styles.css?v=20261013-3">
+  <script src="../reference-data.js?v=20261013-3" defer></script>
+  <script src="../script.js?v=20261013-3" defer></script>
 </head>
 
 <body class="reference">
@@ -56,7 +56,7 @@
         <div class="reading-progress-control">
           <div class="reading-progress-selected">
             <span>Showing through</span>
-            <output id="reading-progress-output">Act 1</output>
+            <output id="reading-progress-output" tabindex="-1">Act 1</output>
           </div>
 
           <p class="reading-progress-limit" id="reading-progress-limit"></p>
@@ -64,6 +64,21 @@
         </div>
 
       </section>
+
+      <dialog class="reference-debug" id="reference-debug" aria-labelledby="reference-debug-heading"
+        aria-describedby="reference-debug-help">
+        <form id="reference-debug-form">
+          <h2 id="reference-debug-heading">Reading cap preview</h2>
+          <p id="reference-debug-help">This tab only, until you reload. Your saved reading progress stays unchanged.</p>
+          <label for="reference-debug-cap">Allow reading through</label>
+          <select id="reference-debug-cap"></select>
+          <div class="reference-debug-actions">
+            <button type="submit">Apply</button>
+            <button type="button" id="reference-debug-reset">Reset to club limit</button>
+            <button type="button" id="reference-debug-cancel">Cancel</button>
+          </div>
+        </form>
+      </dialog>
 
       <hr class="reference-divider">
 

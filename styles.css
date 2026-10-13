@@ -633,6 +633,56 @@ button {
   gap: 12px;
 }
 
+.reference-debug {
+  width: min(440px, calc(100% - 32px));
+  box-sizing: border-box;
+  padding: 20px;
+  border: 2px solid #555;
+  background: #eee;
+  color: #000;
+  font: 400 13px/1.5 Verdana, Arial, sans-serif;
+}
+
+.reference-debug::backdrop {
+  background: rgb(0 0 0 / 55%);
+}
+
+.reference-debug h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.reference-debug label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.reference-debug select {
+  width: 100%;
+  min-height: 36px;
+  font: inherit;
+}
+
+.reference-debug-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.reference-debug button {
+  min-height: 36px;
+  padding: 6px 10px;
+  font: inherit;
+  cursor: pointer;
+}
+
+@media print {
+  .reference-debug {
+    display: none !important;
+  }
+}
+
 .reading-progress-section {
   min-width: 0;
 }
