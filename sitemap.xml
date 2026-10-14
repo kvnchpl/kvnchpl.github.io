@@ -2,8 +2,6 @@
 <!-- Generated sitemap. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kvnchpl.com/</loc></url>
-  <url><loc>https://kvnchpl.com/home</loc></url>
-  <url><loc>https://kvnchpl.com/projects</loc></url>
   <url><loc>https://kvnchpl.com/0/compiler-buddha</loc></url>
   <url><loc>https://kvnchpl.com/0/viewfinder</loc></url>
   <url><loc>https://kvnchpl.com/0/triptych</loc></url>
@@ -14,7 +12,6 @@
   <url><loc>https://kvnchpl.com/0/520-missing</loc></url>
   <url><loc>https://kvnchpl.com/0/truth-visions</loc></url>
   <url><loc>https://kvnchpl.com/jungle/</loc></url>
-  <url><loc>https://kvnchpl.com/writings</loc></url>
   <url><loc>https://kvnchpl.com/a/gran-turismo.pdf</loc></url>
   <url><loc>https://kvnchpl.com/0/flex-space</loc></url>
   <url><loc>https://kvnchpl.com/a/loop.pdf</loc></url>
@@ -34,5 +31,4 @@
   <url><loc>https://kvnchpl.com/0/the-album</loc></url>
   <url><loc>https://kvnchpl.com/0/stack</loc></url>
   <url><loc>https://kvnchpl.com/0/diego</loc></url>
-  <url><loc>https://kvnchpl.com/about</loc></url>
 </urlset>
