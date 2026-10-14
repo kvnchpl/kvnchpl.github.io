@@ -313,8 +313,16 @@
       let nextIndex;
       if (event.key === 'ArrowRight') nextIndex = (index + 1) % currentTabs.length;
       if (event.key === 'ArrowLeft') nextIndex = (index + currentTabs.length - 1) % currentTabs.length;
-      if (event.key === 'ArrowDown') nextIndex = Math.min(index + 4, currentTabs.length - 1);
-      if (event.key === 'ArrowUp') nextIndex = Math.max(index - 4, 0);
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        const direction = event.key === 'ArrowDown' ? 1 : -1;
+        const row = Number(tab.dataset.rosterRow);
+        const column = Number(tab.dataset.rosterColumn);
+        const candidates = currentTabs.filter(t => (Number(t.dataset.rosterRow) - row) * direction > 0);
+        candidates.sort((a, b) =>
+          Math.abs(Number(a.dataset.rosterRow) - row) - Math.abs(Number(b.dataset.rosterRow) - row) ||
+          Math.abs(Number(a.dataset.rosterColumn) - column) - Math.abs(Number(b.dataset.rosterColumn) - column));
+        nextIndex = candidates.length ? currentTabs.indexOf(candidates[0]) : index;
+      }
       if (event.key === 'Home') nextIndex = 0;
       if (event.key === 'End') nextIndex = currentTabs.length - 1;
       if (nextIndex === undefined) return;
@@ -340,6 +348,7 @@
       selectedCharacterId = available[0]?.id || null;
     }
 
+    let rosterRow = 0;
     for (const group of groups) {
       const groupTitle = resolvedValue(group.title);
       if (!groupTitle) continue;
@@ -362,10 +371,18 @@
       grid.className = `character-grid ${group.id === 'trolls' ? 'troll-grid' : group.id === 'guardians-sprites' ? 'guardian-grid' : group.id === 'exiles-agents' ? 'exiles-agents-grid' : group.id === 'felt-associates' ? 'felt-associates-grid' : group.id === 'midnight-crew' ? 'midnight-crew-grid' : 'kid-grid'}`;
       section.append(grid);
 
+      rosterRow += 1;
+      let rosterColumn = 0;
       for (const character of groupCharacters) {
         const card = makeCharacterCard(character, group.id);
         if (!card) continue;
         const tab = makeRosterTab(character, card, group.id);
+        const column = character.rosterColumn || (rosterColumn % 4) + 1;
+        if (column <= rosterColumn) rosterRow += 1;
+        rosterColumn = column;
+        tab.style.setProperty('grid-column', String(column));
+        tab.dataset.rosterColumn = String(column);
+        tab.dataset.rosterRow = String(rosterRow);
         roster.append(tab);
         grid.append(card);
         currentTabs.push(tab);

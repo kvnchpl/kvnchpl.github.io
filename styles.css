@@ -841,7 +841,6 @@ button {
 }
 
 .character-intro-link,
-.roster-name,
 .character-handle {
   text-shadow: var(--character-name-shadow, none);
 }
@@ -915,6 +914,11 @@ button {
   margin-bottom: 6px;
   object-fit: contain;
   image-rendering: pixelated;
+}
+
+/* Scratch's roster label stays black, including when selected. */
+.character-option[data-character-id="doc-scratch"] .roster-name {
+  color: #000;
 }
 
 .roster-name {

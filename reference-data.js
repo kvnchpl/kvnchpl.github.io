@@ -360,7 +360,7 @@ window.HOMESTUCK_REFERENCE = {
         },
         {
           "from": "act-6-act-1",
-          "value": "KIDS - ACTS 1-5",
+          "value": "PRE-SCRATCH KIDS",
           "sourcePage": 4113,
           "sourceKind": "editorial"
         }
@@ -371,7 +371,7 @@ window.HOMESTUCK_REFERENCE = {
       "title": [
         {
           "from": "act-6-act-1",
-          "value": "KIDS - ACT 6",
+          "value": "POST-SCRATCH KIDS",
           "sourcePage": 4117,
           "sourceKind": "editorial",
           "sourcePages": [
@@ -730,7 +730,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "rose",
@@ -901,7 +902,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 217,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "dave",
@@ -1058,7 +1060,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 312,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "jade",
@@ -1234,7 +1237,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 768,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "aradia",
@@ -1319,6 +1323,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Title",
               "value": "Maid of Time",
               "sourcePage": 2540,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Quartz and Melody (LOQAM)",
+              "sourcePage": 2189,
               "sourceKind": "direct"
             }
           ]
@@ -1519,6 +1535,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Sand and Zephyr (LOSAZ)",
+              "sourcePage": 2348,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1694,6 +1722,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Brains and Fire (LOBAF)",
+              "sourcePage": 2514,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1825,6 +1865,18 @@ window.HOMESTUCK_REFERENCE = {
               "from": "act-5-act-1",
               "label": "Title",
               "value": "Knight of Blood",
+              "sourcePage": 2059,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Pulse and Haze (LOPAH)",
               "sourcePage": 2059,
               "sourceKind": "direct"
             }
@@ -1980,6 +2032,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Little Cubes and Tea (LOLCAT)",
+              "sourcePage": 2532,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -2118,6 +2182,29 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Sylph of Space",
               "sourcePage": 2565,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Rays and ?",
+              "sourcePage": 2565,
+              "sourceKind": "visual"
+            },
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Land",
+              "value": "Land of Rays and Frogs (LORAF)",
+              "sourcePage": 2565,
+              "sourcePages": [
+                3311,
+                3314
+              ],
+              "sourceKind": "composite"
             }
           ]
         },
@@ -2294,6 +2381,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Thought and Flow (LOTAF)",
+              "sourcePage": 2523,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -2453,6 +2552,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Title",
               "value": "Thief of Light",
               "sourcePage": 3238,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Maps and Treasure (LOMAT)",
+              "sourcePage": 2372,
               "sourceKind": "direct"
             }
           ]
@@ -2641,6 +2752,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Caves and Silence (LOCAS)",
+              "sourcePage": 2277,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -2792,6 +2915,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Tents and Mirth (LOTAM)",
+              "sourcePage": 2473,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -2932,6 +3067,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Prince of Hope",
               "sourcePage": 3046,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Land",
+              "value": "Land of Wrath and Angels (LOWAA)",
+              "sourcePage": 3321,
+              "sourceKind": "direct",
+              "sourcePages": [
+                3361
+              ]
             }
           ]
         },
@@ -3097,6 +3247,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Land",
+              "value": "Land of Dew and Glass (LODAG)",
+              "sourcePage": 2466,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -3184,13 +3346,15 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-1",
           "value": "DAD",
           "sourcePage": 70,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 89
         },
         {
           "from": "act-6-act-1",
           "value": "JOHN'S DAD",
           "sourcePage": 70,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 89
         }
       ],
       "rosterLabel": [
@@ -3245,7 +3409,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 89,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "mom",
@@ -3257,7 +3422,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "value": "MOM",
           "sourcePage": 365,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 388
         }
       ],
       "rosterLabel": [
@@ -3306,7 +3472,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 388,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "bro",
@@ -3318,7 +3485,15 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "value": "BRO",
           "sourcePage": 419,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 665
+        },
+        {
+          "from": "act-3",
+          "value": "BRO",
+          "sourcePage": 419,
+          "sourceKind": "direct",
+          "introLinkPage": 836
         }
       ],
       "rosterLabel": [
@@ -3377,7 +3552,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 757,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "grandpa",
@@ -3389,7 +3565,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-3",
           "value": "GRANDPA",
           "sourcePage": 919,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "introLinkPage": 790
         }
       ],
       "rosterLabel": [
@@ -3438,7 +3615,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 919,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "nannasprite",
@@ -3499,7 +3677,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 420,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "jaspersprite",
@@ -3560,7 +3739,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1626,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "davesprite",
@@ -3642,7 +3822,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1651,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "jadesprite",
@@ -3736,7 +3917,87 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3213,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
+    },
+    {
+      "id": "dad-crocker",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-1",
+      "introPage": 4131,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "JANE'S DAD",
+          "sourcePage": 4123,
+          "sourceKind": "direct",
+          "introLinkPage": 4131
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Jane's dad",
+          "sourcePage": 4123,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "src": "../assets/ref-dad-crocker.webp",
+            "alt": "Jane's dad outside her house"
+          },
+          "sourcePage": 4131,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Role",
+              "value": "Jane's father",
+              "sourcePage": 4123,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "former-role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Formerly",
+              "value": "Private investigator",
+              "sourcePage": 4198,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Interests",
+              "value": "Car care · Comedy",
+              "sourcePage": 4126,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4132,
+                4196
+              ]
+            }
+          ]
+        }
+      ],
+      "sourcePage": 4131,
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "bec",
@@ -3808,7 +4069,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 942,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "wv",
@@ -5179,7 +5441,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4068,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "summoner",
@@ -5266,7 +5529,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3758,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "psiioniic",
@@ -5351,7 +5615,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4058,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "signless",
@@ -5436,7 +5701,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4054,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "disciple",
@@ -5500,7 +5766,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4058,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "dolorosa",
@@ -5573,7 +5840,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4057,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "redglare",
@@ -5679,7 +5947,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3518,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "mindfang",
@@ -5767,7 +6036,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3475,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "darkleer",
@@ -5865,7 +6135,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3756,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "grand-highblood",
@@ -5926,7 +6197,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3514,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "dualscar",
@@ -5999,7 +6271,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 3508,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "condesce",
@@ -6091,7 +6364,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4063,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "jane",
@@ -6216,7 +6490,153 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4115,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
+    },
+    {
+      "id": "lalonde",
+      "group": "new-kids",
+      "reveal": "act-6-act-1",
+      "introPage": 4156,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "LALONDE",
+          "sourcePage": 4156,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Lalonde",
+          "sourcePage": 4156,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4121,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Role",
+              "value": "Computer expert; Jane's intended server player",
+              "sourcePage": 4225,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4175,
+                4226
+              ]
+            }
+          ]
+        },
+        {
+          "id": "handle",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Handle",
+              "value": "tipsyGnostalgic [TG]",
+              "sourcePage": 4156,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "sourcePage": 4156,
+      "sourceKind": "intro",
+      "rosterColumn": 2
+    },
+    {
+      "id": "strider",
+      "group": "new-kids",
+      "reveal": "act-6-act-1",
+      "introPage": 4256,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "D. STRIDER",
+          "sourcePage": 4259,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Strider",
+          "sourcePage": 4259,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4121,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Role",
+              "value": "Robotics and artificial-intelligence creator",
+              "sourcePage": 4256,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4258,
+                4192
+              ]
+            }
+          ]
+        },
+        {
+          "id": "handle",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Handle",
+              "value": "timaeusTestified [TT]",
+              "sourcePage": 4256,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Interests",
+              "value": "Irony · Puppetry · Robotics",
+              "sourcePage": 4257,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4259
+              ]
+            }
+          ]
+        }
+      ],
+      "sourcePage": 4256,
+      "sourceKind": "intro",
+      "rosterColumn": 3
     },
     {
       "id": "jake",
@@ -6341,150 +6761,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4118,
-      "sourceKind": "intro"
-    },
-    {
-      "id": "lalonde",
-      "group": "new-kids",
-      "reveal": "act-6-act-1",
-      "introPage": 4156,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "LALONDE",
-          "sourcePage": 4156,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Lalonde",
-          "sourcePage": 4156,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "placeholder": "?"
-          },
-          "sourcePage": 4121,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Computer expert; Jane's intended server player",
-              "sourcePage": 4225,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4175,
-                4226
-              ]
-            }
-          ]
-        },
-        {
-          "id": "handle",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Handle",
-              "value": "tipsyGnostalgic [TG]",
-              "sourcePage": 4156,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4156,
-      "sourceKind": "intro"
-    },
-    {
-      "id": "strider",
-      "group": "new-kids",
-      "reveal": "act-6-act-1",
-      "introPage": 4256,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "D. STRIDER",
-          "sourcePage": 4259,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Strider",
-          "sourcePage": 4259,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "placeholder": "?"
-          },
-          "sourcePage": 4121,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Robotics and artificial-intelligence creator",
-              "sourcePage": 4256,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4258,
-                4192
-              ]
-            }
-          ]
-        },
-        {
-          "id": "handle",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Handle",
-              "value": "timaeusTestified [TT]",
-              "sourcePage": 4256,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "interests",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Interests",
-              "value": "Irony · Puppetry · Robotics",
-              "sourcePage": 4257,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4259
-              ]
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4256,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "uranian-umbra",
@@ -6562,83 +6840,6 @@ window.HOMESTUCK_REFERENCE = {
       "sourceKind": "intro"
     },
     {
-      "id": "dad-crocker",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-1",
-      "introPage": 4131,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "JANE'S DAD",
-          "sourcePage": 4123,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Jane's dad",
-          "sourcePage": 4123,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "src": "../assets/ref-dad-crocker.webp",
-            "alt": "Jane's dad outside her house"
-          },
-          "sourcePage": 4131,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Jane's father",
-              "sourcePage": 4123,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "former-role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Formerly",
-              "value": "Private investigator",
-              "sourcePage": 4198,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "interests",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Interests",
-              "value": "Car care · Comedy",
-              "sourcePage": 4126,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4132,
-                4196
-              ]
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4131,
-      "sourceKind": "intro"
-    },
-    {
       "id": "poppop",
       "group": "guardians-sprites",
       "reveal": "act-6-act-1",
@@ -6697,7 +6898,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4145,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "grandma",
@@ -6709,7 +6911,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "JAKE'S GRANDMA",
           "sourcePage": 4168,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "introLinkPage": 4183
         }
       ],
       "rosterLabel": [
@@ -6772,150 +6975,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4129,
-      "sourceKind": "intro"
-    },
-    {
-      "id": "auto-responder",
-      "group": "ai-robots",
-      "reveal": "act-6-act-1",
-      "introPage": 4184,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "AUTO-RESPONDER",
-          "sourcePage": 4185,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Auto-responder",
-          "sourcePage": 4185,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "src": "../assets/ref-auto-responder.webp",
-            "alt": "Strider's auto-responder running in his sunglasses"
-          },
-          "sourcePage": 4185,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Self-aware software modeled on Strider's mind, housed in his sunglasses",
-              "sourcePage": 4256,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4185
-              ]
-            }
-          ]
-        },
-        {
-          "id": "handle",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Handle",
-              "value": "timaeusTestified [TT] (shared with Strider)",
-              "sourcePage": 4184,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4185
-              ]
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4184,
-      "sourceKind": "intro"
-    },
-    {
-      "id": "brobot",
-      "group": "ai-robots",
-      "reveal": "act-6-act-1",
-      "introPage": 4236,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "BROBOT",
-          "sourcePage": 4191,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Brobot",
-          "sourcePage": 4191,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "src": "../assets/ref-brobot.webp",
-            "alt": "Strider's robot double wearing red sunglasses"
-          },
-          "sourcePage": 4276,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Jake's robotic sparring partner",
-              "sourcePage": 4192,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Weapon",
-              "value": "Sword",
-              "sourcePage": 4276,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
-          "id": "components",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Components",
-              "value": "Uranium-powered robot assembled by Jake from Strider’s parts",
-              "sourcePage": 4208,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4192
-              ]
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4236,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "lil-seb",
@@ -7000,7 +7061,153 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4242,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
+    },
+    {
+      "id": "auto-responder",
+      "group": "ai-robots",
+      "reveal": "act-6-act-1",
+      "introPage": 4184,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "AUTO-RESPONDER",
+          "sourcePage": 4185,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Auto-responder",
+          "sourcePage": 4185,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "src": "../assets/ref-auto-responder.webp",
+            "alt": "Strider's auto-responder running in his sunglasses"
+          },
+          "sourcePage": 4185,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Role",
+              "value": "Self-aware software modeled on Strider's mind, housed in his sunglasses",
+              "sourcePage": 4256,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4185
+              ]
+            }
+          ]
+        },
+        {
+          "id": "handle",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Handle",
+              "value": "timaeusTestified [TT] (shared with Strider)",
+              "sourcePage": 4184,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4185
+              ]
+            }
+          ]
+        }
+      ],
+      "sourcePage": 4184,
+      "sourceKind": "intro",
+      "rosterColumn": 3
+    },
+    {
+      "id": "brobot",
+      "group": "ai-robots",
+      "reveal": "act-6-act-1",
+      "introPage": 4236,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "BROBOT",
+          "sourcePage": 4191,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Brobot",
+          "sourcePage": 4191,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "src": "../assets/ref-brobot.webp",
+            "alt": "Strider's robot double wearing red sunglasses"
+          },
+          "sourcePage": 4276,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Role",
+              "value": "Jake's robotic sparring partner",
+              "sourcePage": 4192,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Weapon",
+              "value": "Sword",
+              "sourcePage": 4276,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Components",
+              "value": "Uranium-powered robot assembled by Jake from Strider’s parts",
+              "sourcePage": 4208,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4192
+              ]
+            }
+          ]
+        }
+      ],
+      "sourcePage": 4236,
+      "sourceKind": "intro",
+      "rosterColumn": 4
     }
   ],
   "conceptsPreparedThrough": "intermission-2",
