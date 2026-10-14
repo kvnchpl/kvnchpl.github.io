@@ -1,0 +1,478 @@
+:root {
+  color-scheme: dark;
+  font-family: "Times New Roman", Times, serif;
+  background-color: #000;
+  color: #d6d6d6;
+  --bg: #000;
+  --surface: #101010;
+  --surface-raised: #181818;
+  --border: #808080;
+  --border-strong: #c0c0c0;
+  --text: #d6d6d6;
+  --muted: #d6d6d6;
+  --accent: #d8b45b;
+  --accent-red: #c44949;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 18px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.28) 1px, transparent 0),
+    linear-gradient(45deg, rgba(216, 180, 91, 0.06) 25%, transparent 25%, transparent 75%, rgba(216, 180, 91, 0.06) 75%),
+    #000;
+  background-size: 17px 17px, 34px 34px;
+}
+
+.page-shell {
+  margin: 0 auto;
+  width: min(100%, 1180px);
+  padding: 14px;
+  background: #000;
+  border: 4px double var(--border-strong);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 4px double var(--border);
+}
+
+.hero-copy {
+  display: grid;
+  gap: 10px;
+  position: sticky;
+  top: 18px;
+  padding: 12px;
+  background: var(--surface);
+  border: 3px ridge var(--border);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  letter-spacing: 0;
+  color: var(--accent);
+  text-align: center;
+  text-shadow: 2px 2px 0 #400000;
+  text-transform: uppercase;
+}
+
+p {
+  margin: 0;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.ritual-panel {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  background: var(--surface);
+  border: 3px ridge var(--border);
+}
+
+a {
+  color: #8cb4ff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+.status-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  background: var(--surface-raised);
+  border: 2px inset var(--border);
+}
+
+.status-label {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+button {
+  width: fit-content;
+  padding: 8px 16px;
+  border: 3px outset var(--border-strong);
+  border-radius: 0;
+  background: #c0c0c0;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  justify-self: center;
+  text-transform: uppercase;
+}
+
+button:hover,
+button:focus {
+  background: #fff;
+  color: #000080;
+}
+
+button:active {
+  border-style: inset;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.control-item {
+  display: grid;
+  gap: 4px;
+}
+
+.control-item label {
+  font-size: 0.95rem;
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.control-item input,
+.control-item select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 0;
+  border: 2px inset var(--border-strong);
+  background: #000;
+  color: #d6d6d6;
+  font-size: 1rem;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.control-item input:focus,
+.control-item select:focus {
+  outline: none;
+  color: #000;
+  background: #d8b45b;
+}
+
+.charts-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.chart-container {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  background: var(--surface);
+  border: 3px ridge var(--border);
+  min-height: 420px;
+}
+
+.chart-primary {
+  grid-column: 1 / -1;
+}
+
+.seal-layout {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.95fr) minmax(360px, 1.05fr);
+  gap: 12px;
+  align-items: stretch;
+}
+
+.orbit-panel {
+  display: grid;
+  grid-template-rows: auto minmax(320px, 1fr);
+  gap: 8px;
+  min-width: 0;
+}
+
+.orbit-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.orbit-toggle-controls,
+.orbit-zoom-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.toggle-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 10px;
+  border: 2px outset var(--border-strong);
+  background: #c0c0c0;
+  color: #000;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.toggle-control input {
+  accent-color: #d8b45b;
+}
+
+.node-color-controls {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 34px;
+  margin: 0;
+  padding: 4px 8px;
+  border: 2px inset var(--border-strong);
+  background: #000;
+}
+
+.node-color-controls legend {
+  padding: 0 4px;
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.node-color-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: var(--muted);
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.node-color-controls input {
+  accent-color: #d8b45b;
+}
+
+.orbit-zoom-controls button {
+  width: 38px;
+  height: 34px;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.orbit-zoom-controls button:nth-child(2) {
+  width: auto;
+  padding: 0 12px;
+}
+
+.data-ledger {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 8px;
+  min-height: 0;
+  padding: 10px;
+  background: #000;
+  border: 2px inset var(--border);
+}
+
+.ledger-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.ledger-heading h3 {
+  margin: 0;
+  color: var(--accent);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.ledger-table-wrap {
+  overflow: auto;
+  max-height: 560px;
+  border: 2px inset var(--border-strong);
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 1120px;
+  background: #000;
+  font-family: "Courier New", Courier, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+th,
+td {
+  padding: 6px 8px;
+  border-right: 1px solid #404040;
+  border-bottom: 1px solid #404040;
+  color: #d6d6d6;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: right;
+  white-space: nowrap;
+}
+
+th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #c0c0c0;
+  color: #000;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+th:first-child,
+td:first-child {
+  position: sticky;
+  left: 0;
+  text-align: left;
+}
+
+th:first-child {
+  z-index: 2;
+}
+
+td:first-child {
+  background: #000;
+}
+
+tbody tr:hover td {
+  background: #24210f;
+  color: #fff;
+}
+
+tbody tr.is-selected td,
+tbody tr.is-selected:hover td {
+  background: #d8b45b;
+  color: #000;
+}
+
+tbody tr.is-selected td:first-child {
+  background: #d8b45b;
+}
+
+.state-badge {
+  display: inline-block;
+  min-width: 68px;
+  padding: 2px 6px;
+  border: 1px solid #c0c0c0;
+  color: #000;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.state-inside,
+.state-toward {
+  background: #74b36a;
+}
+
+.state-outside {
+  background: #c44949;
+}
+
+.state-away {
+  background: #d8b45b;
+}
+
+.chart-container h2 {
+  margin: 0 0 4px 0;
+  padding: 4px 6px;
+  font-size: 1.2rem;
+  color: #000;
+  background: #c0c0c0;
+  border: 2px outset var(--border-strong);
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.chart-container canvas {
+  max-height: 380px;
+}
+
+.message {
+  padding: 18px 22px;
+  background: var(--surface-raised);
+  border: 2px ridge var(--border);
+}
+
+/* Chart.js custom styles */
+.chart-container canvas {
+  max-height: 300px;
+}
+
+#orbitChart {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 320px;
+  max-height: 600px;
+  cursor: grab;
+  touch-action: none;
+}
+
+#orbitChart.is-panning {
+  cursor: grabbing;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 16px;
+  }
+
+  .hero,
+  .charts-section,
+  .seal-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    position: static;
+  }
+
+  .page-shell {
+    padding: 22px;
+  }
+
+  .ritual-panel,
+  .chart-container {
+    padding: 18px;
+  }
+}

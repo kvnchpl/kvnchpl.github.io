@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ephemeris - Solar Grimoire</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <h1>The Solar Grimoire</h1>
+        <p>A dark ephemeris for tracking the solar system barycenter: the shared center of mass that can move inside or outside the Sun. Choose a time range and cadence to plot its path.</p>
+      </div>
+
+      <div class="ritual-panel">
+        <div class="status-container">
+          <div class="status-item">
+            <span class="status-label">Barycenter Status</span>
+            <span id="barycenterStatus" class="status-value">Reading...</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">Distance from Sun Center</span>
+            <span id="distanceFromSun" class="status-value">-- km</span>
+          </div>
+          <div class="status-item">
+            <span class="status-label">Last Updated</span>
+            <span id="lastUpdated" class="status-value">--</span>
+          </div>
+        </div>
+
+        <div class="controls-grid">
+          <div class="control-item">
+            <label for="startDate">Start Date</label>
+            <input type="date" id="startDate" min="1900-01-01" />
+          </div>
+          <div class="control-item">
+            <label for="endDate">End Date</label>
+            <input type="date" id="endDate" />
+          </div>
+          <div class="control-item">
+            <label for="stepSize">Sampling Cadence</label>
+            <select id="stepSize">
+              <option value="1d">Daily</option>
+              <option value="7d">Weekly</option>
+              <option value="1m">Monthly</option>
+              <option value="1y" selected>Annually</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="updateButton">Update Ephemeris</button>
+      </div>
+    </section>
+
+    <section class="charts-section">
+      <div class="chart-container chart-primary">
+        <h2>Barycenter Path Around the Sun</h2>
+        <div class="seal-layout">
+          <div class="orbit-panel">
+            <div class="orbit-toolbar" aria-label="Orbit chart controls">
+              <div class="orbit-toggle-controls">
+                <label class="toggle-control" for="orbitPathLines">
+                  <input type="checkbox" id="orbitPathLines" checked />
+                  <span>Connect path</span>
+                </label>
+                <fieldset class="node-color-controls">
+                  <legend>Color nodes</legend>
+                  <label>
+                    <input type="radio" name="orbitNodeColor" value="plain" checked />
+                    <span>Plain</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="orbitNodeColor" value="position" />
+                    <span>Position</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="orbitNodeColor" value="velocity" />
+                    <span>Velocity</span>
+                  </label>
+                  <label>
+                    <input type="radio" name="orbitNodeColor" value="acceleration" />
+                    <span>Acceleration</span>
+                  </label>
+                </fieldset>
+              </div>
+              <div class="orbit-zoom-controls" aria-label="Orbit chart zoom controls">
+                <button type="button" id="orbitZoomOut" title="Zoom out" aria-label="Zoom out">-</button>
+                <button type="button" id="orbitZoomReset" title="Reset zoom" aria-label="Reset zoom">Reset</button>
+                <button type="button" id="orbitZoomIn" title="Zoom in" aria-label="Zoom in">+</button>
+              </div>
+            </div>
+            <canvas id="orbitChart"></canvas>
+          </div>
+          <div class="data-ledger" aria-live="polite">
+            <div class="ledger-heading">
+              <h3>Fetched Coordinates</h3>
+            </div>
+            <div class="ledger-table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Epoch</th>
+                    <th scope="col">X</th>
+                    <th scope="col">Y</th>
+                    <th scope="col">Z</th>
+                    <th scope="col">VX</th>
+                    <th scope="col">VY</th>
+                    <th scope="col">VZ</th>
+                    <th scope="col">AX</th>
+                    <th scope="col">AY</th>
+                    <th scope="col">AZ</th>
+                    <th scope="col">Boundary</th>
+                    <th scope="col">Velocity</th>
+                    <th scope="col">Accel.</th>
+                  </tr>
+                </thead>
+                <tbody id="barycenterLedger">
+                  <tr>
+                    <td colspan="13">Awaiting the first data load.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chart-container chart-primary">
+        <h2>Radial State Timeline</h2>
+        <canvas id="radialStateChart"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <h2>Position by Axis</h2>
+        <canvas id="positionChart"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <h2>Velocity by Axis</h2>
+        <canvas id="velocityChart"></canvas>
+      </div>
+
+      <div class="chart-container">
+        <h2>Acceleration by Axis</h2>
+        <canvas id="accelerationChart"></canvas>
+      </div>
+    </section>
+
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

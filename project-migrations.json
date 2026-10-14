@@ -1,0 +1,41 @@
+{
+  "imported": "2026-10-14",
+  "projects": [
+    {
+      "directory": "jungle",
+      "source": "https://github.com/kvnchpl/jungle.git",
+      "commit": "2a71296c0ac2c8cb5ced0e5a35521bfb2bb7cdc6",
+      "visibility": "listed"
+    },
+    {
+      "directory": "exp",
+      "source": "https://github.com/kvnchpl/exp.git",
+      "commit": "5b5000371d8b496f837307f37156bd17b937e410",
+      "visibility": "unlisted"
+    },
+    {
+      "directory": "trellis",
+      "source": "https://github.com/kvnchpl/trellis.git",
+      "commit": "96ecc0a655aa61c9fd946341e67235b9a3f9d76c",
+      "visibility": "unlisted"
+    },
+    {
+      "directory": "desire-path",
+      "source": "https://github.com/kvnchpl/desire-path.git",
+      "commit": "d8626852c5b1caf746b7a8950742355b4c308a47",
+      "visibility": "unlisted"
+    },
+    {
+      "directory": "ephemeris",
+      "source": "https://github.com/kvnchpl/ephemeris.git",
+      "commit": "3124369223138645751c751636384af1cbe8b5f0",
+      "visibility": "unlisted"
+    },
+    {
+      "directory": "each-all",
+      "source": "https://github.com/kvnchpl/each-all.git",
+      "commit": "f742529359ff27a5e3d1495ebb663f6b14ebf870",
+      "visibility": "listed"
+    }
+  ]
+}

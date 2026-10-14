@@ -1,0 +1,13 @@
+.DS_Store
+.vscode/
+
+node_modules/
+
+__pycache__/
+*.py[cod]
+
+*.tmp
+*.log
+*.qgz~
+*.gpkg-shm
+*.gpkg-wal
