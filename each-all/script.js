@@ -4,6 +4,12 @@ const SUBMISSION_ENDPOINT = new URL('/.netlify/functions/submitImage',
   location.hostname.endsWith('.netlify.app') || ['localhost', '127.0.0.1'].includes(location.hostname)
     ? location.origin : 'https://each-all.netlify.app').href;
 const $ = id => document.getElementById(id);
+// Create a known image element so preview blob URLs never target an active document.
+const imagePreview = new Image();
+imagePreview.id = 'image-preview';
+imagePreview.alt = 'Your selected image';
+imagePreview.hidden = true;
+$('image-preview').replaceWith(imagePreview);
 let prompts = [], counts = {}, currentPromptId = '', currentSeed = 0, view = 'scrapbook';
 let lastSortKey = 'id', sortDirections = { id: 'ascending', popular: 'descending' };
 const cache = new Map(), pending = new Map(), polling = new Set();
@@ -37,8 +43,8 @@ function hideDialog() {
 function clearPreview() {
   if (previewURL) URL.revokeObjectURL(previewURL);
   previewURL = '';
-  $('image-preview').hidden = true;
-  $('image-preview').removeAttribute('src');
+  imagePreview.hidden = true;
+  imagePreview.removeAttribute('src');
   $('filename-preview').textContent = 'no file selected';
 }
 function closePrompt(updateHistory = true) {
@@ -256,7 +262,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     clearPreview(); retryPayload = null; formVersion++; status('');
     const file = $('image-input').files[0]; if (!file) return;
     if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type) || file.size > 20 * 1024 * 1024) { status('Choose a JPG, PNG, or WebP smaller than 20 MB.'); $('image-input').value = ''; return; }
-    previewURL = URL.createObjectURL(file); $('image-preview').src = previewURL; $('image-preview').hidden = false; $('filename-preview').textContent = file.name;
+    previewURL = URL.createObjectURL(file); imagePreview.src = previewURL; imagePreview.hidden = false; $('filename-preview').textContent = file.name;
   });
   $('return-button').onclick = () => closePrompt();
   $('randomize-button').onclick = () => { currentSeed = newSeed(); const url = new URL(location.href); url.searchParams.set('seed', currentSeed); history.pushState({}, '', url); render(); };
