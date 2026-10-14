@@ -1,0 +1,158 @@
+{
+    "conditionKeyMap": {
+        "plantType": {
+            "null": "The tile does not have a plant.",
+            "set": "The tile has a plant."
+        },
+        "weeds": {
+            "true": "The tile has weeds.",
+            "false": "The tile has no weeds."
+        },
+        "mulch": {
+            "true": "The tile is mulched.",
+            "false": "The tile is not mulched."
+        },
+        "fertilized": {
+            "true": "The tile is fertilized.",
+            "false": "The tile is not fertilized."
+        },
+        "tile": {
+            "soil": "The tile is soil.",
+            "tilled": "The tile is tilled.",
+            "grass": "The tile is grass.",
+            "rock": "The tile is rock.",
+            "default": "This tile type is not valid."
+        },
+        "readyToHarvest": {
+            "true": "The plant is ready for harvest.",
+            "false": "The plant is not ready for harvest."
+        },
+        "moisture": {
+            "lt": "The tile is not dry enough.",
+            "gt": "The tile is too dry."
+        },
+        "fertility": {
+            "lt": "The tile is fully fertile.",
+            "gt": "The tile is too fertile."
+        },
+        "growthStage": {
+            "sprout": "The plant is at sprout stage.",
+            "shoot": "The plant is at shoot stage.",
+            "stalk": "The plant is at stalk stage.",
+            "flower": "The plant is flowering.",
+            "pod": "The plant is in pod stage.",
+            "tree": "The plant is a tree.",
+            "fruiting": "The plant is fruiting.",
+            "cob": "The plant is a corn cob.",
+            "sapling": "The plant is a sapling."
+        },
+        "growthProgress": {
+            "lt": "Growth is insufficient.",
+            "gt": "Growth has exceeded the limit."
+        },
+        "or": "None of the required conditions are met."
+    },
+    "actions": {
+        "clear": "clear",
+        "harvest": "harvest",
+        "plant": "plant",
+        "till": "till",
+        "water": "water",
+        "fertilize": "fertilize",
+        "mulch": "mulch",
+        "weed": "weed"
+    },
+    "messages": {
+        "general": {
+            "confirmNewGame": "This will overwrite your current progress.",
+            "endDayWarning": "You won’t be able to take more actions today.",
+            "actionBlockedTitle": "Action blocked"
+        },
+        "blockedAction": {
+            "clear": {
+                "plantTypeNotEmpty": "The tile must be empty to clear plants.",
+                "weedsMissing": "There are no weeds to remove.",
+                "mulchMissing": "The tile is not mulched.",
+                "tileGrass": "The tile is not grass.",
+                "tileRock": "The tile is not rock.",
+                "nothingToClear": "There is nothing to clear here.",
+                "wrongTile": "Only grass or rock tiles can be cleared."
+            },
+            "harvest": {
+                "plantTypeNotEmpty": "There is no plant to harvest here.",
+                "notReady": "The crop is not ready to harvest."
+            },
+            "till": {
+                "wrongTile": "The tile must be bare soil (with no plant) to be tilled.",
+                "plantTypeNotEmpty": "Cannot till a tile that already has a plant."
+            },
+            "water": {
+                "wrongTile": "The tile must be tilled before watering.",
+                "tooMoist": "The tile is already fully moist.",
+                "plantTypeNotEmpty": "Cannot water a tile with a growing plant."
+            },
+            "fertilize": {
+                "wrongTile": "The tile must be tilled before fertilizing.",
+                "tooFertile": "The tile is already fully fertile.",
+                "plantTypeNotEmpty": "Cannot fertilize a tile with a growing plant."
+            },
+            "plant": {
+                "wrongTile": "The tile must be tilled before planting.",
+                "plantTypeNotEmpty": "The tile already contains a plant.",
+                "mulch": "Cannot plant on a mulched tile."
+            },
+            "mulch": {
+                "wrongTile": "The tile must be tilled to apply mulch.",
+                "alreadyMulched": "The tile is already mulched.",
+                "plantTypeNotEmpty": "Cannot mulch a tile with a growing plant."
+            },
+            "weed": {
+                "noWeeds": "There are no weeds to remove here.",
+                "tileNotSoil": "Can only remove weeds from soil tiles."
+            }
+        }
+    },
+    "blockedKeyMap": {
+        "clear": {
+            "plantType": "plantTypeNotEmpty",
+            "weeds": "weedsMissing",
+            "mulch": "mulchMissing",
+            "tile": {
+                "grass": "tileGrass",
+                "rock": "tileRock"
+            }
+        },
+        "till": {
+            "plantType": "plantTypeNotEmpty",
+            "tile": "wrongTile"
+        },
+        "water": {
+            "tile": "wrongTile",
+            "moisture": "tooMoist",
+            "plantType": "plantTypeNotEmpty"
+        },
+        "fertilize": {
+            "tile": "wrongTile",
+            "fertility": "tooFertile",
+            "plantType": "plantTypeNotEmpty"
+        },
+        "plant": {
+            "tile": "wrongTile",
+            "plantType": "plantTypeNotEmpty",
+            "mulch": "mulch"
+        },
+        "mulch": {
+            "plantType": "plantTypeNotEmpty",
+            "tile": "wrongTile",
+            "mulch": "alreadyMulched"
+        },
+        "weed": {
+            "weeds": "noWeeds",
+            "tile": "tileNotSoil"
+        },
+        "harvest": {
+            "plantType": "plantTypeNotEmpty",
+            "readyToHarvest": "notReady"
+        }
+    }
+}

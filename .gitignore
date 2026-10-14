@@ -25,7 +25,7 @@ _site/
 
 # Ruby bundler files
 .bundle/
-vendor/
+/vendor/
 
 # Environment files
 .env
@@ -47,15 +47,23 @@ coverage/
 *.har
 *.trace
 
-# Local authoring and maintenance; the public repository contains publishing files only.
+# Portfolio authoring remains local; consolidated projects retain their source tools.
 .private/
-README.md
-package.json
-package-lock.json
-scripts/
-docs/
+/README.md
+/package.json
+/package-lock.json
+/scripts/
+/docs/
 thoughts.html
 json/projects.json
 json/writings.json
 json/field.json
 .github/workflows/check-site.yml
+
+# Project build caches and local credentials.
+**/.netlify/
+**/dist/
+**/__pycache__/
+*.py[cod]
+.env.*
+!.env.example

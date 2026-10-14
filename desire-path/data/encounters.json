@@ -1,0 +1,265 @@
+{
+  "generated": true,
+  "generated_from": "data/encounters.csv",
+  "encounters": [
+    {
+      "id": "E001",
+      "title": "NOW",
+      "place": [
+        -73.94778112451282,
+        40.74977880092658
+      ],
+      "time": "2015-07",
+      "feeling": "WONDER",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "text",
+          "text": "i had no idea what i was getting into\nthe enticing cover of night\nno photos\njoys, sorrows fresh\noff the bus\nthe ship\nmy jailbreak, my destiny\nnow\ncontrol is a fickle thing\nwhile running away\nsuitcase in hand determined towards the sun"
+        }
+      ]
+    },
+    {
+      "id": "E002",
+      "title": "Comedown",
+      "place": [
+        -73.91978921725324,
+        40.71169024194265
+      ],
+      "time": "2023-07",
+      "feeling": "FEAR",
+      "knowing": "WITNESSED",
+      "media": [
+        {
+          "type": "text",
+          "text": "walking back from basement, stunned\na giant bird on the sidewalk\nshot dead on a quiet morning"
+        }
+      ]
+    },
+    {
+      "id": "E003",
+      "title": "Pocha",
+      "place": [
+        -73.98638042188962,
+        40.747717174083554
+      ],
+      "time": "2018-09",
+      "feeling": "JOY",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E003/E003_001.webp",
+          "alt": "A drink served inside a hollowed pineapple on a restaurant table."
+        },
+        {
+          "type": "audio",
+          "src": "media/E003/E003_002.webm"
+        }
+      ]
+    },
+    {
+      "id": "E004",
+      "title": "The Fallen Angel",
+      "place": [
+        -73.91629352004429,
+        40.686362490039905
+      ],
+      "time": "2023-05",
+      "feeling": "DESIRE",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E004/E004_001.webp",
+          "alt": "A crying-eye tattoo above a person's ankle."
+        }
+      ]
+    },
+    {
+      "id": "E005",
+      "title": "Once on This Island",
+      "place": [
+        -73.98508135848202,
+        40.76161705478796
+      ],
+      "time": "INDETERMINATE",
+      "feeling": "GRIEF",
+      "knowing": "IMAGINED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E005/E005_001.webp",
+          "alt": "Colorful clothing hanging from a sidewalk display behind a metal fence."
+        },
+        {
+          "type": "text",
+          "text": "she died with both hands grasping the gate\nloves unrequited beyond\nwithin herself\nafter hours, days\ni hoped she would dust herself off\nturn around\nbegin love anew\nshe became a tree instead"
+        }
+      ]
+    },
+    {
+      "id": "E006",
+      "title": "Silver Screen",
+      "place": [
+        -73.9831149218619,
+        40.69115320561556
+      ],
+      "time": "2022-10",
+      "feeling": "FEAR",
+      "knowing": "WITNESSED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E006/E006_001.webp",
+          "alt": "A blurred film image of two figures surrounded by bright light."
+        }
+      ]
+    },
+    {
+      "id": "E007",
+      "title": "Prank",
+      "place": [
+        -73.97843403151761,
+        40.75865200857649
+      ],
+      "time": "2018-12",
+      "feeling": "JOY",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/E007/E007_001.webm"
+        }
+      ]
+    },
+    {
+      "id": "E008",
+      "title": "Summer Alone",
+      "place": [
+        -73.97801913852027,
+        40.573267283089734
+      ],
+      "time": "2022-07",
+      "feeling": "WONDER",
+      "knowing": "WITNESSED",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/E008/E008_001.webm"
+        }
+      ]
+    },
+    {
+      "id": "E009",
+      "title": "Before I Heard the Echos",
+      "place": [
+        -73.91407843990517,
+        40.71564391497664
+      ],
+      "time": "2022-07",
+      "feeling": "WONDER",
+      "knowing": "IMAGINED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E009/E009_001.webp",
+          "alt": "A person moving through a narrow hallway illuminated by red lights."
+        },
+        {
+          "type": "text",
+          "text": "echoes of wata igarashi"
+        }
+      ]
+    },
+    {
+      "id": "E010",
+      "title": "I Thought This Would Be The End of Everything",
+      "place": [
+        -73.96204431792508,
+        40.68290545053948
+      ],
+      "time": "2025-07",
+      "feeling": "FEAR",
+      "knowing": "IMAGINED",
+      "media": [
+        {
+          "type": "video",
+          "src": "media/E010/E010_001.webm"
+        }
+      ]
+    },
+    {
+      "id": "E011",
+      "title": "Lying in Wait",
+      "place": [
+        -73.94962003007824,
+        40.67825168968213
+      ],
+      "time": "2022-07",
+      "feeling": "WONDER",
+      "knowing": "WITNESSED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E011/E011_001.webp",
+          "alt": "A street drain surrounded by scattered red berries and debris."
+        }
+      ]
+    },
+    {
+      "id": "E012",
+      "title": "5:30 AM",
+      "place": [
+        -73.93310704439499,
+        40.697155959801144
+      ],
+      "time": "2022-08",
+      "feeling": "NOSTALGIA",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E012/E012_001.webp",
+          "alt": "A quiet city intersection at dawn beneath elevated train tracks."
+        }
+      ]
+    },
+    {
+      "id": "E013",
+      "title": "Portal",
+      "place": [
+        -73.90655448633295,
+        40.680513041807124
+      ],
+      "time": "2022-11",
+      "feeling": "WONDER",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E013/E013_001.webp",
+          "alt": "Cloudy liquid swirling inside a dark round vessel."
+        }
+      ]
+    },
+    {
+      "id": "E014",
+      "title": "That Evening I Uncrossed My Arms",
+      "place": [
+        -73.97955420681295,
+        40.763756652088645
+      ],
+      "time": "2022-12",
+      "feeling": "WONDER",
+      "knowing": "REMEMBERED",
+      "media": [
+        {
+          "type": "image",
+          "src": "media/E014/E014_001.webp",
+          "alt": "Two pairs of arms and hands arranged against an ochre background."
+        }
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-# Publish site files only. Authoring tools and archives remain local.
+# Publish site files only; exclude authoring tools, backend source, and archives.
 exclude:
   - .private
   - .archive
@@ -22,5 +22,28 @@ exclude:
   - "*.tmp"
   - "*.har"
   - "*.trace"
+  # Consolidated projects retain their own source tools, never published by Pages.
+  - PROJECTS.md
+  - project-migrations.json
+  - project-tools
+  - each-all/netlify
+  - each-all/tests
+  - each-all/netlify.toml
+  - ephemeris/netlify
+  - ephemeris/netlify.toml
+  - jungle/visualize_links.py
+  - jungle/zine_graph.dot
+  - jungle/zine_graph.png
+  - trellis/vary_colors.py
+  - desire-path/data/encounters.csv
+  - desire-path/data/encounters-summary.md
+  - desire-path/.editorconfig
+  - desire-path/.gitattributes
+  - "**/README.md"
+  - "**/package.json"
+  - "**/package-lock.json"
+  - "**/scripts"
+  - "**/node_modules"
+  - "**/dist"
 
 # json/nav.json is public: the separately hosted Thoughts theme reads it.

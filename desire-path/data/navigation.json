@@ -1,0 +1,5187 @@
+{
+  "generated": true,
+  "generated_from": "data/encounters.csv",
+  "dimension_order": [
+    "place",
+    "time",
+    "feeling",
+    "knowing"
+  ],
+  "combinations": {
+    "place": {
+      "threshold": 0.223794,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E007",
+            "distance": 0.130492,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.146107,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.153888,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.160818,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E009",
+            "distance": 0.030775,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.0929,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.133685,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.171934,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.065526,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.073151,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.088467,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.153888,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E013",
+            "distance": 0.049457,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.087688,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.133685,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.139335,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E014",
+            "distance": 0.02468,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.030674,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.073151,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.160818,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E010",
+            "distance": 0.09439,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.14955,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.201521,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E014",
+            "distance": 0.027165,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.030674,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.065526,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.130492,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.562615,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.579058,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.61918,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E002",
+            "distance": 0.030775,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.123099,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.153967,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.186836,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E011",
+            "distance": 0.055166,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.09439,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.137345,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.183026,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.562615,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.055166,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.119033,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.139335,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E004",
+            "distance": 0.087688,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.0929,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.119033,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.123099,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E004",
+            "distance": 0.049457,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.137128,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.171858,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.171934,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E005",
+            "distance": 0.02468,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.027165,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.088467,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.146107,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "time": {
+      "threshold": 0.3,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E005",
+            "distance": 1.0,
+            "bridge": true
+          },
+          {
+            "id": "E003",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.3,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E004",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.3,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E001",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E002",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E001",
+            "distance": 1.0,
+            "bridge": true
+          },
+          {
+            "id": "E002",
+            "distance": 1.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 1.0,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E012",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E002",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.3,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E006",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E006",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E004",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+time": {
+      "threshold": 0.296452,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.126944,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.165246,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.261897,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E004",
+            "distance": 0.116843,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.163045,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.235967,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.28112,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.082763,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.126944,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.266636,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.296452,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E002",
+            "distance": 0.116843,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.124729,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.191513,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.243844,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E014",
+            "distance": 0.51234,
+            "bridge": true
+          },
+          {
+            "id": "E007",
+            "distance": 0.515337,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.536575,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E012",
+            "distance": 0.150761,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.174775,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.20492,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.251667,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.082763,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.165246,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.220661,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.263582,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.281307,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.38726,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.394807,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E012",
+            "distance": 0.111549,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.120976,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.220661,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.243418,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E002",
+            "distance": 0.163045,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.191513,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.297195,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E012",
+            "distance": 0.109517,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.120976,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.174775,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.235929,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E011",
+            "distance": 0.109517,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.111549,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.150761,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.168564,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E004",
+            "distance": 0.124729,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.168564,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.20492,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.235929,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E005",
+            "distance": 0.51234,
+            "bridge": true
+          },
+          {
+            "id": "E007",
+            "distance": 0.263582,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.28112,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.288959,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "feeling": {
+      "threshold": 0.35,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E012",
+            "distance": 0.45,
+            "bridge": true
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E006",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.35,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E001",
+            "distance": 0.35,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.35,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.35,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.35,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E012",
+            "distance": 0.45,
+            "bridge": true
+          },
+          {
+            "id": "E002",
+            "distance": 0.35,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.35,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.35,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E002",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.35,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E002",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.35,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E001",
+            "distance": 0.45,
+            "bridge": true
+          },
+          {
+            "id": "E005",
+            "distance": 0.45,
+            "bridge": true
+          },
+          {
+            "id": "E003",
+            "distance": 0.45,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+feeling": {
+      "threshold": 0.318844,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E014",
+            "distance": 0.073053,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.111897,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.140246,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.151944,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E012",
+            "distance": 0.34645,
+            "bridge": true
+          },
+          {
+            "id": "E005",
+            "distance": 0.359487,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.113045,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.137056,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.032763,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.119233,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.151944,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.241636,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E013",
+            "distance": 0.199728,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.244667,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.251983,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.318844,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E002",
+            "distance": 0.359487,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.359992,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.386621,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E010",
+            "distance": 0.047195,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.137056,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.359992,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.032763,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.088582,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.140246,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.245661,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.281307,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.315448,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.394807,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E013",
+            "distance": 0.093418,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.111897,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.120976,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.181394,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E006",
+            "distance": 0.047195,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.113045,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.368672,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E013",
+            "distance": 0.085929,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.120976,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.187778,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.232197,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E002",
+            "distance": 0.34645,
+            "bridge": true
+          },
+          {
+            "id": "E011",
+            "distance": 0.284517,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.28655,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.293564,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E011",
+            "distance": 0.085929,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.093418,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.199452,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.199728,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E001",
+            "distance": 0.073053,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.088582,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.119233,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.181394,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "time+feeling": {
+      "threshold": 0.3,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E005",
+            "distance": 0.675,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.175,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.175,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E014",
+            "distance": 0.225,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.275,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.425,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E002",
+            "distance": 0.675,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.675,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.675,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E012",
+            "distance": 0.35,
+            "bridge": true
+          },
+          {
+            "id": "E002",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.25,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.125,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E002",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.25,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.525,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.125,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E006",
+            "distance": 0.35,
+            "bridge": true
+          },
+          {
+            "id": "E008",
+            "distance": 0.275,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.275,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.275,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E014",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E013",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+time+feeling": {
+      "threshold": 0.332968,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.134629,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.160164,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.174598,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.225185,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E005",
+            "distance": 0.572991,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.108697,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.224704,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.055175,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.134629,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.227757,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.247635,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E013",
+            "distance": 0.199819,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.309306,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.329778,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E002",
+            "distance": 0.572991,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.573328,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.591081,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E010",
+            "distance": 0.19813,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.224704,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.300507,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.055175,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.160164,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.197107,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.225722,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.187538,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.263204,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.310299,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E011",
+            "distance": 0.080651,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.162279,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.174598,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.197107,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E002",
+            "distance": 0.108697,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.19813,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.411009,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E009",
+            "distance": 0.080651,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.157286,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.187538,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.223011,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E011",
+            "distance": 0.223011,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.224366,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.262376,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.300507,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E011",
+            "distance": 0.157286,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.162279,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.199819,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.208234,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E013",
+            "distance": 0.208234,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.225722,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.254262,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.279489,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "knowing": {
+      "threshold": 0.2,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E005",
+            "distance": 0.55,
+            "bridge": true
+          },
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E006",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E001",
+            "distance": 0.55,
+            "bridge": true
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E002",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E002",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E005",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.55,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E005",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.55,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E002",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+knowing": {
+      "threshold": 0.233586,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E007",
+            "distance": 0.065246,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.073053,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.076944,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.141174,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E011",
+            "distance": 0.10596,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.137056,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.14645,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.166843,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.032763,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.044234,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.076944,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.169832,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E013",
+            "distance": 0.024729,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.043844,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.166843,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.169667,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E014",
+            "distance": 0.28734,
+            "bridge": true
+          },
+          {
+            "id": "E009",
+            "distance": 0.185744,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.211621,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E011",
+            "distance": 0.074775,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.137056,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.200761,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.233586,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E014",
+            "distance": 0.013583,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.032763,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.065246,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.184886,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.281307,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.30959,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.381389,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E010",
+            "distance": 0.128432,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.185744,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.33655,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E009",
+            "distance": 0.128432,
+            "bridge": false
+          },
+          {
+            "id": "E005",
+            "distance": 0.211621,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.343673,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.281307,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.074775,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.10596,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.159517,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E004",
+            "distance": 0.043844,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.068564,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.141174,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.14645,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E004",
+            "distance": 0.024729,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.068564,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.185929,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.185967,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E005",
+            "distance": 0.28734,
+            "bridge": true
+          },
+          {
+            "id": "E007",
+            "distance": 0.013583,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.044234,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.073053,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "time+knowing": {
+      "threshold": 0.25,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.25,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E004",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.25,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E001",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E014",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E009",
+            "distance": 0.5,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.5,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.775,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E008",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E009",
+            "distance": 0.325,
+            "bridge": true
+          },
+          {
+            "id": "E003",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E007",
+            "distance": 0.325,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.35,
+            "bridge": true
+          },
+          {
+            "id": "E005",
+            "distance": 0.5,
+            "bridge": true
+          }
+        ],
+        "E010": [
+          {
+            "id": "E009",
+            "distance": 0.35,
+            "bridge": true
+          },
+          {
+            "id": "E004",
+            "distance": 0.375,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.425,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E007",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E014",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E004",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.05,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+time+knowing": {
+      "threshold": 0.27306,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.084629,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.110164,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.227449,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E004",
+            "distance": 0.144562,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.223978,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.224704,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.25408,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.055175,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.084629,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.213221,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.229489,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E010",
+            "distance": 0.311009,
+            "bridge": true
+          },
+          {
+            "id": "E013",
+            "distance": 0.083152,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.144562,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.162563,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E009",
+            "distance": 0.457163,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.474414,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.524893,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E011",
+            "distance": 0.116517,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.167174,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.20328,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.224704,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.055175,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.110164,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.175722,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.189924,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.187538,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.27306,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.32484,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E005",
+            "distance": 0.457163,
+            "bridge": true
+          },
+          {
+            "id": "E012",
+            "distance": 0.2577,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.318955,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E004",
+            "distance": 0.311009,
+            "bridge": true
+          },
+          {
+            "id": "E009",
+            "distance": 0.318955,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.375363,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E006",
+            "distance": 0.116517,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.139678,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.187538,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.223953,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E013",
+            "distance": 0.112376,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.139678,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.162563,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.167174,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E004",
+            "distance": 0.083152,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.112376,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.20328,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.208234,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E007",
+            "distance": 0.175722,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.192639,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.208234,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.229489,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "feeling+knowing": {
+      "threshold": 0.225,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E009",
+            "distance": 0.275,
+            "bridge": true
+          },
+          {
+            "id": "E013",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.075,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E008",
+            "distance": 0.4,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.4,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.075,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.075,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.075,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E001",
+            "distance": 0.175,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.175,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.175,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E009",
+            "distance": 0.375,
+            "bridge": true
+          },
+          {
+            "id": "E010",
+            "distance": 0.175,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.5,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E002",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.4,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.4,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.075,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.075,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.075,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E002",
+            "distance": 0.4,
+            "bridge": true
+          },
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E001",
+            "distance": 0.275,
+            "bridge": true
+          },
+          {
+            "id": "E005",
+            "distance": 0.375,
+            "bridge": true
+          },
+          {
+            "id": "E013",
+            "distance": 0.275,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E005",
+            "distance": 0.175,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.4,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.4,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.1,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E001",
+            "distance": 0.225,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.225,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.225,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.225,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.075,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.075,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E001",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.075,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.075,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+feeling+knowing": {
+      "threshold": 0.276965,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E014",
+            "distance": 0.048702,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.093497,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.101296,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.132968,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E012",
+            "distance": 0.297633,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.091371,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.337307,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.021842,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.079489,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.101296,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.208236,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E013",
+            "distance": 0.133152,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.212563,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.229778,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.235233,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E010",
+            "distance": 0.257748,
+            "bridge": false
+          },
+          {
+            "id": "E009",
+            "distance": 0.373829,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.44156,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E010",
+            "distance": 0.29813,
+            "bridge": true
+          },
+          {
+            "id": "E002",
+            "distance": 0.091371,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.316517,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.021842,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.059055,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.093497,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.216682,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.187538,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.276965,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.378132,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E013",
+            "distance": 0.245612,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.257931,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.304262,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E006",
+            "distance": 0.29813,
+            "bridge": true
+          },
+          {
+            "id": "E005",
+            "distance": 0.257748,
+            "bridge": false
+          },
+          {
+            "id": "E002",
+            "distance": 0.34203,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E013",
+            "distance": 0.123953,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.187538,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.191852,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.221464,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E002",
+            "distance": 0.297633,
+            "bridge": true
+          },
+          {
+            "id": "E013",
+            "distance": 0.195709,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.212563,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.244116,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E011",
+            "distance": 0.123953,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.132968,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.133152,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.1749,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E001",
+            "distance": 0.048702,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.059055,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.079489,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.1749,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "time+feeling+knowing": {
+      "threshold": 0.266667,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.083333,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.116667,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.166667,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.166667,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E010",
+            "distance": 0.3,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.133333,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.383333,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.033333,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.083333,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.183333,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.183333,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E014",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.183333,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.316667,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E010",
+            "distance": 0.45,
+            "bridge": true
+          },
+          {
+            "id": "E009",
+            "distance": 0.583333,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.666667,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E012",
+            "distance": 0.3,
+            "bridge": true
+          },
+          {
+            "id": "E002",
+            "distance": 0.133333,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.333333,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.033333,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.116667,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.15,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.166667,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.166667,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E007",
+            "distance": 0.266667,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.266667,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.266667,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E002",
+            "distance": 0.3,
+            "bridge": true
+          },
+          {
+            "id": "E005",
+            "distance": 0.45,
+            "bridge": true
+          },
+          {
+            "id": "E006",
+            "distance": 0.433333,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.0,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.166667,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.166667,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E006",
+            "distance": 0.3,
+            "bridge": true
+          },
+          {
+            "id": "E007",
+            "distance": 0.216667,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.216667,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.25,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E014",
+            "distance": 0.033333,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.166667,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.166667,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.183333,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E013",
+            "distance": 0.033333,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.15,
+            "bridge": false
+          },
+          {
+            "id": "E008",
+            "distance": 0.2,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.2,
+            "bridge": false
+          }
+        ]
+      }
+    },
+    "place+time+feeling+knowing": {
+      "threshold": 0.285331,
+      "neighborhoods": {
+        "E001": [
+          {
+            "id": "E003",
+            "distance": 0.100972,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.120123,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.211527,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.218889,
+            "bridge": false
+          }
+        ],
+        "E002": [
+          {
+            "id": "E006",
+            "distance": 0.168528,
+            "bridge": false
+          },
+          {
+            "id": "E010",
+            "distance": 0.281523,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.320921,
+            "bridge": false
+          }
+        ],
+        "E003": [
+          {
+            "id": "E007",
+            "distance": 0.041382,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.100972,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.209617,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.235726,
+            "bridge": false
+          }
+        ],
+        "E004": [
+          {
+            "id": "E013",
+            "distance": 0.149864,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.23198,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.259422,
+            "bridge": false
+          }
+        ],
+        "E005": [
+          {
+            "id": "E010",
+            "distance": 0.443311,
+            "bridge": true
+          },
+          {
+            "id": "E009",
+            "distance": 0.530372,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.58117,
+            "bridge": false
+          }
+        ],
+        "E006": [
+          {
+            "id": "E002",
+            "distance": 0.168528,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.27538,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.287388,
+            "bridge": false
+          }
+        ],
+        "E007": [
+          {
+            "id": "E003",
+            "distance": 0.041382,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.120123,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.169291,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.22184,
+            "bridge": false
+          }
+        ],
+        "E008": [
+          {
+            "id": "E011",
+            "distance": 0.140654,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.282724,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.355797,
+            "bridge": false
+          }
+        ],
+        "E009": [
+          {
+            "id": "E013",
+            "distance": 0.259209,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.260488,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.268448,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.285331,
+            "bridge": false
+          }
+        ],
+        "E010": [
+          {
+            "id": "E005",
+            "distance": 0.443311,
+            "bridge": true
+          },
+          {
+            "id": "E002",
+            "distance": 0.281523,
+            "bridge": false
+          },
+          {
+            "id": "E006",
+            "distance": 0.348598,
+            "bridge": false
+          }
+        ],
+        "E011": [
+          {
+            "id": "E008",
+            "distance": 0.140654,
+            "bridge": false
+          },
+          {
+            "id": "E013",
+            "distance": 0.167965,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.217258,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.218889,
+            "bridge": false
+          }
+        ],
+        "E012": [
+          {
+            "id": "E013",
+            "distance": 0.196782,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.217258,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.254943,
+            "bridge": false
+          },
+          {
+            "id": "E004",
+            "distance": 0.259422,
+            "bridge": false
+          }
+        ],
+        "E013": [
+          {
+            "id": "E004",
+            "distance": 0.149864,
+            "bridge": false
+          },
+          {
+            "id": "E014",
+            "distance": 0.156175,
+            "bridge": false
+          },
+          {
+            "id": "E011",
+            "distance": 0.167965,
+            "bridge": false
+          },
+          {
+            "id": "E012",
+            "distance": 0.196782,
+            "bridge": false
+          }
+        ],
+        "E014": [
+          {
+            "id": "E013",
+            "distance": 0.156175,
+            "bridge": false
+          },
+          {
+            "id": "E007",
+            "distance": 0.169291,
+            "bridge": false
+          },
+          {
+            "id": "E003",
+            "distance": 0.209617,
+            "bridge": false
+          },
+          {
+            "id": "E001",
+            "distance": 0.211527,
+            "bridge": false
+          }
+        ]
+      }
+    }
+  },
+  "possible_paths": [
+    {
+      "a": "E001",
+      "b": "E002",
+      "a_to_b": false,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E003",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E004",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E005",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E006",
+      "a_to_b": false,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E007",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E008",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E010",
+      "a_to_b": false,
+      "b_to_a": true,
+      "near": []
+    },
+    {
+      "a": "E001",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E001",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E004",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E005",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E006",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E008",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E010",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E002",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E004",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E005",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E007",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E008",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E003",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E006",
+      "a_to_b": false,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E007",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E008",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E010",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E004",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E005",
+      "b": "E006",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling"
+      ]
+    },
+    {
+      "a": "E005",
+      "b": "E007",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E005",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E005",
+      "b": "E010",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E005",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": []
+    },
+    {
+      "a": "E005",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E008",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "time"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E010",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E006",
+      "b": "E014",
+      "a_to_b": false,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E007",
+      "b": "E008",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E007",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E007",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E007",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E007",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E007",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E008",
+      "b": "E009",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E008",
+      "b": "E010",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": []
+    },
+    {
+      "a": "E008",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E008",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E008",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E008",
+      "b": "E014",
+      "a_to_b": false,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E009",
+      "b": "E010",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "knowing"
+      ]
+    },
+    {
+      "a": "E009",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E009",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time"
+      ]
+    },
+    {
+      "a": "E009",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling"
+      ]
+    },
+    {
+      "a": "E009",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling"
+      ]
+    },
+    {
+      "a": "E010",
+      "b": "E011",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E010",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "place"
+      ]
+    },
+    {
+      "a": "E010",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": false,
+      "near": [
+        "time"
+      ]
+    },
+    {
+      "a": "E011",
+      "b": "E012",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E011",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E011",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "feeling",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E012",
+      "b": "E013",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "place",
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E012",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "knowing"
+      ]
+    },
+    {
+      "a": "E013",
+      "b": "E014",
+      "a_to_b": true,
+      "b_to_a": true,
+      "near": [
+        "time",
+        "feeling",
+        "knowing"
+      ]
+    }
+  ]
+}
