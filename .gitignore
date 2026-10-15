@@ -47,67 +47,40 @@ coverage/
 *.har
 *.trace
 
-# Portfolio authoring remains local; consolidated projects retain their source tools.
+# Local authoring, references, and maintenance.
 .private/
+/.github/
 /README.md
 /package.json
 /package-lock.json
 /scripts/
 /docs/
-thoughts.html
+/thoughts.html
+/PROJECTS.md
+/project-migrations.json
+/project-tools/
 json/projects.json
 json/writings.json
 json/field.json
-.github/workflows/check-site.yml
+**/README.md
+**/tests/
+**/*.test.*
+**/*.py
+/desire-path/.editorconfig
+/desire-path/.gitattributes
+/desire-path/package.json
+/desire-path/scripts/
+/desire-path/data/encounters.csv
+/desire-path/data/encounters-summary.md
+/jungle/zine_graph.dot
+/jungle/zine_graph.png
+/each-all/scripts/*
+!/each-all/scripts/build.cjs
 
-# Project build caches and local credentials.
+# Project build caches and credentials.
 **/.netlify/
 **/dist/
 **/__pycache__/
 *.py[cod]
 .env.*
 !.env.example
-
-# Local maintenance and authoring; GitHub contains deployment inputs only.
-/.github/workflows/check-projects.yml
-/PROJECTS.md
-/desire-path/.editorconfig
-/desire-path/.gitattributes
-/desire-path/README.md
-/desire-path/data/encounters-summary.md
-/desire-path/data/encounters.csv
-/desire-path/package.json
-/desire-path/scripts/calculate_navigation.py
-/desire-path/scripts/calculate_paths.py
-/desire-path/scripts/check_data.py
-/desire-path/scripts/export_data.py
-/desire-path/scripts/normalize_media.py
-/desire-path/scripts/validate_data.py
-/desire-path/vendor/leaflet/README.md
-/each-all/README.md
-/each-all/scripts/migrate-images.cjs
-/each-all/tests/submissions.test.cjs
-/ephemeris/README.md
-/exp/README.md
-/jungle/README.md
-/jungle/visualize_links.py
-/jungle/zine_graph.dot
-/jungle/zine_graph.png
-/project-migrations.json
-/project-tools/backends.test.cjs
-/project-tools/check-projects.mjs
-/trellis/README.md
-/trellis/vary_colors.py
-
-# Future documentation, tests, and authoring files stay local too.
-**/README.md
-**/tests/
-**/*.test.*
-**/*.py
-/project-tools/
-/project-migrations.json
-/PROJECTS.md
-/.github/
-/desire-path/scripts/
-/each-all/scripts/*
-!/each-all/scripts/build.cjs

@@ -1,7 +1,6 @@
 # Publish site files only; exclude authoring tools, backend source, and archives.
 exclude:
   - .private
-  - .archive
   - .gitignore
   - .repo-backups
   - .codex
@@ -22,10 +21,7 @@ exclude:
   - "*.tmp"
   - "*.har"
   - "*.trace"
-  # Consolidated projects retain their own source tools, never published by Pages.
-  - PROJECTS.md
-  - project-migrations.json
-  - project-tools
+  # Required backend/build inputs are tracked but excluded from Pages.
   - each-all/netlify
   - each-all/tests
   - each-all/netlify.toml

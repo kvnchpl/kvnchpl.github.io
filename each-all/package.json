@@ -1,7 +1,4 @@
 {
-  "dependencies": {
-    "resend": "^4.6.0"
-  },
   "scripts": {
     "build": "node scripts/build.cjs"
   }
