@@ -1,4 +1,4 @@
-import {normalizeSiteUrl, getView} from "./navigation.js?v=6a3043fb24";
+import {normalizeSiteUrl, getView} from "./navigation.js";
 
 // Each screen owns its colors; toggles add or remove only that color's rectangle.
 function initColorPalette(composition) {

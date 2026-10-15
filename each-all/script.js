@@ -58,7 +58,7 @@ function closePrompt(updateHistory = true) {
   if (!sending) { $('image-input').value = ''; clearPreview(); retryPayload = null; formVersion++; }
 }
 async function getEntries(id, fresh = false) {
-  const res = await fetch(`prompts/${id}.json${fresh ? `?v=${Date.now()}` : ''}`, fresh ? { cache: 'no-store' } : {});
+  const res = await fetch(`prompts/${id}.json`, fresh ? { cache: 'no-store' } : {});
   if (res.status === 404) return [];
   if (!res.ok) throw new Error('Could not load images.');
   const data = await res.json(); if (!Array.isArray(data)) throw new Error('Invalid image list.');
