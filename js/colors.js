@@ -13,7 +13,15 @@ export function initColorPalette(composition) {
     if (!selectedColors.size) selectedColors.add(swatches[0].dataset.color);
     const random = (min, max) => min + Math.random() * (max - min);
     function moveRectangle(rectangle) {
-        Object.assign(rectangle.style, {width: `${random(8, 30)}%`, height: `${random(4, 20)}%`});
+        // Sample both sides on the same pixel scale so wide screens don't
+        // turn most rectangles into landscapes. Closed dialogs use the viewport.
+        const layerWidth = rectangleLayer.clientWidth || window.innerWidth;
+        const layerHeight = rectangleLayer.clientHeight || window.innerHeight;
+        const scale = Math.min(layerWidth, layerHeight);
+        Object.assign(rectangle.style, {
+            width: `${random(8, 30) * scale / layerWidth}%`,
+            height: `${random(8, 30) * scale / layerHeight}%`
+        });
         Object.assign(rectangle.style, {
             left: `${random(0, 100 - parseFloat(rectangle.style.width))}%`,
             top: `${random(18, 86 - parseFloat(rectangle.style.height))}%`
