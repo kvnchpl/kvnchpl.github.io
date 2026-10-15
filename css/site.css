@@ -3,14 +3,18 @@
 html, body { background: black; }
 .site-view-open { overflow: hidden; }
 body:is(.site-page,.field-page) { font-size: 13px; }
-:is(.site-page,.field-page) a, .work-return { text-transform: lowercase; text-decoration: underline; }
+:is(.site-page,.field-page) a, .work-return { text-decoration: underline; }
+/* Apply the same case treatment to links and their nested labels everywhere,
+   including Thoughts, which loads this stylesheet without base.css. */
+body a:any-link, body a:any-link * { text-transform: uppercase !important; }
+body a:any-link:is(:hover,:focus-visible), body a:any-link:is(:hover,:focus-visible) * { text-transform: lowercase !important; }
 :is(.site-page,.field-page) :focus-visible, .work-page :focus-visible { outline: 2px dotted currentColor; outline-offset: 5px; }
 main.site-main { display: block; overflow: visible; }
 .site-shell { width: 100%; }
 :is(.site-identity,.screen-identity) a, :is(.site-identity,.screen-identity) svg { display: block; width: 100%; height: 100%; }
 :is(.site-identity,.screen-identity) a { text-transform: uppercase; }
 :is(.site-identity,.screen-identity) text { fill: white; text-transform: uppercase; font-family: var(--font-family-main); font-weight: 400; }
-:is(.site-identity,.screen-identity) :is(a,text), .about-name { text-transform: uppercase !important; }
+.about-name { text-transform: uppercase; }
 .home-view { position: relative; height: 100svh; min-height: 600px; overflow: hidden; }
 .home-name { position: absolute; z-index: 1; left: 3%; top: 2%; width: 94%; height: 28%; margin: 0; font-weight: 400; }
 .home-image { position: absolute; inset: 0 0 0 58%; }
@@ -53,7 +57,7 @@ main.site-main { display: block; overflow: visible; }
 :is(.site-header,.screen-chrome) :is(.site-identity,.screen-identity) { position: absolute; right: 4%; top: 24px; width: 32%; height: 75px; }
 :is(.site-header,.screen-chrome) nav { display: flex; flex-wrap: wrap; gap: 18px 30px; width: 55%; }
 :is(.site-header,.screen-chrome) nav a, :is(.site-header,.screen-chrome) button { white-space: nowrap; }
-:is(.site-header,.screen-chrome) a, :is(.site-header,.screen-chrome) button { color: white; text-transform: lowercase; text-decoration: underline; }
+:is(.site-header,.screen-chrome) a, :is(.site-header,.screen-chrome) button { color: white; text-decoration: underline; }
 :is(.site-header,.screen-chrome) button { padding: 0; border: 0; background: black; cursor: pointer; }
 .collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
 .collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: .015em; }
