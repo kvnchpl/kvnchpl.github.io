@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta name="robots" content="noindex, nofollow">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,89 +10,113 @@
     <link rel="icon" href="data:,">
     <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
     <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <a class="skip-link" href="#encounter">Skip to encounter</a>
 
     <main class="landscape">
-      <section class="map-region">
-        <div id="map" class="map" role="region" aria-label="Paths near the current encounter">
-          <p class="map-fallback">Loading...</p>
-          <section class="load-error" id="load-error" aria-labelledby="load-error-title" hidden>
-            <h2 id="load-error-title">The landscape could not be opened</h2>
-            <p id="load-error-message">Its public data is currently unavailable.</p>
-            <button id="load-error-retry" type="button">Try again</button>
-          </section>
-        </div>
-        <button class="reset-view" id="reset-view" type="button" disabled>reset view</button>
-        <p class="touch-hint" id="touch-hint">tap once to reveal an encounter, then again to follow its path.</p>
-      </section>
-
-      <aside class="interface" aria-label="Explore desire path">
-        <div class="interface-scroll">
-          <header class="site-header">
-            <h1>DESIRE PATH</h1>
-          </header>
-
-          <article class="encounter" id="encounter" tabindex="-1" aria-live="polite">
-            <h2 id="encounter-title">Arriving</h2>
-            <div id="encounter-media" class="encounter-media">
-              <p>The first encounter will appear here.</p>
+        <section class="map-region">
+            <div id="map" class="map" role="region" aria-label="Paths near the current encounter">
+                <p class="map-fallback">Loading...</p>
+                <section class="load-error" id="load-error" aria-labelledby="load-error-title" hidden>
+                    <h2 id="load-error-title">The landscape could not be opened</h2>
+                    <p id="load-error-message">Its public data is currently unavailable.</p>
+                    <button id="load-error-retry" type="button">Try again</button>
+                </section>
             </div>
-          </article>
+            <button class="reset-view" id="reset-view" type="button" disabled>reset view</button>
+            <p class="touch-hint" id="touch-hint">tap once to reveal an encounter, then again to follow its path.</p>
+        </section>
 
-          <details class="explore" open>
-            <summary>explore</summary>
-            <form id="explore-form">
-              <fieldset>
-                <legend>explore dimensions</legend>
-                <label><input type="checkbox" name="dimension" value="place"> <span>Place</span></label>
-                <label><input type="checkbox" name="dimension" value="time" checked> <span>Time</span></label>
-                <label><input type="checkbox" name="dimension" value="feeling" checked> <span>Feeling</span></label>
-                <label><input type="checkbox" name="dimension" value="knowing" checked> <span>Knowing</span></label>
-              </fieldset>
-            </form>
-          </details>
+        <aside class="interface" aria-label="Explore desire path">
+            <div class="interface-scroll">
+                <header class="site-header">
+                    <h1>DESIRE PATH</h1>
+                </header>
 
-          <details class="options">
-            <summary>options</summary>
-            <label><input type="checkbox" id="options-show-all"> <span>show every encounter</span></label>
-            <label><input type="checkbox" id="options-show-traversed"> <span>show traversed paths</span></label>
-            <label><input type="checkbox" id="options-show-details"> <span>show current encounter details</span></label>
-            <div class="options-data" id="options-data" hidden></div>
-          </details>
+                <article class="encounter" id="encounter" tabindex="-1" aria-live="polite">
+                    <h2 id="encounter-title">Arriving</h2>
+                    <div id="encounter-media" class="encounter-media">
+                        <p>The first encounter will appear here.</p>
+                    </div>
+                </article>
 
-          <details class="advanced">
-            <summary>advanced</summary>
-            <label><input type="checkbox" id="options-show-all-paths"> <span>show every path</span></label>
-            <label><input type="checkbox" id="options-show-ids"> <span>show encounter ids</span></label>
-          </details>
+                <details class="explore" open>
+                    <summary>explore</summary>
+                    <form id="explore-form">
+                        <fieldset>
+                            <legend>explore dimensions</legend>
+                            <label><input type="checkbox" name="dimension" value="place"> <span>Place</span></label>
+                            <label><input type="checkbox" name="dimension" value="time" checked>
+                                <span>Time</span></label>
+                            <label><input type="checkbox" name="dimension" value="feeling" checked>
+                                <span>Feeling</span></label>
+                            <label><input type="checkbox" name="dimension" value="knowing" checked>
+                                <span>Knowing</span></label>
+                        </fieldset>
+                    </form>
+                </details>
 
-        </div>
+                <details class="options">
+                    <summary>options</summary>
+                    <label><input type="checkbox" id="options-show-all"> <span>show every encounter</span></label>
+                    <label><input type="checkbox" id="options-show-traversed"> <span>show traversed paths</span></label>
+                    <label><input type="checkbox" id="options-show-details"> <span>show current encounter
+                            details</span></label>
+                    <div class="options-data" id="options-data" hidden></div>
+                </details>
 
-        <dialog class="about-panel" id="about-panel" aria-labelledby="about-title">
-          <button class="about-close" id="about-close" type="button" aria-label="Close about">X</button>
-          <div class="about-content">
-            <h2 id="about-title">About</h2>
-            <div class="about-copy">
-              <p>How might we understand proximity through relationships other than geographic distance? Are there other ways to relate our various encounters with land and place that champion subjective experience without completely abandoning the utility of geography?</p>
-              <p><span class="project-title">DESIRE PATH</span> is an experimental cartographic work that explores proximity beyond geographic distance. Drawing from personal journals, memories, dreams, photographs, and speculative narratives connected to New York City, it locates encounters across four dimensions: place, time, feeling, and knowing. Rather than presenting an objective overview or predetermined destinations, the map is gradually discovered through movement, allowing visitors to navigate a subjective psychogeography one relationship at a time. Organized as an interactive multimedia archive and hypertext, DESIRE PATH asks how memory, emotion, and other forms of spatial knowledge might reshape the ways we relate to land and place.</p>
+                <details class="advanced">
+                    <summary>advanced</summary>
+                    <label><input type="checkbox" id="options-show-all-paths"> <span>show every path</span></label>
+                    <label><input type="checkbox" id="options-show-ids"> <span>show encounter ids</span></label>
+                </details>
+
             </div>
-          </div>
-        </dialog>
 
-        <footer class="interface-footer">
-          <button class="retrace" id="retrace" type="button" disabled>Retrace</button>
-          <button class="about-toggle" id="about-toggle" type="button" aria-expanded="false" aria-controls="about-panel">About</button>
-        </footer>
-        <p class="status" id="status" role="status">Preparing the landscape.</p>
-      </aside>
+            <dialog class="about-panel" id="about-panel" aria-labelledby="about-title">
+                <button class="about-close" id="about-close" type="button" aria-label="Close about">X</button>
+                <div class="about-content">
+                    <h2 id="about-title">About</h2>
+                    <div class="about-copy">
+                        <p>How might we understand proximity through relationships other than geographic distance? Are
+                            there other
+                            ways to relate our various encounters with land and place that champion subjective
+                            experience without
+                            completely abandoning the utility of geography?</p>
+                        <p><span class="project-title">DESIRE PATH</span> is an experimental cartographic work that
+                            explores
+                            proximity beyond geographic distance. Drawing from personal journals, memories, dreams,
+                            photographs, and
+                            speculative narratives connected to New York City, it locates encounters across four
+                            dimensions: place,
+                            time, feeling, and knowing. Rather than presenting an objective overview or predetermined
+                            destinations,
+                            the map is gradually discovered through movement, allowing visitors to navigate a subjective
+                            psychogeography one relationship at a time. Organized as an interactive multimedia archive
+                            and hypertext,
+                            DESIRE PATH asks how memory, emotion, and other forms of spatial knowledge might reshape the
+                            ways we
+                            relate to land and place.</p>
+                    </div>
+                </div>
+            </dialog>
+
+            <footer class="interface-footer">
+                <button class="retrace" id="retrace" type="button" disabled>Retrace</button>
+                <button class="about-toggle" id="about-toggle" type="button" aria-expanded="false"
+                    aria-controls="about-panel">About</button>
+            </footer>
+            <p class="status" id="status" role="status">Preparing the landscape.</p>
+        </aside>
     </main>
 
     <noscript>
-      <p class="noscript">This landscape needs JavaScript to reveal its paths.</p>
+        <p class="noscript">This landscape needs JavaScript to reveal its paths.</p>
     </noscript>
     <script src="vendor/leaflet/leaflet.js"></script>
     <script type="module" src="js/app.js"></script>
-  </body>
+</body>
+
 </html>
