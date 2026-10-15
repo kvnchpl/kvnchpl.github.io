@@ -84,3 +84,8 @@ json/field.json
 *.py[cod]
 .env.*
 !.env.example
+
+# Unity editor metadata is local; exported players use Build and TemplateData.
+/jungle/a/m/*/ProjectVersion.txt
+/jungle/a/m/*/GUID.txt
+/jungle/a/m/*/dependencies.txt
