@@ -77,6 +77,7 @@ main.site-main { display: block; overflow: visible; }
 /* These rectangles belong to the screen, independently of catalog entries. */
 .collection-view :is(.site-header,.screen-chrome) { z-index: 3; }
 .collection-view .color-palette, .collection-artifacts { position: fixed; }
+.about-view :is(.color-palette, .color-artifacts), body[data-page="thoughts"] :is(.color-palette, .color-artifacts) { position: fixed; }
 .collection-title { display: block; margin-top: 12px; text-transform: uppercase; line-height: 1.4; }
 .collection-item:focus-visible .collection-title { text-transform: lowercase; }
 .collection-meta { display: block; font-size: 11px; margin-top: 8px; }

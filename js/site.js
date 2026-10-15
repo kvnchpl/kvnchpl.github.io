@@ -1,81 +1,6 @@
 import {normalizeSiteUrl, getView} from "./navigation.js";
-
-// Each screen owns its colors; toggles add or remove only that color's rectangle.
-function initColorPalette(composition) {
-    const swatches = [...composition.querySelectorAll('[data-color]')];
-    const rectangleLayer = composition.querySelector('[data-color-artifacts]');
-    rectangleLayer.removeAttribute('aria-hidden');
-    rectangleLayer.setAttribute('role', 'group');
-    rectangleLayer.setAttribute('aria-label', 'color rectangles');
-    const selectedColors = new Set(swatches.filter((button) => button.getAttribute('aria-pressed') === 'true').map((button) => button.dataset.color));
-    const rectangles = new Map();
-    if (!selectedColors.size) selectedColors.add(swatches[0].dataset.color);
-    const random = (min, max) => min + Math.random() * (max - min);
-    function moveRectangle(rectangle) {
-        Object.assign(rectangle.style, {
-            left: `${random(0, 100 - parseFloat(rectangle.style.width))}%`,
-            top: `${random(18, 86 - parseFloat(rectangle.style.height))}%`
-        });
-    }
-    function addRectangle(color) {
-        const rectangle = document.createElement('button');
-        rectangle.type = 'button';
-        rectangle.className = 'color-rectangle';
-        const closeMarker = document.createElement('span');
-        closeMarker.className = 'rectangle-close';
-        closeMarker.textContent = 'x';
-        closeMarker.setAttribute('aria-hidden', 'true');
-        rectangle.addEventListener('click', (event) => {
-            if (event.detail > 0) rectangle.blur();
-            toggleColor(color);
-            if (event.detail === 0 && !selectedColors.has(color)) swatches.find((button) => button.dataset.color === color).focus();
-        });
-        rectangle.append(closeMarker);
-        const width = random(8, 30);
-        const height = random(4, 20);
-        Object.assign(rectangle.style, {
-            background: color, width: `${width}%`, height: `${height}%`
-        });
-        moveRectangle(rectangle);
-        rectangles.set(color, rectangle);
-        rectangleLayer.append(rectangle);
-    }
-    function updateSwatches() {
-        swatches.forEach((button) => {
-            const color = button.dataset.color;
-            button.setAttribute('aria-pressed', String(selectedColors.has(color)));
-            rectangles.get(color)?.setAttribute('aria-label', `${selectedColors.size === 1 ? 'reposition' : 'close'} ${button.getAttribute('aria-label')} rectangle`);
-        });
-    }
-    function regenerate() {
-        rectangleLayer.replaceChildren();
-        rectangles.clear();
-        selectedColors.forEach(addRectangle);
-        updateSwatches();
-    }
-    function toggleColor(color) {
-        if (selectedColors.has(color)) {
-            if (selectedColors.size === 1) {
-                moveRectangle(rectangles.get(color));
-                return;
-            }
-            selectedColors.delete(color);
-            rectangles.get(color).remove();
-            rectangles.delete(color);
-        } else {
-            selectedColors.add(color);
-            addRectangle(color);
-        }
-        updateSwatches();
-    }
-    swatches.forEach((button) => button.addEventListener('click', () => toggleColor(button.dataset.color)));
-    regenerate();
-    return function reset() {
-        selectedColors.clear();
-        selectedColors.add('#0000ff');
-        regenerate();
-    };
-}
+import {initColorPalette} from "./colors.js";
+import {saveCollectionPosition, readCollectionPosition, rememberWorkReturn} from "./collection-state.js";
 
 (() => {
     const site = document.querySelector('.site-shell');
@@ -98,7 +23,23 @@ function initColorPalette(composition) {
     }
     history.replaceState(initialState, '', normalizeSiteUrl(location.href));
 
-    function render(announce = false) {
+    function rememberPosition() {
+        if (!collectionView.open) return;
+        const position = saveCollectionPosition(location.href, collectionView.scrollTop);
+        if (position) history.replaceState({...history.state, collectionPosition: position}, '', location.href);
+    }
+    function rememberWork(event) {
+        const link = event.target.closest('a.collection-item');
+        if (!collectionView.open || !link) return;
+        rememberPosition();
+        const workUrl = new URL(link.href, location.href);
+        if (workUrl.origin !== location.origin) return;
+        const returnUrl = new URL(location.href);
+        returnUrl.hash = link.id;
+        rememberWorkReturn(workUrl, returnUrl, collectionView.scrollTop);
+    }
+
+    function render(announce = false, restorePosition = false) {
         const url = normalizeSiteUrl(location.href);
         if (url.href !== location.href) history.replaceState(history.state, '', url);
         const view = getView(url);
@@ -109,7 +50,7 @@ function initColorPalette(composition) {
             if (active && !dialog.open) dialog.showModal();
         }
         if (view !== previousView) {
-            resetPalettes.get(view === 'collection' ? collectionView : homeView)?.();
+            resetPalettes.get({home: homeView, collection: collectionView, about: aboutView}[view])?.();
             previousView = view;
         }
         document.documentElement.classList.toggle('site-view-open', collectionView.open || aboutView.open);
@@ -135,13 +76,25 @@ function initColorPalette(composition) {
             if (!active) destination.searchParams.set('tag', link.dataset.tagFilter);
             link.href = destination.href;
         });
-        if (collectionView.open && url.hash) workItems.find(item => item.id === url.hash.slice(1) && !item.hidden)?.scrollIntoView({block: 'center'});
+        if (collectionView.open) {
+            const saved = history.state?.collectionPosition;
+            const position = restorePosition && (saved?.url === url.href ? saved : readCollectionPosition(url));
+            if (position && Number.isFinite(position.scrollTop)) {
+                // Dialog scrolling is separate from the document's browser-managed scroll.
+                requestAnimationFrame(() => {
+                    if (collectionView.open && location.href === url.href) collectionView.scrollTop = position.scrollTop;
+                });
+            } else if (url.hash) {
+                workItems.find(item => item.id === url.hash.slice(1) && !item.hidden)?.scrollIntoView({block: 'center'});
+            }
+        }
         if (announce) announcement.textContent = view === 'collection' ? `${selectedCategory} collection${selectedTag ? `, #${selectedTag}` : ''}, ${visibleCount} works` : view;
     }
-    function navigate(destination) {
+    function navigate(destination, restorePosition = false) {
+        rememberPosition();
         const url = normalizeSiteUrl(destination);
         if (url.href !== location.href) history.pushState(getView(url) === 'about' ? {returnUrl: location.href} : null, '', url);
-        render(true);
+        render(true, restorePosition);
     }
     collectionView.addEventListener('cancel', event => {
         event.preventDefault();
@@ -149,10 +102,11 @@ function initColorPalette(composition) {
     });
     aboutView.addEventListener('cancel', event => {
         event.preventDefault();
-        navigate(history.state?.returnUrl || new URL('/', location.href));
+        navigate(history.state?.returnUrl || new URL('/', location.href), true);
     });
     site.querySelectorAll('[data-view-link="about"], [data-view-link="collection"]').forEach(link => link.setAttribute('aria-haspopup', 'dialog'));
     site.addEventListener('click', event => {
+        rememberWork(event);
         if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const link = event.target.closest('a');
         if (!link?.matches('[data-view-link], [data-category-filter], [data-tag-filter]')) return;
@@ -160,11 +114,16 @@ function initColorPalette(composition) {
         navigate(link.href);
         if (collectionView.open && link.matches('[data-category-filter], [data-tag-filter]')) collectionView.scrollTop = 0;
     });
+    site.addEventListener('auxclick', rememberWork);
+    site.addEventListener('contextmenu', rememberWork);
+    window.addEventListener('pagehide', rememberPosition);
     window.addEventListener('pageshow', event => {
-        if (event.persisted) { previousView = undefined; render(); }
+        if (event.persisted) previousView = undefined;
+        // Run after native fragment scrolling as well as Back/Forward restoration.
+        render(false, true);
     });
-    window.addEventListener('popstate', () => { previousView = undefined; render(true); });
+    window.addEventListener('popstate', () => { previousView = undefined; render(true, true); });
     window.addEventListener('hashchange', () => render(true));
-    render();
+    render(false, true);
 })();
 
