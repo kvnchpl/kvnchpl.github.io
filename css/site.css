@@ -10,6 +10,7 @@ main.site-main { display: block; overflow: visible; }
 :is(.site-identity,.screen-identity) a, :is(.site-identity,.screen-identity) svg { display: block; width: 100%; height: 100%; }
 :is(.site-identity,.screen-identity) a { text-transform: uppercase; }
 :is(.site-identity,.screen-identity) text { fill: white; text-transform: uppercase; font-family: var(--font-family-main); font-weight: 400; }
+:is(.site-identity,.screen-identity) :is(a,text), .about-name { text-transform: uppercase !important; }
 .home-view { position: relative; height: 100svh; min-height: 600px; overflow: hidden; }
 .home-name { position: absolute; z-index: 1; left: 3%; top: 2%; width: 94%; height: 28%; margin: 0; font-weight: 400; }
 .home-image { position: absolute; inset: 0 0 0 58%; }
@@ -85,7 +86,8 @@ main.site-main { display: block; overflow: visible; }
 .about-room { position: relative; display: grid; grid-template-columns: minmax(0,53%) minmax(0,47%); align-items: start; min-height: 65svh; padding: 20px var(--content-inset) 70px; }
 .about-copy { grid-column: 1; grid-row: 1; min-width: 0; padding-right: 10%; }
 .about-copy .contact-text { max-width: 50ch; width: 100%; margin: 0 0 32px; font-size: 14px; line-height: 1.7; }
-.about-image { display: block; width: 100%; max-width: 420px; height: auto; }
+.about-image { display: block; width: 100%; max-width: 420px; height: auto; image-rendering: crisp-edges; image-rendering: pixelated; }
+.about-copy > .about-image + .contact-text { margin-top: 24px; }
 /* The color room: art on one side, large type on the other, copy always visible. */
 :is(.page-header,.page-chrome) { min-height: 120px; font-size: 13px; }
 :is(.page-header,.page-chrome) :is(.site-identity,.screen-identity) { height: 50px; width: 26%; }
