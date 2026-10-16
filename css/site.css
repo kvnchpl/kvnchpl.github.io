@@ -3,7 +3,8 @@
 html, body { background: black; }
 .site-view-open { overflow: hidden; }
 body.site-page { font-size: 13px; }
-.site-page a, .work-return { text-decoration: underline; }
+/* Text links stay underlined; cards underline their title rather than all their contents. */
+.site-page a, .work-page a { text-decoration: underline; text-underline-offset: .15em; }
 /* Apply the same case treatment to links and their nested labels everywhere,
    including Thoughts, which loads this stylesheet without base.css. */
 body a:any-link, body a:any-link * { text-transform: uppercase !important; }
@@ -22,8 +23,7 @@ main.site-main { display: block; overflow: visible; }
 .nav-code { display: inline-block; width: 3ch; margin-right: 1ch; white-space: nowrap; }
 .nav-label { white-space: nowrap; }
 .home-navigation { position: absolute; z-index: 3; inset: 37% 4% 14%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(4, 1fr); grid-template-areas: "collection about" "thoughts reading" "watching listening" "homestuck hydrants"; align-items: start; gap: 10px 18px; --nav-step: clamp(16px, 5vw, 80px); }
-.home-navigation a { display: flex; align-items: baseline; width: max-content; max-width: 100%; background: black; color: white; font-size: clamp(14px, 1.7vw, 24px); line-height: 1.4; text-decoration: none; }
-.home-navigation a:hover { text-decoration: underline; }
+.home-navigation a { display: flex; align-items: baseline; width: max-content; max-width: 100%; background: black; color: white; font-size: clamp(14px, 1.7vw, 24px); line-height: 1.4; }
 .home-navigation .nav-code { flex: 0 0 3ch; }
 .home-navigation .home-collection { grid-area: collection; }
 .home-navigation .home-about { grid-area: about; }
@@ -57,14 +57,14 @@ main.site-main { display: block; overflow: visible; }
 .site-header .site-identity { position: absolute; right: 4%; top: 24px; width: 32%; height: 75px; }
 .site-header nav { display: flex; flex-wrap: wrap; gap: 18px 30px; width: 55%; }
 .site-header nav a, .site-header button { white-space: nowrap; }
-.site-header a, .site-header button { color: white; text-decoration: underline; }
-.site-header button { padding: 0; border: 0; background: black; cursor: pointer; }
+.site-header a, .site-header button { color: white; }
+.site-header button { padding: 0; border: 0; background: black; cursor: pointer; text-decoration: underline; }
 .collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
 .collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: .015em; }
 .collection-categories, .collection-tags { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .collection-tags { margin-top: 18px; }
 .collection-categories a, .collection-tags a { color: white; }
-.collection-categories a[aria-current="page"], .collection-tags a[aria-current="page"] { background: blue; text-decoration: none; padding: 3px 8px; margin: -3px -8px; }
+.collection-categories a[aria-current="page"], .collection-tags a[aria-current="page"] { background: blue; padding: 3px 8px; margin: -3px -8px; }
 /* Each link owns a cell; irregular offsets remain safe as the catalog grows. */
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px 8% 100px; background: black; }
 .collection-empty { grid-column: 1 / -1; margin: 0; font-size: 13px; line-height: 1.7; }
@@ -83,10 +83,11 @@ main.site-main { display: block; overflow: visible; }
 .collection-view .site-header { z-index: 3; }
 .collection-view :is(.color-palette, .color-artifacts) { position: fixed; }
 .about-view :is(.color-palette, .color-artifacts), body[data-page="thoughts"] :is(.color-palette, .color-artifacts) { position: fixed; }
-.collection-title { display: block; margin-top: 12px; text-transform: uppercase; line-height: 1.4; }
-.collection-item:focus-visible .collection-title { text-transform: lowercase; }
+.collection-title { display: block; margin-top: 12px; text-decoration: underline; text-underline-offset: .15em; line-height: 1.4; }
 .collection-meta { display: block; font-size: 11px; margin-top: 8px; }
-.collection-item:hover .collection-title, .collection-item:focus-visible .collection-title { text-decoration: underline; }
+/* Thoughts link cards follow the same title-only underline rule as collection cards. */
+.site-page a.link-card { text-decoration: none; }
+.link-card .link-title { text-decoration: underline; text-underline-offset: .15em; }
 .about-room { position: relative; display: grid; grid-template-columns: minmax(0,53%) minmax(0,47%); align-items: start; min-height: 65svh; padding: 20px var(--content-inset) 70px; }
 .about-copy { grid-column: 1; grid-row: 1; min-width: 0; padding-right: 10%; }
 .about-copy .contact-text { max-width: 50ch; width: 100%; margin: 0 0 32px; font-size: 14px; line-height: 1.7; }

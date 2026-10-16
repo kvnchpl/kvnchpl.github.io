@@ -115,23 +115,20 @@ button, input, select, textarea {
 /* Links */
 a {
     color: var(--color-link);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: .15em;
     text-transform: var(--text-transform-link);
 }
 
-a:hover,
-a:hover * {
+a:is(:hover, :focus-visible),
+a:is(:hover, :focus-visible) * {
     color: var(--color-link-hover) !important;
     text-transform: var(--text-transform-link-hover) !important;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 a:focus-visible {
-    outline: 2px solid var(--color-link-hover);
-    outline-offset: 0.2rem;
+    outline: 2px dotted currentColor;
+    outline-offset: 5px;
 }
 
 /* Media (img, iframe) */
