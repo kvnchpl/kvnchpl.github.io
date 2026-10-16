@@ -655,6 +655,7 @@
   const sourceLink = document.getElementById('source-link');
   const previousButton = document.getElementById('prev');
   const nextButton = document.getElementById('next');
+  const nextRecap = document.getElementById('next-recap');
   const startOver = document.getElementById('start-over');
   // Keep the document readable if required reader controls are missing.
   if (![controls, counter, sourceLink, previousButton, nextButton, startOver].every(Boolean)) return;
@@ -729,6 +730,11 @@
     }
     previousButton.disabled = index === 0;
     nextButton.disabled = index === slides.length - 1;
+    nextButton.hidden = nextButton.disabled && Boolean(nextRecap);
+    if (nextRecap) {
+      if (!nextButton.disabled && document.activeElement === nextRecap) deck.focus({ preventScroll: true });
+      nextRecap.hidden = !nextButton.disabled;
+    }
     if ([previousButton, nextButton, startOver].some(button => button.disabled && document.activeElement === button)) {
       deck.focus({ preventScroll: true });
     }
