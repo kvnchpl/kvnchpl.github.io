@@ -29,7 +29,7 @@ body[data-page="compiler-buddha"] .project-copy {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1em;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
 .manifestor,
@@ -119,12 +119,4 @@ body[data-page="compiler-buddha"] .project-copy {
     body[data-page="compiler-buddha"] .room-heading {
         width: 100%;
     }
-}
-
-.compiler-status {
-    min-height: 1.7em;
-    margin: 0 0 24px;
-    font-size: 12px;
-    line-height: 1.7;
-    text-align: center;
 }

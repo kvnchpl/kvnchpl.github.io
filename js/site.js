@@ -1,11 +1,10 @@
 import {normalizeSiteUrl, getView} from "./navigation.js";
-import {initColorPalette} from "./colors.js";
+import "./colors.js";
 import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./collection-state.js";
 
 (() => {
     const site = document.querySelector('.site-shell');
     if (!site || typeof HTMLDialogElement === 'undefined') return;
-    const homeView = site.querySelector('.home-view');
     const collectionView = site.querySelector('[data-collection-view]');
     const aboutView = site.querySelector('[data-about-view]');
     const workItems = [...site.querySelectorAll('[data-work-id]')];
@@ -13,8 +12,6 @@ import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./
     const categoryLinks = [...site.querySelectorAll('[data-category-filter]')];
     const tagLinks = [...site.querySelectorAll('[data-tag-filter]')];
     const announcement = site.querySelector('[data-view-announcement]');
-    const resetPalettes = new Map([...site.querySelectorAll('[data-color-composition]')].map(view => [view, initColorPalette(view)]));
-    let previousView;
     const originalUrl = new URL(location.href);
     let initialState = history.state;
     if (originalUrl.searchParams.get('about') === '1') {
@@ -48,10 +45,6 @@ import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./
         for (const [dialog, active] of [[collectionView, view === 'collection'], [aboutView, view === 'about']]) {
             if (!active && dialog.open) dialog.close();
             if (active && !dialog.open) dialog.showModal();
-        }
-        if (view !== previousView) {
-            resetPalettes.get({home: homeView, collection: collectionView, about: aboutView}[view])?.();
-            previousView = view;
         }
         document.documentElement.classList.toggle('site-view-open', collectionView.open || aboutView.open);
         document.title = {home: 'KEVIN CUNANAN CHAPPELLE', collection: 'COLLECTION', about: 'ABOUT'}[view];
@@ -118,11 +111,10 @@ import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./
     site.addEventListener('contextmenu', rememberWork);
     window.addEventListener('pagehide', rememberPosition);
     window.addEventListener('pageshow', event => {
-        if (event.persisted) previousView = undefined;
         // Run after native fragment scrolling as well as Back/Forward restoration.
         render(false, true);
     });
-    window.addEventListener('popstate', () => { previousView = undefined; render(true, true); });
+    window.addEventListener('popstate', () => render(true, true));
     window.addEventListener('hashchange', () => render(true));
     render(false, true);
 })();
