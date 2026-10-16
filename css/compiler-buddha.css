@@ -1,15 +1,35 @@
-main {
+/* The two processes share one full-width stage at every viewport size. */
+body[data-page="compiler-buddha"] .project-layout {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    align-items: stretch;
+}
+
+body[data-page="compiler-buddha"] .room-heading {
+    width: 47%;
+    margin: 0 0 32px;
+    align-self: flex-end;
+}
+
+.interface {
+    width: 100%;
+    max-width: 1200px;
+    min-width: 0;
+    align-self: center;
+}
+
+body[data-page="compiler-buddha"] .project-copy {
+    width: 100%;
+    max-width: 65ch;
+    margin: 40px 0 0;
 }
 
 .controls {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 1em;
-    margin-top: 1.5em;
+    margin-bottom: 24px;
 }
 
 .manifestor,
@@ -21,7 +41,6 @@ main {
     font-family: inherit;
     font-size: 1rem;
     border: none;
-    margin-right: 1em;
     text-align: center;
 }
 
@@ -57,71 +76,47 @@ main {
 }
 
 .buddha-display {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(12px, 3vw, 48px);
     width: 100%;
-    margin: 2em 0;
 }
 
 .left-pane,
 .right-pane {
-    width: 50%;
-    max-width: 50%;
-    flex: 1;
-    padding: 2em;
+    min-width: 0;
+    aspect-ratio: 1;
     box-sizing: border-box;
-    overflow-x: visible;
+}
+
+.right-pane {
+    container-type: inline-size;
+    overflow: auto;
 }
 
 #buddha-image {
-    max-width: 100%;
-    height: auto;
-    max-height: 460px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     display: block;
-    margin: 0 auto;
 }
 
 #portal {
-    margin: 0 auto;
+    margin: 0;
     font-family: inherit;
-    font-size: 0.39vw;
+    /* 121 columns by 58 rows: keep the compiled image square and unwrapped. */
+    font-size: 1.35cqw;
+    line-height: 1.25;
+    white-space: pre;
     text-transform: lowercase;
     cursor: default;
     user-select: none;
     -webkit-user-select: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
 }
 
-@media (max-width: 768px) {
-    .buddha-display {
-        flex-direction: column;
-        height: 80vh;
-        margin-bottom: 24em;
-    }
-
-    .left-pane,
-    .right-pane {
-        width: 100% !important;
-        max-width: 100% !important;
-        flex: 1 1 auto;
-        max-height: 40vh;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 1em;
-        box-sizing: border-box;
-    }
-
-    #buddha-image {
-        height: 100%;
-        width: auto;
-        max-width: 100%;
-        object-fit: contain;
-    }
-
-    #portal {
-        font-size: 0.84vw;
+@media (max-width: 600px) {
+    body[data-page="compiler-buddha"] .room-heading {
+        width: 100%;
     }
 }

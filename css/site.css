@@ -114,13 +114,7 @@ body.work-page .slideshow-next { right: 0; }
 body.work-page .project-copy { grid-column: 1; grid-row: 2; width: auto; max-width: none; padding: 0; margin: 0 0 50px; font-size: 14px; line-height: 1.7; text-transform: lowercase; }
 body.work-page .project-section:has(.slideshow-wrapper) .project-copy { margin-top: 32px; }
 body.work-page .project-section:first-child:not(:has(.slideshow-wrapper)) .project-copy { grid-row: 1; }
-body.work-page .project-layout:has(> .interface) .project-section:first-child .project-copy { grid-row: 2; margin-top: 32px; }
 body.work-page .project-copy p { text-align: left; margin-bottom: 24px; }
-body.work-page .interface { grid-column: 1; grid-row: 1; min-width: 0; }
-body.work-page .interface .buddha-display { flex-direction: column; margin: 20px 0; }
-body.work-page .interface .left-pane, body.work-page .interface .right-pane { width: 100%; max-width: 100%; padding: 10px 0; }
-body.work-page .interface #portal { font-size: .44vw; }
-body.work-page .interface .controls { justify-content: flex-start; margin-top: 0; }
 body.work-page .iframe { grid-column: 1 / -1; width: 90%; height: auto; max-height: 80svh; margin: 50px auto; }
 body.work-page .writing-layout { display: grid; grid-template-columns: minmax(0,60%) minmax(0,40%); align-items: start; padding: 20px var(--content-inset) 60px; box-sizing: border-box; overflow: visible; }
 body.work-page .writing-layout #main-heading { font-size: clamp(36px,min(6vw,calc(45vw / var(--title-length,8))),100px); }
@@ -157,8 +151,6 @@ body.work-page .writing-content + .writing-content { margin-top: 30px; }
     body.work-page .project-section, body.work-page .project-section:first-child { display: contents; }
     body.work-page .slideshow-wrapper { height: 55svh; margin: 0 0 40px; }
     body.work-page .project-copy { padding: 0; margin: 20px 0 60px; max-width: none; }
-    body.work-page .interface .buddha-display { height: auto; margin-bottom: 30px; }
-    body.work-page .interface #portal { font-size: .85vw; }
     body.work-page .writing-layout .writing-body { padding: 0; }
     .work-return { margin-left: 0; }
 }
