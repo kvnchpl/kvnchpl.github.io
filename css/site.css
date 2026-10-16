@@ -2,18 +2,18 @@
 :root { --content-inset: 5%; }
 html, body { background: black; }
 .site-view-open { overflow: hidden; }
-body:is(.site-page,.field-page) { font-size: 13px; }
-:is(.site-page,.field-page) a, .work-return { text-decoration: underline; }
+body.site-page { font-size: 13px; }
+.site-page a, .work-return { text-decoration: underline; }
 /* Apply the same case treatment to links and their nested labels everywhere,
    including Thoughts, which loads this stylesheet without base.css. */
 body a:any-link, body a:any-link * { text-transform: uppercase !important; }
 body a:any-link:is(:hover,:focus-visible), body a:any-link:is(:hover,:focus-visible) * { text-transform: lowercase !important; }
-:is(.site-page,.field-page) :focus-visible, .work-page :focus-visible { outline: 2px dotted currentColor; outline-offset: 5px; }
+.site-page :focus-visible, .work-page :focus-visible { outline: 2px dotted currentColor; outline-offset: 5px; }
 main.site-main { display: block; overflow: visible; }
 .site-shell { width: 100%; }
-:is(.site-identity,.screen-identity) a, :is(.site-identity,.screen-identity) svg { display: block; width: 100%; height: 100%; }
-:is(.site-identity,.screen-identity) a { text-transform: uppercase; }
-:is(.site-identity,.screen-identity) text { fill: white; text-transform: uppercase; font-family: var(--font-family-main); font-weight: 400; }
+.site-identity a, .site-identity svg { display: block; width: 100%; height: 100%; }
+.site-identity a { text-transform: uppercase; }
+.site-identity text { fill: white; text-transform: uppercase; font-family: var(--font-family-main); font-weight: 400; }
 .about-name { text-transform: uppercase; }
 .home-view { position: relative; height: 100svh; min-height: 600px; overflow: hidden; }
 .home-name { position: absolute; z-index: 1; left: 3%; top: 2%; width: 94%; height: 28%; margin: 0; font-weight: 400; }
@@ -41,7 +41,7 @@ main.site-main { display: block; overflow: visible; }
 .home-listening { margin-right: calc(2 * var(--nav-step)); }
 .home-homestuck { margin-left: calc(.5 * var(--nav-step)); }
 .home-hydrants { margin-right: calc(.5 * var(--nav-step)); }
-.color-artifacts, .collection-artifacts { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
+.color-artifacts { position: absolute; inset: 0; z-index: 5; pointer-events: none; overflow: hidden; }
 .color-rectangle { position: absolute; display: block; pointer-events: auto; cursor: pointer; padding: 0; margin: 0; border: 0; border-radius: 0; }
 .rectangle-close { position: absolute; top: 2px; right: 2px; display: grid; place-items: center; width: 24px; height: 24px; padding: 0; border: 0; border-radius: 0; background: black; color: white; font: 14px/1 var(--font-family-main); cursor: pointer; opacity: 0; }
 .color-rectangle:hover .rectangle-close, .color-rectangle:focus-visible .rectangle-close { opacity: 1; }
@@ -53,12 +53,12 @@ main.site-main { display: block; overflow: visible; }
 /* Full-screen native dialogs supply focus containment and Escape, without window chrome. */
 .site-view { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; box-sizing: border-box; margin: 0; padding: 0; border: 0; border-radius: 0; background: black; color: white; overflow: auto; font: inherit; }
 .site-view::backdrop { background: black; }
-:is(.site-header,.screen-chrome) { position: relative; min-height: 170px; padding: 28px 4%; box-sizing: border-box; }
-:is(.site-header,.screen-chrome) :is(.site-identity,.screen-identity) { position: absolute; right: 4%; top: 24px; width: 32%; height: 75px; }
-:is(.site-header,.screen-chrome) nav { display: flex; flex-wrap: wrap; gap: 18px 30px; width: 55%; }
-:is(.site-header,.screen-chrome) nav a, :is(.site-header,.screen-chrome) button { white-space: nowrap; }
-:is(.site-header,.screen-chrome) a, :is(.site-header,.screen-chrome) button { color: white; text-decoration: underline; }
-:is(.site-header,.screen-chrome) button { padding: 0; border: 0; background: black; cursor: pointer; }
+.site-header { position: relative; min-height: 170px; padding: 28px 4%; box-sizing: border-box; }
+.site-header .site-identity { position: absolute; right: 4%; top: 24px; width: 32%; height: 75px; }
+.site-header nav { display: flex; flex-wrap: wrap; gap: 18px 30px; width: 55%; }
+.site-header nav a, .site-header button { white-space: nowrap; }
+.site-header a, .site-header button { color: white; text-decoration: underline; }
+.site-header button { padding: 0; border: 0; background: black; cursor: pointer; }
 .collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
 .collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: .015em; }
 .collection-categories, .collection-tags { display: flex; flex-wrap: wrap; gap: 12px 24px; }
@@ -68,7 +68,7 @@ main.site-main { display: block; overflow: visible; }
 /* Each link owns a cell; irregular offsets remain safe as the catalog grows. */
 .collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px 8% 100px; background: black; }
 .collection-empty { grid-column: 1 / -1; margin: 0; font-size: 13px; line-height: 1.7; }
-:is(.site-page,.field-page) a.collection-item { display: block; position: relative; color: white; text-decoration: none; width: 82%; min-width: 0; align-self: start; overflow-wrap: anywhere; }
+.site-page a.collection-item { display: block; position: relative; color: white; text-decoration: none; width: 82%; min-width: 0; align-self: start; overflow-wrap: anywhere; }
 .collection-grid .collection-item:nth-child(6n+2) { margin-top: 100px; justify-self: end; }
 .collection-grid .collection-item:nth-child(6n+3) { margin-top: 30px; width: 70%; }
 .collection-grid .collection-item:nth-child(6n+4) { margin-left: 12%; width: 72%; }
@@ -80,8 +80,8 @@ main.site-main { display: block; overflow: visible; }
 .collection-thumbnail { height: 180px; overflow: hidden; }
 .collection-media img { display: block; width: 100%; height: 100%; object-fit: fill; }
 /* These rectangles belong to the screen, independently of catalog entries. */
-.collection-view :is(.site-header,.screen-chrome) { z-index: 3; }
-.collection-view .color-palette, .collection-artifacts { position: fixed; }
+.collection-view .site-header { z-index: 3; }
+.collection-view :is(.color-palette, .color-artifacts) { position: fixed; }
 .about-view :is(.color-palette, .color-artifacts), body[data-page="thoughts"] :is(.color-palette, .color-artifacts) { position: fixed; }
 .collection-title { display: block; margin-top: 12px; text-transform: uppercase; line-height: 1.4; }
 .collection-item:focus-visible .collection-title { text-transform: lowercase; }
@@ -93,10 +93,10 @@ main.site-main { display: block; overflow: visible; }
 .about-image { display: block; width: 100%; max-width: 420px; height: auto; image-rendering: crisp-edges; image-rendering: pixelated; }
 .about-copy > .about-image + .contact-text { margin-top: 24px; }
 /* The color room: art on one side, large type on the other, copy always visible. */
-:is(.page-header,.page-chrome) { min-height: 120px; font-size: 13px; }
-:is(.page-header,.page-chrome) :is(.site-identity,.screen-identity) { height: 50px; width: 26%; }
-:is(.page-header,.page-chrome) .site-nav { display: flex; width: 60%; gap: 16px 28px; justify-content: flex-start; text-align: left; padding: 0; font-size: 13px; }
-:is(.page-header,.page-chrome) .site-nav a { width: auto; text-align: left; }
+.page-header { min-height: 120px; font-size: 13px; }
+.page-header .site-identity { height: 50px; width: 26%; }
+.page-header .site-nav { display: flex; width: 60%; gap: 16px 28px; justify-content: flex-start; text-align: left; padding: 0; font-size: 13px; }
+.page-header .site-nav a { width: auto; text-align: left; }
 body.work-page .project-layout { display: grid; grid-template-columns: minmax(0,53%) minmax(0,47%); align-items: start; padding: 20px var(--content-inset) 60px; box-sizing: border-box; overflow: visible; gap: 0; }
 .room-heading { position: relative; grid-column: 2; grid-row: 1; margin-left: 5%; padding: clamp(18px, 3vw, 40px); border: 1px solid white; box-sizing: border-box; min-width: 0; align-self: start; }
 body.work-page #main-heading { width: 100%; margin: 0; text-align: right; font: 400 clamp(36px,min(9vw,calc(54vw / var(--title-length,8))),150px)/.88 var(--font-family-main); letter-spacing: .015em; overflow-wrap: anywhere; }
@@ -136,9 +136,9 @@ body.work-page .writing-content + .writing-content { margin-top: 30px; }
     .home-navigation a { font-size: 14px; }
     .color-palette { gap: 5px; }
     .color-palette button { width: 27px; height: 27px; }
-    :is(.site-header,.screen-chrome) { padding: 20px 5%; min-height: 200px; }
-    :is(.site-header,.screen-chrome) nav, :is(.page-header,.page-chrome) .site-nav { width: 100%; gap: 15px 20px; font-size: 12px; }
-    :is(.site-header,.screen-chrome) :is(.site-identity,.screen-identity) { width: 57%; height: 42px; top: 62px; right: 5%; }
+    .site-header { padding: 20px 5%; min-height: 200px; }
+    .site-header nav, .page-header .site-nav { width: 100%; gap: 15px 20px; font-size: 12px; }
+    .site-header .site-identity { width: 57%; height: 42px; top: 62px; right: 5%; }
     .collection-heading { padding: 0 6% 20px; }
     .collection-heading h2 { margin: 0 0 25px; font-size: 32px; }
     .collection-categories, .collection-tags { gap: 15px 20px; }
@@ -148,7 +148,7 @@ body.work-page .writing-content + .writing-content { margin-top: 30px; }
     .collection-thumbnail { height: 150px; }
     .about-room { display: flex; flex-direction: column; align-items: stretch; padding: 15px var(--content-inset) 60px; }
     .about-copy { padding: 0; }
-    :is(.page-header,.page-chrome) { min-height: 140px; }
+    .page-header { min-height: 140px; }
     body.work-page .project-layout, body.work-page .writing-layout { display: flex; flex-direction: column; align-items: stretch; padding: 15px var(--content-inset) 45px; }
     .room-heading { margin: 0 0 30px; padding: 20px; align-self: stretch; }
     body.work-page #main-heading { font-size: clamp(36px,min(15vw,calc(138vw / var(--title-length,8))),90px); }

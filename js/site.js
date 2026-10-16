@@ -1,6 +1,6 @@
 import {normalizeSiteUrl, getView} from "./navigation.js";
 import {initColorPalette} from "./colors.js";
-import {saveCollectionPosition, readCollectionPosition, rememberWorkReturn} from "./collection-state.js";
+import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./collection-state.js";
 
 (() => {
     const site = document.querySelector('.site-shell');
@@ -36,7 +36,7 @@ import {saveCollectionPosition, readCollectionPosition, rememberWorkReturn} from
         if (workUrl.origin !== location.origin) return;
         const returnUrl = new URL(location.href);
         returnUrl.hash = link.id;
-        rememberWorkReturn(workUrl, returnUrl, collectionView.scrollTop);
+        saveWorkReturn(workUrl, returnUrl, collectionView.scrollTop);
     }
 
     function render(announce = false, restorePosition = false) {

@@ -31,7 +31,7 @@ export function readCollectionPosition(url) {
     const position = collectionPosition(read(positionKey), current.origin);
     return position?.url === current.href ? position : null;
 }
-export function rememberWorkReturn(workUrl, collectionUrl, scrollTop) {
+export function saveWorkReturn(workUrl, collectionUrl, scrollTop) {
     const work = new URL(workUrl);
     const position = collectionPosition({url: String(collectionUrl), scrollTop}, work.origin);
     if (position && /^\/0\/[a-z0-9-]+$/.test(workPath(work))) {
