@@ -156,3 +156,5 @@ body.work-page .writing-content + .writing-content { margin-top: 30px; }
 }
 
 .fallback-navigation { display: flex; gap: 28px; padding: 28px 5%; }
+
+.preview-motion { margin-top: 20px; padding: 0; border: 0; background: black; color: white; text-decoration: underline; text-underline-offset: .15em; cursor: pointer; }

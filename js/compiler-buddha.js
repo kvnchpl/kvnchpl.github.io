@@ -44,85 +44,111 @@ function manifest(vision, threshold = 130, attention = 5, breadth = 20, expansio
 }
 
 function summon(offering) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
         const apparition = new Image();
         apparition.onload = () => resolve(apparition);
-        apparition.crossOrigin = "Anonymous";
+        apparition.onerror = () => reject(new Error('The Buddha image could not be loaded.'));
         apparition.src = offering;
     });
 }
 
-function returnToSource() {
-    if (bringForth) {
-        clearInterval(bringForth);
-        bringForth = null;
-    }
-    if (loop) {
-        clearInterval(loop);
-        loop = null;
-    }
-    fetch(import.meta.url)
-        .then(response => response.text())
-        .then(intention => {
-            document.getElementById("portal").textContent = intention;
-        })
+// Every delay belongs to the current run; Return cancels even a transition delay.
+function pause(duration, signal) {
+    return new Promise((resolve, reject) => {
+        if (signal.aborted) return reject(signal.reason);
+        const cancelled = () => {
+            clearTimeout(timer);
+            reject(signal.reason);
+        };
+        const timer = setTimeout(() => {
+            signal.removeEventListener('abort', cancelled);
+            resolve();
+        }, duration);
+        signal.addEventListener('abort', cancelled, {once: true});
+    });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const manifestor = document.getElementById("manifestor");
-    const wayBack = document.getElementById("way-back");
-    const portal = document.getElementById("portal");
+document.addEventListener('DOMContentLoaded', () => {
+    const manifestor = document.getElementById('manifestor');
+    const wayBack = document.getElementById('way-back');
+    const portal = document.getElementById('portal');
+    const image = document.getElementById('buddha-image');
+    const status = document.getElementById('compiler-status');
+    let source = '';
+    let vision;
+    let activeRun;
+    let ready = false;
+    let loading = true;
 
-    const openChannels = () => manifestor.disabled = false;
-    const closeChannels = () => manifestor.disabled = true;
+    function returnToSource() {
+        activeRun?.abort();
+        activeRun = null;
+        image.src = '/a/buddha.webp';
+        portal.textContent = source;
+        manifestor.disabled = loading;
+        status.textContent = ready ? 'Source restored. Ready to compile.' : loading ? 'Loading source and image…' : 'Could not load the work. Choose Retry to try again.';
+    }
 
-    returnToSource();
+    async function prepare() {
+        loading = true;
+        manifestor.disabled = true;
+        status.textContent = 'Loading source and image…';
+        try {
+            const response = await fetch(import.meta.url);
+            if (!response.ok) throw new Error('The source code could not be loaded.');
+            [source, vision] = await Promise.all([response.text(), summon('/a/buddha.webp')]);
+            ready = true;
+            loading = false;
+            manifestor.textContent = 'Compile';
+            manifestor.setAttribute('aria-label', 'Compile Buddha code');
+            returnToSource();
+        } catch {
+            ready = false;
+            loading = false;
+            manifestor.textContent = 'Retry';
+            manifestor.setAttribute('aria-label', 'Retry loading Compiler Buddha');
+            manifestor.disabled = false;
+            status.textContent = 'Could not load the work. Choose Retry to try again.';
+        }
+    }
 
-    manifestor.addEventListener("click", async () => {
-        document.getElementById("buddha-image").src = "/a/buddha-animation.webp";
-
-        closeChannels();
-
-        const vision = await summon("/a/buddha.webp");
-
-        const sacredNumber = 108;
-        let recitation = 0;
-
-        const firstMantra = manifest(vision);
-        const incantations = firstMantra.split("\n");
-        portal.textContent = "";
-        let focus = 0;
-        bringForth = setInterval(() => {
-            portal.textContent += incantations[focus] + "\n";
-            focus++;
-            if (focus >= incantations.length) {
-                clearInterval(bringForth);
-                bringForth = null;
-                setTimeout(() => {
-                    loop = setInterval(() => {
-                        if (recitation >= sacredNumber - 1) {
-                            clearInterval(loop);
-                            loop = null;
-                            setTimeout(() => {
-                                document.getElementById("buddha-image").src = "/a/buddha.webp";
-                                returnToSource();
-                                openChannels();
-                            }, 1000);
-                            return;
-                        }
-                        portal.textContent = manifest(vision);
-                        recitation++;
-                    }, 1000);
-                }, 1000);
+    manifestor.addEventListener('click', async () => {
+        if (!ready) return prepare();
+        if (activeRun) return;
+        const controller = new AbortController();
+        activeRun = controller;
+        const {signal} = controller;
+        manifestor.disabled = true;
+        image.src = '/a/buddha-animation.webp';
+        status.textContent = 'Compiling. Choose Return to restore the source.';
+        try {
+            const incantations = manifest(vision).split('\n');
+            portal.textContent = '';
+            for (const line of incantations) {
+                await pause(50, signal);
+                portal.textContent += line + '\n';
             }
-        }, 50);
+            await pause(1000, signal);
+            const sacredNumber = 108;
+            for (let recitation = 1; recitation < sacredNumber; recitation++) {
+                await pause(1000, signal);
+                portal.textContent = manifest(vision);
+            }
+            await pause(2000, signal);
+            if (activeRun === controller) returnToSource();
+        } catch {
+            if (activeRun === controller) {
+                returnToSource();
+                status.textContent = 'Compilation stopped. The source has been restored; you can try again.';
+            }
+        }
     });
-
-    wayBack.addEventListener("click", () => {
-        openChannels();
-        document.getElementById("buddha-image").src = "/a/buddha.webp";
+    image.addEventListener('error', () => {
+        if (!activeRun) return;
         returnToSource();
+        status.textContent = 'The animation could not load. The source has been restored; you can try again.';
     });
+    wayBack.addEventListener('click', returnToSource);
+    window.addEventListener('pagehide', returnToSource);
+    prepare();
 });
-
-let loop, bringForth;
