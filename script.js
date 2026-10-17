@@ -701,8 +701,20 @@
   function show(nextIndex, updateHash = true) {
     const previousIndex = index;
     index = Math.max(0, Math.min(slides.length - 1, nextIndex));
-    const focusedSlide = document.activeElement.closest('.slide');
-    if (focusedSlide && focusedSlide !== slides[index]) deck.focus({ preventScroll: true });
+    const isCover = slides[index].classList.contains('cover');
+    const page = isCover ? undefined : sources.get(slides[index]);
+    const isLast = index === slides.length - 1;
+    const focused = document.activeElement;
+    const focusedSlide = focused.closest('.slide');
+    // Move focus before hiding/disabling anything: browsers otherwise reset it to body.
+    if ((focusedSlide && focusedSlide !== slides[index]) ||
+      (focused === sourceLink && page === undefined) ||
+      (focused === previousButton && index === 0) ||
+      (focused === nextButton && isLast) ||
+      (focused === startOver && isCover) ||
+      (focused === nextRecap && !isLast)) {
+      deck.focus({ preventScroll: true });
+    }
     slides.forEach((slide, n) => {
       slide.hidden = n !== index;
       slide.classList.toggle('active', n === index);
@@ -713,30 +725,23 @@
     loadSlide(slides[index + 1]);
     counter.textContent = `${index + 1} / ${slides.length}`;
     (slides[index].querySelector('.media') || slides[index]).append(counter);
-    const isCover = slides[index].classList.contains('cover');
     counter.hidden = isCover;
     startOver.disabled = isCover;
-    const page = isCover ? undefined : sources.get(slides[index]);
     sourceLink.hidden = page === undefined;
     if (page !== undefined) {
       sourceLink.href = `https://homestuck.com/story/${page}`;
       sourceLink.textContent = `p. ${page} ↗`;
       sourceLink.setAttribute('aria-label', `Open Homestuck page ${page} (new tab)`);
     } else {
-      if (document.activeElement === sourceLink) deck.focus({ preventScroll: true });
       sourceLink.removeAttribute('href');
       sourceLink.removeAttribute('aria-label');
       sourceLink.textContent = '';
     }
     previousButton.disabled = index === 0;
-    nextButton.disabled = index === slides.length - 1;
+    nextButton.disabled = isLast;
     nextButton.hidden = nextButton.disabled && Boolean(nextRecap);
     if (nextRecap) {
-      if (!nextButton.disabled && document.activeElement === nextRecap) deck.focus({ preventScroll: true });
       nextRecap.hidden = !nextButton.disabled;
-    }
-    if ([previousButton, nextButton, startOver].some(button => button.disabled && document.activeElement === button)) {
-      deck.focus({ preventScroll: true });
     }
     if (updateHash) history.replaceState(null, '', `#${index + 1}`);
     // After reading a long caption, start the next slide at its panel on small screens.
