@@ -592,6 +592,11 @@ button {
 
 
 /* Spoiler-aware reading progress control. */
+.spoilerlog .reading-progress {
+  margin: 12px 0 0;
+  border: 0;
+}
+
 .reading-progress {
   margin: 0 0 24px;
   padding: 18px;
@@ -871,6 +876,7 @@ button {
 
 /* The roster selects among the stage-safe cards; printing shows them all. */
 .character-select.is-ready {
+  --reference-panel-height: min(640px, 70svh);
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
   gap: 20px;
@@ -881,6 +887,27 @@ button {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
+}
+
+.character-groups {
+  min-width: 0;
+}
+
+@media screen {
+  .is-ready .character-roster,
+  .is-ready .character-card {
+    max-height: var(--reference-panel-height);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    scrollbar-color: #999 #ddd;
+    scroll-padding-block: 6px;
+  }
+
+  .is-ready .character-roster {
+    padding: 6px;
+    border: 1px solid #aaa;
+    align-content: start;
+  }
 }
 
 .roster-group-label {
@@ -1415,6 +1442,10 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   }
 
   .character-roster {
+    display: none;
+  }
+
+  .spoilerlog>summary {
     display: none;
   }
 

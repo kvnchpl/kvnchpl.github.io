@@ -11,12 +11,26 @@
   const groupsContainer = document.getElementById('character-groups');
   const progressScale = document.getElementById('reading-progress-scale');
   const progressOutput = document.getElementById('reading-progress-output');
+  const spoilerlog = document.getElementById('spoilerlog');
   const loadingMessage = document.getElementById('reference-loading');
   const appendix = document.getElementById('concept-appendix');
   const conceptSearch = document.getElementById('concept-search');
   const conceptClear = document.getElementById('concept-clear');
   const conceptResults = document.getElementById('concept-results');
   const conceptEmpty = document.getElementById('concept-empty');
+
+  // Print the reading controls even if their native disclosure is collapsed.
+  let spoilerlogBeforePrint;
+  window.addEventListener('beforeprint', () => {
+    if (!spoilerlog || spoilerlogBeforePrint !== undefined) return;
+    spoilerlogBeforePrint = spoilerlog.open;
+    spoilerlog.open = true;
+  });
+  window.addEventListener('afterprint', () => {
+    if (!spoilerlog || spoilerlogBeforePrint === undefined) return;
+    spoilerlog.open = spoilerlogBeforePrint;
+    spoilerlogBeforePrint = undefined;
+  });
 
   if (!data || !select || !roster || !groupsContainer ||
     !progressScale || !progressOutput) {
@@ -198,6 +212,7 @@
     const card = currentCards.find(item => item.dataset.characterId === id);
     if (!tab || !card) return false;
 
+    const changedCharacter = selectedCharacterId !== id;
     selectedCharacterId = id;
     currentTabs.forEach(item => {
       const selected = item.dataset.characterId === id;
@@ -207,9 +222,19 @@
     currentCards.forEach(item => {
       item.hidden = item.dataset.characterId !== id;
     });
+    if (changedCharacter) card.scrollTop = 0;
 
     if (updateHash) history.replaceState(null, '', `#character-${id}`);
-    if (focus) tab.focus();
+    if (focus) tab.focus({ preventScroll: true });
+    // Reveal keyboard and fragment selections within the roster only.
+    if (roster.clientHeight) {
+      const itemBounds = tab.getBoundingClientRect();
+      const rosterBounds = roster.getBoundingClientRect();
+      const above = itemBounds.top - rosterBounds.top - 6;
+      const below = itemBounds.bottom - rosterBounds.bottom + 6;
+      if (above < 0) roster.scrollTop += above;
+      else if (below > 0) roster.scrollTop += below;
+    }
     return true;
   }
 

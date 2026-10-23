@@ -21,9 +21,9 @@
   <meta name="twitter:image" content="https://kvnchpl.com/homestuck-book-club/assets/homestuck-book-club-preview.webp">
   <meta name="twitter:image:alt" content="A Homestuck-style character standing in a bedroom with movie posters and a computer.">
   <title>REFERENCE - HOMESTUCK BOOK CLUB</title>
-  <link rel="stylesheet" href="../styles.css?v=20261023-10">
-  <script src="../reference-data.js?v=20261023-10" defer></script>
-  <script src="../script.js?v=20261023-10" defer></script>
+  <link rel="stylesheet" href="../styles.css?v=20261023-11">
+  <script src="../reference-data.js?v=20261023-11" defer></script>
+  <script src="../script.js?v=20261023-11" defer></script>
 </head>
 
 <body class="reference">
@@ -46,24 +46,27 @@
         <h1 class="page-title">Reference</h1>
       </header>
 
-      <section class="reading-progress" aria-labelledby="reading-progress-heading">
-        <h2 id="reading-progress-heading">How much have you read? (spoiler protection)</h2>
-        <p class="reading-progress-copy" id="reading-progress-copy">
-          Choose the latest section you've finished. The information shown below will reflect what has been revealed by
-          that point in the story.
-        </p>
+      <details class="pesterlog spoilerlog" id="spoilerlog" open>
+        <summary><span class="pesterlog-show">Show Spoilerlog</span><span class="pesterlog-hide">Hide Spoilerlog</span></summary>
+        <section class="reading-progress" aria-labelledby="reading-progress-heading">
+          <h2 id="reading-progress-heading">How much have you read? (spoiler protection)</h2>
+          <p class="reading-progress-copy" id="reading-progress-copy">
+            Choose the latest section you've finished. The information shown below will reflect what has been revealed by
+            that point in the story.
+          </p>
 
-        <div class="reading-progress-control">
-          <div class="reading-progress-selected">
-            <span>Showing through</span>
-            <output id="reading-progress-output" tabindex="-1">Act 1</output>
+          <div class="reading-progress-control">
+            <div class="reading-progress-selected">
+              <span>Showing through</span>
+              <output id="reading-progress-output" tabindex="-1">Act 1</output>
+            </div>
+
+            <p class="reading-progress-limit" id="reading-progress-limit"></p>
+            <div class="reading-progress-scale" id="reading-progress-scale" aria-label="Reading segments"></div>
           </div>
 
-          <p class="reading-progress-limit" id="reading-progress-limit"></p>
-          <div class="reading-progress-scale" id="reading-progress-scale" aria-label="Reading segments"></div>
-        </div>
-
-      </section>
+        </section>
+      </details>
 
       <dialog class="reference-debug" id="reference-debug" aria-labelledby="reference-debug-heading"
         aria-describedby="reference-debug-help">
