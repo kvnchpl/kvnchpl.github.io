@@ -422,6 +422,12 @@ window.HOMESTUCK_REFERENCE = {
             3756,
             3758
           ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "value": "TROLL ANCESTORS",
+          "sourcePage": 3473,
+          "sourceKind": "editorial"
         }
       ]
     },
@@ -522,6 +528,16 @@ window.HOMESTUCK_REFERENCE = {
             957
           ],
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "value": "PRE-SCRATCH EXILES & AGENTS",
+          "sourcePage": 4402,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4399,
+            4407
+          ]
         }
       ]
     },
@@ -4578,6 +4594,12 @@ window.HOMESTUCK_REFERENCE = {
           "value": "DD",
           "sourcePage": 1988,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "value": "Dignitary",
+          "sourcePage": 1988,
+          "sourceKind": "editorial"
         }
       ],
       "portrait": [
@@ -4639,6 +4661,12 @@ window.HOMESTUCK_REFERENCE = {
           "value": "CD",
           "sourcePage": 1784,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "value": "Droll",
+          "sourcePage": 1784,
+          "sourceKind": "editorial"
         }
       ],
       "portrait": [
@@ -7429,7 +7457,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-6-intermission-1",
-          "value": "Courtyard Droll",
+          "value": "Droll",
           "sourcePage": 4402,
           "sourceKind": "direct"
         }
