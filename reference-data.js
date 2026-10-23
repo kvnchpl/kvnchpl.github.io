@@ -4169,7 +4169,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-2",
-          "value": "WV",
+          "value": "Wayward Vagabond",
           "sourcePage": 666,
           "sourceKind": "direct"
         }
@@ -4248,8 +4248,14 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-3",
-          "value": "PM",
+          "value": "Peregrine Mendicant",
           "sourcePage": 892,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-5-act-2-part-1",
+          "value": "Prospitian Monarch",
+          "sourcePage": 3018,
           "sourceKind": "direct"
         }
       ],
@@ -4348,7 +4354,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-3",
-          "value": "AR",
+          "value": "Aimless Renegade",
           "sourcePage": 1100,
           "sourceKind": "direct"
         }
@@ -4424,7 +4430,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-4",
-          "value": "WQ",
+          "value": "Windswept Questant",
           "sourcePage": 1543,
           "sourceKind": "visual"
         }
@@ -4591,13 +4597,13 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-4",
-          "value": "DD",
+          "value": "Draconian Dignitary",
           "sourcePage": 1988,
           "sourceKind": "direct"
         },
         {
           "from": "act-6-intermission-1",
-          "value": "Dignitary",
+          "value": "Draconian Dignitary",
           "sourcePage": 1988,
           "sourceKind": "editorial"
         }
@@ -4658,13 +4664,13 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-4",
-          "value": "CD",
+          "value": "Courtyard Droll",
           "sourcePage": 1784,
           "sourceKind": "direct"
         },
         {
           "from": "act-6-intermission-1",
-          "value": "Droll",
+          "value": "Courtyard Droll",
           "sourcePage": 1784,
           "sourceKind": "editorial"
         }
@@ -4737,7 +4743,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-3",
-          "value": "HB",
+          "value": "Hegemonic Brute",
           "sourcePage": 957,
           "sourceKind": "visual"
         }
@@ -7406,7 +7412,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-6-intermission-1",
-          "value": "Dignitary",
+          "value": "Draconian Dignitary",
           "sourcePage": 4407,
           "sourceKind": "composite",
           "sourcePages": [
@@ -7457,7 +7463,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-6-intermission-1",
-          "value": "Droll",
+          "value": "Courtyard Droll",
           "sourcePage": 4402,
           "sourceKind": "direct"
         }
