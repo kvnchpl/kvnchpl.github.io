@@ -526,6 +526,21 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
+      "id": "post-scratch-agents",
+      "title": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "POST-SCRATCH AGENTS",
+          "sourcePage": 4402,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4399,
+            4407
+          ]
+        }
+      ]
+    },
+    {
       "id": "midnight-crew",
       "title": [
         {
@@ -865,6 +880,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 3638
+              ]
+            },
+            {
+              "from": "act-6-intermission-1",
+              "label": "Powers",
+              "value": "Sees paths to favorable outcomes",
+              "sourcePage": 4354,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4355
               ]
             }
           ]
@@ -1208,6 +1233,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Space manipulation · First Guardian powers",
               "sourcePage": 4109,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-intermission-1",
+              "label": "Powers",
+              "value": "Size manipulation · Local teleportation · Green Sun gateway",
+              "sourcePage": 4297,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4304,
+                4337,
+                4338
+              ]
             }
           ]
         },
@@ -1375,6 +1412,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 3297,
                 3566
+              ]
+            },
+            {
+              "from": "act-6-intermission-1",
+              "label": "Powers",
+              "value": "Time-freezing spells · Telekinetic force",
+              "sourcePage": 4385,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4386,
+                4387,
+                3565
               ]
             }
           ]
@@ -1742,6 +1791,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "None",
               "sourcePage": 2077,
               "sourceKind": "editorial"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Powers",
+              "value": "Telekinetic force",
+              "sourcePage": 4385,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4386,
+                4387
+              ]
             }
           ]
         },
@@ -6420,6 +6485,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Hero of Life",
               "sourcePage": 4144,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-1",
+              "label": "Title",
+              "value": "Maid of Life",
+              "sourcePage": 4401,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4144
+              ]
             }
           ]
         },
@@ -6459,6 +6534,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Recipe modus",
               "sourcePage": 4123,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Status",
+              "value": "Dreamself killed on Prospit",
+              "sourcePage": 4399,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4396,
+                4408
+              ]
             }
           ]
         },
@@ -7194,9 +7285,194 @@ window.HOMESTUCK_REFERENCE = {
       "sourcePage": 4236,
       "sourceKind": "intro",
       "rosterColumn": 4
+    },
+    {
+      "id": "post-scratch-jack-noir",
+      "group": "post-scratch-agents",
+      "reveal": "act-6-intermission-1",
+      "introPage": 4399,
+      "sourcePage": 4399,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "JACK NOIR",
+          "sourcePage": 4399,
+          "sourceKind": "direct",
+          "introLinkPage": 4402
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "Jack Noir",
+          "sourcePage": 4399,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-intermission-1",
+          "value": {
+            "src": "../assets/ref-jack-noir.webp",
+            "alt": "Post-Scratch Jack Noir in his black Dersite uniform"
+          },
+          "sourcePage": 4399,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Role",
+              "value": "Dersite agent directing the dreamself assassinations",
+              "sourcePage": 4402,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4407
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Weapon",
+              "value": "Knife",
+              "sourcePage": 4395,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4399
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "post-scratch-dd",
+      "group": "post-scratch-agents",
+      "reveal": "act-6-intermission-1",
+      "introPage": 4407,
+      "sourcePage": 4407,
+      "sourceKind": "composite",
+      "sourcePages": [
+        1988
+      ],
+      "name": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "DRACONIAN DIGNITARY",
+          "sourcePage": 4407,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988
+          ]
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "Dignitary",
+          "sourcePage": 4407,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988
+          ]
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-intermission-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4407,
+          "sourceKind": "editorial"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Role",
+              "value": "Dersite agent assigned to the two dreamers on Derse",
+              "sourcePage": 4407,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "post-scratch-cd",
+      "group": "post-scratch-agents",
+      "reveal": "act-6-intermission-1",
+      "introPage": 4402,
+      "sourcePage": 4402,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "COURTYARD DROLL",
+          "sourcePage": 4402,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-intermission-1",
+          "value": "Courtyard Droll",
+          "sourcePage": 4402,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-intermission-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4402,
+          "sourceKind": "editorial"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Role",
+              "value": "Dersite demolitions specialist",
+              "sourcePage": 4402,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-intermission-1",
+              "label": "Weapon",
+              "value": "Explosives",
+              "sourcePage": 4402,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-1",
+  "conceptsPreparedThrough": "act-6-intermission-1",
   "concepts": [
     {
       "id": "alchemy",
@@ -8768,6 +9044,24 @@ window.HOMESTUCK_REFERENCE = {
             1667,
             1988
           ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Prospit",
+          "aliases": [],
+          "definition": "The golden kingdom near Skaia, whose moon hosts dreamselves and passes through prophetic clouds. Its post-Scratch moon houses Jane and Jake's dreamselves. Dersite agents assassinate both, then demolish the base of Jane's tower, sending its spherical bedroom bouncing through the city.",
+          "sourcePage": 4392,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1049,
+            4209,
+            4396,
+            4399,
+            4402,
+            4407,
+            4412,
+            4419
+          ]
         }
       ]
     },
@@ -9582,6 +9876,21 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Furthest Ring",
+          "aliases": [
+            "The Furthest Ring"
+          ],
+          "definition": "The region outside created universes and between sessions, containing the horrorterrors, dream bubbles, and Green Sun. Its unreliable space and time make ordinary navigation dangerous. Rose charts a precisely timed, nearly light-speed route for the laboratory meteor, reaching the new session after about three years.",
+          "sourcePage": 4355,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1667,
+            2991,
+            3041
+          ]
         }
       ]
     },
@@ -10104,6 +10413,19 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "First guardian",
+          "aliases": [],
+          "definition": "A planetary guardian with extraordinary powers fueled by the Green Sun. Jade explains that instantaneous teleportation stays within a guardian's current universe or session. Outside the Sun's domain, travel is limited by light speed; her body can still serve as a gateway to the Sun, though she cannot bring travelers back.",
+          "sourcePage": 4304,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2253,
+            4337,
+            4338
+          ]
         }
       ]
     },
@@ -10482,6 +10804,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 4109,
           "sourceKind": "composite",
           "sourcePages": [
+            3041,
+            3043
+          ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Green Sun",
+          "aliases": [],
+          "definition": "The immense star in the Furthest Ring that powers first guardians across many universes and their sessions. Rose and Dave's Tumor mission creates it instead of destroying it. Its domain permits local instantaneous teleportation, but does not include the Furthest Ring itself or the yellow yard.",
+          "sourcePage": 4304,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4109,
             3041,
             3043
           ]
@@ -11018,6 +11353,19 @@ window.HOMESTUCK_REFERENCE = {
             3834,
             3835
           ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Seer",
+          "aliases": [],
+          "definition": "A player class that guides allies through knowledge of its aspect. Terezi's Mind abilities concern the outcomes of individual decisions; Rose's Light abilities illuminate favorable paths for the group. Rose uses this knowledge to chart the laboratory meteor's carefully timed route through the Furthest Ring.",
+          "sourcePage": 4354,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3832,
+            3833,
+            4355
+          ]
         }
       ]
     },
@@ -11138,6 +11486,22 @@ window.HOMESTUCK_REFERENCE = {
             4291,
             3254
           ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Fourth wall",
+          "aliases": [
+            "4th wall"
+          ],
+          "definition": "A window-like device that lets Jade carry John and their miniaturized worlds out of the scratched session. The ship must pass through a second wall to reach the new session. Between them lies the yellow yard: only a yard across from outside, but about a three-year voyage for those aboard.",
+          "sourcePage": 4298,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4109,
+            4291,
+            4303,
+            4304
+          ]
         }
       ]
     },
@@ -11227,6 +11591,24 @@ window.HOMESTUCK_REFERENCE = {
             4292,
             4294,
             3238
+          ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The god-tier Heir of Breath, sailing with Jade and Davesprite through the yellow yard toward the post-Scratch session. Although Jade offers passage to the Green Sun, he stays to keep her company during their three-year journey. He sends Rose, Dave, and the trolls a letter instead.",
+          "sourcePage": 4303,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4337,
+            4338,
+            4343,
+            4372,
+            1674
           ]
         }
       ]
@@ -11319,6 +11701,24 @@ window.HOMESTUCK_REFERENCE = {
             135
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The god-tier Seer of Light, whose knowledge now reveals favorable paths for the group. After meeting the surviving trolls at the Green Sun, she charts a three-year journey through the Furthest Ring to the post-Scratch session. She and Dave travel aboard the laboratory meteor, taking the wounded WV with them.",
+          "sourcePage": 4354,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4355,
+            4331,
+            4383,
+            4384,
+            4109
+          ]
         }
       ]
     },
@@ -11390,6 +11790,23 @@ window.HOMESTUCK_REFERENCE = {
             382
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The god-tier Knight of Time, reunited with the surviving trolls near the Green Sun after the Tumor mission. His role uses time as a weapon, while Rose supplies the group's strategy. He joins the laboratory meteor's three-year journey to the post-Scratch session and receives Gift of Gab alongside Rose.",
+          "sourcePage": 4354,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4109,
+            4331,
+            4348,
+            4355
+          ]
         }
       ]
     },
@@ -11497,6 +11914,24 @@ window.HOMESTUCK_REFERENCE = {
             4290,
             4293,
             4294
+          ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic"
+          ],
+          "definition": "The god-tier Witch of Space, piloting the ship carrying John and their miniaturized worlds through the yellow yard. Outside the Green Sun's domain, she cannot teleport them to their destination, making the voyage take three years. Her first guardian powers still let her act as a gateway to the Sun.",
+          "sourcePage": 4304,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4297,
+            4303,
+            4337,
+            4338,
+            4109
           ]
         }
       ]
@@ -11702,6 +12137,20 @@ window.HOMESTUCK_REFERENCE = {
             1651
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The doomed-timeline Dave who became Crowsprite's second prototype and Dave's guide. He survives aboard Jade's ship with John, traveling through the yellow yard toward the post-Scratch session. He contributes to John's farewell letter to Rose, Dave, and the trolls by defacing its movie poster.",
+          "sourcePage": 4343,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1674,
+            4303,
+            4344,
+            4372
+          ]
         }
       ]
     },
@@ -11817,6 +12266,25 @@ window.HOMESTUCK_REFERENCE = {
             666
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV"
+          ],
+          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her first guardian gateway to the laboratory meteor near the Green Sun. Rose takes him aboard the group's journey, hoping they can find help along the way.",
+          "sourcePage": 4382,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988,
+            685,
+            4109,
+            4381,
+            4383,
+            4384
+          ]
         }
       ]
     },
@@ -11884,6 +12352,26 @@ window.HOMESTUCK_REFERENCE = {
             4109
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Prospitian Monarch",
+          "aliases": [
+            "Parcel Mistress",
+            "Peregrine Mendicant",
+            "PM"
+          ],
+          "definition": "Prospit's queen, transformed by the royal ring into a wielder of first guardian powers. She confronts Jack Noir, then sends the critically wounded WV through her body as a gateway to the group at the Green Sun. Rose plans to get him help during the laboratory meteor's journey.",
+          "sourcePage": 4381,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3018,
+            4109,
+            4315,
+            4320,
+            4382,
+            4384
+          ]
         }
       ]
     },
@@ -12011,6 +12499,25 @@ window.HOMESTUCK_REFERENCE = {
             955
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Jack Noir",
+          "aliases": [
+            "Bec Noir"
+          ],
+          "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries first guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
+          "sourcePage": 4320,
+          "sourceKind": "composite",
+          "sourcePages": [
+            955,
+            3238,
+            4312,
+            4314,
+            4315,
+            4317,
+            4384
+          ]
         }
       ]
     },
@@ -12417,6 +12924,24 @@ window.HOMESTUCK_REFERENCE = {
             2134
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Aradia Megido",
+          "aliases": [
+            "Aradia",
+            "apocalypseArisen"
+          ],
+          "definition": "The god-tier Maid of Time, now acting as a caretaker for souls and dreamers among the dream bubbles. She helps Sollux launch the laboratory meteor toward the new session, but remains behind with him. She also offers to delay Jack Noir so the travelers can gain a head start.",
+          "sourcePage": 4349,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4356,
+            4385,
+            4386,
+            4387,
+            3297
+          ]
         }
       ]
     },
@@ -12524,6 +13049,25 @@ window.HOMESTUCK_REFERENCE = {
             2076
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Sollux Captor",
+          "aliases": [
+            "Sollux",
+            "twinArmageddons"
+          ],
+          "definition": "The trolls' Mage of Doom, whose half-ghost self remains active even after his exhausted body dies bringing the laboratory meteor to the Green Sun. He helps Aradia launch the others toward the new session, then stays behind with her, tired of adventuring and wanting to visit their dead friends.",
+          "sourcePage": 4328,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4331,
+            4350,
+            4356,
+            4385,
+            4386,
+            2514
+          ]
         }
       ]
     },
@@ -12565,6 +13109,24 @@ window.HOMESTUCK_REFERENCE = {
             1994
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The trolls' Knight of Blood and Gamzee's moirail, joining Rose and Dave on the laboratory meteor's three-year journey. Rose takes responsibility for plotting their route, while Karkat worries about the group's survival and Gamzee's corpse hoarding. Their moirallegiance also lets Gamzee help calm him in return.",
+          "sourcePage": 4350,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2059,
+            4354,
+            4355,
+            4357,
+            4385
+          ]
         }
       ]
     },
@@ -12659,6 +13221,23 @@ window.HOMESTUCK_REFERENCE = {
             2323
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The trolls' Sylph of Space and a glowing rainbow drinker. With the matriorb destroyed, she doubts she can restore her people, but Rose persuades her to continue with the laboratory meteor's travelers. She also goes after Gamzee when he steals more corpses.",
+          "sourcePage": 4356,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2565,
+            3978,
+            4357,
+            4358
+          ]
         }
       ]
     },
@@ -12844,6 +13423,22 @@ window.HOMESTUCK_REFERENCE = {
             2012
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The trolls' Bard of Rage and Karkat's moirail. Their bond lets him calm Karkat as well as be calmed himself, but his morbid habits continue: the others report that he hoards and decapitates corpses, keeping remains in science jars. Kanaya pursues him after Sollux and Vriska's bodies disappear.",
+          "sourcePage": 4350,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3360,
+            4357,
+            4358
+          ]
         }
       ]
     },
@@ -13443,6 +14038,27 @@ window.HOMESTUCK_REFERENCE = {
             4208,
             4282
           ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "Crockercorp's heiress and the Maid of Life. After the mailbox explosion, her waking body's condition remains unresolved. Her dreamself wakes on Prospit, sees visions in Skaia, and is stabbed to death by the post-Scratch Jack Noir; the body begins glowing before he flees and her tower explodes.",
+          "sourcePage": 4401,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4117,
+            4282,
+            4391,
+            4392,
+            4396,
+            4399,
+            4408,
+            4412
+          ]
         }
       ]
     },
@@ -13468,6 +14084,27 @@ window.HOMESTUCK_REFERENCE = {
             4215,
             4216,
             4217
+          ]
+        },
+        {
+          "from": "act-6-intermission-1",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The island adventurer and Page whose waking self is trying to finish John's robotic rabbit. His Prospit dreamself is already dead. The post-Scratch Courtyard Droll reports killing the sleeping boy by force-feeding him peanuts, though he is unsure whether they poisoned him or made him choke.",
+          "sourcePage": 4402,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4120,
+            4174,
+            4215,
+            4216,
+            4403,
+            4404,
+            4405,
+            4406
           ]
         }
       ]
@@ -13665,6 +14302,153 @@ window.HOMESTUCK_REFERENCE = {
             4256,
             4260,
             4199
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yellow-yard",
+      "reveal": "act-6-intermission-1",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Yellow yard",
+          "aliases": [
+            "Yellow lawn ring"
+          ],
+          "definition": "The passage between two fourth walls in the author's realm, crossed by John and Jade's ship after escaping the Scratch. Its one-yard span outside corresponds to a journey of about three years for the travelers inside. Jade cannot teleport them across it because it lies outside the Green Sun's domain.",
+          "sourcePage": 4298,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4291,
+            4303,
+            4304
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knight",
+      "reveal": "act-6-intermission-1",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Knight",
+          "aliases": [],
+          "definition": "A player class described through Dave's role as Knight of Time. Aradia explains that he is a powerful warrior who exploits the flow of time as a weapon. Being a Knight does not automatically make him the group's tactician; she instead defers to Rose's knowledge as Seer of Light.",
+          "sourcePage": 4354,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "laboratory-meteor",
+      "reveal": "act-6-intermission-1",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Laboratory meteor",
+          "aliases": [
+            "Lab meteor",
+            "Meteor laboratory"
+          ],
+          "definition": "The meteor laboratory carrying the surviving trolls, joined by Rose and Dave at the Green Sun. Rose charts a three-year route through the Furthest Ring toward the post-Scratch session. Aradia and Sollux give the meteor its initial push but stay behind, while the wounded WV travels with the others.",
+          "sourcePage": 4355,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4326,
+            4331,
+            4356,
+            4383,
+            4385,
+            4386,
+            4387
+          ]
+        }
+      ]
+    },
+    {
+      "id": "corpse-party",
+      "reveal": "act-6-intermission-1",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Corpse party",
+          "aliases": [],
+          "definition": "Aradia's proposal for a funeral celebration that would bring the newly met humans and trolls together, burning the bodies in the Green Sun. Her enthusiasm reflects her work among dream bubbles, where death seems less terrible to her than to the living. The others find the suggestion morbid.",
+          "sourcePage": 4349,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "person-post-scratch-jack-noir",
+      "reveal": "act-6-intermission-1",
+      "characterId": "post-scratch-jack-noir",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [
+            "Jack Noir (post-Scratch)"
+          ],
+          "definition": "The post-Scratch session's Dersite agent, distinct from Bec Noir and Spades Slick. He stabs Jane's dreamself and directs the attacks on the other dreamers under Derse's new management. When her body starts glowing, he escapes by transportalizer before the Droll's explosives bring down her tower.",
+          "sourcePage": 4399,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4396,
+            4402,
+            4407,
+            4408,
+            4409,
+            4412
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-post-scratch-dd",
+      "reveal": "act-6-intermission-1",
+      "characterId": "post-scratch-dd",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Post-Scratch Draconian Dignitary",
+          "aliases": [
+            "Draconian Dignitary (post-Scratch)",
+            "Post-Scratch Dignitary"
+          ],
+          "definition": "The Dignitary serving in the post-Scratch session's Derse, a separate counterpart to the earlier agent and Diamonds Droog. Jack assigns him to deal with the two dreamers on Derse's moon, regarding them as harder targets than the Prospitian pair.",
+          "sourcePage": 4407,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-post-scratch-cd",
+      "reveal": "act-6-intermission-1",
+      "characterId": "post-scratch-cd",
+      "variants": [
+        {
+          "from": "act-6-intermission-1",
+          "term": "Post-Scratch Courtyard Droll",
+          "aliases": [
+            "Courtyard Droll (post-Scratch)",
+            "Post-Scratch Droll"
+          ],
+          "definition": "The post-Scratch session's Dersite demolitions specialist, separate from the earlier Droll and Clubs Deuce. He reports killing Jake's dreamself with peanuts and rigs Jane's tower to explode. He questions whether assassinating the heroes before the war begins is cheating, but follows Jack's orders under Derse's new management.",
+          "sourcePage": 4402,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4403,
+            4404,
+            4405,
+            4406,
+            4407,
+            4412
           ]
         }
       ]
