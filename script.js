@@ -419,20 +419,22 @@
     return location.hash.match(/^#concept-([a-z0-9-]+)$/)?.[1] || null;
   }
 
-  function showConcept(id, { updateHash = true } = {}) {
+  function showConcept(id, { updateHash = true, focusSearch = false } = {}) {
     const concept = (data.concepts || []).find(item => item.id === id);
     const variant = concept && reached(concept.reveal) && resolveVariant(concept.variants);
     if (!variant) return false;
     const targetId = `concept-${id}`;
-    if (!document.getElementById(targetId)) {
-      conceptSearch.value = variant.term;
-      renderConcepts();
-    }
+    conceptSearch.value = variant.term;
+    renderConcepts();
     const entry = document.getElementById(targetId);
     if (!entry) return false;
     if (updateHash && location.hash !== `#${targetId}`) history.pushState(null, '', `#${targetId}`);
-    entry.focus({ preventScroll: true });
-    entry.scrollIntoView({ block: 'start' });
+    if (focusSearch) {
+      conceptSearch.focus();
+    } else {
+      entry.focus({ preventScroll: true });
+      entry.scrollIntoView({ block: 'start' });
+    }
     return true;
   }
 
@@ -468,7 +470,7 @@
       link.addEventListener('click', event => {
         if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
         event.preventDefault();
-        showConcept(id);
+        showConcept(id, { focusSearch: true });
       });
       element.append(link);
       linked.add(id);
