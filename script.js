@@ -671,8 +671,8 @@
   window.addEventListener('beforeprint', () => {
     panels.forEach(img => { img.loading = 'eager'; });
   });
-  // Support legacy act prefixes and the recap workflow's RNN filenames.
-  const panelPattern = /^(A\d+(?:\.I\d+)?|I\d+|R\d+)_(\d+)[_-]story-(\d+)\.(gif|png|jpe?g|webp)$/i;
+  // Canonical act/intermission subdivisions, plus legacy act and recap prefixes.
+  const panelPattern = /^(A\d+(?:\.?[AI]\d+)*|I\d+|R\d+)_(\d+)[_-]story-(\d+)\.(gif|png|jpe?g|webp)$/i;
 
   panels.forEach(img => {
     if (img.hasAttribute('data-external-diagram')) return;
@@ -688,7 +688,8 @@
     const page = Number(paddedPage);
     if (!Number.isSafeInteger(page) || page < 1) return;
     const sectionLabel = /^R/i.test(section) ? `Recap ${Number(section.slice(1))}` :
-      /^I/i.test(section) ? `Intermission ${section.slice(1)}` : `Act ${section.slice(1)}`;
+      section.match(/[AI]\d+/gi).map(part =>
+        `${/^I/i.test(part) ? 'Intermission' : 'Act'} ${part.slice(1)}`).join(', ');
     if (!img.hasAttribute('alt')) img.alt = `Homestuck ${sectionLabel}, page ${page}`;
     sources.set(img.closest('.slide'), page);
   });
