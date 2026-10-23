@@ -4745,9 +4745,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-spades-slick-prosthetic.webp",
-            "alt": "Spades Slick with an eyepatch and robotic arm",
-            "presentation": "artwork"
+            "src": "../assets/ref-spades-slick-prosthetic-portrait.webp",
+            "alt": "Spades Slick with an eyepatch and robotic arm"
           },
           "sourcePage": 3617,
           "sourceKind": "visual"
@@ -5322,9 +5321,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "intermission-2",
           "value": {
-            "src": "../assets/ref-lord-english-revealed.webp",
-            "alt": "Lord English in his green overcoat, with pool-ball eyes and a gold prosthetic leg",
-            "presentation": "artwork"
+            "src": "../assets/ref-lord-english-revealed-portrait.webp",
+            "alt": "Lord English in his green overcoat, with pool-ball eyes and a gold prosthetic leg"
           },
           "sourcePage": 4111,
           "sourceKind": "visual"
@@ -5406,9 +5404,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-3",
           "value": {
-            "src": "../assets/ref-handmaid.webp",
-            "alt": "Handmaid",
-            "presentation": "artwork"
+            "src": "../assets/ref-handmaid-portrait.webp",
+            "alt": "Handmaid"
           },
           "sourcePage": 4069,
           "sourceKind": "visual"
@@ -5472,16 +5469,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-summoner.webp",
-            "alt": "Summoner",
-            "crop": {
-              "x": 330,
-              "y": 50,
-              "size": 220,
-              "width": 650,
-              "height": 450
-            },
-            "presentation": "artwork"
+            "src": "../assets/ref-summoner-portrait.webp",
+            "alt": "Summoner"
           },
           "sourcePage": 3758,
           "sourceKind": "visual"
@@ -5561,9 +5550,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-3",
           "value": {
-            "src": "../assets/ref-psiioniic.webp",
-            "alt": "Psiioniic",
-            "presentation": "artwork"
+            "src": "../assets/ref-psiioniic-portrait.webp",
+            "alt": "Psiioniic"
           },
           "sourcePage": 4058,
           "sourceKind": "visual"
@@ -5648,9 +5636,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-3",
           "value": {
-            "src": "../assets/ref-signless.webp",
-            "alt": "Signless",
-            "presentation": "artwork"
+            "src": "../assets/ref-signless-portrait.webp",
+            "alt": "Signless"
           },
           "sourcePage": 4054,
           "sourceKind": "visual"
@@ -5735,9 +5722,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-3",
           "value": {
-            "src": "../assets/ref-disciple.webp",
-            "alt": "Disciple",
-            "presentation": "artwork"
+            "src": "../assets/ref-disciple-portrait.webp",
+            "alt": "Disciple"
           },
           "sourcePage": 4059,
           "sourceKind": "visual"
@@ -5801,9 +5787,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-3",
           "value": {
-            "src": "../assets/ref-dolorosa.webp",
-            "alt": "Dolorosa",
-            "presentation": "artwork"
+            "src": "../assets/ref-dolorosa-portrait.webp",
+            "alt": "Dolorosa"
           },
           "sourcePage": 4057,
           "sourceKind": "visual"
@@ -5876,9 +5861,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-redglare.webp",
-            "alt": "Redglare",
-            "presentation": "artwork"
+            "src": "../assets/ref-redglare-portrait.webp",
+            "alt": "Redglare"
           },
           "sourcePage": 3518,
           "sourceKind": "visual"
@@ -5984,9 +5968,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-mindfang.webp",
-            "alt": "Mindfang",
-            "presentation": "artwork"
+            "src": "../assets/ref-mindfang-portrait.webp",
+            "alt": "Mindfang"
           },
           "sourcePage": 3475,
           "sourceKind": "visual"
@@ -6074,16 +6057,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-darkleer.webp",
-            "alt": "Darkleer",
-            "crop": {
-              "x": 210,
-              "y": 0,
-              "size": 420,
-              "width": 650,
-              "height": 650
-            },
-            "presentation": "artwork"
+            "src": "../assets/ref-darkleer-portrait.webp",
+            "alt": "Darkleer"
           },
           "sourcePage": 3756,
           "sourceKind": "visual"
@@ -6174,9 +6149,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-grand-highblood.webp",
-            "alt": "Grand Highblood",
-            "presentation": "artwork"
+            "src": "../assets/ref-grand-highblood-portrait.webp",
+            "alt": "Grand Highblood"
           },
           "sourcePage": 3514,
           "sourceKind": "visual"
@@ -6237,9 +6211,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-2",
           "value": {
-            "src": "../assets/ref-dualscar.webp",
-            "alt": "Dualscar",
-            "presentation": "artwork"
+            "src": "../assets/ref-dualscar-portrait.webp",
+            "alt": "Dualscar"
           },
           "sourcePage": 3508,
           "sourceKind": "visual"
@@ -6312,9 +6285,8 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-5-act-2-part-3",
           "value": {
-            "src": "../assets/ref-condesce.webp",
-            "alt": "Condesce",
-            "presentation": "artwork"
+            "src": "../assets/ref-condesce-portrait.webp",
+            "alt": "Condesce"
           },
           "sourcePage": 4063,
           "sourceKind": "visual"

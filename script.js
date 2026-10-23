@@ -187,27 +187,7 @@
     img.src = portrait.src;
     img.alt = portrait.alt || '';
     img.loading = loading;
-    let content = img;
-    if (portrait.crop) {
-      const { x, y, size, width, height } = portrait.crop;
-      const frame = document.createElement('span');
-      frame.className = `${className} portrait-frame`;
-      img.className = 'portrait-framed-image';
-      img.style.setProperty('width', `${width / size * 100}%`);
-      img.style.setProperty('height', `${height / size * 100}%`);
-      img.style.setProperty('left', `${-x / size * 100}%`);
-      img.style.setProperty('top', `${-y / size * 100}%`);
-      frame.append(img);
-      content = frame;
-    }
-    if (portrait.presentation === 'artwork') {
-      const frame = document.createElement('span');
-      frame.className = `${className} portrait-artwork`;
-      content.className = portrait.crop ? 'portrait-frame' : 'portrait-artwork-image';
-      frame.append(content);
-      return frame;
-    }
-    return content;
+    return img;
   }
 
   function showCharacter(id, { updateHash = true, focus = false } = {}) {
