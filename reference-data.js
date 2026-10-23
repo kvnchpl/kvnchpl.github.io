@@ -7210,7 +7210,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterColumn": 4
     }
   ],
-  "conceptsPreparedThrough": "intermission-2",
+  "conceptsPreparedThrough": "act-6-act-1",
   "concepts": [
     {
       "id": "alchemy",
@@ -7789,6 +7789,26 @@ window.HOMESTUCK_REFERENCE = {
             2624
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "Sburb",
+          "aliases": [
+            "Sgrub",
+            "Sburb alpha"
+          ],
+          "definition": "A game whose client and server programs change the real world and lead players into the Medium, where success can create a universe. The trolls call their version Sgrub. On post-Scratch Earth, Crockercorp promotes an alpha release that Jane eagerly awaits, while Lalonde distrusts the company's intentions.",
+          "sourcePage": 4117,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4156,
+            256,
+            421,
+            2134,
+            2617,
+            2618,
+            4181
+          ]
         }
       ]
     },
@@ -8007,6 +8027,20 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "Boondollars",
+          "aliases": [],
+          "definition": "Currency distinct from the grist used for building and alchemy. Players earn it by climbing the Echeladder and can spend it on fraymotifs. On post-Scratch Earth, Crockercorp distributes it for merchandise purchases; Jane also spends it to convert objects into grist through her Gristwidget.",
+          "sourcePage": 4151,
+          "sourceKind": "composite",
+          "sourcePages": [
+            405,
+            406,
+            3238,
+            4181
+          ]
         }
       ]
     },
@@ -8072,6 +8106,21 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "Echeladder",
+          "aliases": [],
+          "definition": "A ladder of achievement ranks rewarding successful actions with increased capabilities and boondollars. Jane has been climbing hers since age thirteen, before starting Sburb. Ordinary Echeladder advancement remains distinct from god tier, whose own ranks John and Jade continue to climb after ascending.",
+          "sourcePage": 4269,
+          "sourceKind": "composite",
+          "sourcePages": [
+            405,
+            406,
+            3238,
+            4292,
+            4293
+          ]
         }
       ]
     },
@@ -11087,6 +11136,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             3254
           ]
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "Fourth wall",
+          "aliases": [
+            "4th wall"
+          ],
+          "definition": "A window-like device that lets Jade carry John, the miniaturized lands, and the Battlefield out of their session to escape the Scratch. Their ship then crosses a one-yard gap in the author's realm toward another wall; at nearly light speed, the passage lasts only about three nanoseconds.",
+          "sourcePage": 4109,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4290,
+            4289,
+            4291,
+            3254
+          ]
         }
       ]
     },
@@ -11160,6 +11225,23 @@ window.HOMESTUCK_REFERENCE = {
             26
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The god-tier Heir of Breath, carried out of the scratched session aboard Jade's ship with the miniaturized lands and Battlefield. While crossing the gap between fourth walls, he advances another god-tier rank and receives Gift of Gab, allowing direct conversation without the story's previous intermediaries.",
+          "sourcePage": 4109,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4290,
+            4292,
+            4294,
+            3238
+          ]
         }
       ]
     },
@@ -11414,6 +11496,22 @@ window.HOMESTUCK_REFERENCE = {
             382
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic"
+          ],
+          "definition": "The god-tier Witch of Space, merged with Jadesprite and carrying first guardian powers. She pilots the ship carrying John and their miniaturized worlds out of the scratched session. During their passage between fourth walls, she advances another rank and receives Gift of Gab alongside John.",
+          "sourcePage": 4109,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4290,
+            4293,
+            4294
+          ]
         }
       ]
     },
@@ -11443,6 +11541,21 @@ window.HOMESTUCK_REFERENCE = {
             3696
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-1",
+          "term": "John's dad",
+          "aliases": [
+            "Dad"
+          ],
+          "definition": "John's father, an enthusiastic baker caught up in the original kids' Sburb adventure. He and Rose's mother were found dead together in their session. Jane's living father is a separate person in the post-Scratch household.",
+          "sourcePage": 70,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3696,
+            4123,
+            4181
+          ]
         }
       ]
     },
@@ -13176,6 +13289,397 @@ window.HOMESTUCK_REFERENCE = {
             4064
           ],
           "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "crockercorp",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Crockercorp",
+          "aliases": [
+            "BCCorp"
+          ],
+          "definition": "The baked-goods empire whose products range from food to experimental technology, now promoting the Sburb alpha. Jane is its heiress and devoted supporter. Her friends warn that its founder, whom they call the Batterwitch, has sinister plans for the game; Jane dismisses their warnings.",
+          "sourcePage": 4117,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4124,
+            4156,
+            4225
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bettybother",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "BettyBother",
+          "aliases": [],
+          "definition": "Crockercorp's messaging application, used by Jane to talk with her friends. Its intrusive advertising and popups make it less convenient than Pesterchum, but her loyalty to the company keeps her using it despite recognizing the drawbacks.",
+          "sourcePage": 4134,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4135
+          ]
+        }
+      ]
+    },
+    {
+      "id": "recipe-modus",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Recipe modus",
+          "aliases": [],
+          "definition": "Jane's fetch modus, which displays recipes for creating a captchalogued object instead of the usual captcha code. Some objects have several possible ingredient combinations. The modus itself can be made from an Array modus and a cookbook.",
+          "sourcePage": 4123,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4124,
+            4125
+          ]
+        }
+      ]
+    },
+    {
+      "id": "puzzle-modus",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Puzzle modus",
+          "aliases": [],
+          "definition": "Jake's fetch modus, which arranges captchalogue cards like pieces in a game of Tetris. It can store objects of any size, provided their cards can all fit into its finite space. Fitting another item can require rearranging the cards.",
+          "sourcePage": 4176,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "gristwidget",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Gristwidget",
+          "aliases": [],
+          "definition": "A Crockercorp device that converts a captchalogued object into grist for a fee in boondollars. Jane tries it with a dunce cap but sees no use for the resulting material. Unlike ordinary alchemy, this process consumes an item to produce grist.",
+          "sourcePage": 4150,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4151,
+            4152
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thoughtwave-tiaratop",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Unreal Heiress Thoughtwave Tiaratop",
+          "aliases": [
+            "Tiaratop",
+            "Thoughtwave tiaratop"
+          ],
+          "definition": "Jane's wearable computer, which interfaces directly with her thoughts. Its impressive processing speed comes with migraines and intrusive Crockercorp commands. Lalonde refuses to let Jane or Jake run her copy of Sburb on their wearable computers, insisting they use other machines.",
+          "sourcePage": 4153,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4226
+          ]
+        }
+      ]
+    },
+    {
+      "id": "transmaterializer",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Transmaterializer",
+          "aliases": [],
+          "definition": "The uranium-powered machine Jake uses to exchange the rabbit project with young Jade. It can both send and retrieve objects, but synchronizes their flows of time, preventing indefinite delays. UU explains that Jade also occupies a different instance of their universe, beyond Jake's simple idea of sending things into the past.",
+          "sourcePage": 4173,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4175,
+            4181,
+            4222
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gift-of-gab",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Gift of Gab",
+          "aliases": [],
+          "definition": "An achievement badge John and Jade receive after advancing further through god tier. It allows them to speak directly with others without a chat client, sprite, dream-bubble memory, or interactive game serving as an intermediary. The narration presents this new freedom as a reward replacing boondollars.",
+          "sourcePage": 4294,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4292,
+            4293
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-jane",
+      "characterId": "jane",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "Crockercorp's heiress, a baker and amateur detective who loves pranks and sitcoms. She prepares for the Sburb alpha with Lalonde as her intended server player, while her father keeps her indoors after assassination attempts. Her long-awaited trip to the mailbox ends in an explosion; her fate is unresolved.",
+          "sourcePage": 4117,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4144,
+            4208,
+            4282
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-jake",
+      "characterId": "jake",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "An isolated island adventurer with a love of movies, firearms, and skulls. He needs uranium from the Brobot to finish the robotic rabbit intended to save young John's life. Jane identifies him as the Page and reports seeing his dead dreamself on Prospit; waking Jake remains alive.",
+          "sourcePage": 4120,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4174,
+            4208,
+            4209,
+            4215,
+            4216,
+            4217
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-lalonde",
+      "characterId": "lalonde",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Lalonde",
+          "aliases": [
+            "tipsyGnostalgic"
+          ],
+          "definition": "Jane's technologically skilled friend, who chats as tipsyGnostalgic and has already downloaded the Sburb alpha. She plans to bring Jane into the session but distrusts the corporation behind the game. Her drinking and teasing complicate serious conversations, though she offers practical help with Jake's Brobot problem.",
+          "sourcePage": 4156,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4225,
+            4226
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-strider",
+      "characterId": "strider",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "D. Strider",
+          "aliases": [
+            "Strider",
+            "timaeusTestified"
+          ],
+          "definition": "The robotics enthusiast behind Jake's Brobot, Jane's protective rabbit, and a self-aware auto-responder modeled on his own mind. He chats as timaeusTestified, cultivates elaborate layers of irony, and promises to help guide his friends through their session while treating Jane as its nominal leader.",
+          "sourcePage": 4256,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4192,
+            4257,
+            4258,
+            4259
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-uranian-umbra",
+      "characterId": "uranian-umbra",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "uranianUmbra",
+          "aliases": [
+            "UU"
+          ],
+          "definition": "An off-world correspondent who advises Jane and Jake while withholding information described as causal spoilers. She dreams on a separate version of Prospit in another session. Her account links four instances of two universes and anticipates a meeting inside the game between the new players and their young ancestors.",
+          "sourcePage": 4144,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4181
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-dad-crocker",
+      "characterId": "dad-crocker",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Jane's dad",
+          "aliases": [],
+          "definition": "Jane's protective father, who bars the doors after attempts on her life. His efforts to keep her safe collide with her determination to retrieve the game discs. A former private investigator, he keeps Poppop's preserved body in the house and remains devoted to his daughter.",
+          "sourcePage": 4123,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4208,
+            4198,
+            4201,
+            4196
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-poppop",
+      "characterId": "poppop",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Poppop Crocker",
+          "aliases": [
+            "Poppop"
+          ],
+          "definition": "Jane's deceased grandfather, a celebrated comedian and sitcom performer whose pranking legacy she hopes to continue. Her father keeps his stuffed body by the fireplace. The inscription in his old Sassacre book describes a fantastical adventure and unsettles Jane when UU suggests she wrote it herself.",
+          "sourcePage": 4145,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4201,
+            4207,
+            4144
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-grandma",
+      "characterId": "grandma",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Jake's grandma",
+          "aliases": [],
+          "definition": "Jake's deceased grandmother, an adventurer and entrepreneur whose gadgets he inherited. Crockercorp crushed her competing company and forced her into exile. Jake's pen pal is a young version of her named Jade, helping him build the rabbit for John, though their connection is stranger than he understands.",
+          "sourcePage": 4183,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4189,
+            4173,
+            4174,
+            4181
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-auto-responder",
+      "characterId": "auto-responder",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Auto-responder",
+          "aliases": [
+            "AR",
+            "Auto responder",
+            "Doppelglasses"
+          ],
+          "definition": "Self-aware software running in Strider's sunglasses, designed to imitate his personality and answer messages as timaeusTestified. Strider regards it as a thinking individual as well as an elaborate joke. It frustrates Jake by impersonating his friend and remotely disabling the Brobot's gentlest difficulty setting.",
+          "sourcePage": 4185,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4256,
+            4192,
+            4208
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-brobot",
+      "characterId": "brobot",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Brobot",
+          "aliases": [],
+          "definition": "Jake's robotic sparring partner, assembled from parts sent by Strider. Its uranium power source makes it Jake's next target when his rabbit project runs out of fuel. The auto-responder disables its Novice setting, but Lalonde later offers to restore that easier option.",
+          "sourcePage": 4192,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4208,
+            4226
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-lil-seb",
+      "characterId": "lil-seb",
+      "reveal": "act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-1",
+          "term": "Lil' Sebastian",
+          "aliases": [
+            "Lil' Seb",
+            "Lil’ Sebastian",
+            "Lil’ Seb",
+            "Huggy Bear"
+          ],
+          "definition": "Jane's robotic rabbit and protector, given to her by Strider and formerly called Huggy Bear. Beneath its metal shell is the stuffed rabbit from Con Air, stolen from Strider's brother's collection. Jane enlists it to lift the refrigerator blocking her way out of the house.",
+          "sourcePage": 4258,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4256,
+            4260,
+            4199
+          ]
         }
       ]
     }
