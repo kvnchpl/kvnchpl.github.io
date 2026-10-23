@@ -353,6 +353,14 @@ button {
   margin: 0 auto;
 }
 
+.slide-title {
+  margin: 0;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: clamp(1.5rem, 5cqw, 2rem);
+  line-height: 1.2;
+}
+
 .media {
   position: relative;
   background: white;
@@ -1394,6 +1402,7 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     object-fit: contain;
   }
 
+  .slide-title,
   .caption,
   .act-title {
     flex: 0 0 auto;
