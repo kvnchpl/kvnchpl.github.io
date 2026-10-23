@@ -270,7 +270,7 @@
   function makeRosterTab(character, card, groupId) {
     const tab = document.createElement('button');
     tab.type = 'button';
-    tab.className = `character-option${groupId === 'ancestors' ? ' ancestor-option' : ''}`;
+    tab.className = 'character-option';
     tab.id = `${card.id}-tab`;
     tab.dataset.characterId = character.id;
     tab.setAttribute('role', 'tab');
