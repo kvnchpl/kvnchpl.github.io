@@ -393,7 +393,9 @@
       heading.textContent = groupTitle;
       section.append(heading);
       const grid = document.createElement('div');
-      grid.className = `profile-grid ${group.id === 'trolls' ? 'troll-grid' : group.id === 'guardians-sprites' ? 'guardian-grid' : group.id === 'exiles-agents' ? 'exiles-agents-grid' : group.id === 'felt-associates' ? 'felt-associates-grid' : group.id === 'midnight-crew' ? 'midnight-crew-grid' : 'kid-grid'}`;
+      grid.className = `profile-grid ${group.id === 'trolls' ? 'troll-grid' : group.id === 'guardians-sprites' ? 'guardian-grid' : group.id === 'exiles' ? 'exiles-grid' : group.id === 'agents' ? 'agents-grid' : group.id === 'felt-associates' ? 'felt-associates-grid' : group.id === 'midnight-crew' ? 'midnight-crew-grid' : 'kid-grid'}`;
+      // Preserve links to the former combined group at the start of the exiles.
+      if (group.id === 'exiles') grid.id = 'exiles-agents';
       section.append(grid);
 
       rosterRow += 1;

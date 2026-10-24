@@ -482,56 +482,83 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
-      "id": "exiles-agents",
+      "id": "exiles",
       "title": [
         {
           "from": "act-2",
-          "value": "EXILES & AGENTS",
+          "value": "EXILES",
           "sourcePage": 666,
           "sourceKind": "editorial"
         },
         {
           "from": "act-3",
-          "value": "EXILES & AGENTS",
+          "value": "EXILES",
           "sourcePage": 666,
           "sourcePages": [
             892,
-            1100,
-            955,
-            957
+            1100
           ],
           "sourceKind": "editorial"
         },
         {
           "from": "intermission",
-          "value": "EXILES & AGENTS",
+          "value": "EXILES",
+          "sourcePage": 666,
+          "sourcePages": [
+            892,
+            1100
+          ],
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-4",
+          "value": "EXILES",
           "sourcePage": 666,
           "sourcePages": [
             892,
             1100,
-            955,
+            1543
+          ],
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "value": "PRE-SCRATCH EXILES",
+          "sourcePage": 4402,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4399,
+            4407
+          ]
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "title": [
+        {
+          "from": "act-3",
+          "value": "AGENTS",
+          "sourcePage": 955,
+          "sourcePages": [
             957
           ],
           "sourceKind": "editorial"
         },
         {
           "from": "act-4",
-          "value": "EXILES & AGENTS",
-          "sourcePage": 666,
+          "value": "AGENTS",
+          "sourcePage": 955,
           "sourcePages": [
-            892,
-            1100,
-            1543,
-            955,
+            957,
             1532,
-            1784,
-            957
+            1784
           ],
           "sourceKind": "editorial"
         },
         {
           "from": "act-6-intermission-1",
-          "value": "PRE-SCRATCH EXILES & AGENTS",
+          "value": "PRE-SCRATCH AGENTS",
           "sourcePage": 4402,
           "sourceKind": "editorial",
           "sourcePages": [
@@ -4155,7 +4182,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "wv",
-      "group": "exiles-agents",
+      "group": "exiles",
       "reveal": "act-2",
       "introPage": 666,
       "name": [
@@ -4228,7 +4255,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "pm",
-      "group": "exiles-agents",
+      "group": "exiles",
       "reveal": "act-3",
       "introPage": 892,
       "name": [
@@ -4340,7 +4367,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "ar",
-      "group": "exiles-agents",
+      "group": "exiles",
       "reveal": "act-3",
       "introPage": 1100,
       "name": [
@@ -4416,7 +4443,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "wq",
-      "group": "exiles-agents",
+      "group": "exiles",
       "reveal": "act-4",
       "introPage": 1543,
       "name": [
@@ -4477,7 +4504,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "jack-noir",
-      "group": "exiles-agents",
+      "group": "agents",
       "reveal": "act-3",
       "introPage": 955,
       "name": [
@@ -4583,7 +4610,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "dd",
-      "group": "exiles-agents",
+      "group": "agents",
       "reveal": "act-4",
       "introPage": 1532,
       "name": [
@@ -4650,7 +4677,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "cd",
-      "group": "exiles-agents",
+      "group": "agents",
       "reveal": "act-4",
       "introPage": 1784,
       "name": [
@@ -4729,7 +4756,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "hb",
-      "group": "exiles-agents",
+      "group": "agents",
       "reveal": "act-3",
       "introPage": 957,
       "name": [
