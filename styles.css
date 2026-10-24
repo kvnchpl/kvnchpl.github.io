@@ -1184,10 +1184,8 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   text-underline-offset: 2px;
 }
 
-.concept-profile-link {
-  display: inline-block;
-  margin-top: 8px;
-  font: 400 12px/1.5 Verdana, Arial, sans-serif;
+.concept-profile-command li {
+  margin: 8px 0 0;
 }
 
 .concept-entry:target {
@@ -1526,7 +1524,7 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   }
 
   .concept-search,
-  .concept-profile-link {
+  .concept-profile-command {
     display: none;
   }
 

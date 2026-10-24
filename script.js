@@ -560,7 +560,7 @@
         const profileHash = `#character-${characterId}`;
         profileLink.className = 'concept-profile-link';
         profileLink.href = profileHash;
-        profileLink.textContent = 'View profile';
+        profileLink.textContent = 'View profile.';
         profileLink.setAttribute('aria-label', `View profile: ${variant.term}`);
         profileLink.addEventListener('click', event => {
           if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
@@ -570,7 +570,12 @@
           profilePanel.focus({ preventScroll: true });
           characterBrowser.scrollIntoView({ block: 'start' });
         });
-        copy.append(profileLink);
+        const profileCommand = document.createElement('ul');
+        profileCommand.className = 'command-links concept-profile-command';
+        const commandItem = document.createElement('li');
+        commandItem.append(profileLink);
+        profileCommand.append(commandItem);
+        copy.append(profileCommand);
       }
       entry.append(heading, copy);
       appendixResults.append(entry);
