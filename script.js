@@ -222,7 +222,10 @@
     currentCards.forEach(item => {
       item.hidden = item.dataset.characterId !== id;
     });
-    if (changedCharacter) card.scrollTop = 0;
+    if (changedCharacter) {
+      const statsScroll = card.querySelectorAll('.character-stats-scroll')[0];
+      if (statsScroll) statsScroll.scrollTop = 0;
+    }
 
     if (updateHash) history.replaceState(null, '', `#character-${id}`);
     if (focus) tab.focus({ preventScroll: true });
@@ -252,10 +255,9 @@
 
     const portrait = resolvedValue(character.portrait);
     const portraitElement = createPortrait(portrait, 'character-portrait');
-    if (portraitElement) card.append(portraitElement);
-
-    const copy = document.createElement('div');
-    copy.className = 'character-copy';
+    const header = document.createElement('div');
+    header.className = 'character-header';
+    if (portraitElement) header.append(portraitElement);
 
     const heading = document.createElement('h3');
     const link = document.createElement('a');
@@ -265,7 +267,7 @@
     link.rel = 'noopener noreferrer';
     link.textContent = nameVariant.value;
     heading.append(link);
-    copy.append(heading);
+    header.append(heading);
 
     const stats = document.createElement('dl');
     stats.className = 'character-stats';
@@ -289,9 +291,16 @@
       statCount += 1;
     }
 
-    if (statCount) copy.append(stats);
-
-    card.append(copy);
+    card.append(header);
+    if (statCount) {
+      const statsScroll = document.createElement('div');
+      statsScroll.className = 'character-stats-scroll';
+      statsScroll.tabIndex = 0;
+      statsScroll.setAttribute('role', 'region');
+      statsScroll.setAttribute('aria-label', `${nameVariant.value} stats`);
+      statsScroll.append(stats);
+      card.append(statsScroll);
+    }
     return card;
   }
 

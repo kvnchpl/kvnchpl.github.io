@@ -593,8 +593,23 @@ button {
 
 /* Spoiler-aware reading progress control. */
 .spoilerlog .reading-progress {
-  margin: 12px 0 0;
+  margin: 12px 30px;
+  padding: 0;
   border: 0;
+  background: transparent;
+}
+
+.spoilerlog .reading-progress h2,
+.spoilerlog .reading-progress-copy,
+.spoilerlog .reading-progress-selected {
+  max-width: none;
+  font: inherit;
+  text-align: left;
+}
+
+.spoilerlog .reading-progress-selected {
+  justify-content: flex-start;
+  margin-bottom: 12px;
 }
 
 .reading-progress {
@@ -876,7 +891,7 @@ button {
 
 /* The roster selects among the stage-safe cards; printing shows them all. */
 .character-select.is-ready {
-  --reference-panel-height: min(640px, 70svh);
+  --reference-panel-height: clamp(320px, 70svh, 640px);
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
   gap: 20px;
@@ -895,8 +910,7 @@ button {
 
 @media screen {
   .is-ready .character-roster,
-  .is-ready .character-card {
-    max-height: var(--reference-panel-height);
+  .is-ready .character-stats-scroll {
     overflow-y: auto;
     scrollbar-gutter: stable;
     scrollbar-color: #999 #ddd;
@@ -904,6 +918,7 @@ button {
   }
 
   .is-ready .character-roster {
+    max-height: var(--reference-panel-height);
     padding: 6px;
     border: 1px solid #aaa;
     align-content: start;
@@ -998,6 +1013,36 @@ button {
   width: 100%;
   height: 200px;
   margin: 0 auto 20px;
+}
+
+@media screen {
+  .is-ready .character-card {
+    display: flex;
+    flex-direction: column;
+    max-height: var(--reference-panel-height);
+    overflow: hidden;
+  }
+
+  .is-ready .character-header {
+    flex: none;
+  }
+
+  .is-ready .character-portrait {
+    height: clamp(80px, 24svh, 200px);
+  }
+
+  .is-ready .character-stats-scroll {
+    min-height: 0;
+    margin-top: 16px;
+  }
+
+  .is-ready .character-stats-scroll:focus-visible {
+    outline-offset: -2px;
+  }
+
+  .is-ready .character-stats {
+    margin: 0;
+  }
 }
 
 /* Give pale transparent silhouettes an edge against white cards. */
@@ -1154,6 +1199,10 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
 
   .reading-progress {
     padding-inline: 12px;
+  }
+
+  .spoilerlog .reading-progress {
+    margin: 12px;
   }
 
   .reading-progress-segments {
