@@ -600,15 +600,13 @@ button {
 }
 
 .spoilerlog .reading-selector h2,
-.spoilerlog .reading-selector-instructions,
-.spoilerlog .selected-reading-message {
+.spoilerlog .reading-selector-instructions {
   max-width: none;
   font: inherit;
   text-align: left;
 }
 
-.spoilerlog .selected-reading-message {
-  justify-content: flex-start;
+.spoilerlog {
   margin-bottom: 12px;
 }
 
@@ -638,13 +636,13 @@ button {
   margin-top: 18px;
 }
 
-.selected-reading-message {
+.reading-status {
   display: flex;
   align-items: baseline;
   justify-content: center;
   flex-wrap: wrap;
   gap: 4px 8px;
-  margin-bottom: 8px;
+  margin: 0 0 24px;
   font: 400 12px/1.4 Verdana, Arial, sans-serif;
 }
 
@@ -1180,6 +1178,18 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   text-transform: uppercase;
 }
 
+.profile-stats .profile-term-link,
+.profile-stats .profile-term-link:visited {
+  color: inherit;
+  text-underline-offset: 2px;
+}
+
+.concept-profile-link {
+  display: inline-block;
+  margin-top: 8px;
+  font: 400 12px/1.5 Verdana, Arial, sans-serif;
+}
+
 .concept-entry:target {
   background: #e2e2e2;
 }
@@ -1515,7 +1525,8 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     display: none;
   }
 
-  .concept-search {
+  .concept-search,
+  .concept-profile-link {
     display: none;
   }
 

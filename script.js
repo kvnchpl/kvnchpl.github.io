@@ -241,7 +241,7 @@
     return true;
   }
 
-  function createCharacterProfile(character, groupId) {
+  function createCharacterProfile(character, groupId, appendixEntries) {
     const nameVariant = resolveVariant(character.name);
     if (!nameVariant) return null;
 
@@ -271,6 +271,8 @@
 
     const stats = document.createElement('dl');
     stats.className = 'profile-stats';
+    const ownEntryId = appendixEntries.find(entry => entry.characterId === character.id)?.id;
+    const appendStatLinks = createAppendixLinker(appendixEntries, ownEntryId, 'profile-term-link');
     let statCount = 0;
 
     for (const stat of character.stats || []) {
@@ -280,7 +282,7 @@
       const dt = document.createElement('dt');
       const dd = document.createElement('dd');
       dt.textContent = variant.label;
-      dd.textContent = variant.value;
+      appendStatLinks(dd, variant.value);
       if (stat.id === 'handle') dd.className = 'profile-handle';
       if (stat.id === 'team') {
         if (variant.value === 'Blue Team') dd.className = 'reference-team-blue';
@@ -366,6 +368,7 @@
     profilePanels = [];
 
     const available = characters.filter(character => hasReachedStage(character.reveal));
+    const appendixEntries = reachedAppendixEntries();
     const requested = characterFromHash();
     const availableIds = new Set(available.map(character => character.id));
     if (requested && availableIds.has(requested)) selectedCharacterId = requested;
@@ -401,7 +404,7 @@
       rosterRow += 1;
       let rosterColumn = 0;
       for (const character of groupCharacters) {
-        const profilePanel = createCharacterProfile(character, group.id);
+        const profilePanel = createCharacterProfile(character, group.id, appendixEntries);
         if (!profilePanel) continue;
         const tab = createRosterButton(character, profilePanel, group.id);
         const column = character.rosterColumn || (rosterColumn % 4) + 1;
@@ -467,7 +470,14 @@
     return true;
   }
 
-  function appendLinkedDefinition(element, text, ownId, available) {
+  function reachedAppendixEntries() {
+    return (referenceData.concepts || []).filter(concept => hasReachedStage(concept.reveal))
+      .map(concept => ({ id: concept.id, characterId: concept.characterId, variant: resolveVariant(concept.variants) }))
+      .filter(concept => concept.variant)
+      .sort((a, b) => a.variant.term.localeCompare(b.variant.term, 'en'));
+  }
+
+  function createAppendixLinker(available, ownId, className = 'concept-link') {
     const phrases = new Map();
     for (const { id, variant } of available) {
       if (id === ownId) continue;
@@ -481,41 +491,38 @@
       .sort((a, b) => b.length - a.length)
       .map(label => label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     if (!labels.length) {
-      element.textContent = text;
-      return;
+      return (element, text) => { element.textContent = text; };
     }
     // Longest phrases win; whole-word matching avoids links inside unrelated words.
     const pattern = new RegExp(`\\b(${labels.join('|')})(s)?\\b`, 'gi');
-    const linked = new Set();
-    let cursor = 0;
-    for (const match of text.matchAll(pattern)) {
-      const id = phrases.get(match[1].toLowerCase());
-      if (linked.has(id)) continue;
-      element.append(document.createTextNode(text.slice(cursor, match.index)));
-      const link = document.createElement('a');
-      link.className = 'concept-link';
-      link.href = `#concept-${id}`;
-      link.textContent = match[0];
-      link.addEventListener('click', event => {
-        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
-        event.preventDefault();
-        showAppendixEntry(id, { focusSearch: true });
-      });
-      element.append(link);
-      linked.add(id);
-      cursor = match.index + match[0].length;
-    }
-    element.append(document.createTextNode(text.slice(cursor)));
+    return (element, text) => {
+      const linked = new Set();
+      let cursor = 0;
+      for (const match of text.matchAll(pattern)) {
+        const id = phrases.get(match[1].toLowerCase());
+        if (linked.has(id)) continue;
+        element.append(document.createTextNode(text.slice(cursor, match.index)));
+        const link = document.createElement('a');
+        link.className = className;
+        link.href = `#concept-${id}`;
+        link.textContent = match[0];
+        link.addEventListener('click', event => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+          event.preventDefault();
+          showAppendixEntry(id, { focusSearch: true });
+        });
+        element.append(link);
+        linked.add(id);
+        cursor = match.index + match[0].length;
+      }
+      element.append(document.createTextNode(text.slice(cursor)));
+    };
   }
 
   function renderAppendix() {
     if (![appendix, appendixSearchInput, appendixClearButton, appendixResults, appendixEmptyMessage].every(Boolean)) return;
-    const concepts = referenceData.concepts || [];
     // Resolve first: unreached names, aliases, and definitions never enter search or the DOM.
-    const available = concepts.filter(concept => hasReachedStage(concept.reveal))
-      .map(concept => ({ id: concept.id, variant: resolveVariant(concept.variants) }))
-      .filter(concept => concept.variant)
-      .sort((a, b) => a.variant.term.localeCompare(b.variant.term, 'en'));
+    const available = reachedAppendixEntries();
     const query = searchableText(appendixSearchInput.value || '');
     const words = query ? query.split(/\s+/) : [];
     const nameMatches = [];
@@ -534,7 +541,7 @@
     const matches = [...nameMatches, ...definitionMatches];
 
     appendixResults.replaceChildren();
-    for (const { id, variant } of matches) {
+    for (const { id, characterId, variant } of matches) {
       const entry = document.createElement('article');
       entry.className = 'concept-entry';
       entry.id = `concept-${id}`;
@@ -545,8 +552,26 @@
       copy.className = 'concept-copy';
       const definition = document.createElement('p');
       definition.className = 'concept-definition';
-      appendLinkedDefinition(definition, variant.definition, id, available);
+      createAppendixLinker(available, id)(definition, variant.definition);
       copy.append(definition);
+      const profilePanel = profilePanels.find(panel => panel.dataset.characterId === characterId);
+      if (profilePanel) {
+        const profileLink = document.createElement('a');
+        const profileHash = `#character-${characterId}`;
+        profileLink.className = 'concept-profile-link';
+        profileLink.href = profileHash;
+        profileLink.textContent = 'View profile';
+        profileLink.setAttribute('aria-label', `View profile: ${variant.term}`);
+        profileLink.addEventListener('click', event => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+          event.preventDefault();
+          if (!showCharacter(characterId, { updateHash: false })) return;
+          if (location.hash !== profileHash) history.pushState(null, '', profileHash);
+          profilePanel.focus({ preventScroll: true });
+          characterBrowser.scrollIntoView({ block: 'start' });
+        });
+        copy.append(profileLink);
+      }
       entry.append(heading, copy);
       appendixResults.append(entry);
     }
