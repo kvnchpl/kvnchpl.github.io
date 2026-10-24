@@ -1186,6 +1186,14 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
 
 .concept-profile-command li {
   margin: 8px 0 0;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.concept-profile-command a {
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
 }
 
 .concept-entry:target {
