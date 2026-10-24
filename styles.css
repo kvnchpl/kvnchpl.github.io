@@ -925,6 +925,7 @@ button {
 }
 
 @media screen {
+
   .is-ready .character-roster,
   .is-ready .profile-stats-scroll {
     overflow-y: auto;
