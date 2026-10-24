@@ -651,12 +651,6 @@ button {
   text-transform: uppercase;
 }
 
-.reading-cap-preview-status {
-  margin: 8px 0 12px;
-  font: 11px/1.5 Verdana, Arial, sans-serif;
-  color: #535353;
-}
-
 .reading-stage-groups {
   display: grid;
   gap: 12px;
@@ -674,11 +668,6 @@ button {
 
 .reading-cap-preview::backdrop {
   background: rgb(0 0 0 / 55%);
-}
-
-.reading-cap-preview h2 {
-  margin: 0 0 12px;
-  font-size: 18px;
 }
 
 .reading-cap-preview label {

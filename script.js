@@ -636,7 +636,6 @@
   const capPreviewForm = document.getElementById('reading-cap-preview-form');
   const capPreviewResetButton = document.getElementById('reading-cap-preview-reset');
   const capPreviewCancelButton = document.getElementById('reading-cap-preview-cancel');
-  const capPreviewStatus = document.getElementById('reading-cap-preview-status');
 
   if (capPreviewDialog && capPreviewSelect && capPreviewForm && capPreviewResetButton && capPreviewCancelButton) {
     for (const stage of stages) {
@@ -662,7 +661,6 @@
       if (!requested) return;
       readingCap = requested;
       capPreviewActive = true;
-      if (capPreviewStatus) capPreviewStatus.textContent = `Debug cap: ${requested.label} (resets on reload).`;
       renderReadingStageButtons();
       selectReadingStage(requested.key, { persist: false });
       capPreviewDialog.close();
@@ -672,7 +670,6 @@
     capPreviewResetButton.addEventListener('click', () => {
       readingCap = clubReadingCap;
       capPreviewActive = false;
-      if (capPreviewStatus) capPreviewStatus.textContent = '';
       renderReadingStageButtons();
       selectReadingStage(loadReadingStage().key, { persist: false });
       capPreviewDialog.close();
