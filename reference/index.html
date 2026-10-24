@@ -21,9 +21,9 @@
   <meta name="twitter:image" content="https://kvnchpl.com/homestuck-book-club/assets/homestuck-book-club-preview.webp">
   <meta name="twitter:image:alt" content="A Homestuck-style character standing in a bedroom with movie posters and a computer.">
   <title>REFERENCE - HOMESTUCK BOOK CLUB</title>
-  <link rel="stylesheet" href="../styles.css?v=20261023-13">
-  <script src="../reference-data.js?v=20261023-13" defer></script>
-  <script src="../script.js?v=20261023-13" defer></script>
+  <link rel="stylesheet" href="../styles.css?v=20261023-14">
+  <script src="../reference-data.js?v=20261023-14" defer></script>
+  <script src="../script.js?v=20261023-14" defer></script>
 </head>
 
 <body class="reference">
@@ -42,43 +42,43 @@
   <main class="site-frame" id="reference-main" tabindex="-1">
     <article class="wiki-page reference-page">
 
-      <header class="reference-hero">
+      <header class="reference-header">
         <h1 class="page-title">Reference</h1>
       </header>
 
       <details class="pesterlog spoilerlog" id="spoilerlog" open>
         <summary><span class="pesterlog-show">Show Spoilerlog</span><span class="pesterlog-hide">Hide Spoilerlog</span></summary>
-        <section class="reading-progress pesterlog-content" aria-labelledby="reading-progress-heading">
-          <h2 class="pesterlog-heading" id="reading-progress-heading">-- <span class="pesterlog-speaker">kvnchpl [KC]</span> began pestering homestuck book club --</h2>
+        <section class="reading-selector pesterlog-content" aria-labelledby="reading-selector-heading">
+          <h2 class="pesterlog-heading" id="reading-selector-heading">-- <span class="pesterlog-speaker">kvnchpl [KC]</span> began pestering homestuck book club --</h2>
           <p class="pesterlog-message">KC: how much have you read?</p>
-          <p class="reading-progress-copy pesterlog-message" id="reading-progress-copy">
+          <p class="reading-selector-instructions pesterlog-message" id="reading-selector-instructions">
             KC: choose the latest section you've finished. everything below will follow what you've reached in the story.
           </p>
 
-          <div class="reading-progress-control">
-            <div class="reading-progress-selected pesterlog-message">
+          <div class="reading-stage-controls">
+            <div class="selected-reading-message pesterlog-message">
               <span>KC: showing through</span>
-              <a id="reading-progress-output" href="https://homestuck.com/story/1" target="_blank" rel="noopener noreferrer" aria-live="polite">Act 1</a>
+              <a id="selected-reading-link" href="https://homestuck.com/story/1" target="_blank" rel="noopener noreferrer" aria-live="polite">Act 1</a>
             </div>
 
-            <p class="reading-progress-limit" id="reading-progress-limit"></p>
-            <div class="reading-progress-scale" id="reading-progress-scale" aria-label="Reading segments"></div>
+            <p class="reading-cap-preview-status" id="reading-cap-preview-status"></p>
+            <div class="reading-stage-groups" id="reading-stage-groups" aria-label="Reading segments"></div>
           </div>
 
         </section>
       </details>
 
-      <dialog class="reference-debug" id="reference-debug" aria-labelledby="reference-debug-heading"
-        aria-describedby="reference-debug-help">
-        <form id="reference-debug-form">
-          <h2 id="reference-debug-heading">Reading cap preview</h2>
-          <p id="reference-debug-help">This tab only, until you reload. Your saved reading progress stays unchanged.</p>
-          <label for="reference-debug-cap">Allow reading through</label>
-          <select id="reference-debug-cap"></select>
-          <div class="reference-debug-actions">
+      <dialog class="reading-cap-preview" id="reading-cap-preview" aria-labelledby="reading-cap-preview-heading"
+        aria-describedby="reading-cap-preview-help">
+        <form id="reading-cap-preview-form">
+          <h2 id="reading-cap-preview-heading">Reading cap preview</h2>
+          <p id="reading-cap-preview-help">This tab only, until you reload. Your saved reading progress stays unchanged.</p>
+          <label for="reading-cap-preview-select">Allow reading through</label>
+          <select id="reading-cap-preview-select"></select>
+          <div class="reading-cap-preview-actions">
             <button type="submit">Apply</button>
-            <button type="button" id="reference-debug-reset">Reset to club limit</button>
-            <button type="button" id="reference-debug-cancel">Cancel</button>
+            <button type="button" id="reading-cap-preview-reset">Reset to club limit</button>
+            <button type="button" id="reading-cap-preview-cancel">Cancel</button>
           </div>
         </form>
       </dialog>
@@ -94,9 +94,9 @@
         </p>
       </noscript>
 
-      <div class="character-select" id="character-select" aria-label="Character selection" hidden>
+      <div class="character-browser" id="character-browser" aria-label="Character selection" hidden>
         <div class="character-roster" id="character-roster" role="tablist" aria-label="Choose a character"></div>
-        <div class="character-groups" id="character-groups"></div>
+        <div class="character-profiles" id="character-profiles"></div>
       </div>
 
       <section class="concept-appendix" id="concept-appendix" aria-labelledby="concept-heading" hidden>

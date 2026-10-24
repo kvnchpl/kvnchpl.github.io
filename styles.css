@@ -586,59 +586,59 @@ button {
   overflow-wrap: anywhere;
 }
 
-.reference-hero .page-title {
+.reference-header .page-title {
   margin: 0 0 28px;
 }
 
 
 /* Spoiler-aware reading progress control. */
-.spoilerlog .reading-progress {
+.spoilerlog .reading-selector {
   margin: 12px 30px;
   padding: 0;
   border: 0;
   background: transparent;
 }
 
-.spoilerlog .reading-progress h2,
-.spoilerlog .reading-progress-copy,
-.spoilerlog .reading-progress-selected {
+.spoilerlog .reading-selector h2,
+.spoilerlog .reading-selector-instructions,
+.spoilerlog .selected-reading-message {
   max-width: none;
   font: inherit;
   text-align: left;
 }
 
-.spoilerlog .reading-progress-selected {
+.spoilerlog .selected-reading-message {
   justify-content: flex-start;
   margin-bottom: 12px;
 }
 
-.reading-progress {
+.reading-selector {
   margin: 0 0 24px;
   padding: 18px;
   border: 1px solid #aaa;
   background: #ddd;
 }
 
-.reading-progress h2 {
+.reading-selector h2 {
   margin: 0;
   font-size: 1rem;
   line-height: 1.3;
   text-align: center;
 }
 
-.reading-progress-copy,
-.reading-progress-status {
+.reading-selector-instructions,
+.reading-selector-status {
   margin: 8px auto 0;
   max-width: 520px;
   font: 400 12px/1.5 Verdana, Arial, sans-serif;
   text-align: center;
 }
 
-.reading-progress-control {
+.reading-stage-controls {
   margin-top: 18px;
 }
 
-.reading-progress-selected {
+.selected-reading-message {
   display: flex;
   align-items: baseline;
   justify-content: center;
@@ -648,23 +648,23 @@ button {
   font: 400 12px/1.4 Verdana, Arial, sans-serif;
 }
 
-#reading-progress-output {
+#selected-reading-link {
   font-weight: 700;
   text-transform: uppercase;
 }
 
-.reading-progress-limit {
+.reading-cap-preview-status {
   margin: 8px 0 12px;
   font: 11px/1.5 Verdana, Arial, sans-serif;
   color: #535353;
 }
 
-.reading-progress-scale {
+.reading-stage-groups {
   display: grid;
   gap: 12px;
 }
 
-.reference-debug {
+.reading-cap-preview {
   width: min(440px, calc(100% - 32px));
   box-sizing: border-box;
   padding: 20px;
@@ -674,34 +674,34 @@ button {
   font: 400 13px/1.5 Verdana, Arial, sans-serif;
 }
 
-.reference-debug::backdrop {
+.reading-cap-preview::backdrop {
   background: rgb(0 0 0 / 55%);
 }
 
-.reference-debug h2 {
+.reading-cap-preview h2 {
   margin: 0 0 12px;
   font-size: 18px;
 }
 
-.reference-debug label {
+.reading-cap-preview label {
   display: block;
   margin-bottom: 6px;
 }
 
-.reference-debug select {
+.reading-cap-preview select {
   width: 100%;
   min-height: 36px;
   font: inherit;
 }
 
-.reference-debug-actions {
+.reading-cap-preview-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 16px;
 }
 
-.reference-debug button {
+.reading-cap-preview button {
   min-height: 36px;
   padding: 6px 10px;
   font: inherit;
@@ -709,16 +709,16 @@ button {
 }
 
 @media print {
-  .reference-debug {
+  .reading-cap-preview {
     display: none !important;
   }
 }
 
-.reading-progress-section {
+.reading-stage-group {
   min-width: 0;
 }
 
-.reading-progress-section h3 {
+.reading-stage-group h3 {
   margin: 0 0 6px;
   font: inherit;
   font-size: 12px;
@@ -726,18 +726,18 @@ button {
   text-align: left;
 }
 
-.reading-progress-section h3::before,
-.reading-progress-section h3::after {
+.reading-stage-group h3::before,
+.reading-stage-group h3::after {
   content: " -- ";
 }
 
-.reading-progress-segments {
+.reading-stage-buttons {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 5px;
 }
 
-.reading-progress-tick {
+.reading-stage-button {
   min-width: 0;
   min-height: 32px;
   padding: 6px 2px;
@@ -751,39 +751,39 @@ button {
   text-transform: uppercase;
 }
 
-.reading-progress-tick::before {
+.reading-stage-button::before {
   content: "[";
 }
 
-.reading-progress-tick::after {
+.reading-stage-button::after {
   content: "]";
 }
 
-.reading-progress-tick:not(:disabled):hover {
+.reading-stage-button:not(:disabled):hover {
   background: #e0eadb;
   border-color: #3a762b;
 }
 
-.reading-progress-tick:focus-visible {
+.reading-stage-button:focus-visible {
   outline: 2px solid #000;
   outline-offset: 2px;
 }
 
-.reading-progress-tick:disabled {
+.reading-stage-button:disabled {
   color: #6b6b6b;
   border-color: transparent;
   background: transparent;
   cursor: not-allowed;
 }
 
-.reading-progress-tick[aria-pressed="true"] {
+.reading-stage-button[aria-pressed="true"] {
   color: #28521e;
   background: #e0eadb;
   border-color: #3a762b;
   box-shadow: inset 0 0 0 1px #3a762b;
 }
 
-.reading-progress-status {
+.reading-selector-status {
   min-height: 1.5em;
   color: #535353;
 }
@@ -806,7 +806,7 @@ button {
   scroll-margin-top: 2rem;
 }
 
-.character-group:first-child {
+.profile-group:first-child {
   margin-top: 0;
 }
 
@@ -814,20 +814,20 @@ button {
   margin-bottom: 0.5rem;
 }
 
-.character-grid {
+.profile-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-top: 1.25rem;
 }
 
-.character-card {
+.character-profile {
   min-width: 0;
   border: 1px solid currentColor;
   padding: 0.8rem;
 }
 
-.character-portrait {
+.profile-portrait {
   display: block;
   width: 100%;
   height: 180px;
@@ -837,65 +837,65 @@ button {
   image-rendering: pixelated;
 }
 
-.character-card h3 {
+.character-profile h3 {
   margin: 0;
   font-size: 1rem;
 }
 
 
-.character-card h3 .character-intro-link,
-.character-card h3 .character-intro-link:visited {
+.character-profile h3 .profile-intro-link,
+.character-profile h3 .profile-intro-link:visited {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
-.is-ready .character-card h3 .character-intro-link,
-.is-ready .character-card h3 .character-intro-link:visited {
+.is-ready .character-profile h3 .profile-intro-link,
+.is-ready .character-profile h3 .profile-intro-link:visited {
   color: var(--character-color, #000);
 }
 
-.character-card h3 .character-intro-link:hover {
+.character-profile h3 .profile-intro-link:hover {
   text-decoration-thickness: 2px;
 }
 
-.character-stats {
+.profile-stats {
   margin: 16px 0;
   font-size: 14px;
 }
 
-.character-stats>div {
+.profile-stats>div {
   padding: 6px 0;
   border-top: 1px dotted #aaa;
 }
 
-.character-stats dt {
+.profile-stats dt {
   font: 400 10px/1.5 Verdana, Arial, sans-serif;
   text-transform: uppercase;
   color: #535353;
 }
 
-.character-stats dd {
+.profile-stats dd {
   margin: 0;
 }
 
-.character-stats .character-handle {
+.profile-stats .profile-handle {
   color: var(--character-color, #000);
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
-.character-intro-link,
-.character-handle {
+.profile-intro-link,
+.profile-handle {
   text-shadow: var(--character-name-shadow, none);
 }
 
-.character-stats .reference-team-blue {
+.profile-stats .reference-team-blue {
   color: #0000ff;
 }
 
-.character-stats .reference-team-red {
+.profile-stats .reference-team-red {
   color: #cc0000;
 }
 
@@ -906,7 +906,7 @@ button {
 }
 
 /* The roster selects among the stage-safe cards; printing shows them all. */
-.character-select.is-ready {
+.character-browser.is-ready {
   --reference-panel-height: clamp(320px, 70svh, 640px);
   display: grid;
   grid-template-columns: 320px minmax(0, 1fr);
@@ -920,13 +920,13 @@ button {
   gap: 6px;
 }
 
-.character-groups {
+.character-profiles {
   min-width: 0;
 }
 
 @media screen {
   .is-ready .character-roster,
-  .is-ready .character-stats-scroll {
+  .is-ready .profile-stats-scroll {
     overflow-y: auto;
     scrollbar-gutter: stable;
     scrollbar-color: #999 #ddd;
@@ -941,17 +941,17 @@ button {
   }
 }
 
-.roster-group-label {
+.roster-group-heading {
   grid-column: 1 / -1;
   margin: 0 0 6px;
   font-size: 14px;
 }
 
-.character-option+.roster-group-label {
+.roster-button+.roster-group-heading {
   margin-top: 18px;
 }
 
-.character-option {
+.roster-button {
   min-width: 0;
   min-height: 88px;
   padding: 6px 2px;
@@ -963,12 +963,12 @@ button {
   font: 700 10px/1.4 Verdana, Arial, sans-serif;
 }
 
-.character-option:hover {
+.roster-button:hover {
   background: #fff;
   border-color: #000;
 }
 
-.character-option[aria-selected="true"] {
+.roster-button[aria-selected="true"] {
   border-color: var(--character-color, #555);
   box-shadow: inset 0 0 0 2px var(--character-color, #555);
   background: #fff;
@@ -985,7 +985,7 @@ button {
 }
 
 /* Scratch's roster label stays black, including when selected. */
-.character-option[data-character-id="doc-scratch"] .roster-name {
+.roster-button[data-character-id="doc-scratch"] .roster-name {
   color: #000;
 }
 
@@ -996,26 +996,26 @@ button {
 }
 
 @media (max-width: 359px) {
-  .character-option {
+  .roster-button {
     padding-inline: 1px;
     font-size: 9px;
   }
 }
 
-.is-ready .character-group {
+.is-ready .profile-group {
   margin: 0;
 }
 
-.is-ready .character-group>h2 {
+.is-ready .profile-group>h2 {
   display: none;
 }
 
-.is-ready .character-grid {
+.is-ready .profile-grid {
   display: block;
   margin: 0;
 }
 
-.is-ready .character-card {
+.is-ready .character-profile {
   display: block;
   padding: 18px;
   border-color: var(--character-color, #000);
@@ -1025,38 +1025,38 @@ button {
   font-size: 14px;
 }
 
-.is-ready .character-portrait {
+.is-ready .profile-portrait {
   width: 100%;
   height: 200px;
   margin: 0 auto 20px;
 }
 
 @media screen {
-  .is-ready .character-card {
+  .is-ready .character-profile {
     display: flex;
     flex-direction: column;
     max-height: var(--reference-panel-height);
     overflow: hidden;
   }
 
-  .is-ready .character-header {
+  .is-ready .profile-header {
     flex: none;
   }
 
-  .is-ready .character-portrait {
+  .is-ready .profile-portrait {
     height: clamp(80px, 24svh, 200px);
   }
 
-  .is-ready .character-stats-scroll {
+  .is-ready .profile-stats-scroll {
     min-height: 0;
     margin-top: 16px;
   }
 
-  .is-ready .character-stats-scroll:focus-visible {
+  .is-ready .profile-stats-scroll:focus-visible {
     outline-offset: -2px;
   }
 
-  .is-ready .character-stats {
+  .is-ready .profile-stats {
     margin: 0;
   }
 }
@@ -1074,7 +1074,7 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   text-align: center;
 }
 
-.character-portrait.portrait-placeholder {
+.profile-portrait.portrait-placeholder {
   font: 700 64px/1 "Courier New", Courier, monospace;
 }
 
@@ -1083,11 +1083,11 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
 }
 
 @media (max-width: 600px) {
-  .character-select.is-ready {
+  .character-browser.is-ready {
     grid-template-columns: 1fr;
   }
 
-  .character-groups {
+  .character-profiles {
     grid-row: 1;
   }
 
@@ -1190,18 +1190,18 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
 }
 
 @media (max-width: 440px) {
-  .character-grid {
+  .profile-grid {
     grid-template-columns: 1fr;
   }
 
-  .character-card {
+  .character-profile {
     display: grid;
     grid-template-columns: 110px minmax(0, 1fr);
     gap: 0.8rem;
     align-items: end;
   }
 
-  .character-portrait {
+  .profile-portrait {
     width: 110px;
     height: 150px;
     margin: 0;
@@ -1213,15 +1213,15 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     grid-template-columns: 1fr;
   }
 
-  .reading-progress {
+  .reading-selector {
     padding-inline: 12px;
   }
 
-  .spoilerlog .reading-progress {
+  .spoilerlog .reading-selector {
     margin: 12px;
   }
 
-  .reading-progress-segments {
+  .reading-stage-buttons {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
@@ -1501,7 +1501,7 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     display: none !important;
   }
 
-  .character-card {
+  .character-profile {
     break-inside: avoid;
     print-color-adjust: exact;
   }
@@ -1522,16 +1522,16 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     break-inside: avoid;
   }
 
-  .character-select.is-ready {
+  .character-browser.is-ready {
     display: block;
   }
 
-  .is-ready .character-group>h2,
-  .is-ready .character-card[hidden] {
+  .is-ready .profile-group>h2,
+  .is-ready .character-profile[hidden] {
     display: block !important;
   }
 
-  .is-ready .character-card {
+  .is-ready .character-profile {
     margin-bottom: 16px;
   }
 

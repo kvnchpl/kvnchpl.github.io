@@ -5,50 +5,50 @@
   const referencePage = document.querySelector('.reference-page');
   if (!referencePage) return;
 
-  const data = window.HOMESTUCK_REFERENCE;
-  const select = document.getElementById('character-select');
-  const roster = document.getElementById('character-roster');
-  const groupsContainer = document.getElementById('character-groups');
-  const progressScale = document.getElementById('reading-progress-scale');
-  const progressOutput = document.getElementById('reading-progress-output');
+  const referenceData = window.HOMESTUCK_REFERENCE;
+  const characterBrowser = document.getElementById('character-browser');
+  const characterRoster = document.getElementById('character-roster');
+  const characterProfiles = document.getElementById('character-profiles');
+  const readingStageGroups = document.getElementById('reading-stage-groups');
+  const selectedReadingLink = document.getElementById('selected-reading-link');
   const spoilerlog = document.getElementById('spoilerlog');
-  const loadingMessage = document.getElementById('reference-loading');
+  const referenceLoadingMessage = document.getElementById('reference-loading');
   const appendix = document.getElementById('concept-appendix');
-  const conceptSearch = document.getElementById('concept-search');
-  const conceptClear = document.getElementById('concept-clear');
-  const conceptResults = document.getElementById('concept-results');
-  const conceptEmpty = document.getElementById('concept-empty');
+  const appendixSearchInput = document.getElementById('concept-search');
+  const appendixClearButton = document.getElementById('concept-clear');
+  const appendixResults = document.getElementById('concept-results');
+  const appendixEmptyMessage = document.getElementById('concept-empty');
 
   // Print the reading controls even if their native disclosure is collapsed.
-  let spoilerlogBeforePrint;
+  let spoilerlogWasOpenBeforePrint;
   window.addEventListener('beforeprint', () => {
-    if (!spoilerlog || spoilerlogBeforePrint !== undefined) return;
-    spoilerlogBeforePrint = spoilerlog.open;
+    if (!spoilerlog || spoilerlogWasOpenBeforePrint !== undefined) return;
+    spoilerlogWasOpenBeforePrint = spoilerlog.open;
     spoilerlog.open = true;
   });
   window.addEventListener('afterprint', () => {
-    if (!spoilerlog || spoilerlogBeforePrint === undefined) return;
-    spoilerlog.open = spoilerlogBeforePrint;
-    spoilerlogBeforePrint = undefined;
+    if (!spoilerlog || spoilerlogWasOpenBeforePrint === undefined) return;
+    spoilerlog.open = spoilerlogWasOpenBeforePrint;
+    spoilerlogWasOpenBeforePrint = undefined;
   });
 
-  if (!data || !select || !roster || !groupsContainer ||
-    !progressScale || !progressOutput) {
-    if (loadingMessage) {
-      loadingMessage.textContent = 'The spoiler-safe reference could not be loaded.';
+  if (!referenceData || !characterBrowser || !characterRoster || !characterProfiles ||
+    !readingStageGroups || !selectedReadingLink) {
+    if (referenceLoadingMessage) {
+      referenceLoadingMessage.textContent = 'The spoiler-safe reference could not be loaded.';
     }
     return;
   }
 
-  const { stages, groups, characters } = data;
+  const { stages, groups: characterGroups, characters } = referenceData;
   if (!Array.isArray(stages) || !stages.length) return;
 
   const storageKey = 'homestuck-reference-progress';
-  const stageIndex = new Map(stages.map((stage, index) => [stage.key, index]));
+  const stageIndexByKey = new Map(stages.map((stage, index) => [stage.key, index]));
   // A missing or invalid club cap fails closed to the first reading stage.
-  const clubStage = stages.find(stage => stage.key === data.availableThrough) || stages[0];
-  let availableStage = clubStage;
-  let debugCapActive = false;
+  const clubReadingCap = stages.find(stage => stage.key === referenceData.availableThrough) || stages[0];
+  let readingCap = clubReadingCap;
+  let capPreviewActive = false;
 
   // Named accents match the user-supplied site CSS; provenance is in local docs.
   const characterColors = {
@@ -120,54 +120,54 @@
     'lord-english': '#2ed73a'
   };
 
-  let currentStage = stages[0];
+  let selectedReadingStage = stages[0];
   let selectedCharacterId = null;
-  let currentTabs = [];
-  let currentCards = [];
+  let rosterButtons = [];
+  let profilePanels = [];
 
-  function stageFor(valueOrKey) {
+  function clampReadingStage(valueOrKey) {
     const requested = stages.find(stage =>
       stage.key === String(valueOrKey) || stage.value === Number(valueOrKey)
     ) || stages[0];
-    return requested.value > availableStage.value ? availableStage : requested;
+    return requested.value > readingCap.value ? readingCap : requested;
   }
 
-  function reached(requiredKey, atKey = currentStage.key) {
+  function hasReachedStage(requiredKey, atKey = selectedReadingStage.key) {
     if (!requiredKey) return true;
-    const required = stageIndex.get(requiredKey);
-    const current = stageIndex.get(atKey);
+    const required = stageIndexByKey.get(requiredKey);
+    const current = stageIndexByKey.get(atKey);
     return required !== undefined && current !== undefined && required <= current;
   }
 
-  function resolveVariant(variants, stageKey = currentStage.key) {
+  function resolveVariant(variants, stageKey = selectedReadingStage.key) {
     if (!Array.isArray(variants)) return null;
     let match = null;
     for (const variant of variants) {
-      if (reached(variant.from, stageKey)) match = variant;
+      if (hasReachedStage(variant.from, stageKey)) match = variant;
     }
     return match;
   }
 
-  function resolvedValue(variants, stageKey = currentStage.key) {
+  function resolvedValue(variants, stageKey = selectedReadingStage.key) {
     return resolveVariant(variants, stageKey)?.value ?? null;
   }
 
-  function resolvedGroupId(character, stageKey = currentStage.key) {
+  function resolvedGroupId(character, stageKey = selectedReadingStage.key) {
     if (Array.isArray(character.group)) return resolvedValue(character.group, stageKey);
     return character.group;
   }
 
-  function storedStage() {
+  function loadReadingStage() {
     try {
       const saved = localStorage.getItem(storageKey);
       if (!saved) return stages[0];
-      return stageFor(saved);
+      return clampReadingStage(saved);
     } catch {
       return stages[0];
     }
   }
 
-  function saveStage(stage) {
+  function saveReadingStage(stage) {
     try {
       localStorage.setItem(storageKey, stage.key);
     } catch {
@@ -208,60 +208,60 @@
   }
 
   function showCharacter(id, { updateHash = true, focus = false } = {}) {
-    const tab = currentTabs.find(item => item.dataset.characterId === id);
-    const card = currentCards.find(item => item.dataset.characterId === id);
-    if (!tab || !card) return false;
+    const tab = rosterButtons.find(item => item.dataset.characterId === id);
+    const profilePanel = profilePanels.find(item => item.dataset.characterId === id);
+    if (!tab || !profilePanel) return false;
 
     const changedCharacter = selectedCharacterId !== id;
     selectedCharacterId = id;
-    currentTabs.forEach(item => {
+    rosterButtons.forEach(item => {
       const selected = item.dataset.characterId === id;
       item.setAttribute('aria-selected', String(selected));
       item.tabIndex = selected ? 0 : -1;
     });
-    currentCards.forEach(item => {
+    profilePanels.forEach(item => {
       item.hidden = item.dataset.characterId !== id;
     });
     if (changedCharacter) {
-      const statsScroll = card.querySelectorAll('.character-stats-scroll')[0];
-      if (statsScroll) statsScroll.scrollTop = 0;
+      const statsScrollRegion = profilePanel.querySelectorAll('.profile-stats-scroll')[0];
+      if (statsScrollRegion) statsScrollRegion.scrollTop = 0;
     }
 
     if (updateHash) history.replaceState(null, '', `#character-${id}`);
     if (focus) tab.focus({ preventScroll: true });
     // Reveal keyboard and fragment selections within the roster only.
-    if (roster.clientHeight) {
+    if (characterRoster.clientHeight) {
       const itemBounds = tab.getBoundingClientRect();
-      const rosterBounds = roster.getBoundingClientRect();
+      const rosterBounds = characterRoster.getBoundingClientRect();
       const above = itemBounds.top - rosterBounds.top - 6;
       const below = itemBounds.bottom - rosterBounds.bottom + 6;
-      if (above < 0) roster.scrollTop += above;
-      else if (below > 0) roster.scrollTop += below;
+      if (above < 0) characterRoster.scrollTop += above;
+      else if (below > 0) characterRoster.scrollTop += below;
     }
     return true;
   }
 
-  function makeCharacterCard(character, groupId) {
+  function createCharacterProfile(character, groupId) {
     const nameVariant = resolveVariant(character.name);
     if (!nameVariant) return null;
 
-    const card = document.createElement('article');
-    card.id = `character-${character.id}`;
-    card.className = `character-card${groupId === 'trolls' ? ' troll-card' : ''}`;
-    card.dataset.characterId = character.id;
-    card.setAttribute('role', 'tabpanel');
-    card.tabIndex = 0;
-    setCharacterPalette(card, character.id);
+    const profilePanel = document.createElement('article');
+    profilePanel.id = `character-${character.id}`;
+    profilePanel.className = `character-profile${groupId === 'trolls' ? ' troll-profile' : ''}`;
+    profilePanel.dataset.characterId = character.id;
+    profilePanel.setAttribute('role', 'tabpanel');
+    profilePanel.tabIndex = 0;
+    setCharacterPalette(profilePanel, character.id);
 
     const portrait = resolvedValue(character.portrait);
-    const portraitElement = createPortrait(portrait, 'character-portrait');
+    const portraitElement = createPortrait(portrait, 'profile-portrait');
     const header = document.createElement('div');
-    header.className = 'character-header';
+    header.className = 'profile-header';
     if (portraitElement) header.append(portraitElement);
 
     const heading = document.createElement('h3');
     const link = document.createElement('a');
-    link.className = 'character-intro-link';
+    link.className = 'profile-intro-link';
     link.href = `https://homestuck.com/story/${nameVariant.introLinkPage || nameVariant.sourcePage || character.introPage}`;
     link.target = '_blank';
     link.rel = 'noopener noreferrer';
@@ -270,7 +270,7 @@
     header.append(heading);
 
     const stats = document.createElement('dl');
-    stats.className = 'character-stats';
+    stats.className = 'profile-stats';
     let statCount = 0;
 
     for (const stat of character.stats || []) {
@@ -281,7 +281,7 @@
       const dd = document.createElement('dd');
       dt.textContent = variant.label;
       dd.textContent = variant.value;
-      if (stat.id === 'handle') dd.className = 'character-handle';
+      if (stat.id === 'handle') dd.className = 'profile-handle';
       if (stat.id === 'team') {
         if (variant.value === 'Blue Team') dd.className = 'reference-team-blue';
         if (variant.value === 'Red Team') dd.className = 'reference-team-red';
@@ -291,27 +291,27 @@
       statCount += 1;
     }
 
-    card.append(header);
+    profilePanel.append(header);
     if (statCount) {
-      const statsScroll = document.createElement('div');
-      statsScroll.className = 'character-stats-scroll';
-      statsScroll.tabIndex = 0;
-      statsScroll.setAttribute('role', 'region');
-      statsScroll.setAttribute('aria-label', `${nameVariant.value} stats`);
-      statsScroll.append(stats);
-      card.append(statsScroll);
+      const statsScrollRegion = document.createElement('div');
+      statsScrollRegion.className = 'profile-stats-scroll';
+      statsScrollRegion.tabIndex = 0;
+      statsScrollRegion.setAttribute('role', 'region');
+      statsScrollRegion.setAttribute('aria-label', `${nameVariant.value} stats`);
+      statsScrollRegion.append(stats);
+      profilePanel.append(statsScrollRegion);
     }
-    return card;
+    return profilePanel;
   }
 
-  function makeRosterTab(character, card, groupId) {
+  function createRosterButton(character, profilePanel, groupId) {
     const tab = document.createElement('button');
     tab.type = 'button';
-    tab.className = 'character-option';
-    tab.id = `${card.id}-tab`;
+    tab.className = 'roster-button';
+    tab.id = `${profilePanel.id}-tab`;
     tab.dataset.characterId = character.id;
     tab.setAttribute('role', 'tab');
-    tab.setAttribute('aria-controls', card.id);
+    tab.setAttribute('aria-controls', profilePanel.id);
     tab.setAttribute('aria-selected', 'false');
     tab.tabIndex = -1;
     setCharacterPalette(tab, character.id);
@@ -333,39 +333,39 @@
     tab.addEventListener('click', () => showCharacter(character.id));
     tab.addEventListener('keydown', event => {
       if (event.altKey || event.ctrlKey || event.metaKey) return;
-      const index = currentTabs.indexOf(tab);
+      const index = rosterButtons.indexOf(tab);
       if (index < 0) return;
       let nextIndex;
-      if (event.key === 'ArrowRight') nextIndex = (index + 1) % currentTabs.length;
-      if (event.key === 'ArrowLeft') nextIndex = (index + currentTabs.length - 1) % currentTabs.length;
+      if (event.key === 'ArrowRight') nextIndex = (index + 1) % rosterButtons.length;
+      if (event.key === 'ArrowLeft') nextIndex = (index + rosterButtons.length - 1) % rosterButtons.length;
       if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
         const direction = event.key === 'ArrowDown' ? 1 : -1;
         const row = Number(tab.dataset.rosterRow);
         const column = Number(tab.dataset.rosterColumn);
-        const candidates = currentTabs.filter(t => (Number(t.dataset.rosterRow) - row) * direction > 0);
+        const candidates = rosterButtons.filter(t => (Number(t.dataset.rosterRow) - row) * direction > 0);
         candidates.sort((a, b) =>
           Math.abs(Number(a.dataset.rosterRow) - row) - Math.abs(Number(b.dataset.rosterRow) - row) ||
           Math.abs(Number(a.dataset.rosterColumn) - column) - Math.abs(Number(b.dataset.rosterColumn) - column));
-        nextIndex = candidates.length ? currentTabs.indexOf(candidates[0]) : index;
+        nextIndex = candidates.length ? rosterButtons.indexOf(candidates[0]) : index;
       }
       if (event.key === 'Home') nextIndex = 0;
-      if (event.key === 'End') nextIndex = currentTabs.length - 1;
+      if (event.key === 'End') nextIndex = rosterButtons.length - 1;
       if (nextIndex === undefined) return;
       event.preventDefault();
-      showCharacter(currentTabs[nextIndex].dataset.characterId, { focus: true });
+      showCharacter(rosterButtons[nextIndex].dataset.characterId, { focus: true });
     });
 
-    card.setAttribute('aria-labelledby', tab.id);
+    profilePanel.setAttribute('aria-labelledby', tab.id);
     return tab;
   }
 
   function renderCharacters() {
-    roster.replaceChildren();
-    groupsContainer.replaceChildren();
-    currentTabs = [];
-    currentCards = [];
+    characterRoster.replaceChildren();
+    characterProfiles.replaceChildren();
+    rosterButtons = [];
+    profilePanels = [];
 
-    const available = characters.filter(character => reached(character.reveal));
+    const available = characters.filter(character => hasReachedStage(character.reveal));
     const requested = characterFromHash();
     const availableIds = new Set(available.map(character => character.id));
     if (requested && availableIds.has(requested)) selectedCharacterId = requested;
@@ -374,66 +374,66 @@
     }
 
     let rosterRow = 0;
-    for (const group of groups) {
+    for (const group of characterGroups) {
       const groupTitle = resolvedValue(group.title);
       if (!groupTitle) continue;
       const groupCharacters = available.filter(character => resolvedGroupId(character) === group.id);
       if (!groupCharacters.length) continue;
 
       const rosterLabel = document.createElement('div');
-      rosterLabel.className = 'roster-group-label';
+      rosterLabel.className = 'roster-group-heading';
       rosterLabel.textContent = groupTitle;
       rosterLabel.setAttribute('role', 'presentation');
-      roster.append(rosterLabel);
+      characterRoster.append(rosterLabel);
 
       const section = document.createElement('section');
-      section.className = 'reference-section character-group';
+      section.className = 'reference-section profile-group';
       section.id = group.id;
       const heading = document.createElement('h2');
       heading.textContent = groupTitle;
       section.append(heading);
       const grid = document.createElement('div');
-      grid.className = `character-grid ${group.id === 'trolls' ? 'troll-grid' : group.id === 'guardians-sprites' ? 'guardian-grid' : group.id === 'exiles-agents' ? 'exiles-agents-grid' : group.id === 'felt-associates' ? 'felt-associates-grid' : group.id === 'midnight-crew' ? 'midnight-crew-grid' : 'kid-grid'}`;
+      grid.className = `profile-grid ${group.id === 'trolls' ? 'troll-grid' : group.id === 'guardians-sprites' ? 'guardian-grid' : group.id === 'exiles-agents' ? 'exiles-agents-grid' : group.id === 'felt-associates' ? 'felt-associates-grid' : group.id === 'midnight-crew' ? 'midnight-crew-grid' : 'kid-grid'}`;
       section.append(grid);
 
       rosterRow += 1;
       let rosterColumn = 0;
       for (const character of groupCharacters) {
-        const card = makeCharacterCard(character, group.id);
-        if (!card) continue;
-        const tab = makeRosterTab(character, card, group.id);
+        const profilePanel = createCharacterProfile(character, group.id);
+        if (!profilePanel) continue;
+        const tab = createRosterButton(character, profilePanel, group.id);
         const column = character.rosterColumn || (rosterColumn % 4) + 1;
         if (column <= rosterColumn) rosterRow += 1;
         rosterColumn = column;
         tab.style.setProperty('grid-column', String(column));
         tab.dataset.rosterColumn = String(column);
         tab.dataset.rosterRow = String(rosterRow);
-        roster.append(tab);
-        grid.append(card);
-        currentTabs.push(tab);
-        currentCards.push(card);
+        characterRoster.append(tab);
+        grid.append(profilePanel);
+        rosterButtons.push(tab);
+        profilePanels.push(profilePanel);
       }
-      groupsContainer.append(section);
+      characterProfiles.append(section);
     }
 
-    if (!currentCards.length) {
-      select.hidden = true;
+    if (!profilePanels.length) {
+      characterBrowser.hidden = true;
       return;
     }
 
-    select.hidden = false;
-    select.classList.add('is-ready');
-    showCharacter(selectedCharacterId || currentCards[0].dataset.characterId, { updateHash: false });
+    characterBrowser.hidden = false;
+    characterBrowser.classList.add('is-ready');
+    showCharacter(selectedCharacterId || profilePanels[0].dataset.characterId, { updateHash: false });
   }
 
-  function updateStageUI(stage) {
-    progressOutput.textContent = stage.label;
+  function updateReadingStageControls(stage) {
+    selectedReadingLink.textContent = stage.label;
     // Scheduled segments are contiguous; each starts after the preceding end.
-    const previousStage = stages[stageIndex.get(stage.key) - 1];
-    progressOutput.href = `https://homestuck.com/story/${previousStage ? previousStage.endPage + 1 : 1}`;
+    const previousStage = stages[stageIndexByKey.get(stage.key) - 1];
+    selectedReadingLink.href = `https://homestuck.com/story/${previousStage ? previousStage.endPage + 1 : 1}`;
     document.documentElement.dataset.referenceProgress = stage.key;
 
-    progressScale.querySelectorAll('.reading-progress-tick').forEach(button => {
+    readingStageGroups.querySelectorAll('.reading-stage-button').forEach(button => {
       button.setAttribute('aria-pressed', String(button.dataset.stageKey === stage.key));
     });
   }
@@ -442,22 +442,22 @@
     return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
   }
 
-  function conceptFromHash() {
+  function appendixEntryFromHash() {
     return location.hash.match(/^#concept-([a-z0-9-]+)$/)?.[1] || null;
   }
 
-  function showConcept(id, { updateHash = true, focusSearch = false } = {}) {
-    const concept = (data.concepts || []).find(item => item.id === id);
-    const variant = concept && reached(concept.reveal) && resolveVariant(concept.variants);
+  function showAppendixEntry(id, { updateHash = true, focusSearch = false } = {}) {
+    const concept = (referenceData.concepts || []).find(item => item.id === id);
+    const variant = concept && hasReachedStage(concept.reveal) && resolveVariant(concept.variants);
     if (!variant) return false;
     const targetId = `concept-${id}`;
-    conceptSearch.value = variant.term;
-    renderConcepts();
+    appendixSearchInput.value = variant.term;
+    renderAppendix();
     const entry = document.getElementById(targetId);
     if (!entry) return false;
     if (updateHash && location.hash !== `#${targetId}`) history.pushState(null, '', `#${targetId}`);
     if (focusSearch) {
-      conceptSearch.focus();
+      appendixSearchInput.focus();
     } else {
       entry.focus({ preventScroll: true });
       entry.scrollIntoView({ block: 'start' });
@@ -497,7 +497,7 @@
       link.addEventListener('click', event => {
         if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
         event.preventDefault();
-        showConcept(id, { focusSearch: true });
+        showAppendixEntry(id, { focusSearch: true });
       });
       element.append(link);
       linked.add(id);
@@ -506,15 +506,15 @@
     element.append(document.createTextNode(text.slice(cursor)));
   }
 
-  function renderConcepts() {
-    if (![appendix, conceptSearch, conceptClear, conceptResults, conceptEmpty].every(Boolean)) return;
-    const concepts = data.concepts || [];
+  function renderAppendix() {
+    if (![appendix, appendixSearchInput, appendixClearButton, appendixResults, appendixEmptyMessage].every(Boolean)) return;
+    const concepts = referenceData.concepts || [];
     // Resolve first: unreached names, aliases, and definitions never enter search or the DOM.
-    const available = concepts.filter(concept => reached(concept.reveal))
+    const available = concepts.filter(concept => hasReachedStage(concept.reveal))
       .map(concept => ({ id: concept.id, variant: resolveVariant(concept.variants) }))
       .filter(concept => concept.variant)
       .sort((a, b) => a.variant.term.localeCompare(b.variant.term, 'en'));
-    const query = searchableText(conceptSearch.value || '');
+    const query = searchableText(appendixSearchInput.value || '');
     const words = query ? query.split(/\s+/) : [];
     const nameMatches = [];
     const definitionMatches = [];
@@ -531,7 +531,7 @@
     }
     const matches = [...nameMatches, ...definitionMatches];
 
-    conceptResults.replaceChildren();
+    appendixResults.replaceChildren();
     for (const { id, variant } of matches) {
       const entry = document.createElement('article');
       entry.className = 'concept-entry';
@@ -546,129 +546,129 @@
       appendLinkedDefinition(definition, variant.definition, id, available);
       copy.append(definition);
       entry.append(heading, copy);
-      conceptResults.append(entry);
+      appendixResults.append(entry);
     }
 
-    conceptClear.disabled = !conceptSearch.value;
-    conceptEmpty.hidden = !words.length || matches.length > 0;
-    conceptEmpty.textContent = !words.length ? '' : available.length
+    appendixClearButton.disabled = !appendixSearchInput.value;
+    appendixEmptyMessage.hidden = !words.length || matches.length > 0;
+    appendixEmptyMessage.textContent = !words.length ? '' : available.length
       ? 'No matching terms at this reading point. Try another word or clear the search.'
       : 'No terms have been added for this reading point yet.';
     appendix.hidden = false;
   }
 
-  function applyProgress(valueOrKey, { persist = true } = {}) {
-    currentStage = stageFor(valueOrKey);
-    updateStageUI(currentStage);
+  function selectReadingStage(valueOrKey, { persist = true } = {}) {
+    selectedReadingStage = clampReadingStage(valueOrKey);
+    updateReadingStageControls(selectedReadingStage);
     renderCharacters();
-    renderConcepts();
-    if (loadingMessage) loadingMessage.hidden = true;
-    if (persist && !debugCapActive) saveStage(currentStage);
+    renderAppendix();
+    if (referenceLoadingMessage) referenceLoadingMessage.hidden = true;
+    if (persist && !capPreviewActive) saveReadingStage(selectedReadingStage);
   }
 
-  function renderStageSelector() {
-    progressScale.replaceChildren();
+  function renderReadingStageButtons() {
+    readingStageGroups.replaceChildren();
     const stageSections = new Map();
     for (const stage of stages) {
       const sectionLabel = stage.section || 'Reading segments';
       if (!stageSections.has(sectionLabel)) {
         const section = document.createElement('section');
-        section.className = 'reading-progress-section';
+        section.className = 'reading-stage-group';
         const heading = document.createElement('h3');
         heading.id = `reading-section-${stageSections.size + 1}`;
         heading.textContent = sectionLabel;
         section.setAttribute('aria-labelledby', heading.id);
         const segments = document.createElement('div');
-        segments.className = 'reading-progress-segments';
+        segments.className = 'reading-stage-buttons';
         section.append(heading, segments);
-        progressScale.append(section);
+        readingStageGroups.append(section);
         stageSections.set(sectionLabel, segments);
       }
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = 'reading-progress-tick';
+      button.className = 'reading-stage-button';
       button.dataset.stageKey = stage.key;
       button.textContent = stage.shortLabel;
-      const locked = stage.value > availableStage.value;
+      const locked = stage.value > readingCap.value;
       button.disabled = locked;
       button.title = locked ? `${stage.label} - not yet available` : stage.label;
       button.setAttribute('aria-label', locked ? `${stage.label} - not yet available` : `Show reference through ${stage.label}`);
       button.setAttribute('aria-pressed', 'false');
-      if (!locked) button.addEventListener('click', () => applyProgress(stage.key));
+      if (!locked) button.addEventListener('click', () => selectReadingStage(stage.key));
       stageSections.get(sectionLabel).append(button);
     }
   }
 
-  const debugDialog = document.getElementById('reference-debug');
-  const debugSelect = document.getElementById('reference-debug-cap');
-  const debugForm = document.getElementById('reference-debug-form');
-  const debugReset = document.getElementById('reference-debug-reset');
-  const debugCancel = document.getElementById('reference-debug-cancel');
-  const capStatus = document.getElementById('reading-progress-limit');
+  const capPreviewDialog = document.getElementById('reading-cap-preview');
+  const capPreviewSelect = document.getElementById('reading-cap-preview-select');
+  const capPreviewForm = document.getElementById('reading-cap-preview-form');
+  const capPreviewResetButton = document.getElementById('reading-cap-preview-reset');
+  const capPreviewCancelButton = document.getElementById('reading-cap-preview-cancel');
+  const capPreviewStatus = document.getElementById('reading-cap-preview-status');
 
-  if (debugDialog && debugSelect && debugForm && debugReset && debugCancel) {
+  if (capPreviewDialog && capPreviewSelect && capPreviewForm && capPreviewResetButton && capPreviewCancelButton) {
     for (const stage of stages) {
       const option = document.createElement('option');
       option.value = stage.key;
       option.textContent = stage.label;
-      debugSelect.append(option);
+      capPreviewSelect.append(option);
     }
 
     window.addEventListener('keydown', event => {
       if (event.repeat || event.altKey || !event.shiftKey ||
         !(event.ctrlKey || event.metaKey) || event.code !== 'Period') return;
-      if (typeof debugDialog.showModal !== 'function') return;
+      if (typeof capPreviewDialog.showModal !== 'function') return;
       event.preventDefault();
-      debugSelect.value = availableStage.key;
-      if (!debugDialog.open) debugDialog.showModal();
-      debugSelect.focus();
+      capPreviewSelect.value = readingCap.key;
+      if (!capPreviewDialog.open) capPreviewDialog.showModal();
+      capPreviewSelect.focus();
     });
 
-    debugForm.addEventListener('submit', event => {
+    capPreviewForm.addEventListener('submit', event => {
       event.preventDefault();
-      const requested = stages.find(stage => stage.key === debugSelect.value);
+      const requested = stages.find(stage => stage.key === capPreviewSelect.value);
       if (!requested) return;
-      availableStage = requested;
-      debugCapActive = true;
-      if (capStatus) capStatus.textContent = `Debug cap: ${requested.label} (resets on reload).`;
-      renderStageSelector();
-      applyProgress(requested.key, { persist: false });
-      debugDialog.close();
-      progressOutput.focus();
+      readingCap = requested;
+      capPreviewActive = true;
+      if (capPreviewStatus) capPreviewStatus.textContent = `Debug cap: ${requested.label} (resets on reload).`;
+      renderReadingStageButtons();
+      selectReadingStage(requested.key, { persist: false });
+      capPreviewDialog.close();
+      selectedReadingLink.focus();
     });
 
-    debugReset.addEventListener('click', () => {
-      availableStage = clubStage;
-      debugCapActive = false;
-      if (capStatus) capStatus.textContent = '';
-      renderStageSelector();
-      applyProgress(storedStage().key, { persist: false });
-      debugDialog.close();
-      progressOutput.focus();
+    capPreviewResetButton.addEventListener('click', () => {
+      readingCap = clubReadingCap;
+      capPreviewActive = false;
+      if (capPreviewStatus) capPreviewStatus.textContent = '';
+      renderReadingStageButtons();
+      selectReadingStage(loadReadingStage().key, { persist: false });
+      capPreviewDialog.close();
+      selectedReadingLink.focus();
     });
 
-    debugCancel.addEventListener('click', () => debugDialog.close());
+    capPreviewCancelButton.addEventListener('click', () => capPreviewDialog.close());
   }
 
-  renderStageSelector();
+  renderReadingStageButtons();
 
   window.addEventListener('hashchange', () => {
     const id = characterFromHash();
     if (id) showCharacter(id, { updateHash: false });
-    const conceptId = conceptFromHash();
-    if (conceptId) showConcept(conceptId, { updateHash: false });
+    const conceptId = appendixEntryFromHash();
+    if (conceptId) showAppendixEntry(conceptId, { updateHash: false });
   });
 
-  conceptSearch?.addEventListener('input', renderConcepts);
-  conceptClear?.addEventListener('click', () => {
-    conceptSearch.value = '';
-    renderConcepts();
-    conceptSearch.focus();
+  appendixSearchInput?.addEventListener('input', renderAppendix);
+  appendixClearButton?.addEventListener('click', () => {
+    appendixSearchInput.value = '';
+    renderAppendix();
+    appendixSearchInput.focus();
   });
 
-  applyProgress(storedStage().key, { persist: false });
-  const initialConcept = conceptFromHash();
-  if (initialConcept) showConcept(initialConcept, { updateHash: false });
+  selectReadingStage(loadReadingStage().key, { persist: false });
+  const initialAppendixEntryId = appendixEntryFromHash();
+  if (initialAppendixEntryId) showAppendixEntry(initialAppendixEntryId, { updateHash: false });
 })();
 
 (() => {
