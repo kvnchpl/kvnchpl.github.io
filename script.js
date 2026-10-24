@@ -674,36 +674,36 @@
 (() => {
   'use strict';
 
-  const deck = document.querySelector('.deck');
-  if (!deck) return;
-  const slides = [...deck.querySelectorAll('.slide')];
+  const recapReader = document.querySelector('.recap-reader');
+  if (!recapReader) return;
+  const slides = [...recapReader.querySelectorAll('.slide')];
   if (!slides.length) return;
 
-  const controls = document.querySelector('.controls');
-  const counter = document.getElementById('counter');
+  const recapControls = document.querySelector('.recap-controls');
+  const slideCounter = document.getElementById('counter');
   const sourceLink = document.getElementById('source-link');
   const previousButton = document.getElementById('prev');
   const nextButton = document.getElementById('next');
-  const nextRecap = document.getElementById('next-recap');
-  const startOver = document.getElementById('start-over');
+  const nextRecapLink = document.getElementById('next-recap');
+  const startOverButton = document.getElementById('start-over');
   // Keep the document readable if required reader controls are missing.
-  if (![controls, counter, sourceLink, previousButton, nextButton, startOver].every(Boolean)) return;
-  const sources = new Map();
-  const panels = [...deck.querySelectorAll('.media img')];
-  const panelsBySlide = new Map(slides.map(slide => [slide, panels.filter(img => img.closest('.slide') === slide)]));
+  if (![recapControls, slideCounter, sourceLink, previousButton, nextButton, startOverButton].every(Boolean)) return;
+  const sourcePagesBySlide = new Map();
+  const panelImages = [...recapReader.querySelectorAll('.slide-media img')];
+  const panelImagesBySlide = new Map(slides.map(slide => [slide, panelImages.filter(img => img.closest('.slide') === slide)]));
 
   function loadSlide(slide) {
-    for (const img of panelsBySlide.get(slide) || []) img.loading = 'eager';
+    for (const img of panelImagesBySlide.get(slide) || []) img.loading = 'eager';
   }
 
   // Print includes every slide, including panels not yet visited in the reader.
   window.addEventListener('beforeprint', () => {
-    panels.forEach(img => { img.loading = 'eager'; });
+    panelImages.forEach(img => { img.loading = 'eager'; });
   });
   // Canonical act/intermission subdivisions, plus legacy act and recap prefixes.
-  const panelPattern = /^(A\d+(?:\.?[AI]\d+)*|I\d+|R\d+)_(\d+)[_-]story-(\d+)\.(gif|png|jpe?g|webp)$/i;
+  const panelFilenamePattern = /^(A\d+(?:\.?[AI]\d+)*|I\d+|R\d+)_(\d+)[_-]story-(\d+)\.(gif|png|jpe?g|webp)$/i;
 
-  panels.forEach(img => {
+  panelImages.forEach(img => {
     if (img.hasAttribute('data-external-diagram')) return;
     let filename;
     try {
@@ -711,7 +711,7 @@
     } catch {
       return; // Unrecognized asset URLs do not prevent reading the recap.
     }
-    const match = filename.match(panelPattern);
+    const match = filename.match(panelFilenamePattern);
     if (!match) return;
     const [, section, , paddedPage] = match;
     const page = Number(paddedPage);
@@ -720,43 +720,43 @@
       section.match(/[AI]\d+/gi).map(part =>
         `${/^I/i.test(part) ? 'Intermission' : 'Act'} ${part.slice(1)}`).join(', ');
     if (!img.hasAttribute('alt')) img.alt = `Homestuck ${sectionLabel}, page ${page}`;
-    sources.set(img.closest('.slide'), page);
+    sourcePagesBySlide.set(img.closest('.slide'), page);
   });
 
-  let index = 0;
-  function indexFromHash() {
+  let currentSlideIndex = 0;
+  function slideIndexFromHash() {
     const match = location.hash.match(/^#(\d+)$/);
     return match ? Math.max(0, Math.min(slides.length - 1, Number(match[1]) - 1)) : 0;
   }
-  function show(nextIndex, updateHash = true) {
-    const previousIndex = index;
-    index = Math.max(0, Math.min(slides.length - 1, nextIndex));
-    const isCover = slides[index].classList.contains('cover');
-    const page = isCover ? undefined : sources.get(slides[index]);
-    const isLast = index === slides.length - 1;
-    const focused = document.activeElement;
-    const focusedSlide = focused.closest('.slide');
+  function showSlide(nextSlideIndex, updateHash = true) {
+    const previousSlideIndex = currentSlideIndex;
+    currentSlideIndex = Math.max(0, Math.min(slides.length - 1, nextSlideIndex));
+    const isCover = slides[currentSlideIndex].classList.contains('slide-cover');
+    const page = isCover ? undefined : sourcePagesBySlide.get(slides[currentSlideIndex]);
+    const isLastSlide = currentSlideIndex === slides.length - 1;
+    const focusedElement = document.activeElement;
+    const focusedSlide = focusedElement.closest('.slide');
     // Move focus before hiding/disabling anything: browsers otherwise reset it to body.
-    if ((focusedSlide && focusedSlide !== slides[index]) ||
-      (focused === sourceLink && page === undefined) ||
-      (focused === previousButton && index === 0) ||
-      (focused === nextButton && isLast) ||
-      (focused === startOver && isCover) ||
-      (focused === nextRecap && !isLast)) {
-      deck.focus({ preventScroll: true });
+    if ((focusedSlide && focusedSlide !== slides[currentSlideIndex]) ||
+      (focusedElement === sourceLink && page === undefined) ||
+      (focusedElement === previousButton && currentSlideIndex === 0) ||
+      (focusedElement === nextButton && isLastSlide) ||
+      (focusedElement === startOverButton && isCover) ||
+      (focusedElement === nextRecapLink && !isLastSlide)) {
+      recapReader.focus({ preventScroll: true });
     }
     slides.forEach((slide, n) => {
-      slide.hidden = n !== index;
-      slide.classList.toggle('active', n === index);
+      slide.hidden = n !== currentSlideIndex;
+      slide.classList.toggle('active', n === currentSlideIndex);
       slide.setAttribute('aria-label', `Slide ${n + 1} of ${slides.length}`);
     });
     // Fetch the selected panel and one ahead; other slides stay lazy.
-    loadSlide(slides[index]);
-    loadSlide(slides[index + 1]);
-    counter.textContent = `${index + 1} / ${slides.length}`;
-    (slides[index].querySelector('.media') || slides[index]).append(counter);
-    counter.hidden = isCover;
-    startOver.disabled = isCover;
+    loadSlide(slides[currentSlideIndex]);
+    loadSlide(slides[currentSlideIndex + 1]);
+    slideCounter.textContent = `${currentSlideIndex + 1} / ${slides.length}`;
+    (slides[currentSlideIndex].querySelector('.slide-media') || slides[currentSlideIndex]).append(slideCounter);
+    slideCounter.hidden = isCover;
+    startOverButton.disabled = isCover;
     sourceLink.hidden = page === undefined;
     if (page !== undefined) {
       sourceLink.href = `https://homestuck.com/story/${page}`;
@@ -767,25 +767,25 @@
       sourceLink.removeAttribute('aria-label');
       sourceLink.textContent = '';
     }
-    previousButton.disabled = index === 0;
-    nextButton.disabled = isLast;
-    nextButton.hidden = nextButton.disabled && Boolean(nextRecap);
-    if (nextRecap) {
-      nextRecap.hidden = !nextButton.disabled;
+    previousButton.disabled = currentSlideIndex === 0;
+    nextButton.disabled = isLastSlide;
+    nextButton.hidden = nextButton.disabled && Boolean(nextRecapLink);
+    if (nextRecapLink) {
+      nextRecapLink.hidden = !nextButton.disabled;
     }
-    if (updateHash) history.replaceState(null, '', `#${index + 1}`);
+    if (updateHash) history.replaceState(null, '', `#${currentSlideIndex + 1}`);
     // After reading a long caption, start the next slide at its panel on small screens.
-    if (index !== previousIndex && window.matchMedia('(max-width: 600px), (max-height: 600px)').matches) {
-      deck.scrollIntoView({ block: 'start', behavior: 'auto' });
+    if (currentSlideIndex !== previousSlideIndex && window.matchMedia('(max-width: 600px), (max-height: 600px)').matches) {
+      recapReader.scrollIntoView({ block: 'start', behavior: 'auto' });
     }
   }
-  previousButton.addEventListener('click', () => show(index - 1));
-  nextButton.addEventListener('click', () => show(index + 1));
-  startOver.addEventListener('click', () => {
-    if (startOver.disabled) return;
-    show(0);
-    deck.focus({ preventScroll: true });
-    deck.scrollIntoView({ block: 'start', behavior: 'auto' });
+  previousButton.addEventListener('click', () => showSlide(currentSlideIndex - 1));
+  nextButton.addEventListener('click', () => showSlide(currentSlideIndex + 1));
+  startOverButton.addEventListener('click', () => {
+    if (startOverButton.disabled) return;
+    showSlide(0);
+    recapReader.focus({ preventScroll: true });
+    recapReader.scrollIntoView({ block: 'start', behavior: 'auto' });
   });
   document.addEventListener('keydown', event => {
     if (event.defaultPrevented || event.altKey || event.ctrlKey || event.metaKey) return;
@@ -793,25 +793,25 @@
     // Space/Enter on a focused control retain their native activation behavior.
     if (event.key === ' ' && event.target.closest('button, a, [role="button"]')) return;
     switch (event.key.toLowerCase()) {
-      case 'arrowright': case 'pagedown': case ' ': show(index + 1); break;
-      case 'arrowleft': case 'pageup': show(index - 1); break;
-      case 'home': show(0); break;
-      case 'end': show(slides.length - 1); break;
+      case 'arrowright': case 'pagedown': case ' ': showSlide(currentSlideIndex + 1); break;
+      case 'arrowleft': case 'pageup': showSlide(currentSlideIndex - 1); break;
+      case 'home': showSlide(0); break;
+      case 'end': showSlide(slides.length - 1); break;
       default: return;
     }
     event.preventDefault();
   });
-  deck.addEventListener('click', event => {
+  recapReader.addEventListener('click', event => {
     if (event.target.closest('button, a') || window.getSelection().toString()) return;
     // Touch readers use the visible arrows, so taps while reading do not skip slides.
     if (event.pointerType === 'touch' || window.matchMedia('(pointer: coarse)').matches) return;
-    const bounds = slides[index].getBoundingClientRect();
+    const bounds = slides[currentSlideIndex].getBoundingClientRect();
     if (event.clientX < bounds.left || event.clientX > bounds.right ||
       event.clientY < bounds.top || event.clientY > bounds.bottom) return;
-    show(index + (event.clientX < bounds.left + bounds.width * .35 ? -1 : 1));
+    showSlide(currentSlideIndex + (event.clientX < bounds.left + bounds.width * .35 ? -1 : 1));
   });
-  window.addEventListener('hashchange', () => show(indexFromHash(), false));
+  window.addEventListener('hashchange', () => showSlide(slideIndexFromHash(), false));
   document.body.classList.add('is-presenting');
-  controls.hidden = false;
-  show(indexFromHash(), false);
+  recapControls.hidden = false;
+  showSlide(slideIndexFromHash(), false);
 })();
