@@ -650,6 +650,7 @@ button {
 
 #reading-progress-output {
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .reading-progress-limit {
@@ -719,8 +720,15 @@ button {
 
 .reading-progress-section h3 {
   margin: 0 0 6px;
-  font: 700 11px/1.4 Verdana, Arial, sans-serif;
+  font: inherit;
+  font-size: 12px;
+  text-transform: uppercase;
   text-align: left;
+}
+
+.reading-progress-section h3::before,
+.reading-progress-section h3::after {
+  content: " -- ";
 }
 
 .reading-progress-segments {
@@ -732,19 +740,28 @@ button {
 .reading-progress-tick {
   min-width: 0;
   min-height: 32px;
-  padding: 6px 3px;
-  border: 1px solid #999;
+  padding: 6px 2px;
+  border: 1px solid transparent;
   border-radius: 0;
-  background: #f7f7f7;
-  color: #222;
+  background: transparent;
+  color: #3a762b;
   cursor: pointer;
-  font: 700 10px/1.25 Verdana, Arial, sans-serif;
+  font: 700 11px/1.25 "Courier New", Courier, monospace;
   text-align: center;
+  text-transform: uppercase;
+}
+
+.reading-progress-tick::before {
+  content: "[";
+}
+
+.reading-progress-tick::after {
+  content: "]";
 }
 
 .reading-progress-tick:not(:disabled):hover {
-  background: #fff2cc;
-  border-color: #555;
+  background: #e0eadb;
+  border-color: #3a762b;
 }
 
 .reading-progress-tick:focus-visible {
@@ -754,17 +771,16 @@ button {
 
 .reading-progress-tick:disabled {
   color: #6b6b6b;
-  border-color: #bcbcbc;
-  border-style: dashed;
-  background: #d5d5d5;
+  border-color: transparent;
+  background: transparent;
   cursor: not-allowed;
 }
 
 .reading-progress-tick[aria-pressed="true"] {
-  color: #000;
-  background: #ffcf70;
-  border-color: #000;
-  box-shadow: inset 0 0 0 1px #000;
+  color: #28521e;
+  background: #e0eadb;
+  border-color: #3a762b;
+  box-shadow: inset 0 0 0 1px #3a762b;
 }
 
 .reading-progress-status {

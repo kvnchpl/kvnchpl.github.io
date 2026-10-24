@@ -427,8 +427,10 @@
   }
 
   function updateStageUI(stage) {
-    progressOutput.value = stage.label;
     progressOutput.textContent = stage.label;
+    // Scheduled segments are contiguous; each starts after the preceding end.
+    const previousStage = stages[stageIndex.get(stage.key) - 1];
+    progressOutput.href = `https://homestuck.com/story/${previousStage ? previousStage.endPage + 1 : 1}`;
     document.documentElement.dataset.referenceProgress = stage.key;
 
     progressScale.querySelectorAll('.reading-progress-tick').forEach(button => {
