@@ -40,6 +40,7 @@ export function redirectRules(works, mediaNames) {
     // _redirects runs before netlify.toml: canonical hosts must precede rewrites.
     const lines = [
         '# Canonical hosts must precede the extensionless work rewrites.',
+        'https://kvnchpl-portfolio.netlify.app/* https://kvnchpl.com/:splat 301!',
         'https://kvnchpl-portfolio-preview.netlify.app/* https://kvnchpl.com/:splat 301!',
         'https://www.kvnchpl.com/* https://kvnchpl.com/:splat 301!',
         '', '# HTTP migration redirects. Sources: js/navigation.js, js/redirect.js, a/.'
