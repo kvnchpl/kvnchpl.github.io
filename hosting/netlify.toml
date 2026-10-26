@@ -3,6 +3,7 @@
 [build]
   command = "node hosting/build.mjs"
   publish = ".netlify/portfolio"
+  edge_functions = ".netlify/portfolio-edge-functions"
 
 [build.environment]
   NODE_VERSION = "24"

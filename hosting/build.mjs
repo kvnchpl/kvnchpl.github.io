@@ -89,6 +89,15 @@ export function headerRules(environment = process.env) {
     return `${lines.join('\n')}\n`;
 }
 
+// Netlify's static redirect matcher normalizes trailing slashes. A small edge
+// redirect preserves directory-relative links without altering any HTML files.
+export function bookClubDirectoryRedirect(files) {
+    const paths = files.filter(file => file.startsWith('homestuck-book-club/') && file.endsWith('/index.html'))
+        .map(file => `/${file.slice(0, -11)}`).sort();
+    if (!paths.includes('/homestuck-book-club')) throw new Error('Missing book-club entry point');
+    return `// Generated from the published book-club directory indexes. No content proxy.\nconst directories = new Set(${JSON.stringify(paths)});\nexport default function handler(request) {\n    const url = new URL(request.url);\n    if (!['GET', 'HEAD'].includes(request.method) || !directories.has(url.pathname)) return;\n    url.pathname += '/';\n    return new Response(null, {status: 301, headers: {Location: url.href}});\n}\nexport const config = {path: [...directories], method: ['GET', 'HEAD']};\n`;
+}
+
 export async function buildPortfolio() {
     const exclusions = readExclusions(await readFile(resolve(root, '_config.yml'), 'utf8'));
     const redirectSource = await readFile(resolve(root, 'js/redirect.js'), 'utf8');
@@ -124,6 +133,10 @@ export async function buildPortfolio() {
     }
     await writeFile(resolve(staging, '_redirects'), redirectRules(works, mediaNames));
     await writeFile(resolve(staging, '_headers'), headerRules());
+    const edgeDirectory = resolve(root, '.netlify/portfolio-edge-functions');
+    if ((await lstat(edgeDirectory).catch(error => error.code === 'ENOENT' ? null : Promise.reject(error)))?.isSymbolicLink()) throw new Error('Refusing linked edge directory');
+    await mkdir(edgeDirectory, {recursive: true});
+    await writeFile(resolve(edgeDirectory, 'book-club-slashes.js'), bookClubDirectoryRedirect(files));
     await rm(publishDirectory, {recursive: true, force: true});
     await rename(staging, publishDirectory);
     console.log(`Packaged ${files.length} public files and ${Object.keys(works).length} legacy work destinations in .netlify/portfolio.`);
