@@ -6,7 +6,7 @@ import {legacyPages, normalizeSiteUrl} from '../js/navigation.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const publishDirectory = resolve(root, '.netlify/portfolio');
-const publicFolders = new Set(['0', 'a', 'css', 'js', 'json', 'specter', 'jungle', 'each-all', 'exp', 'trellis', 'desire-path', 'ephemeris']);
+const publicFolders = new Set(['0', 'a', 'css', 'js', 'json', 'specter', 'jungle', 'each-all', 'exp', 'trellis', 'desire-path', 'ephemeris', 'homestuck-book-club']);
 const publicRootFiles = new Set(['index.html', '404.html', 'favicon.ico', 'robots.txt', 'sitemap.xml']);
 
 // _config.yml deliberately uses only an exclude list of scalar path patterns.

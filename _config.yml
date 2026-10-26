@@ -29,6 +29,10 @@ exclude:
   - each-all/netlify.toml
   - ephemeris/netlify
   - ephemeris/netlify.toml
+  - homestuck-book-club/_config.yml
+  - homestuck-book-club/tests
+  - homestuck-book-club/tools
+  - homestuck-book-club/research
   - jungle/visualize_links.py
   - jungle/zine_graph.dot
   - jungle/zine_graph.png

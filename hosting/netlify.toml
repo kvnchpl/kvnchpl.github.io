@@ -14,20 +14,6 @@
 [functions]
   directory = "hosting/functions"
 
-# Keep the independently published GitHub Pages project at its existing path.
-# A fixed-origin function preserves GitHub's Host header without redirect loops.
-[[redirects]]
-  from = "/homestuck-book-club"
-  to = "/.netlify/functions/book-club-proxy"
-  status = 200
-  force = true
-
-[[redirects]]
-  from = "/homestuck-book-club/*"
-  to = "/.netlify/functions/book-club-proxy"
-  status = 200
-  force = true
-
 # The standalone projects retain their existing functions and environment values.
 # The portfolio's netlify.app previews proxy through ordinary /api/ paths;
 # Netlify reserves /.netlify/ paths for the project's own functions.
