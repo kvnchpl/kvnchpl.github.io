@@ -11,15 +11,17 @@
 [build.processing.html]
   pretty_urls = false
 
+[functions]
+  directory = "hosting/functions"
+
 # The standalone projects retain their existing functions and environment values.
 # The portfolio's netlify.app previews proxy through ordinary /api/ paths;
 # Netlify reserves /.netlify/ paths for the project's own functions.
 [[redirects]]
   from = "/api/each-all/submitImage"
-  to = "https://each-all.netlify.app/.netlify/functions/submitImage"
+  to = "/.netlify/functions/submit-image-proxy"
   status = 200
   force = true
-  headers = { Origin = "https://kvnchpl.com" }
 
 [[redirects]]
   from = "/api/ephemeris/horizons"
