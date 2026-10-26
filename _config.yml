@@ -10,6 +10,7 @@ exclude:
   - package.json
   - package-lock.json
   - scripts
+  - hosting
   - docs
   - thoughts.html
   - node_modules

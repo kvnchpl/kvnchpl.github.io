@@ -1,7 +1,9 @@
 // Constants
 const SUN_RADIUS_KM = 696340; // Sun's radius in kilometers
-// The static frontend also runs under /ephemeris/ on GitHub Pages.
-const HORIZONS_API_ENDPOINT = new URL('/.netlify/functions/horizons',
+// Portfolio previews proxy to the existing standalone NASA service.
+const portfolioPreview = location.hostname.endsWith('.netlify.app')
+  && !/^(?:[a-z0-9-]+--)?kvnchpl-ephemeris\.netlify\.app$/.test(location.hostname);
+const HORIZONS_API_ENDPOINT = new URL(portfolioPreview ? '/api/ephemeris/horizons' : '/.netlify/functions/horizons',
   location.hostname.endsWith('.netlify.app') || ['localhost', '127.0.0.1'].includes(location.hostname)
     ? location.origin : 'https://kvnchpl-ephemeris.netlify.app').href;
 const chartTheme = {

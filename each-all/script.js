@@ -1,6 +1,8 @@
 const CONFIG = { maxImageDimension: 200, maxImageRenderDimension: 100, defaultImageQuality: 0.5, seedMax: 1000000 };
-// Pages serves the project; Netlify continues to run its submission function.
-const SUBMISSION_ENDPOINT = new URL('/.netlify/functions/submitImage',
+// The portfolio preview proxies to the existing standalone submission service.
+const portfolioPreview = location.hostname.endsWith('.netlify.app')
+  && !/^(?:[a-z0-9-]+--)?each-all\.netlify\.app$/.test(location.hostname);
+const SUBMISSION_ENDPOINT = new URL(portfolioPreview ? '/api/each-all/submitImage' : '/.netlify/functions/submitImage',
   location.hostname.endsWith('.netlify.app') || ['localhost', '127.0.0.1'].includes(location.hostname)
     ? location.origin : 'https://each-all.netlify.app').href;
 const $ = id => document.getElementById(id);
