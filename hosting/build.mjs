@@ -37,7 +37,13 @@ export function isPublicFile(file, exclusions) {
 }
 
 export function redirectRules(works, mediaNames) {
-    const lines = ['# HTTP migration redirects. Sources: js/navigation.js, js/redirect.js, a/.'];
+    // _redirects runs before netlify.toml: canonical hosts must precede rewrites.
+    const lines = [
+        '# Canonical hosts must precede the extensionless work rewrites.',
+        'https://kvnchpl-portfolio-preview.netlify.app/* https://kvnchpl.com/:splat 301!',
+        'https://www.kvnchpl.com/* https://kvnchpl.com/:splat 301!',
+        '', '# HTTP migration redirects. Sources: js/navigation.js, js/redirect.js, a/.'
+    ];
     const add = (from, to, query = '') => lines.push(`${from}${query ? ` ${query}` : ''} ${to} 301!`);
     // Match supported filter combinations before each page's general rule.
     // Netlify matches query parameters independently of their order.
