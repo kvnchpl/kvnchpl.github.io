@@ -1,0 +1,14 @@
+# GitHub Pages builds the publishing branch's root with Jekyll.
+# These files support authors and checks; they are not part of the public site.
+# Do not add .nojekyll: it would bypass these exclusions.
+exclude:
+  - AGENTS.md
+  - README.md
+  - docs
+  - tests
+  - tools
+  - research
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

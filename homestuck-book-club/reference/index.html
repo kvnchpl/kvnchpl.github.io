@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description"
+    content="A spoiler-conscious Homestuck quick reference for the book club, with character profiles through Act 6 Intermission 1, an appendix of characters and concepts through Act 6 Intermission 1, and a club reading limit of Act 5 Act 1.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Homestuck Book Club">
+  <meta property="og:title" content="REFERENCE - HOMESTUCK BOOK CLUB">
+  <meta property="og:description"
+    content="A spoiler-conscious Homestuck quick reference for the book club, with character profiles through Act 6 Intermission 1, an appendix of characters and concepts through Act 6 Intermission 1, and a club reading limit of Act 5 Act 1.">
+  <meta property="og:image" content="https://kvnchpl.com/homestuck-book-club/assets/homestuck-book-club-preview.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="1200">
+  <meta property="og:image:alt"
+    content="A Homestuck-style character standing in a bedroom with movie posters and a computer.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="REFERENCE - HOMESTUCK BOOK CLUB">
+  <meta name="twitter:description"
+    content="A spoiler-conscious Homestuck quick reference for the book club, with character profiles through Act 6 Intermission 1, an appendix of characters and concepts through Act 6 Intermission 1, and a club reading limit of Act 5 Act 1.">
+  <meta name="twitter:image" content="https://kvnchpl.com/homestuck-book-club/assets/homestuck-book-club-preview.webp">
+  <meta name="twitter:image:alt"
+    content="A Homestuck-style character standing in a bedroom with movie posters and a computer.">
+  <title>REFERENCE - HOMESTUCK BOOK CLUB</title>
+  <link rel="stylesheet" href="../styles.css?v=20261024-1">
+  <script src="../reference-data.js?v=20261024-1" defer></script>
+  <script src="../script.js?v=20261024-1" defer></script>
+</head>
+
+<body class="reference">
+  <a class="skip-link" href="#reference-main">Skip to reference</a>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Book club navigation">
+      <a class="nav-home" href="../">Homestuck Book Club</a>
+      <a class="nav-schedule" href="../schedule/">Schedule</a>
+      <a class="nav-recaps" href="../recaps/">Recaps</a>
+      <a class="nav-reference" href="./" aria-current="page">Reference</a>
+      <a class="nav-story" href="https://homestuck.com/" target="_blank" rel="noopener noreferrer">Read Homestuck</a>
+    </nav>
+  </header>
+
+  <main class="site-frame" id="reference-main" tabindex="-1">
+    <article class="page-content reference-page">
+
+      <header class="reference-header">
+        <h1 class="page-title">Reference</h1>
+      </header>
+
+      <details class="pesterlog spoilerlog" id="spoilerlog" open>
+        <summary><span class="pesterlog-show">Show Spoilerlog</span><span class="pesterlog-hide">Hide Spoilerlog</span></summary>
+        <section class="reading-selector pesterlog-content" aria-labelledby="reading-selector-heading">
+          <h2 class="pesterlog-heading" id="reading-selector-heading">-- <span class="pesterlog-speaker">kvnchpl [KC]</span> began pestering homestuck book club --</h2>
+          <p class="pesterlog-message">KC: how much have you read?</p>
+          <p class="reading-selector-instructions pesterlog-message">KC: for spoiler protection</p>
+          <p class="reading-selector-instructions pesterlog-message">KC: all the information below will update based on the latest section youve finished</p>
+
+          <div class="reading-stage-controls">
+            <div class="reading-stage-groups" id="reading-stage-groups" aria-label="Reading segments"></div>
+          </div>
+
+        </section>
+      </details>
+
+      <p class="reading-status">
+        <span>Showing through</span>
+        <a id="selected-reading-link" href="https://homestuck.com/story/1" target="_blank"
+          rel="noopener noreferrer" aria-live="polite">Act 1</a>
+      </p>
+
+      <dialog class="reading-cap-preview" id="reading-cap-preview" aria-label="Reading cap">
+        <form id="reading-cap-preview-form">
+          <label for="reading-cap-preview-select">Allow reading through</label>
+          <select id="reading-cap-preview-select"></select>
+          <div class="reading-cap-preview-actions">
+            <button type="submit">Apply</button>
+            <button type="button" id="reading-cap-preview-reset">Reset to club limit</button>
+            <button type="button" id="reading-cap-preview-cancel">Cancel</button>
+          </div>
+        </form>
+      </dialog>
+
+      <hr class="reference-divider">
+
+      <p class="reference-loading" id="reference-loading" role="status">Loading spoiler-safe reference…</p>
+
+      <noscript>
+        <p class="reference-noscript">
+          This reference requires JavaScript so later-story information is never placed on the page before your selected
+          reading point.
+        </p>
+      </noscript>
+
+      <div class="character-browser" id="character-browser" aria-label="Character selection" hidden>
+        <div class="character-roster" id="character-roster" role="tablist" aria-label="Choose a character"></div>
+        <div class="character-profiles" id="character-profiles"></div>
+      </div>
+
+      <section class="concept-appendix" id="concept-appendix" aria-labelledby="concept-heading" hidden>
+        <h2 id="concept-heading">APPENDIX</h2>
+        <div class="concept-search">
+          <div class="concept-search-controls">
+            <input type="search" id="concept-search" placeholder="Search" aria-label="Search appendix"
+              aria-controls="concept-results" autocomplete="off" spellcheck="false">
+            <button type="button" id="concept-clear" disabled>Clear</button>
+          </div>
+        </div>
+        <div class="concept-results" id="concept-results"></div>
+        <p class="concept-empty" id="concept-empty" role="status" hidden></p>
+      </section>
+
+    </article>
+  </main>
+
+  <footer class="page-footer">
+    <p><a href="https://homestuck.com/">Homestuck</a> by Andrew Hussie. Book Club by <a href="https://kvnchpl.com/">kvnchpl</a>.</p>
+  </footer>
+</body>
+
+</html>
