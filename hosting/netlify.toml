@@ -14,6 +14,19 @@
 [functions]
   directory = "hosting/functions"
 
+# Keep the live apex domain canonical, including the former preview hostname.
+[[redirects]]
+  from = "https://kvnchpl-portfolio-preview.netlify.app/*"
+  to = "https://kvnchpl.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.kvnchpl.com/*"
+  to = "https://kvnchpl.com/:splat"
+  status = 301
+  force = true
+
 # Keep the independently published GitHub Pages project at its existing path.
 # A fixed-origin function preserves GitHub's Host header without redirect loops.
 [[redirects]]
