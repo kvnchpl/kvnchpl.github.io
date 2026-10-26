@@ -51,6 +51,7 @@ coverage/
 .private/
 /.github/
 /README.md
+/AGENTS.md
 /package.json
 /package-lock.json
 /scripts/

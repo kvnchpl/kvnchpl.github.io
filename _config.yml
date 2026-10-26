@@ -6,6 +6,7 @@ exclude:
   - .codex
   - .agents
   - README.md
+  - AGENTS.md
   - package.json
   - package-lock.json
   - scripts
