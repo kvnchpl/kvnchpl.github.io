@@ -19,7 +19,7 @@
   to = "https://each-all.netlify.app/.netlify/functions/submitImage"
   status = 200
   force = true
-  headers = { origin = "https://kvnchpl.com" }
+  headers = { Origin = "https://kvnchpl.com" }
 
 [[redirects]]
   from = "/api/ephemeris/horizons"
