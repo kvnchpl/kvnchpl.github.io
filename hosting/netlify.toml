@@ -14,6 +14,21 @@
 [functions]
   directory = "hosting/functions"
 
+# Keep the independently published GitHub Pages project at its existing path.
+# The Host override prevents GitHub's default-host redirect back to this domain.
+[[redirects]]
+  from = "/homestuck-book-club"
+  to = "/homestuck-book-club/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/homestuck-book-club/*"
+  to = "https://kvnchpl.github.io/homestuck-book-club/:splat"
+  status = 200
+  force = true
+  headers = {Host = "kvnchpl.com"}
+
 # The standalone projects retain their existing functions and environment values.
 # The portfolio's netlify.app previews proxy through ordinary /api/ paths;
 # Netlify reserves /.netlify/ paths for the project's own functions.
