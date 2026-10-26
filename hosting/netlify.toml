@@ -17,12 +17,6 @@
 # Keep the independently published GitHub Pages project at its existing path.
 # The Host override prevents GitHub's default-host redirect back to this domain.
 [[redirects]]
-  from = "/homestuck-book-club"
-  to = "/homestuck-book-club/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/homestuck-book-club/*"
   to = "https://kvnchpl.github.io/homestuck-book-club/:splat"
   status = 200
