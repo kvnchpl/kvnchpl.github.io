@@ -335,3 +335,64 @@ details p { max-width: 590px; font: 14px/1.35 Times, serif; margin: 9px 0 0 15px
   .phase-reading { padding-top: 0; }
   .phase-method { font-size: 9px; }
 }
+
+.source-observance { margin: 45px 0 0 8px; color: #af778f; font: 10px/1.8 "Courier New", monospace; }
+.source-observance a { color: #ca9bb5; }
+.source-observance span { font: italic 16px/1.3 Times, serif; }
+.field-section { margin: 45px 0 32px 5px; }
+.field-introduction { max-width: 480px; font: 16px/1.25 "Times New Roman", serif; margin: 15px 0 18px 15px; color: #dbc0cf; }
+.field-status { font: 10px/1.6 "Courier New", monospace; color: #bca1b3; border-left: 2px solid #684255; padding-left: 8px; max-width: 720px; }
+.field-status[data-state="error"] { color: #ef6a92; }
+.field-epoch-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 5px; margin: 20px 0 16px; font: 11px "Courier New", monospace; }
+.field-epoch-controls label { margin-right: 6px; color: #c28da8; }
+.field-epoch-controls select { min-width: 132px; }
+.field-epoch-controls button { min-height: 28px; padding: 2px 8px; }
+.field-epoch-controls > span { font-size: 9px; color: #a28599; margin-left: 6px; }
+.field-readings { margin: 0 0 20px 12px; }
+.field-reading-date { color: #eb648c; font: 12px/1.4 "Courier New", monospace; margin-bottom: 8px; }
+.field-readings dl { margin: 0; font: 11px/1.6 "Courier New", monospace; }
+.field-readings dl > div { display: flex; gap: 9px; flex-wrap: wrap; }
+.field-readings dt { min-width: 190px; color: #b495a9; }
+.field-readings dd { margin: 0; color: #dfc8d6; }
+.field-day-events { margin: 10px 0 0 20px; font: italic 17px Times, serif; color: #df517a; }
+.field-plot { margin: 22px 0; min-width: 0; }
+.field-plot h3 { font-size: 16px; font-weight: 400; color: #dbc0d0; margin-bottom: 6px; }
+.field-plot h3 > span { display: inline; font: 9px "Courier New", monospace; color: #b17b98; margin-left: 10px; }
+.field-chart-frame { position: relative; height: 180px; background: #030203; border-top: 1px solid #29101e; border-bottom: 1px dotted #452037; }
+.field-plot:nth-child(2) { margin-left: 14px; }
+.field-plot:nth-child(3) { margin-left: 30px; }
+.field-plot:nth-child(5) { margin-left: 8px; }
+.field-scale-note, .field-method, .field-axis-note { font: 10px/1.5 "Courier New", monospace; color: #b192a6; margin: 8px 0 12px; max-width: 780px; }
+.field-ledgers { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 22px; margin: 27px 0 20px; }
+.field-ledgers > div { min-width: 0; }
+.field-ledgers h3 { color: #ddbdd0; font-size: 16px; font-weight: 400; }
+#fieldTransitCount { font: 9px "Courier New", monospace; color: #c3547d; }
+.field-table-wrap { overflow: auto; max-width: 100%; border: 1px solid #674253; scrollbar-width: thin; scrollbar-color: #956079 #140811; }
+.field-table { min-width: 440px; font-size: 10px; }
+.field-table th { text-transform: none; }
+.field-table tbody th { position: sticky; left: 0; text-align: left; background: #190d17; z-index: 1; }
+.field-event-wrap { max-height: 257px; }
+.field-events { min-width: 390px; }
+.field-events button { font: inherit; color: #b9a7dc; background: none; border: 0; padding: 0; text-decoration: underline; }
+.field-events .is-selected button { color: #39103a; }
+.field-axis-note { font-size: 9px; }
+@media (max-width: 780px) {
+  .source-observance { display: none; }
+  .field-section { margin-left: 0; }
+  .field-introduction { margin-left: 6px; }
+  .field-epoch-controls > span { flex-basis: 100%; margin: 5px 0 0; }
+  .field-readings { margin-left: 2px; }
+  .field-readings dl { font-size: 10px; }
+  .field-readings dt { min-width: 165px; }
+  .field-plot:nth-child(n) { margin-left: 0; }
+  .field-plot h3 > span { display: block; margin: 5px 0 0 10px; }
+  .field-chart-frame { height: 185px; }
+  .field-ledgers { grid-template-columns: 1fr; gap: 20px; }
+  .field-method, .field-scale-note { font-size: 9px; }
+  .field-event-wrap { max-height: 220px; }
+}
+
+.field-delineations { max-width: 620px; margin: 1.5rem 0; }
+.field-delineations summary { cursor: pointer; color: #cd9ab7; text-decoration: underline; }
+.field-delineations dt { margin-top: .8rem; color: #ed6c99; }
+.field-delineations dd { margin: .2rem 0 .8rem 1.2rem; }
