@@ -1,161 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ephemeris - Solar Grimoire</title>
+  <meta name="theme-color" content="#101110" />
+  <meta name="description" content="An independent solar-system barycenter observatory. Trace the movement of an invisible center with NASA JPL Horizons ephemerides." />
+  <title>Ephemeris — The center does not hold</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
 </head>
-
 <body>
-  <main class="page-shell">
-    <section class="hero">
-      <div class="hero-copy">
-        <h1>The Solar Grimoire</h1>
-        <p>A dark ephemeris for tracking the solar system barycenter: the shared center of mass that can move inside or
-          outside the Sun. Choose a time range and cadence to plot its path.</p>
+  <a class="skip-link" href="#observatory">Skip to observatory</a>
+  <div class="page-shell" id="top">
+    <header class="site-header">
+      <div class="utility-line">
+        <span><span class="signal-mark" aria-hidden="true">◉</span> Independent observation terminal</span>
+        <span class="utility-coordinate">SOL / BARYCENTRIC REFERENCE / 000</span>
+        <a href="#field-notes">Read the field notes ↗</a>
       </div>
-
-      <div class="ritual-panel">
-        <div class="status-container">
-          <div class="status-item">
-            <span class="status-label">Barycenter Status</span>
-            <span id="barycenterStatus" class="status-value">Reading...</span>
-          </div>
-          <div class="status-item">
-            <span class="status-label">Distance from Sun Center</span>
-            <span id="distanceFromSun" class="status-value">-- km</span>
-          </div>
-          <div class="status-item">
-            <span class="status-label">Last Updated</span>
-            <span id="lastUpdated" class="status-value">--</span>
-          </div>
-        </div>
-
-        <div class="controls-grid">
-          <div class="control-item">
-            <label for="startDate">Start Date</label>
-            <input type="date" id="startDate" min="1900-01-01" />
-          </div>
-          <div class="control-item">
-            <label for="endDate">End Date</label>
-            <input type="date" id="endDate" />
-          </div>
-          <div class="control-item">
-            <label for="stepSize">Sampling Cadence</label>
-            <select id="stepSize">
-              <option value="1d">Daily</option>
-              <option value="7d">Weekly</option>
-              <option value="1m">Monthly</option>
-              <option value="1y" selected>Annually</option>
-            </select>
-          </div>
-        </div>
-
-        <button id="updateButton">Update Ephemeris</button>
+      <div class="masthead">
+        <h1>ephemeris<span aria-hidden="true">.</span></h1>
+        <div class="masthead-stamp" aria-hidden="true"><span>☉</span>NO FIXED<br>CENTER</div>
       </div>
-    </section>
+      <div class="masthead-bottom">
+        <p>A record of things that refuse to stay still.</p>
+        <nav aria-label="In-page navigation">
+          <a href="#observatory">[01] Observe</a>
+          <a href="#signals">[02] Signals</a>
+          <a href="#field-notes">[03] Notes</a>
+        </nav>
+      </div>
+    </header>
 
-    <section class="charts-section">
-      <div class="chart-container chart-primary">
-        <h2>Barycenter Path Around the Sun</h2>
-        <div class="seal-layout">
-          <div class="orbit-panel">
-            <div class="orbit-toolbar" aria-label="Orbit chart controls">
-              <div class="orbit-toggle-controls">
-                <label class="toggle-control" for="orbitPathLines">
-                  <input type="checkbox" id="orbitPathLines" checked />
-                  <span>Connect path</span>
-                </label>
-                <fieldset class="node-color-controls">
-                  <legend>Color nodes</legend>
-                  <label>
-                    <input type="radio" name="orbitNodeColor" value="plain" checked />
-                    <span>Plain</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="orbitNodeColor" value="position" />
-                    <span>Position</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="orbitNodeColor" value="velocity" />
-                    <span>Velocity</span>
-                  </label>
-                  <label>
-                    <input type="radio" name="orbitNodeColor" value="acceleration" />
-                    <span>Acceleration</span>
-                  </label>
-                </fieldset>
+    <main>
+      <section class="introduction" aria-labelledby="intro-title">
+        <div class="intro-index"><span class="eyebrow">An inquiry into the invisible</span><span class="file-number">FILE: SSB—001</span></div>
+        <h2 id="intro-title">The center<br>does not hold.</h2>
+        <div class="intro-copy">
+          <p>Even the Sun moves around something we cannot see.</p>
+          <p>The solar system shares a center of mass. Sometimes it falls inside the Sun. Sometimes it slips beyond its edge. This terminal follows that point.</p>
+        </div>
+      </section>
+
+      <section class="observatory" id="observatory" aria-labelledby="observatory-title">
+        <div class="section-heading">
+          <h2 id="observatory-title"><span class="section-number">01 /</span> Barycenter observatory</h2>
+          <span class="section-aside">Nothing here is stationary.</span>
+        </div>
+        <div class="source-strip" id="sourceStrip" data-state="connecting" role="status">
+          <span class="source-state"><span class="source-dot" aria-hidden="true"></span><strong id="dataSource">Contacting Horizons</strong></span>
+          <span id="sourceDetail">Requesting ephemeris from NASA JPL.</span>
+        </div>
+        <noscript><p class="message">JavaScript is required to load ephemeris data and draw the charts.</p></noscript>
+        <div class="status-container" aria-live="polite">
+          <div class="status-item"><span class="status-label">Boundary condition</span><span id="barycenterStatus" class="status-value">Awaiting signal</span></div>
+          <div class="status-item"><span class="status-label">Distance from solar center</span><span id="distanceFromSun" class="status-value">— km</span></div>
+          <div class="status-item"><span class="status-label">Latest plotted epoch</span><span id="latestEpoch" class="status-value">—</span></div>
+        </div>
+        <form class="query-panel" id="queryForm">
+          <div class="query-label"><span class="eyebrow">Observation window</span><span>Set the bounds of your inquiry.</span></div>
+          <div class="controls-grid">
+            <div class="control-item"><label for="startDate">From</label><input type="date" id="startDate" min="1900-01-01" required /></div>
+            <span class="date-separator" aria-hidden="true">→</span>
+            <div class="control-item"><label for="endDate">To</label><input type="date" id="endDate" required /></div>
+            <div class="control-item"><label for="stepSize">Interval</label><select id="stepSize"><option value="1d">Daily</option><option value="7d">Weekly</option><option value="1m">Monthly</option><option value="1y" selected>Annually</option></select></div>
+          </div>
+          <button id="updateButton" type="submit">Trace the signal <span aria-hidden="true">↗</span></button>
+        </form>
+
+        <div class="chart-container orbit-container">
+          <div class="plot-heading"><h3><span class="plot-number">FIG. 01</span> A moving center</h3><span>X–Y PROJECTION / MILLION KM</span></div>
+          <div class="seal-layout">
+            <div class="orbit-panel">
+              <div class="orbit-toolbar" aria-label="Orbit chart controls">
+                <label class="toggle-control" for="orbitPathLines"><input type="checkbox" id="orbitPathLines" checked /><span>Connect path</span></label>
+                <div class="orbit-zoom-controls" aria-label="Orbit chart zoom controls">
+                  <button type="button" id="orbitZoomOut" title="Zoom out" aria-label="Zoom out">−</button>
+                  <button type="button" id="orbitZoomReset" title="Reset zoom">Reset</button>
+                  <button type="button" id="orbitZoomIn" title="Zoom in" aria-label="Zoom in">+</button>
+                </div>
               </div>
-              <div class="orbit-zoom-controls" aria-label="Orbit chart zoom controls">
-                <button type="button" id="orbitZoomOut" title="Zoom out" aria-label="Zoom out">-</button>
-                <button type="button" id="orbitZoomReset" title="Reset zoom" aria-label="Reset zoom">Reset</button>
-                <button type="button" id="orbitZoomIn" title="Zoom in" aria-label="Zoom in">+</button>
+              <div class="orbit-canvas-wrap"><canvas id="orbitChart" role="img" aria-label="Solar system barycenter path relative to the Sun. Exact values are in the coordinate ledger."></canvas></div>
+              <fieldset class="node-color-controls"><legend>Color nodes by</legend>
+                <label><input type="radio" name="orbitNodeColor" value="plain" checked /><span>None</span></label>
+                <label><input type="radio" name="orbitNodeColor" value="position" /><span>Position</span></label>
+                <label><input type="radio" name="orbitNodeColor" value="velocity" /><span>Velocity</span></label>
+                <label><input type="radio" name="orbitNodeColor" value="acceleration" /><span>Acceleration</span></label>
+              </fieldset>
+              <p class="plot-instructions">Drag to pan. Scroll to zoom. Select a point to follow its epoch across every chart.</p>
+            </div>
+            <aside class="observation-sidebar">
+              <div class="sidebar-note"><span class="eyebrow">Observer's note / 001</span><p>The circle is the Sun.<br>The line is its invisible counterweight.</p><span class="note-detail">Solar radius: 696,340 km<br>Origin: center of the Sun</span></div>
+              <div class="epoch-selector">
+                <label class="eyebrow" for="epochSelect">Inspect an epoch</label>
+                <select id="epochSelect" aria-describedby="epochHint"><option value="">All epochs</option></select>
+                <p id="epochHint">Select here, on the path, or in the ledger. Press Escape to clear.</p>
               </div>
-            </div>
-            <canvas id="orbitChart"></canvas>
+              <div class="data-ledger">
+                <div class="ledger-heading"><h4>Coordinate ledger</h4><span id="sampleCount">— samples</span></div>
+                <p class="ledger-units">km · km/s · km/s² <span aria-hidden="true">→</span></p>
+                <div class="ledger-table-wrap" tabindex="0" role="region" aria-label="Scrollable coordinate ledger">
+                  <table><thead><tr><th scope="col">Epoch</th><th scope="col">X</th><th scope="col">Y</th><th scope="col">Z</th><th scope="col">VX</th><th scope="col">VY</th><th scope="col">VZ</th><th scope="col">AX</th><th scope="col">AY</th><th scope="col">AZ</th><th scope="col">Boundary</th><th scope="col">Velocity</th><th scope="col">Accel.</th></tr></thead>
+                  <tbody id="barycenterLedger"><tr><td colspan="13">Awaiting the first transmission.</td></tr></tbody></table>
+                </div>
+              </div>
+            </aside>
           </div>
-          <div class="data-ledger" aria-live="polite">
-            <div class="ledger-heading">
-              <h3>Fetched Coordinates</h3>
-            </div>
-            <div class="ledger-table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th scope="col">Epoch</th>
-                    <th scope="col">X</th>
-                    <th scope="col">Y</th>
-                    <th scope="col">Z</th>
-                    <th scope="col">VX</th>
-                    <th scope="col">VY</th>
-                    <th scope="col">VZ</th>
-                    <th scope="col">AX</th>
-                    <th scope="col">AY</th>
-                    <th scope="col">AZ</th>
-                    <th scope="col">Boundary</th>
-                    <th scope="col">Velocity</th>
-                    <th scope="col">Accel.</th>
-                  </tr>
-                </thead>
-                <tbody id="barycenterLedger">
-                  <tr>
-                    <td colspan="13">Awaiting the first data load.</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+          <div class="plot-footer"><span>REFERENCE: SUN CENTER / TARGET: SOLAR SYSTEM BARYCENTER</span><span>Last received <time id="lastUpdated">—</time></span></div>
+        </div>
+      </section>
+
+      <section class="signals-section" id="signals" aria-labelledby="signals-title">
+        <div class="section-heading"><h2 id="signals-title"><span class="section-number">02 /</span> Traces &amp; transmissions</h2><span class="section-aside">One system. Several ways of looking.</span></div>
+        <div class="charts-section">
+          <div class="chart-container chart-primary"><div class="plot-heading"><h3><span class="plot-number">FIG. 02</span> Boundary crossings</h3><span>RADIAL STATE</span></div><div class="chart-frame timeline-frame"><canvas id="radialStateChart" role="img" aria-label="Timeline of the barycenter's boundary, velocity direction, and acceleration direction. Values are in the coordinate ledger."></canvas></div><p class="chart-caption">Inside or outside the Sun. Moving toward or away. Acceleration is calculated from successive velocity samples.</p></div>
+          <div class="chart-container"><div class="plot-heading"><h3><span class="plot-number">FIG. 03</span> Position</h3><span>KM</span></div><div class="chart-frame"><canvas id="positionChart" role="img" aria-label="X, Y, and Z position over time. Values are in the coordinate ledger."></canvas></div></div>
+          <div class="chart-container"><div class="plot-heading"><h3><span class="plot-number">FIG. 04</span> Velocity</h3><span>KM/S</span></div><div class="chart-frame"><canvas id="velocityChart" role="img" aria-label="X, Y, and Z velocity over time. Values are in the coordinate ledger."></canvas></div></div>
+          <div class="chart-container chart-primary"><div class="plot-heading"><h3><span class="plot-number">FIG. 05</span> Acceleration</h3><span>KM/S² · DERIVED</span></div><div class="chart-frame"><canvas id="accelerationChart" role="img" aria-label="Derived X, Y, and Z acceleration over time. Values are in the coordinate ledger."></canvas></div></div>
+        </div>
+      </section>
+
+      <section class="field-notes" id="field-notes" aria-labelledby="notes-title">
+        <div class="section-heading"><h2 id="notes-title"><span class="section-number">03 /</span> Field notes</h2><span class="section-aside">Keep looking. Check the source.</span></div>
+        <div class="notes-grid">
+          <div class="notes-intro"><span class="eyebrow">Regarding the apparent order of things</span><p>There is no<br>privileged point.</p><span class="note-detail">An independent instrument.<br>An unfinished investigation.</span></div>
+          <div class="notes-entries">
+            <details open><summary><span>01</span> What are we actually looking at?</summary><p>The barycenter is the shared center of mass of the solar system. The planets pull on the Sun, too. Their changing positions move this point relative to the Sun's center, at times beyond its surface. The orbital view is a two-dimensional projection; boundary status uses all three coordinates.</p></details>
+            <details><summary><span>02</span> Where does the signal come from?</summary><p>Ephemerides are requested from NASA JPL's <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" rel="noopener noreferrer">Horizons system ↗</a>, using the solar system barycenter as the target and the Sun's center as the origin. These are computed ephemerides, rather than a live telescope feed. The status strip identifies the source of the displayed data.</p></details>
+            <details><summary><span>03</span> What happens when contact is lost?</summary><p>If the request fails, the terminal displays a simplified simulation, explicitly marked as demonstration data. It is not suitable for astronomical conclusions. The latest plotted epoch may precede the end of your window, depending on the chosen sampling interval.</p></details>
           </div>
         </div>
-      </div>
-
-      <div class="chart-container chart-primary">
-        <h2>Radial State Timeline</h2>
-        <canvas id="radialStateChart"></canvas>
-      </div>
-
-      <div class="chart-container">
-        <h2>Position by Axis</h2>
-        <canvas id="positionChart"></canvas>
-      </div>
-
-      <div class="chart-container">
-        <h2>Velocity by Axis</h2>
-        <canvas id="velocityChart"></canvas>
-      </div>
-
-      <div class="chart-container">
-        <h2>Acceleration by Axis</h2>
-        <canvas id="accelerationChart"></canvas>
-      </div>
-    </section>
-
-  </main>
+      </section>
+    </main>
+    <footer class="site-footer"><a href="#top">EPHEMERIS / RETURN TO ORIGIN ↑</a><span>The signal continues whether or not you are watching.</span><span aria-hidden="true">[ END OF RECORD ]</span></footer>
+  </div>
   <script src="script.js"></script>
 </body>
-
 </html>

@@ -7,15 +7,15 @@ const HORIZONS_API_ENDPOINT = new URL(portfolioPreview ? '/api/ephemeris/horizon
   location.hostname.endsWith('.netlify.app') || ['localhost', '127.0.0.1'].includes(location.hostname)
     ? location.origin : 'https://kvnchpl-ephemeris.netlify.app').href;
 const chartTheme = {
-  text: '#d6d6d6',
-  muted: '#b8b8b8',
-  grid: 'rgba(216, 180, 91, 0.18)',
-  tooltipBg: 'rgba(0, 0, 0, 0.96)',
-  tooltipBorder: 'rgba(216, 180, 91, 0.75)',
-  gold: '#d8b45b',
-  bone: '#b8b8b8',
-  red: '#c44949',
-  green: '#74b36a'
+  text: '#dadbd1',
+  muted: '#9ba294',
+  grid: 'rgba(155, 162, 148, 0.13)',
+  tooltipBg: 'rgba(16, 17, 16, 0.97)',
+  tooltipBorder: '#727b62',
+  gold: '#c6d0ac',
+  bone: '#dadbd1',
+  red: '#e36955',
+  green: '#b4c699'
 };
 
 // DOM elements
@@ -23,6 +23,13 @@ const updateButton = document.getElementById('updateButton');
 const barycenterStatus = document.getElementById('barycenterStatus');
 const distanceFromSun = document.getElementById('distanceFromSun');
 const lastUpdated = document.getElementById('lastUpdated');
+const latestEpoch = document.getElementById('latestEpoch');
+const sourceStrip = document.getElementById('sourceStrip');
+const dataSource = document.getElementById('dataSource');
+const sourceDetail = document.getElementById('sourceDetail');
+const sampleCount = document.getElementById('sampleCount');
+const epochSelect = document.getElementById('epochSelect');
+const queryForm = document.getElementById('queryForm');
 const startDateInput = document.getElementById('startDate');
 const endDateInput = document.getElementById('endDate');
 const stepSizeInput = document.getElementById('stepSize');
@@ -248,6 +255,14 @@ const selectedDateMarkerPlugin = {
 
 // Initialize charts
 function initCharts() {
+  Chart.defaults.font.family = '"Courier New", Courier, monospace';
+  Chart.defaults.animation = false;
+  Chart.defaults.elements.line.borderWidth = 1.25;
+  Chart.defaults.onResize = (chart, size) => {
+    if (chart.config.type === 'line') {
+      chart.options.scales.x.ticks.maxTicksLimit = size.width < 500 ? 3 : 8;
+    }
+  };
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
@@ -283,7 +298,7 @@ function initCharts() {
         padding: 12,
         displayColors: true,
         callbacks: {
-          label: (context) => `${context.dataset.label}: ${context.parsed.y.toLocaleString('en-US', { maximumFractionDigits: 2 })}`
+          label: (context) => `${context.dataset.label}: ${context.parsed.y !== 0 && Math.abs(context.parsed.y) < 0.001 ? context.parsed.y.toExponential(2) : context.parsed.y.toLocaleString('en-US', { maximumFractionDigits: 3 })}`
         }
       }
     },
@@ -310,13 +325,14 @@ function initCharts() {
             size: 11
           },
           callback: (value) => {
+            if (value !== 0 && Math.abs(value) < 0.001) return value.toExponential(1);
             if (Math.abs(value) >= 1000000) {
               return `${(value / 1000000).toFixed(1)}M`;
             }
             if (Math.abs(value) >= 1000) {
               return `${(value / 1000).toFixed(0)}k`;
             }
-            return value;
+            return Number(value.toPrecision(4));
           }
         },
         grid: {
@@ -330,7 +346,7 @@ function initCharts() {
         hoverRadius: 4
       },
       line: {
-        borderWidth: 2,
+        borderWidth: 1.25,
         tension: 0.35
       }
     }
@@ -427,7 +443,7 @@ function initCharts() {
           tension: 0
         },
         {
-          label: 'Current Barycenter',
+          label: 'Latest Plotted Epoch',
           data: [],
           borderColor: chartTheme.red,
           backgroundColor: chartTheme.red,
@@ -664,7 +680,8 @@ async function fetchHorizonsData(command, startTime, stopTime, stepSize = '1d') 
     console.debug(`[${getLogTimestamp()}] Fetching real NASA Horizons data...`);
 
     const response = await fetch(url, {
-      method: 'GET'
+      method: 'GET',
+      signal: AbortSignal.timeout(20000)
     });
 
     if (!response.ok) {
@@ -1202,6 +1219,7 @@ function updateChartSelection() {
     orbitChart.update('none');
   }
 
+  epochSelect.value = selectedDate || '';
   updateLedgerSelection();
 }
 
@@ -1217,6 +1235,13 @@ function clearDateSelection() {
 }
 
 function setupDateSelectionControls() {
+  epochSelect.addEventListener('change', () => {
+    if (epochSelect.value) selectDate(epochSelect.value);
+    else clearDateSelection();
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') clearDateSelection();
+  });
   [positionChart, velocityChart, accelerationChart, radialStateChart, orbitChart].forEach((chart) => {
     chart.canvas.addEventListener('click', (event) => {
       if (chart === orbitChart && orbitDidPan) {
@@ -1310,8 +1335,10 @@ function updateBarycenterStatus(data) {
 
   distanceFromSun.textContent = `${distance.toLocaleString('en-US', { maximumFractionDigits: 0 })} km`;
 
+  latestEpoch.textContent = latest.date;
   const now = new Date();
-  lastUpdated.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  lastUpdated.dateTime = now.toISOString();
+  lastUpdated.textContent = `${now.toISOString().slice(11, 19)} UTC`;
 }
 
 // Update charts with new data
@@ -1340,10 +1367,10 @@ function updateCharts(data) {
     z: data.map(d => d.acceleration?.z || 0)
   };
   const radialStates = data.map(getRadialState);
-  const insideColor = 'rgba(116, 179, 106, 0.14)';
-  const outsideColor = 'rgba(196, 73, 73, 0.14)';
-  const towardColor = 'rgba(184, 184, 184, 0.12)';
-  const awayColor = 'rgba(216, 180, 91, 0.14)';
+  const insideColor = 'rgba(180, 198, 153, 0.07)';
+  const outsideColor = 'rgba(227, 105, 85, 0.08)';
+  const towardColor = 'rgba(218, 219, 209, 0.05)';
+  const awayColor = 'rgba(198, 208, 172, 0.08)';
 
   positionChart.$stateBands = buildStateBands(
     radialStates,
@@ -1430,53 +1457,57 @@ function updateCharts(data) {
   updateChartSelection();
 }
 
-// Main update function
+function setDataSource(state, label, detail) {
+  sourceStrip.dataset.state = state;
+  dataSource.textContent = label;
+  sourceDetail.textContent = detail;
+}
+
+// Update the plot and its provenance together so demonstration data is never
+// presented as a NASA ephemeris, including after a failed refresh.
 async function updateBarycenterData() {
+  if (updateButton.disabled || !queryForm.reportValidity()) return;
+  updateButton.disabled = true;
+  updateButton.textContent = 'Receiving…';
+  setDataSource('connecting', 'Contacting Horizons', barycenterData.length
+    ? 'Request in progress. The previous record remains below.'
+    : 'Requesting ephemeris from NASA JPL.');
+
   try {
-    updateButton.disabled = true;
-    updateButton.textContent = 'Loading...';
+    const startTime = startDateInput.value;
+    const stopTime = endDateInput.value;
+    const stepSize = stepSizeInput.value;
+    let nextData;
+    let isSimulation = false;
 
-    const startTime = startDateInput.value || '1900-01-01';
-    const stopTime = endDateInput.value || new Date().toISOString().split('T')[0];
-    const stepSize = stepSizeInput.value || '1y';
-
-    // Use simulated data as a safe fallback before attempting real data
-    barycenterData = generateSimulatedData(startTime, stopTime, stepSize);
-
-    // Try to fetch real data as enhancement (may fail due to CORS)
-    // Use a timeout so the app doesn't hang if all proxies are slow
     try {
-      const barycenterResponse = await fetchHorizonsData('0', startTime, stopTime, stepSize);
-      console.debug(`[${getLogTimestamp()}] Raw API response received, parsing...`);
-
-      const realData = parseHorizonsData(barycenterResponse);
-      console.debug(`[${getLogTimestamp()}] Parsed real data points:`, realData.length);
-
-      if (realData && realData.length > 0) {
-        barycenterData = realData;
-        console.log(`[${getLogTimestamp()}] ✓ Successfully loaded real NASA Horizons data!`);
-      } else {
-        console.log(`[${getLogTimestamp()}] Parsed data was empty, using simulated data`);
-      }
+      const response = await fetchHorizonsData('0', startTime, stopTime, stepSize);
+      nextData = parseHorizonsData(response).filter(entry =>
+        Number.isFinite(entry.jd) && [entry.position, entry.velocity].every(vector =>
+          ['x', 'y', 'z'].every(axis => Number.isFinite(vector[axis]))));
+      if (!nextData.length) throw new Error('No valid ephemeris samples returned');
     } catch (apiError) {
-      console.log(`[${getLogTimestamp()}] ✗ Real NASA data unavailable (Netlify function error), using simulated data:`, apiError.message);
+      console.info(`[${getLogTimestamp()}] Horizons unavailable; displaying demonstration data:`, apiError.message);
+      nextData = generateSimulatedData(startTime, stopTime, stepSize);
+      isSimulation = true;
     }
+    if (!nextData.length) throw new Error('No samples in this observation window');
 
-    barycenterData = calculateAcceleration(barycenterData);
-
-    // Update UI
+    barycenterData = calculateAcceleration(nextData);
+    epochSelect.replaceChildren(new Option('All epochs', ''), ...barycenterData.map(entry => new Option(entry.date, entry.date)));
+    sampleCount.textContent = `${barycenterData.length.toLocaleString('en-US')} samples`;
     updateBarycenterStatus(barycenterData);
     updateCharts(barycenterData);
     renderBarycenterLedger(barycenterData);
-
-    updateButton.textContent = 'Update Ephemeris';
-    updateButton.disabled = false;
-
+    setDataSource(isSimulation ? 'simulation' : 'nasa',
+      isSimulation ? 'Simulation / demonstration only' : 'NASA JPL / Horizons',
+      isSimulation ? 'Horizons unavailable. Simplified model; not an astronomical ephemeris.'
+        : 'Computed ephemeris · SSB relative to Sun · epochs in TDB');
   } catch (error) {
     console.error(`[${getLogTimestamp()}] Error updating data:`, error);
-    barycenterStatus.textContent = 'Unable to load data';
-    barycenterStatus.style.color = chartTheme.red;
-    updateButton.textContent = 'Retry';
+    setDataSource('error', 'Record unavailable', 'The request could not be completed. Adjust the window and try again.');
+  } finally {
+    updateButton.innerHTML = 'Trace the signal <span aria-hidden="true">↗</span>';
     updateButton.disabled = false;
   }
 }
@@ -1484,7 +1515,7 @@ async function updateBarycenterData() {
 // Initialize on page load
 function setDefaultDateControls() {
   const today = new Date();
-  const formattedToday = today.toISOString().split('T')[0];
+  const formattedToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
   startDateInput.min = '1900-01-01';
   startDateInput.max = formattedToday;
@@ -1511,6 +1542,11 @@ function clampDateControls() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (typeof Chart === 'undefined') {
+    setDataSource('error', 'Chart library unavailable', 'The plotting library could not load. Check your connection and reload the page.');
+    updateButton.disabled = true;
+    return;
+  }
   initCharts();
   setupOrbitZoomControls();
   setupDateSelectionControls();
@@ -1528,4 +1564,7 @@ endDateInput.addEventListener('change', () => {
 });
 
 // Event listeners
-updateButton.addEventListener('click', updateBarycenterData);
+queryForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  updateBarycenterData();
+});
