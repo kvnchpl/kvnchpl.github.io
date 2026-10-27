@@ -3,6 +3,8 @@ import {resolve, dirname, posix} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateFieldRecord} from '../lib/field-record.mjs';
 import runtime from './runtime.cjs';
+import {createHash} from 'node:crypto';
+import {validateFieldTimings} from '../lib/field-timings.mjs';
 
 export async function validateSite(root=resolve(dirname(fileURLToPath(import.meta.url)),'..')) {
   const files=runtime.runtimeFiles(root), published=new Set(files);
@@ -21,6 +23,8 @@ export async function validateSite(root=resolve(dirname(fileURLToPath(import.met
     const source=await readFile(resolve(root,file),'utf8');
     for (const match of source.matchAll(/\bfrom\s+['"]([^'"]+)['"]/g)) checkLink(file,match[1]);
   }
-  const record=validateFieldRecord(JSON.parse(await readFile(resolve(root,'field-year.json'),'utf8')));
-  return {files,record};
+  const raw=await readFile(resolve(root,'field-year.json'),'utf8');
+  const record=validateFieldRecord(JSON.parse(raw));
+  const timings=validateFieldTimings(JSON.parse(await readFile(resolve(root,'field-transits.json'),'utf8')),record,createHash('sha256').update(raw).digest('hex'));
+  return {files,record,timings};
 }

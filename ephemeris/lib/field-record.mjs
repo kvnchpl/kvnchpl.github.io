@@ -42,17 +42,9 @@ export function validateFieldRecord(record) {
   requireValue(Array.isArray(samples) && samples.length >= 2 && samples.length === m.sample_count, 'sample count');
   requireValue(samples[0].date === m.start && samples.at(-1).date === m.stop, 'sample endpoints');
   requireValue((Date.parse(m.stop)-Date.parse(m.start))/86400000 === samples.length-1, 'daily calendar span');
-  const scalars = ['jd_tdb','g_norm','planet_g_norm','tide_span','planet_tide_span','sun_moon_axis_deg','barycenter_km','barycenter_rdot_km_s','axis_gap_fraction'];
-  samples.forEach((s, index) => {
-    requireValue(day(s.date) && scalars.every(key => Number.isFinite(s[key])), 'sample values at '+index);
-    if (index) requireValue(s.date > samples[index-1].date && close(s.jd_tdb-samples[index-1].jd_tdb,1), 'epoch alignment at '+index);
-    requireValue(finiteVector(s.g,3) && finiteVector(s.tidal_tensor,6) && finiteVector(s.eigenvalues,3) && finiteVector(s.principal_axis,3), 'vector/tensor at '+index);
-    requireValue(close(Math.hypot(...s.g),s.g_norm) && close(Math.hypot(...s.principal_axis),1), 'field magnitude/axis at '+index);
-    const [lo, mid, hi] = s.eigenvalues;
-    requireValue(lo <= mid && mid <= hi && lo < 0 && hi > 0 && close(hi-lo,s.tide_span), 'eigenvalue order/span at '+index);
-    requireValue(s.sun_moon_axis_deg >= 0 && s.sun_moon_axis_deg <= 90 && s.axis_gap_fraction >= 0 && s.axis_gap_fraction <= 1, 'axis range at '+index);
-    requireValue(s.barycenter_km > 0 && s.planet_tide_span >= 0 && s.planet_g_norm >= 0, 'distance/planet values at '+index);
-    requireValue(Array.isArray(s.bodies) && s.bodies.length === m.bodies.length && s.bodies.every(v => finiteVector(v,3) && v.every(x => x > 0)), 'body values at '+index);
+  samples.forEach((s,index)=>{
+    validateFieldSample(s,m,index);
+    if(index)requireValue(s.date>samples[index-1].date && close(s.jd_tdb-samples[index-1].jd_tdb,1),'epoch alignment at '+index);
   });
   requireValue(Array.isArray(events), 'transit catalog');
   const counts = {};
@@ -72,4 +64,17 @@ export function validateFieldRecord(record) {
     requireValue(range && close(range.min,low[key]) && close(range.max,high[key]) && range.min_date === low.date && range.max_date === high.date, 'summary range '+key);
   }
   return record;
+}
+
+export function validateFieldSample(s, m, index="event") {
+  const scalars = ['jd_tdb','g_norm','planet_g_norm','tide_span','planet_tide_span','sun_moon_axis_deg','barycenter_km','barycenter_rdot_km_s','axis_gap_fraction'];
+  requireValue(day(s.date) && scalars.every(key => Number.isFinite(s[key])), 'sample values at '+index);
+  requireValue(finiteVector(s.g,3) && finiteVector(s.tidal_tensor,6) && finiteVector(s.eigenvalues,3) && finiteVector(s.principal_axis,3), 'vector/tensor at '+index);
+  requireValue(close(Math.hypot(...s.g),s.g_norm) && close(Math.hypot(...s.principal_axis),1), 'field magnitude/axis at '+index);
+  const [lo, mid, hi] = s.eigenvalues;
+  requireValue(lo <= mid && mid <= hi && lo < 0 && hi > 0 && close(hi-lo,s.tide_span), 'eigenvalue order/span at '+index);
+  requireValue(s.sun_moon_axis_deg >= 0 && s.sun_moon_axis_deg <= 90 && s.axis_gap_fraction >= 0 && s.axis_gap_fraction <= 1, 'axis range at '+index);
+  requireValue(s.barycenter_km > 0 && s.planet_tide_span >= 0 && s.planet_g_norm >= 0, 'distance/planet values at '+index);
+  requireValue(Array.isArray(s.bodies) && s.bodies.length === m.bodies.length && s.bodies.every(v => finiteVector(v,3) && v.every(x => x > 0)), 'body values at '+index);
+  return s;
 }

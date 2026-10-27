@@ -13,13 +13,13 @@ function run(command,args,settings={}) {
 (async()=>{
   for (const option of options) if (!['--browser','--research'].includes(option)) throw new Error('Unknown option: '+option);
   const {validateSite}=await import(pathToFileURL(path.join(__dirname,'validate.mjs')));
-  const {files,record}=await validateSite(root);
+  const {files,record,timings}=await validateSite(root);
   for (const file of files.filter(file=>/\.(mjs|js)$/.test(file))) {
     const result=spawnSync(process.execPath,['--input-type=module','--check'],{input:fs.readFileSync(path.join(root,file)),encoding:'utf8'});
     if (result.status!==0) throw new Error(file+': '+result.stderr);
   }
   for (const file of fs.readdirSync(__dirname).filter(file=>/\.(mjs|cjs)$/.test(file))) run(process.execPath,['--check',path.join(__dirname,file)]);
-  console.log('Runtime preflight: '+files.length+' assets, '+record.samples.length+' epochs, '+record.events.length+' transits.');
+  console.log('Runtime preflight: '+files.length+' assets, '+record.samples.length+' epochs, '+record.events.length+' daily markers, '+timings.events.length+' timed events.');
   const tests=path.join(root,'tests');
   if (fs.existsSync(tests)) {
     const files=fs.readdirSync(tests).filter(file=>file.endsWith('.test.mjs')).map(file=>path.join(tests,file));
@@ -28,7 +28,7 @@ function run(command,args,settings={}) {
   if (options.has('--research')) {
     const python=process.env.EPHEMERIS_PYTHON || path.join(root,'research/.venv/bin/python3');
     if (!fs.existsSync(python)) throw new Error('Set EPHEMERIS_PYTHON or create research/.venv using research/requirements.txt.');
-    for (const prototype of ['phase-prototype','field-prototype']) run(python,['-m','unittest','discover','-s',path.join(root,'research',prototype),'-p','test_*.py']);
+    for (const prototype of ['phase-prototype','field-prototype','timing-prototype']) run(python,['-m','unittest','discover','-s',path.join(root,'research',prototype),'-p','test_*.py']);
   }
   if (options.has('--browser')) {
     const file=path.join(tests,'browser.cjs');
