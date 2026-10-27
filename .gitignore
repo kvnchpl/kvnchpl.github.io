@@ -77,6 +77,7 @@ json/field.json
 /jungle/zine_graph.png
 /each-all/scripts/*
 !/each-all/scripts/build.cjs
+!/each-all/scripts/runtime.cjs
 
 # Project build caches and credentials.
 **/.netlify/

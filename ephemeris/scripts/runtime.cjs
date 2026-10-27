@@ -1,4 +1,4 @@
-// Publication boundary for the standalone site, not the research tree.
+// Shared publication boundary for the standalone and portfolio builds.
 const fs = require('node:fs');
 const path = require('node:path');
 function runtimeFiles(root) {
@@ -6,4 +6,7 @@ function runtimeFiles(root) {
     'vendor/chart.umd-4.6.1.js','vendor/chartjs-LICENSE.txt',
     ...fs.readdirSync(path.join(root,'lib')).filter(name => name.endsWith('.mjs')).sort().map(name => 'lib/'+name)];
 }
-module.exports = {runtimeFiles};
+function isRuntimeFile(file, root=path.resolve(__dirname,'..')) {
+  return runtimeFiles(root).includes(file);
+}
+module.exports = {runtimeFiles, isRuntimeFile};

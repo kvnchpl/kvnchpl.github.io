@@ -1,0 +1,9 @@
+[
+  {"directory":"jungle","visibility":"listed","entry":"index.html","publicPaths":["index.html","404.html","favicon.ico","0/","a/","css/","js/"]},
+  {"directory":"each-all","visibility":"listed","entry":"index.html","runtimeModule":"each-all/scripts/runtime.cjs"},
+  {"directory":"exp","visibility":"unlisted","entry":"index.html","publicPaths":["index.html","nowhere.html","favicon.ico","0/","a/","css/","js/","json/"]},
+  {"directory":"trellis","visibility":"unlisted","entry":"index.html","publicPaths":["index.html","favicon.ico","config.json","assets/","data/","script/","style/"]},
+  {"directory":"desire-path","visibility":"unlisted","entry":"index.html","publicPaths":["index.html","css/","js/","data/","media/","vendor/"]},
+  {"directory":"ephemeris","visibility":"unlisted","entry":"index.html","runtimeModule":"ephemeris/scripts/runtime.cjs"},
+  {"directory":"homestuck-book-club","visibility":"linked","entry":"index.html","publicPaths":["index.html","script.js","styles.css","reference-data.js","assets/","recaps/","reference/","schedule/"]}
+]

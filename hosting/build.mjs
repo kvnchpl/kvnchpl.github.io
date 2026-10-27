@@ -4,10 +4,11 @@ import {matchesGlob, resolve, dirname} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {legacyPages, normalizeSiteUrl} from '../js/navigation.js';
 import junglePaths from './jungle-paths.json' with {type: 'json'};
+import {projects, isProjectPath} from './projects.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const publishDirectory = resolve(root, '.netlify/portfolio');
-const publicFolders = new Set(['0', 'a', 'css', 'js', 'json', 'specter', 'jungle', 'each-all', 'exp', 'trellis', 'desire-path', 'ephemeris', 'homestuck-book-club']);
+const publicFolders = new Set(['0', 'a', 'css', 'js', 'json', 'specter', ...projects.map(project => project.directory)]);
 const publicRootFiles = new Set(['index.html', '404.html', 'favicon.ico', 'robots.txt', 'sitemap.xml']);
 
 // _config.yml deliberately uses only an exclude list of scalar path patterns.
@@ -30,7 +31,13 @@ export function isPublicFile(file, exclusions) {
     const parts = file.split('/');
     if (parts.some(part => part.startsWith('.') || part === '..')) return false;
     if (!(publicRootFiles.has(file) || (parts.length > 1 && publicFolders.has(parts[0])))) return false;
-    return !parts.some((_, index) => {
+    if (!isProjectPath(file)) return false;
+    return !isExcluded(file, exclusions);
+}
+
+function isExcluded(file, exclusions) {
+    const parts = file.split('/');
+    return parts.some((_, index) => {
         const ancestor = parts.slice(0, index + 1).join('/');
         return exclusions.some(pattern => matchesGlob(ancestor, pattern)
             || (!pattern.includes('/') && matchesGlob(parts[index], pattern)));
@@ -115,7 +122,7 @@ export function headerRules(environment = process.env) {
     const lines = [];
     const isProduction = environment.CONTEXT === 'production' && environment.URL?.replace(/\/$/, '') === 'https://kvnchpl.com';
     if (!isProduction) lines.push('/*', '  X-Robots-Tag: noindex, nofollow', '');
-    for (const folder of ['exp', 'trellis', 'desire-path', 'ephemeris']) {
+    for (const {directory: folder} of projects.filter(project => project.visibility === 'unlisted')) {
         lines.push(`/${folder}`, '  X-Robots-Tag: noindex, nofollow', '', `/${folder}/*`, '  X-Robots-Tag: noindex, nofollow', '');
     }
     return `${lines.join('\n')}\n`;
@@ -144,7 +151,7 @@ export async function buildPortfolio() {
             const file = directory ? `${directory}/${entry.name}` : entry.name;
             if (entry.name.startsWith('.')) continue;
             if (entry.isDirectory()) {
-                if (publicFolders.has(file) || (directory && isPublicFile(`${file}/placeholder`, exclusions))) await collect(file);
+                if (publicFolders.has(file) || (directory && !isExcluded(`${file}/placeholder`, exclusions) && isProjectPath(file, {directory: true}))) await collect(file);
             } else if (isPublicFile(file, exclusions)) {
                 if (!entry.isFile()) throw new Error(`Refusing non-file publishing input: ${file}`);
                 files.push(file);
