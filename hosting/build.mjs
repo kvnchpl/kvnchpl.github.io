@@ -92,11 +92,12 @@ export function headerRules(environment = process.env) {
 
 // Netlify's static redirect matcher normalizes trailing slashes. A small edge
 // redirect preserves directory-relative links without altering any HTML files.
-export function bookClubDirectoryRedirect(files) {
-    const paths = files.filter(file => file.startsWith('homestuck-book-club/') && file.endsWith('/index.html'))
+export function directoryIndexRedirect(files) {
+    const paths = files.filter(file => file === 'ephemeris/index.html'
+        || (file.startsWith('homestuck-book-club/') && file.endsWith('/index.html')))
         .map(file => `/${file.slice(0, -11)}`).sort();
     if (!paths.includes('/homestuck-book-club')) throw new Error('Missing book-club entry point');
-    return `// Generated from the published book-club directory indexes. No content proxy.\nconst directories = new Set(${JSON.stringify(paths)});\nexport default function handler(request) {\n    const url = new URL(request.url);\n    if (!['GET', 'HEAD'].includes(request.method) || !directories.has(url.pathname)) return;\n    url.pathname += '/';\n    return new Response(null, {status: 301, headers: {Location: url.href}});\n}\nexport const config = {path: [...directories]};\n`;
+    return `// Generated from published directory indexes. No content proxy.\nconst directories = new Set(${JSON.stringify(paths)});\nexport default function handler(request) {\n    const url = new URL(request.url);\n    if (!['GET', 'HEAD'].includes(request.method) || !directories.has(url.pathname)) return;\n    url.pathname += '/';\n    return new Response(null, {status: 301, headers: {Location: url.href}});\n}\nexport const config = {path: [...directories]};\n`;
 }
 
 export async function buildPortfolio() {
@@ -137,7 +138,10 @@ export async function buildPortfolio() {
     const edgeDirectory = resolve(root, '.netlify/portfolio-edge-functions');
     if ((await lstat(edgeDirectory).catch(error => error.code === 'ENOENT' ? null : Promise.reject(error)))?.isSymbolicLink()) throw new Error('Refusing linked edge directory');
     await mkdir(edgeDirectory, {recursive: true});
-    await writeFile(resolve(edgeDirectory, 'book-club-slashes.js'), bookClubDirectoryRedirect(files));
+    // Remove the retired generated entry so a reused build directory cannot
+    // deploy duplicate handlers for the book-club routes.
+    await rm(resolve(edgeDirectory, 'book-club-slashes.js'), {force: true});
+    await writeFile(resolve(edgeDirectory, 'directory-slashes.js'), directoryIndexRedirect(files));
     await rm(publishDirectory, {recursive: true, force: true});
     await rename(staging, publishDirectory);
     console.log(`Packaged ${files.length} public files and ${Object.keys(works).length} legacy work destinations in .netlify/portfolio.`);

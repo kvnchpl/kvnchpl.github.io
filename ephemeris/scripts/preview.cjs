@@ -15,7 +15,7 @@ function createPreviewServer({siteRoot=root, handler=require('../netlify/functio
         res.end(req.method==='HEAD'?undefined:result.body);return;
       }
       if (!['GET','HEAD'].includes(req.method)) {res.writeHead(405,{Allow:'GET, HEAD'});res.end();return;}
-      if (url.pathname==='/') {res.writeHead(302,{Location:'/ephemeris/'});res.end();return;}
+      if (url.pathname==='/' || url.pathname==='/ephemeris') {res.writeHead(url.pathname==='/'?302:301,{Location:'/ephemeris/'+url.search});res.end();return;}
       const pathname=decodeURIComponent(url.pathname);
       const file=pathname.startsWith('/ephemeris/')?pathname.slice('/ephemeris/'.length)||'index.html':'';
       const published=new Set(runtimeFiles(siteRoot));
