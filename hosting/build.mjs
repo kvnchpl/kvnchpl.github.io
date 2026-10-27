@@ -3,6 +3,7 @@ import {copyFile, lstat, mkdir, readFile, readdir, rename, rm, writeFile} from '
 import {matchesGlob, resolve, dirname} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 import {legacyPages, normalizeSiteUrl} from '../js/navigation.js';
+import junglePaths from './jungle-paths.json' with {type: 'json'};
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const publishDirectory = resolve(root, '.netlify/portfolio');
@@ -36,7 +37,7 @@ export function isPublicFile(file, exclusions) {
     });
 }
 
-export function redirectRules(works, mediaNames) {
+export function redirectRules(works, mediaNames, junglePages = Object.values(junglePaths.pages)) {
     // _redirects runs before netlify.toml: canonical hosts must precede rewrites.
     const lines = [
         '# Canonical hosts must precede the extensionless work rewrites.',
@@ -89,6 +90,22 @@ export function redirectRules(works, mediaNames) {
         ['/jungle/jungle.css', '/jungle/css/jungle.css'],
         ['/jungle/jungle.js', '/jungle/js/jungle.js']
     ]) add(from, to);
+    lines.push('', '# Jungle keeps its previous numbered pages and descriptive asset URLs.');
+    for (const [from, to] of Object.entries(junglePaths.pages)) {
+        if (!/^\d{5}$/.test(from) || !/^[a-z0-9]{5}$/.test(to)) throw new Error('Invalid Jungle page mapping');
+        add(`/jungle/0/${from}.html`, `/jungle/0/${to}.html`);
+        add(`/jungle/0/${from}`, `/jungle/0/${to}`);
+    }
+    for (const [from, to] of Object.entries(junglePaths.assets)) add(`/jungle/${from}`, `/jungle/${to}`);
+    for (const [from, to] of Object.entries(junglePaths.players)) {
+        add(`/jungle/${from}`, `/jungle/${to}/`);
+        add(`/jungle/${from}/*`, `/jungle/${to}/:splat`);
+    }
+    // Preserve the zine's extensionless links with Pretty URLs disabled.
+    for (const to of junglePages) {
+        if (!/^[a-z0-9]{5}$/.test(to) || Object.hasOwn(junglePaths.pages, to)) throw new Error('Invalid or retired Jungle page ID');
+        lines.push(`/jungle/0/${to} /jungle/0/${to}.html 200`);
+    }
     lines.push('', '# Serve extensionless work URLs without changing the address.');
     for (const to of new Set(Object.values(works))) lines.push(`${to} ${to}.html 200`);
     return `${lines.join('\n')}\n`;
@@ -108,6 +125,7 @@ export function headerRules(environment = process.env) {
 // redirect preserves directory-relative links without altering any HTML files.
 export function directoryIndexRedirect(files) {
     const paths = files.filter(file => file === 'ephemeris/index.html'
+        || (file.startsWith('jungle/a/m/') && file.endsWith('/index.html'))
         || (file.startsWith('homestuck-book-club/') && file.endsWith('/index.html')))
         .map(file => `/${file.slice(0, -11)}`).sort();
     if (!paths.includes('/homestuck-book-club')) throw new Error('Missing book-club entry point');
@@ -134,6 +152,18 @@ export async function buildPortfolio() {
         }
     }
     await collect();
+    const junglePages = files.filter(file => file.startsWith('jungle/0/') && file.endsWith('.html')).map(file => {
+        const match = file.match(/^jungle\/0\/([a-z0-9]{5})\.html$/);
+        if (!match) throw new Error(`Invalid Jungle page filename: ${file}`);
+        return match[1];
+    }).sort();
+    for (const destination of [
+        ...Object.values(junglePaths.pages).map(id => `0/${id}.html`),
+        ...Object.values(junglePaths.assets),
+        ...Object.values(junglePaths.players).map(directory => `${directory}/index.html`)
+    ]) {
+        if (!files.includes(`jungle/${destination}`)) throw new Error(`Missing Jungle redirect destination: ${destination}`);
+    }
     for (const to of Object.values(works)) {
         if (!files.includes(`${to.slice(1)}.html`)) throw new Error(`Missing redirect destination: ${to}`);
     }
@@ -147,7 +177,7 @@ export async function buildPortfolio() {
         await mkdir(dirname(destination), {recursive: true});
         await copyFile(resolve(root, file), destination);
     }
-    await writeFile(resolve(staging, '_redirects'), redirectRules(works, mediaNames));
+    await writeFile(resolve(staging, '_redirects'), redirectRules(works, mediaNames, junglePages));
     await writeFile(resolve(staging, '_headers'), headerRules());
     const edgeDirectory = resolve(root, '.netlify/portfolio-edge-functions');
     if ((await lstat(edgeDirectory).catch(error => error.code === 'ENOENT' ? null : Promise.reject(error)))?.isSymbolicLink()) throw new Error('Refusing linked edge directory');
