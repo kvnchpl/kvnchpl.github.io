@@ -19,7 +19,9 @@ import {
     gameState,
     initState,
     getTile,
-    saveGameState
+    saveGameState,
+    readSavedGame,
+    clearSavedGame
 } from './state.js';
 
 import {
@@ -51,7 +53,7 @@ async function fetchConfig() {
 }
 
 function loadGameState() {
-    const saved = localStorage.getItem("trellisSave");
+    const saved = readSavedGame();
     if (!saved) return false;
     try {
         const data = JSON.parse(saved);
@@ -74,14 +76,14 @@ function loadGameState() {
 }
 
 function startNewGame() {
-    if (localStorage.getItem("trellisSave")) {
+    if (readSavedGame()) {
         showModal('gameMessage', {
             title: "Start a new game?",
             message: "This will overwrite your current progress.",
             confirmText: "OK",
             cancelText: "Cancel",
             onConfirm: () => {
-                localStorage.removeItem("trellisSave");
+                clearSavedGame();
                 initState(config);
                 initPlayer(inputState);
                 updateFog(config);
@@ -94,7 +96,7 @@ function startNewGame() {
         });
         return;
     }
-    localStorage.removeItem("trellisSave");
+    clearSavedGame();
     initState(config);
     initPlayer(inputState);
     updateFog(config);
@@ -156,7 +158,10 @@ function gameLoop(config) {
     if (!inputState.modalOpen) {
         const { movementTime, selectorMoved, actionInfo } = updatePlayer(config, inputState) || {};
 
-        if (movementTime) incrementTimeUI(movementTime, config);
+        if (movementTime) {
+            incrementTimeUI(movementTime, config);
+            updateSaveSizeDisplay(config);
+        }
         if (selectorMoved) {
             updateTileInfoPanel(config);
             render(config);

@@ -218,6 +218,17 @@ export function updateGrowth(config) {
     return changedTiles;
 }
 
+// Storage can be blocked or full; the active game still lives in memory.
+export function readSavedGame() {
+    try { return localStorage.getItem('trellisSave'); }
+    catch { return null; }
+}
+
+export function clearSavedGame() {
+    try { localStorage.removeItem('trellisSave'); return true; }
+    catch { return false; }
+}
+
 export function saveGameState(config) {
     function defaultTile() {
         return {
@@ -252,9 +263,11 @@ export function saveGameState(config) {
         time: gameState.time
     };
 
-    localStorage.setItem("trellisSave", JSON.stringify(saveData));
+    const serialized = JSON.stringify(saveData);
+    try { localStorage.setItem('trellisSave', serialized); }
+    catch { return null; }
 
     // Return size so UI can update display
-    const sizeInBytes = new Blob([JSON.stringify(saveData)]).size;
+    const sizeInBytes = new Blob([serialized]).size;
     return sizeInBytes;
 }

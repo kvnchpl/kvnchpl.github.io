@@ -262,12 +262,10 @@ export function finalizeAction(actionDef, config) {
         }
     });
 
-    saveGameState(config);
-    updateSaveSizeDisplay(config);
-
     // Use per-action timeIncrement
     const timeInc = actionDef.timeIncrement ?? 1; // fallback to 1 if missing
     incrementTimeUI(timeInc, config);
+    updateSaveSizeDisplay(config);
 
     render(config);
 }
@@ -609,6 +607,10 @@ export function updateSaveSizeDisplay(config) {
     if (!saveEl) return;
 
     const sizeInBytes = saveGameState(config);
+    if (sizeInBytes === null) {
+        saveEl.textContent = 'Not saved: browser storage is unavailable. Progress is kept for this visit.';
+        return;
+    }
     const sizeInKB = (sizeInBytes / 1024).toFixed(2);
 
     let warningText = "";
