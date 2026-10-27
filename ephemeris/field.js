@@ -1,7 +1,10 @@
+import { validateFieldRecord, TRANSIT_LABELS as names } from './lib/field-record.mjs';
+import { configureCharts } from './lib/chart-defaults.mjs';
+
 // The fixed year record is generated from cached NASA vectors by the local
 // research calculator. This module presents it; it never invents missing data.
 (() => {
-  const names = {crest:'Crest',ebb:'Ebb',concordance:'Concordance','cross-current':'Cross-current',emergence:'Emergence',submergence:'Submergence','station-outward':'Outward station','station-inward':'Inward station'};
+
   let record, active = 0, charts = [], loading = false;
   const el = id => document.getElementById(id);
   const number = (value, digits = 3) => Number.isFinite(value) ? value.toExponential(digits) : '—';
@@ -81,13 +84,7 @@
     try {
       const response=await fetch(new URL('field-year.json',document.baseURI),{signal:AbortSignal.timeout(20000)});
       if(!response.ok)throw new Error('HTTP '+response.status);
-      const next=await response.json();
-      if(next.metadata?.schema!==1 || !Array.isArray(next.samples) || next.samples.length!==next.metadata.sample_count || next.samples.length<2 || !Array.isArray(next.events) || !Array.isArray(next.metadata.bodies) || !next.metadata.bodies.length)throw new Error('Invalid year record');
-      const finiteVector=(values,length)=>Array.isArray(values) && values.length===length && values.every(Number.isFinite);
-      const required=['g_norm','tide_span','planet_tide_span','sun_moon_axis_deg','barycenter_km','axis_gap_fraction'];
-      if(next.samples.some(s=>!/^\d{4}-\d{2}-\d{2}$/.test(s.date) || required.some(k=>!Number.isFinite(s[k])) || !finiteVector(s.eigenvalues,3) || !finiteVector(s.principal_axis,3) || !Array.isArray(s.bodies) || s.bodies.length!==next.metadata.bodies.length || s.bodies.some(values=>!finiteVector(values,3))))throw new Error('Incomplete year record');
-      if(next.events.some(e=>!Number.isInteger(e.sample_index) || e.sample_index<0 || e.sample_index>=next.samples.length || !Number.isFinite(e.value) || typeof e.epoch_tdb!=='string'))throw new Error('Invalid transit record');
-      record=next;
+      record=validateFieldRecord(await response.json());
       charts.forEach(chart=>chart.destroy());charts=[];
       el('fieldEpoch').replaceChildren(...record.samples.map((sample,index)=>new Option(sample.date,String(index))));
       el('fieldEpoch').disabled=false;
@@ -103,6 +100,7 @@
       }));
       el('fieldRecord').hidden=false;
       if(typeof Chart!=='undefined'){
+        configureCharts(Chart);
         el('fieldCharts').hidden=false;
         makeChart('fieldAccelerationChart',[{label:'External acceleration',get:s=>s.g_norm}],'m/s²');
         makeChart('fieldTideChart',[{label:'Stretching',get:s=>s.eigenvalues[2]},{label:'Compression',get:s=>s.eigenvalues[0]}],'s⁻²');

@@ -7,8 +7,13 @@ _site/
 .jekyll-cache/
 .jekyll-metadata
 
-# Additional Ruby/bundler ignore for when you run: bundle install
-/vendor
+# Only these reviewed browser dependencies belong in the site.
+/vendor/*
+!/vendor/chart.umd-4.6.1.js
+!/vendor/chartjs-LICENSE.txt
+
+# Incomplete/staged packaging outputs are local recovery material.
+.dist-stage-*/
 
 # Specific ignore for GitHub Pages
 # GitHub Pages will always use its own deployed version of pages-gem 
