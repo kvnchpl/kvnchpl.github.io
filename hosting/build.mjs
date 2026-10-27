@@ -75,6 +75,20 @@ export function redirectRules(works, mediaNames) {
         add(`/assets/${name}`, `/a/${name}`);
         if (name.endsWith('.pdf')) add(`/pdf/${name}`, `/a/${name}`);
     }
+    lines.push('', '# EXP and Jungle keep their previous page and asset addresses.');
+    for (const [from, to] of [
+        ['/exp/x/*', '/exp/0/:splat'],
+        ['/exp/i/*', '/exp/a/i/:splat'],
+        ['/exp/v/*', '/exp/a/v/:splat'],
+        ['/exp/a/3arvt.mp3', '/exp/a/a/3arvt.mp3'],
+        ['/exp/exp.css', '/exp/css/exp.css'],
+        ['/exp/exp.js', '/exp/js/exp.js'],
+        ['/exp/nowhere.js', '/exp/js/nowhere.js'],
+        ['/exp/exp.json', '/exp/json/exp.json'],
+        ['/jungle/fonts.css', '/jungle/css/fonts.css'],
+        ['/jungle/jungle.css', '/jungle/css/jungle.css'],
+        ['/jungle/jungle.js', '/jungle/js/jungle.js']
+    ]) add(from, to);
     lines.push('', '# Serve extensionless work URLs without changing the address.');
     for (const to of new Set(Object.values(works))) lines.push(`${to} ${to}.html 200`);
     return `${lines.join('\n')}\n`;

@@ -8,8 +8,8 @@ if (list) {
 }
 
 async function renderPageList(target) {
-    const directory = (target.dataset.directory || "x/").replace(/\/?$/, "/");
-    const response = await fetch("exp.json", { cache: "no-store" });
+    const directory = (target.dataset.directory || "0/").replace(/\/?$/, "/");
+    const response = await fetch("json/exp.json", { cache: "no-store" });
 
     if (!response.ok) {
         console.error("Failed to fetch page list.", {

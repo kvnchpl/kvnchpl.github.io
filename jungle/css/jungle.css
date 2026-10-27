@@ -56,7 +56,7 @@
     --transition-title-opacity: opacity 0.3s ease-in-out;
 
     /* Background Images */
-    --background-image-default: url('a/i/jungle_diffusion_3.webp');
+    --background-image-default: url('../a/i/jungle_diffusion_3.webp');
 
     /* Glow Effect */
     --glow-small: 4px;
