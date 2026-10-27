@@ -396,3 +396,126 @@ details p { max-width: 590px; font: 14px/1.35 Times, serif; margin: 9px 0 0 15px
 .field-delineations summary { cursor: pointer; color: #cd9ab7; text-decoration: underline; }
 .field-delineations dt { margin-top: .8rem; color: #ed6c99; }
 .field-delineations dd { margin: .2rem 0 .8rem 1.2rem; }
+
+/* Readable instruments within an uneven, authored notebook. */
+.site-header { padding-bottom: 12px; }
+.masthead h1 { font-size: 36px; letter-spacing: .13em; }
+.site-header nav { font-size: 12px; }
+.entry-note { max-width: 595px; margin: 18px 0 25px 11px; }
+.entry-date { font: 12px/1.5 "Courier New", monospace; color: #b9a4b2; }
+.entry-date time { color: #e4cedc; }
+.entry-note h2 { font: italic 24px/1.1 Times, serif; color: #e2d4df; margin: 18px 0 16px 23px; }
+.entry-condition { font: 19px/1.3 Times, serif; max-width: 490px; }
+.entry-delineation { font: 17px/1.35 Times, serif; color: #c9aabf; margin: 13px 0 15px 33px; max-width: 430px; }
+.entry-reference { font: 11px/1.7 "Courier New", monospace; color: #a78c9e; margin: 22px 0 15px 8px; }
+.entry-footnote { font: 12px/1.7 "Courier New", monospace; }
+.galactic-section { max-width: 810px; margin: 28px 0 24px 25px; }
+.galactic-section .section-heading { border: 0; margin-bottom: 3px; }
+.galactic-section .section-heading h2 { font: 13px/1.5 "Courier New", monospace; color: #b493a9; }
+.galactic-layout { display: flow-root; }
+.phase-figure { float: right; width: 300px; max-width: 46%; margin: -12px 15px 0 24px; }
+.phase-reading { font-size: 17px; line-height: 1.35; padding-top: 13px; }
+.phase-address { font-size: 26px; margin: 0 0 14px 5px; }
+.phase-directions { font-size: 17px; color: #b996ad; }
+.phase-wheel .phase-origin { fill: #f0e3eb; }
+.galactic-methods { clear: both; max-width: 680px; margin: 0 0 16px 12px; }
+.phase-definition { font-size: 16px; }
+.phase-clock-table, .phase-clock-table th, .phase-clock-table td, .phase-clock-table caption { font-size: 12px; }
+.phase-method { font-size: 12px; }
+.premise-fold { max-width: 660px; margin: 14px 0 32px 3px; }
+.premise-fold > summary, .instrument-fold > summary { cursor: pointer; font: 13px/1.6 "Courier New", monospace; color: #b8a5ca; text-decoration: underline; text-underline-offset: 3px; padding: 7px 0; }
+.instrument-fold > summary:hover, .premise-fold > summary:hover { color: #fff; }
+.instrument-fold[open] > summary { color: #dfcad9; margin-bottom: 12px; }
+.inquiry-note .intro-copy, .proposal-premise, .research-note .hypothesis-fragments p { font-size: 17px; line-height: 1.4; }
+.inquiry-note h2 { font-size: 25px; }
+.section-number, .plot-number { color: #aa6a88; }
+.section-aside, .plot-heading > span, .research-links, .chart-caption, .plot-instructions, .note-detail, .ledger-units, #epochHint, .eyebrow, .source-strip, .plot-footer { font-size: 12px; line-height: 1.5; }
+.status-container, .status-value { font-size: 13px; }
+.status-item { flex-wrap: wrap; }
+.window-presets { font: 12px/1.8 "Courier New", monospace; color: #b6a0ae; margin: 15px 0 7px 5px; }
+.window-presets button { font-size: 12px; margin: 3px 4px 0 0; }
+.window-presets [aria-pressed="true"] { border-style: inset; background: #ded1da; }
+.controls-grid label, .control-item label, .node-color-controls, .orbit-toolbar, .epoch-selector select, #sampleCount { font-size: 12px; }
+button, select, input { min-height: 32px; }
+input[type="radio"], input[type="checkbox"] { min-height: 0; }
+.node-color-controls label { min-height: 30px; }
+.signals-section { margin: 25px 0 24px 10px; }
+.signals-section > summary { max-width: 600px; }
+.signals-section[open] .charts-section { padding-top: 12px; }
+.field-introduction { font-size: 18px; line-height: 1.35; }
+.field-status, .field-method, .field-axis-note, .field-scale-note, .field-plot h3 > span, #fieldTransitCount { font-size: 12px; line-height: 1.5; }
+.field-epoch-controls { font-size: 12px; }
+.field-epoch-controls > span { font-size: 12px; }
+.field-cursor { position: sticky; top: 0; z-index: 5; background: #030203; padding: 11px 0 10px 8px; margin: 12px 0 14px; border-top: 1px dotted #a06d88; border-bottom: 1px solid #3c2032; }
+.field-cursor-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 5px 24px; }
+.field-cursor-line .field-reading-date { margin: 0; color: #e4cddd; font: 12px/1.5 "Courier New", monospace; }
+#fieldDayEvents { font: italic 18px/1.2 Times, serif; color: #c4a2b8; }
+.field-cursor.is-transit #fieldDayEvents { color: #f1618b; }
+#fieldDelineation { font: 17px/1.3 Times, serif; max-width: 650px; margin: 6px 0 8px; color: #e1ccd9; }
+.transit-navigation { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font: 12px/1.6 "Courier New", monospace; }
+.transit-navigation a { margin-left: 10px; }
+.field-readings { margin: 10px 0 20px 18px; }
+.field-readings dl { font-size: 13px; margin: 12px 0; }
+.field-readings dt { min-width: 215px; }
+.field-chart-frame { height: 215px; }
+.field-plot:nth-child(2) { margin-left: 35px; margin-top: 30px; }
+.field-additional { margin: 15px 0 24px 9px; }
+.field-additional .field-plot { margin-left: 10px; }
+.field-ledgers { grid-template-columns: minmax(0,1fr) minmax(0,1.15fr); gap: 27px; }
+.field-table, .field-table th, .field-table td { font-size: 12px; }
+.field-events button { min-height: 32px; }
+.field-events td:first-child { position: sticky; left: 0; background: #160c14; }
+.field-events tr.is-selected td, .field-events tr.is-selected td:first-child { background: #452139; color: #fff; }
+.field-events .is-selected button { color: #fff; }
+.field-event-wrap { max-height: 310px; }
+.field-delineations { font-size: 17px; line-height: 1.35; }
+.research-note .hypothesis-fragments small, .model-note, .notes-entries summary { font-size: 12px; }
+.notes-entries p { font-size: 17px; line-height: 1.4; }
+@media (max-width: 780px) {
+  .masthead h1 { font-size: 31px; }
+  .entry-note { margin: 17px 0 20px 2px; }
+  .entry-date { font-size: 12px; }
+  .entry-note h2 { font-size: 23px; margin-left: 9px; }
+  .entry-condition { font-size: 18px; }
+  .entry-delineation { margin-left: 19px; }
+  .entry-reference { margin-top: 18px; }
+  .entry-footnote { max-width: 290px; }
+  .galactic-section { margin: 24px 0 21px; }
+  .phase-figure { float: none; width: 290px; max-width: 100%; margin: 0 0 0 5px; }
+  .phase-reading { font-size: 17px; }
+  .phase-clock-table th, .phase-clock-table td { font-size: 11px; padding: 5px; }
+  .galactic-methods { margin-left: 2px; }
+  .phase-method { font-size: 12px; }
+  .status-label, .status-value { font-size: 12px; }
+  .status-label { min-width: 0; }
+  .status-item { display: block; }
+  .status-value { margin-left: 10px; }
+  .control-item input, .control-item select, .control-item label { font-size: 12px; }
+  .query-panel .controls-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+  .control-item:last-child { grid-column: 1; }
+  button, select, input { min-height: 38px; }
+  .field-epoch-controls select { min-width: 145px; }
+  .field-epoch-controls > span { font-size: 12px; }
+  .field-cursor { padding-left: 4px; }
+  .field-cursor-line { gap: 3px 12px; }
+  #fieldDelineation { font-size: 16px; }
+  .transit-navigation a { margin-left: 3px; }
+  .field-readings { margin-left: 5px; }
+  .field-readings dl { font-size: 12px; }
+  .field-readings dl > div { display: block; margin-bottom: 7px; }
+  .field-readings dd { margin-left: 12px; }
+  .field-plot:nth-child(n), .field-additional { margin-left: 0; }
+  .field-plot h3 > span { display: block; font-size: 12px; }
+  .field-ledgers { grid-template-columns: 1fr; gap: 25px; }
+  .field-event-wrap { max-height: 280px; }
+  .source-observance { display: none; }
+}
+
+/* The event ledger leads; source contributions remain available in a fold. */
+.field-ledgers { display: block; }
+.contribution-fold { max-width: 660px; margin: 0 0 25px 8px; }
+.field-ledgers > div { max-width: 710px; margin: 0 0 0 24px; }
+.field-ledgers h3 { font-size: 18px; }
+@media (max-width: 780px) {
+  .contribution-fold, .field-ledgers > div { margin-left: 0; }
+}

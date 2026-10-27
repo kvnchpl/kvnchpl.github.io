@@ -2,7 +2,7 @@ import { SUN_RADIUS_KM, getLogTimestamp, getHorizonsStepSize, getRadialComponent
   parseHorizonsData, generateCircleData, generateSimulatedData, calculateAcceleration,
   calculateDistance, getRadialState } from './lib/solar-model.mjs';
 import { createSolarCharts } from './lib/solar-charts.mjs';
-import { configureCharts } from './lib/chart-defaults.mjs';
+import { configureCharts, setupChartDisclosures } from './lib/chart-defaults.mjs';
 
 // Portfolio previews proxy to the existing standalone NASA service.
 const portfolioPreview = location.hostname.endsWith('.netlify.app')
@@ -533,7 +533,7 @@ function setupDateSelectionControls() {
 
   document.addEventListener('click', (event) => {
     if (!(event.target instanceof Element)) return;
-    if (event.target.closest('canvas, #barycenterLedger, button, input, select, label')) return;
+    if (event.target.closest('canvas, #barycenterLedger, button, input, select, label, summary, a')) return;
     clearDateSelection();
   });
 }
@@ -732,6 +732,7 @@ function setDataSource(state, label, detail) {
 async function updateBarycenterData() {
   if (updateButton.disabled || !queryForm.reportValidity()) return;
   updateButton.disabled = true;
+  document.querySelectorAll('[data-solar-window]').forEach(button=>button.disabled=true);
   updateButton.textContent = 'Receiving…';
   setDataSource('connecting', 'Contacting Horizons', barycenterData.length
     ? 'Request in progress. The previous record remains below.'
@@ -773,11 +774,12 @@ async function updateBarycenterData() {
   } finally {
     updateButton.innerHTML = 'Trace the signal <span aria-hidden="true">↗</span>';
     updateButton.disabled = false;
+    document.querySelectorAll('[data-solar-window]').forEach(button=>button.disabled=false);
   }
 }
 
 // Initialize on page load
-function setDefaultDateControls() {
+function setSolarWindow(kind='recent') {
   const today = new Date();
   const formattedToday = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
 
@@ -786,9 +788,13 @@ function setDefaultDateControls() {
   endDateInput.min = '1900-01-01';
   endDateInput.max = formattedToday;
 
-  startDateInput.value = '1900-01-01';
+  const start=new Date(Date.UTC(today.getFullYear(),today.getMonth(),today.getDate()));
+  start.setUTCDate(start.getUTCDate()-89);
+  startDateInput.value = kind==='long'?'1900-01-01':start.toISOString().slice(0,10);
   endDateInput.value = formattedToday;
-  stepSizeInput.value = '1y';
+  stepSizeInput.value = kind==='long'?'1y':'1d';
+  document.querySelectorAll('[data-solar-window]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.solarWindow===kind)));
+  clampDateControls();
 }
 
 function clampDateControls() {
@@ -809,6 +815,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (typeof Chart === 'undefined') {
     setDataSource('error', 'Chart library unavailable', 'The plotting library could not load. Check your connection and reload the page.');
     updateButton.disabled = true;
+    document.querySelectorAll('[data-solar-window]').forEach(button=>button.disabled=true);
     return;
   }
   configureCharts(Chart);
@@ -817,18 +824,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }));
   setupOrbitZoomControls();
   setupDateSelectionControls();
-  setDefaultDateControls();
+  setupChartDisclosures(()=>[positionChart,velocityChart,accelerationChart,radialStateChart,orbitChart]);
+  document.querySelectorAll('[data-solar-window]').forEach(button=>button.addEventListener('click',()=>{
+    if(updateButton.disabled)return;
+    setSolarWindow(button.dataset.solarWindow);updateBarycenterData();
+  }));
+  setSolarWindow();
   clampDateControls();
   updateBarycenterData();
 });
 
 startDateInput.addEventListener('change', () => {
   clampDateControls();
+  clearWindowPreset();
 });
 
 endDateInput.addEventListener('change', () => {
   clampDateControls();
+  clearWindowPreset();
 });
+
+function clearWindowPreset() {
+  document.querySelectorAll('[data-solar-window]').forEach(button=>button.setAttribute('aria-pressed','false'));
+}
+stepSizeInput.addEventListener('change',clearWindowPreset);
 
 // Event listeners
 queryForm.addEventListener('submit', (event) => {

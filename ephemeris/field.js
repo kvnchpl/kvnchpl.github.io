@@ -1,5 +1,6 @@
 import { validateFieldRecord, TRANSIT_LABELS as names } from './lib/field-record.mjs';
-import { configureCharts } from './lib/chart-defaults.mjs';
+import { configureCharts, setupChartDisclosures } from './lib/chart-defaults.mjs';
+import { readFieldDay } from './lib/field-reading.mjs';
 
 // The fixed year record is generated from cached NASA vectors by the local
 // research calculator. This module presents it; it never invents missing data.
@@ -20,10 +21,12 @@ import { configureCharts } from './lib/chart-defaults.mjs';
     }
   };
 
-  function setDay(index) {
+  function setDay(index, {remember=true}={}) {
     if (!record) return;
+    if (!Number.isInteger(Number(index))) return;
     active = Math.max(0, Math.min(record.samples.length-1, Number(index)));
     const sample = record.samples[active];
+    const reading=readFieldDay(record,active);
     el('fieldEpoch').value = String(active);
     el('fieldPrevious').disabled = active === 0;
     el('fieldNext').disabled = active === record.samples.length-1;
@@ -34,8 +37,25 @@ import { configureCharts } from './lib/chart-defaults.mjs';
     el('fieldPlanetSpan').textContent = number(sample.planet_tide_span)+' s⁻²';
     el('fieldAngle').textContent = sample.sun_moon_axis_deg.toFixed(2)+'°';
     el('fieldBarycenter').textContent = sample.barycenter_km.toLocaleString('en-US',{maximumFractionDigits:0})+' km';
-    const events = record.events.filter(event => event.sample_index === active);
+    const events = reading.events;
     el('fieldDayEvents').textContent = events.length ? events.map(event=>names[event.kind] || event.kind).join(' / ') : 'Between marked transits';
+    el('fieldDelineation').textContent=events.length?reading.delineation:reading.delineation.replace(/^Between marked transits\. /,'');
+    el('fieldCursor').classList.toggle('is-transit',events.length>0);
+    el('entryEpoch').textContent=sample.date+' / 00:00 TDB';
+    el('entryEpoch').dateTime=sample.date;
+    el('entryCondition').textContent=reading.condition;
+    el('entryDelineation').textContent=reading.delineation;
+    const transitDays=[...new Set(record.events.map(e=>e.sample_index))];
+    el('fieldPreviousTransit').disabled=!transitDays.some(i=>i<active);
+    el('fieldNextTransit').disabled=!transitDays.some(i=>i>active);
+    const link=new URL(location.href);link.searchParams.set('field',sample.date);link.hash='field-year';
+    el('fieldPermalink').href=link.href;
+    if (remember) {
+      const current=new URL(location.href);current.searchParams.set('field',sample.date);
+      // A restricted embedding can disallow history without disabling the instrument.
+      try {history.replaceState(history.state,'',current);} catch { /* permalink remains available */ }
+      el('fieldLinkNotice').hidden=true;
+    }
     const rows = record.metadata.bodies.map((body,index)=>({body,values:sample.bodies[index]})).sort((a,b)=>b.values[2]-a.values[2]);
     el('fieldContributors').replaceChildren(...rows.map(({body,values})=>{
       const row=document.createElement('tr');
@@ -47,7 +67,26 @@ import { configureCharts } from './lib/chart-defaults.mjs';
     el('fieldAxis').textContent = sample.principal_axis.map(value=>value.toFixed(4)).join(' / ');
     el('fieldAxisState').textContent = sample.axis_gap_fraction < .1 ? 'Stretching directions nearly degenerate at this epoch.' : 'Principal stretching line / ecliptic X, Y, Z';
     charts.forEach(chart=>chart.update('none'));
-    document.querySelectorAll('#fieldTransits tr[data-index]').forEach(row=>row.classList.toggle('is-selected',Number(row.dataset.index)===active));
+    document.querySelectorAll('#fieldTransits tr[data-index]').forEach(row=>{
+      const selected=Number(row.dataset.index)===active;row.classList.toggle('is-selected',selected);
+      const button=row.querySelector('button');
+      if(selected)button.setAttribute('aria-current','date');else button.removeAttribute('aria-current');
+    });
+  }
+
+  function restoreDay() {
+    if(!record)return;
+    const date=new URL(location.href).searchParams.get('field');
+    const index=record.samples.findIndex(s=>s.date===date);
+    el('fieldLinkNotice').hidden=!date || index>=0;
+    el('fieldLinkNotice').textContent='That date is outside this record. Showing its final epoch, '+record.metadata.stop+'.';
+    setDay(index>=0?index:record.samples.length-1,{remember:false});
+  }
+
+  function nextTransit(direction) {
+    const days=[...new Set(record.events.map(e=>e.sample_index))].sort((a,b)=>a-b);
+    const index=direction>0?days.find(i=>i>active):days.reverse().find(i=>i<active);
+    if(index!==undefined)setDay(index);
   }
 
   function makeChart(id, series, yTitle) {
@@ -66,11 +105,11 @@ import { configureCharts } from './lib/chart-defaults.mjs';
           const index=Math.round(chart.scales.x.getValueForPixel(event.x));setDay(index);
         },
         onResize(chart,size){chart.options.scales.x.ticks.maxTicksLimit=size.width<500?3:7;},
-        plugins:{legend:{display:series.length>1,labels:{color:'#c6afbf',font:{family:'Courier New',size:10},boxWidth:12}},
+        plugins:{legend:{display:series.length>1,labels:{color:'#c6afbf',font:{family:'Courier New',size:11},boxWidth:12}},
           tooltip:{backgroundColor:'#10070e',borderColor:'#854360',borderWidth:1,cornerRadius:0,
             callbacks:{title:items=>items[0]?.label+' / 00:00 TDB',label:context=>context.dataset.label+': '+(Math.abs(context.parsed.y)<.001?number(context.parsed.y):context.parsed.y.toLocaleString('en-US',{maximumFractionDigits:2}))}}},
-        scales:{x:{grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Courier New',size:10},maxTicksLimit:7,maxRotation:0,callback(value){return record.samples[value]?.date.slice(5);}}},
-          y:{title:{display:true,text:yTitle,color:'#ae8fa4',font:{family:'Courier New',size:10}},grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Courier New',size:10},maxTicksLimit:4,
+        scales:{x:{grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Courier New',size:11},maxTicksLimit:7,maxRotation:0,callback(value){return record.samples[value]?.date.slice(5);}}},
+          y:{title:{display:true,text:yTitle,color:'#ae8fa4',font:{family:'Courier New',size:11}},grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Courier New',size:11},maxTicksLimit:4,
             callback(value){return Math.abs(value)>0 && Math.abs(value)<.001?value.toExponential(1):Math.abs(value)>=1000?(value/1000).toFixed(0)+'k':Number(value.toPrecision(3));}}}}
       }
     });
@@ -93,7 +132,7 @@ import { configureCharts } from './lib/chart-defaults.mjs';
       el('fieldTransitCount').textContent = record.events.length+' marked transits';
       el('fieldTransits').replaceChildren(...record.events.map(event=>{
         const row=document.createElement('tr');row.dataset.index=String(event.sample_index);
-        const when=cell(row,'');const button=document.createElement('button');button.type='button';button.className='field-event';button.textContent=event.epoch_tdb;button.dataset.index=String(event.sample_index);when.append(button);
+        const when=cell(row,'');const button=document.createElement('button');button.type='button';button.className='field-event';button.textContent=event.timing==='daily sampled extremum'?event.epoch_tdb.slice(0,10):event.epoch_tdb;button.title=event.epoch_tdb+' TDB';button.dataset.index=String(event.sample_index);when.append(button);
         cell(row,names[event.kind] || event.kind);
         cell(row,(event.units==='deg'?event.value.toFixed(2)+'°':number(event.value)+' '+event.units));
         return row;
@@ -111,12 +150,15 @@ import { configureCharts } from './lib/chart-defaults.mjs';
         el('fieldCharts').hidden=true;
         el('fieldStatus').textContent+=' / charts unavailable; epoch and coordinate tables remain available';
       }
-      setDay(record.samples.length-1);
+      restoreDay();
     }catch(error){
       el('fieldStatus').dataset.state='error';
       el('fieldStatus').textContent='The year record could not be opened. Retry to receive the field.';
       el('fieldRetry').hidden=false;
       el('fieldRecord').hidden=true;
+      el('entryEpoch').textContent='record unavailable';el('entryEpoch').removeAttribute('datetime');
+      el('entryCondition').textContent='The field record could not be received.';
+      el('entryDelineation').textContent='Open the field instrument below to retry.';
       console.warn('Field year record unavailable:',error.message);
     }finally{loading=false;}
   }
@@ -125,10 +167,14 @@ import { configureCharts } from './lib/chart-defaults.mjs';
     el('fieldEpoch').addEventListener('change',()=>setDay(el('fieldEpoch').value));
     el('fieldPrevious').addEventListener('click',()=>setDay(active-1));
     el('fieldNext').addEventListener('click',()=>setDay(active+1));
+    el('fieldPreviousTransit').addEventListener('click',()=>nextTransit(-1));
+    el('fieldNextTransit').addEventListener('click',()=>nextTransit(1));
+    window.addEventListener('popstate',restoreDay);
     el('fieldRetry').addEventListener('click',load);
     el('fieldTransits').addEventListener('click',event=>{
       const button=event.target.closest('button[data-index]');if(button)setDay(button.dataset.index);
     });
+    setupChartDisclosures(()=>charts);
     load();
   });
 })();

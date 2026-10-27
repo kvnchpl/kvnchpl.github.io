@@ -6,7 +6,6 @@ const root=path.resolve(__dirname,'..');
 const types={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.svg':'image/svg+xml','.txt':'text/plain; charset=utf-8'};
 
 function createPreviewServer({siteRoot=root, handler=require('../netlify/functions/horizons.js').handler}={}) {
-  const published=new Set(runtimeFiles(siteRoot));
   return http.createServer(async(req,res)=>{
     try {
       const url=new URL(req.url,'http://localhost');
@@ -19,6 +18,7 @@ function createPreviewServer({siteRoot=root, handler=require('../netlify/functio
       if (url.pathname==='/') {res.writeHead(302,{Location:'/ephemeris/'});res.end();return;}
       const pathname=decodeURIComponent(url.pathname);
       const file=pathname.startsWith('/ephemeris/')?pathname.slice('/ephemeris/'.length)||'index.html':'';
+      const published=new Set(runtimeFiles(siteRoot));
       if (!published.has(file)) {res.writeHead(404);res.end('Not found');return;}
       const body=req.method==='HEAD'?undefined:fs.readFileSync(path.join(siteRoot,file));
       res.writeHead(200,{'Content-Type':types[path.extname(file)],'Cache-Control':'no-store','X-Robots-Tag':'noindex, nofollow'});
