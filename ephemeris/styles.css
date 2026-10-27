@@ -396,6 +396,9 @@ details p { max-width: 590px; font: 14px/1.35 Times, serif; margin: 9px 0 0 15px
 .field-delineations summary { cursor: pointer; color: #cd9ab7; text-decoration: underline; }
 .field-delineations dt { margin-top: .8rem; color: #ed6c99; }
 .field-delineations dd { margin: .2rem 0 .8rem 1.2rem; }
+.field-passage { max-width: 620px; margin: 1.5rem 0 2rem; font: 17px/1.4 "Times New Roman", Times, serif; }
+.field-passage > p { margin: 1rem 0; }
+.field-passage .passage-refrain { color: #ed6c99; margin-left: 1.2rem; font-style: italic; }
 
 /* Readable instruments within an uneven, authored notebook. */
 .site-header { padding-bottom: 12px; }

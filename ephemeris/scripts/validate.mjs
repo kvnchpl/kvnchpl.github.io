@@ -15,7 +15,8 @@ export async function validateSite(root=resolve(dirname(fileURLToPath(import.met
   if (!/<meta\s+name="robots"\s+content="noindex, nofollow"/.test(html)) throw new Error('Ephemeris must retain its unlisted metadata.');
   const checkLink=(file,link) => {
     if (/^(?:https?:|mailto:|#)/.test(link)) return;
-    const target=posix.normalize(posix.join(posix.dirname(file),link.split(/[?#]/)[0]));
+    const pathname=link.split(/[?#]/)[0];
+    const target=pathname?posix.normalize(posix.join(posix.dirname(file),pathname)):file;
     if (!published.has(target)) throw new Error('Unpackaged runtime reference: '+file+' → '+link);
   };
   for (const match of html.matchAll(/(?:src|href)="([^"]+)"/g)) checkLink('index.html',match[1]);
