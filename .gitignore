@@ -90,3 +90,6 @@ json/field.json
 /jungle/a/m/*/ProjectVersion.txt
 /jungle/a/m/*/GUID.txt
 /jungle/a/m/*/dependencies.txt
+
+# Ephemeris research, calculations, source cache, and figures remain local.
+/ephemeris/research/

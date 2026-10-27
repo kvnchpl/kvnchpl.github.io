@@ -29,6 +29,7 @@ exclude:
   - each-all/netlify.toml
   - ephemeris/netlify
   - ephemeris/netlify.toml
+  - ephemeris/research
   - homestuck-book-club/_config.yml
   - homestuck-book-club/tests
   - homestuck-book-club/tools

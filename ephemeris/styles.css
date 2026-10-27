@@ -304,3 +304,34 @@ details p { max-width: 590px; font: 14px/1.35 Times, serif; margin: 9px 0 0 15px
   .research-note .hypothesis-fragments p { font-size: 15px; }
   .model-note { font-size: 10px; padding-left: 8px; }
 }
+
+.galactic-section { margin: 44px 0 30px 10px; }
+.galactic-layout { display: grid; grid-template-columns: minmax(260px, .95fr) minmax(0, 1.25fr); gap: 18px; align-items: start; }
+.phase-wheel { display: block; width: 100%; max-width: 360px; height: auto; }
+.phase-sector { fill: #130c13; stroke: #503446; stroke-width: .7; }
+.phase-sector.is-current { fill: #5e1634; }
+.phase-wheel text { fill: #c7aebf; text-anchor: middle; dominant-baseline: middle; font: 13px "Courier New", monospace; }
+.phase-wheel .phase-sun-label { text-anchor: start; font-size: 12px; fill: #ef6b91; }
+.phase-wheel .phase-axis-label { font-size: 11px; fill: #a57591; }
+.phase-zero { stroke: #ccb2c3; stroke-width: 1.3; }
+.phase-origin { fill: #d2bbc9; }
+.phase-sun { fill: #ef416e; }
+.phase-reading { min-width: 0; padding-top: 12px; font-size: 15px; line-height: 1.3; }
+.phase-address { font: 28px/1 "Times New Roman", serif; color: #e8c9db; margin-bottom: 18px; }
+.phase-address > span:first-child { color: #ed3f70; }
+.phase-reading > p { max-width: 430px; }
+.phase-definition { font-size: 14px; color: #bca0b3; }
+.phase-table-wrap { max-width: 460px; overflow-x: auto; margin: 18px 0; }
+.phase-clock-table { width: 100%; min-width: 0; border-spacing: 1px; font-size: 10px; }
+.phase-clock-table caption { text-align: left; color: #b78ba4; font: 10px/1.6 "Courier New", monospace; padding-bottom: 4px; }
+.phase-clock-table th, .phase-clock-table td { position: static; white-space: nowrap; padding: 6px; font-size: 10px; }
+.phase-clock-table tbody th { text-align: left; background: #110a10; }
+.phase-directions { color: #dc638b; font: italic 17px/1.2 "Times New Roman", serif; }
+.phase-method { max-width: 790px; font: 10px/1.5 "Courier New", monospace; color: #a98c9e; border-top: 1px dotted #613044; padding-top: 8px; }
+@media (max-width: 780px) {
+  .galactic-section { margin-left: 0; }
+  .galactic-layout { grid-template-columns: 1fr; gap: 0; }
+  .phase-wheel { max-width: 330px; margin: 0 auto; }
+  .phase-reading { padding-top: 0; }
+  .phase-method { font-size: 9px; }
+}
