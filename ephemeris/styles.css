@@ -33,10 +33,7 @@ h1, h2, h3, h4 { margin: 0; }
 .page-shell { width: min(1120px, 100%); margin: 22px 0 0 clamp(0px, 2.7vw, 40px); }
 .site-header { position: relative; padding-bottom: 22px; }
 .connection-string { font: 10px/1.6 "Courier New", monospace; color: var(--muted); margin: 0 0 12px 165px; }
-.wire-field { position: relative; height: 145px; margin-left: 60px; overflow: hidden; border-top: 1px solid #500b1b; }
-.wire-field svg { display: block; width: 100%; height: 100%; }
-.wire-caption { position: absolute; top: 20px; left: 38px; font: 11px/1.4 "Courier New", monospace; color: #eee1e6; background: #030203; padding: 3px; }
-.masthead { position: relative; display: flex; align-items: baseline; gap: 30px; margin: -28px 0 0 165px; padding: 0 0 8px; }
+.masthead { position: relative; display: flex; align-items: baseline; gap: 30px; margin: -9px 0 0 165px; padding: 0 0 8px; }
 h1 { background: var(--bg); padding: 0 10px 0 0; color: #f0e9eb; font-size: 43px; font-weight: 400; letter-spacing: .19em; line-height: 1.1; text-shadow: 2px 0 #71132c; }
 .masthead p { font: 12px/1.15 "Courier New", monospace; color: #d63851; margin: 0; }
 .header-glyph { position: absolute; right: 35px; top: -27px; background: var(--bg); color: #9d243c; font-size: 22px; line-height: 1.1; text-align: center; }
@@ -184,9 +181,7 @@ details p { max-width: 590px; font: 14px/1.35 Times, serif; margin: 9px 0 0 15px
   .page-shell { margin-top: 10px; }
   .body-layout { display: block; }
   .connection-string { margin-left: 0; font-size: 9px; }
-  .wire-field { height: 100px; margin-left: 0; }
-  .wire-caption { font-size: 9px; top: 10px; left: 10px; }
-  .masthead { margin: -16px 0 0 15px; gap: 15px; align-items: center; }
+  .masthead { margin: -4px 0 0 15px; gap: 15px; align-items: center; }
   h1 { font-size: 33px; letter-spacing: .07em; }
   .masthead p { font-size: 10px; padding: 5px 0; background: var(--bg); }
   .header-glyph { display: none; }
@@ -258,53 +253,54 @@ details p { max-width: 590px; font: 14px/1.35 Times, serif; margin: 9px 0 0 15px
   .hypothesis-fragments article:last-child { margin: 8px 0 0 20px; }
 }
 
-/* The paper fragments are fictional research sheets, not interface cards.
-   Black bars are decorative; coordinates and source labels remain readable. */
-.document-sheet {
-  color: #201c1d;
-  background: repeating-linear-gradient(0deg, #b4a9950a 0 1px, transparent 1px 3px), linear-gradient(89deg, #e1dacb, #eae4d7 49.5%, #dcd4c5 50%, #e7dfd1 50.6%);
-  border: 1px solid #a3998d;
-  border-right: 3px solid #b5a99a;
-  padding: 15px 20px 12px;
-  font-family: "Courier New", Courier, monospace;
-}
-.introduction.document-sheet { margin: 10px 0 30px 12px; max-width: 630px; }
-.document-running-head { display: flex; flex-wrap: wrap; gap: 9px; justify-content: space-between; align-items: center; border-bottom: 1px solid #777064; padding-bottom: 8px; margin-bottom: 12px; font: 9px "Courier New", monospace; color: #443b37; }
-.handling-stamp { display: inline-block; border: 3px double #872735; padding: 2px 5px; font-size: 13px; color: #872735; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; transform: rotate(-3deg); }
-.document-subject { font: bold 10px/1.5 "Courier New", monospace; margin: 0 0 8px; }
-.redaction-line { font: 10px "Courier New", monospace; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 9px 0 16px; }
-.redaction { display: inline-block; height: 11px; width: 155px; max-width: 48%; background: #141313; transform: skewX(-1deg); }
-.redaction.short { width: 74px; max-width: 27%; height: 12px; }
-.document-sheet h2 { color: #211b1d; font: bold 25px/1.05 "Times New Roman", Times, serif; margin: 8px 0 15px; }
-.document-sheet .intro-copy { max-width: 530px; font: 12px/1.5 "Courier New", monospace; }
-.document-sheet .intro-copy p:last-child { color: #443a3d; font-size: 10px; margin-left: 0; }
-.document-sheet .intro-copy em { color: #211b1d; text-decoration: none; font-style: normal; font-weight: 700; }
-.document-sheet a { color: #25285c; }
-.document-sheet a:visited { color: #603f70; }
-.document-sheet a:hover { background: #d3c4b3; color: #61192b; }
-.document-sheet .document-annotation { color: #8c203b; font: italic 21px/1.1 "Times New Roman", Times, serif; margin: 17px 8px 18px 28px; }
-.document-status { border-left: 2px solid #65594f; padding-left: 8px; font: 10px/1.5 "Courier New", monospace; }
-.document-filing { font: 9px/1.5 "Courier New", monospace; border-top: 1px dotted #7e7067; margin: 14px 0 0; padding-top: 8px; }
-.hypotheses.document-sheet { margin: 42px 0 35px 25px; max-width: 740px; padding: 16px 22px; border-left: 1px solid #b0a394; }
-.proposal-premise { font: 12px/1.45 "Courier New", monospace; max-width: 570px; }
-.document-sheet .hypothesis-fragments { display: block; margin-top: 24px; }
-.document-sheet .hypothesis-fragments article { max-width: 545px; margin: 0 0 25px; }
-.document-sheet .hypothesis-fragments article:nth-child(2) { margin-left: 16px; }
-.document-sheet .hypothesis-fragments article:nth-child(3) { margin-left: 5px; }
-.document-sheet .hypothesis-fragments article:nth-child(4) { margin-left: 29px; }
-.document-sheet .hypothesis-fragments h3 { color: #2c2126; font: bold 12px/1.4 "Courier New", monospace; text-decoration: none; margin-bottom: 8px; }
-.document-sheet .hypothesis-fragments p { color: #2b2425; font: 12px/1.45 "Courier New", monospace; }
-.document-sheet .hypothesis-fragments small { color: #6b3444; font: 9px/1.4 "Courier New", monospace; }
-.model-note { max-width: 590px; font: 10px/1.5 "Courier New", monospace; border: 1px solid #958477; padding: 9px; margin-top: 20px; }
+/* Interrupted marks and changes of register carry the references without
+   depicting a physical document or a recognizable scene. */
+.signal-field { position: relative; height: 61px; margin: 0 35px 0 65px; background: linear-gradient(90deg, #1e051125, #36051430 42%, transparent 77%); overflow: hidden; }
+.signal-field::before { content: ""; position: absolute; top: 22px; left: 11%; width: 66%; height: 1px; background: linear-gradient(90deg, #a83250 0 12%, transparent 12% 39%, #6d162f 39% 76%, transparent 76% 83%, #a83250 83%); }
+.signal-field::after { content: ""; position: absolute; top: 35px; left: 30%; width: 38%; height: 2px; background: repeating-linear-gradient(90deg, #623044 0 1px, transparent 1px 5px); }
+.signal-field i { position: absolute; display: block; background: #b9aab2; opacity: .6; height: 3px; }
+.signal-field i:nth-child(1) { width: 8%; top: 15px; left: 10%; }
+.signal-field i:nth-child(2) { width: 1.5%; top: 13px; left: 19%; height: 7px; opacity: .23; }
+.signal-field i:nth-child(3) { width: 14%; top: 44px; left: 53%; height: 1px; background: #a52244; }
+.signal-field i:nth-child(4) { width: 3%; top: 40px; left: 78%; height: 6px; opacity: .16; }
+.inquiry-note { margin: 17px 0 28px 10px; padding: 0; max-width: 640px; }
+.inquiry-scope { font: 10px/1.5 "Courier New", monospace; color: #b7889f; margin-bottom: 8px; }
+.inquiry-scope > span { margin-left: 45px; color: #653448; }
+.inquiry-note h2 { font: bold 30px/.95 "Times New Roman", Times, serif; color: #e2d5dd; margin: 7px 0 20px 17px; letter-spacing: -.035em; }
+.inquiry-note h2::after { content: ""; display: block; width: 29px; height: 4px; background: #bb2347; margin: 11px 0 0 2px; }
+.inquiry-note .intro-copy { max-width: 570px; font: 15px/1.3 "Times New Roman", Times, serif; }
+.inquiry-note .intro-copy > p:first-child { max-width: 380px; margin-bottom: 16px; }
+.inquiry-note .intro-copy > p:nth-child(2) { margin-left: 24px; }
+.inquiry-note .intro-copy em { color: #0c0509; background: #bcb0b9; padding: 0 2px; text-decoration: none; font-style: normal; }
+.annotation { font: italic 20px/1.05 "Times New Roman", Times, serif; color: #e83b63; max-width: 510px; margin: 20px 0 19px 43px; }
+.inquiry-note .intro-copy .instrument-status { color: #b19ba9; font: 10px/1.6 "Courier New", monospace; margin: 16px 0 0 6px; }
+.research-links { font: 10px/1.6 "Courier New", monospace; margin: 15px 0 0 9px; color: #ad819b; }
+.research-note { border-left: 1px solid #7f2043; padding: 4px 0 0 18px; margin: 45px 0 35px 20px; max-width: 740px; }
+.research-note > h2 { font: 27px/1 "Times New Roman", Times, serif; margin-bottom: 17px; }
+.proposal-premise { font: 15px/1.3 "Times New Roman", Times, serif; max-width: 495px; }
+.research-note .hypothesis-fragments { display: block; margin-top: 29px; }
+.research-note .hypothesis-fragments article { max-width: 540px; margin: 0 0 27px; }
+.research-note .hypothesis-fragments article:nth-child(2) { margin-left: 22px; }
+.research-note .hypothesis-fragments article:nth-child(3) { margin-left: 5px; }
+.research-note .hypothesis-fragments article:nth-child(4) { margin-left: 40px; }
+.research-note .hypothesis-fragments h3 { color: #dfc1d3; font: 13px/1.4 "Courier New", monospace; text-decoration: none; margin: 0 0 8px; }
+.research-note .hypothesis-fragments h3::first-letter { color: #ec5278; }
+.research-note .hypothesis-fragments p { color: #c6b0bf; font: 15px/1.3 "Times New Roman", Times, serif; }
+.research-note .hypothesis-fragments small { color: #b185a0; font: 10px/1.45 "Courier New", monospace; }
+.model-note { max-width: 600px; font: 11px/1.5 "Courier New", monospace; color: #b9a3b3; margin: 26px 0 0; padding: 0 0 0 11px; border-left: 1px dotted #79405c; }
+.model-note strong { color: #d5b9cd; font-weight: 400; }
 @media (max-width: 780px) {
-  .introduction.document-sheet { margin: 12px 3px 25px 0; padding: 12px 12px 10px; }
-  .document-running-head { font-size: 8px; }
-  .handling-stamp { font-size: 10px; }
-  .document-subject { font-size: 9px; }
-  .document-sheet h2 { font-size: 25px; }
-  .document-sheet .intro-copy { font-size: 12px; }
-  .document-sheet .document-annotation { font-size: 20px; margin-left: 10px; }
-  .hypotheses.document-sheet { margin: 32px 3px 30px 0; padding: 14px 12px; }
-  .document-sheet .hypothesis-fragments article:nth-child(n) { margin-left: 0; }
-  .document-sheet .hypothesis-fragments article:nth-child(even) { margin-left: 8px; }
+  .signal-field { height: 47px; margin: 0 10px 0 0; }
+  .signal-field i:nth-child(1) { left: 1%; width: 15%; }
+  .signal-field i:nth-child(2) { left: 17%; }
+  .inquiry-note { margin: 13px 0 26px; }
+  .inquiry-note h2 { margin-left: 8px; font-size: 28px; }
+  .inquiry-note .intro-copy > p:nth-child(2) { margin-left: 13px; }
+  .annotation { font-size: 20px; margin-left: 20px; }
+  .inquiry-note .intro-copy .instrument-status { margin-left: 2px; font-size: 9px; }
+  .research-note { margin: 34px 0 30px 3px; padding-left: 12px; }
+  .research-note .hypothesis-fragments article:nth-child(n) { margin-left: 0; }
+  .research-note .hypothesis-fragments article:nth-child(even) { margin-left: 10px; }
+  .research-note .hypothesis-fragments p { font-size: 15px; }
+  .model-note { font-size: 10px; padding-left: 8px; }
 }
