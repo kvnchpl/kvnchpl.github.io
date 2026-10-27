@@ -7,15 +7,15 @@ const HORIZONS_API_ENDPOINT = new URL(portfolioPreview ? '/api/ephemeris/horizon
   location.hostname.endsWith('.netlify.app') || ['localhost', '127.0.0.1'].includes(location.hostname)
     ? location.origin : 'https://kvnchpl-ephemeris.netlify.app').href;
 const chartTheme = {
-  text: '#dadbd1',
-  muted: '#9ba294',
-  grid: 'rgba(155, 162, 148, 0.13)',
-  tooltipBg: 'rgba(16, 17, 16, 0.97)',
-  tooltipBorder: '#727b62',
-  gold: '#c6d0ac',
-  bone: '#dadbd1',
-  red: '#e36955',
-  green: '#b4c699'
+  text: '#d5cdd0',
+  muted: '#a59b9f',
+  grid: 'rgba(162, 108, 145, 0.16)',
+  tooltipBg: 'rgba(8, 2, 8, 0.97)',
+  tooltipBorder: '#a13b64',
+  gold: '#c0a9bc',
+  bone: '#e2d9df',
+  red: '#f03b60',
+  green: '#a8bdab'
 };
 
 // DOM elements
@@ -1367,10 +1367,10 @@ function updateCharts(data) {
     z: data.map(d => d.acceleration?.z || 0)
   };
   const radialStates = data.map(getRadialState);
-  const insideColor = 'rgba(180, 198, 153, 0.07)';
-  const outsideColor = 'rgba(227, 105, 85, 0.08)';
+  const insideColor = 'rgba(168, 189, 171, 0.06)';
+  const outsideColor = 'rgba(240, 59, 96, 0.09)';
   const towardColor = 'rgba(218, 219, 209, 0.05)';
-  const awayColor = 'rgba(198, 208, 172, 0.08)';
+  const awayColor = 'rgba(192, 169, 188, 0.07)';
 
   positionChart.$stateBands = buildStateBands(
     radialStates,

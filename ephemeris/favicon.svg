@@ -1,7 +1,7 @@
 <!-- Solar reference mark -->
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <rect width="100" height="100" fill="#101110"/>
-  <circle cx="50" cy="50" r="34" fill="none" stroke="#c6d0ac" stroke-width="6"/>
-  <circle cx="50" cy="50" r="14" fill="#e36955"/>
-  <path d="M50 8v18M50 74v18M8 50h18M74 50h18M20 20l13 13M67 67l13 13M80 20L67 33M33 67L20 80" stroke="#dadbd1" stroke-width="5" stroke-linecap="square"/>
+  <rect width="100" height="100" fill="#030203"/>
+  <circle cx="50" cy="50" r="34" fill="none" stroke="#c0a9bc" stroke-width="6"/>
+  <circle cx="50" cy="50" r="14" fill="#f03b60"/>
+  <path d="M50 8v18M50 74v18M8 50h18M74 50h18M20 20l13 13M67 67l13 13M80 20L67 33M33 67L20 80" stroke="#d5cdd0" stroke-width="5" stroke-linecap="square"/>
 </svg>

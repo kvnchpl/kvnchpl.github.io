@@ -4,9 +4,9 @@
   <meta name="robots" content="noindex, nofollow">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#101110" />
-  <meta name="description" content="An independent solar-system barycenter observatory. Trace the movement of an invisible center with NASA JPL Horizons ephemerides." />
-  <title>Ephemeris — The center does not hold</title>
+  <meta name="theme-color" content="#030203" />
+  <meta name="description" content="A speculative addendum to Western astrology, investigating solar-system and galactic barycenters, related cycles, and proposed transits." />
+  <title>ephemeris :: centers within centers</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="styles.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
@@ -15,39 +15,59 @@
   <a class="skip-link" href="#observatory">Skip to observatory</a>
   <div class="page-shell" id="top">
     <header class="site-header">
-      <div class="utility-line">
-        <span><span class="signal-mark" aria-hidden="true">◉</span> Independent observation terminal</span>
-        <span class="utility-coordinate">SOL / BARYCENTRIC REFERENCE / 000</span>
-        <a href="#field-notes">Read the field notes ↗</a>
+      <p class="connection-string">ephemeris / a working notebook / <a href="#field-notes">read before interpreting</a></p>
+      <div class="wire-field" aria-hidden="true">
+        <svg viewBox="0 0 1100 170" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <defs><pattern id="wire-grain" width="7" height="5" patternUnits="userSpaceOnUse"><path d="M0 0h2v1H0zM4 3h1v1H4z" fill="#8c222b"/></pattern></defs>
+          <path d="M0 12H1100V170H0z" fill="#140508"/>
+          <path d="M0 72Q270 176 570 34Q840 132 1100 2M0 26Q260 120 570 9Q820 100 1100 0M0 112Q270 201 570 58Q820 159 1100 28M0 40L1100 131M0 49L1100 143M0 150L1100 8" fill="none" stroke="#92333c" stroke-width="1"/>
+          <path d="M175 170V35m-31 7h63m-53 11h45M575 170V8m-39 12h78m-66 13h53M962 170V49m-30 0h60m-54 12h48" fill="none" stroke="#bdb5b9" stroke-width="3"/>
+          <path d="M181 170V36M581 170V8M968 170V49" stroke="#47202a" stroke-width="5"/>
+          <circle cx="805" cy="66" r="39" fill="#030203" stroke="#ce273b"/>
+          <path d="M748 66h116M805 9v114" stroke="#ce273b" stroke-dasharray="2 5"/>
+          <circle cx="819" cy="49" r="3" fill="#ddd3d7"/>
+          <path d="M805 66l14-17" stroke="#ddd3d7"/>
+          <path d="M0 116H1100V170H0z" fill="url(#wire-grain)" opacity=".65"/>
+        </svg>
+        <span class="wire-caption">every reference point<br>is moving.</span>
       </div>
       <div class="masthead">
-        <h1>ephemeris<span aria-hidden="true">.</span></h1>
-        <div class="masthead-stamp" aria-hidden="true"><span>☉</span>NO FIXED<br>CENTER</div>
+        <h1>ephemeris</h1>
+        <p>an annex to<br>western astrology</p>
+        <span class="header-glyph" aria-hidden="true">☉<br>⊗<br>⊙</span>
       </div>
-      <div class="masthead-bottom">
-        <p>A record of things that refuse to stay still.</p>
-        <nav aria-label="In-page navigation">
-          <a href="#observatory">[01] Observe</a>
-          <a href="#signals">[02] Signals</a>
-          <a href="#field-notes">[03] Notes</a>
-        </nav>
-      </div>
+      <nav aria-label="In-page navigation">[ <a href="#observatory">barycenter</a> / <a href="#signals">the traces</a> / <a href="#hypotheses">proposed transits</a> / <a href="#field-notes">notes &amp; sources</a> ]</nav>
     </header>
 
-    <main>
-      <section class="introduction" aria-labelledby="intro-title">
-        <div class="intro-index"><span class="eyebrow">An inquiry into the invisible</span><span class="file-number">FILE: SSB—001</span></div>
-        <h2 id="intro-title">The center<br>does not hold.</h2>
+    <div class="body-layout">
+      <aside class="margin-notes" aria-label="Notebook index">
+        <p class="margin-address">you are here:<br><a href="#observatory">SOL / 0 / 10</a></p>
+        <div class="margin-sigil" aria-hidden="true"><span>⊙</span><span>+</span><span>◯</span></div>
+        <p class="margin-correction"><s>fixed point</s><br>moving target</p>
+        <p>the sun is<br>not the end<br>of the chart.</p>
+        <ul><li><a href="#observatory">i. a solar trace</a></li><li><a href="#signals">ii. position / velocity / acceleration</a></li><li><a href="#hypotheses">iii. beyond sol</a></li><li><a href="#field-notes">iv. open notebook</a></li></ul>
+        <dl><dt>target</dt><dd>0 — barycenter</dd><dt>origin</dt><dd>10 — sun</dd><dt>current frame</dt><dd>ecliptic J2000</dd><dt>galactic record</dt><dd>model pending</dd></dl>
+        <p class="margin-postscript">a measurement<br>is a place<br>to begin.</p>
+      </aside>
+      <main>
+      <section class="introduction document-sheet" aria-labelledby="intro-title">
+        <div class="document-running-head"><span>E / 001 — RESEARCH MATERIAL</span><span class="handling-stamp">working copy</span></div>
+        <p class="document-subject">SUBJECT: AN ADDENDUM TO WESTERN ASTROLOGY</p>
+        <div class="redaction-line" aria-hidden="true"><span class="redaction"></span> / <span class="redaction short"></span> / 001</div>
+        <h2 id="intro-title">centers within centers.</h2>
         <div class="intro-copy">
-          <p>Even the Sun moves around something we cannot see.</p>
-          <p>The solar system shares a center of mass. Sometimes it falls inside the Sun. Sometimes it slips beyond its edge. This terminal follows that point.</p>
+          <p>The solar system has a barycenter. The galaxy has a distribution of mass. Our charts sit inside both.</p>
+          <p>This notebook proposes <em>speculative astrological transits</em> from the solar-system barycenter, the Milky Way's barycenter, and other measurements at these scales. An addition to the Western chart: new reference points, relations, and cycles.</p>
+          <p class="document-annotation">what enters the chart when its center is moving?</p>
+          <p class="document-status">Solar instrument: operating below.<br>Galactic instrument: mass model &amp; definitions under study.</p>
         </div>
+        <p class="document-filing">FILE REMAINS OPEN. SEE <a href="#hypotheses">PROPOSED TRANSITS</a>.</p>
       </section>
 
       <section class="observatory" id="observatory" aria-labelledby="observatory-title">
         <div class="section-heading">
-          <h2 id="observatory-title"><span class="section-number">01 /</span> Barycenter observatory</h2>
-          <span class="section-aside">Nothing here is stationary.</span>
+          <h2 id="observatory-title"><span class="section-number">I.</span> solar barycentric trace</h2>
+          <span class="section-aside">[ local instrument / not a galactic position ]</span>
         </div>
         <div class="source-strip" id="sourceStrip" data-state="connecting" role="status">
           <span class="source-state"><span class="source-dot" aria-hidden="true"></span><strong id="dataSource">Contacting Horizons</strong></span>
@@ -60,7 +80,7 @@
           <div class="status-item"><span class="status-label">Latest plotted epoch</span><span id="latestEpoch" class="status-value">—</span></div>
         </div>
         <form class="query-panel" id="queryForm">
-          <div class="query-label"><span class="eyebrow">Observation window</span><span>Set the bounds of your inquiry.</span></div>
+          <div class="query-label"><span>query the ephemeris:</span></div>
           <div class="controls-grid">
             <div class="control-item"><label for="startDate">From</label><input type="date" id="startDate" min="1900-01-01" required /></div>
             <span class="date-separator" aria-hidden="true">→</span>
@@ -71,7 +91,7 @@
         </form>
 
         <div class="chart-container orbit-container">
-          <div class="plot-heading"><h3><span class="plot-number">FIG. 01</span> A moving center</h3><span>X–Y PROJECTION / MILLION KM</span></div>
+          <div class="plot-heading"><h3><span class="plot-number">[a]</span> path of the absent center</h3><span>X–Y PROJECTION / MILLION KM</span></div>
           <div class="seal-layout">
             <div class="orbit-panel">
               <div class="orbit-toolbar" aria-label="Orbit chart controls">
@@ -92,7 +112,7 @@
               <p class="plot-instructions">Drag to pan. Scroll to zoom. Select a point to follow its epoch across every chart.</p>
             </div>
             <aside class="observation-sidebar">
-              <div class="sidebar-note"><span class="eyebrow">Observer's note / 001</span><p>The circle is the Sun.<br>The line is its invisible counterweight.</p><span class="note-detail">Solar radius: 696,340 km<br>Origin: center of the Sun</span></div>
+              <div class="sidebar-note"><span class="eyebrow">a note on the threshold</span><p>Inside the Sun.<br>Outside the Sun.<br><em>When does the relation change?</em></p><span class="note-detail">Circle = solar boundary<br>Line = barycenter path<br>Radius used: 696,340 km</span></div>
               <div class="epoch-selector">
                 <label class="eyebrow" for="epochSelect">Inspect an epoch</label>
                 <select id="epochSelect" aria-describedby="epochHint"><option value="">All epochs</option></select>
@@ -113,28 +133,47 @@
       </section>
 
       <section class="signals-section" id="signals" aria-labelledby="signals-title">
-        <div class="section-heading"><h2 id="signals-title"><span class="section-number">02 /</span> Traces &amp; transmissions</h2><span class="section-aside">One system. Several ways of looking.</span></div>
+        <div class="section-heading"><h2 id="signals-title"><span class="section-number">II.</span> traces from the same record</h2><span class="section-aside">position → velocity → acceleration</span></div>
         <div class="charts-section">
-          <div class="chart-container chart-primary"><div class="plot-heading"><h3><span class="plot-number">FIG. 02</span> Boundary crossings</h3><span>RADIAL STATE</span></div><div class="chart-frame timeline-frame"><canvas id="radialStateChart" role="img" aria-label="Timeline of the barycenter's boundary, velocity direction, and acceleration direction. Values are in the coordinate ledger."></canvas></div><p class="chart-caption">Inside or outside the Sun. Moving toward or away. Acceleration is calculated from successive velocity samples.</p></div>
-          <div class="chart-container"><div class="plot-heading"><h3><span class="plot-number">FIG. 03</span> Position</h3><span>KM</span></div><div class="chart-frame"><canvas id="positionChart" role="img" aria-label="X, Y, and Z position over time. Values are in the coordinate ledger."></canvas></div></div>
-          <div class="chart-container"><div class="plot-heading"><h3><span class="plot-number">FIG. 04</span> Velocity</h3><span>KM/S</span></div><div class="chart-frame"><canvas id="velocityChart" role="img" aria-label="X, Y, and Z velocity over time. Values are in the coordinate ledger."></canvas></div></div>
-          <div class="chart-container chart-primary"><div class="plot-heading"><h3><span class="plot-number">FIG. 05</span> Acceleration</h3><span>KM/S² · DERIVED</span></div><div class="chart-frame"><canvas id="accelerationChart" role="img" aria-label="Derived X, Y, and Z acceleration over time. Values are in the coordinate ledger."></canvas></div></div>
+          <div class="chart-container chart-primary"><div class="plot-heading"><h3><span class="plot-number">[b]</span> Boundary crossings</h3><span>RADIAL STATE</span></div><div class="chart-frame timeline-frame"><canvas id="radialStateChart" role="img" aria-label="Timeline of the barycenter's boundary, velocity direction, and acceleration direction. Values are in the coordinate ledger."></canvas></div><p class="chart-caption">Inside or outside the Sun. Moving toward or away. Acceleration is calculated from successive velocity samples.</p></div>
+          <div class="chart-container"><div class="plot-heading"><h3><span class="plot-number">[c]</span> Position</h3><span>KM</span></div><div class="chart-frame"><canvas id="positionChart" role="img" aria-label="X, Y, and Z position over time. Values are in the coordinate ledger."></canvas></div></div>
+          <div class="chart-container"><div class="plot-heading"><h3><span class="plot-number">[d]</span> Velocity</h3><span>KM/S</span></div><div class="chart-frame"><canvas id="velocityChart" role="img" aria-label="X, Y, and Z velocity over time. Values are in the coordinate ledger."></canvas></div></div>
+          <div class="chart-container chart-primary"><div class="plot-heading"><h3><span class="plot-number">[e]</span> Acceleration</h3><span>KM/S² · DERIVED</span></div><div class="chart-frame"><canvas id="accelerationChart" role="img" aria-label="Derived X, Y, and Z acceleration over time. Values are in the coordinate ledger."></canvas></div></div>
         </div>
       </section>
 
+      <section class="hypotheses document-sheet" id="hypotheses" aria-labelledby="hypotheses-title">
+        <div class="document-running-head"><span>E / 002 — PROPOSALS</span><span class="handling-stamp">unfiled</span></div>
+        <p class="document-subject">SCOPE: SOLAR SYSTEM / MILKY WAY / WESTERN CHART</p>
+        <div class="redaction-line" aria-hidden="true"><span class="redaction short"></span> <span class="redaction"></span></div>
+        <h2 id="hypotheses-title">the chart does not stop at the Sun.</h2>
+        <p class="proposal-premise">Two centers of mass, at two scales. These are starting definitions for possible transits; their astrological meanings are part of the inquiry.</p>
+        <div class="hypothesis-fragments">
+          <article><h3>01. solar emergence / submergence</h3><p>Use the solar-system barycenter's passage through the Sun's surface as a threshold. Define a crossing where its distance from the Sun's center passes the adopted solar radius.</p><small>SOLAR SCALE / radial distance − solar radius = 0<br>position samples available above; exact crossing dates not yet extracted</small></article>
+          <article><h3>02. barycentric stations</h3><p>Mark the turns where the solar-system barycenter's distance from the Sun stops increasing and begins decreasing, or the reverse. A proposed station in the relation between a star and its system's center of mass.</p><small>SOLAR SCALE / radial velocity changes sign<br>direction changes visible in the radial-state trace</small></article>
+          <article><h3>03. the galactic background</h3><p>Model the solar-system barycenter's motion relative to the Milky Way's adopted mass center: orbital phase, radial turning points, and height above a chosen galactic midplane. Explore these as long-cycle context for a chart.</p><small>GALACTIC SCALE / requires a mass model and orbit model<br>proposed instrument; no galactic orbit or event dates calculated here</small></article>
+          <article><h3>04. contacts with the larger center</h3><p>Project the adopted Galactic center into an Earth-based Western chart. Look for conjunctions, squares, and oppositions from planets or the chart's angles to that direction and its opposite. Keep the mass-center model explicit.</p><small>COMBINED SCALES / proposed aspect rules: 0°, 90°, 180°<br>reference direction, epoch, and aspect orbs still to be chosen</small></article>
+        </div>
+        <p class="document-annotation">a local crossing. a galactic background.<br>how might they speak to the same chart?</p>
+        <p class="model-note"><strong>Before the galactic instrument:</strong> choose which mass distribution defines the Milky Way's barycenter and how the orbit is modeled. Record the disk, bulge, halo, boundary, solar position, and velocity assumptions. A coordinate origin or the position of Sagittarius A* must be named as an adopted reference, rather than silently substituted for a calculated center of mass.</p>
+        <p class="document-filing">RESEARCH LEADS: <a href="https://doi.org/10.1093/mnras/stw2759" target="_blank" rel="noopener noreferrer">MILKY WAY MASS MODEL</a> / <a href="https://docs.astropy.org/en/stable/coordinates/galactocentric.html" target="_blank" rel="noopener noreferrer">GALACTOCENTRIC FRAME</a></p>
+      </section>
+
       <section class="field-notes" id="field-notes" aria-labelledby="notes-title">
-        <div class="section-heading"><h2 id="notes-title"><span class="section-number">03 /</span> Field notes</h2><span class="section-aside">Keep looking. Check the source.</span></div>
+        <div class="section-heading"><h2 id="notes-title"><span class="section-number">IV.</span> notes left in the margin</h2></div>
         <div class="notes-grid">
-          <div class="notes-intro"><span class="eyebrow">Regarding the apparent order of things</span><p>There is no<br>privileged point.</p><span class="note-detail">An independent instrument.<br>An unfinished investigation.</span></div>
+          <div class="notes-intro"><p>data ≠<br>interpretation</p><span class="note-detail">keep both.<br>name the difference.</span></div>
           <div class="notes-entries">
-            <details open><summary><span>01</span> What are we actually looking at?</summary><p>The barycenter is the shared center of mass of the solar system. The planets pull on the Sun, too. Their changing positions move this point relative to the Sun's center, at times beyond its surface. The orbital view is a two-dimensional projection; boundary status uses all three coordinates.</p></details>
-            <details><summary><span>02</span> Where does the signal come from?</summary><p>Ephemerides are requested from NASA JPL's <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" rel="noopener noreferrer">Horizons system ↗</a>, using the solar system barycenter as the target and the Sun's center as the origin. These are computed ephemerides, rather than a live telescope feed. The status strip identifies the source of the displayed data.</p></details>
-            <details><summary><span>03</span> What happens when contact is lost?</summary><p>If the request fails, the terminal displays a simplified simulation, explicitly marked as demonstration data. It is not suitable for astronomical conclusions. The latest plotted epoch may precede the end of your window, depending on the chosen sampling interval.</p></details>
+            <details open><summary><span>01.</span> What is this notebook for?</summary><p>To augment conventional Western astrology with speculative transits and cycles drawn from both the solar-system barycenter and the Milky Way's barycenter, alongside related measurements at those scales. The local instrument is the starting point. A Galactic mass-center model and its relation to a Western chart remain part of the research. Computed positions and proposed astrological interpretations are recorded separately.</p></details>
+            <details><summary><span>02.</span> What does this version actually measure?</summary><p>The current instrument plots the solar system's center of mass relative to the center of the Sun. The orbital view shows its X–Y projection; the boundary test uses all three coordinates. NASA's vectors use the ecliptic of J2000.0, with epochs in TDB. These are solar-system relative vectors, not positions measured from the galactic center. Acceleration is derived from successive velocity samples.</p></details>
+            <details><summary><span>03.</span> Sources / reference frames</summary><p>The computed ephemerides come from <a href="https://ssd.jpl.nasa.gov/horizons/" target="_blank" rel="noopener noreferrer">NASA JPL Horizons</a>. See its <a href="https://ssd-api.jpl.nasa.gov/doc/horizons.html" target="_blank" rel="noopener noreferrer">API parameters</a> for vector origins and reference planes. For the galactic layer, <a href="https://docs.astropy.org/en/stable/coordinates/galactocentric.html" target="_blank" rel="noopener noreferrer">Astropy's Galactocentric frame documentation</a> describes the parameters needed to choose a galactic origin and solar motion. A coordinate transformation alone does not compute the Galaxy's center of mass. The <a href="https://doi.org/10.1093/mnras/stw2759" target="_blank" rel="noopener noreferrer">McMillan Milky Way mass model</a> is a research lead for the dynamical layer. No Galactic barycenter or orbit is calculated in this version.</p></details>
+            <details><summary><span>04.</span> If the source goes quiet</summary><p>A failed request produces a simplified simulation, labeled as demonstration data. It is not an astronomical ephemeris. The latest plotted epoch can precede the end of the requested window, depending on the sampling interval.</p></details>
           </div>
         </div>
       </section>
-    </main>
-    <footer class="site-footer"><a href="#top">EPHEMERIS / RETURN TO ORIGIN ↑</a><span>The signal continues whether or not you are watching.</span><span aria-hidden="true">[ END OF RECORD ]</span></footer>
+      </main>
+    </div>
+    <footer class="site-footer"><a href="#top">↑ back to the point of departure</a><p>ephemeris / the notebook remains open.</p><span aria-hidden="true">· · · ⊙ · · ·</span></footer>
   </div>
   <script src="script.js"></script>
 </body>
