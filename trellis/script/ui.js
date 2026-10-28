@@ -1,6 +1,6 @@
 import {
     evaluateCondition,
-    applyActionEffects,
+    attemptActionOnTile,
     getBlockedActionMessages
 } from './actions.js';
 
@@ -28,7 +28,6 @@ export let strings = {};
 
 let plantModalButtonList = [];
 let plantModalFocusedIndex = 0;
-let lastGrowthUpdateWeek = null;
 let lastSaveSizeUpdate = 0;
 
 export const modalRegistry = {
@@ -103,8 +102,8 @@ export const modalRegistry = {
 
                     gameState.map[`${x},${y}`] = newTile;
                     gameState.dailyStats.planted++;
-                    finalizeAction(config.tiles.actions.plant, config);
                     showModal('closeAll');
+                    finalizeAction(config.tiles.actions.plant, config);
                 };
                 container.appendChild(btn);
                 plantModalButtonList.push(btn);
@@ -154,15 +153,10 @@ export const modalRegistry = {
                 // Advance to next day
                 advanceDay(config);
                 resetDailyStats();
-                if (gameState.time.week !== lastGrowthUpdateWeek) {
-                    const changedTiles = updateGrowth(config);
-                    lastGrowthUpdateWeek = gameState.time.week;
-
-                    // Only refresh tile info if the currently selected tile changed
-                    if (changedTiles.includes(`${gameState.selector.x},${gameState.selector.y}`)) {
-                        updateTileInfoPanel(config);
-                    }
-                }
+                // Growth occurs exactly once when a week is completed.
+                updateGrowth(config);
+                updateTileInfoPanel(config);
+                render(config);
                 updateTimePanel(config);
                 saveGameState(config);
                 updateSaveSizeDisplay(config);
@@ -245,7 +239,7 @@ function formatFailedConditions(failed, actionLabel, tile, actionDef) {
 }
 
 /**
- * Finalizes an action by updating the UI, saving the game, incrementing time, and rendering.
+ * Finalizes an action by updating the UI, advancing time, saving the game, and rendering.
  * @param {Object} actionDef - The action definition.
  * @param {Object} config - Game configuration.
  */
@@ -417,8 +411,7 @@ function _renderActionButtons(tile, config) {
             if (isPlant) {
                 showModal('plantSelection', config, tileLatest, gameState.selector.x, gameState.selector.y);
             } else {
-                const newTile = applyActionEffects(tileLatest, actionDef, config);
-                gameState.map[`${gameState.selector.x},${gameState.selector.y}`] = newTile;
+                attemptActionOnTile(tileLatest, actionLabel, config, strings, gameState.dailyStats);
                 finalizeAction(actionDef, config);
             }
         };
@@ -478,16 +471,6 @@ export function incrementTimeUI(minutes, config) {
 
     // Update UI elements
     updateTimePanel(config);
-
-    // Optionally: trigger weekly growth
-    if (gameState.time.week !== lastGrowthUpdateWeek) {
-        const changedTiles = updateGrowth(config);
-        lastGrowthUpdateWeek = gameState.time.week;
-
-        if (changedTiles.includes(`${gameState.selector.x},${gameState.selector.y}`)) {
-            updateTileInfoPanel(config);
-        }
-    }
 }
 
 // Handles keyboard navigation and selection within the plant selection modal.

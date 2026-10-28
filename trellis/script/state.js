@@ -60,6 +60,8 @@ export function initState(config) {
         seasonIndex: 0
     };
 
+    resetDailyStats();
+
     // Force starting tile to "soil"
     const startingKey = `${gameState.player.x},${gameState.player.y}`;
     gameState.map[startingKey] = {
@@ -260,7 +262,8 @@ export function saveGameState(config) {
         selector: gameState.selector,
         map: optimizedMap,
         revealed: gameState.revealed,
-        time: gameState.time
+        time: gameState.time,
+        dailyStats: gameState.dailyStats
     };
 
     const serialized = JSON.stringify(saveData);

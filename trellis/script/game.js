@@ -21,7 +21,8 @@ import {
     getTile,
     saveGameState,
     readSavedGame,
-    clearSavedGame
+    clearSavedGame,
+    resetDailyStats
 } from './state.js';
 
 import {
@@ -67,6 +68,8 @@ function loadGameState() {
             week: data.time?.week ?? 1,
             seasonIndex: data.time?.seasonIndex ?? 0
         };
+        resetDailyStats();
+        Object.assign(gameState.dailyStats, data.dailyStats || {});
         // Game loaded successfully
         return true;
     } catch (e) {
@@ -150,6 +153,9 @@ async function initGame(loadExisting = true) {
     }
 
     initPlayer(inputState);
+    if (gameState.time.hour >= config.dayEndHour) {
+        showModal('dayComplete', { ...gameState.dailyStats }, config);
+    }
     refreshScreenIfChanged(config);
     requestAnimationFrame(() => gameLoop(config));
 }
