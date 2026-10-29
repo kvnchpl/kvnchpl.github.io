@@ -1,3 +1,5 @@
+import {createDebugWindow} from './debug-window.js';
+import {serializeGame} from './saves.js';
 import {loadDefinitions} from './config.js';
 import {createSimulation} from './simulation.js';
 import {createBrowserStorage} from './storage.js';
@@ -22,10 +24,15 @@ async function start() {
     const getState = () => simulation.state;
     const renderer = createRenderer(definitions, getState, query.get('artwork') || undefined);
     await renderer.load();
-    let ui;
+    function download(raw,name) {
+        const url=URL.createObjectURL(new Blob([raw],{type:'application/json'}));
+        const link=document.createElement('a');link.href=url;link.download=name;link.click();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }
+    let ui, debug;
     const refresh = action => { renderer.render(); ui.update(action); ui.saveStatus(storage.save(getState())); };
     function send(command) {
-        if (ui.modalOpen()) return;
+        if (ui.modalOpen() || debug?.isOpen()) return;
         if (command.type === 'requestNewGame') {
             ui.message({title:'Start a new game?', message:'This will replace your current farm and active save.', cancelText:'Cancel', onConfirm: () => {
                 storage.replace(); simulation = createSimulation(rules, {seed:newSeed()}); refresh();
@@ -36,9 +43,7 @@ async function start() {
         }
         if (command.type === 'downloadSave' || command.type === 'downloadBackup') {
             const raw = command.type === 'downloadBackup' ? storage.readBackup() : storage.readRaw(); if (raw === null) return;
-            const url = URL.createObjectURL(new Blob([raw],{type:'application/json'}));
-            const link = document.createElement('a'); link.href = url; link.download = command.type === 'downloadBackup' ? 'trellis-before-upgrade.json' : 'trellis-previous-save.json'; link.click();
-            setTimeout(() => URL.revokeObjectURL(url),1000); return;
+            download(raw,command.type === 'downloadBackup' ? 'trellis-before-upgrade.json' : 'trellis-previous-save.json'); return;
         }
         const result = simulation.dispatch(command);
         if (result.status === 'blocked') ui.blocked(result.action);
@@ -47,7 +52,17 @@ async function start() {
         if (result.status === 'dayComplete' || result.dayComplete) ui.dayComplete();
     }
     ui = createUI(definitions, renderer, getState, send);
-    installControls(presentation.keyBindings, send, ui.modalOpen);
+    debug = createDebugWindow({
+        blocked:ui.modalOpen,
+        execute:line=>{
+            const result=simulation.dispatch({type:'debug',line});
+            if(result.status==='changed') refresh();
+            return result.message;
+        },
+        exportGarden:()=>download(serializeGame(getState()),'trellis-debug-garden.json'),
+        onClose:()=>{if(getState().time.hour>=rules.dayEndHour) ui.dayComplete();}
+    });
+    installControls(presentation.keyBindings, send, ()=>ui.modalOpen() || debug.isOpen());
     renderer.resize(); refresh();
     if (getState().time.hour >= rules.dayEndHour) ui.dayComplete();
     window.addEventListener('resize', () => { renderer.resize(); renderer.render(); });

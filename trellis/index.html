@@ -15,6 +15,7 @@
     <div id="top-button-bar">
         <div id="game-controls">
             <button id="new-game" class="ui-button">New Game</button>
+            <button id="debug-toggle" class="ui-button" title="Open with the backtick key">Debug</button>
             <span id="save-size" role="status" aria-live="polite"></span>
             <button id="download-save" class="ui-button" hidden>Download previous save</button>
             <button id="download-backup" class="ui-button" hidden>Download upgrade backup</button>
@@ -83,6 +84,21 @@
             </div>
         </div>
     </div>
+    <dialog id="debug-window" aria-labelledby="debug-title" aria-describedby="debug-description">
+        <h2 id="debug-title">Garden debug</h2>
+        <p id="debug-description">Commands edit this garden and save immediately. Export a copy first, or undo the last debug edit. Normal play clears undo.</p>
+        <pre id="debug-output" role="log" aria-live="polite" tabindex="0"></pre>
+        <form id="debug-form">
+            <label for="debug-command">Cheat code</label>
+            <input id="debug-command" name="command" autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="200" placeholder="help" />
+            <button class="ui-button" type="submit">Run</button>
+        </form>
+        <div id="debug-buttons">
+            <button class="ui-button" id="debug-undo" type="button">Undo edit</button>
+            <button class="ui-button" id="debug-export" type="button">Export garden</button>
+            <button class="ui-button" id="debug-close" type="button">Close</button>
+        </div>
+    </dialog>
     <script type="module" src="script/game.js"></script>
 </body>
 

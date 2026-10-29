@@ -1,3 +1,4 @@
+import {applyDebugCommand} from './debug.js';
 import {createState, getTile, isWithinMap, revealGarden, advanceTime, completeDay} from './state.js';
 import {evaluateCondition, attemptActionOnTile, resetPlantState} from './actions.js';
 
@@ -7,7 +8,8 @@ export function createSimulation(rules, {seed = 0, savedState = null} = {}) {
     const selectedTile = () => getTile(state, state.selector.x, state.selector.y, rules);
     const closingTime = () => state.time.hour >= rules.dayEndHour;
     const changed = () => ({status: 'changed', dayComplete: closingTime()});
-    function dispatch(command) {
+    let debugUndo = null;
+    function applyCommand(command) {
         if (command.type === 'completeDay') { completeDay(state, rules); return changed(); }
         if (closingTime()) return {status: 'dayComplete'};
         if (command.type === 'move' || command.type === 'select') {
@@ -45,6 +47,25 @@ export function createSimulation(rules, {seed = 0, savedState = null} = {}) {
         }
         advanceTime(state, definition.timeIncrement, rules);
         return {...changed(), action};
+    }
+    function dispatch(command) {
+        if (command.type === 'debug') {
+            if (typeof command.line !== 'string' || command.line.length > 200) return {status:'debug',message:'Use a command of at most 200 characters.'};
+            if (command.line.trim().toLowerCase() === 'undo') {
+                if (!debugUndo) return {status:'debug',message:'No debug edit to undo.'};
+                Object.assign(state,debugUndo); debugUndo=null;
+                return {status:'changed',message:'Undid the last debug edit.'};
+            }
+            const before=structuredClone(state);
+            try {
+                const result=applyDebugCommand(state,rules,command.line);
+                if (result.changed) debugUndo=before;
+                return {status:result.changed?'changed':'debug',message:result.message};
+            } catch (error) { return {status:'debug',message:error.message}; }
+        }
+        const result=applyCommand(command);
+        if (result.status === 'changed') debugUndo=null;
+        return result;
     }
     return {state, dispatch};
 }

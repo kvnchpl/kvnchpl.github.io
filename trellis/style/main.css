@@ -382,3 +382,39 @@ canvas {
     outline: 2px solid var(--text-color);
     outline-offset: 2px;
 }
+
+#debug-window {
+    margin: auto;
+    width: min(680px, calc(100vw - 24px));
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    background: var(--background-color);
+    color: var(--text-color);
+    font: inherit;
+}
+#debug-window::backdrop { background: rgba(0,0,0,.7); }
+#debug-description { margin: 12px 0; line-height: 1.4; }
+#debug-output {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    overflow-y: auto;
+    max-height: 35dvh;
+    padding: 8px;
+    background: #000;
+    font: inherit;
+}
+#debug-form label { display: block; margin-top: 12px; }
+#debug-command {
+    width: 100%;
+    padding: 10px;
+    margin-top: 4px;
+    background: #000;
+    color: inherit;
+    border: 1px solid var(--border-color);
+    font: inherit;
+    text-transform: none;
+}
+#debug-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
