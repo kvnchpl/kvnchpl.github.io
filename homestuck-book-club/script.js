@@ -61,6 +61,11 @@
     'lalonde': '#ff6ff2',
     'strider': '#f2a400',
     'uranian-umbra': '#929292',
+    'undying-umbrage': '#323232',
+    'gcat': '#4ac925',
+    'squarewave': '#e00707',
+    'sawtooth': '#252525',
+    'post-scratch-hb': '#252525',
     'dad-crocker': '#555555',
     'poppop': '#0715cd',
     'grandma': '#4ac925',
@@ -241,6 +246,14 @@
     return true;
   }
 
+  function openCharacterProfile(id) {
+    if (!showCharacter(id, { updateHash: false })) return;
+    const profileHash = `#character-${id}`;
+    if (location.hash !== profileHash) history.pushState(null, '', profileHash);
+    profilePanels.find(panel => panel.dataset.characterId === id).focus({ preventScroll: true });
+    characterBrowser.scrollIntoView({ block: 'start' });
+  }
+
   function createCharacterProfile(character, groupId, appendixEntries) {
     const nameVariant = resolveVariant(character.name);
     if (!nameVariant) return null;
@@ -272,7 +285,7 @@
     const stats = document.createElement('dl');
     stats.className = 'profile-stats';
     const ownEntryId = appendixEntries.find(entry => entry.characterId === character.id)?.id;
-    const appendStatLinks = createAppendixLinker(appendixEntries, ownEntryId, 'profile-term-link');
+    const appendStatLinks = createAppendixLinker(appendixEntries, ownEntryId, 'profile-term-link', true);
     let statCount = 0;
 
     for (const stat of character.stats || []) {
@@ -477,7 +490,11 @@
       .sort((a, b) => a.variant.term.localeCompare(b.variant.term, 'en'));
   }
 
-  function createAppendixLinker(available, ownId, className = 'concept-link') {
+  function createAppendixLinker(available, ownId, className = 'concept-link', linkCharacters = false) {
+    const characterTargets = new Map(available.filter(entry => linkCharacters && entry.characterId &&
+      referenceData.characters.some(character => character.id === entry.characterId &&
+        hasReachedStage(character.reveal) && resolveVariant(character.name)))
+      .map(entry => [entry.id, entry.characterId]));
     const phrases = new Map();
     for (const { id, variant } of available) {
       if (id === ownId) continue;
@@ -504,12 +521,14 @@
         element.append(document.createTextNode(text.slice(cursor, match.index)));
         const link = document.createElement('a');
         link.className = className;
-        link.href = `#concept-${id}`;
+        const characterId = characterTargets.get(id);
+        link.href = characterId ? `#character-${characterId}` : `#concept-${id}`;
         link.textContent = match[0];
         link.addEventListener('click', event => {
           if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
           event.preventDefault();
-          showAppendixEntry(id, { focusSearch: true });
+          if (characterId) openCharacterProfile(characterId);
+          else showAppendixEntry(id, { focusSearch: true });
         });
         element.append(link);
         linked.add(id);
@@ -565,10 +584,7 @@
         profileLink.addEventListener('click', event => {
           if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
           event.preventDefault();
-          if (!showCharacter(characterId, { updateHash: false })) return;
-          if (location.hash !== profileHash) history.pushState(null, '', profileHash);
-          profilePanel.focus({ preventScroll: true });
-          characterBrowser.scrollIntoView({ block: 'start' });
+          openCharacterProfile(characterId);
         });
         const profileCommand = document.createElement('ul');
         profileCommand.className = 'command-links concept-profile-command';

@@ -979,7 +979,7 @@ button {
 
 .roster-name {
   white-space: normal;
-  overflow-wrap: normal;
+  overflow-wrap: anywhere;
   word-break: normal;
 }
 

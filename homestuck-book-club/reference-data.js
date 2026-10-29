@@ -6431,6 +6431,28 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4063
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Empress of Alternia; ruler of post-Scratch Derse",
+              "sourcePage": 4599,
+              "sourcePages": [
+                4063
+              ],
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Also known as",
+              "value": "Batterwitch",
+              "sourcePage": 4489,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -6611,6 +6633,17 @@ window.HOMESTUCK_REFERENCE = {
                 4396,
                 4408
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Status",
+              "value": "Waking self alive; dreamself alive again on Prospit",
+              "sourcePage": 4421,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4596,
+                4601
+              ]
             }
           ]
         },
@@ -6642,6 +6675,16 @@ window.HOMESTUCK_REFERENCE = {
           "value": "LALONDE",
           "sourcePage": 4156,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": "ROXY LALONDE",
+          "sourcePage": 4464,
+          "sourceKind": "composite",
+          "introLinkPage": 4464,
+          "sourcePages": [
+            4156
+          ]
         }
       ],
       "rosterLabel": [
@@ -6649,6 +6692,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "Lalonde",
           "sourcePage": 4156,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": "Roxy",
+          "sourcePage": 4464,
           "sourceKind": "direct"
         }
       ],
@@ -6659,6 +6708,15 @@ window.HOMESTUCK_REFERENCE = {
             "placeholder": "?"
           },
           "sourcePage": 4121,
+          "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-roxy.webp",
+            "alt": "Roxy Lalonde in her pink cat shirt"
+          },
+          "sourcePage": 4464,
           "sourceKind": "visual"
         }
       ],
@@ -6676,6 +6734,13 @@ window.HOMESTUCK_REFERENCE = {
                 4175,
                 4226
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Computer expert; conducts ectobiology experiments",
+              "sourcePage": 4464,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -6687,6 +6752,93 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Handle",
               "value": "tipsyGnostalgic [TG]",
               "sourcePage": 4156,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Title",
+              "value": "Rogue of Void",
+              "sourcePage": 4514,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 4454,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Weapon",
+              "value": "Laser gun",
+              "sourcePage": 4471,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "strife-specibus",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Strife specibus",
+              "value": "riflekind · fistkind",
+              "sourcePage": 4471,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Inventory",
+              "value": "Message in a Bottle modus",
+              "sourcePage": 4473,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Powers",
+              "value": "Obscures remote observation through Void",
+              "sourcePage": 4513,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4564
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Interests",
+              "value": "Wizards · Creative writing · Retro games · Coding · Ectobiology",
+              "sourcePage": 4464,
               "sourceKind": "direct"
             }
           ]
@@ -6707,6 +6859,16 @@ window.HOMESTUCK_REFERENCE = {
           "value": "D. STRIDER",
           "sourcePage": 4259,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": "DIRK STRIDER",
+          "sourcePage": 4468,
+          "sourceKind": "composite",
+          "introLinkPage": 4468,
+          "sourcePages": [
+            4259
+          ]
         }
       ],
       "rosterLabel": [
@@ -6714,6 +6876,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "Strider",
           "sourcePage": 4259,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": "Dirk",
+          "sourcePage": 4468,
           "sourceKind": "direct"
         }
       ],
@@ -6724,6 +6892,15 @@ window.HOMESTUCK_REFERENCE = {
             "placeholder": "?"
           },
           "sourcePage": 4121,
+          "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-dirk.webp",
+            "alt": "Dirk Strider in his orange hat shirt and angular sunglasses"
+          },
+          "sourcePage": 4468,
           "sourceKind": "visual"
         }
       ],
@@ -6741,6 +6918,16 @@ window.HOMESTUCK_REFERENCE = {
                 4258,
                 4192
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Robotics and artificial-intelligence creator; Jane's server player",
+              "sourcePage": 4455,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4468
+              ]
             }
           ]
         },
@@ -6757,6 +6944,82 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Title",
+              "value": "Prince of Heart",
+              "sourcePage": 4564,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 4454,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Weapon",
+              "value": "Unbreakable katana",
+              "sourcePage": 4518,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "strife-specibus",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Strife specibus",
+              "value": "bladekind · puppetkind · fancysantakind",
+              "sourcePage": 4519,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Inventory",
+              "value": "Tech-Hop modus",
+              "sourcePage": 4533,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Powers",
+              "value": "Simultaneous awareness of waking body and dreamself",
+              "sourcePage": 4549,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4454,
+                4564
+              ]
+            }
+          ]
+        },
+        {
           "id": "interests",
           "variants": [
             {
@@ -6768,6 +7031,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4259
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Interests",
+              "value": "Puppetry · Robotics · Artificial intelligence · Mythology · Irony · Comics",
+              "sourcePage": 4468,
+              "sourceKind": "direct"
             }
           ]
         }
@@ -6970,6 +7240,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Prospit in a separate session",
               "sourcePage": 4144,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Interests",
+              "value": "The players' history · Speculation · Drawing · Fan fiction",
+              "sourcePage": 4564,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4565,
+                4566
+              ]
             }
           ]
         }
@@ -7247,6 +7533,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4185
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Self-aware software based on Dirk's thirteen-year-old mind, housed in his sunglasses",
+              "sourcePage": 4489,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -7262,6 +7555,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4185
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Handle",
+              "value": "timaeusTestified [TT] (shared with Dirk)",
+              "sourcePage": 4490,
+              "sourceKind": "direct"
             }
           ]
         }
@@ -7339,6 +7639,28 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4192
               ]
+            },
+            {
+              "from": "act-6-act-2",
+              "label": "Components",
+              "value": "Uranium-powered robot assembled by Jake from Dirk's parts",
+              "sourcePage": 4532,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4208
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Status",
+              "value": "Destroyed in an explosion",
+              "sourcePage": 4592,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -7455,6 +7777,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4407,
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-dd.webp",
+            "alt": "Post-Scratch Draconian Dignitary in his black Dersite uniform"
+          },
+          "sourcePage": 4572,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -7531,9 +7862,341 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ]
+    },
+    {
+      "id": "gcat",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-2",
+      "introPage": 4424,
+      "sourcePage": 4424,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-act-2",
+          "value": "GCAT",
+          "sourcePage": 4426,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-2",
+          "value": "GCat",
+          "sourcePage": 4426,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-gcat.webp",
+            "alt": "GCat, a white cat with a long curved tail"
+          },
+          "sourcePage": 4424,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Teleporting cat who interferes with Jane and her friends",
+              "sourcePage": 4425,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4424
+              ]
+            }
+          ]
+        },
+        {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Also known as",
+              "value": "God Cat",
+              "sourcePage": 4426,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4424
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Powers",
+              "value": "Teleportation",
+              "sourcePage": 4425,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "squarewave",
+      "group": "ai-robots",
+      "reveal": "act-6-act-2",
+      "introPage": 4523,
+      "sourcePage": 4523,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-act-2",
+          "value": "SQUAREWAVE",
+          "sourcePage": 4523,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-2",
+          "value": "Squarewave",
+          "sourcePage": 4523,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-squarewave.webp",
+            "alt": "Squarewave, a boxy robot in a backward cap and sneakers"
+          },
+          "sourcePage": 4523,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Rap-battle robot built by Dirk",
+              "sourcePage": 4523,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 3
+    },
+    {
+      "id": "sawtooth",
+      "group": "ai-robots",
+      "reveal": "act-6-act-2",
+      "introPage": 4523,
+      "sourcePage": 4523,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-act-2",
+          "value": "SAWTOOTH",
+          "sourcePage": 4523,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-2",
+          "value": "Sawtooth",
+          "sourcePage": 4523,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4523,
+          "sourceKind": "editorial"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Dirk's undefeated rap-battle robot",
+              "sourcePage": 4523,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 3
+    },
+    {
+      "id": "undying-umbrage",
+      "group": "other-players",
+      "reveal": "act-6-act-2",
+      "introPage": 4646,
+      "sourcePage": 4646,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-act-2",
+          "value": "UNDYINGUMBRAGE",
+          "sourcePage": 4646,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-2",
+          "value": "uu",
+          "sourcePage": 4646,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4646,
+          "sourceKind": "editorial"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Hostile coplayer of uranianUmbra in a planned two-player session",
+              "sourcePage": 4648,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4646
+              ]
+            }
+          ]
+        },
+        {
+          "id": "handle",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Handle",
+              "value": "undyingUmbrage [uu]",
+              "sourcePage": 4646,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Dream moon",
+              "value": "Derse in a separate session",
+              "sourcePage": 4564,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "post-scratch-hb",
+      "group": "post-scratch-agents",
+      "reveal": "act-6-act-2",
+      "introPage": 4545,
+      "sourcePage": 4545,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-act-2",
+          "value": "HEGEMONIC BRUTE",
+          "sourcePage": 4545,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-2",
+          "value": "Hegemonic Brute",
+          "sourcePage": 4545,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-hb.webp",
+            "alt": "Post-Scratch Hegemonic Brute in his black uniform and white cape"
+          },
+          "sourcePage": 4542,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Dersite agent sent to assassinate Dirk",
+              "sourcePage": 4542,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4545
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Weapon",
+              "value": "Axe",
+              "sourcePage": 4542,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Status",
+              "value": "Deceased; decapitated by Dirk",
+              "sourcePage": 4545,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4544
+              ]
+            }
+          ]
+        }
+      ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-intermission-1",
+  "conceptsPreparedThrough": "act-6-act-2",
   "concepts": [
     {
       "id": "alchemy",
@@ -8318,6 +8981,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             931,
             932
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Appearifier",
+          "aliases": [],
+          "definition": "A device that retrieves an object from specified coordinates and time. If retrieval would contradict known events, it produces a paradox ghost imprint instead. Roxy carries a small handheld version with a size limit; pumpkins are unusually easy to retrieve, while many other targets must remain where they are.",
+          "sourcePage": 4433,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4434,
+            4479,
+            4512,
+            4608
           ]
         }
       ]
@@ -9123,6 +9800,21 @@ window.HOMESTUCK_REFERENCE = {
             4412,
             4419
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Prospit",
+          "aliases": [],
+          "definition": "The golden kingdom near Skaia, whose moon houses dreamselves and passes through prophetic clouds. In the post-Scratch session, Dersite agents target Jane and Jake's dreamselves before the game begins. Jane's body is found alive after her tower's destruction, and a Prospitian queen intervenes when Jack tries again.",
+          "sourcePage": 4596,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1049,
+            4402,
+            4412,
+            4600,
+            4601
+          ]
         }
       ]
     },
@@ -9248,6 +9940,19 @@ window.HOMESTUCK_REFERENCE = {
             1134,
             1135,
             1136
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Sendificator",
+          "aliases": [
+            "Sendification"
+          ],
+          "definition": "A machine that sends objects to chosen coordinates, subject to temporal constraints. Dirk's compact Crockercorp model can send only what fits inside it, so he ships Brobot to Jake in pieces. It complements an appearifier, which retrieves objects instead of sending them away.",
+          "sourcePage": 4532,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4479
           ]
         }
       ]
@@ -11563,6 +12268,21 @@ window.HOMESTUCK_REFERENCE = {
             4303,
             4304
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Fourth wall",
+          "aliases": [
+            "4th wall"
+          ],
+          "definition": "The pair of enormous fenestrated planes used by John and Jade's ship to leave the scratched session and reach the new one. The passage between them is the yellow yard. Like Roxy's smaller windows, they connect through an empty passage whose crossing takes time for travelers inside.",
+          "sourcePage": 4298,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4303,
+            4304,
+            4510
+          ]
         }
       ]
     },
@@ -12166,6 +12886,25 @@ window.HOMESTUCK_REFERENCE = {
             1674
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Jaspersprite",
+          "aliases": [
+            "Jaspers",
+            "Frigglish"
+          ],
+          "definition": "Rose's sprite guide, combining her dead cat Jaspers with an eldritch princess doll. The cat's missing days connect to Roxy, who kept him as Frigglish after retrieving him through a transmaterializer. A falling joke book kills him; Roxy sends the body back, completing the disappearance Rose remembers.",
+          "sourcePage": 4502,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4501,
+            4612,
+            4613,
+            4616,
+            4617,
+            1674
+          ]
         }
       ]
     },
@@ -12568,6 +13307,25 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir"
           ],
           "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries first guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
+          "sourcePage": 4320,
+          "sourceKind": "composite",
+          "sourcePages": [
+            955,
+            3238,
+            4312,
+            4314,
+            4315,
+            4317,
+            4384
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Jack Noir",
+          "aliases": [
+            "Bec Noir"
+          ],
+          "definition": "The pre-Scratch kids' renegade archagent, also called Bec Noir, whose stolen ring carries first guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
           "sourcePage": 4320,
           "sourceKind": "composite",
           "sourcePages": [
@@ -13896,6 +14654,24 @@ window.HOMESTUCK_REFERENCE = {
             4070
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "Feferi's ancestor and Alternia's empress, now connected to Crockercorp as the Batterwitch. She also rules the post-Scratch session's Derse, where the agents carry out dreamself assassinations. Dirk and Roxy oppose her plans, while Jane has grown up trusting the corporation she controls.",
+          "sourcePage": 4489,
+          "sourcePages": [
+            4455,
+            4599,
+            4665
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -13951,6 +14727,21 @@ window.HOMESTUCK_REFERENCE = {
             4124,
             4156,
             4225
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Crockercorp",
+          "aliases": [
+            "BCCorp"
+          ],
+          "definition": "The baked-goods and technology empire behind the Sburb alpha, opposed by Dirk and Roxy but trusted by its heiress, Jane. Its founder is the Batterwitch, connected to the Condesce's rule. Dirk insists Jane use neutral hardware because the corporation's devices subject her to propaganda and influence.",
+          "sourcePage": 4455,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4489,
+            4599,
+            4665
           ]
         }
       ]
@@ -14058,6 +14849,22 @@ window.HOMESTUCK_REFERENCE = {
             4181,
             4222
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Transmaterializer",
+          "aliases": [],
+          "definition": "A uranium-powered device that sends and retrieves objects between different instances of a universe, synchronizing their flows of time. Roxy uses one to retrieve Jaspers and later return his body. Its unfamiliar controls and immense power requirements make its full operation more mysterious than an ordinary appearifier or sendificator.",
+          "sourcePage": 4612,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4181,
+            4222,
+            4502,
+            4613,
+            4616,
+            4617
+          ]
         }
       ]
     },
@@ -14120,6 +14927,25 @@ window.HOMESTUCK_REFERENCE = {
             4408,
             4412
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "Crockercorp's heiress and the Maid of Life, saved from the mailbox explosion by GCat. Her dreamself survives its apparent death and the destruction of her tower. With Dirk and his auto-responder helping her begin Sburb, she struggles to tell Jake that her feelings for him are romantic.",
+          "sourcePage": 4421,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4424,
+            4455,
+            4570,
+            4587,
+            4596,
+            4601
+          ]
         }
       ]
     },
@@ -14167,6 +14993,23 @@ window.HOMESTUCK_REFERENCE = {
             4405,
             4406
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The island adventurer and Page whose Prospit dreamself is dead. He fights Brobot to obtain uranium for his rabbit project, while trying to untangle his friends' romantic feelings. After an awkward conversation in which Jane denies her crush, he admits he might return Dirk's interest.",
+          "sourcePage": 4573,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4208,
+            4216,
+            4587,
+            4588
+          ]
         }
       ]
     },
@@ -14187,6 +15030,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4225,
             4226
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Jane's hacker friend and the Rogue of Void, living on a flooded future Earth. Skilled in ectobiology and travel through fenestrated planes, she hopes the game will reunite her with her mother and future daughter, Rose. After trying to frighten Jane away from Sburb, she leans toward joining her friends.",
+          "sourcePage": 4464,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4489,
+            4513,
+            4514,
+            4665
           ]
         }
       ]
@@ -14212,6 +15074,28 @@ window.HOMESTUCK_REFERENCE = {
             4258,
             4259
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart, a robotics expert living on a flooded future Earth. He remains conscious in his waking body and dreamself at once, serving Jane while his auto-responder helps manage her connection. On Derse, he kills an assassin and prepares to openly challenge the kingdom.",
+          "sourcePage": 4468,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4455,
+            4545,
+            4549,
+            4564,
+            4566,
+            4665
+          ]
         }
       ]
     },
@@ -14231,6 +15115,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             4181
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "uranianUmbra",
+          "aliases": [
+            "UU"
+          ],
+          "definition": "An off-world guide who studies the players' story through historical texts and a viewing terminal, while writing and drawing her own speculations. She explains Roxy and Dirk's classes but admits her sources have limits. Her own session depends on cooperation with a hostile coplayer she loosely calls her brother.",
+          "sourcePage": 4564,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4513,
+            4514,
+            4565,
+            4566
           ]
         }
       ]
@@ -14320,6 +15220,24 @@ window.HOMESTUCK_REFERENCE = {
             4192,
             4208
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Auto-responder",
+          "aliases": [
+            "AR",
+            "Auto responder",
+            "Doppelglasses"
+          ],
+          "definition": "Self-aware software in Dirk's sunglasses, initialized from his thirteen-year-old personality and developing separately since then. He shares Dirk's chat handle but can speak and act independently. While Dirk divides his attention between two bodies, the responder helps manage Jane's server connection and offers unsolicited romantic advice.",
+          "sourcePage": 4489,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4490,
+            4491,
+            4553,
+            4563
+          ]
         }
       ]
     },
@@ -14338,6 +15256,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4208,
             4226
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Brobot",
+          "aliases": [],
+          "definition": "Dirk's uranium-powered robot double, assembled by Jake as a sparring partner. Its overwhelming combat ability makes taking its fuel a dangerous project. After beating Jake, it begins tearing out its own internal material and is destroyed in an explosion.",
+          "sourcePage": 4532,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4208,
+            4573,
+            4589,
+            4590,
+            4591,
+            4592,
+            4593,
+            4594,
+            4595
           ]
         }
       ]
@@ -14464,6 +15401,21 @@ window.HOMESTUCK_REFERENCE = {
             4409,
             4412
           ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [],
+          "definition": "The post-Scratch session's archagent, directing the dreamself assassinations under the Condesce. He finds Jane's dreamself alive despite his earlier attack and returns to finish the job. A Prospitian queen strikes him with a royal scepter before he can stab her again.",
+          "sourcePage": 4454,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4596,
+            4597,
+            4599,
+            4600,
+            4601
+          ]
         }
       ]
     },
@@ -14484,6 +15436,18 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             1988
+          ]
+        },
+        {
+          "from": "act-6-act-2",
+          "term": "Post-Scratch Draconian Dignitary",
+          "aliases": [],
+          "definition": "The Dignitary serving the post-Scratch session's Derse. Assigned to deal with its dreamers, he loses the Brute when Dirk fights back. He reports that neither Dersite hero has been killed and that the Prince has displayed the Brute's head, publicly humiliating the kingdom and the Condesce.",
+          "sourcePage": 4599,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4407,
+            4546
           ]
         }
       ]
@@ -14510,6 +15474,356 @@ window.HOMESTUCK_REFERENCE = {
             4406,
             4407,
             4412
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-gcat",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "GCat",
+          "aliases": [
+            "God Cat"
+          ],
+          "definition": "The nameless white cat Jane and her friends call God Cat, whose teleportation can be lifesaving or arbitrarily disruptive. He rescues Jane from an explosion but also interferes with Roxy's experiments. His appearances offer little explanation of what he wants, or whether a particular intervention will help.",
+          "sourcePage": 4424,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4425,
+            4426,
+            4501,
+            4614,
+            4644
+          ]
+        }
+      ],
+      "characterId": "gcat"
+    },
+    {
+      "id": "person-squarewave",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Squarewave",
+          "aliases": [],
+          "definition": "One of Dirk's two homemade rapbots, eager to challenge his creator to a rap battle. Dirk has never lost to him, but Squarewave keeps trying. His ambush for another contest distracts Dirk's waking body while an assassin approaches his dreamself on Derse.",
+          "sourcePage": 4523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4537,
+            4540,
+            4542
+          ]
+        }
+      ],
+      "characterId": "squarewave"
+    },
+    {
+      "id": "person-sawtooth",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Sawtooth",
+          "aliases": [],
+          "definition": "Dirk's other rapbot, designed to be unbeatable in a rap battle. Dirk has never defeated him and has not seen him for months. He keeps a spare head in his room and imagines Sawtooth roaming the world, defeating anyone willing to challenge him.",
+          "sourcePage": 4523,
+          "sourceKind": "direct"
+        }
+      ],
+      "characterId": "sawtooth"
+    },
+    {
+      "id": "person-undying-umbrage",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "undyingUmbrage",
+          "aliases": [
+            "uu"
+          ],
+          "definition": "UU's hostile coplayer, who speaks to Dirk with grudging respect while threatening the humans and his own partner. He insists he will play their two-player session, but imagines it as a contest for supremacy. His predictions and warnings are mixed with insults, superstition, and indifference to causal spoilers.",
+          "sourcePage": 4646,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4647,
+            4648,
+            4649,
+            4650
+          ]
+        }
+      ],
+      "characterId": "undying-umbrage"
+    },
+    {
+      "id": "person-post-scratch-hb",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Post-Scratch Hegemonic Brute",
+          "aliases": [],
+          "definition": "The Brute serving the post-Scratch session's Derse, separate from the earlier agent and Hearts Boxcars. He approaches Dirk's apparently sleeping dreamself with an axe. Dirk distracts him with Lil Cal and decapitates him; the Dignitary later reports the killing to Jack Noir.",
+          "sourcePage": 4542,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4543,
+            4544,
+            4545,
+            4599
+          ]
+        }
+      ],
+      "characterId": "post-scratch-hb"
+    },
+    {
+      "id": "fenestrated-plane",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Fenestrated plane",
+          "aliases": [],
+          "definition": "A linked window used for travel, studied by Roxy as dark fenestrology. From outside, transport can look instantaneous, while travelers cross an empty gap between the windows. Roxy uses powered planes as shortcuts around her home and laboratory, but losing power during a crossing is dangerous.",
+          "sourcePage": 4510,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4464,
+            4503,
+            4507,
+            4508,
+            4515
+          ]
+        }
+      ]
+    },
+    {
+      "id": "message-in-a-bottle-modus",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Message in a Bottle modus",
+          "aliases": [],
+          "definition": "Roxy's inventory system stores items in bottles that must be broken to retrieve their contents. The bottles normally act as inventory abstractions, rather than ordinary containers she can throw around with objects inside. When she captures paradox slime, however, a bottle also serves as a physical sample container.",
+          "sourcePage": 4473,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4504,
+            4505,
+            4609,
+            4610
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tech-hop-modus",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Tech-Hop modus",
+          "aliases": [],
+          "definition": "Dirk's inventory organizes cards into rhyming shade columns and thematically related groove rows. An item must fit both its column's rhyme and its row's theme, sometimes requiring a creative name. Skilled users can combine retrieval with rap lyrics to weaponize the contents.",
+          "sourcePage": 4533,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4534,
+            4535,
+            4536
+          ]
+        }
+      ]
+    },
+    {
+      "id": "complacency-of-the-learned",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Complacency of the Learned",
+          "aliases": [
+            "CotL"
+          ],
+          "definition": "The enormously successful wizard series written by Roxy's mother. It follows Calmasis's rebellion against Zazzerpan and the other wizards, including a chess duel that continues beyond the king's defeat. Roxy loves the books and writes wizard fiction herself, though she prefers a lighter tone.",
+          "sourcePage": 4474,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4475,
+            4476
+          ]
+        }
+      ]
+    },
+    {
+      "id": "player-class",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Player class",
+          "aliases": [
+            "Class"
+          ],
+          "definition": "The part of a hero's title describing how they use their aspect. UU explains active and passive classes as paired approaches, roughly benefiting oneself or others, while warning that this is only a starting point. The same aspect can produce different abilities depending on class and the player's circumstances.",
+          "sourcePage": 4514,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4513,
+            4564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aspect",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Aspect",
+          "aliases": [],
+          "definition": "The domain named in a hero's title, such as Light, Time, Heart, or Void. A player's class shapes how that domain is used, so an aspect alone does not fully predict their abilities. UU also warns that resistance to a calling or outside corruption can complicate its expression.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4514,
+            4564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rogue",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Rogue",
+          "aliases": [],
+          "definition": "A passive stealing class, paired with the more active Thief. UU compares its use of an aspect for others' benefit to Roxy's Robin Hood analogy. Roxy is the Rogue of Void, but exactly how stealing nothingness will work remains a discovery she has yet to make.",
+          "sourcePage": 4514,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "thief",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Thief",
+          "aliases": [],
+          "definition": "An active stealing class, paired with the more passive Rogue. UU explains their distinction through who benefits from the aspect: a Thief tends to take for themself, while a Rogue redistributes. The comparison gives a framework for Vriska's Thief title without making every class rule absolute.",
+          "sourcePage": 4514,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3238
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prince",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Prince",
+          "aliases": [],
+          "definition": "An active destroyer class, paired with the more passive Bard. UU describes a Prince as someone who destroys their aspect or causes destruction through it. Dirk's Prince of Heart title can therefore be read as a destroyer of souls, though this describes potential rather than an ability he has demonstrated.",
+          "sourcePage": 4564,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "bard",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Bard",
+          "aliases": [],
+          "definition": "A passive destroyer class, paired with the more active Prince. UU describes a Bard as allowing their aspect to be destroyed or inviting destruction through it. She calls the role unpredictable, capable of bringing either downfall or unlikely victory to a party, rather than simply a musical occupation.",
+          "sourcePage": 4564,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "heart",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Heart",
+          "aliases": [],
+          "definition": "An aspect concerned with the soul or essence of a person. UU suggests Dirk's divided awareness fits a Heart player's path of a splintered self. She distinguishes such possible traits from a universal rule: his Prince class determines the destructive form his potential abilities could take.",
+          "sourcePage": 4564,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "void",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Void",
+          "aliases": [],
+          "definition": "An aspect associated with lack, nothingness, and the concealment or destruction of knowledge. Roxy's presence can black out remote observation, and UU says her influence will eventually obscure the whole session. That forecast does not yet explain everything a Rogue of Void might learn to do.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4514,
+            4564
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lil-cal",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Lil Cal",
+          "aliases": [
+            "Cal"
+          ],
+          "definition": "The grinning puppet treasured by Dirk, who says it has been around as long as he remembers and treats it as his best friend. uu calls it a juju and warns that such objects bring nightmares. Dirk treats the warning as alien superstition and refuses to discard him.",
+          "sourcePage": 4520,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4521,
+            4649
+          ]
+        }
+      ]
+    },
+    {
+      "id": "juju",
+      "reveal": "act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-2",
+          "term": "Juju",
+          "aliases": [],
+          "definition": "A term uu applies to Dirk's Lil Cal while warning him to destroy the puppet. He describes such objects as ominous and capable of making a universe's inhabitants miserable, but admits Dirk's particular doll might be untainted. His warning establishes a belief, without yet explaining a reliable set of properties.",
+          "sourcePage": 4648,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4649,
+            4650
           ]
         }
       ]
