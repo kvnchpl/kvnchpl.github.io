@@ -44,6 +44,8 @@ export function createRenderer({rules, presentation: display, artwork}, getState
         canvas.width = size * dpr; canvas.height = size * dpr;
         canvas.style.width = `${size}px`; canvas.style.height = `${size}px`;
         ctx.setTransform(dpr,0,0,dpr,0,0);
+        // Resizing resets canvas settings; keep enlarged sprite pixels crisp.
+        ctx.imageSmoothingEnabled = false;
     }
     function render() {
         const state = getState();
