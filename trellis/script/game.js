@@ -27,17 +27,17 @@ async function start() {
     function send(command) {
         if (ui.modalOpen()) return;
         if (command.type === 'requestNewGame') {
-            ui.message({title:'Start a new game?', message:'This will replace your current farm and any previous save.', cancelText:'Cancel', onConfirm: () => {
+            ui.message({title:'Start a new game?', message:'This will replace your current farm and active save.', cancelText:'Cancel', onConfirm: () => {
                 storage.replace(); simulation = createSimulation(rules, {seed:newSeed()}); refresh();
             }}); return;
         }
         if (command.type === 'requestEndDay') {
             ui.message({title:'End the day?', message:'You won’t be able to take more actions today.', confirmText:'End Day', cancelText:'Cancel', onConfirm:ui.dayComplete}); return;
         }
-        if (command.type === 'downloadSave') {
-            const raw = storage.readRaw(); if (raw === null) return;
+        if (command.type === 'downloadSave' || command.type === 'downloadBackup') {
+            const raw = command.type === 'downloadBackup' ? storage.readBackup() : storage.readRaw(); if (raw === null) return;
             const url = URL.createObjectURL(new Blob([raw],{type:'application/json'}));
-            const link = document.createElement('a'); link.href = url; link.download = 'trellis-previous-save.json'; link.click();
+            const link = document.createElement('a'); link.href = url; link.download = command.type === 'downloadBackup' ? 'trellis-before-upgrade.json' : 'trellis-previous-save.json'; link.click();
             setTimeout(() => URL.revokeObjectURL(url),1000); return;
         }
         const result = simulation.dispatch(command);

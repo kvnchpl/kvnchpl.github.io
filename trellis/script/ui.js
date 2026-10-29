@@ -104,8 +104,16 @@ export function createUI({rules, presentation: display, strings}, renderer, getS
         if (focusedAction && !modalOpen()) document.querySelector(`[data-action="${focusedAction}"]`)?.focus({preventScroll:true});
     }
     function saveStatus(status) {
-        $('download-save').hidden = !status.protected;
-        if (status.protected) $('save-size').textContent = 'Not saved: previous save could not be loaded and is preserved. Download it before using New Game to replace it.';
+        $('download-save').hidden = !status.hasPrevious;
+        $('download-backup').hidden = !status.hasBackup;
+        if (status.protected) {
+            const messages = {
+                'upgrade-backup': 'Not saved: an upgrade backup could not be kept. Your previous save is unchanged and can be downloaded.',
+                'changed-save': 'Not saved: your saved garden changed in another tab. Reload to use it; your previous save is preserved.',
+                'invalid-state': 'Not saved: this garden could not be saved safely. Your previous save is unchanged and can be downloaded.'
+            };
+            $('save-size').textContent = messages[status.reason] || 'Not saved: previous save could not be loaded and is preserved. Download it before using New Game to replace it.';
+        }
         else if (status.bytes === null) $('save-size').textContent = 'Not saved: browser storage is unavailable. Progress is kept for this visit.';
         else {
             const warning = status.bytes > display.saveSizeCriticalKB*1024 ? ' ⚠⚠ close to limit!' : status.bytes > display.saveSizeWarningKB*1024 ? ' ⚠ nearing limit' : '';
@@ -117,6 +125,7 @@ export function createUI({rules, presentation: display, strings}, renderer, getS
     $('new-game').onclick = () => send({type:'requestNewGame'});
     $('end-day').onclick = () => send({type:'requestEndDay'});
     $('download-save').onclick = () => send({type:'downloadSave'});
+    $('download-backup').onclick = () => send({type:'downloadBackup'});
     document.addEventListener('keydown', event => {
         if (!modalOpen() || event.ctrlKey || event.metaKey || event.altKey) return;
         const buttons = [...activeModal.querySelectorAll('button')].filter(button => !button.disabled && button.getClientRects().length);

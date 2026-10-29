@@ -1,51 +1,16 @@
 {
-  "version": 1,
-  "defaultProfile": "current",
+  "defaultProfile": "png-palette-16-55ee7d15748d4078",
   "profiles": {
     "current": {
-      "label": "Current artwork",
       "fallback": "assets/debug/missing.png",
-      "tiles": {
-        "soil": [
-          "assets/tiles/soil/soil_1.png",
-          "assets/tiles/soil/soil_2.png",
-          "assets/tiles/soil/soil_3.png"
-        ],
-        "tilled": [
-          "assets/tiles/tilled/tilled_1.png",
-          "assets/tiles/tilled/tilled_2.png",
-          "assets/tiles/tilled/tilled_3.png"
-        ],
-        "grass": [
-          "assets/tiles/grass/grass_1.png",
-          "assets/tiles/grass/grass_2.png",
-          "assets/tiles/grass/grass_3.png"
-        ],
-        "rock": [
-          "assets/tiles/rock/rock_1.png",
-          "assets/tiles/rock/rock_2.png",
-          "assets/tiles/rock/rock_3.png"
-        ]
-      },
+      "label": "Current artwork",
       "plants": {
-        "strawberry": {
-          "sprout": [
-            "assets/plants/strawberry/strawberry_1_1.png",
-            "assets/plants/strawberry/strawberry_1_2.png",
-            "assets/plants/strawberry/strawberry_1_3.png"
-          ],
-          "flower": [
-            "assets/plants/strawberry/strawberry_2_1.png",
-            "assets/plants/strawberry/strawberry_2_2.png",
-            "assets/plants/strawberry/strawberry_2_3.png"
-          ],
-          "fruiting": [
-            "assets/plants/strawberry/strawberry_3_1.png",
-            "assets/plants/strawberry/strawberry_3_2.png",
-            "assets/plants/strawberry/strawberry_3_3.png"
-          ]
-        },
         "apple": {
+          "fruiting": [
+            "assets/plants/apple/apple_3_1.png",
+            "assets/plants/apple/apple_3_2.png",
+            "assets/plants/apple/apple_3_3.png"
+          ],
           "sapling": [
             "assets/plants/apple/apple_1_1.png",
             "assets/plants/apple/apple_1_2.png",
@@ -55,36 +20,9 @@
             "assets/plants/apple/apple_2_1.png",
             "assets/plants/apple/apple_2_2.png",
             "assets/plants/apple/apple_2_3.png"
-          ],
-          "fruiting": [
-            "assets/plants/apple/apple_3_1.png",
-            "assets/plants/apple/apple_3_2.png",
-            "assets/plants/apple/apple_3_3.png"
-          ]
-        },
-        "pumpkin": {
-          "sprout": [
-            "assets/plants/pumpkin/pumpkin_1_1.png",
-            "assets/plants/pumpkin/pumpkin_1_2.png",
-            "assets/plants/pumpkin/pumpkin_1_3.png"
-          ],
-          "vine": [
-            "assets/plants/pumpkin/pumpkin_2_1.png",
-            "assets/plants/pumpkin/pumpkin_2_2.png",
-            "assets/plants/pumpkin/pumpkin_2_3.png"
-          ],
-          "fruiting": [
-            "assets/plants/pumpkin/pumpkin_3_1.png",
-            "assets/plants/pumpkin/pumpkin_3_2.png",
-            "assets/plants/pumpkin/pumpkin_3_3.png"
           ]
         },
         "beans": {
-          "sprout": [
-            "assets/plants/beans/beans_1_1.png",
-            "assets/plants/beans/beans_1_2.png",
-            "assets/plants/beans/beans_1_3.png"
-          ],
           "flower": [
             "assets/plants/beans/beans_2_1.png",
             "assets/plants/beans/beans_2_2.png",
@@ -94,9 +32,19 @@
             "assets/plants/beans/beans_3_1.png",
             "assets/plants/beans/beans_3_2.png",
             "assets/plants/beans/beans_3_3.png"
+          ],
+          "sprout": [
+            "assets/plants/beans/beans_1_1.png",
+            "assets/plants/beans/beans_1_2.png",
+            "assets/plants/beans/beans_1_3.png"
           ]
         },
         "corn": {
+          "cob": [
+            "assets/plants/corn/corn_3_1.png",
+            "assets/plants/corn/corn_3_2.png",
+            "assets/plants/corn/corn_3_3.png"
+          ],
           "shoot": [
             "assets/plants/corn/corn_1_1.png",
             "assets/plants/corn/corn_1_2.png",
@@ -106,23 +54,52 @@
             "assets/plants/corn/corn_2_1.png",
             "assets/plants/corn/corn_2_2.png",
             "assets/plants/corn/corn_2_3.png"
-          ],
-          "cob": [
-            "assets/plants/corn/corn_3_1.png",
-            "assets/plants/corn/corn_3_2.png",
-            "assets/plants/corn/corn_3_3.png"
           ]
         },
-        "walnut": {
-          "sapling": [
-            "assets/plants/walnut/walnut_1_1.png",
-            "assets/plants/walnut/walnut_1_2.png",
-            "assets/plants/walnut/walnut_1_3.png"
+        "milkweed": {
+          "flower": [
+            "assets/plants/milkweed/milkweed_2_1.png",
+            "assets/plants/milkweed/milkweed_2_2.png",
+            "assets/plants/milkweed/milkweed_2_3.png"
           ],
-          "tree": [
-            "assets/plants/walnut/walnut_2_1.png",
-            "assets/plants/walnut/walnut_2_2.png",
-            "assets/plants/walnut/walnut_2_3.png"
+          "sprout": [
+            "assets/plants/milkweed/milkweed_1_1.png",
+            "assets/plants/milkweed/milkweed_1_2.png",
+            "assets/plants/milkweed/milkweed_1_3.png"
+          ]
+        },
+        "pumpkin": {
+          "fruiting": [
+            "assets/plants/pumpkin/pumpkin_3_1.png",
+            "assets/plants/pumpkin/pumpkin_3_2.png",
+            "assets/plants/pumpkin/pumpkin_3_3.png"
+          ],
+          "sprout": [
+            "assets/plants/pumpkin/pumpkin_1_1.png",
+            "assets/plants/pumpkin/pumpkin_1_2.png",
+            "assets/plants/pumpkin/pumpkin_1_3.png"
+          ],
+          "vine": [
+            "assets/plants/pumpkin/pumpkin_2_1.png",
+            "assets/plants/pumpkin/pumpkin_2_2.png",
+            "assets/plants/pumpkin/pumpkin_2_3.png"
+          ]
+        },
+        "strawberry": {
+          "flower": [
+            "assets/plants/strawberry/strawberry_2_1.png",
+            "assets/plants/strawberry/strawberry_2_2.png",
+            "assets/plants/strawberry/strawberry_2_3.png"
+          ],
+          "fruiting": [
+            "assets/plants/strawberry/strawberry_3_1.png",
+            "assets/plants/strawberry/strawberry_3_2.png",
+            "assets/plants/strawberry/strawberry_3_3.png"
+          ],
+          "sprout": [
+            "assets/plants/strawberry/strawberry_1_1.png",
+            "assets/plants/strawberry/strawberry_1_2.png",
+            "assets/plants/strawberry/strawberry_1_3.png"
           ]
         },
         "sugarMaple": {
@@ -137,19 +114,191 @@
             "assets/plants/sugar-maple/sugar-maple_2_3.png"
           ]
         },
-        "milkweed": {
-          "sprout": [
-            "assets/plants/milkweed/milkweed_1_1.png",
-            "assets/plants/milkweed/milkweed_1_2.png",
-            "assets/plants/milkweed/milkweed_1_3.png"
+        "walnut": {
+          "sapling": [
+            "assets/plants/walnut/walnut_1_1.png",
+            "assets/plants/walnut/walnut_1_2.png",
+            "assets/plants/walnut/walnut_1_3.png"
           ],
-          "flower": [
-            "assets/plants/milkweed/milkweed_2_1.png",
-            "assets/plants/milkweed/milkweed_2_2.png",
-            "assets/plants/milkweed/milkweed_2_3.png"
+          "tree": [
+            "assets/plants/walnut/walnut_2_1.png",
+            "assets/plants/walnut/walnut_2_2.png",
+            "assets/plants/walnut/walnut_2_3.png"
           ]
         }
+      },
+      "tiles": {
+        "grass": [
+          "assets/tiles/grass/grass_1.png",
+          "assets/tiles/grass/grass_2.png",
+          "assets/tiles/grass/grass_3.png"
+        ],
+        "rock": [
+          "assets/tiles/rock/rock_1.png",
+          "assets/tiles/rock/rock_2.png",
+          "assets/tiles/rock/rock_3.png"
+        ],
+        "soil": [
+          "assets/tiles/soil/soil_1.png",
+          "assets/tiles/soil/soil_2.png",
+          "assets/tiles/soil/soil_3.png"
+        ],
+        "tilled": [
+          "assets/tiles/tilled/tilled_1.png",
+          "assets/tiles/tilled/tilled_2.png",
+          "assets/tiles/tilled/tilled_3.png"
+        ]
+      }
+    },
+    "png-palette-16-55ee7d15748d4078": {
+      "fallback": "assets/exports/png-palette-16-55ee7d15748d4078/debug/missing.png",
+      "label": "PNG · 32px · 16 colors",
+      "plants": {
+        "apple": {
+          "fruiting": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_3_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_3_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_3_3.png"
+          ],
+          "sapling": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_1_3.png"
+          ],
+          "tree": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/apple/apple_2_3.png"
+          ]
+        },
+        "beans": {
+          "flower": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_2_3.png"
+          ],
+          "pod": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_3_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_3_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_3_3.png"
+          ],
+          "sprout": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/beans/beans_1_3.png"
+          ]
+        },
+        "corn": {
+          "cob": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_3_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_3_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_3_3.png"
+          ],
+          "shoot": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_1_3.png"
+          ],
+          "stalk": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/corn/corn_2_3.png"
+          ]
+        },
+        "milkweed": {
+          "flower": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/milkweed/milkweed_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/milkweed/milkweed_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/milkweed/milkweed_2_3.png"
+          ],
+          "sprout": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/milkweed/milkweed_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/milkweed/milkweed_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/milkweed/milkweed_1_3.png"
+          ]
+        },
+        "pumpkin": {
+          "fruiting": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_3_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_3_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_3_3.png"
+          ],
+          "sprout": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_1_3.png"
+          ],
+          "vine": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/pumpkin/pumpkin_2_3.png"
+          ]
+        },
+        "strawberry": {
+          "flower": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_2_3.png"
+          ],
+          "fruiting": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_3_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_3_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_3_3.png"
+          ],
+          "sprout": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/strawberry/strawberry_1_3.png"
+          ]
+        },
+        "sugarMaple": {
+          "sapling": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/sugar-maple/sugar-maple_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/sugar-maple/sugar-maple_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/sugar-maple/sugar-maple_1_3.png"
+          ],
+          "tree": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/sugar-maple/sugar-maple_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/sugar-maple/sugar-maple_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/sugar-maple/sugar-maple_2_3.png"
+          ]
+        },
+        "walnut": {
+          "sapling": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/walnut/walnut_1_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/walnut/walnut_1_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/walnut/walnut_1_3.png"
+          ],
+          "tree": [
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/walnut/walnut_2_1.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/walnut/walnut_2_2.png",
+            "assets/exports/png-palette-16-55ee7d15748d4078/plants/walnut/walnut_2_3.png"
+          ]
+        }
+      },
+      "tiles": {
+        "grass": [
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/grass/grass_1.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/grass/grass_2.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/grass/grass_3.png"
+        ],
+        "rock": [
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/rock/rock_1.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/rock/rock_2.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/rock/rock_3.png"
+        ],
+        "soil": [
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/soil/soil_1.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/soil/soil_2.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/soil/soil_3.png"
+        ],
+        "tilled": [
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/tilled/tilled_1.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/tilled/tilled_2.png",
+          "assets/exports/png-palette-16-55ee7d15748d4078/tiles/tilled/tilled_3.png"
+        ]
       }
     }
-  }
+  },
+  "version": 1
 }
