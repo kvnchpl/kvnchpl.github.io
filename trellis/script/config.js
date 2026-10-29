@@ -1,4 +1,5 @@
-export function validateDefinitions({world, species, relationships, actions, presentation, sources, strings}) {
+import {validateArtwork} from './artwork.js';
+export function validateDefinitions({world, species, relationships, actions, presentation, sources, strings, artwork}) {
     const check = (valid, message) => { if (!valid) throw new Error(`Invalid definitions: ${message}`); };
     const positive = n => Number.isSafeInteger(n) && n > 0;
     check(positive(world.mapWidth) && positive(world.mapHeight), 'map dimensions');
@@ -8,12 +9,12 @@ export function validateDefinitions({world, species, relationships, actions, pre
     check(positive(world.revealRadius) && positive(world.movementTimeIncrement), 'world movement');
     check(world.tileTypes.includes('soil') && world.tileTypes.includes('tilled'), 'terrain types');
     check(Object.entries(world.initialTileWeights).every(([id, weight]) => world.tileTypes.includes(id) && Number.isFinite(weight) && weight >= 0) && Object.values(world.initialTileWeights).some(w => w > 0), 'terrain weights');
-    check(positive(presentation.viewport.tiles) && positive(presentation.imageVariantCount), 'display dimensions');
-    for (const id of world.tileTypes) check(presentation.tiles.images[id] && presentation.tiles.colors[id], `terrain display ${id}`);
+    check(positive(presentation.viewport.tiles), 'display dimensions');
+    for (const id of world.tileTypes) check(presentation.tiles.colors[id], `terrain display ${id}`);
     for (const [id, def] of Object.entries(species)) {
         check(def.id === id && positive(def.growthTime) && def.growthStages.length > 0 && new Set(def.growthStages).size === def.growthStages.length, `species ${id}`);
         check(typeof def.harvestable === 'boolean' && Number.isFinite(def.moistureUse) && def.moistureUse >= 0 && Number.isFinite(def.fertilityUse) && def.fertilityUse >= 0, `species rates ${id}`);
-        check(presentation.plants.labels[id] && presentation.plants.images[id] && presentation.plants.prefixes[id], `species display ${id}`);
+        check(presentation.plants.labels[id], `species display ${id}`);
         check(Array.isArray(def.sourceIds) && def.sourceIds.every(source => Object.hasOwn(sources, source)), `species sources ${id}`);
     }
     // Relationship records are reserved for researched, attributed additions.
@@ -28,7 +29,9 @@ export function validateDefinitions({world, species, relationships, actions, pre
     for (const [id, source] of Object.entries(sources)) check(source.title && source.attribution && source.url, `source ${id}`);
     for (const [id, action] of Object.entries(actions)) check(positive(action.timeIncrement) && action.effect && presentation.keyBindings.actions[id], `action ${id}`);
     check(strings.actions && Object.keys(species).length > 0, 'labels');
-    return {rules: {...world, species, relationships, actions}, presentation, sources, strings};
+    const rules = {...world, species, relationships, actions};
+    validateArtwork(artwork, rules);
+    return {rules, presentation, sources, strings, artwork};
 }
 export async function loadDefinitions(fetchJSON = async path => {
     const response = await fetch(path);

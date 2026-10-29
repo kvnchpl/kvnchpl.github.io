@@ -7,7 +7,6 @@
   "viewport": {
     "tiles": 11
   },
-  "imageVariantCount": 3,
   "fog": {
     "color": "#000000",
     "opacity": 0.8
@@ -41,12 +40,6 @@
       "rock": "#888888",
       "default": "#333333"
     },
-    "images": {
-      "soil": "assets/tiles/soil",
-      "tilled": "assets/tiles/tilled",
-      "grass": "assets/tiles/grass",
-      "rock": "assets/tiles/rock"
-    },
     "detailsOrder": [
       "tile",
       "plantType",
@@ -73,16 +66,6 @@
     }
   },
   "plants": {
-    "images": {
-      "strawberry": "assets/plants/strawberry",
-      "apple": "assets/plants/apple",
-      "pumpkin": "assets/plants/pumpkin",
-      "beans": "assets/plants/beans",
-      "corn": "assets/plants/corn",
-      "walnut": "assets/plants/walnut",
-      "sugarMaple": "assets/plants/sugar-maple",
-      "milkweed": "assets/plants/milkweed"
-    },
     "labels": {
       "strawberry": "Strawberry",
       "apple": "Apple",
@@ -92,16 +75,6 @@
       "walnut": "Walnut",
       "sugarMaple": "Sugar Maple",
       "milkweed": "Milkweed"
-    },
-    "prefixes": {
-      "strawberry": "strawberry",
-      "apple": "apple",
-      "pumpkin": "pumpkin",
-      "beans": "beans",
-      "corn": "corn",
-      "walnut": "walnut",
-      "sugarMaple": "sugar-maple",
-      "milkweed": "milkweed"
     },
     "yields": {
       "strawberry": "Strawberries",

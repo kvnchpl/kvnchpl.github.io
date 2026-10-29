@@ -10,11 +10,17 @@ import {installControls} from './player.js';
 async function start() {
     const definitions = await loadDefinitions();
     const {rules, presentation} = definitions;
-    const storage = createBrowserStorage(rules);
+    const query = new URLSearchParams(location.search);
+    // Only the loopback comparison server supplies preview metadata. Its saves
+    // are isolated from the visitor's normal garden and from other sessions.
+    const preview = definitions.artwork.preview === true && ['127.0.0.1','localhost','[::1]'].includes(location.hostname);
+    const session = query.get('preview');
+    const key = preview ? `trellis:artwork-preview:${/^[a-z0-9-]{1,64}$/.test(session ?? '') ? session : 'manual'}` : 'trellisSave';
+    const storage = createBrowserStorage(rules, () => localStorage, key);
     const newSeed = () => crypto.getRandomValues(new Uint32Array(1))[0];
     let simulation = createSimulation(rules, {seed: newSeed(), savedState: storage.load()});
     const getState = () => simulation.state;
-    const renderer = createRenderer(definitions, getState);
+    const renderer = createRenderer(definitions, getState, query.get('artwork') || undefined);
     await renderer.load();
     let ui;
     const refresh = action => { renderer.render(); ui.update(action); ui.saveStatus(storage.save(getState())); };

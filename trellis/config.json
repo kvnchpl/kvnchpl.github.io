@@ -7,6 +7,7 @@
     "actions": "data/actions.json",
     "presentation": "data/presentation.json",
     "sources": "data/sources.json",
-    "strings": "data/strings.json"
+    "strings": "data/strings.json",
+    "artwork": "data/artwork.json"
   }
 }

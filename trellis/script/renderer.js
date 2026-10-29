@@ -1,6 +1,7 @@
+import {artworkProfile, artworkPaths} from './artwork.js';
 import {visualVariant} from './random.js';
 
-export function createRenderer({rules, presentation: display}, getState) {
+export function createRenderer({rules, presentation: display, artwork}, getState, profileId) {
     const canvas = document.getElementById('game-canvas');
     const ctx = canvas.getContext('2d');
     const cache = {tiles: {}, plants: {}};
@@ -12,22 +13,16 @@ export function createRenderer({rules, presentation: display}, getState) {
         image.src = src;
     });
     async function load() {
-        const fallback = await loadImage('assets/debug/missing.png');
-        const jobs = [];
-        const variants = (folder, prefix) => Array.from({length: display.imageVariantCount}, (_,index) => {
-            const slot = {image: null};
-            jobs.push(loadImage(`${folder}/${prefix}_${index+1}.png`).then(image => { slot.image = image ?? fallback; }));
-            return slot;
-        });
-        for (const [id, folder] of Object.entries(display.tiles.images)) cache.tiles[id] = variants(folder, id);
-        for (const [id, folder] of Object.entries(display.plants.images)) {
-            cache.plants[id] = {};
-            rules.species[id].growthStages.forEach((stage, index) => {
-                cache.plants[id][stage] = variants(folder, `${display.plants.prefixes[id]}_${index+1}`);
-            });
+        const profile = artworkProfile(artwork, profileId);
+        const loaded = new Map(await Promise.all(artworkPaths(profile).map(async src => [src, await loadImage(src)])));
+        const fallback = loaded.get(profile.fallback);
+        const variants = paths => paths.map(path => ({image: loaded.get(path) ?? fallback}));
+        for (const [id, paths] of Object.entries(profile.tiles)) cache.tiles[id] = variants(paths);
+        for (const [id, stages] of Object.entries(profile.plants)) {
+            cache.plants[id] = Object.fromEntries(Object.entries(stages).map(([stage,paths]) => [stage,variants(paths)]));
         }
-        await Promise.all(jobs);
     }
+
     function imageFor(tile, x, y) {
         const plant = Boolean(tile.plantType);
         const variants = plant ? cache.plants[tile.plantType]?.[tile.growthStage] : cache.tiles[tile.tile];
