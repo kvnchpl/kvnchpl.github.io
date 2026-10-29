@@ -1,1 +1,12 @@
-{}
+{
+  "umn-strawberry-irrigation": {
+    "title": "Irrigating strawberries",
+    "attribution": "Annie Klodd, Emily Tepe, and Emily Hoover, University of Minnesota Extension",
+    "url": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/strawberry-farming/irrigating-strawberries"
+  },
+  "umn-strawberry-growth": {
+    "title": "How strawberry plants grow",
+    "attribution": "Annie Klodd, Emily Tepe, and Emily Hoover, University of Minnesota Extension",
+    "url": "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/strawberry-farming/how-strawberry-plants-grow"
+  }
+}

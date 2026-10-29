@@ -10,8 +10,21 @@
     "moistureUse": 5,
     "fertilityUse": 2,
     "id": "strawberry",
-    "sourceIds": [],
-    "evidenceStatus": "prototype-placeholder"
+    "sourceIds": [
+      "umn-strawberry-irrigation",
+      "umn-strawberry-growth"
+    ],
+    "evidenceStatus": "prototype-placeholder",
+    "moistureResponse": {
+      "pauseAtOrBelow": 0,
+      "evidenceStatus": "source-informed-simplification",
+      "sourceIds": [
+        "umn-strawberry-irrigation",
+        "umn-strawberry-growth"
+      ],
+      "explanation": "Strawberries have shallow roots and need a reliable water supply. Too little water stresses the plant.",
+      "modelNote": "In Trellis, zero moisture pauses new growth. Watering lets growth resume next week without losing progress. This is a simplified response; the moisture scale and growth timing are game values."
+    }
   },
   "apple": {
     "growthStages": [

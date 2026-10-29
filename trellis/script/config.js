@@ -16,6 +16,12 @@ export function validateDefinitions({world, species, relationships, actions, pre
         check(typeof def.harvestable === 'boolean' && Number.isFinite(def.moistureUse) && def.moistureUse >= 0 && Number.isFinite(def.fertilityUse) && def.fertilityUse >= 0, `species rates ${id}`);
         check(presentation.plants.labels[id], `species display ${id}`);
         check(Array.isArray(def.sourceIds) && def.sourceIds.every(source => Object.hasOwn(sources, source)), `species sources ${id}`);
+        if (def.moistureResponse !== undefined) {
+            const response = def.moistureResponse;
+            check(response && Number.isFinite(response.pauseAtOrBelow) && response.pauseAtOrBelow >= world.moistureRange.min && response.pauseAtOrBelow < world.moistureRange.max, `moisture threshold ${id}`);
+            check(response.evidenceStatus === 'source-informed-simplification' && typeof response.explanation === 'string' && response.explanation.trim() && typeof response.modelNote === 'string' && response.modelNote.trim(), `moisture explanation ${id}`);
+            check(Array.isArray(response.sourceIds) && response.sourceIds.length > 0 && response.sourceIds.every(source => def.sourceIds.includes(source) && Object.hasOwn(sources, source)), `moisture sources ${id}`);
+        }
     }
     // Relationship records are reserved for researched, attributed additions.
     check(Array.isArray(relationships), 'relationships');

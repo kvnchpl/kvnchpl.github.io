@@ -364,3 +364,21 @@ canvas {
     #tile-actions { grid-area: actions; }
     #tile-details { grid-area: details; }
 }
+
+#plant-care {
+    margin-top: var(--spacing-large);
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+    grid-column: 1 / -1;
+}
+#plant-care p { margin: var(--spacing-medium) 0; }
+#plant-care summary { cursor: pointer; }
+#care-sources a {
+    display: block;
+    color: inherit;
+    margin-top: var(--spacing-medium);
+}
+#plant-care summary:focus-visible, #care-sources a:focus-visible {
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+}

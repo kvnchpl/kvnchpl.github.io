@@ -1,8 +1,9 @@
+import {growthPausedForMoisture} from './state.js';
 import {evaluateCondition, getBlockedActionMessages} from './actions.js';
 
 // Presentation owns DOM and focus only. Every garden change is a command sent
 // to the controller, including plant choices and completed-day confirmation.
-export function createUI({rules, presentation: display, strings}, renderer, getState, send) {
+export function createUI({rules, presentation: display, strings, sources}, renderer, getState, send) {
     const $ = id => document.getElementById(id);
     let activeModal = null, returnFocus = null, returnAction = null;
     let plantButtons = [];
@@ -92,6 +93,25 @@ export function createUI({rules, presentation: display, strings}, renderer, getS
             value.id = `tile-value-${key}`; value.textContent = format(tile,key);
             if (action && Object.hasOwn(rules.actions[action].effect, key)) value.className = 'value-changed';
             line.append(label,value); details.append(line);
+        }
+        const species = rules.species[tile.plantType], response = species?.moistureResponse;
+        const care = $('plant-care'); care.hidden = !response;
+        if (care.dataset.species !== (tile.plantType ?? '')) care.querySelector('details').open = false;
+        care.dataset.species = tile.plantType ?? '';
+        if (response) {
+            $('growth-condition').textContent = tile.growthStage === species.growthStages.at(-1)
+                ? 'Growth stage complete. Keep caring for the plant.'
+                : growthPausedForMoisture(tile, species) ? 'Growth paused: dry soil. Water to resume.'
+                : 'Moisture available for the next growth step.';
+            $('care-explanation').textContent = response.explanation;
+            $('care-model-note').textContent = response.modelNote;
+            $('care-sources').replaceChildren();
+            for (const id of response.sourceIds) {
+                const source = sources[id], link = document.createElement('a');
+                link.href = source.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+                link.textContent = `${source.title} — ${source.attribution}`;
+                $('care-sources').append(link);
+            }
         }
         const actions = $('tile-actions'); actions.replaceChildren();
         for (const [name, def] of Object.entries(rules.actions).sort(([a],[b]) => Number(display.keyBindings.actions[a])-Number(display.keyBindings.actions[b]))) {

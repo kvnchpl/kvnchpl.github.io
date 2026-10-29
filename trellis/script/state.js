@@ -42,9 +42,14 @@ export function advanceTime(state, minutes, rules) {
     state.time.hour = Math.floor(total / 60);
     state.time.minute = total % 60;
 }
+// A derived condition shared by growth and the interface; never stored in saves.
+export function growthPausedForMoisture(tile, def) {
+    return Boolean(def?.moistureResponse && tile.growthStage !== def.growthStages.at(-1)
+        && tile.moisture <= def.moistureResponse.pauseAtOrBelow);
+}
 export function growPlant(tile, def) {
     const next = {...tile};
-    if (!def) return next;
+    if (!def || growthPausedForMoisture(tile, def)) return next;
     next.growthProgress++;
     const index = def.growthStages.indexOf(next.growthStage);
     if (next.growthProgress >= def.growthTime && index < def.growthStages.length - 1) {
