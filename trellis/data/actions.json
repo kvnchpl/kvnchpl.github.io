@@ -1,0 +1,119 @@
+{
+  "till": {
+    "condition": {
+      "tile": "soil",
+      "plantType": null
+    },
+    "effect": {
+      "tile": "tilled"
+    },
+    "timeIncrement": 5
+  },
+  "water": {
+    "condition": {
+      "tile": "tilled",
+      "moisture": {
+        "lt": 100
+      }
+    },
+    "effect": {
+      "moisture": {
+        "inc": 20
+      }
+    },
+    "timeIncrement": 3
+  },
+  "fertilize": {
+    "condition": {
+      "tile": "tilled",
+      "fertility": {
+        "lt": 100
+      }
+    },
+    "effect": {
+      "fertility": {
+        "inc": 20
+      }
+    },
+    "timeIncrement": 4
+  },
+  "plant": {
+    "condition": {
+      "tile": "tilled",
+      "plantType": null
+    },
+    "effect": {
+      "plantType": null,
+      "growthStage": null,
+      "growthProgress": 0
+    },
+    "timeIncrement": 6
+  },
+  "mulch": {
+    "condition": {
+      "tile": "tilled",
+      "mulch": false
+    },
+    "effect": {
+      "mulch": true
+    },
+    "timeIncrement": 3
+  },
+  "weed": {
+    "condition": {
+      "weeds": true
+    },
+    "effect": {
+      "weeds": false
+    },
+    "timeIncrement": 4
+  },
+  "harvest": {
+    "condition": {
+      "plantType": {
+        "not": null
+      },
+      "readyToHarvest": true
+    },
+    "effect": {
+      "plantType": null,
+      "growthStage": null,
+      "growthProgress": 0,
+      "readyToHarvest": false,
+      "moisture": 0
+    },
+    "timeIncrement": 5
+  },
+  "clear": {
+    "condition": {
+      "or": [
+        {
+          "plantType": {
+            "not": null
+          }
+        },
+        {
+          "weeds": true
+        },
+        {
+          "mulch": true
+        },
+        {
+          "tile": "grass"
+        },
+        {
+          "tile": "rock"
+        }
+      ]
+    },
+    "effect": {
+      "tile": "soil",
+      "plantType": null,
+      "growthStage": null,
+      "growthProgress": 0,
+      "mulch": false,
+      "weeds": false
+    },
+    "timeIncrement": 5
+  }
+}

@@ -1,3 +1,4 @@
+import {hash} from './random.js';
 // Validate a complete save before touching the running farm. Older unversioned
 // saves are accepted; unknown versions and malformed records remain untouched.
 export function parseSavedGame(raw, config) {
@@ -7,20 +8,20 @@ export function parseSavedGame(raw, config) {
     const require = valid => { if (!valid) throw new Error('Invalid save'); };
     const point = value => record(value) && Number.isSafeInteger(value.x) && Number.isSafeInteger(value.y);
     const coordinate = key => /^-?\d+,-?\d+$/.test(key) && key.split(',').every(v => Number.isSafeInteger(Number(v)));
-    require(record(data) && (data.version === undefined || data.version === 1));
+    require(record(data) && (data.version === undefined || data.version === 1 || data.version === 2));
     require(point(data.player) && (data.selector === undefined || point(data.selector)));
     require(record(data.map) && record(data.revealed));
     const map = Object.create(null);
     for (const [key, tile] of Object.entries(data.map)) {
-        require(coordinate(key) && record(tile) && Object.hasOwn(config.tiles.images, tile.tile));
+        require(coordinate(key) && record(tile) && config.tileTypes.includes(tile.tile));
         require(Number.isFinite(tile.moisture) && tile.moisture >= 0 && tile.moisture <= 100);
         require(Number.isFinite(tile.fertility) && tile.fertility >= 0 && tile.fertility <= 100);
         require(typeof tile.weeds === 'boolean' && typeof tile.mulch === 'boolean');
         require(integer(tile.growthProgress, 0, Number.MAX_SAFE_INTEGER));
-        const variant = value => value == null || integer(value, 0, config.imageVariantCount - 1);
+        const variant = value => value == null || integer(value, 0, Number.MAX_SAFE_INTEGER);
         require(variant(tile.tileVariant) && variant(tile.plantVariant));
-        const def = config.plants.definitions[tile.plantType];
-        require(tile.plantType === null || (Object.hasOwn(config.plants.definitions, tile.plantType) && def.growthStages.includes(tile.growthStage)));
+        const def = config.species[tile.plantType];
+        require(tile.plantType === null || (Object.hasOwn(config.species, tile.plantType) && def.growthStages.includes(tile.growthStage)));
         map[key] = {
             tile: tile.tile, plantType: tile.plantType,
             growthStage: def ? tile.growthStage : null,
@@ -54,6 +55,17 @@ export function parseSavedGame(raw, config) {
         x: Math.max(0, Math.min(config.mapWidth - 1, data.player.x)),
         y: Math.max(0, Math.min(config.mapHeight - 1, data.player.y))
     };
-    return {player, selector: {...player}, map, revealed,
+    const uint = value => integer(value, 0, 4294967295);
+    if (data.version === 2) require(uint(data.seed) && uint(data.ecologyState));
+    // Seed old farms from terrain alone, independent of sprite choices and JSON key order.
+    const legacyTerrain = Object.entries(map).sort(([a],[b]) => a < b ? -1 : a > b ? 1 : 0).map(([key,tile]) => [key,tile.tile]);
+    const seed = data.version === 2 ? data.seed : hash(0, JSON.stringify(legacyTerrain));
+    const ecologyState = data.version === 2 ? data.ecologyState : seed;
+    return {seed, ecologyState, player, selector: {...player}, map, revealed,
         time: {hour: time.hour, minute: time.minute, week: time.week, seasonIndex: time.seasonIndex}, dailyStats};
+}
+
+export function serializeGame(state) {
+    const {seed, ecologyState, player, selector, map, revealed, time, dailyStats} = state;
+    return JSON.stringify({version: 2, seed, ecologyState, player, selector, map, revealed, time, dailyStats});
 }

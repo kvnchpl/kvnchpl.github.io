@@ -149,7 +149,7 @@ export function getBlockedActionMessages(tile, actionDef, strings) {
  * @returns {Object} Result object with success boolean and optional messages or plantModal.
  */
 export function attemptActionOnTile(tile, actionLabel, config, strings, dailyStats) {
-    const actionDef = config.tiles.actions[actionLabel];
+    const actionDef = config.actions[actionLabel];
     if (!actionDef) return false;
 
     const valid = evaluateCondition(tile, actionDef.condition);

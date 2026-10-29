@@ -1,0 +1,111 @@
+{
+  "strawberry": {
+    "growthStages": [
+      "sprout",
+      "flower",
+      "fruiting"
+    ],
+    "growthTime": 2,
+    "harvestable": true,
+    "moistureUse": 5,
+    "fertilityUse": 2,
+    "id": "strawberry",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "apple": {
+    "growthStages": [
+      "sapling",
+      "tree",
+      "fruiting"
+    ],
+    "growthTime": 6,
+    "harvestable": true,
+    "moistureUse": 8,
+    "fertilityUse": 5,
+    "id": "apple",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "pumpkin": {
+    "growthStages": [
+      "sprout",
+      "vine",
+      "fruiting"
+    ],
+    "growthTime": 4,
+    "harvestable": true,
+    "moistureUse": 6,
+    "fertilityUse": 3,
+    "id": "pumpkin",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "beans": {
+    "growthStages": [
+      "sprout",
+      "flower",
+      "pod"
+    ],
+    "growthTime": 2,
+    "harvestable": true,
+    "moistureUse": 4,
+    "fertilityUse": 2,
+    "id": "beans",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "corn": {
+    "growthStages": [
+      "shoot",
+      "stalk",
+      "cob"
+    ],
+    "growthTime": 3,
+    "harvestable": true,
+    "moistureUse": 6,
+    "fertilityUse": 3,
+    "id": "corn",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "walnut": {
+    "growthStages": [
+      "sapling",
+      "tree"
+    ],
+    "growthTime": 10,
+    "harvestable": false,
+    "moistureUse": 5,
+    "fertilityUse": 4,
+    "id": "walnut",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "sugarMaple": {
+    "growthStages": [
+      "sapling",
+      "tree"
+    ],
+    "growthTime": 12,
+    "harvestable": false,
+    "moistureUse": 4,
+    "fertilityUse": 4,
+    "id": "sugarMaple",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  },
+  "milkweed": {
+    "growthStages": [
+      "sprout",
+      "flower"
+    ],
+    "growthTime": 3,
+    "harvestable": false,
+    "moistureUse": 2,
+    "fertilityUse": 1,
+    "id": "milkweed",
+    "sourceIds": [],
+    "evidenceStatus": "prototype-placeholder"
+  }
+}

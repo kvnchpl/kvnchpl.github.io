@@ -1,0 +1,128 @@
+{
+  "saveSizeWarningKB": 750,
+  "saveSizeCriticalKB": 950,
+  "playerColor": "#FFD700",
+  "playerSize": 0.6,
+  "selectorColor": "#00FFFF",
+  "viewport": {
+    "tiles": 11
+  },
+  "imageVariantCount": 3,
+  "fog": {
+    "color": "#000000",
+    "opacity": 0.8
+  },
+  "keyBindings": {
+    "up": "w",
+    "down": "s",
+    "left": "a",
+    "right": "d",
+    "selectUp": "ArrowUp",
+    "selectDown": "ArrowDown",
+    "selectLeft": "ArrowLeft",
+    "selectRight": "ArrowRight",
+    "resetSelector": "q",
+    "actions": {
+      "plant": "1",
+      "till": "2",
+      "water": "3",
+      "fertilize": "4",
+      "mulch": "5",
+      "weed": "6",
+      "harvest": "7",
+      "clear": "8"
+    }
+  },
+  "tiles": {
+    "colors": {
+      "soil": "#5A381E",
+      "tilled": "#A0522D",
+      "grass": "#4CAF50",
+      "rock": "#888888",
+      "default": "#333333"
+    },
+    "images": {
+      "soil": "assets/tiles/soil",
+      "tilled": "assets/tiles/tilled",
+      "grass": "assets/tiles/grass",
+      "rock": "assets/tiles/rock"
+    },
+    "detailsOrder": [
+      "tile",
+      "plantType",
+      "growthStage",
+      "growthProgress",
+      "readyToHarvest",
+      "moisture",
+      "fertility",
+      "weeds",
+      "mulch"
+    ],
+    "labels": {
+      "none": "None",
+      "soil": "Bare Soil",
+      "tilled": "Tilled Soil",
+      "grass": "Grassy Patch",
+      "rock": "Rocky Ground",
+      "growthProgress": "Growth Progress",
+      "weeds": "Weeds Present",
+      "mulch": "Mulched",
+      "readyToHarvest": "Ready to Harvest",
+      "plantType": "Plant",
+      "growthStage": "Growth Stage"
+    }
+  },
+  "plants": {
+    "images": {
+      "strawberry": "assets/plants/strawberry",
+      "apple": "assets/plants/apple",
+      "pumpkin": "assets/plants/pumpkin",
+      "beans": "assets/plants/beans",
+      "corn": "assets/plants/corn",
+      "walnut": "assets/plants/walnut",
+      "sugarMaple": "assets/plants/sugar-maple",
+      "milkweed": "assets/plants/milkweed"
+    },
+    "labels": {
+      "strawberry": "Strawberry",
+      "apple": "Apple",
+      "pumpkin": "Pumpkin",
+      "beans": "Beans",
+      "corn": "Corn",
+      "walnut": "Walnut",
+      "sugarMaple": "Sugar Maple",
+      "milkweed": "Milkweed"
+    },
+    "prefixes": {
+      "strawberry": "strawberry",
+      "apple": "apple",
+      "pumpkin": "pumpkin",
+      "beans": "beans",
+      "corn": "corn",
+      "walnut": "walnut",
+      "sugarMaple": "sugar-maple",
+      "milkweed": "milkweed"
+    },
+    "yields": {
+      "strawberry": "Strawberries",
+      "apple": "Apples",
+      "pumpkin": "Pumpkins",
+      "beans": "Bean Pods",
+      "corn": "Corn Cobs",
+      "walnut": "Walnuts",
+      "sugarMaple": "Maple Syrup",
+      "milkweed": "Milkweed Pods"
+    }
+  },
+  "maxSaveSlots": 3,
+  "tileInfoPanel": true,
+  "moistureLabels": {
+    "dry": "Dry",
+    "wet": "Wet"
+  },
+  "fertilityLabels": {
+    "low": "Low Fertility",
+    "medium": "Medium Fertility",
+    "high": "High Fertility"
+  }
+}
