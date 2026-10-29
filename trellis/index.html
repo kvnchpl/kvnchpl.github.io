@@ -23,7 +23,31 @@
         </div>
     </div>
     <div id="game-container">
-        <canvas id="game-canvas" tabindex="0" aria-label="Farm. Use W A S D to move, arrow keys to select, and 1 to 8 for actions."></canvas>
+        <div id="farm-view">
+            <canvas id="game-canvas" tabindex="0" aria-label="Farm. Use W A S D to move, arrow keys to select, and 1 to 8 for actions."></canvas>
+            <div id="touch-controls" aria-label="Farm controls">
+                <div class="control-pad" role="group" aria-labelledby="move-label">
+                    <h2 id="move-label">Move</h2>
+                    <div class="direction-pad">
+                        <button class="ui-button pad-up" data-control="up" aria-label="Move up">↑</button>
+                        <button class="ui-button pad-left" data-control="left" aria-label="Move left">←</button>
+                        <span class="pad-center" aria-hidden="true">•</span>
+                        <button class="ui-button pad-right" data-control="right" aria-label="Move right">→</button>
+                        <button class="ui-button pad-down" data-control="down" aria-label="Move down">↓</button>
+                    </div>
+                </div>
+                <div class="control-pad" role="group" aria-labelledby="select-label">
+                    <h2 id="select-label">Select tile</h2>
+                    <div class="direction-pad">
+                        <button class="ui-button pad-up" data-control="selectUp" aria-label="Select tile above">↑</button>
+                        <button class="ui-button pad-left" data-control="selectLeft" aria-label="Select tile to the left">←</button>
+                        <button class="ui-button pad-center" data-control="resetSelector" aria-label="Select current tile">Here</button>
+                        <button class="ui-button pad-right" data-control="selectRight" aria-label="Select tile to the right">→</button>
+                        <button class="ui-button pad-down" data-control="selectDown" aria-label="Select tile below">↓</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="info-panel">
             <div id="time-display"></div>
             <h2>Tile Info</h2>

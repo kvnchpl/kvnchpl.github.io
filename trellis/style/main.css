@@ -307,3 +307,60 @@ canvas {
 [hidden] { display: none !important; }
 #game-controls { flex-wrap: wrap; }
 .modal { max-width: calc(100vw - 24px); max-height: calc(100dvh - 24px); overflow-y: auto; }
+
+#farm-view {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-medium);
+}
+
+#touch-controls { display: none; }
+
+@media (any-pointer: coarse), (max-width: 700px) {
+    #touch-controls {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        width: min(100%, 320px);
+    }
+    .control-pad h2 {
+        font-size: var(--font-small);
+        text-align: center;
+        margin-bottom: 4px;
+    }
+    .direction-pad {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(3, 44px);
+        gap: 2px;
+    }
+    .direction-pad .ui-button, .pad-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        min-width: 0;
+    }
+    .pad-up { grid-area: 1 / 2; }
+    .pad-left { grid-area: 2 / 1; }
+    .pad-center { grid-area: 2 / 2; }
+    .pad-right { grid-area: 2 / 3; }
+    .pad-down { grid-area: 3 / 2; }
+    .ui-button, .modal button { min-height: 44px; touch-action: manipulation; }
+    #info-panel {
+        display: grid;
+        grid-template: "time preview" auto "heading preview" auto "actions actions" auto "details details" auto / minmax(0, 1fr) 64px;
+        align-content: start;
+        gap: 4px;
+    }
+    #time-display { grid-area: time; text-align: left; }
+    #info-panel h2 { grid-area: heading; }
+    #tile-image { grid-area: preview; width: 64px; margin: 0; }
+    #tile-actions { grid-area: actions; }
+    #tile-details { grid-area: details; }
+}

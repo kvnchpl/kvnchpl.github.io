@@ -110,6 +110,15 @@ export function initPlayer(inputState, config) {
         e.preventDefault();
         inputState.keysPressed[key] = true;
     });
+    // Native clicks support touch, mouse, and keyboard without duplicate
+    // pointer/touch events. Each activation queues one existing game command.
+    document.querySelectorAll('[data-control]').forEach(button => {
+        button.addEventListener('click', () => {
+            if (inputState.modalOpen) return;
+            const key = config.keyBindings[button.dataset.control];
+            if (keys.has(key)) inputState.keysPressed[key] = true;
+        });
+    });
     window.addEventListener('blur', clearKeys);
     document.addEventListener('visibilitychange', () => { if (document.hidden) clearKeys(); });
 }

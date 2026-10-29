@@ -292,7 +292,8 @@ export function resizeCanvasAndTiles(config) {
     const padding = 16;
     const stacked = getComputedStyle(container).flexDirection === 'column';
     const availableWidth = containerRect.width - (stacked ? 0 : infoPanelRect.width) - padding;
-    const availableHeight = stacked ? availableWidth : containerRect.height - padding;
+    const controlsHeight = document.getElementById('touch-controls').getBoundingClientRect().height;
+    const availableHeight = stacked ? availableWidth : containerRect.height - padding - (controlsHeight ? controlsHeight + 8 : 0);
 
     const viewportTiles = config.viewport.tiles;
 
