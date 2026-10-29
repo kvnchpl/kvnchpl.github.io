@@ -1,3 +1,4 @@
+import {parseSavedGame} from './saves.js';
 import {
     getBlockedActionMessages
 } from './actions.js';
@@ -22,7 +23,7 @@ import {
     saveGameState,
     readSavedGame,
     clearSavedGame,
-    resetDailyStats
+    protectSavedGame
 } from './state.js';
 
 import {
@@ -55,60 +56,35 @@ async function fetchConfig() {
 
 function loadGameState() {
     const saved = readSavedGame();
-    if (!saved) return false;
+    if (saved === null) return false;
     try {
-        const data = JSON.parse(saved);
-        gameState.player = data.player;
-        gameState.selector = data.selector;
-        gameState.map = data.map;
-        gameState.revealed = data.revealed;
-        gameState.time = {
-            hour: data.time?.hour ?? 7,
-            minute: data.time?.minute ?? 0,
-            week: data.time?.week ?? 1,
-            seasonIndex: data.time?.seasonIndex ?? 0
-        };
-        resetDailyStats();
-        Object.assign(gameState.dailyStats, data.dailyStats || {});
+        const data = parseSavedGame(saved, config);
+        Object.assign(gameState, data);
         // Game loaded successfully
         return true;
     } catch (e) {
-        console.warn("Corrupted save data. Starting new game.");
+        protectSavedGame();
+        console.warn("Previous save preserved; playing a temporary farm.");
         return false;
     }
 }
 
 function startNewGame() {
-    if (readSavedGame()) {
-        showModal('gameMessage', {
-            title: "Start a new game?",
-            message: "This will overwrite your current progress.",
-            confirmText: "OK",
-            cancelText: "Cancel",
-            onConfirm: () => {
-                clearSavedGame();
-                initState(config);
-                initPlayer(inputState);
-                updateFog(config);
-                updateTimePanel(config);
-                render(config);
-                updateTileInfoPanel(config);
-                saveGameState(config);
-                updateSaveSizeDisplay(config);
-            }
-        });
-        return;
-    }
-    clearSavedGame();
-    initState(config);
-    initPlayer(inputState);
-    updateFog(config);
-    updateTimePanel(config);
-    render(config);
-    updateTileInfoPanel(config);
-    saveGameState(config);
-    updateSaveSizeDisplay(config);
-    // New game started
+    showModal('gameMessage', {
+        title: "Start a new game?",
+        message: "This will replace your current farm and any previous save.",
+        confirmText: "OK",
+        cancelText: "Cancel",
+        onConfirm: () => {
+            clearSavedGame();
+            initState(config);
+            updateFog(config);
+            updateTimePanel(config);
+            render(config);
+            updateTileInfoPanel(config);
+            updateSaveSizeDisplay(config);
+        }
+    });
 }
 
 function endDayPrompt() {
@@ -152,7 +128,7 @@ async function initGame(loadExisting = true) {
         updateSaveSizeDisplay(config);
     }
 
-    initPlayer(inputState);
+    initPlayer(inputState, config);
     if (gameState.time.hour >= config.dayEndHour) {
         showModal('dayComplete', { ...gameState.dailyStats }, config);
     }
@@ -199,6 +175,16 @@ initGame(true).catch((err) => {
     console.error('Error initializing game:', err);
     alert('Failed to start the game. Please try again later.');
 }).then(() => {
+    document.getElementById('download-save').addEventListener('click', () => {
+        const saved = readSavedGame();
+        if (saved === null) return;
+        const url = URL.createObjectURL(new Blob([saved], {type: 'application/json'}));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'trellis-previous-save.json';
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    });
     const newGameBtn = document.getElementById('new-game');
     const endDayBtn = document.getElementById('end-day');
     const cancelBtn = document.getElementById('plant-modal-cancel');

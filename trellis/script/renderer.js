@@ -1,6 +1,7 @@
 import {
     gameState,
-    getTile
+    getTile,
+    isWithinMap
 } from './state.js';
 
 import {
@@ -135,7 +136,7 @@ export function render(config) {
             const key = `${wx},${wy}`;
             const revealed = gameState.revealed[key];
 
-            if (!revealed) {
+            if (!revealed || !isWithinMap(wx, wy, config)) {
                 ctx.fillStyle = config.fog.color;
                 ctx.globalAlpha = config.fog.opacity;
                 ctx.fillRect(px, py, tileSize, tileSize);
@@ -177,6 +178,7 @@ export function updateFog(config) {
             const nx = player.x + dx;
             const ny = player.y + dy;
             const key = `${nx},${ny}`;
+            if (!isWithinMap(nx, ny, config)) continue;
             getTile(nx, ny, config); // lazily generate tile if needed
             gameState.revealed[key] = true;
         }

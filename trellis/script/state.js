@@ -98,7 +98,13 @@ function _weightedRandomTile(weights) {
  * @param {Object} config - Game configuration.
  * @returns {Object} tile object
  */
+export function isWithinMap(x, y, config) {
+    return Number.isInteger(x) && Number.isInteger(y) && x >= 0 && y >= 0 &&
+        x < config.mapWidth && y < config.mapHeight;
+}
+
 export function getTile(x, y, config) {
+    if (!isWithinMap(x, y, config)) return null;
     const key = `${x},${y}`;
     if (!gameState.map[key]) {
         gameState.map[key] = {
@@ -172,7 +178,7 @@ export function attemptPlayerMove(player, dx, dy, config) {
     const targetTile = getTile(newX, newY, config);
 
     // Only allow movement if tile is walkable
-    if (targetTile.tile !== 'rock' && !targetTile.plantType) {
+    if (targetTile && targetTile.tile !== 'rock' && !targetTile.plantType) {
         player.x = newX;
         player.y = newY;
 
@@ -220,6 +226,10 @@ export function updateGrowth(config) {
     return changedTiles;
 }
 
+let protectedSave = false;
+export function protectSavedGame() { protectedSave = true; }
+export function isSaveProtected() { return protectedSave; }
+
 // Storage can be blocked or full; the active game still lives in memory.
 export function readSavedGame() {
     try { return localStorage.getItem('trellisSave'); }
@@ -227,11 +237,13 @@ export function readSavedGame() {
 }
 
 export function clearSavedGame() {
+    protectedSave = false;
     try { localStorage.removeItem('trellisSave'); return true; }
     catch { return false; }
 }
 
 export function saveGameState(config) {
+    if (protectedSave) return null;
     function defaultTile() {
         return {
             tile: null,
@@ -258,6 +270,7 @@ export function saveGameState(config) {
     }
 
     const saveData = {
+        version: 1,
         player: gameState.player,
         selector: gameState.selector,
         map: optimizedMap,

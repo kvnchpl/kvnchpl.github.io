@@ -1,3 +1,11 @@
+export function resetPlantState(tile) {
+    Object.assign(tile, {
+        plantType: null, growthStage: null, growthProgress: 0,
+        readyToHarvest: false, plantVariant: null
+    });
+    return tile;
+}
+
 /**
  * Evaluates if a tile meets a condition.
  * Supports nested AND/OR logic.
@@ -48,6 +56,8 @@ export function applyActionEffects(tile, actionDef, config) {
             newTile[key] = change;
         }
     });
+    if (!newTile.plantType) resetPlantState(newTile);
+    if (newTile.tile !== tile.tile) newTile.tileVariant = null;
     return newTile;
 }
 

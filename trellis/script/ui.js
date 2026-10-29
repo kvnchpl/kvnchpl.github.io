@@ -1,5 +1,6 @@
 import {
     evaluateCondition,
+    resetPlantState,
     attemptActionOnTile,
     getBlockedActionMessages
 } from './actions.js';
@@ -16,7 +17,8 @@ import {
     advanceDay,
     advanceTime,
     updateGrowth,
-    saveGameState
+    saveGameState,
+    isSaveProtected
 } from './state.js';
 
 export const inputState = {
@@ -29,6 +31,9 @@ export let strings = {};
 let plantModalButtonList = [];
 let plantModalFocusedIndex = 0;
 let lastSaveSizeUpdate = 0;
+let returnFocus = null;
+let returnAction = null;
+let activeModal = null;
 
 export const modalRegistry = {
     gameMessage: {
@@ -92,7 +97,7 @@ export const modalRegistry = {
                 btn.className = 'ui-button';
                 btn.tabIndex = 0;
                 btn.onclick = () => {
-                    const newTile = { ...tile };
+                    const newTile = resetPlantState({ ...tile });
                     newTile.plantType = plantKey;
                     newTile.growthStage = def.growthStages[0];
                     newTile.growthProgress = 0;
@@ -131,6 +136,8 @@ export const modalRegistry = {
             const confirmBtn = document.getElementById('game-message-confirm');
             const cancelBtn = document.getElementById('game-message-cancel');
 
+            overlay.onclick = null;
+            confirmBtn.textContent = 'Continue';
             titleEl.textContent = 'DAY COMPLETE';
             contentEl.innerHTML = `
             <div>Steps walked: ${stats.steps}</div>
@@ -163,48 +170,43 @@ export const modalRegistry = {
             };
         }
     },
-    closeAll: {
-        setup: () => {
-            inputState.modalOpen = false;
 
-            Object.keys(inputState.keysPressed).forEach(k => inputState.keysPressed[k] = false);
-
-            const plantOverlay = document.getElementById('plant-modal-overlay');
-            if (plantOverlay) plantOverlay.style.display = 'none';
-
-            const gameOverlay = document.getElementById('game-message-overlay');
-            if (gameOverlay) gameOverlay.style.display = 'none';
-
-            plantModalButtonList = [];
-            plantModalFocusedIndex = 0;
-        }
-    }
 };
 
 export function showModal(type, ...args) {
+    if (type === 'closeAll') { closeModal(); return; }
     const modal = modalRegistry[type];
     if (!modal) throw new Error(`Modal type '${type}' not registered`);
+    if (!inputState.modalOpen) {
+        returnFocus = document.activeElement;
+        returnAction = returnFocus?.dataset.action || null;
+    }
+    document.getElementById('plant-modal-overlay').style.display = 'none';
+    document.getElementById('game-message-overlay').style.display = 'none';
+    activeModal = document.getElementById(type === 'plantSelection' ? 'plant-modal' : 'game-message-modal');
     modal.setup(...args);
 }
 
 export function openModal() {
     inputState.modalOpen = true;
+    inputState.keysPressed = {};
+    document.getElementById('top-button-bar').inert = true;
+    document.getElementById('game-container').inert = true;
 }
 
 export function closeModal() {
     inputState.modalOpen = false;
-
-    // Clear any stuck input state
-    Object.keys(inputState.keysPressed).forEach(
-        k => inputState.keysPressed[k] = false
-    );
-
-    // Hide all modal overlays defensively
-    const plantOverlay = document.getElementById('plant-modal-overlay');
-    if (plantOverlay) plantOverlay.style.display = 'none';
-
-    const messageOverlay = document.getElementById('game-message-overlay');
-    if (messageOverlay) messageOverlay.style.display = 'none';
+    inputState.keysPressed = {};
+    document.getElementById('plant-modal-overlay').style.display = 'none';
+    document.getElementById('game-message-overlay').style.display = 'none';
+    document.getElementById('top-button-bar').inert = false;
+    document.getElementById('game-container').inert = false;
+    activeModal = null;
+    const target = returnAction
+        ? document.querySelector(`[data-action="${returnAction}"]`) : returnFocus;
+    (target?.isConnected ? target : document.getElementById('game-canvas')).focus({preventScroll: true});
+    returnFocus = null;
+    returnAction = null;
 }
 
 /**
@@ -387,6 +389,7 @@ function _renderActionButtons(tile, config) {
         const key = config.keyBindings.actions[actionLabel] || '';
         const btn = document.createElement('button');
         btn.className = 'ui-button';
+        btn.dataset.action = actionLabel;
         btn.textContent = `[${key}] ${actionLabel}`;
 
         if (!validNow) btn.classList.add('disabled');
@@ -424,6 +427,7 @@ function _renderActionButtons(tile, config) {
  * @param {Object} config - Game configuration.
  */
 export function updateTileInfoPanel(config) {
+    const focusedAction = document.activeElement?.dataset.action;
     const tile = getTile(gameState.selector.x, gameState.selector.y, config);
     const detailsEl = document.getElementById('tile-details');
     if (!detailsEl) return;
@@ -439,6 +443,9 @@ export function updateTileInfoPanel(config) {
     });
 
     _renderActionButtons(tile, config);
+    if (focusedAction && !inputState.modalOpen) {
+        document.querySelector(`[data-action="${focusedAction}"]`)?.focus({preventScroll: true});
+    }
 }
 
 /**
@@ -473,115 +480,44 @@ export function incrementTimeUI(minutes, config) {
     updateTimePanel(config);
 }
 
-// Handles keyboard navigation and selection within the plant selection modal.
-document.addEventListener('keydown', (e) => {
-    // Only handle plant modal navigation if plant modal is open and visible
-    const plantOverlay = document.getElementById('plant-modal-overlay');
-    if (
-        plantOverlay &&
-        plantOverlay.style.display !== 'none' &&
-        inputState.modalOpen
-    ) {
-        // Only handle keys for plant modal, no Escape key should forcibly close modal here
+// One dialog handler owns each key, including focus containment.
+document.addEventListener('keydown', e => {
+    if (!inputState.modalOpen || !activeModal) return;
+    const buttons = [...activeModal.querySelectorAll('button')]
+        .filter(button => !button.disabled && button.getClientRects().length);
+    const focused = document.activeElement;
+    if (e.key === 'Tab') {
         e.preventDefault();
-        e.stopPropagation();
-
-        // Always clear keysPressed for safety
-        Object.keys(inputState.keysPressed).forEach(k => inputState.keysPressed[k] = false);
-
-        const columns = 2;
-        let handled = false;
-
-        switch (e.key) {
-            case 'ArrowRight':
-            case 'd':
-            case 'D':
-                plantModalFocusedIndex = Math.min(
-                    plantModalFocusedIndex + 1,
-                    plantModalButtonList.length - 1
-                );
-                handled = true;
-                break;
-            case 'ArrowLeft':
-            case 'a':
-            case 'A':
-                plantModalFocusedIndex = Math.max(
-                    plantModalFocusedIndex - 1,
-                    0
-                );
-                handled = true;
-                break;
-            case 'ArrowDown':
-            case 's':
-            case 'S':
-                plantModalFocusedIndex = Math.min(
-                    plantModalFocusedIndex + columns,
-                    plantModalButtonList.length - 1
-                );
-                handled = true;
-                break;
-            case 'ArrowUp':
-            case 'w':
-            case 'W':
-                plantModalFocusedIndex = Math.max(
-                    plantModalFocusedIndex - columns,
-                    0
-                );
-                handled = true;
-                break;
-            case 'Enter':
-            case ' ':
-                plantModalButtonList[plantModalFocusedIndex]?.click();
-                return;
-            case '1': case '2': case '3': case '4': case '5':
-            case '6': case '7': case '8': case '9': {
-                const index = Number(e.key) - 1;
-                if (plantModalButtonList[index]) {
-                    plantModalButtonList[index].click();
-                }
-                return;
-            }
-            case 'Escape':
-                // Only close via closeModal, not direct overlay manipulation
-                closeModal();
-                return;
-        }
-
-        if (handled) {
-            plantModalButtonList[plantModalFocusedIndex]?.focus();
+        const index = buttons.indexOf(focused);
+        const next = (index + (e.shiftKey ? -1 : 1) + buttons.length) % buttons.length;
+        buttons[next]?.focus();
+        return;
+    }
+    if (e.key === 'Escape') {
+        e.preventDefault();
+        if (activeModal.id === 'plant-modal') closeModal();
+        else if (document.getElementById('game-message-cancel').getClientRects().length) {
+            document.getElementById('game-message-cancel').click();
         }
         return;
     }
-});
-
-// Modal keyboard handler for game-message modal (ESC/ENTER behavior)
-document.addEventListener('keydown', (e) => {
-    if (!inputState.modalOpen) return;
-
-    // ESC = cancel (if available)
-    if (e.key === 'Escape') {
-        const cancelBtn = document.getElementById('game-message-cancel');
-        if (cancelBtn && cancelBtn.style.display !== 'none') {
-            e.preventDefault();
-            cancelBtn.click();
-            return;
-        }
+    if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (buttons.includes(focused)) focused.click();
+        return;
     }
-
-    // ENTER = confirm focused button (or confirm button fallback)
-    if (e.key === 'Enter') {
-        const active = document.activeElement;
-        if (active && active.tagName === 'BUTTON') {
-            e.preventDefault();
-            active.click();
-            return;
-        }
-
-        const confirmBtn = document.getElementById('game-message-confirm');
-        if (confirmBtn) {
-            e.preventDefault();
-            confirmBtn.click();
-        }
+    if (activeModal.id !== 'plant-modal') return;
+    const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+    const directions = {ArrowRight: 1, d: 1, ArrowLeft: -1, a: -1, ArrowDown: 2, s: 2, ArrowUp: -2, w: -2};
+    if (Object.hasOwn(directions, key)) {
+        e.preventDefault();
+        const index = plantModalButtonList.indexOf(focused);
+        plantModalFocusedIndex = Math.max(0, Math.min(plantModalButtonList.length - 1,
+            (index < 0 ? 0 : index) + directions[key]));
+        plantModalButtonList[plantModalFocusedIndex]?.focus();
+    } else if (/^[1-9]$/.test(key)) {
+        e.preventDefault();
+        plantModalButtonList[Number(key) - 1]?.click();
     }
 });
 
@@ -589,7 +525,12 @@ export function updateSaveSizeDisplay(config) {
     const saveEl = document.getElementById("save-size");
     if (!saveEl) return;
 
+    document.getElementById('download-save').hidden = !isSaveProtected();
     const sizeInBytes = saveGameState(config);
+    if (isSaveProtected()) {
+        saveEl.textContent = 'Not saved: previous save could not be loaded and is preserved. Download it before using New Game to replace it.';
+        return;
+    }
     if (sizeInBytes === null) {
         saveEl.textContent = 'Not saved: browser storage is unavailable. Progress is kept for this visit.';
         return;

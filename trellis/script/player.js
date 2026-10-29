@@ -1,5 +1,5 @@
 import { attemptActionOnTile } from './actions.js';
-import { gameState, getTile, attemptPlayerMove } from './state.js';
+import { gameState, getTile, attemptPlayerMove, isWithinMap } from './state.js';
 
 /**
  * Handles movement keys and updates player state.
@@ -60,6 +60,8 @@ function handleSelectorKeys(player, controls, inputState, config) {
         inputState.keysPressed[controls.resetSelector] = false;
     }
 
+    if (!isWithinMap(newX, newY, config)) return false;
+
     if (!selectorKeyPressed) {
         return false;
     }
@@ -92,16 +94,24 @@ function handleActionKeys(config, inputState, dailyStats) {
     return null;
 }
 
-export function initPlayer(inputState) {
-    window.addEventListener('keydown', (e) => {
-        if (inputState.modalOpen) {
-            e.preventDefault();
-            e.stopPropagation();
-            inputState.keysPressed[e.key] = false;
-            return;
-        }
-        inputState.keysPressed[e.key] = true;
+let controlsInstalled = false;
+export function initPlayer(inputState, config) {
+    if (controlsInstalled) return;
+    controlsInstalled = true;
+    const keys = new Set(Object.entries(config.keyBindings)
+        .filter(([name]) => name !== 'actions').map(([, key]) => key)
+        .concat(Object.values(config.keyBindings.actions)));
+    const clearKeys = () => { inputState.keysPressed = {}; };
+    window.addEventListener('keydown', e => {
+        if (e.defaultPrevented || inputState.modalOpen || e.ctrlKey || e.metaKey || e.altKey) return;
+        if (e.target.closest?.('input, textarea, select, [contenteditable="true"]')) return;
+        const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+        if (!keys.has(key)) return;
+        e.preventDefault();
+        inputState.keysPressed[key] = true;
     });
+    window.addEventListener('blur', clearKeys);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) clearKeys(); });
 }
 
 /**
