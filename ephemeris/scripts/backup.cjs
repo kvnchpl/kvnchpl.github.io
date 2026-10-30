@@ -4,7 +4,7 @@ const path=require('node:path');
 const {execFileSync}=require('node:child_process');
 const repo=path.resolve(__dirname,'../..');
 const directory=path.join(repo,'.repo-backups/ephemeris');
-const files=['ephemeris/research','ephemeris/tests','ephemeris/README.md','.private/PROJECTS.md','.private/tests/netlify-hosting.test.mjs'];
+const files=['ephemeris/.private/research','ephemeris/tests','ephemeris/README.md','.private/PROJECTS.md','.private/tests/netlify-hosting.test.mjs'];
 for (const file of files) if (!fs.existsSync(path.join(repo,file))) throw new Error('Missing authoring source: '+file);
 fs.mkdirSync(directory,{recursive:true});
 const archive=path.join(directory,'ephemeris-authoring-'+new Date().toISOString().replace(/[:.]/g,'-')+'.tar.gz');

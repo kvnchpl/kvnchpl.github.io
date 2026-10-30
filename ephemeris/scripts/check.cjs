@@ -26,9 +26,9 @@ function run(command,args,settings={}) {
     if (files.length) run(process.execPath,['--test',...files]);
   } else console.log('Local behavior tests are absent in this checkout (ignored authoring resources).');
   if (options.has('--research')) {
-    const python=process.env.EPHEMERIS_PYTHON || path.join(root,'research/.venv/bin/python3');
-    if (!fs.existsSync(python)) throw new Error('Set EPHEMERIS_PYTHON or create research/.venv using research/requirements.txt.');
-    for (const prototype of ['phase-prototype','field-prototype','timing-prototype']) run(python,['-m','unittest','discover','-s',path.join(root,'research',prototype),'-p','test_*.py']);
+    const python=process.env.EPHEMERIS_PYTHON || path.join(root,'.private/research/.venv/bin/python3');
+    if (!fs.existsSync(python)) throw new Error('Set EPHEMERIS_PYTHON or create .private/research/.venv using .private/research/requirements.txt.');
+    for (const prototype of ['phase-prototype','field-prototype','timing-prototype']) run(python,['-m','unittest','discover','-s',path.join(root,'.private/research',prototype),'-p','test_*.py']);
   }
   if (options.has('--browser')) {
     const file=path.join(tests,'browser.cjs');

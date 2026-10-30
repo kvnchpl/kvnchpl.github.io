@@ -40,7 +40,8 @@ function hideDialog() {
   activeDialog = null;
   for (const node of document.body.children) node.inert = false;
   document.body.style.overflow = '';
-  if (returnFocus?.isConnected) returnFocus.focus(); else $('about-button').focus();
+  if (returnFocus?.isConnected && returnFocus !== document.body && returnFocus !== document.documentElement) returnFocus.focus();
+  else $('about-button').focus();
 }
 function clearPreview() {
   if (previewURL) URL.revokeObjectURL(previewURL);
