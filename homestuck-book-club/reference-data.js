@@ -1393,7 +1393,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -1415,6 +1416,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Land",
               "value": "Land of Quartz and Melody (LOQAM)",
               "sourcePage": 2189,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 3565,
               "sourceKind": "direct"
             }
           ]
@@ -1612,7 +1625,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -1635,6 +1649,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Sand and Zephyr (LOSAZ)",
               "sourcePage": 2348,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -1799,7 +1825,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -1822,6 +1849,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Brains and Fire (LOBAF)",
               "sourcePage": 2514,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit and Derse",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -1964,7 +2003,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -1987,6 +2027,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Pulse and Haze (LOPAH)",
               "sourcePage": 2059,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -2125,7 +2177,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -2147,6 +2200,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Land",
               "value": "Land of Little Cubes and Tea (LOLCAT)",
               "sourcePage": 2532,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 2505,
               "sourceKind": "visual"
             }
           ]
@@ -2279,7 +2344,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -2313,6 +2379,18 @@ window.HOMESTUCK_REFERENCE = {
                 3314
               ],
               "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -2474,7 +2552,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -2497,6 +2576,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Thought and Flow (LOTAF)",
               "sourcePage": 2523,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -2650,7 +2741,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -2673,6 +2765,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Maps and Treasure (LOMAT)",
               "sourcePage": 2372,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -2845,7 +2949,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -2868,6 +2973,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Caves and Silence (LOCAS)",
               "sourcePage": 2277,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -3008,7 +3125,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -3030,6 +3148,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Land",
               "value": "Land of Tents and Mirth (LOTAM)",
               "sourcePage": 2473,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Prospit",
+              "sourcePage": 2505,
               "sourceKind": "visual"
             }
           ]
@@ -3164,7 +3294,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -3190,6 +3321,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 3361
               ]
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -3340,7 +3483,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 2318,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-5-act-2-part-1"
         },
         {
           "id": "title",
@@ -3363,6 +3507,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Land of Dew and Glass (LODAG)",
               "sourcePage": 2466,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "dream-moon",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Dream moon",
+              "value": "Derse",
+              "sourcePage": 2505,
+              "sourceKind": "visual"
             }
           ]
         },

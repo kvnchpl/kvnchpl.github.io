@@ -289,6 +289,7 @@
     let statCount = 0;
 
     for (const stat of character.stats || []) {
+      if (stat.until && hasReachedStage(stat.until)) continue;
       const variant = resolveVariant(stat.variants);
       if (!variant) continue;
       const row = document.createElement('div');
