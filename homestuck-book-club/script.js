@@ -662,12 +662,27 @@
       capPreviewSelect.append(option);
     }
 
+    // The matrix is an ignored local authoring tool, absent from both hosting packages.
+    // Only loopback previews offer its launch link; this is not a public debug feature.
+    let statMatrixLink;
+    if (['localhost', '127.0.0.1', '[::1]'].includes(location.hostname)) {
+      statMatrixLink = document.createElement('a');
+      statMatrixLink.id = 'reference-stat-matrix-link';
+      statMatrixLink.textContent = 'Browse stat matrix';
+      statMatrixLink.target = '_blank';
+      statMatrixLink.rel = 'noopener noreferrer';
+      const command = document.createElement('p');
+      command.append(statMatrixLink);
+      capPreviewDialog.append(command);
+    }
+
     window.addEventListener('keydown', event => {
       if (event.repeat || event.altKey || !event.shiftKey ||
         !(event.ctrlKey || event.metaKey) || event.code !== 'Period') return;
       if (typeof capPreviewDialog.showModal !== 'function') return;
       event.preventDefault();
       capPreviewSelect.value = readingCap.key;
+      if (statMatrixLink) statMatrixLink.href = `../.private/tools/reference-matrix/index.html?stage=${selectedReadingStage.key}`;
       if (!capPreviewDialog.open) capPreviewDialog.showModal();
       capPreviewSelect.focus();
     });

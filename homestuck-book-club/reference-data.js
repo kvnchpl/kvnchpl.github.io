@@ -1064,18 +1064,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "strife-specibus",
-          "variants": [
-            {
-              "from": "act-2",
-              "label": "Strife specibus",
-              "value": "bladekind",
-              "sourcePage": 342,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "quest",
           "variants": [
             {
@@ -1083,6 +1071,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Quest",
               "value": "Helps Jade breed the Genesis Frog",
               "sourcePage": 3869,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "strife-specibus",
+          "variants": [
+            {
+              "from": "act-2",
+              "label": "Strife specibus",
+              "value": "bladekind",
+              "sourcePage": 342,
               "sourceKind": "direct"
             }
           ]
@@ -1225,6 +1225,22 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Quest",
+              "value": "Breed the Genesis Frog",
+              "sourcePage": 3305,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3318,
+                3319
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1248,22 +1264,6 @@ window.HOMESTUCK_REFERENCE = {
                 3158
               ],
               "sourceKind": "composite"
-            }
-          ]
-        },
-        {
-          "id": "quest",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Quest",
-              "value": "Breed the Genesis Frog",
-              "sourcePage": 3305,
-              "sourceKind": "composite",
-              "sourcePages": [
-                3318,
-                3319
-              ]
             }
           ]
         },
@@ -1460,14 +1460,25 @@ window.HOMESTUCK_REFERENCE = {
           "id": "powers",
           "variants": [
             {
+              "from": "act-5-act-1",
+              "label": "Powers",
+              "value": "Telekinesis · Hears the dead",
+              "sourcePage": 2187,
+              "sourceKind": "composite",
+              "sourcePages": [
+                2134
+              ]
+            },
+            {
               "from": "act-5-act-2-part-2",
               "label": "Powers",
-              "value": "Time-freezing spells",
+              "value": "Telekinesis · Time-freezing spells",
               "sourcePage": 3565,
               "sourceKind": "composite",
               "sourcePages": [
                 3297,
-                3566
+                3566,
+                2187
               ]
             },
             {
@@ -1488,11 +1499,14 @@ window.HOMESTUCK_REFERENCE = {
           "id": "form",
           "variants": [
             {
-              "from": "act-5-act-2-part-1",
-              "label": "Condition",
-              "value": "Robot body destroyed",
-              "sourcePage": 3186,
-              "sourceKind": "visual"
+              "from": "act-5-act-1",
+              "label": "Form",
+              "value": "Robot body",
+              "sourcePage": 2288,
+              "sourceKind": "composite",
+              "sourcePages": [
+                2287
+              ]
             },
             {
               "from": "act-5-act-2-part-2",
@@ -1502,6 +1516,28 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual",
               "sourcePages": [
                 3565
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-1",
+              "label": "Status",
+              "value": "Robot body destroyed",
+              "sourcePage": 3186,
+              "sourceKind": "visual"
+            },
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Status",
+              "value": "Alive in her god-tier dreamself",
+              "sourcePage": 3565,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3297
               ]
             }
           ]
@@ -1704,6 +1740,13 @@ window.HOMESTUCK_REFERENCE = {
           "id": "mobility",
           "variants": [
             {
+              "from": "act-5-act-1",
+              "label": "Condition",
+              "value": "Paralyzed; uses a wheelchair",
+              "sourcePage": 2117,
+              "sourceKind": "direct"
+            },
+            {
               "from": "act-5-act-2-part-1",
               "label": "Condition",
               "value": "Robotic legs",
@@ -1880,6 +1923,16 @@ window.HOMESTUCK_REFERENCE = {
           "id": "powers",
           "variants": [
             {
+              "from": "act-5-act-1",
+              "label": "Powers",
+              "value": "Psionics · Hears the imminently deceased",
+              "sourcePage": 2077,
+              "sourceKind": "composite",
+              "sourcePages": [
+                2076
+              ]
+            },
+            {
               "from": "act-6-intermission-1",
               "label": "Powers",
               "value": "Telekinetic force",
@@ -2043,18 +2096,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "strife-specibus",
-          "variants": [
-            {
-              "from": "act-5-act-1",
-              "label": "Strife specibus",
-              "value": "sicklekind",
-              "sourcePage": 1994,
-              "sourceKind": "editorial"
-            }
-          ]
-        },
-        {
           "id": "quest",
           "variants": [
             {
@@ -2067,6 +2108,18 @@ window.HOMESTUCK_REFERENCE = {
                 3977,
                 4005
               ]
+            }
+          ]
+        },
+        {
+          "id": "strife-specibus",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Strife specibus",
+              "value": "sicklekind",
+              "sourcePage": 1994,
+              "sourceKind": "editorial"
             }
           ]
         },
@@ -2395,6 +2448,22 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Quest",
+              "value": "Frog breeding for the trolls' session",
+              "sourcePage": 3305,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3319,
+                3320
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -2415,22 +2484,6 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Lipstick that transforms into a chainsaw",
               "sourcePage": 2324,
               "sourceKind": "visual"
-            }
-          ]
-        },
-        {
-          "id": "quest",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Quest",
-              "value": "Frog breeding for the trolls' session",
-              "sourcePage": 3305,
-              "sourceKind": "composite",
-              "sourcePages": [
-                3319,
-                3320
-              ]
             }
           ]
         },
@@ -2607,15 +2660,35 @@ window.HOMESTUCK_REFERENCE = {
           "id": "powers",
           "variants": [
             {
+              "from": "act-5-act-1",
+              "label": "Powers",
+              "value": "Perception through smell and taste",
+              "sourcePage": 2031,
+              "sourceKind": "direct"
+            },
+            {
               "from": "act-5-act-2-part-3",
               "label": "Powers",
-              "value": "Sees the consequences of decisions",
+              "value": "Perception through smell and taste · Sees the consequences of decisions",
               "sourcePage": 3832,
               "sourceKind": "composite",
               "sourcePages": [
                 3833,
-                3835
+                3835,
+                2031
               ]
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Condition",
+              "value": "Blind",
+              "sourcePage": 2576,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -2805,23 +2878,25 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-5-act-2-part-1",
               "label": "Powers",
-              "value": "Psychic suggestion; can put humans to sleep or wake them",
+              "value": "Mind control (target-dependent); can put humans to sleep or wake them",
               "sourcePage": 2974,
               "sourcePages": [
-                3238
+                3238,
+                2245
               ],
               "sourceKind": "composite"
             },
             {
               "from": "act-5-act-2-part-3",
               "label": "Powers",
-              "value": "Psychic suggestion (sleep/wake humans) · Steals luck",
+              "value": "Mind control (target-dependent) · Sleep/wake humans · Steals luck",
               "sourcePage": 3771,
               "sourceKind": "composite",
               "sourcePages": [
                 3775,
                 2974,
-                3238
+                3238,
+                2245
               ]
             }
           ]
@@ -3000,6 +3075,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 2218
               ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-5-act-1",
+              "label": "Powers",
+              "value": "Extraordinary physical strength",
+              "sourcePage": 2211,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -4713,13 +4800,13 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
+          "id": "role",
           "variants": [
             {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Spades Slick",
-              "sourcePage": 1674,
+              "from": "act-3",
+              "label": "Role",
+              "value": "Archagent of the Dark Kingdom",
+              "sourcePage": 955,
               "sourceKind": "direct"
             }
           ]
@@ -4737,18 +4824,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-3",
-              "label": "Role",
-              "value": "Archagent of the Dark Kingdom",
-              "sourcePage": 955,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "powers",
           "variants": [
             {
@@ -4756,6 +4831,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Powers",
               "value": "First Guardian powers, drawn from the Green Sun",
               "sourcePage": 3238,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Spades Slick",
+              "sourcePage": 1674,
               "sourceKind": "direct"
             }
           ]
@@ -4804,18 +4891,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Diamonds Droog",
-              "sourcePage": 1674,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "role",
           "variants": [
             {
@@ -4823,6 +4898,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Role",
               "value": "Jack Noir's henchman",
               "sourcePage": 1988,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Diamonds Droog",
+              "sourcePage": 1674,
               "sourceKind": "direct"
             }
           ]
@@ -4871,18 +4958,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Clubs Deuce",
-              "sourcePage": 1674,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "role",
           "variants": [
             {
@@ -4903,6 +4978,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Deceased",
               "sourcePage": 4109,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Clubs Deuce",
+              "sourcePage": 1674,
+              "sourceKind": "direct"
             }
           ]
         }
@@ -4944,18 +5031,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Hearts Boxcars",
-              "sourcePage": 1674,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "role",
           "variants": [
             {
@@ -4982,6 +5057,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Status",
               "value": "Deceased",
               "sourcePage": 1988,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Hearts Boxcars",
+              "sourcePage": 1674,
               "sourceKind": "direct"
             }
           ]
@@ -5036,18 +5123,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Jack Noir (kids’ session)",
-              "sourcePage": 1674,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "role",
           "variants": [
             {
@@ -5072,6 +5147,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Weapon",
+              "value": "Cast Iron Horse Hitcher",
+              "sourcePage": 1213,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "inventory",
           "variants": [
             {
@@ -5087,13 +5174,13 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "weapon",
+          "id": "counterpart",
           "variants": [
             {
-              "from": "intermission",
-              "label": "Weapon",
-              "value": "Cast Iron Horse Hitcher",
-              "sourcePage": 1213,
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Jack Noir (kids’ session)",
+              "sourcePage": 1674,
               "sourceKind": "direct"
             }
           ]
@@ -5136,21 +5223,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Draconian Dignitary",
-              "sourcePage": 1674,
-              "sourceKind": "composite",
-              "sourcePages": [
-                1988
-              ]
-            }
-          ]
-        },
-        {
           "id": "affiliation",
           "variants": [
             {
@@ -5159,6 +5231,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Midnight Crew",
               "sourcePage": 1155,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Weapon",
+              "value": "Ultra-Violence Cuestick",
+              "sourcePage": 1231,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -5175,14 +5259,17 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "weapon",
+          "id": "counterpart",
           "variants": [
             {
-              "from": "intermission",
-              "label": "Weapon",
-              "value": "Ultra-Violence Cuestick",
-              "sourcePage": 1231,
-              "sourceKind": "visual"
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Draconian Dignitary",
+              "sourcePage": 1674,
+              "sourceKind": "composite",
+              "sourcePages": [
+                1988
+              ]
             }
           ]
         },
@@ -5236,21 +5323,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Courtyard Droll",
-              "sourcePage": 1674,
-              "sourceKind": "composite",
-              "sourcePages": [
-                1988
-              ]
-            }
-          ]
-        },
-        {
           "id": "affiliation",
           "variants": [
             {
@@ -5258,6 +5330,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Affiliation",
               "value": "Midnight Crew",
               "sourcePage": 1155,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Weapon",
+              "value": "Crook of Felony",
+              "sourcePage": 1178,
               "sourceKind": "direct"
             }
           ]
@@ -5278,14 +5362,17 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "weapon",
+          "id": "counterpart",
           "variants": [
             {
-              "from": "intermission",
-              "label": "Weapon",
-              "value": "Crook of Felony",
-              "sourcePage": 1178,
-              "sourceKind": "direct"
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Courtyard Droll",
+              "sourcePage": 1674,
+              "sourceKind": "composite",
+              "sourcePages": [
+                1988
+              ]
             }
           ]
         }
@@ -5327,21 +5414,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Hegemonic Brute",
-              "sourcePage": 1674,
-              "sourceKind": "composite",
-              "sourcePages": [
-                1988
-              ]
-            }
-          ]
-        },
-        {
           "id": "role",
           "variants": [
             {
@@ -5366,6 +5438,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Weapon",
+              "value": "TV antenna",
+              "sourcePage": 1216,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "inventory",
           "variants": [
             {
@@ -5381,14 +5465,17 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "weapon",
+          "id": "counterpart",
           "variants": [
             {
-              "from": "intermission",
-              "label": "Weapon",
-              "value": "TV antenna",
-              "sourcePage": 1216,
-              "sourceKind": "visual"
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Hegemonic Brute",
+              "sourcePage": 1674,
+              "sourceKind": "composite",
+              "sourcePages": [
+                1988
+              ]
             }
           ]
         }
@@ -5454,18 +5541,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-3",
-              "label": "Status",
-              "value": "Deceased",
-              "sourcePage": 4109,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "special-rule",
           "variants": [
             {
@@ -5474,6 +5549,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Killing her destroys the universe",
               "sourcePage": 1268,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-3",
+              "label": "Status",
+              "value": "Deceased",
+              "sourcePage": 4109,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -5779,18 +5866,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Descendant",
-              "value": "Tavros Nitram",
-              "sourcePage": 3758,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "ability",
           "variants": [
             {
@@ -5799,6 +5874,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Animal communion · Wings (foretold)",
               "sourcePage": 3758,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Descendant",
+              "value": "Tavros Nitram",
+              "sourcePage": 3758,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -5853,18 +5940,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-3",
-              "label": "Descendant",
-              "value": "Sollux Captor",
-              "sourcePage": 4058,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "powers",
           "variants": [
             {
@@ -5885,6 +5960,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Deceased (Vast Glub)",
               "sourcePage": 4064,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-3",
+              "label": "Descendant",
+              "value": "Sollux Captor",
+              "sourcePage": 4058,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -5927,6 +6014,18 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-3",
+              "label": "Role",
+              "value": "Preacher of compassion and equality among bloodlines",
+              "sourcePage": 4054,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "alias",
           "variants": [
             {
@@ -5939,13 +6038,13 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "role",
+          "id": "status",
           "variants": [
             {
               "from": "act-5-act-2-part-3",
-              "label": "Role",
-              "value": "Preacher of compassion and equality among bloodlines",
-              "sourcePage": 4054,
+              "label": "Status",
+              "value": "Deceased (executed)",
+              "sourcePage": 4055,
               "sourceKind": "direct"
             }
           ]
@@ -5959,18 +6058,6 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Karkat Vantas",
               "sourcePage": 4085,
               "sourceKind": "visual"
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-3",
-              "label": "Status",
-              "value": "Deceased (executed)",
-              "sourcePage": 4055,
-              "sourceKind": "direct"
             }
           ]
         }
@@ -6179,18 +6266,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Descendant",
-              "value": "Terezi Pyrope",
-              "sourcePage": 3518,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "status",
           "variants": [
             {
@@ -6202,6 +6277,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 3750
               ]
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Descendant",
+              "value": "Terezi Pyrope",
+              "sourcePage": 3518,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -6271,18 +6358,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Descendant",
-              "value": "Vriska Serket",
-              "sourcePage": 3475,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "powers",
           "variants": [
             {
@@ -6306,6 +6381,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Robotic arm",
               "sourcePage": 3756,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Descendant",
+              "value": "Vriska Serket",
+              "sourcePage": 3475,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -6378,18 +6465,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Descendant",
-              "value": "Equius Zahhak",
-              "sourcePage": 3756,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "ability",
           "variants": [
             {
@@ -6398,6 +6473,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Conceals nearby objects from Doc Scratch’s awareness",
               "sourcePage": 3757,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Descendant",
+              "value": "Equius Zahhak",
+              "sourcePage": 3756,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -6514,18 +6601,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-2",
-              "label": "Descendant",
-              "value": "Eridan Ampora",
-              "sourcePage": 3508,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "status",
           "variants": [
             {
@@ -6534,6 +6609,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Deceased",
               "sourcePage": 3514,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Descendant",
+              "value": "Eridan Ampora",
+              "sourcePage": 3508,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -6613,18 +6700,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "descendant",
-          "variants": [
-            {
-              "from": "act-5-act-2-part-3",
-              "label": "Descendant",
-              "value": "Feferi Peixes",
-              "sourcePage": 4063,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
           "id": "powers",
           "variants": [
             {
@@ -6637,6 +6712,18 @@ window.HOMESTUCK_REFERENCE = {
                 4063,
                 4064
               ]
+            }
+          ]
+        },
+        {
+          "id": "descendant",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-3",
+              "label": "Descendant",
+              "value": "Feferi Peixes",
+              "sourcePage": 4063,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -6937,18 +7024,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Weapon",
-              "value": "Laser gun",
-              "sourcePage": 4471,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -6957,6 +7032,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "riflekind · fistkind",
               "sourcePage": 4471,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Weapon",
+              "value": "Laser gun",
+              "sourcePage": 4471,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -7124,18 +7211,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Weapon",
-              "value": "Unbreakable katana",
-              "sourcePage": 4518,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -7144,6 +7219,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "bladekind · puppetkind · fancysantakind",
               "sourcePage": 4519,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Weapon",
+              "value": "Unbreakable katana",
+              "sourcePage": 4518,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -7616,18 +7703,6 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "components",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Components",
-              "value": "Stuffed Con Air bunny inside a robotic exoskeleton",
-              "sourcePage": 4258,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
           "id": "weapon",
           "variants": [
             {
@@ -7636,6 +7711,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Retractable blade",
               "sourcePage": 4241,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Components",
+              "value": "Stuffed Con Air bunny inside a robotic exoskeleton",
+              "sourcePage": 4258,
+              "sourceKind": "direct"
             }
           ]
         }
