@@ -4849,74 +4849,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 955,
-      "sourceKind": "intro"
-    },
-    {
-      "id": "dd",
-      "group": "agents",
-      "reveal": "act-4",
-      "introPage": 1532,
-      "name": [
-        {
-          "from": "act-4",
-          "value": "DRACONIAN DIGNITARY",
-          "sourcePage": 1988,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-4",
-          "value": "Draconian Dignitary",
-          "sourcePage": 1988,
-          "sourceKind": "direct"
-        },
-        {
-          "from": "act-6-intermission-1",
-          "value": "Draconian Dignitary",
-          "sourcePage": 1988,
-          "sourceKind": "editorial"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-4",
-          "value": {
-            "src": "../assets/ref-dd.webp",
-            "alt": "Draconian Dignitary"
-          },
-          "sourcePage": 1532,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Role",
-              "value": "Jack Noir's henchman",
-              "sourcePage": 1988,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Diamonds Droog",
-              "sourcePage": 1674,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ],
-      "sourcePage": 1532,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "cd",
@@ -4995,7 +4929,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1784,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "hb",
@@ -5075,7 +5010,76 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 957,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
+    },
+    {
+      "id": "dd",
+      "group": "agents",
+      "reveal": "act-4",
+      "introPage": 1532,
+      "name": [
+        {
+          "from": "act-4",
+          "value": "DRACONIAN DIGNITARY",
+          "sourcePage": 1988,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-4",
+          "value": "Draconian Dignitary",
+          "sourcePage": 1988,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-intermission-1",
+          "value": "Draconian Dignitary",
+          "sourcePage": 1988,
+          "sourceKind": "editorial"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-4",
+          "value": {
+            "src": "../assets/ref-dd.webp",
+            "alt": "Draconian Dignitary"
+          },
+          "sourcePage": 1532,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Role",
+              "value": "Jack Noir's henchman",
+              "sourcePage": 1988,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Diamonds Droog",
+              "sourcePage": 1674,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "sourcePage": 1532,
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "spades-slick",
@@ -5187,107 +5191,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1155,
-      "sourceKind": "intro"
-    },
-    {
-      "id": "diamonds-droog",
-      "group": "midnight-crew",
-      "reveal": "intermission",
-      "introPage": 1155,
-      "name": [
-        {
-          "from": "intermission",
-          "value": "DIAMONDS DROOG",
-          "sourcePage": 1155,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "intermission",
-          "value": "Diamonds Droog",
-          "sourcePage": 1155,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "intermission",
-          "value": {
-            "src": "../assets/ref-diamonds-droog.webp",
-            "alt": "Diamonds Droog in a dark suit and hat"
-          },
-          "sourcePage": 1198,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "affiliation",
-          "variants": [
-            {
-              "from": "intermission",
-              "label": "Affiliation",
-              "value": "Midnight Crew",
-              "sourcePage": 1155,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "intermission",
-              "label": "Weapon",
-              "value": "Ultra-Violence Cuestick",
-              "sourcePage": 1231,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
-          "id": "inventory",
-          "variants": [
-            {
-              "from": "intermission",
-              "label": "Inventory",
-              "value": "Brawlsoleum",
-              "sourcePage": 1199,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-4",
-              "label": "Counterpart",
-              "value": "Draconian Dignitary",
-              "sourcePage": 1674,
-              "sourceKind": "composite",
-              "sourcePages": [
-                1988
-              ]
-            }
-          ]
-        },
-        {
-          "id": "interests",
-          "variants": [
-            {
-              "from": "intermission",
-              "label": "Interests",
-              "value": "Finely tailored suits",
-              "sourcePage": 1200,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ],
-      "sourcePage": 1155,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 1
     },
     {
       "id": "clubs-deuce",
@@ -5378,7 +5283,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1155,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 2
     },
     {
       "id": "hearts-boxcars",
@@ -5481,7 +5387,109 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1155,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "rosterColumn": 3
+    },
+    {
+      "id": "diamonds-droog",
+      "group": "midnight-crew",
+      "reveal": "intermission",
+      "introPage": 1155,
+      "name": [
+        {
+          "from": "intermission",
+          "value": "DIAMONDS DROOG",
+          "sourcePage": 1155,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "intermission",
+          "value": "Diamonds Droog",
+          "sourcePage": 1155,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "intermission",
+          "value": {
+            "src": "../assets/ref-diamonds-droog.webp",
+            "alt": "Diamonds Droog in a dark suit and hat"
+          },
+          "sourcePage": 1198,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "affiliation",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Affiliation",
+              "value": "Midnight Crew",
+              "sourcePage": 1155,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Weapon",
+              "value": "Ultra-Violence Cuestick",
+              "sourcePage": 1231,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Inventory",
+              "value": "Brawlsoleum",
+              "sourcePage": 1199,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-4",
+              "label": "Counterpart",
+              "value": "Draconian Dignitary",
+              "sourcePage": 1674,
+              "sourceKind": "composite",
+              "sourcePages": [
+                1988
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "intermission",
+              "label": "Interests",
+              "value": "Finely tailored suits",
+              "sourcePage": 1200,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "sourcePage": 1155,
+      "sourceKind": "intro",
+      "rosterColumn": 4
     },
     {
       "id": "snowman",
@@ -7978,73 +7986,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
-    },
-    {
-      "id": "post-scratch-dd",
-      "group": "post-scratch-agents",
-      "reveal": "act-6-intermission-1",
-      "introPage": 4407,
-      "sourcePage": 4407,
-      "sourceKind": "composite",
-      "sourcePages": [
-        1988
       ],
-      "name": [
-        {
-          "from": "act-6-intermission-1",
-          "value": "DRACONIAN DIGNITARY",
-          "sourcePage": 4407,
-          "sourceKind": "composite",
-          "sourcePages": [
-            1988
-          ]
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-intermission-1",
-          "value": "Draconian Dignitary",
-          "sourcePage": 4407,
-          "sourceKind": "composite",
-          "sourcePages": [
-            1988
-          ]
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-intermission-1",
-          "value": {
-            "placeholder": "?"
-          },
-          "sourcePage": 4407,
-          "sourceKind": "editorial"
-        },
-        {
-          "from": "act-6-act-2",
-          "value": {
-            "src": "../assets/ref-dd.webp",
-            "alt": "Post-Scratch Draconian Dignitary in his black Dersite uniform"
-          },
-          "sourcePage": 4572,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-intermission-1",
-              "label": "Role",
-              "value": "Dersite agent assigned to the two dreamers on Derse",
-              "sourcePage": 4407,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ]
+      "rosterColumn": 1
     },
     {
       "id": "post-scratch-cd",
@@ -8104,7 +8047,88 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "rosterColumn": 2
+    },
+    {
+      "id": "post-scratch-hb",
+      "group": "post-scratch-agents",
+      "reveal": "act-6-act-2",
+      "introPage": 4545,
+      "sourcePage": 4545,
+      "sourceKind": "direct",
+      "name": [
+        {
+          "from": "act-6-act-2",
+          "value": "HEGEMONIC BRUTE",
+          "sourcePage": 4545,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-2",
+          "value": "Hegemonic Brute",
+          "sourcePage": 4545,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-2",
+          "value": {
+            "src": "../assets/ref-hb.webp",
+            "alt": "Post-Scratch Hegemonic Brute in his black uniform and white cape"
+          },
+          "sourcePage": 4542,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Role",
+              "value": "Dersite agent sent to assassinate Dirk",
+              "sourcePage": 4542,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4545
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Weapon",
+              "value": "Axe",
+              "sourcePage": 4542,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Status",
+              "value": "Deceased; decapitated by Dirk",
+              "sourcePage": 4545,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4544
+              ]
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 3
     },
     {
       "id": "gcat",
@@ -8360,36 +8384,53 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
-      "id": "post-scratch-hb",
+      "id": "post-scratch-dd",
       "group": "post-scratch-agents",
-      "reveal": "act-6-act-2",
-      "introPage": 4545,
-      "sourcePage": 4545,
-      "sourceKind": "direct",
+      "reveal": "act-6-intermission-1",
+      "introPage": 4407,
+      "sourcePage": 4407,
+      "sourceKind": "composite",
+      "sourcePages": [
+        1988
+      ],
       "name": [
         {
-          "from": "act-6-act-2",
-          "value": "HEGEMONIC BRUTE",
-          "sourcePage": 4545,
-          "sourceKind": "direct"
+          "from": "act-6-intermission-1",
+          "value": "DRACONIAN DIGNITARY",
+          "sourcePage": 4407,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988
+          ]
         }
       ],
       "rosterLabel": [
         {
-          "from": "act-6-act-2",
-          "value": "Hegemonic Brute",
-          "sourcePage": 4545,
-          "sourceKind": "direct"
+          "from": "act-6-intermission-1",
+          "value": "Draconian Dignitary",
+          "sourcePage": 4407,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988
+          ]
         }
       ],
       "portrait": [
         {
+          "from": "act-6-intermission-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4407,
+          "sourceKind": "editorial"
+        },
+        {
           "from": "act-6-act-2",
           "value": {
-            "src": "../assets/ref-hb.webp",
-            "alt": "Post-Scratch Hegemonic Brute in his black uniform and white cape"
+            "src": "../assets/ref-dd.webp",
+            "alt": "Post-Scratch Draconian Dignitary in his black Dersite uniform"
           },
-          "sourcePage": 4542,
+          "sourcePage": 4572,
           "sourceKind": "visual"
         }
       ],
@@ -8398,45 +8439,16 @@ window.HOMESTUCK_REFERENCE = {
           "id": "role",
           "variants": [
             {
-              "from": "act-6-act-2",
+              "from": "act-6-intermission-1",
               "label": "Role",
-              "value": "Dersite agent sent to assassinate Dirk",
-              "sourcePage": 4542,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4545
-              ]
-            }
-          ]
-        },
-        {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Weapon",
-              "value": "Axe",
-              "sourcePage": 4542,
-              "sourceKind": "visual"
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Status",
-              "value": "Deceased; decapitated by Dirk",
-              "sourcePage": 4545,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4544
-              ]
+              "value": "Dersite agent assigned to the two dreamers on Derse",
+              "sourcePage": 4407,
+              "sourceKind": "direct"
             }
           ]
         }
-      ]
+      ],
+      "rosterColumn": 4
     }
   ],
   "conceptsPreparedThrough": "act-6-act-2",
