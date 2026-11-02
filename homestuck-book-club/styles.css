@@ -299,6 +299,64 @@ button {
   font-size: 1rem;
 }
 
+.notes-content {
+  margin: 0 28px;
+  font-size: 1rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.notes-reading {
+  text-align: center;
+}
+
+.notes-boundary {
+  padding: 12px;
+  border: 1px dashed #808080;
+  font-size: 14px;
+}
+
+.notes-contents,
+.notes-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  padding-block: 12px;
+  font-size: 14px;
+}
+
+.notes-content section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #aaa;
+}
+
+.notes-content h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+  line-height: 1.35;
+  scroll-margin-top: 16px;
+}
+
+.notes-content p {
+  margin-block: 0 20px;
+}
+
+.notes-content ul,
+.notes-content ol {
+  padding-left: 1.5em;
+}
+
+.notes-content li {
+  margin-block: 0 18px;
+  padding-left: 4px;
+}
+
+.notes-sources {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .recap-list {
   margin: 0;
   padding: 0;
@@ -1552,6 +1610,34 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   .meeting {
     break-inside: avoid;
     margin-inline: 0;
+  }
+
+  .notes-content {
+    margin-inline: 0;
+    font-size: 11pt;
+  }
+
+  :root:has(body.meeting-notes),
+  body.meeting-notes {
+    background: white;
+  }
+
+  .notes-content ol {
+    padding-left: 0;
+    list-style-position: inside;
+  }
+
+  .notes-content h2 {
+    break-after: avoid;
+  }
+
+  .notes-content li {
+    break-inside: avoid;
+  }
+
+  .notes-contents,
+  .notes-pagination {
+    display: none;
   }
 
   .page-content a,
