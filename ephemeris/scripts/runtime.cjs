@@ -2,7 +2,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 function runtimeFiles(root) {
-  return ['index.html','styles.css','script.js','field.js','field-year.json','field-transits.json','favicon.svg',
+  return ['index.html','portfolio.css','portfolio-mono.woff2','styles.css','script.js','field.js','field-year.json','field-transits.json','favicon.svg',
     'vendor/chart.umd-4.6.1.js','vendor/chartjs-LICENSE.txt',
     ...fs.readdirSync(path.join(root,'lib')).filter(name => name.endsWith('.mjs')).sort().map(name => 'lib/'+name)];
 }

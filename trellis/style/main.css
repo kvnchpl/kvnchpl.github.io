@@ -3,15 +3,15 @@
     --panel-width: 300px;
     --tile-size: 32px;
     --border-color: #fff;
-    --background-color: #1a1a1a;
+    --background-color: #000;
     --canvas-background: #000;
-    --font-family: monospace;
+    --font-family: 'Roboto Mono', monospace;
     --text-color: #fff;
     --hover-bg: #444;
     --modal-overlay-bg: rgba(0, 0, 0, 0.5);
     --modal-bg: var(--background-color);
     --modal-border: var(--border-color);
-    --modal-radius: 5px;
+    --modal-radius: 0;
     --font-base: 14px;
     --font-small: calc(var(--font-base) * 0.85);
     --font-medium: var(--font-base);
@@ -23,7 +23,7 @@
     --spacing-large: calc(var(--spacing-base) * 2);
     --modal-padding: var(--spacing-large);
     --modal-gap: var(--spacing-medium);
-    --control-border-radius: 3px;
+    --control-border-radius: 0;
     --caret-size: 10px;
     --caret-padding: calc(var(--spacing-small) * 3);
 }
@@ -418,3 +418,12 @@ canvas {
     text-transform: none;
 }
 #debug-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Shared portfolio presentation surrounds, rather than resizes, the garden. */
+#top-button-bar{margin-top:0;margin-bottom:16px}
+.ui-button,.modal button,.plant-action-select{border:1px solid #666;border-radius:0;background:#000;color:#fff;font-weight:400}
+.ui-button:hover,.modal button:hover{background:#fff;color:#000}
+#info-panel h2{font-weight:400}
+a,a:visited{color:#fff;text-decoration:underline;text-underline-offset:.15em;text-transform:uppercase}
+a:hover,a:focus-visible{text-transform:lowercase}
+:focus-visible{outline:2px dotted currentColor;outline-offset:5px}

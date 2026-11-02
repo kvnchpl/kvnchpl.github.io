@@ -1,13 +1,13 @@
 :root {
-  --color-bg: #ffffff;
-  --color-link: #1a0dab;
+  --color-bg: #000000;
+  --color-link: #ffffff;
   --color-link-active-bg: #000000;
   --color-link-active-text: #000000;
-  --color-muted: #666666;
-  --color-text: #111111;
+  --color-muted: #aaaaaa;
+  --color-text: #ffffff;
 
-  --font-body: "Times New Roman", Times, serif;
-  --font-size-base: 18px;
+  --font-body: 'Roboto Mono', monospace;
+  --font-size-base: 13px;
   --font-size-small: 0.9rem;
   --font-size-title: clamp(2.2rem, 6vw, 3.2rem);
   --layout-max-width: 960px;
@@ -300,3 +300,12 @@ a:focus-visible {
   }
 
 }
+
+.exp-header{padding:0 8% 30px}
+.exp-title{margin:20px 0 25px;font:400 clamp(28px,4vw,62px)/1 'Roboto Mono',monospace;letter-spacing:normal;text-transform:uppercase}
+a,a:visited{color:#fff;text-transform:uppercase;text-underline-offset:.15em}
+a:hover,a:focus-visible{color:#fff;background:transparent;text-decoration:underline;text-transform:lowercase}
+a:focus-visible{outline:2px dotted currentColor;outline-offset:5px}
+.exp-block{overflow-wrap:anywhere}
+.exp-page-header{padding:24px 8%;font-size:12px}
+@media(max-width:600px){.exp-header{padding:0 6% 20px}.exp-title{font-size:32px;margin:0 0 25px}.exp-page-header{padding:20px 6%}}

@@ -139,7 +139,7 @@ function drawCanvasArrow(ctx, startX, startY, endX, endY, color, label) {
   ctx.closePath();
   ctx.fill();
 
-  ctx.font = 'bold 12px "Courier New", monospace';
+  ctx.font = 'bold 12px "Roboto Mono", monospace';
   ctx.textBaseline = 'middle';
   ctx.fillText(label, endX + 8 * Math.cos(angle), endY + 8 * Math.sin(angle));
   ctx.restore();

@@ -168,11 +168,11 @@ import { readFieldDay, readFieldEvent } from './lib/field-reading.mjs';
           const index=Math.round(chart.scales.x.getValueForPixel(event.x));setDay(index);
         },
         onResize(chart,size){chart.options.scales.x.ticks.maxTicksLimit=size.width<500?3:7;},
-        plugins:{legend:{display:series.length>1,labels:{color:'#c6afbf',font:{family:'Courier New',size:11},boxWidth:12}},
+        plugins:{legend:{display:series.length>1,labels:{color:'#c6afbf',font:{family:'Roboto Mono',size:11},boxWidth:12}},
           tooltip:{backgroundColor:'#10070e',borderColor:'#854360',borderWidth:1,cornerRadius:0,
             callbacks:{title:items=>items[0]?.label+' / 00:00 TDB',label:context=>context.dataset.label+': '+(Math.abs(context.parsed.y)<.001?number(context.parsed.y):context.parsed.y.toLocaleString('en-US',{maximumFractionDigits:2}))}}},
-        scales:{x:{grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Courier New',size:11},maxTicksLimit:7,maxRotation:0,callback(value){return record.samples[value]?.date.slice(5);}}},
-          y:{title:{display:true,text:yTitle,color:'#ae8fa4',font:{family:'Courier New',size:11}},grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Courier New',size:11},maxTicksLimit:4,
+        scales:{x:{grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Roboto Mono',size:11},maxTicksLimit:7,maxRotation:0,callback(value){return record.samples[value]?.date.slice(5);}}},
+          y:{title:{display:true,text:yTitle,color:'#ae8fa4',font:{family:'Roboto Mono',size:11}},grid:{color:'#39202c'},ticks:{color:'#ad92a3',font:{family:'Roboto Mono',size:11},maxTicksLimit:4,
             callback(value){return Math.abs(value)>0 && Math.abs(value)<.001?value.toExponential(1):Math.abs(value)>=1000?(value/1000).toFixed(0)+'k':Number(value.toPrecision(3));}}}}
       }
     });

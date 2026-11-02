@@ -1,0 +1,19 @@
+/* Main-site identity and navigation, locally packaged for each project. */
+@font-face{font-family:'Roboto Mono';src:url('portfolio-mono.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+body{margin:0;background:#000;color:#fff;font-family:'Roboto Mono',monospace;font-size:13px;text-transform:lowercase}
+.portfolio-header{position:relative;box-sizing:border-box;width:100%;min-height:120px;padding:28px 4%;font:400 13px/normal 'Roboto Mono',monospace;color:white;text-align:left;flex-shrink:0}
+.portfolio-header .site-identity{position:absolute;right:4%;top:24px;width:26%;height:50px}
+.portfolio-header .site-identity a,.portfolio-header .site-identity svg{display:block;width:100%;height:100%}
+.portfolio-header .site-identity text{fill:white;font-family:'Roboto Mono',monospace;font-weight:400;text-transform:uppercase}
+.portfolio-header .site-nav{display:flex;flex-wrap:wrap;width:60%;gap:16px 28px;margin:0;padding:0;font:inherit}
+.portfolio-header .site-nav a{white-space:nowrap}
+.portfolio-header .nav-code{display:inline-block;width:3ch;margin-right:1ch;white-space:nowrap}
+.portfolio-header a,.portfolio-header a:visited{color:white;background:transparent;text-transform:uppercase;text-decoration:underline;text-underline-offset:.15em;text-decoration-thickness:auto}
+.portfolio-header a *{text-transform:inherit}
+.portfolio-header a:hover,.portfolio-header a:focus-visible{background:transparent;text-transform:lowercase}
+.portfolio-header .site-identity a:hover text,.portfolio-header .site-identity a:focus-visible text{text-transform:lowercase}
+.portfolio-header :focus-visible{outline:2px dotted currentColor;outline-offset:5px;box-shadow:none}
+.portfolio-header .visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.portfolio-heading{box-sizing:border-box;width:100%;padding:0 8% 30px;text-align:left}
+.portfolio-heading h1{margin:20px 0 25px;font:400 clamp(28px,4vw,62px)/1 'Roboto Mono',monospace;letter-spacing:normal;text-transform:uppercase;color:white}
+@media(max-width:600px){.portfolio-header{padding:20px 5%;min-height:140px}.portfolio-header .site-nav{width:100%;gap:15px 20px;font-size:12px}.portfolio-header .site-identity{width:57%;height:42px;top:62px;right:5%}.portfolio-heading{padding:0 6% 20px}.portfolio-heading h1{margin:0 0 25px;font-size:32px}}

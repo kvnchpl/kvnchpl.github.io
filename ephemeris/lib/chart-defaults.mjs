@@ -1,6 +1,6 @@
 // Apply explicitly in each instrument; neither controller depends on load order.
 export function configureCharts(Chart) {
-  Chart.defaults.font.family = '"Courier New", Courier, monospace';
+  Chart.defaults.font.family = '"Roboto Mono", monospace';
   Chart.defaults.animation = false;
   Chart.defaults.elements.line.borderWidth = 1.25;
   Chart.defaults.onResize = (chart, size) => {
