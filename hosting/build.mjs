@@ -133,7 +133,8 @@ export function headerRules(environment = process.env) {
 export function directoryIndexRedirect(files) {
     const paths = files.filter(file => file === 'ephemeris/index.html'
         || (file.startsWith('jungle/a/m/') && file.endsWith('/index.html'))
-        || (file.startsWith('homestuck-book-club/') && file.endsWith('/index.html')))
+        || (file.startsWith('homestuck-book-club/') && file.endsWith('/index.html'))
+        || (file.startsWith('pitchfork/') && file.endsWith('/index.html')))
         .map(file => `/${file.slice(0, -11)}`).sort();
     if (!paths.includes('/homestuck-book-club')) throw new Error('Missing book-club entry point');
     return `// Generated from published directory indexes. No content proxy.\nconst directories = new Set(${JSON.stringify(paths)});\nexport default function handler(request) {\n    const url = new URL(request.url);\n    if (!['GET', 'HEAD'].includes(request.method) || !directories.has(url.pathname)) return;\n    url.pathname += '/';\n    return new Response(null, {status: 301, headers: {Location: url.href}});\n}\nexport const config = {path: [...directories]};\n`;

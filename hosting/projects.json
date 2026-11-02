@@ -5,5 +5,6 @@
   {"directory":"trellis","visibility":"unlisted","entry":"index.html","publicPaths":["index.html","favicon.ico","config.json","assets/","data/","script/","style/"]},
   {"directory":"desire-path","visibility":"unlisted","entry":"index.html","publicPaths":["index.html","css/","js/","data/","media/","vendor/"]},
   {"directory":"ephemeris","visibility":"unlisted","entry":"index.html","runtimeModule":"ephemeris/scripts/runtime.cjs"},
-  {"directory":"homestuck-book-club","visibility":"linked","entry":"index.html","publicPaths":["index.html","script.js","styles.css","reference-data.js","assets/","recaps/","reference/","schedule/"]}
+  {"directory":"homestuck-book-club","visibility":"linked","entry":"index.html","publicPaths":["index.html","script.js","styles.css","reference-data.js","assets/","recaps/","reference/","schedule/"]},
+  {"directory":"pitchfork","visibility":"unlisted","entry":"index.html","publicPaths":["index.html","app.mjs","search.mjs","styles.css","data/","reviews/"]}
 ]
