@@ -1,0 +1,4 @@
+# Maintain the catalog importer alongside the existing generator.
+!scripts/import_catalog.py
+!scripts/import_catalog_test.py
+__pycache__/
