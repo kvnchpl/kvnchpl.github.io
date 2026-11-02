@@ -1,6 +1,6 @@
 import {readWorkReturn, saveCollectionPosition} from './collection-state.js';
 
-const returnLinks = document.querySelectorAll('.work-return, [data-collection-return]');
+const returnLinks = document.querySelectorAll('.work-return');
 const position = readWorkReturn(location.href);
 for (const returnLink of position ? returnLinks : []) {
     returnLink.href = position.url;
