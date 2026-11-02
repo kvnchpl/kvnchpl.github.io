@@ -61,7 +61,7 @@ main.site-main { display: block; overflow: visible; }
 .site-header a, .site-header button { color: white; }
 .site-header button { padding: 0; border: 0; background: black; cursor: pointer; text-decoration: underline; }
 .collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
-.collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: .015em; }
+.collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: normal; }
 .collection-categories, .collection-tags { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .collection-tags { margin-top: 18px; }
 .collection-categories a, .collection-tags a { color: white; }

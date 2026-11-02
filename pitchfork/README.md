@@ -61,6 +61,8 @@ Browser validation covers desktop (1440px) and mobile (390px and 320px), includi
 
 ## Interface conventions
 
-The index and permanent review pages share the main site's inner-page header: the stretched name mark and home, collection, about, and thoughts links with their existing codes, destinations, and uppercase-to-lowercase hover/focus behavior. Keep these aligned with the main site's canonical navigation. The microsite remains unlisted; its header links outward without adding a main-site entry.
+The index and permanent review pages share the main site's inner-page header: the exact `site-identity` div/link/SVG/accessibility markup, its responsive placement, and home, collection, about, and thoughts links with their existing codes, destinations, and uppercase-to-lowercase hover/focus behavior. Keep these aligned with the main site's canonical navigation. The microsite remains unlisted; its header links outward without adding a main-site entry.
 
 Keep the default index compact: one introduction, all albums / my reviews, search, and sorting. Score bounds expand under Score range; incoming min/max parameters open them and active bounds are indicated even when collapsed. Historical `mine=1` URLs open my reviews and normalize to `view=reviews`. Source attribution, coverage limits, and verification notes remain available under About this index & sources. Personal album titles link to the permanent reviews; source links are consolidated below the results.
+
+The index hero follows the collection heading’s responsive insets, heading size, line height, and margins, with normal letter spacing on both. Keep this parity when changing either layout.
