@@ -54,7 +54,7 @@ import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./
             if (active && !dialog.open) dialog.showModal();
         }
         document.documentElement.classList.toggle('site-view-open', collectionView.open || Boolean(unlistedView?.open) || aboutView.open);
-        document.title = {home: 'KEVIN CUNANAN CHAPPELLE', collection: 'COLLECTION', unlisted: 'UNLISTED COLLECTION', about: 'ABOUT'}[view];
+        document.title = {home: 'KEVIN CUNANAN CHAPPELLE', collection: 'COLLECTION', unlisted: 'UNLISTED', about: 'ABOUT'}[view];
         workItems.forEach(item => {
             item.hidden = (selectedCategory !== 'all' && item.dataset.category !== selectedCategory)
                 || (selectedTag !== null && !item.dataset.tags.split(' ').includes(selectedTag));

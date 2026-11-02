@@ -301,11 +301,11 @@ a:focus-visible {
 
 }
 
-.exp-header{padding:0 8% 30px}
+.exp-header{padding:0 var(--portfolio-inset,4%) 30px}
 .exp-title{margin:20px 0 25px;font:400 clamp(28px,4vw,62px)/1 'Roboto Mono',monospace;letter-spacing:normal;text-transform:uppercase}
 a,a:visited{color:#fff;text-transform:uppercase;text-underline-offset:.15em}
 a:hover,a:focus-visible{color:#fff;background:transparent;text-decoration:underline;text-transform:lowercase}
 a:focus-visible{outline:2px dotted currentColor;outline-offset:5px}
 .exp-block{overflow-wrap:anywhere}
-.exp-page-header{padding:24px 8%;font-size:12px}
-@media(max-width:600px){.exp-header{padding:0 6% 20px}.exp-title{font-size:32px;margin:0 0 25px}.exp-page-header{padding:20px 6%}}
+.exp-page-header{padding:24px var(--portfolio-inset,4%);font-size:12px}
+@media(max-width:600px){.exp-header{padding:0 var(--portfolio-inset,5%) 20px}.exp-title{font-size:32px;margin:0 0 25px}.exp-page-header{padding:20px var(--portfolio-inset,5%)}}

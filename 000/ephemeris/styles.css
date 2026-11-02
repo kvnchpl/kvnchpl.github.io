@@ -533,7 +533,7 @@ body{padding:0;background:#000;color: var(--text)}
 a,a:visited{color: var(--text);text-underline-offset:.15em;text-transform:uppercase}
 a:hover,a:focus-visible{color: var(--text);background:transparent;text-transform:lowercase}
 :focus-visible{outline:2px dotted currentColor;outline-offset:5px}
-.page-shell{width:100%;margin:0;padding:0 8% 48px}
+.page-shell{width:100%;margin:0;padding:0 var(--portfolio-inset,4%) 48px}
 .page-shell>.site-header{padding:0 0 30px}
 .connection-string{margin:0 0 12px;color: var(--text)}
 .masthead{margin:0;gap:24px;flex-wrap:wrap}
@@ -548,7 +548,7 @@ input,select{min-height:38px}
 .section-heading h2,.plot-heading h3,.introduction h2,.entry-note h2{color: var(--text);font-weight:400;letter-spacing:normal}
 .section-heading{border-bottom:1px solid #666}
 table,code,output,.status-value,.source-state{ text-transform:none }
-@media(max-width:600px){.page-shell{padding:0 6% 36px}.masthead{display:block}.masthead h1{margin:0 0 25px;font-size:32px}.masthead p{margin-bottom:20px}}
+@media(max-width:600px){.page-shell{padding:0 var(--portfolio-inset,5%) 36px}.masthead{display:block}.masthead h1{margin:0 0 25px;font-size:32px}.masthead p{margin-bottom:20px}}
 
 .connection-string,.section-aside,.file-number,.entry-date,.margin-notes,.phase-method,.plot-instructions,.research-links{color:#aaa}
 #fieldDayEvents,#fieldDelineation,#fieldEpochRelation,#galacticPhaseSector,#dataSource{ text-transform:none }

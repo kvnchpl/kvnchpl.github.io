@@ -1,5 +1,5 @@
 /* One black ground; the same identity, images, and rectangles form each screen. */
-:root { --content-inset: 5%; }
+:root { --content-inset: 4%; }
 html, body { background: black; }
 .site-view-open { overflow: hidden; }
 body.site-page { font-size: 13px; }
@@ -54,20 +54,20 @@ main.site-main { display: block; overflow: visible; }
 /* Full-screen native dialogs supply focus containment and Escape, without window chrome. */
 .site-view { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; box-sizing: border-box; margin: 0; padding: 0; border: 0; border-radius: 0; background: black; color: white; overflow: auto; font: inherit; }
 .site-view::backdrop { background: black; }
-.site-header { position: relative; min-height: 170px; padding: 28px 4%; box-sizing: border-box; }
-.site-header .site-identity { position: absolute; right: 4%; top: 24px; width: 32%; height: 75px; }
+.site-header { position: relative; min-height: 170px; padding: 28px var(--content-inset); box-sizing: border-box; }
+.site-header .site-identity { position: absolute; right: var(--content-inset); top: 24px; width: 32%; height: 75px; }
 .site-header nav { display: flex; flex-wrap: wrap; gap: 18px 30px; width: 55%; }
 .site-header nav a, .site-header button { white-space: nowrap; }
 .site-header a, .site-header button { color: white; }
 .site-header button { padding: 0; border: 0; background: black; cursor: pointer; text-decoration: underline; }
-.collection-heading { position: relative; z-index: 3; padding: 0 8% 30px; }
+.collection-heading { position: relative; z-index: 3; padding: 0 var(--content-inset) 30px; }
 .collection-heading h2 { text-transform: uppercase; margin: 20px 0 25px; font: 400 clamp(28px,4vw,62px)/1 var(--font-family-main); letter-spacing: normal; }
 .collection-categories, .collection-tags { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .collection-tags { margin-top: 18px; }
 .collection-categories a, .collection-tags a { color: white; }
 .collection-categories a[aria-current="page"], .collection-tags a[aria-current="page"] { background: blue; padding: 3px 8px; margin: -3px -8px; }
 /* Each link owns a cell; irregular offsets remain safe as the catalog grows. */
-.collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px 8% 100px; background: black; }
+.collection-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 80px 8%; padding: 25px var(--content-inset) 100px; background: black; }
 .collection-empty { grid-column: 1 / -1; margin: 0; font-size: 13px; line-height: 1.7; }
 .site-page a.collection-item { display: block; position: relative; color: white; text-decoration: none; width: 82%; min-width: 0; align-self: start; overflow-wrap: anywhere; }
 .collection-grid .collection-item:nth-child(6n+2) { margin-top: 100px; justify-self: end; }
@@ -124,7 +124,7 @@ body.work-page .writing-layout .writing-content { margin: 0; padding: 0; max-wid
 body.work-page .writing-content + .writing-content { margin-top: 30px; }
 .work-return { display: block; grid-column: 1 / -1; width: fit-content; font-size: 12px; margin: 60px 0 0; padding: 14px 20px; background: blue; color: white; }
 @media (max-width: 600px) {
-    :root { --content-inset: 6%; }
+    :root { --content-inset: 5%; }
     .home-view { min-height: 600px; }
     .home-name { top: 2%; left: 4%; width: 92%; height: 24%; }
     .home-image { inset: 0 0 0 56%; }
@@ -132,13 +132,13 @@ body.work-page .writing-content + .writing-content { margin-top: 30px; }
     .home-navigation .home-nav-item { font-size: 14px; }
     .color-palette { gap: 5px; }
     .color-palette button { width: 27px; height: 27px; }
-    .site-header { padding: 20px 5%; min-height: 200px; }
+    .site-header { padding: 20px var(--content-inset); min-height: 200px; }
     .site-header nav, .page-header .site-nav { width: 100%; gap: 15px 20px; font-size: 12px; }
-    .site-header .site-identity { width: 57%; height: 42px; top: 62px; right: 5%; }
-    .collection-heading { padding: 0 6% 20px; }
+    .site-header .site-identity { width: 57%; height: 42px; top: 62px; right: var(--content-inset); }
+    .collection-heading { padding: 0 var(--content-inset) 20px; }
     .collection-heading h2 { margin: 0 0 25px; font-size: 32px; }
     .collection-categories, .collection-tags { gap: 15px 20px; }
-    .collection-grid { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 35px 6% 70px; gap: 65px 10%; }
+    .collection-grid { grid-template-columns: repeat(2,minmax(0,1fr)); padding: 35px var(--content-inset) 70px; gap: 65px 10%; }
     .collection-grid .collection-item:nth-child(n) { width: 90%; margin: 0; }
     .collection-grid .collection-item:nth-child(2n) { margin-top: 70px; justify-self: end; }
     .collection-thumbnail { height: 150px; }
@@ -156,4 +156,4 @@ body.work-page .writing-content + .writing-content { margin-top: 30px; }
     .work-return { margin-left: 0; }
 }
 
-.fallback-navigation { display: flex; gap: 28px; padding: 28px 5%; }
+.fallback-navigation { display: flex; gap: 28px; padding: 28px var(--content-inset); }
