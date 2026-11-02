@@ -66,3 +66,5 @@ The index and permanent review pages share the main site's inner-page header: th
 Keep the default index compact: one introduction, all albums / my reviews, search, and sorting. Score bounds expand under Score range; incoming min/max parameters open them and active bounds are indicated even when collapsed. Historical `mine=1` URLs open my reviews and normalize to `view=reviews`. Source attribution, coverage limits, and verification notes remain available under About this index & sources. Personal album titles link to the permanent reviews; source links are consolidated below the results.
 
 The index hero follows the collection heading’s responsive insets, heading size, line height, and margins, with normal letter spacing on both. Keep this parity when changing either layout.
+
+The mirrored header explicitly uses `line-height: normal`, white text, and `.15em` link underline offsets to avoid inheriting the archive body’s looser reading styles. Browser parity checks must compare all navigation links (including wrapped rows), their computed typography and underlines, and identity/heading geometry after fonts load.

@@ -4,14 +4,16 @@
 @media(max-width:760px){.shell{padding:20px}.hero{grid-template-columns:1fr;padding-top:36px;gap:18px}.hero-note{border-left:0;border-top:1px solid #444;padding:16px 0 0}.hero-note strong{display:inline;font-size:16px}.controls{grid-template-columns:1fr 1fr}.controls label:first-child,.controls label:last-child{grid-column:1/-1}.cards{grid-template-columns:1fr}.topline{font-size:10px}.score{font-size:18px}td{padding:16px 8px}.album-link{font-size:15px}.article{margin:36px auto}.article .prose{font-size:14px}.control-bottom{align-items:flex-start}.delta-col{display:none}}
 /* Match the main site's compact inner-page identity and navigation. */
 .shell{max-width:none;padding:0}
-.site-header{position:relative;min-height:120px;padding:28px 4%;font-size:13px}
+.site-header{position:relative;min-height:120px;padding:28px 4%;font-size:13px;line-height:normal;color:white}
 .site-header .site-identity{position:absolute;right:4%;top:24px;width:26%;height:50px}
 .site-identity a{display:block;width:100%;height:100%;text-transform:uppercase}
 .site-identity a:hover text,.site-identity a:focus-visible text{text-transform:lowercase}
 .site-identity svg{display:block;width:100%;height:100%}
 .site-identity text{fill:white;font-family:'Roboto Mono',monospace;font-weight:400}
 .site-nav{display:flex;flex-wrap:wrap;width:60%;gap:16px 28px;font-size:13px;padding:0}
-.site-nav a{text-transform:uppercase;white-space:nowrap}
+.site-nav a{text-transform:uppercase;white-space:nowrap;text-underline-offset:.15em}
+.site-header a:hover{text-decoration-thickness:auto}
+.site-header :focus-visible{outline:2px dotted currentColor;outline-offset:5px}
 .site-nav a:hover,.site-nav a:focus-visible{text-transform:lowercase}
 .nav-code{display:inline-block;width:3ch;margin-right:1ch}
 :focus-visible{outline:1px dotted white;outline-offset:4px}
