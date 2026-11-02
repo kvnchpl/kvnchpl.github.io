@@ -9,6 +9,7 @@ if(params.get('min')||params.get('max'))$('score-filters').open=true;
 let page=1;
 const pageSize=100;
 function render(){
+  document.title=view==='reviews'?'MY REVIEWS':'PITCHFORK';
   const min=$('min').value,max=$('max').value;
   const invalid=min!==''&&max!==''&&Number(min)>Number(max);
   $('range-error').hidden=!invalid;
@@ -28,7 +29,7 @@ function render(){
   $('table-view').hidden=view!=='index'||!matches.length;
   $('review-view').hidden=view!=='reviews'||!matches.length;
   $('empty').hidden=Boolean(matches.length)||invalid;
-  const scores=a=>`<div class="card-scores"><div class="score"><span>Kevin</span>${fmt(a.personal?.score)}</div><div class="score"><span>Pitchfork*</span>${fmt(a.pitchfork?.score)}</div></div>`;
+  const scores=a=>`<div class="card-scores"><div class="score"><span>Kevin</span>${fmt(a.personal?.score)}</div><div class="score"><span>Pitchfork</span>${fmt(a.pitchfork?.score)}</div></div>`;
   const pages=Math.max(1,Math.ceil(matches.length/pageSize));
   page=Math.min(page,pages);
   $('pagination').hidden=view!=='index'||pages===1;
