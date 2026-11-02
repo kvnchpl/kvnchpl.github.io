@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "coverage": {
+    "description": "Starter collection: six albums reviewed by Kevin. This is not the full Pitchfork archive.",
+    "importedAt": "2026-11-02",
+    "source": "pitchfork reviews.txt"
+  },
+  "albums": [
+    {
+      "id": "justin-bieber-swag",
+      "artist": "Justin Bieber",
+      "album": "SWAG",
+      "releaseYear": null,
+      "genres": [],
+      "pitchfork": {
+        "score": 7.3,
+        "url": "https://pitchfork.com/reviews/albums/justin-bieber-swag/",
+        "scoreSource": "pitchfork reviews.txt",
+        "verifiedAt": null,
+        "reviewDate": null
+      },
+      "personal": {
+        "score": 7.8,
+        "author": "Kevin Cunanan Chappelle",
+        "text": "Bieber at his most focused, and most effective. SWAG, while occasionally littered with trivial and mundane interludes, favors R&B cohesion over his usual, sprawling pop aimlessness. His collaborators as well as his inspirations loom heavily over the album, guiding forces that appropriately apply the prodigy's talents towards a much more earnest place. It is an album both sparkling and subterranean, and a rare and unexpected comeback for a pop star who has existed in the cultural imagination mainly as an untouchable phenom, and oftentimes an object of derision; finally he re-enters the stage with glimmers of himself.",
+        "publishedAt": null
+      }
+    },
+    {
+      "id": "sufjan-stevens-age-of-adz",
+      "artist": "Sufjan Stevens",
+      "album": "Age of Adz",
+      "releaseYear": null,
+      "genres": [],
+      "pitchfork": {
+        "score": 8.4,
+        "url": "https://pitchfork.com/reviews/albums/14738-the-age-of-adz/",
+        "scoreSource": "pitchfork reviews.txt",
+        "verifiedAt": null,
+        "reviewDate": null
+      },
+      "personal": {
+        "score": 9.4,
+        "author": "Kevin Cunanan Chappelle",
+        "text": "Following the success of Illinois, Sufjan makes a sharp turn into the volatile, paranoid world of The Age of Adz. Markedly more digital than its predecessor, it is no less whimsical and majestic despite its frequently glitchy aggression. The outstanding final track, \"Impossible Soul,\" alone is a wandering, boundless fantasia, and could easily hold its own as a solid EP. Overall, The Age of Adz feels less plaintive and more pained – \"I'm not fuckin' around!\" he wails over and over. \"Do yourself a favor and get real, get right with the Lord,\" he urges. The stakes here are urgent; the caustic blips and siren-like horns a fitting soundtrack to an increasingly apocalyptic world.",
+        "publishedAt": null
+      }
+    },
+    {
+      "id": "sufjan-stevens-the-ascension",
+      "artist": "Sufjan Stevens",
+      "album": "The Ascension",
+      "releaseYear": null,
+      "genres": [],
+      "pitchfork": {
+        "score": 7.0,
+        "url": "https://pitchfork.com/reviews/albums/sufjan-stevens-the-ascension/",
+        "scoreSource": "pitchfork reviews.txt",
+        "verifiedAt": null,
+        "reviewDate": null
+      },
+      "personal": {
+        "score": 8.2,
+        "author": "Kevin Cunanan Chappelle",
+        "text": "Despite this being Sufjan's \"pop album,\" or at the very least his rejoinder to pop music, it features some of his most affecting and idiosyncratic songs – within an exceedingly affecting and idiosyncratic discography. Even the album's more unassuming tracks carry this weight. From the menacing ostinato of \"Die Happy\" to the more jovial \"Landslide,\" the songs are packed with engaging pop sensibility and yet have plenty of breathing room to luxuriate in. The Ascension is an album from a musician who is at the top of his game, still willing to explore the depths of sorrow and the heights of euphoria with the entirety of his sonic toolbelt.",
+        "publishedAt": null
+      }
+    },
+    {
+      "id": "sufjan-stevens-illinois",
+      "artist": "Sufjan Stevens",
+      "album": "Illinois",
+      "releaseYear": null,
+      "genres": [],
+      "pitchfork": {
+        "score": 9.2,
+        "url": "https://pitchfork.com/reviews/albums/7514-illinois/",
+        "scoreSource": "pitchfork reviews.txt",
+        "verifiedAt": null,
+        "reviewDate": null
+      },
+      "personal": {
+        "score": 9.6,
+        "author": "Kevin Cunanan Chappelle",
+        "text": "An utter masterpiece of well-deserved acclaim, and the triumphant culmination of Sufjan's classical era. Illinois is adorned with unimpeachable songwriting coupled with some of the decade's most exciting evolutions of indie folk music. It is a theatrical journey that takes you through multifaceted explorations of how the personal, spiritual, and historical inevitably intertwine. Listening to Illinois makes you feel as though you had experienced multiple lifetimes of joy, despair, confusion, and hope, all channeled through the specific lens of \"Illinois.\" Grandiose yet vulnerable, there are so few other albums that can boast such an effortlessly holistic presentation of life.",
+        "publishedAt": null
+      }
+    },
+    {
+      "id": "sufjan-stevens-planetarium",
+      "artist": "Sufjan Stevens",
+      "album": "Planetarium",
+      "releaseYear": null,
+      "genres": [],
+      "pitchfork": {
+        "score": 6.0,
+        "url": "https://pitchfork.com/reviews/albums/stevens-muhly-dessner-mcalister-planetarium/",
+        "scoreSource": "pitchfork reviews.txt",
+        "verifiedAt": null,
+        "reviewDate": null
+      },
+      "personal": {
+        "score": 9.1,
+        "author": "Kevin Cunanan Chappelle",
+        "text": "Probably one of Sufjan's most underrated executions of the \"concept album\" that he is so well-known for. For all of Planetarium's intricate and compulsively dense allusions to Greco-Roman mythology, astronomy, Christian theology, astrological symbolism, queer longing, etc. etc., its solar system framework keeps the entire project containable and accessible. There is such an excellent balance of sprawling ambience, percussive intensity, and simply gorgeous instrumentation that it is hard to write this project off as mere avant-\"affect\". And when it comes to music, isn't affect enough, especially when it is this thoughtful and multifaceted?",
+        "publishedAt": null
+      }
+    },
+    {
+      "id": "tame-impala-deadbeat",
+      "artist": "Tame Impala",
+      "album": "Deadbeat",
+      "releaseYear": null,
+      "genres": [],
+      "pitchfork": {
+        "score": 4.8,
+        "url": "https://pitchfork.com/reviews/albums/tame-impala-deadbeat/",
+        "scoreSource": "pitchfork reviews.txt",
+        "verifiedAt": null,
+        "reviewDate": null
+      },
+      "personal": {
+        "score": 7.3,
+        "author": "Kevin Cunanan Chappelle",
+        "text": "A month out from the release, many of the songs that I found compulsively listenable no longer have the staying power that they once did. The sound design across the album is as meticulous and satisfying as expected, but the songcraft is admittedly rote this time around. However, there is something undeniably alchemic about Deadbeat, with Kevin Parker distilling many of Tame Impala's beloved qualities further into the realms of pop and techno. It is a transitional album that hints at a greater transformation that I am eager to witness.",
+        "publishedAt": null
+      }
+    }
+  ]
+}
