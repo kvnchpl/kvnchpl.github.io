@@ -1,4 +1,4 @@
-import {selectAlbums} from './search.mjs';
+import {selectAlbums,formatDate} from './search.mjs';
 const $=id=>document.getElementById(id);
 const fmt=n=>n==null?'—':n.toFixed(1);
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -37,15 +37,15 @@ function render(){
   $('previous').disabled=page===1;$('next').disabled=page===pages;
   $('page-status').textContent=`Page ${page} of ${pages}`;
   const visible=matches.slice((page-1)*pageSize,page*pageSize);
-  const dateLabel=(value)=>value?escape(value):'unknown';
-  const dates=a=>`<small class="album-dates">released ${dateLabel(a.releaseDate||a.releaseYear)} · reviewed ${dateLabel(a.pitchfork?.reviewDate)}</small>`;
+  const dateLabel=value=>escape(formatDate(value));
+  const dates=a=>`<small class="album-dates">released ${dateLabel(a.releaseDate||a.releaseYear)} · pitchfork review ${dateLabel(a.pitchfork?.reviewDate)}${a.personal?.publishedAt?` · my review ${dateLabel(a.personal.publishedAt)}`:''}</small>`;
   // Only link to URLs present in source metadata, never guessed slugs.
   const sourceLink=(url,path)=>{try{const u=new URL(url);return u.protocol==='https:'&&u.hostname==='pitchfork.com'&&u.pathname.startsWith(path)?u.href:null}catch{return null}};
   $('rows').innerHTML=visible.map(a=>{
     const reviewUrl=sourceLink(a.pitchfork?.url,'/reviews/albums/');
     const artistUrl=sourceLink(a.pitchfork?.artistUrl,'/artists/');
-    const title=reviewUrl?`<a class="album-link" href="${escape(reviewUrl)}">${escape(a.album)}</a>`:`<span class="album-link">${escape(a.album)}</span>`;
-    const artist=artistUrl?`<a class="artist" href="${escape(artistUrl)}">${escape(a.artist)}</a>`:`<span class="artist">${escape(a.artist)}</span>`;
+    const title=reviewUrl?`<a class="album-link" href="${escape(reviewUrl)}" target="_blank" rel="noopener noreferrer">${escape(a.album)}</a>`:`<span class="album-link">${escape(a.album)}</span>`;
+    const artist=artistUrl?`<a class="artist" href="${escape(artistUrl)}" target="_blank" rel="noopener noreferrer">${escape(a.artist)}</a>`:`<span class="artist">${escape(a.artist)}</span>`;
     const mine=a.personal?.text?`<a class="review-link" href="reviews/${encodeURIComponent(a.id)}/">my review</a>`:'';
     return `<tr><td>${title}${artist}${dates(a)}${mine}</td><td class="score">${fmt(a.personal?.score)}</td><td class="score">${fmt(a.pitchfork?.score)}</td></tr>`;
   }).join('');

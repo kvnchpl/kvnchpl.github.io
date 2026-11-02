@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {selectAlbums} from '../search.mjs';
+import {selectAlbums,formatDate} from '../search.mjs';
 import {readFileSync} from 'node:fs';
 const {albums}=JSON.parse(readFileSync(new URL('../data/albums.json',import.meta.url)));
 test('multiword search matches artist and album regardless of case',()=>{
@@ -28,4 +28,15 @@ test('both sort directions preserve numeric order and put unknown scores last',(
  assert.deepEqual(ids('pitchfork'),['b','a','c']);assert.deepEqual(ids('pitchfork-asc'),['a','b','c']);
  assert.deepEqual(ids('kevin'),['a','b','c']);assert.deepEqual(ids('kevin-asc'),['b','a','c']);
  assert.deepEqual(ids('gap'),ids('artist'));
+});
+
+test('date sorts use the displayed review context and keep unknown dates last',()=>{
+ const rows=[{id:'a',artist:'A',album:'One',releaseYear:2010,pitchfork:{reviewDate:'2000-01-01'},personal:{text:'one',publishedAt:'2025-12-04'}},
+ {id:'b',artist:'B',album:'Two',releaseDate:'2010-06-01',pitchfork:{reviewDate:'2020-01-01'},personal:{text:'two',publishedAt:'2024-12-04'}},
+ {id:'c',artist:'C',album:'Unknown',pitchfork:{},personal:{text:'unknown'}}];
+ const ids=(sort,onlyReviews=false)=>selectAlbums(rows,{sort,onlyReviews}).map(a=>a.id);
+ assert.deepEqual(ids('review'),['b','a','c']);assert.deepEqual(ids('review-asc'),['a','b','c']);
+ assert.deepEqual(ids('review',true),['a','b','c']);assert.deepEqual(ids('review-asc',true),['b','a','c']);
+ assert.deepEqual(ids('release'),['b','a','c']);assert.deepEqual(ids('release-asc'),['a','b','c']);
+ assert.equal(formatDate('2025-12-04'),'2025.12.04');assert.equal(formatDate(2010),'2010');assert.equal(formatDate(null),'unknown');
 });
