@@ -4,7 +4,7 @@ Self-contained, dependency-free static microsite for `https://kvnchpl.com/pitchf
 
 ## Included
 
-- Artist/album search, Pitchfork score range, personal-review filter.
+- Artist/album search, sorting, an expandable Pitchfork score range, and all-albums / my-reviews views.
 - Artist, Pitchfork score, Kevin score, and signed score difference sorting.
 - Score index and review-card views, with shareable URL filter state.
 - Six permanent, server-rendered review pages; writing preserved from the supplied text file.
@@ -55,6 +55,12 @@ Of 18,403 source rows, ten share the same artist, title, date, score, release ye
 
 Imported IDs hash artist, title, and review date. Different review dates remain separate records, including possible reissues; edition labels are not guessed. Conflicting duplicate metadata stops the import. Reimporting replaces only records from this source, keeping curated records and personal writing intact. Changed upstream identities require deliberate migration to keep links stable.
 
-Only artist, title, release year, primary genre, review date, and score are extracted. No review prose, artwork, Spotify features, or record labels are imported. Unknown fields stay empty. The dataset omits original review URLs; these records link to Zenodo instead of fabricated review links. Scores retain `verifiedAt: null`. Review dates span 1999-01-05 to 2019-12-31; coverage is incomplete and excludes newer reviews except supplied personal entries. The browser displays 100 index rows per page and searches/sorts the whole catalog; shared filters apply to the whole collection.
+Only artist, title, release year, primary genre, review date, and score are extracted. No review prose, artwork, Spotify features, or record labels are imported. Unknown fields stay empty. The dataset omits original review URLs; the shared source notes link to Zenodo instead of fabricating review links. Scores retain `verifiedAt: null`. Review dates span 1999-01-05 to 2019-12-31; coverage is incomplete and excludes newer reviews except supplied personal entries. The browser displays 100 index rows per page and searches/sorts the whole catalog; shared filters apply to the whole collection.
 
 Browser validation covers desktop (1440px) and mobile (390px and 320px), including search, pagination, view switching, review navigation, overflow, and page errors.
+
+## Interface conventions
+
+The index and permanent review pages share the main site's inner-page header: the stretched name mark and home, collection, about, and thoughts links with their existing codes, destinations, and uppercase-to-lowercase hover/focus behavior. Keep these aligned with the main site's canonical navigation. The microsite remains unlisted; its header links outward without adding a main-site entry.
+
+Keep the default index compact: one introduction, all albums / my reviews, search, and sorting. Score bounds expand under Score range; incoming min/max parameters open them and active bounds are indicated even when collapsed. Historical `mine=1` URLs open my reviews and normalize to `view=reviews`. Source attribution, coverage limits, and verification notes remain available under About this index & sources. Personal album titles link to the permanent reviews; source links are consolidated below the results.
