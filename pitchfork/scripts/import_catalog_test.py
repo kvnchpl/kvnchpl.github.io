@@ -20,6 +20,16 @@ class ImportTests(unittest.TestCase):
         self.assertIsNone(imported[0]['pitchfork']['url'])
         self.assertIsNone(imported[0]['releaseYear'])
 
+    def test_refresh_keeps_enriched_links_and_release_precision(self):
+        result = merge(self.data, [self.row])
+        imported = next(a for a in result['albums'] if a.get('catalogSource') == SOURCE)
+        imported['pitchfork'].update(url='https://pitchfork.com/reviews/albums/example/', artistUrl='https://pitchfork.com/artists/example/', linkSource='pitchfork-live-2026-11-02')
+        imported['releaseYear'] = 1999
+        imported['releaseDate'] = '1999-05-01'
+        again = merge(result, [self.row])
+        refreshed = next(a for a in again['albums'] if a['id'] == imported['id'])
+        self.assertEqual(imported, refreshed)
+
     def test_duplicate_and_distinct_review_dates(self):
         later = dict(self.row, reviewdate='January 1 2010')
         result = merge(self.data, [self.row, self.row, later])

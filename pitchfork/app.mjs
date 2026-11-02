@@ -5,6 +5,7 @@ const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;'
 const params=new URLSearchParams(location.search);
 let albums=[],view=(params.get('view')==='reviews'||params.get('mine')==='1')?'reviews':'index';
 for(const key of ['q','min','max','sort'])if(params.has(key))$(key).value=params.get(key);
+if(!$('sort').value)$('sort').value='artist';
 if(params.get('min')||params.get('max'))$('score-filters').open=true;
 let page=1;
 const pageSize=100;
@@ -36,11 +37,19 @@ function render(){
   $('previous').disabled=page===1;$('next').disabled=page===pages;
   $('page-status').textContent=`Page ${page} of ${pages}`;
   const visible=matches.slice((page-1)*pageSize,page*pageSize);
+  const dateLabel=(value)=>value?escape(value):'unknown';
+  const dates=a=>`<small class="album-dates">released ${dateLabel(a.releaseDate||a.releaseYear)} · reviewed ${dateLabel(a.pitchfork?.reviewDate)}</small>`;
+  // Only link to URLs present in source metadata, never guessed slugs.
+  const sourceLink=(url,path)=>{try{const u=new URL(url);return u.protocol==='https:'&&u.hostname==='pitchfork.com'&&u.pathname.startsWith(path)?u.href:null}catch{return null}};
   $('rows').innerHTML=visible.map(a=>{
-    const url=`reviews/${encodeURIComponent(a.id)}/`,delta=a.personal?.score!=null&&a.pitchfork?.score!=null?a.personal.score-a.pitchfork.score:null;
-    return `<tr><td>${a.personal?.text?`<a class="album-link" href="${url}">${escape(a.album)}</a>`:`<span class="album-link">${escape(a.album)}</span>`}<span class="artist">${escape(a.artist)}</span>${a.pitchfork?.reviewDate?`<small>reviewed ${escape(a.pitchfork.reviewDate)}</small>`:''}</td><td class="score">${fmt(a.personal?.score)}</td><td class="score">${fmt(a.pitchfork?.score)}</td><td class="delta delta-col">${delta==null?'—':`${delta>=0?'+':''}${delta.toFixed(1)}`}</td></tr>`;
+    const reviewUrl=sourceLink(a.pitchfork?.url,'/reviews/albums/');
+    const artistUrl=sourceLink(a.pitchfork?.artistUrl,'/artists/');
+    const title=reviewUrl?`<a class="album-link" href="${escape(reviewUrl)}">${escape(a.album)}</a>`:`<span class="album-link">${escape(a.album)}</span>`;
+    const artist=artistUrl?`<a class="artist" href="${escape(artistUrl)}">${escape(a.artist)}</a>`:`<span class="artist">${escape(a.artist)}</span>`;
+    const mine=a.personal?.text?`<a class="review-link" href="reviews/${encodeURIComponent(a.id)}/">my review</a>`:'';
+    return `<tr><td>${title}${artist}${dates(a)}${mine}</td><td class="score">${fmt(a.personal?.score)}</td><td class="score">${fmt(a.pitchfork?.score)}</td></tr>`;
   }).join('');
-  $('review-view').innerHTML=matches.filter(a=>a.personal?.text).map(a=>`<article class="card"><div class="eyebrow">${escape(a.artist)}</div><h2><a href="reviews/${encodeURIComponent(a.id)}/">${escape(a.album)}</a></h2>${scores(a)}<p>${escape(a.personal.text.split(/\s+/).slice(0,38).join(' '))}…</p><a class="review-link" href="reviews/${encodeURIComponent(a.id)}/">read full review ↗</a></article>`).join('');
+  $('review-view').innerHTML=matches.filter(a=>a.personal?.text).map(a=>`<article class="card"><div class="eyebrow">${escape(a.artist)}</div><h2><a href="reviews/${encodeURIComponent(a.id)}/">${escape(a.album)}</a></h2>${scores(a)}${dates(a)}<p>${escape(a.personal.text.split(/\s+/).slice(0,38).join(' '))}…</p><a class="review-link" href="reviews/${encodeURIComponent(a.id)}/">read full review ↗</a></article>`).join('');
 }
 for(const id of ['q','min','max','sort'])$(id).addEventListener('input',()=>{page=1;render()});
 $('previous').addEventListener('click',()=>{page--;render()});

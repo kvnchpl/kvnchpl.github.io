@@ -5,8 +5,10 @@ export function selectAlbums(albums, {query='',min='',max='',onlyReviews=false,s
     && (min==='' || (a.pitchfork?.score!=null && a.pitchfork.score>=Number(min)))
     && (max==='' || (a.pitchfork?.score!=null && a.pitchfork.score<=Number(max)))
     && (!onlyReviews || Boolean(a.personal?.text)));
-  const alphabet=(a,b)=>a.artist.localeCompare(b.artist)||a.album.localeCompare(b.album);
-  const descending=(value)=>(a,b)=>{const x=value(a),y=value(b);return x==null?(y==null?alphabet(a,b):1):y==null?-1:y-x||alphabet(a,b)};
-  const orders={artist:alphabet,pitchfork:descending(a=>a.pitchfork?.score),kevin:descending(a=>a.personal?.score),gap:descending(a=>a.personal?.score!=null&&a.pitchfork?.score!=null?a.personal.score-a.pitchfork.score:null)};
+  const alphabet=(a,b)=>a.artist.localeCompare(b.artist)||a.album.localeCompare(b.album)||a.id.localeCompare(b.id);
+  const numeric=(value,direction)=>(a,b)=>{const x=value(a),y=value(b);return x==null?(y==null?alphabet(a,b):1):y==null?-1:direction*(x-y)||alphabet(a,b)};
+  const orders={artist:alphabet,'artist-desc':(a,b)=>alphabet(b,a),
+    pitchfork:numeric(a=>a.pitchfork?.score,-1),'pitchfork-asc':numeric(a=>a.pitchfork?.score,1),
+    kevin:numeric(a=>a.personal?.score,-1),'kevin-asc':numeric(a=>a.personal?.score,1)};
   return results.sort(orders[sort]||alphabet);
 }

@@ -64,6 +64,17 @@ def merge(data, rows):
                           'verifiedAt': None, 'reviewDate': date}}
         albums.append(a)
         by_id[stable_id] = a
+    # Preserve curated URL/date enrichment when refreshing the same stable record.
+    prior = {a['id']: a for a in data['albums']}
+    for a in albums:
+        old = prior.get(a['id'], {})
+        for field in ('url', 'artistUrl', 'linkSource'):
+            if old.get('pitchfork', {}).get(field) is not None:
+                a['pitchfork'][field] = old['pitchfork'][field]
+        if old.get('releaseDate'):
+            a['releaseDate'] = old['releaseDate']
+        if a.get('releaseYear') is None and old.get('releaseYear') is not None:
+            a['releaseYear'] = old['releaseYear']
     result['albums'] = albums
     result['coverage'] = {
         'description': 'Historical P4KxSpotify metadata snapshot plus six personal reviews; not the complete or current Pitchfork archive.',
@@ -73,6 +84,8 @@ def merge(data, rows):
         'sourceRows': len(rows), 'metadataDuplicatesSkipped': duplicates, 'missingIdentitySkipped': rejected,
         'reviewDateRange': [min(dates), max(dates)],
         'sourceMD5': CHECKSUM,
+        'linkEnrichment': data.get('coverage',{}).get('linkEnrichment'),
+        'liveLinkEnrichment': data.get('coverage',{}).get('liveLinkEnrichment'),
         'limitations': 'Metadata and scores only; no prose, artwork, or Spotify features. Primary genre only. Original review URLs absent. Distinct review dates retained, without inferred edition labels. Dataset scores not independently verified.'}
     return result
 
