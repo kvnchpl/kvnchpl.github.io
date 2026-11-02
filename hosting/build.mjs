@@ -8,7 +8,7 @@ import {projects, isProjectPath} from './projects.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const publishDirectory = resolve(root, '.netlify/portfolio');
-const publicFolders = new Set(['0', 'a', 'css', 'js', 'json', 'specter', ...projects.map(project => project.directory)]);
+const publicFolders = new Set(['0', 'a', 'css', 'js', 'json', 'specter', ...projects.map(project => project.directory.split('/')[0])]);
 const publicRootFiles = new Set(['index.html', '404.html', 'favicon.ico', 'robots.txt', 'sitemap.xml']);
 
 // _config.yml deliberately uses only an exclude list of scalar path patterns.
@@ -54,6 +54,10 @@ export function redirectRules(works, mediaNames, junglePages = Object.values(jun
         '', '# HTTP migration redirects. Sources: js/navigation.js, js/redirect.js, a/.'
     ];
     const add = (from, to, query = '') => lines.push(`${from}${query ? ` ${query}` : ''} ${to} 301!`);
+    add('/000', '/?view=unlisted');
+    add('/000/', '/?view=unlisted');
+    for (const name of ['pitchfork','ephemeris','trellis','exp','divination']) add('/000/assets/'+name+'.webp', '/a/unlisted-'+name+'--collection.webp');
+    add('/000/styles.css', '/css/site.css');
     // Match supported filter combinations before each page's general rule.
     // Netlify matches query parameters independently of their order.
     const categories = ['image', 'images', 'spaces', 'space', 'interfaces', 'interface', 'writing'];
@@ -96,7 +100,7 @@ export function redirectRules(works, mediaNames, junglePages = Object.values(jun
         ['/jungle/fonts.css', '/jungle/css/fonts.css'],
         ['/jungle/jungle.css', '/jungle/css/jungle.css'],
         ['/jungle/jungle.js', '/jungle/js/jungle.js']
-    ]) add(from, to);
+    ]) add(from, to.startsWith('/exp/') ? '/000'+to : to);
     lines.push('', '# Jungle keeps its previous numbered pages and descriptive asset URLs.');
     for (const [from, to] of Object.entries(junglePaths.pages)) {
         if (!/^\d{5}$/.test(from) || !/^[a-z0-9]{5}$/.test(to)) throw new Error('Invalid Jungle page mapping');
@@ -108,6 +112,13 @@ export function redirectRules(works, mediaNames, junglePages = Object.values(jun
         add(`/jungle/${from}`, `/jungle/${to}/`);
         add(`/jungle/${from}/*`, `/jungle/${to}/:splat`);
     }
+    // Preserve all previous project URLs, including nested reviews and assets.
+    for (const project of projects.filter(project => project.legacyDirectory)) {
+        add('/'+project.legacyDirectory, '/'+project.directory+'/');
+        add('/'+project.legacyDirectory+'/*', '/'+project.directory+'/:splat');
+    }
+    add('/divination-is-in-our-hands-now', '/000/divination-is-in-our-hands-now/');
+    add('/divination-is-in-our-hands-now/*', '/000/divination-is-in-our-hands-now/:splat');
     // Preserve the zine's extensionless links with Pretty URLs disabled.
     for (const to of junglePages) {
         if (!/^[a-z0-9]{5}$/.test(to) || Object.hasOwn(junglePaths.pages, to)) throw new Error('Invalid or retired Jungle page ID');
@@ -131,11 +142,11 @@ export function headerRules(environment = process.env) {
 // Netlify's static redirect matcher normalizes trailing slashes. A small edge
 // redirect preserves directory-relative links without altering any HTML files.
 export function directoryIndexRedirect(files) {
-    const paths = files.filter(file => file === 'ephemeris/index.html'
+    const paths = files.filter(file => file === '000/ephemeris/index.html'
         || (file.startsWith('jungle/a/m/') && file.endsWith('/index.html'))
         || (file.startsWith('homestuck-book-club/') && file.endsWith('/index.html'))
-        || (file.startsWith('pitchfork/') && file.endsWith('/index.html'))
-        || ['000/index.html','divination/index.html'].includes(file))
+        || (file.startsWith('000/pitchfork/') && file.endsWith('/index.html'))
+        || ['000/trellis/index.html','000/exp/index.html','000/divination-is-in-our-hands-now/index.html'].includes(file))
         .map(file => `/${file.slice(0, -11)}`).sort();
     if (!paths.includes('/homestuck-book-club')) throw new Error('Missing book-club entry point');
     return `// Generated from published directory indexes. No content proxy.\nconst directories = new Set(${JSON.stringify(paths)});\nexport default function handler(request) {\n    const url = new URL(request.url);\n    if (!['GET', 'HEAD'].includes(request.method) || !directories.has(url.pathname)) return;\n    url.pathname += '/';\n    return new Response(null, {status: 301, headers: {Location: url.href}});\n}\nexport const config = {path: [...directories]};\n`;
@@ -195,6 +206,7 @@ export async function buildPortfolio() {
     // deploy duplicate handlers for the book-club routes.
     await rm(resolve(edgeDirectory, 'book-club-slashes.js'), {force: true});
     await writeFile(resolve(edgeDirectory, 'directory-slashes.js'), directoryIndexRedirect(files));
+    await writeFile(resolve(edgeDirectory, 'unlisted-view.js'), `export default async function(request, context) { const url=new URL(request.url); const response=await context.next(); if(url.searchParams.get('view')==='unlisted')response.headers.set('X-Robots-Tag','noindex, nofollow'); return response; }\nexport const config={path:'/'};\n`);
     await rm(publishDirectory, {recursive: true, force: true});
     await rename(staging, publishDirectory);
     console.log(`Packaged ${files.length} public files and ${Object.keys(works).length} legacy work destinations in .netlify/portfolio.`);

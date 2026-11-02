@@ -7,7 +7,7 @@ export const legacyPages = {
 };
 const legacyViews = {atlas: 'collection', network: 'collection', index: 'collection', landing: 'home'};
 const legacyCategories = {image: 'images', spaces: 'space', interfaces: 'interface'};
-const views = new Set(['home', 'collection', 'about']);
+const views = new Set(['home', 'collection', 'unlisted', 'about']);
 const categories = new Set(['images', 'space', 'interface', 'writing']);
 const tags = new Set(['belief', 'desire', 'truth', 'fire', 'free']);
 
@@ -29,9 +29,10 @@ export function normalizeSiteUrl(input) {
     else url.searchParams.set('view', view);
     let category = url.searchParams.get('category') || defaults.searchParams.get('category');
     category = legacyCategories[category] || category;
-    if (view === 'collection' && categories.has(category)) url.searchParams.set('category', category);
+    if (['collection','unlisted'].includes(view) && categories.has(category)) url.searchParams.set('category', category);
     else url.searchParams.delete('category');
-    if (view !== 'collection' || !tags.has(url.searchParams.get('tag'))) url.searchParams.delete('tag');
+    if (!['collection','unlisted'].includes(view) || !tags.has(url.searchParams.get('tag'))) url.searchParams.delete('tag');
+    if (view === 'unlisted') url.searchParams.delete('tag');
     const parameters = new URLSearchParams();
     for (const key of ['view', 'category', 'tag']) {
         if (url.searchParams.has(key)) parameters.set(key, url.searchParams.get(key));

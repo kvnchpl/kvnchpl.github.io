@@ -7,7 +7,7 @@ const require = createRequire(import.meta.url);
 const repository = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const directories = new Set();
 for (const project of projects) {
-    if (!/^[a-z0-9-]+$/.test(project.directory) || directories.has(project.directory)
+    if (!/^[a-z0-9-]+(?:\/[a-z0-9-]+)*$/.test(project.directory) || directories.has(project.directory)
         || !['listed', 'unlisted', 'linked'].includes(project.visibility) || project.entry !== 'index.html'
         || Boolean(project.publicPaths) === Boolean(project.runtimeModule)) throw new Error('Invalid project publication policy');
     directories.add(project.directory);
@@ -20,14 +20,14 @@ export function projectRuntime(project) {
     return project.runtimeModule ? require(resolve(repository, project.runtimeModule)) : null;
 }
 export function isProjectPath(file, {directory = false} = {}) {
-    const [name, ...parts] = file.split('/');
-    const project = projects.find(project => project.directory === name);
-    if (!project) return true; // The caller owns the portfolio's root allowlist.
-    if (!parts.length) return directory;
-    const relative = parts.join('/');
+    const project = projects.filter(project => file === project.directory || file.startsWith(project.directory + '/'))
+        .sort((a,b) => b.directory.length - a.directory.length)[0];
+    if (!project) return !file.startsWith('000/') && file !== '000' || directory && projects.some(project => project.directory.startsWith(file+'/'));
+    if (file === project.directory) return directory;
+    const relative = file.slice(project.directory.length + 1);
     const runtime = projectRuntime(project);
     if (runtime) return directory
-        ? runtime.runtimeFiles(resolve(repository, name)).some(path => path.startsWith(`${relative}/`))
+        ? runtime.runtimeFiles(resolve(repository, project.directory)).some(path => path.startsWith(`${relative}/`))
         : runtime.isRuntimeFile(relative);
     return project.publicPaths.some(path => path.endsWith('/') && relative.startsWith(path)
         || (directory ? path.startsWith(`${relative}/`) || path === `${relative}/` : relative === path));

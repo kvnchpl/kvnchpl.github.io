@@ -1,5 +1,5 @@
 [build]
-  base = "ephemeris"
+  base = "000/ephemeris"
   command = "node scripts/build.cjs"
   publish = "dist"
 

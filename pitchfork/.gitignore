@@ -1,7 +1,0 @@
-# Maintain the catalog importer alongside the existing generator.
-!scripts/import_catalog.py
-!scripts/import_catalog_test.py
-__pycache__/
-
-!scripts/enrich_links.py
-!scripts/enrich_links_test.py

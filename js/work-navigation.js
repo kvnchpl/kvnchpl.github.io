@@ -1,8 +1,8 @@
 import {readWorkReturn, saveCollectionPosition} from './collection-state.js';
 
-const returnLink = document.querySelector('.work-return');
+const returnLinks = document.querySelectorAll('.work-return, [data-collection-return]');
 const position = readWorkReturn(location.href);
-if (returnLink && position) {
+for (const returnLink of position ? returnLinks : []) {
     returnLink.href = position.url;
     const remember = () => saveCollectionPosition(position.url, position.scrollTop);
     returnLink.addEventListener('click', remember);

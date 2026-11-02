@@ -15,29 +15,33 @@ function collectionPosition(value, origin) {
     if (!value || !Number.isFinite(value.scrollTop) || value.scrollTop < 0) return null;
     try {
         const url = normalizeSiteUrl(value.url);
-        if (url.origin !== origin || url.pathname !== '/' || getView(url) !== 'collection') return null;
+        if (url.origin !== origin || url.pathname !== '/' || !['collection','unlisted'].includes(getView(url))) return null;
         return {url: url.href, scrollTop: value.scrollTop};
     } catch { return null; }
 }
-const workPath = url => url.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+const workPath = url => {
+    const project=url.pathname.match(/^\/000\/(pitchfork|ephemeris|trellis|exp|divination-is-in-our-hands-now)(?:\/|$)/);
+    return project ? '/000/'+project[1] : url.pathname.replace(/\.html$/, '').replace(/\/$/, '');
+};
+const positionSlot = url => positionKey + (getView(normalizeSiteUrl(url)) === 'unlisted' ? ':unlisted' : '');
 
 export function saveCollectionPosition(url, scrollTop) {
     const position = collectionPosition({url: String(url), scrollTop}, new URL(url).origin);
-    if (position) write(positionKey, position);
+    if (position) write(positionSlot(url), position);
     return position;
 }
 export function readCollectionPosition(url) {
     const current = new URL(url);
-    const position = collectionPosition(read(positionKey), current.origin);
+    const position = collectionPosition(read(positionSlot(current)), current.origin);
     return position?.url === current.href ? position : null;
 }
 export function saveWorkReturn(workUrl, collectionUrl, scrollTop) {
     const work = new URL(workUrl);
     const position = collectionPosition({url: String(collectionUrl), scrollTop}, work.origin);
-    if (position && /^\/0\/[a-z0-9-]+$/.test(workPath(work))) {
+    if (position && /^\/(?:0\/[a-z0-9-]+|000\/(?:pitchfork|ephemeris|trellis|exp|divination-is-in-our-hands-now))$/.test(workPath(work))) {
         write(returnPrefix + workPath(work), position);
         // The return URL includes the work anchor as a useful storage-free fallback.
-        write(positionKey, position);
+        write(positionSlot(collectionUrl), position);
     }
 }
 export function readWorkReturn(workUrl) {

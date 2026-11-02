@@ -94,3 +94,5 @@ json/field.json
 
 # Ephemeris research, calculations, source cache, and figures remain local.
 /ephemeris/research/
+
+/000/ephemeris/research/
