@@ -185,16 +185,26 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "value": 19,
+      "key": "act-6-act-5-part-1",
+      "label": "Act 6 Act 5 (Part 1)",
+      "shortLabel": "A6A5P1",
+      "endPage": 5713,
+      "sourcePage": 5713,
+      "sourceKind": "boundary",
+      "section": "Part 3"
+    },
+    {
+      "value": 20,
       "key": "act-6-act-5",
-      "label": "Act 6 Act 5",
-      "shortLabel": "A6A5",
+      "label": "Act 6 Act 5 (Part 2)",
+      "shortLabel": "A6A5P2",
       "endPage": 5926,
       "sourcePage": 5926,
       "sourceKind": "boundary",
       "section": "Part 3"
     },
     {
-      "value": 20,
+      "value": 21,
       "key": "act-6-intermission-5",
       "label": "Act 6 Intermission 5",
       "shortLabel": "A6I5",
@@ -204,7 +214,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 3"
     },
     {
-      "value": 21,
+      "value": 22,
       "key": "act-6-act-6-act-1",
       "label": "Act 6 Act 6 Act 1",
       "shortLabel": "A6A6A1",
@@ -214,7 +224,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 22,
+      "value": 23,
       "key": "act-6-act-6-intermission-1",
       "label": "Act 6 Act 6 Intermission 1",
       "shortLabel": "A6A6I1",
@@ -224,7 +234,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 23,
+      "value": 24,
       "key": "act-6-act-6-act-2",
       "label": "Act 6 Act 6 Act 2",
       "shortLabel": "A6A6A2",
@@ -234,7 +244,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 24,
+      "value": 25,
       "key": "act-6-act-6-intermission-2",
       "label": "Act 6 Act 6 Intermission 2",
       "shortLabel": "A6A6I2",
@@ -244,7 +254,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 25,
+      "value": 26,
       "key": "act-6-act-6-act-3",
       "label": "Act 6 Act 6 Act 3",
       "shortLabel": "A6A6A3",
@@ -254,7 +264,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 26,
+      "value": 27,
       "key": "act-6-act-6-intermission-3",
       "label": "Act 6 Act 6 Intermission 3",
       "shortLabel": "A6A6I3",
@@ -264,7 +274,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 27,
+      "value": 28,
       "key": "act-6-act-6-act-4",
       "label": "Act 6 Act 6 Act 4",
       "shortLabel": "A6A6A4",
@@ -274,7 +284,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 28,
+      "value": 29,
       "key": "act-6-act-6-intermission-4",
       "label": "Act 6 Act 6 Intermission 4",
       "shortLabel": "A6A6I4",
@@ -284,7 +294,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 29,
+      "value": 30,
       "key": "act-6-act-6-act-5",
       "label": "Act 6 Act 6 Act 5",
       "shortLabel": "A6A6A5",
@@ -294,17 +304,27 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 30,
+      "value": 31,
+      "key": "act-6-act-6-intermission-5-part-1",
+      "label": "Act 6 Act 6 Intermission 5 (Part 1)",
+      "shortLabel": "A6A6I5P1",
+      "endPage": 7515,
+      "sourcePage": 7515,
+      "sourceKind": "boundary",
+      "section": "Part 4"
+    },
+    {
+      "value": 32,
       "key": "act-6-act-6-intermission-5",
-      "label": "Act 6 Act 6 Intermission 5",
-      "shortLabel": "A6A6I5",
+      "label": "Act 6 Act 6 Intermission 5 (Part 2)",
+      "shortLabel": "A6A6I5P2",
       "endPage": 8086,
       "sourcePage": 8086,
       "sourceKind": "boundary",
       "section": "Part 4"
     },
     {
-      "value": 31,
+      "value": 33,
       "key": "act-6-act-6-act-6",
       "label": "Act 6 Act 6 Act 6",
       "shortLabel": "A6A6A6",
@@ -314,7 +334,7 @@ window.HOMESTUCK_REFERENCE = {
       "section": "Part 4"
     },
     {
-      "value": 32,
+      "value": 34,
       "key": "act-7",
       "label": "Act 7",
       "shortLabel": "A7",
