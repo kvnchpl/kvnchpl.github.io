@@ -109,8 +109,8 @@ import {saveCollectionPosition, readCollectionPosition, saveWorkReturn} from "./
     site.querySelectorAll('[data-view-link="about"], [data-view-link="collection"], [data-view-link="unlisted"]').forEach(link => link.setAttribute('aria-haspopup', 'dialog'));
     site.addEventListener('click', event => {
         rememberWork(event);
-        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
         const link = event.target.closest('a');
+        if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || (event.altKey && !link?.matches('[data-unlisted-link]'))) return;
         if (!link?.matches('[data-view-link], [data-category-filter], [data-tag-filter]')) return;
         event.preventDefault();
         navigate(link.href);

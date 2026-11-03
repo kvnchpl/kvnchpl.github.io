@@ -17,7 +17,7 @@ function createPreviewServer({siteRoot=root, handler=require('../netlify/functio
       if (!['GET','HEAD'].includes(req.method)) {res.writeHead(405,{Allow:'GET, HEAD'});res.end();return;}
       if (url.pathname==='/' || url.pathname==='/000/ephemeris') {res.writeHead(url.pathname==='/'?302:301,{Location:'/000/ephemeris/'+url.search});res.end();return;}
       const pathname=decodeURIComponent(url.pathname);
-      const shared=['/js/work-navigation.js','/js/collection-state.js','/js/navigation.js'];
+      const shared=['/js/work-navigation.js','/js/collection-state.js','/js/navigation.js','/js/unlisted-nav.js'];
       if(shared.includes(pathname)){ const body=fs.readFileSync(path.resolve(siteRoot,'../..','.'+pathname));res.writeHead(200,{'Content-Type':'text/javascript; charset=utf-8','Cache-Control':'no-store'});res.end(req.method==='HEAD'?undefined:body);return; }
 
       const file=pathname.startsWith('/000/ephemeris/')?pathname.slice('/000/ephemeris/'.length)||'index.html':'';

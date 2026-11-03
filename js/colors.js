@@ -1,3 +1,4 @@
+import './unlisted-nav.js';
 const initializedPalettes = new WeakMap();
 const paletteViews = new Set();
 const storageKey = 'kvn-color-composition';

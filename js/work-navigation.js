@@ -1,3 +1,4 @@
+import './unlisted-nav.js';
 import {readWorkReturn, saveCollectionPosition} from './collection-state.js';
 
 const returnLinks = document.querySelectorAll('.work-return');
