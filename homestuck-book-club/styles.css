@@ -310,19 +310,23 @@ button {
   text-align: center;
 }
 
-.notes-boundary {
-  padding: 12px;
-  border: 1px dashed #808080;
-  font-size: 14px;
+.notes-content .notes-assignment {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
-.notes-contents,
 .notes-pagination {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px 20px;
-  padding-block: 12px;
-  font-size: 14px;
+  padding-top: 20px;
+}
+
+.notes-pagination .command-links {
+  padding: 0;
+}
+
+.notes-pagination .command-links li {
+  margin: 12px 0;
+  padding: 0;
 }
 
 .notes-content section {
@@ -350,11 +354,6 @@ button {
 .notes-content li {
   margin-block: 0 18px;
   padding-left: 4px;
-}
-
-.notes-sources {
-  font-size: 14px;
-  font-weight: 400;
 }
 
 .recap-list {
@@ -1635,7 +1634,6 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     break-inside: avoid;
   }
 
-  .notes-contents,
   .notes-pagination {
     display: none;
   }
