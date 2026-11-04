@@ -423,6 +423,26 @@ window.HOMESTUCK_REFERENCE = {
             2422
           ],
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "value": "POST-SCRATCH TROLLS",
+          "sourcePage": 4777,
+          "sourceKind": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "pre-scratch-trolls",
+      "title": [
+        {
+          "from": "act-6-intermission-2",
+          "value": "PRE-SCRATCH TROLLS",
+          "sourcePage": 4777,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4778
+          ]
         }
       ]
     },
@@ -4152,6 +4172,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 3889,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "value": {
+            "src": "../assets/ref-davesprite.webp",
+            "alt": "Davesprite with both wings restored"
+          },
+          "sourcePage": 4731,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -4189,7 +4218,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 3889,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-6-intermission-2"
         }
       ],
       "sourcePage": 1651,
@@ -4510,7 +4540,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 4109,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-6-intermission-2"
         }
       ],
       "sourcePage": 666,
@@ -5143,6 +5174,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 3617,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "value": {
+            "src": "../assets/ref-spades-slick-cyborg.webp",
+            "alt": "Spades Slick with a robotic torso, arm, and red prosthetic eye"
+          },
+          "sourcePage": 4671,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -5194,6 +5234,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 1157
               ]
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Extensive robotic replacements",
+              "sourcePage": 4671,
+              "sourceKind": "visual",
+              "label": "Condition"
             }
           ]
         },
@@ -5742,6 +5794,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Indestructible demon; Doc Scratch's master",
               "sourcePage": 2253,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Golden staff that transforms into a rifle",
+              "sourcePage": 4805,
+              "sourceKind": "visual",
+              "sourcePages": [
+                4806
+              ],
+              "label": "Weapon"
             }
           ]
         },
@@ -6421,6 +6488,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Vriska Serket",
               "sourcePage": 3475,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Aranea (pre-Scratch self)",
+              "sourcePage": 4769,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4777
+              ],
+              "label": "Counterpart"
             }
           ]
         }
@@ -8469,9 +8551,210 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "rosterColumn": 4
+    },
+    {
+      "id": "aranea",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-2",
+      "introPage": 4769,
+      "sourcePage": 4769,
+      "sourceKind": "intro",
+      "rosterColumn": 4,
+      "name": [
+        {
+          "from": "act-6-intermission-2",
+          "value": "ARANEA",
+          "sourcePage": 4769,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-intermission-2",
+          "value": "Aranea",
+          "sourcePage": 4769,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-intermission-2",
+          "value": {
+            "src": "../assets/ref-aranea.webp",
+            "alt": "Aranea, a troll ghost"
+          },
+          "sourcePage": 4769,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Player from the pre-Scratch troll session",
+              "sourcePage": 4777,
+              "sourceKind": "direct",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Sylph of Light",
+              "sourcePage": 4775,
+              "sourceKind": "direct",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Healing; offers to restore sight",
+              "sourcePage": 4773,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4775
+              ],
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Ghost",
+              "sourcePage": 4773,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4778
+              ],
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Mindfang (post-Scratch self)",
+              "sourcePage": 4769,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4777
+              ],
+              "label": "Counterpart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meenah",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-2",
+      "introPage": 4751,
+      "sourcePage": 4751,
+      "sourceKind": "intro",
+      "rosterColumn": 4,
+      "name": [
+        {
+          "from": "act-6-intermission-2",
+          "value": "MEENAH",
+          "sourcePage": 4751,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-intermission-2",
+          "value": "Meenah",
+          "sourcePage": 4751,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-intermission-2",
+          "value": {
+            "src": "../assets/ref-meenah.webp",
+            "alt": "Meenah, a troll ghost"
+          },
+          "sourcePage": 4751,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Player from the pre-Scratch troll session",
+              "sourcePage": 4778,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4777,
+                4754
+              ],
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Thief of Life",
+              "sourcePage": 4778,
+              "sourceKind": "composite",
+              "label": "Title",
+              "sourcePages": [
+                4751,
+                4758
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Golden trident",
+              "sourcePage": 4753,
+              "sourceKind": "direct",
+              "label": "Weapon"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-intermission-2",
+              "value": "Ghost",
+              "sourcePage": 4754,
+              "sourceKind": "composite",
+              "label": "Status"
+            }
+          ]
+        }
+      ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-2",
+  "conceptsPreparedThrough": "act-6-intermission-2",
   "concepts": [
     {
       "id": "alchemy",
@@ -9922,6 +10205,20 @@ window.HOMESTUCK_REFERENCE = {
             1903,
             1988
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Ectobiology",
+          "aliases": [],
+          "definition": "A cloning process using paradox ghost imprints as genetic material, also used in frog breeding. The kids and their guardians were all made in the pre-Scratch session. Rose explains that the post-Scratch players are those same ectobiological children sent to different dates, not a second batch created in the new game.",
+          "sourcePage": 4705,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4706,
+            1903,
+            3315,
+            3318
+          ]
         }
       ]
     },
@@ -10967,6 +11264,20 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Battlefield",
+          "aliases": [
+            "The Battlefield"
+          ],
+          "definition": "The site of the kingdoms' war inside Skaia, developed by pre-entry prototyping into the form needed to grow a universe. A void session leaves it as a small, unevolved board. Rose plans to use the mature Battlefield Jade carried away from the earlier session to make the new one viable.",
+          "sourcePage": 4702,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4703,
+            4109
+          ]
         }
       ]
     },
@@ -10988,6 +11299,19 @@ window.HOMESTUCK_REFERENCE = {
             1930,
             1988
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Reckoning",
+          "aliases": [
+            "The Reckoning"
+          ],
+          "definition": "The meteor assault on Skaia initiated after the Prospitian king falls, with defense portals diverting meteors to the players' world. Rose explains that a void session never develops the larger war that triggers it, so the post-Scratch game has no normal Reckoning deadline, though other threats remain.",
+          "sourcePage": 4705,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1667
+          ]
         }
       ]
     },
@@ -11007,6 +11331,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             1907,
             1988
+          ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Skaian defense portal",
+          "aliases": [
+            "Defense portal"
+          ],
+          "definition": "A portal Skaia uses to redirect meteors through time to the players' world. This includes the meteors delivering the ectobiological babies. Rose explains that the Scratch changes their destinations; the post-Scratch kids were created and sent from the earlier session rather than made again in their own.",
+          "sourcePage": 4705,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4706,
+            1907
           ]
         }
       ]
@@ -11689,6 +12027,19 @@ window.HOMESTUCK_REFERENCE = {
             3629,
             3630
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Scratch",
+          "aliases": [],
+          "definition": "A reset powered by temporal energy released to Skaia. Rose explains that Skaia changes the destination times of the meteors carrying players and guardians, altering their roles and their universe's history. Those remaining face erasure; the pre-Scratch trolls' ghosts instead persist in dream bubbles after their deaths.",
+          "sourcePage": 4706,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4707,
+            4777,
+            4778
+          ]
         }
       ]
     },
@@ -11817,6 +12168,19 @@ window.HOMESTUCK_REFERENCE = {
             3592,
             2991,
             3238
+          ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped environment in the Furthest Ring, serving as an afterlife for ghosts and a meeting place for living dreamers. The traveling meteor can also pass physically through one, letting its awake passengers meet the dead. Ghosts may come from doomed timelines or the trolls' pre-Scratch world, so identities require care.",
+          "sourcePage": 4687,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4689,
+            4777,
+            4778
           ]
         }
       ]
@@ -12282,6 +12646,19 @@ window.HOMESTUCK_REFERENCE = {
             4054,
             3473
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Ancestor",
+          "aliases": [],
+          "definition": "An older troll counterpart with intertwined genetic origins. The ancestors were players in an earlier, more peaceful world before its Scratch exchanged their roles with the younger generation. Aranea is Mindfang's pre-Scratch self, existing separately as a ghost rather than remembering the pirate's life as her own.",
+          "sourcePage": 4769,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4777,
+            4053,
+            4054
+          ]
         }
       ]
     },
@@ -12406,6 +12783,19 @@ window.HOMESTUCK_REFERENCE = {
             3832,
             3833,
             4355
+          ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Seer",
+          "aliases": [],
+          "definition": "A player class that guides through knowledge of its aspect. Terezi perceives outcomes of decisions; Rose finds relevant information and favorable paths. Rose stresses that her glimpses are limited: she combines them with books, encounters with ghosts, and deduction rather than knowing the whole future.",
+          "sourcePage": 4698,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4354,
+            3832,
+            3833
           ]
         }
       ]
@@ -12775,6 +13165,22 @@ window.HOMESTUCK_REFERENCE = {
             4384,
             4109
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The god-tier Seer of Light, traveling with Dave and the trolls aboard the laboratory meteor. A year into the journey, she researches the post-Scratch session with Kanaya and records their knowledge in a journal. Her plan combines the new session with the mature Battlefield Jade is carrying.",
+          "sourcePage": 4698,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4701,
+            4702,
+            4703
+          ]
         }
       ]
     },
@@ -12987,6 +13393,22 @@ window.HOMESTUCK_REFERENCE = {
             4303,
             4337,
             4338,
+            4109
+          ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic"
+          ],
+          "definition": "The god-tier Witch of Space, carrying the earlier session's lands and Battlefield aboard the ship. A year into the voyage, she explains that she inherited vague memories from Jadesprite, including time spent among dead trolls. Her canine instincts also surface when Jaspersprite arrives with John's birthday cake.",
+          "sourcePage": 4733,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4737,
+            4738,
             4109
           ]
         }
@@ -13226,6 +13648,19 @@ window.HOMESTUCK_REFERENCE = {
             4344,
             4372
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The doomed-timeline Dave who became Dave's sprite guide. A year into the ship's journey, his wings are restored and he plays Ghostbusters with the other passengers. John treats him as Dave, while Jade notices differences in personality and is unsure how becoming a sprite or his earlier timeline shaped them.",
+          "sourcePage": 4731,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4732,
+            4733,
+            1674
+          ]
         }
       ]
     },
@@ -13359,6 +13794,23 @@ window.HOMESTUCK_REFERENCE = {
             4381,
             4383,
             4384
+          ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV"
+          ],
+          "definition": "The former Warweary Villein and mayor of Can Town, brought aboard the meteor after Jack's attack. During a passage through a dream bubble, a god-tier Feferi ghost treats his wounds. He survives into the group's journey, where Dave enthusiastically takes up the Can Town project.",
+          "sourcePage": 4690,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4689,
+            4698,
+            4722,
+            1988
           ]
         }
       ]
@@ -13744,6 +14196,21 @@ window.HOMESTUCK_REFERENCE = {
             4109
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Spades Slick",
+          "aliases": [],
+          "definition": "The Midnight Crew's leader and the trolls' counterpart of Jack Noir. After the destruction of his universe, he recuperates with extensive robotic replacements under the author's care. When Lord English invades, the author tries to save Slick by throwing his hospital bed over a balcony.",
+          "sourcePage": 4671,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4794,
+            4796,
+            4798,
+            4799,
+            1674
+          ]
         }
       ]
     },
@@ -13964,6 +14431,21 @@ window.HOMESTUCK_REFERENCE = {
             3514
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "The indestructible demon who emerged from Doc Scratch's corpse. He invades the author's realm, carrying a golden staff that transforms into a rifle, and shoots the author avatar dead. His assault shows that the space used to shelter Spades Slick is not beyond his reach.",
+          "sourcePage": 4789,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4805,
+            4806,
+            4812,
+            4813,
+            4111
+          ]
         }
       ]
     },
@@ -14371,6 +14853,22 @@ window.HOMESTUCK_REFERENCE = {
             2031
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "The trolls' Seer of Mind, traveling with the meteor group and troubled by her decision to kill Vriska. Aranea helps her examine that regret and offers to restore her sight. Terezi declines, valuing the connection to her lusus preserved by the way she learned to sense the world.",
+          "sourcePage": 4771,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4772,
+            4775,
+            4776
+          ]
         }
       ]
     },
@@ -14837,6 +15335,18 @@ window.HOMESTUCK_REFERENCE = {
             3756
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Mindfang",
+          "aliases": [],
+          "definition": "Vriska's ancestor, a pirate fleet commander whose journal preserves her exploits and rivalries. Aranea reveals herself as the pre-Scratch counterpart who would become Mindfang in the later world. The ghost and pirate remain distinct lives; Aranea observed her counterpart's adventures rather than living them herself.",
+          "sourcePage": 4769,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4777,
+            3475
+          ]
         }
       ]
     },
@@ -15325,6 +15835,26 @@ window.HOMESTUCK_REFERENCE = {
             4514,
             4665
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Roxy Lalonde, the post-Scratch Rogue of Void, living centuries later than Jane and Jake. Her dreamself drifts through dream bubbles while asleep, where John encounters her and shields her from a trident attack. Rose identifies the temporal gap separating her and Dirk from their coplayers as four centuries.",
+          "sourcePage": 4707,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4708,
+            4749,
+            4753,
+            4756,
+            4514
+          ]
         }
       ]
     },
@@ -15370,6 +15900,26 @@ window.HOMESTUCK_REFERENCE = {
             4564,
             4566,
             4665
+          ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "Dirk Strider, the post-Scratch Prince of Heart and counterpart of Dave's guardian. He divides his attention between waking and dreaming bodies while his self-aware responder acts separately. Rose explains that he and Roxy arrived four centuries after their coplayers; the reason remains unexplained.",
+          "sourcePage": 4707,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4708,
+            4564,
+            4566,
+            4479
           ]
         }
       ]
@@ -15750,6 +16300,22 @@ window.HOMESTUCK_REFERENCE = {
             4407,
             4412
           ]
+        },
+        {
+          "from": "act-6-intermission-2",
+          "term": "Post-Scratch Courtyard Droll",
+          "aliases": [
+            "Courtyard Droll (post-Scratch)",
+            "Post-Scratch Droll"
+          ],
+          "definition": "The post-Scratch session's Dersite demolitions specialist, separate from the earlier Droll and Clubs Deuce. After helping Jack with the dreamself assassination plot, he blows up the session's unevolved Battlefield and its kings. Rose treats the vacancy in Skaia as useful to the travelers' plan.",
+          "sourcePage": 4703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4704,
+            4402,
+            4407
+          ]
         }
       ]
     },
@@ -16102,6 +16668,178 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ]
+    },
+    {
+      "id": "null-session",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Null session",
+          "aliases": [],
+          "definition": "A session that fails to produce a universe. Rose describes these as common and known by Skaia to be unsuccessful from the outset. A void session is a particular kind of null session, not another name for every failed game.",
+          "sourcePage": 4701,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4702
+          ]
+        }
+      ]
+    },
+    {
+      "id": "void-session",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Void session",
+          "aliases": [],
+          "definition": "A session with no pre-entry prototyping. Its enemies remain unaugmented, but its Battlefield also stays undeveloped and cannot grow a universe. Rose explains that no normal Reckoning occurs, and proposes making the post-Scratch session viable with the mature Battlefield Jade is bringing from the earlier game.",
+          "sourcePage": 4702,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4703,
+            4705
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sylph",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Sylph",
+          "aliases": [],
+          "definition": "A player class associated here with healing. Aranea uses her Light aspect to help people see, discussing emotional wounds and offering to restore Terezi's sight. Her example does not yet establish a complete ruleset for every Sylph or aspect.",
+          "sourcePage": 4773,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4774,
+            4775,
+            4776
+          ]
+        }
+      ]
+    },
+    {
+      "id": "light",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Light aspect",
+          "aliases": [],
+          "definition": "An aspect expressed through knowledge and luck. Rose uses her Seer abilities to find relevant information and favorable paths; Vriska steals luck as a Thief. Aranea describes her work as a Sylph of Light as helping people see, both through understanding and literal restored sight.",
+          "sourcePage": 4775,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4698,
+            4354,
+            3771
+          ]
+        }
+      ]
+    },
+    {
+      "id": "life",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Life aspect",
+          "aliases": [],
+          "definition": "The aspect named in Feferi's Witch of Life and Jane's Maid of Life titles. A god-tier Feferi ghost from another timeline treats WV's injuries in a dream bubble, showing a healing use of Life. This is a different Feferi from the one killed on the meteor.",
+          "sourcePage": 4690,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4689,
+            4401,
+            2466
+          ]
+        }
+      ]
+    },
+    {
+      "id": "quadrant-vacillation",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Quadrant vacillation",
+          "aliases": [
+            "Vacillation"
+          ],
+          "definition": "A shift between troll romantic quadrants, especially flushed and pitch feelings. Karkat uses a romance novel to explain it, then proposes scheduling alternating relationships with Terezi and Dave. The proposal is his own attempt at managing their feelings, not a plan the others have accepted.",
+          "sourcePage": 4712,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4713,
+            4714,
+            4717
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roses-journal",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Rose's journal",
+          "aliases": [],
+          "definition": "The book Rose writes aboard the meteor to record the group's experiences, knowledge of the game, and research into the new session. She hopes it can help future readers with their own quests. Karkat and Dave later scuffle over a pen and deface its pages.",
+          "sourcePage": 4701,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4717,
+            4718
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-aranea",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Aranea",
+          "aliases": [],
+          "definition": "A ghost from the failed pre-Scratch troll session and the earlier-world counterpart of Mindfang. As a Sylph of Light, she helps Terezi examine her guilt over Vriska and offers to heal her eyes. She explains how her group scratched its session, leading to the trolls' more violent world.",
+          "sourcePage": 4769,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4773,
+            4775,
+            4776,
+            4777
+          ]
+        }
+      ],
+      "characterId": "aranea"
+    },
+    {
+      "id": "person-meenah",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Meenah",
+          "aliases": [],
+          "definition": "A confrontational sea-troll ghost encountered while John dreams. She pursues the sleeping Roxy with a golden trident and is delighted to learn that she is dead because it means her plan worked. Aranea identifies the friend they are approaching as the Thief of Life from her earlier player group.",
+          "sourcePage": 4751,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4753,
+            4754,
+            4778
+          ]
+        }
+      ],
+      "characterId": "meenah"
     }
   ]
 };

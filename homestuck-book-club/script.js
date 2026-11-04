@@ -72,6 +72,8 @@
     'auto-responder': '#e00707',
     'brobot': '#f2a400',
     'lil-seb': '#e00707',
+    'aranea': '#005682',
+    'meenah': '#77003c',
     'aradia': '#a10000',
     'tavros': '#a16000',
     'sollux': '#a1a100',
