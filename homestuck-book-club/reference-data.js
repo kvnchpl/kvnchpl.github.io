@@ -997,6 +997,22 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Roxy's mom (post-Scratch self)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872,
+                4706
+              ]
+            }
+          ]
+        },
+        {
           "id": "interests",
           "variants": [
             {
@@ -1151,6 +1167,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "God tier",
               "sourcePage": 4109,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Dirk's bro (post-Scratch self)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872,
+                4706
+              ]
             }
           ]
         },
@@ -3227,6 +3259,15 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             3454
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-gamzee-bard.webp",
+            "alt": "Gamzee Makara in a purple Bard outfit"
+          },
+          "sourcePage": 4831,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -3307,6 +3348,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "jokerkind",
               "sourcePage": 3452,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Inventory",
+              "value": "Aradia's timetables",
+              "sourcePage": 4825,
+              "sourceKind": "visual",
+              "sourcePages": [
+                4831
+              ]
             }
           ]
         },
@@ -5836,6 +5892,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Time travel via a sarcophagus",
               "sourcePage": 4111,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Powers",
+              "value": "Time travel via a sarcophagus · Destroys dream bubbles and their ghosts",
+              "sourcePage": 5261,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4111
+              ]
             }
           ]
         }
@@ -6503,6 +6569,17 @@ window.HOMESTUCK_REFERENCE = {
                 4777
               ],
               "label": "Counterpart"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Aranea Serket (pre-Scratch self)",
+              "sourcePage": 4993,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4769,
+                4777
+              ]
             }
           ]
         }
@@ -6794,6 +6871,16 @@ window.HOMESTUCK_REFERENCE = {
                 4063
               ],
               "sourceKind": "composite"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Empress of Alternia; conqueror of post-Scratch Earth; ruler of post-Scratch Derse",
+              "sourcePage": 5003,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4599
+              ]
             }
           ]
         },
@@ -6810,6 +6897,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Golden trident",
+              "sourcePage": 4873,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "powers",
           "variants": [
             {
@@ -6821,6 +6920,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4063,
                 4064
+              ]
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Powers",
+              "value": "Extends life · Controls lusii and GCat · Telekinesis",
+              "sourcePage": 4873,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4944,
+                4060,
+                4063
               ]
             }
           ]
@@ -6846,6 +6957,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Gl’bgolyb",
               "sourcePage": 4063,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Meenah Peixes (pre-Scratch self)",
+              "sourcePage": 5002,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5003
+              ]
             }
           ]
         }
@@ -6935,6 +7061,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Land",
+              "value": "Land of Crypts and Helium (LOCAH)",
+              "sourcePage": 4820,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
           "id": "dream-moon",
           "variants": [
             {
@@ -6970,6 +7108,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Recipe modus",
               "sourcePage": 4123,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Inventory",
+              "value": "Recipe modus · Dad's wallet",
+              "sourcePage": 4953,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4955,
+                4156
+              ]
             }
           ]
         },
@@ -6996,6 +7145,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4596,
                 4601
+              ]
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Original body dead; revived dreamself alive",
+              "sourcePage": 5252,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5245
               ]
             }
           ]
@@ -7185,6 +7344,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Original body dead; revived dreamself alive",
+              "sourcePage": 5238,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5252
+              ]
+            }
+          ]
+        },
+        {
           "id": "interests",
           "variants": [
             {
@@ -7369,6 +7543,33 @@ window.HOMESTUCK_REFERENCE = {
                 4454,
                 4564
               ]
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Powers",
+              "value": "Splintered self",
+              "sourcePage": 4875,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5206,
+                5252
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Original body decapitated; revived dreamself alive",
+              "sourcePage": 5238,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5244,
+                5252
+              ]
             }
           ]
         },
@@ -7454,6 +7655,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Page",
               "sourcePage": 4215,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Title",
+              "value": "Page of Hope",
+              "sourcePage": 4875,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -7536,6 +7744,13 @@ window.HOMESTUCK_REFERENCE = {
           "value": "URANIANUMBRA",
           "sourcePage": 4144,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "CALLIOPE",
+          "sourcePage": 5091,
+          "sourceKind": "direct",
+          "introLinkPage": 5098
         }
       ],
       "rosterLabel": [
@@ -7543,6 +7758,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "UU",
           "sourcePage": 4144,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "Calliope",
+          "sourcePage": 5091,
           "sourceKind": "direct"
         }
       ],
@@ -7553,6 +7774,15 @@ window.HOMESTUCK_REFERENCE = {
             "placeholder": "?"
           },
           "sourcePage": 4114,
+          "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-calliope.webp",
+            "alt": "Calliope, a green cherub in her green jacket"
+          },
+          "sourcePage": 5099,
           "sourceKind": "visual"
         }
       ],
@@ -7568,6 +7798,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 4181
+              ]
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Off-world guide; cherub sharing a waking body with Caliborn",
+              "sourcePage": 5092,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5120,
+                5261
               ]
             }
           ]
@@ -7585,6 +7826,30 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Also known as",
+              "value": "Callie Ohpeee (trollsona)",
+              "sourcePage": 5101,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Title",
+              "value": "Muse of Space",
+              "sourcePage": 5093,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "dream-moon",
           "variants": [
             {
@@ -7592,6 +7857,80 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Dream moon",
               "value": "Prospit in a separate session",
               "sourcePage": 4144,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "strife-specibus",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Strife specibus",
+              "value": "wandkind · pistolkind",
+              "sourcePage": 5114,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5113
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "White wand / white magnum",
+              "sourcePage": 5113,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5114
+              ]
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Inventory",
+              "value": "Juju modus · Juju chest · Rose's journal",
+              "sourcePage": 5103,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5108,
+                5115
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Dreamself deceased; asleep in the shared waking body",
+              "sourcePage": 5015,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5224,
+                5120
+              ]
+            }
+          ]
+        },
+        {
+          "id": "blood",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Blood",
+              "value": "Lime green",
+              "sourcePage": 4962,
               "sourceKind": "direct"
             }
           ]
@@ -7690,6 +8029,16 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 4168,
           "sourceKind": "direct",
           "introLinkPage": 4183
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "JADE ENGLISH",
+          "sourcePage": 4859,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4173,
+            4174
+          ]
         }
       ],
       "rosterLabel": [
@@ -7852,6 +8201,13 @@ window.HOMESTUCK_REFERENCE = {
           "value": "AUTO-RESPONDER",
           "sourcePage": 4185,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "LIL HAL",
+          "sourcePage": 5245,
+          "sourceKind": "direct",
+          "introLinkPage": 5245
         }
       ],
       "rosterLabel": [
@@ -7859,6 +8215,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "value": "Auto-responder",
           "sourcePage": 4185,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "Lil Hal",
+          "sourcePage": 5245,
           "sourceKind": "direct"
         }
       ],
@@ -7914,6 +8276,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Handle",
               "value": "timaeusTestified [TT] (shared with Dirk)",
               "sourcePage": 4490,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Also known as",
+              "value": "Auto-responder",
+              "sourcePage": 5245,
               "sourceKind": "direct"
             }
           ]
@@ -8392,6 +8766,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4523,
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-sawtooth.webp",
+            "alt": "Sawtooth in his long black cloak and red shoes"
+          },
+          "sourcePage": 5253,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -8404,6 +8787,28 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dirk's undefeated rap-battle robot",
               "sourcePage": 4523,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Dirk's undefeated rap-battle robot and combat support",
+              "sourcePage": 4523,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4968
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Concealed missile launchers",
+              "sourcePage": 4968,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -8423,6 +8828,13 @@ window.HOMESTUCK_REFERENCE = {
           "value": "UNDYINGUMBRAGE",
           "sourcePage": 4646,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "CALIBORN",
+          "sourcePage": 5261,
+          "sourceKind": "direct",
+          "introLinkPage": 5261
         }
       ],
       "rosterLabel": [
@@ -8430,6 +8842,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "value": "uu",
           "sourcePage": 4646,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "Caliborn",
+          "sourcePage": 5261,
           "sourceKind": "direct"
         }
       ],
@@ -8441,6 +8859,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4646,
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-caliborn.webp",
+            "alt": "Caliborn with red cheek spirals before his self-amputation"
+          },
+          "sourcePage": 5261,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -8455,6 +8882,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 4646
+              ]
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Calliope's hostile brother; starts a one-player session",
+              "sourcePage": 5093,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5120,
+                5261
               ]
             }
           ]
@@ -8472,6 +8910,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Title",
+              "value": "Hero of Time",
+              "sourcePage": 5109,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "dream-moon",
           "variants": [
             {
@@ -8479,6 +8929,54 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Dream moon",
               "value": "Derse in a separate session",
               "sourcePage": 4564,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Cane that transforms into a rifle",
+              "sourcePage": 5261,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Inventory",
+              "value": "Juju modus",
+              "sourcePage": 5103,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Condition",
+              "value": "Robotic leg after self-amputation",
+              "sourcePage": 5261,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "blood",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Blood",
+              "value": "Candy red",
+              "sourcePage": 4962,
               "sourceKind": "direct"
             }
           ]
@@ -8546,6 +9044,44 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dersite agent assigned to the two dreamers on Derse",
               "sourcePage": 4407,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Acting archagent while the post-Scratch Jack Noir is imprisoned",
+              "sourcePage": 4932,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4933
+              ]
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Inventory",
+              "value": "Ring of Orbs Nofold",
+              "sourcePage": 4945,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Powers",
+              "value": "Ring-granted invisibility · Red Miles",
+              "sourcePage": 4947,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4948,
+                4949
+              ]
             }
           ]
         }
@@ -8566,6 +9102,13 @@ window.HOMESTUCK_REFERENCE = {
           "value": "ARANEA",
           "sourcePage": 4769,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "ARANEA SERKET",
+          "sourcePage": 4993,
+          "sourceKind": "direct",
+          "introLinkPage": 4769
         }
       ],
       "rosterLabel": [
@@ -8624,6 +9167,18 @@ window.HOMESTUCK_REFERENCE = {
                 4775
               ],
               "label": "Powers"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Powers",
+              "value": "Healing · Troll mind control · Senses human emotions",
+              "sourcePage": 4926,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4928,
+                4775,
+                5235
+              ]
             }
           ]
         },
@@ -8639,6 +9194,22 @@ window.HOMESTUCK_REFERENCE = {
                 4778
               ],
               "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "blood",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Blood",
+              "value": "Cerulean",
+              "sourcePage": 4928,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4769,
+                2276
+              ]
             }
           ]
         },
@@ -8673,6 +9244,13 @@ window.HOMESTUCK_REFERENCE = {
           "value": "MEENAH",
           "sourcePage": 4751,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "MEENAH PEIXES",
+          "sourcePage": 5002,
+          "sourceKind": "direct",
+          "introLinkPage": 4751
         }
       ],
       "rosterLabel": [
@@ -8708,6 +9286,13 @@ window.HOMESTUCK_REFERENCE = {
                 4754
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Abdicated heiress of the pre-Scratch trolls",
+              "sourcePage": 4931,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -8750,11 +9335,318 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Status"
             }
           ]
+        },
+        {
+          "id": "blood",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Blood",
+              "value": "Fuchsia · Highest caste",
+              "sourcePage": 4931,
+              "sourcePages": [
+                2441,
+                5003
+              ],
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "The Condesce (post-Scratch self)",
+              "sourcePage": 5002,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5003
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tavrisprite",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-3",
+      "introPage": 4834,
+      "sourcePage": 4834,
+      "sourceKind": "intro",
+      "rosterColumn": 1,
+      "name": [
+        {
+          "from": "act-6-act-3",
+          "value": "TAVRISPRITE",
+          "sourcePage": 4834,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-3",
+          "value": "Tavrisprite",
+          "sourcePage": 4834,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-tavrisprite.webp",
+            "alt": "Tavrisprite, a blue sprite combining Tavros and Vriska"
+          },
+          "sourcePage": 4834,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Jane's briefly existing sprite guide",
+              "sourcePage": 4834,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4835
+              ]
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Components",
+              "value": "Tavros Nitram + Vriska Serket",
+              "sourcePage": 4830,
+              "sourceKind": "visual",
+              "sourcePages": [
+                4831,
+                4833
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Exploded; its two component ghosts returned to the afterlife",
+              "sourcePage": 4837,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4839
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roxys-mom",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-3",
+      "introPage": 4861,
+      "sourcePage": 4861,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "from": "act-6-act-3",
+          "value": "ROXY'S MOM",
+          "sourcePage": 4861,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-3",
+          "value": "Roxy's mom",
+          "sourcePage": 4861,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-roxys-mom.webp",
+            "alt": "Roxy's mom holding her needles"
+          },
+          "sourcePage": 4869,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Roxy's genetic ancestor; wizard novelist and resistance fighter",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4861
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Needles",
+              "sourcePage": 4870,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Presumed deceased in Dirk's historical account",
+              "sourcePage": 4874,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872
+              ]
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Rose Lalonde (pre-Scratch self)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872,
+                4706
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dirks-bro",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-3",
+      "introPage": 4860,
+      "sourcePage": 4860,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "from": "act-6-act-3",
+          "value": "DIRK'S BRO",
+          "sourcePage": 4860,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-3",
+          "value": "Dirk's bro",
+          "sourcePage": 4860,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-dirks-bro.webp",
+            "alt": "Dirk's bro in a suit and round sunglasses"
+          },
+          "sourcePage": 4866,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Dirk's genetic ancestor; filmmaker and resistance fighter",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4861
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Sword",
+              "sourcePage": 4867,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Presumed deceased in Dirk's historical account",
+              "sourcePage": 4874,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872
+              ]
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Dave Strider (pre-Scratch self)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872,
+                4706
+              ]
+            }
+          ]
         }
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-intermission-2",
+  "conceptsPreparedThrough": "act-6-act-3",
   "concepts": [
     {
       "id": "alchemy",
@@ -9182,6 +10074,18 @@ window.HOMESTUCK_REFERENCE = {
             26
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Pesterchum",
+          "aliases": [],
+          "definition": "The messaging application the human kids use, with conversations called pestering. Calliope supplies a modified version that connects Roxy and Dirk's future to Jane and Jake's time. Their clocks advance together in lockstep, allowing ongoing conversations across the four-century gap.",
+          "sourcePage": 25,
+          "sourceKind": "composite",
+          "sourcePages": [
+            26,
+            4846
+          ]
         }
       ]
     },
@@ -10000,6 +10904,22 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Sprite",
+          "aliases": [],
+          "definition": "A prototyped guide carrying the traits and personalities of its ingredients, which can include people or lusii. Combining two people does not guarantee a workable identity: Tavrisprite merges Tavros and Vriska but destroys itself almost immediately, returning both to the dream bubbles.",
+          "sourcePage": 4833,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4834,
+            4835,
+            4837,
+            4839,
+            2088,
+            1657
+          ]
         }
       ]
     },
@@ -10440,6 +11360,23 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Dreamself",
+          "aliases": [
+            "Dream self",
+            "Dreamselves"
+          ],
+          "definition": "A player's counterpart on Prospit or Derse, which can replace a dead waking body through kiss revival or god-tier ascension. Kissing Dirk's severed head revives his dreamself rather than repairing that corpse. If the dreamself dies first, the surviving waking player can instead visit dream bubbles while asleep.",
+          "sourcePage": 5244,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5252,
+            3091,
+            3630,
+            4875
+          ]
         }
       ]
     },
@@ -11001,6 +11938,23 @@ window.HOMESTUCK_REFERENCE = {
             1927,
             1988
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Lotus time capsule",
+          "aliases": [
+            "Time capsule"
+          ],
+          "definition": "A flower-shaped storage device that releases objects when its timer ends. Jake retrieves the weapons for his gift rabbit from the frog-temple capsule, then sees another countdown begin. Dirk and Roxy later use that same mechanism to emerge on Jake's island from the temple's earlier history.",
+          "sourcePage": 5022,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5023,
+            5252,
+            1366,
+            1368,
+            1912
+          ]
         }
       ]
     },
@@ -11376,6 +12330,22 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Royal ring",
+          "aliases": [],
+          "definition": "A queen's ring grants powers and, when pre-entry prototyping occurs, the prototypes' traits. Jack's ring gains Bec's first guardian powers; the post-Scratch Ring of Orbs Nofold leaves its wearer unchanged but grants invisibility and Red Miles. These rings do not transform humans as they do carapacian wearers.",
+          "sourcePage": 4945,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4946,
+            4947,
+            4948,
+            4109,
+            3238,
+            1674
+          ]
         }
       ]
     },
@@ -11604,6 +12574,20 @@ window.HOMESTUCK_REFERENCE = {
             2396
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Imperial drone",
+          "aliases": [],
+          "definition": "An enforcer collecting genetic material for troll reproduction and killing those who cannot comply. On post-Scratch Earth, the Condesce imposed a similar system on humans and later replaced the drones with machines. Robotic drones also attack Dirk and Roxy as they prepare to enter the game.",
+          "sourcePage": 4848,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4850,
+            4961,
+            2069,
+            2396
+          ]
         }
       ]
     },
@@ -11622,6 +12606,20 @@ window.HOMESTUCK_REFERENCE = {
             2448
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Hemospectrum",
+          "aliases": [],
+          "definition": "The range of troll blood colors used to rank castes. Alternia turns it into a hierarchy of domination; Aranea describes her earlier world's order as assigning higher castes responsibility for those below. Calliope also mentions an extinct lime-blood caste, but presents its powerful abilities as her historical speculation.",
+          "sourcePage": 4928,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4962,
+            2338,
+            2439,
+            2448
+          ]
         }
       ]
     },
@@ -12182,6 +13180,19 @@ window.HOMESTUCK_REFERENCE = {
             4777,
             4778
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped environment where ghosts and living visitors meet in the Furthest Ring. Awake travelers can enter one physically, as the meteor passengers do. Its afterlife is not guaranteed safety: Lord English can destroy a bubble and its ghostly inhabitants, leaving fractures in the surrounding space.",
+          "sourcePage": 4687,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4689,
+            4777,
+            5261
+          ]
         }
       ]
     },
@@ -12563,6 +13574,26 @@ window.HOMESTUCK_REFERENCE = {
             4016,
             4017
           ]
+        },
+        {
+          "term": "Genesis Frog",
+          "aliases": [
+            "Speaker of the Vast Croak",
+            "Bilious Slick",
+            "Speaker of the Vast Joke"
+          ],
+          "from": "act-6-act-3",
+          "definition": "The frog containing a created universe and all its related instances, including doomed offshoots and scratched versions. Calliope explains that if the frog dies, all those realities eventually follow. The trolls' frog is the kids' universe; Karkat believes his incomplete breeding gave it cancer.",
+          "sourcePage": 5083,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4005,
+            4009,
+            4011,
+            4016,
+            4017,
+            3319
+          ]
         }
       ]
     },
@@ -12881,6 +13912,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             2555
+          ]
+        },
+        {
+          "term": "Red Miles",
+          "aliases": [],
+          "from": "act-6-act-3",
+          "definition": "Branching red tendrils unleashed through a royal ring. The post-Scratch Dignitary attacks Derse with them, while the Miles reaching Earth come from Jack's separate attack on the Genesis Frog. Calliope explains that killing the frog eventually destroys all the universe's internal instances, including its scratched versions.",
+          "sourcePage": 4948,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4949,
+            5072,
+            5083
           ]
         }
       ]
@@ -14446,6 +15490,19 @@ window.HOMESTUCK_REFERENCE = {
             4813,
             4111
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "The indestructible demon who emerged from Doc Scratch's corpse and killed the author avatar. He now attacks a dream bubble, annihilating its ghostly inhabitants and leaving fractures in the surrounding space. His assault threatens the afterlife itself.",
+          "sourcePage": 4111,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4812,
+            4813,
+            5261
+          ]
         }
       ]
     },
@@ -14572,6 +15629,24 @@ window.HOMESTUCK_REFERENCE = {
             2101
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Tavros Nitram",
+          "aliases": [
+            "Tavros",
+            "adiosToreador"
+          ],
+          "definition": "The trolls' Page of Breath, existing as a ghost after Vriska killed him. Gamzee briefly revives his corpse alongside hers as Tavrisprite. Back in the dream bubbles after the sprite explodes, he remembers sharing her confidence, while Vriska pressures him to join her plans.",
+          "sourcePage": 4830,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4833,
+            4837,
+            4839,
+            4840,
+            3360
+          ]
         }
       ]
     },
@@ -14924,6 +15999,24 @@ window.HOMESTUCK_REFERENCE = {
             2195
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "The trolls' god-tier Thief of Light, now a ghost. Gamzee briefly combines her corpse with Tavros's in Tavrisprite, an experience she despises. After its destruction, she admits killing Tavros was her fault but soon uses mind control to pull him into her plan to regain relevance.",
+          "sourcePage": 4830,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4833,
+            4837,
+            4839,
+            4840,
+            3771
+          ]
         }
       ]
     },
@@ -15030,6 +16123,24 @@ window.HOMESTUCK_REFERENCE = {
             3360,
             4357,
             4358
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The trolls' Bard of Rage, now appearing on Jane's land in Bard clothing with Aradia's timetables. He sells dubious potions, then prototypes Tavros and Vriska's corpses together to make Tavrisprite. The sprite's brief, disastrous existence leaves Jane without the dependable guide she wanted.",
+          "sourcePage": 4825,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4827,
+            4828,
+            4830,
+            4833,
+            4837
           ]
         }
       ]
@@ -15457,6 +16568,28 @@ window.HOMESTUCK_REFERENCE = {
             4665
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The Alternian empress and Meenah's post-Scratch counterpart. Her conquest of Earth, attempts to remake its population, and deliberate flooding precede her takeover of the kids' new Derse. She serves Lord English while expanding her powers, including control over GCat and other creatures.",
+          "sourcePage": 5002,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5003,
+            4847,
+            4848,
+            4849,
+            4850,
+            4873,
+            4944
+          ]
         }
       ]
     },
@@ -15595,6 +16728,21 @@ window.HOMESTUCK_REFERENCE = {
             4151,
             4152
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Gristwidget",
+          "aliases": [],
+          "definition": "A Crockercorp device that consumes a captchalogued object to produce grist, charging a boondollar fee. Jane converts a valuable obelisk and learns its built-in Grist Gutter collects overflow beyond her cache limit. Recording the original captcha code lets her reconstruct the object through ordinary alchemy.",
+          "sourcePage": 4150,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4151,
+            4957,
+            4958,
+            4959,
+            4961
+          ]
         }
       ]
     },
@@ -15649,6 +16797,20 @@ window.HOMESTUCK_REFERENCE = {
             4613,
             4616,
             4617
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Transmaterializer",
+          "aliases": [],
+          "definition": "A uranium-powered device for sending and retrieving objects between universe instances whose time flows are synchronized. Jake uses it to send the completed gift rabbit, Terry Kiser, to pre-Scratch Jade; its later name is Liv Tyler. His correspondence with his younger grandmother is a cross-universe connection, not simply ordinary travel into his own past.",
+          "sourcePage": 5026,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5027,
+            4181,
+            4222,
+            4612
           ]
         }
       ]
@@ -15731,6 +16893,24 @@ window.HOMESTUCK_REFERENCE = {
             4596,
             4601
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The Maid of Life, now exploring the Land of Crypts and Helium in search of her father. Gamzee forces a disastrous sprite on her. After she follows Lil' Seb to Derse and the Red Miles kill her original body, Dirk revives her dreamself; she rejoins her friends for their entries.",
+          "sourcePage": 4820,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4833,
+            4837,
+            5245,
+            5252,
+            5257
+          ]
         }
       ]
     },
@@ -15795,6 +16975,26 @@ window.HOMESTUCK_REFERENCE = {
             4587,
             4588
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The post-Scratch Page of Hope, drawn into a dream-bubble meeting with Aranea and the meteor travelers. He finishes the gift rabbit's journey to Jade, then reaches Derse through the island's ruins. After returning home, his kiss on Dirk's severed head enables their rescue and entry plan.",
+          "sourcePage": 4875,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4926,
+            5015,
+            5026,
+            5062,
+            5244,
+            5252,
+            5257
+          ]
         }
       ]
     },
@@ -15854,6 +17054,28 @@ window.HOMESTUCK_REFERENCE = {
             4753,
             4756,
             4514
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The post-Scratch Rogue of Void, trying to protect the Carapacians who helped raise her. The Red Miles kill her waking body, but Dirk revives her dreamself and brings her to Jake's island. Before entering the Medium, she learns Calliope's name and promises to help her wake again.",
+          "sourcePage": 4851,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5079,
+            5081,
+            5091,
+            5092,
+            5238,
+            5252,
+            5259
           ]
         }
       ]
@@ -15921,6 +17143,27 @@ window.HOMESTUCK_REFERENCE = {
             4566,
             4479
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart, whose splintered existence includes his responder and a projection in Jake's mind. When his friends face death, he wakes, revives Roxy, and sends Jake his own severed head. Jake's kiss restores Dirk through his dreamself, who revives Jane and brings the group together to enter.",
+          "sourcePage": 4875,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5206,
+            5238,
+            5244,
+            5252,
+            5258
+          ]
         }
       ]
     },
@@ -15956,6 +17199,25 @@ window.HOMESTUCK_REFERENCE = {
             4514,
             4565,
             4566
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "Calliope, formerly known only as UU, is a cherub and the prospective Muse of Space. She shares a waking body with her hostile brother Caliborn. With her Prospitian dreamself killed, she fears her next sleep may be permanent and asks Roxy to use her name to help wake her.",
+          "sourcePage": 5091,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5092,
+            5093,
+            5015,
+            5120,
+            5224
           ]
         }
       ]
@@ -16021,6 +17283,24 @@ window.HOMESTUCK_REFERENCE = {
             4174,
             4181
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Jade English",
+          "aliases": [
+            "Jake's grandma",
+            "Grandma"
+          ],
+          "definition": "Jade English, Jake's grandmother and the Baroness's runaway adopted daughter. She built a rival technology company and explored the island's ruins. Jake found her fatally wounded shortly before their house exploded, cremated her body to protect it from the monsters, and preserved her ashes underground.",
+          "sourcePage": 4854,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4855,
+            4857,
+            4858,
+            4859,
+            4173
+          ]
         }
       ]
     },
@@ -16062,6 +17342,21 @@ window.HOMESTUCK_REFERENCE = {
             4491,
             4553,
             4563
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Lil Hal",
+          "aliases": [
+            "Auto-responder",
+            "Auto responder"
+          ],
+          "definition": "The self-aware software in Dirk's sunglasses, now calling himself Lil Hal. Still sharing Dirk's handle, he coordinates server connections and pushes Jake to kiss Dirk's severed head, allowing the dreamself to take over. He evades Jake's suspicions about whether he planned the crisis.",
+          "sourcePage": 5244,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5245,
+            5246
           ]
         }
       ]
@@ -16241,6 +17536,22 @@ window.HOMESTUCK_REFERENCE = {
             4600,
             4601
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [],
+          "definition": "The post-Scratch Dersite archagent, now imprisoned on Prospit after trying to assassinate its dreamers. The Droll smuggles knives into his cell; Jack turns them against the guards and sends a severed head to their queen. His incarceration leaves the Dignitary handling his duties on Derse.",
+          "sourcePage": 4878,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4887,
+            4892,
+            4915,
+            4919,
+            4924,
+            4932
+          ]
         }
       ]
     },
@@ -16273,6 +17584,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4407,
             4546
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Post-Scratch Draconian Dignitary",
+          "aliases": [],
+          "definition": "The post-Scratch Dignitary, acting in the post-Scratch Jack Noir's place while the archagent is imprisoned. He persuades the Condesce to lend him the Ring of Orbs Nofold. It leaves his appearance unchanged but grants invisibility and the Red Miles, which he unleashes across Derse to flush out Dirk.",
+          "sourcePage": 4932,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4933,
+            4940,
+            4945,
+            4946,
+            4947,
+            4948
           ]
         }
       ]
@@ -16316,6 +17643,23 @@ window.HOMESTUCK_REFERENCE = {
             4402,
             4407
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Post-Scratch Courtyard Droll",
+          "aliases": [
+            "Courtyard Droll (post-Scratch)",
+            "Post-Scratch Droll"
+          ],
+          "definition": "The post-Scratch Dersite demolitions specialist who destroyed the unevolved Battlefield. While Jack is imprisoned on Prospit, the Droll smuggles a supply of knives inside a pumpkin to help him escape. Jack had hoped for a bomb, but finds other violent uses for the gift.",
+          "sourcePage": 4703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4887,
+            4892,
+            4893,
+            4933
+          ]
         }
       ]
     },
@@ -16339,6 +17683,22 @@ window.HOMESTUCK_REFERENCE = {
             4614,
             4644
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "GCat",
+          "aliases": [
+            "God Cat"
+          ],
+          "definition": "The teleporting cat known to the post-Scratch kids as God Cat, whose interventions can save them or disrupt their plans. He is now shown with the Condesce, under her psychic control. His earlier rescue of Jane therefore does not establish that he acts independently of her interests.",
+          "sourcePage": 4424,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4425,
+            4426,
+            4944,
+            4873
+          ]
         }
       ],
       "characterId": "gcat"
@@ -16359,6 +17719,19 @@ window.HOMESTUCK_REFERENCE = {
             4540,
             4542
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Squarewave",
+          "aliases": [],
+          "definition": "Dirk's beatboxing rap robot, built without the skill needed to match Sawtooth. When Dirk reaches Roxy's home during the Red Miles attack, he deploys Squarewave there. The robot helps finish the preparations that allow her house to enter the Medium.",
+          "sourcePage": 4523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5238,
+            5254,
+            5259
+          ]
         }
       ],
       "characterId": "squarewave"
@@ -16374,6 +17747,19 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Dirk's other rapbot, designed to be unbeatable in a rap battle. Dirk has never defeated him and has not seen him for months. He keeps a spare head in his room and imagines Sawtooth roaming the world, defeating anyone willing to challenge him.",
           "sourcePage": 4523,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Sawtooth",
+          "aliases": [],
+          "definition": "Dirk's undefeated rap-battle robot, now shown in a long black cloak concealing missile launchers. He rescues Dirk from attacking imperial drones, then helps complete entry preparations while Dirk brings the four players together. His role extends beyond the bedroom rap battles that first introduced him.",
+          "sourcePage": 4523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4967,
+            4968,
+            5253
+          ]
         }
       ],
       "characterId": "sawtooth"
@@ -16396,6 +17782,22 @@ window.HOMESTUCK_REFERENCE = {
             4648,
             4649,
             4650
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "Caliborn, the hostile correspondent uu, shares a waking body with Calliope. He bribes his session's archagent to kill her dreamself and rejects their planned cooperation. After she sleeps, he escapes his restraint by amputating a leg, fits a robotic replacement, and begins an entry that swallows his planet into a black hole.",
+          "sourcePage": 4977,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5093,
+            5120,
+            5261
           ]
         }
       ],
@@ -16499,6 +17901,22 @@ window.HOMESTUCK_REFERENCE = {
             4475,
             4476
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Complacency of the Learned",
+          "aliases": [
+            "CotL"
+          ],
+          "definition": "The wizard series written by Roxy's mother, centering on Calmasis and Zazzerpan. Dirk describes the books as coded opposition to the Condesce: their allegories let a reader who understood her origins recognize that the author was aware of them. Roxy loves the novels and writes her own wizard fiction.",
+          "sourcePage": 4474,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4475,
+            4476,
+            4860,
+            4861
+          ]
         }
       ]
     },
@@ -16518,6 +17936,21 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4513,
             4564
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Player class",
+          "aliases": [
+            "Class"
+          ],
+          "definition": "The part of a hero's title describing how they use an aspect. Calliope presents active and passive classes as paired approaches, with important individual exceptions. She also describes two rare master classes at the extremes of that scale, identifying her own as Muse while withholding her brother's class name.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4514,
+            4564,
+            5093
           ]
         }
       ]
@@ -16610,6 +18043,20 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "An aspect concerned with the soul or essence of a person. UU suggests Dirk's divided awareness fits a Heart player's path of a splintered self. She distinguishes such possible traits from a universal rule: his Prince class determines the destructive form his potential abilities could take.",
           "sourcePage": 4564,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Heart",
+          "aliases": [],
+          "definition": "The aspect associated with the soul and self. Dirk's divided awareness and multiple splinters illustrate this connection: his software responder and the projection in Jake's mind are distinct manifestations. His dreamself later joins that projection in a dream bubble. His Prince title still describes potential soul-destroying abilities rather than a demonstrated feat.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4514,
+            4564,
+            4875,
+            5206
+          ]
         }
       ]
     },
@@ -16663,6 +18110,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 4648,
           "sourceKind": "composite",
           "sourcePages": [
+            4649,
+            4650
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Juju",
+          "aliases": [],
+          "definition": "A talisman with unusual properties and rules. Calliope says jujus cannot truly be duplicated or completely destroyed: transferring ownership makes her own instance disappear rather than producing an independent copy. She plans to give Jane hers, but says it only works together with her brother's, which she cannot obtain without beating him.",
+          "sourcePage": 4962,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4648,
             4649,
             4650
           ]
@@ -16797,6 +18257,20 @@ window.HOMESTUCK_REFERENCE = {
             4717,
             4718
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Rose's journal",
+          "aliases": [],
+          "definition": "Rose's record of the group's adventures and game research, written for future readers. Calliope possesses it as an ancient source, misreading Dave and Karkat's scribbles as a clue about her brother. Indigo redactions obscure information about Lord English and a soda-drinking troll, leaving major gaps in her understanding.",
+          "sourcePage": 4701,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4718,
+            5108,
+            5109,
+            5110
+          ]
         }
       ]
     },
@@ -16816,6 +18290,23 @@ window.HOMESTUCK_REFERENCE = {
             4775,
             4776,
             4777
+          ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Aranea Serket",
+          "aliases": [
+            "Aranea"
+          ],
+          "definition": "The pre-Scratch counterpart of Mindfang, a ghost and Sylph of Light. She gathers the travelers to explain her group's history and Meenah's part in their survival as ghosts. Her psychic abilities can control trolls, but only sense human emotions; she also helps wake Dirk from his dream-bubble visit.",
+          "sourcePage": 4926,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4993,
+            4994,
+            4997,
+            5002,
+            5235
           ]
         }
       ],
@@ -16837,9 +18328,307 @@ window.HOMESTUCK_REFERENCE = {
             4754,
             4778
           ]
+        },
+        {
+          "from": "act-6-act-3",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "The pre-Scratch counterpart of the Condesce, who abandoned her duty as troll heiress and discovered Sgrub while hiding on the moon. She killed her whole player group before the Scratch so they could persist as ghosts. Hearing about her counterpart's conquests delights her, though she is a separate person.",
+          "sourcePage": 4931,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4993,
+            4994,
+            4997,
+            5002,
+            5003,
+            5007
+          ]
         }
       ],
       "characterId": "meenah"
+    },
+    {
+      "id": "carapacian",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Carapacian",
+          "aliases": [
+            "Carapacians"
+          ],
+          "definition": "One of the hard-shelled people associated with Prospit and Derse, including the royal agents and exiles. Dirk explains that the Condesce brought many to post-Scratch Earth as humanity declined. They live in floating colonies, including the one where Roxy grew up.",
+          "sourcePage": 4851,
+          "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "noble",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Noble",
+          "aliases": [
+            "Nobles"
+          ],
+          "definition": "The title given to Jane and her coplayers in the inscriptions on her land. It describes figures whose own session cannot achieve victory unaided, rather than a player class. Their quest requires outside intervention and cooperation with arriving heroes.",
+          "sourcePage": 4820,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4703
+          ]
+        }
+      ]
+    },
+    {
+      "id": "locah",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Land of Crypts and Helium",
+          "aliases": [
+            "LOCAH"
+          ],
+          "definition": "Jane's land, filled with balloons, crypts and the remains of a long-dead salamander civilization. Its inhabitants prepared for a Maid who would arrive far too late for them. Hemera, the denizen, remains; puzzles involving skulls, lanterns and reflected light lead Jane toward her house and onward quest.",
+          "sourcePage": 4820,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4825
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lusidroid",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Lusidroid",
+          "aliases": [],
+          "definition": "A robotic substitute for a lusus introduced under the Condesce's rule of post-Scratch Earth. Dirk describes an earlier attempt to have living lusii raise human children as a disaster. Mechanical caretakers followed, but their system too had ended by his lifetime.",
+          "sourcePage": 4849,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4850
+          ]
+        }
+      ]
+    },
+    {
+      "id": "master-class",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Master class",
+          "aliases": [
+            "Master classes"
+          ],
+          "definition": "One of the two exceptionally rare classes Calliope describes at the extremes of the active/passive scale. Her Muse is the most passive; her brother has the most active class. She withholds its name when Roxy asks.",
+          "sourcePage": 5093,
+          "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "muse",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Muse",
+          "aliases": [],
+          "definition": "The master class Calliope identifies as the most passive, calling herself the Muse of Space. She describes it as reserved for female players, but admits she does not yet know what its abilities will be.",
+          "sourcePage": 5093,
+          "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "page",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Page",
+          "aliases": [],
+          "definition": "A player class described by Dirk's projection as having enormous untapped potential that may take a long time to develop. Jake is a Page of Hope. This describes a possibility for his growth, rather than mastery he has already achieved.",
+          "sourcePage": 4875,
+          "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "cherub",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Cherub",
+          "aliases": [
+            "Cherubs"
+          ],
+          "definition": "Calliope's species, distinct from humans and trolls despite some superficial similarities. She describes a solitary race with violent, confrontational courtship. She and Caliborn share a waking body, taking turns being awake; saying the sleeping sibling's name can force a changeover.",
+          "sourcePage": 5092,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5093,
+            5120
+          ]
+        }
+      ]
+    },
+    {
+      "id": "juju-modus",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Juju modus",
+          "aliases": [],
+          "definition": "The inventory system shared by Calliope and Caliborn. Anything one captchalogues can only be retrieved by the other, so Calliope keeps treasured belongings outside her sylladex. Their stored possessions consequently function more like a shared dumping ground than a convenient personal inventory.",
+          "sourcePage": 5103,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5105
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sarswapagus",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Sarswapagus",
+          "aliases": [],
+          "definition": "The coffin-like bed Calliope and Caliborn share, marked with their red and green spirals. Each sibling uses a different locked shackle to protect possessions while asleep. The anchors and chains have a juju enchantment; Caliborn escapes his remaining restraint by biting off his own leg.",
+          "sourcePage": 5118,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5119,
+            5120,
+            5261
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brain-ghost-dirk",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Brain ghost Dirk",
+          "aliases": [],
+          "definition": "A projection in Jake's mind that calls itself a splinter of Dirk, distinct from his dreamself and software responder. Terezi can perceive it when others cannot, and it remains after Jake wakes. Dirk's actual dreamself later joins the projection when he enters the dream bubble.",
+          "sourcePage": 4875,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5008,
+            5013,
+            5206
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ring-of-orbs-nofold",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Ring of Orbs Nofold",
+          "aliases": [],
+          "definition": "The unprototyped royal ring worn by the post-Scratch Draconian Dignitary. With no pre-entry prototypes, it leaves his appearance unchanged, but still grants invisibility and the Red Miles. Its attack on Derse is distinct from Jack's assault on the universe containing Earth.",
+          "sourcePage": 4945,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4946,
+            4947,
+            4948,
+            5072
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-tavrisprite",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Tavrisprite",
+          "aliases": [],
+          "definition": "The sprite Gamzee makes for Jane by throwing Tavros and Vriska's corpses into her kernelsprite. Its two personalities prove intolerable to their combined self, and it explodes almost immediately. Tavros and Vriska return to the dream bubbles separately, retaining memories of the brief merger.",
+          "sourcePage": 4830,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4831,
+            4833,
+            4834,
+            4837,
+            4839
+          ]
+        }
+      ],
+      "characterId": "tavrisprite"
+    },
+    {
+      "id": "person-roxys-mom",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Roxy's mom",
+          "aliases": [
+            "Roxy's mother"
+          ],
+          "definition": "Roxy's genetic ancestor, the author of Complacency of the Learned. Dirk describes her novels as veiled opposition to the Condesce, followed by open resistance against the regime. She kills Guy Fieri with her needles; the final circumstances of her own death remain uncertain in Dirk's account.",
+          "sourcePage": 4860,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4861,
+            4869,
+            4870,
+            4871,
+            4874
+          ]
+        }
+      ],
+      "characterId": "roxys-mom"
+    },
+    {
+      "id": "person-dirks-bro",
+      "reveal": "act-6-act-3",
+      "variants": [
+        {
+          "from": "act-6-act-3",
+          "term": "Dirk's bro",
+          "aliases": [
+            "Dirk's brother"
+          ],
+          "definition": "Dirk's genetic ancestor, remembered as a filmmaker and resistance fighter rather than the brother who actually raised him. His Sweet Bro and Hella Jeff films mocked the Condesce through elaborate irony. He kills the regime's dual presidents; Dirk's account is less certain about what happened to him afterward.",
+          "sourcePage": 4860,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4861,
+            4862,
+            4867,
+            4868,
+            4874
+          ]
+        }
+      ],
+      "characterId": "dirks-bro"
     }
   ]
 };

@@ -72,6 +72,9 @@
     'auto-responder': '#e00707',
     'brobot': '#f2a400',
     'lil-seb': '#e00707',
+    'tavrisprite': '#0715cd',
+    'roxys-mom': '#b536da',
+    'dirks-bro': '#e00707',
     'aranea': '#005682',
     'meenah': '#77003c',
     'aradia': '#a10000',
@@ -500,14 +503,13 @@
       .map(entry => [entry.id, entry.characterId]));
     const phrases = new Map();
     for (const { id, variant } of available) {
-      if (id === ownId) continue;
       for (const phrase of [variant.term, ...(variant.aliases || []), ...(variant.linkPhrases || [])]) {
         const key = phrase.toLowerCase();
         // Ambiguous labels remain plain text rather than choosing an arbitrary entry.
         phrases.set(key, phrases.has(key) && phrases.get(key) !== id ? null : id);
       }
     }
-    const labels = [...phrases.keys()].filter(key => phrases.get(key))
+    const labels = [...phrases.keys()].filter(key => phrases.get(key) && phrases.get(key) !== ownId)
       .sort((a, b) => b.length - a.length)
       .map(label => label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     if (!labels.length) {
