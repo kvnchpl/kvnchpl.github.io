@@ -7285,6 +7285,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-4",
+              "label": "Weapon",
+              "value": "Oversized fork",
+              "sourcePage": 5438,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "inventory",
           "variants": [
             {
@@ -7466,6 +7478,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-6-act-4",
+              "label": "Land",
+              "value": "Land of Pyramids and Neon (LOPAN)",
+              "sourcePage": 5438,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "dream-moon",
           "variants": [
             {
@@ -7498,6 +7522,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Laser gun",
               "sourcePage": 4471,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-4",
+              "label": "Weapon",
+              "value": "Rifle that deploys fenestrated planes",
+              "sourcePage": 5438,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7664,6 +7695,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Prince of Heart",
               "sourcePage": 4564,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-6-act-4",
+              "label": "Land",
+              "value": "Land of Tombs and Krypton (LOTAK)",
+              "sourcePage": 5438,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7851,6 +7894,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-6-act-4",
+              "label": "Land",
+              "value": "Land of Mounds and Xenon (LOMAX)",
+              "sourcePage": 5438,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "dream-moon",
           "variants": [
             {
@@ -7874,6 +7929,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Twin M9 Berettas",
               "sourcePage": 4164,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-4",
+              "label": "Weapon",
+              "value": "Paired golden pistols",
+              "sourcePage": 5438,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -8638,6 +8700,22 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 4407
+              ]
+            },
+            {
+              "from": "act-6-act-4",
+              "label": "Role",
+              "value": "Dersite archagent; imprisoned on Prospit",
+              "sourcePage": 5438,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4878,
+                4887,
+                4892,
+                4915,
+                4919,
+                4924,
+                4932
               ]
             }
           ]
@@ -11005,7 +11083,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-intermission-3",
+  "conceptsPreparedThrough": "act-6-act-4",
   "concepts": [
     {
       "id": "alchemy",
@@ -18578,6 +18656,23 @@ window.HOMESTUCK_REFERENCE = {
             5252,
             5257
           ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The Maid of Life, now exploring the post-Scratch Medium through her revived dreamself. On Roxy's land, she uses paired fenestrated planes to cross from the ground to a pyramid and reach a gate. She carries an oversized fork as the friends continue their session together.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4144,
+            4401,
+            5245,
+            5252
+          ]
         }
       ]
     },
@@ -18662,6 +18757,21 @@ window.HOMESTUCK_REFERENCE = {
             5252,
             5257
           ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The Page of Hope, exploring the Land of Mounds and Xenon after entering the Medium. He fights a huge skeletal enemy with golden pistols, then joins Dirk on the Land of Tombs and Krypton. Wearing gas masks, the two encounter a sun-headed denizen.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4216,
+            4875
+          ]
         }
       ]
     },
@@ -18743,6 +18853,25 @@ window.HOMESTUCK_REFERENCE = {
             5238,
             5252,
             5259
+          ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void, exploring the Land of Pyramids and Neon through her revived dreamself. She carries a rifle that deploys fenestrated planes at a distance. By positioning one atop a pyramid, she provides Jane a route from a linked window on the ground toward a higher gate.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4514,
+            4566,
+            5238,
+            5252
           ]
         }
       ]
@@ -18830,6 +18959,27 @@ window.HOMESTUCK_REFERENCE = {
             5244,
             5252,
             5258
+          ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart, exploring the Land of Tombs and Krypton through his revived dreamself. Carrying his katana, he moves among smoky towers and skeletal enemies. Jake joins him, and both wear gas masks as they encounter a sun-headed denizen above a great tomb.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4518,
+            4564,
+            5238,
+            5244,
+            5252
           ]
         }
       ]
@@ -19236,6 +19386,23 @@ window.HOMESTUCK_REFERENCE = {
             4924,
             4932
           ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [],
+          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit while the new players explore their lands. He scratches many tally marks into his cell wall using an improvised golden point. Eventually the tool snaps, and he looks out through the bars of his window.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4878,
+            4887,
+            4892,
+            4915,
+            4919,
+            4924,
+            4932
+          ]
         }
       ]
     },
@@ -19535,6 +19702,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 4510,
           "sourceKind": "composite",
           "sourcePages": [
+            4464,
+            4503,
+            4507,
+            4508,
+            4515
+          ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Fenestrated plane",
+          "aliases": [],
+          "definition": "A linked window used for travel, studied by Roxy as dark fenestrology. Its paired windows span a gap that becomes dangerous if their power fails. Roxy's rifle can position a distant window, letting Jane cross from the ground to the top of a pyramid.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4510,
             4464,
             4503,
             4507,
@@ -19885,6 +20068,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 4702,
           "sourceKind": "composite",
           "sourcePages": [
+            4703,
+            4705
+          ]
+        },
+        {
+          "from": "act-6-act-4",
+          "term": "Void session",
+          "aliases": [],
+          "definition": "A session without pre-entry prototyping: its enemies remain unaugmented, its Battlefield cannot grow a universe, and no normal Reckoning occurs. The new players explore burial-themed lands inhabited by skeletal foes. Rose's proposed remedy still depends on bringing in Jade's mature Battlefield.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4702,
             4703,
             4705
           ]
@@ -20753,6 +20949,70 @@ window.HOMESTUCK_REFERENCE = {
             5434,
             5435
           ]
+        }
+      ]
+    },
+    {
+      "id": "lomax",
+      "reveal": "act-6-act-4",
+      "variants": [
+        {
+          "from": "act-6-act-4",
+          "term": "Land of Mounds and Xenon",
+          "aliases": [
+            "LOMAX"
+          ],
+          "definition": "Jake's land in the post-Scratch session, a green world divided by glowing purple fissures. Burial mounds and red stone circles cover its hills, with skeletal creatures roaming the surface. Jake fights a towering monster there using paired golden pistols.",
+          "sourcePage": 5438,
+          "sourceKind": "visual"
+        }
+      ]
+    },
+    {
+      "id": "lopan",
+      "reveal": "act-6-act-4",
+      "variants": [
+        {
+          "from": "act-6-act-4",
+          "term": "Land of Pyramids and Neon",
+          "aliases": [
+            "LOPAN"
+          ],
+          "definition": "Roxy's land in the post-Scratch session, filled with pyramids beneath a sky of wispy, colorful light. Her rifle positions a fenestrated plane high on a pyramid, allowing Jane to cross from a linked window on the ground and reach a gate above.",
+          "sourcePage": 5438,
+          "sourceKind": "visual"
+        }
+      ]
+    },
+    {
+      "id": "lotak",
+      "reveal": "act-6-act-4",
+      "variants": [
+        {
+          "from": "act-6-act-4",
+          "term": "Land of Tombs and Krypton",
+          "aliases": [
+            "LOTAK"
+          ],
+          "definition": "Dirk's land in the post-Scratch session, with dark towers, smoke and lightning filling its skyline. Skeletal enemies approach as he moves among the structures. Jake joins him, and the two wear gas masks as they encounter a sun-headed denizen above a monumental tomb.",
+          "sourcePage": 5438,
+          "sourceKind": "visual"
+        }
+      ]
+    },
+    {
+      "id": "skeletal-underlings",
+      "reveal": "act-6-act-4",
+      "variants": [
+        {
+          "from": "act-6-act-4",
+          "term": "Skeletal underlings",
+          "aliases": [
+            "Skeleton monsters"
+          ],
+          "definition": "Skeleton-bodied enemies encountered on the post-Scratch players' lands. Jake fires golden pistols at a towering creature among the mounds, while smaller skeletal monsters approach Dirk through the smoke and towers of his own land.",
+          "sourcePage": 5438,
+          "sourceKind": "visual"
         }
       ]
     }
