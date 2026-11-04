@@ -75,6 +75,16 @@
     'tavrisprite': '#0715cd',
     'roxys-mom': '#b536da',
     'dirks-bro': '#e00707',
+    'damara': '#a10000',
+    'rufioh': '#a16000',
+    'mituna': '#a1a100',
+    'kankri': '#ff0000',
+    'meulin': '#416600',
+    'porrim': '#008141',
+    'latula': '#008282',
+    'horuss': '#000056',
+    'kurloz': '#2b0057',
+    'cronus': '#6a006a',
     'aranea': '#005682',
     'meenah': '#77003c',
     'aradia': '#a10000',
@@ -301,7 +311,9 @@
       const dt = document.createElement('dt');
       const dd = document.createElement('dd');
       dt.textContent = variant.label;
-      appendStatLinks(dd, variant.value);
+      // Blood color names such as Jade do not refer to character profiles.
+      if (stat.id === 'blood') dd.textContent = variant.value;
+      else appendStatLinks(dd, variant.value);
       if (stat.id === 'handle') dd.className = 'profile-handle';
       if (stat.id === 'team') {
         if (variant.value === 'Blue Team') dd.className = 'reference-team-blue';

@@ -791,6 +791,23 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "inventory",
+          "variants": [
+            {
+              "value": "Hussie's gold ring",
+              "sourcePage": 5379,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398,
+                5434,
+                5435
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Inventory"
+            }
+          ]
+        },
+        {
           "id": "powers",
           "variants": [
             {
@@ -799,6 +816,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Wind control",
               "sourcePage": 3238,
               "sourceKind": "direct"
+            },
+            {
+              "value": "Wind control · Transforms into wind",
+              "sourcePage": 5348,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Powers"
             }
           ]
         },
@@ -1805,6 +1829,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Deceased",
               "sourcePage": 3299,
               "sourceKind": "visual"
+            },
+            {
+              "value": "Ghost",
+              "sourcePage": 5383,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5386
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Status"
             }
           ]
         },
@@ -2998,6 +3032,13 @@ window.HOMESTUCK_REFERENCE = {
                 3863,
                 3905
               ]
+            },
+            {
+              "value": "Ghost",
+              "sourcePage": 5386,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Status"
             }
           ]
         },
@@ -5854,6 +5895,30 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "value": "Caliborn",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Also known as"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Lord of Time",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
           "id": "weapon",
           "variants": [
             {
@@ -5968,6 +6033,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual"
             }
           ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Damara Megido (pre-Scratch self)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
         }
       ],
       "sourcePage": 4068,
@@ -6047,6 +6124,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Tavros Nitram",
               "sourcePage": 3758,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Rufioh Nitram (pre-Scratch self)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
             }
           ]
         }
@@ -6135,6 +6224,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual"
             }
           ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Mituna Captor (pre-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
         }
       ],
       "sourcePage": 4058,
@@ -6221,6 +6322,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual"
             }
           ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Kankri Vantas (pre-Scratch self)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
         }
       ],
       "sourcePage": 4054,
@@ -6284,6 +6397,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Nepeta Leijon",
               "sourcePage": 4058,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Meulin Leijon (pre-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
             }
           ]
         }
@@ -6358,6 +6483,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Kanaya Maryam",
               "sourcePage": 4057,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Porrim Maryam (pre-Scratch self)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
             }
           ]
         }
@@ -6465,6 +6602,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 3756
               ]
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Latula Pyrope (pre-Scratch self)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
             }
           ]
         }
@@ -6674,6 +6823,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual"
             }
           ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Horuss Zahhak (pre-Scratch self)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
         }
       ],
       "sourcePage": 3756,
@@ -6734,6 +6895,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Gamzee Makara",
               "sourcePage": 3514,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Kurloz Makara (pre-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
             }
           ]
         }
@@ -6808,6 +6981,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Eridan Ampora",
               "sourcePage": 3508,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Cronus Ampora (pre-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
             }
           ]
         }
@@ -7920,6 +8105,16 @@ window.HOMESTUCK_REFERENCE = {
                 5224,
                 5120
               ]
+            },
+            {
+              "value": "Reported dead; Aranea seeks her ghost",
+              "sourcePage": 5263,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Status"
             }
           ]
         },
@@ -8910,6 +9105,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "value": "Lord English (future identity)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Also known as"
+            }
+          ]
+        },
+        {
           "id": "title",
           "variants": [
             {
@@ -8918,6 +9125,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Hero of Time",
               "sourcePage": 5109,
               "sourceKind": "direct"
+            },
+            {
+              "value": "Lord of Time",
+              "sourcePage": 5263,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5093
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Title"
             }
           ]
         },
@@ -9089,6 +9306,767 @@ window.HOMESTUCK_REFERENCE = {
       "rosterColumn": 4
     },
     {
+      "id": "damara",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5398,
+      "sourcePage": 5398,
+      "sourceKind": "intro",
+      "rosterColumn": 1,
+      "name": [
+        {
+          "value": "DAMARA MEGIDO",
+          "sourcePage": 5398,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Damara",
+          "sourcePage": 5398,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-damara.webp",
+            "alt": "Damara Megido with a hair bun and red shirt"
+          },
+          "sourcePage": 5398,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan player who sabotaged her team",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Witch of Time",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5398,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Handmaid (post-Scratch self)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rufioh",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5398,
+      "sourcePage": 5398,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "value": "RUFIOH NITRAM",
+          "sourcePage": 5398,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Rufioh",
+          "sourcePage": 5398,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-rufioh.webp",
+            "alt": "Rufioh Nitram with a red mohawk and natural wings"
+          },
+          "sourcePage": 5398,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan player; member of the Lost Weeaboos",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Rogue of Breath",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "value": "Natural wings and flight",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5398,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Summoner (post-Scratch self)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "value": "Troll anime · Fiduspawn",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Interests"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mituna",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5308,
+      "sourcePage": 5308,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "value": "MITUNA CAPTOR",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Mituna",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-mituna.webp",
+            "alt": "Mituna Captor in a yellow helmet with a red and blue visor"
+          },
+          "sourcePage": 5308,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan player; formerly a powerful psionic",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Heir of Doom",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5308,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "value": "Lasting impairments after psychic overexertion",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Condition"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Psiioniic (post-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kankri",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5263,
+      "sourcePage": 5263,
+      "sourceKind": "intro",
+      "rosterColumn": 4,
+      "name": [
+        {
+          "value": "KANKRI VANTAS",
+          "sourcePage": 5263,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Kankri",
+          "sourcePage": 5263,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-kankri.webp",
+            "alt": "Kankri Vantas in his red sweater"
+          },
+          "sourcePage": 5263,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Self-appointed spiritual leader of the Beforan players",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Seer of Blood",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5263,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "blood",
+          "variants": [
+            {
+              "value": "Off-spectrum mutant",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Blood"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Signless (post-Scratch self)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "value": "Social justice · Caste and privilege · Extended lectures",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Interests"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "meulin",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5308,
+      "sourcePage": 5308,
+      "sourceKind": "intro",
+      "rosterColumn": 1,
+      "name": [
+        {
+          "value": "MEULIN LEIJON",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Meulin",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-meulin.webp",
+            "alt": "Meulin Leijon in a green Leo shirt and paw gloves"
+          },
+          "sourcePage": 5308,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan player and enthusiastic matchmaker",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Mage of Heart",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5308,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "value": "Deaf since Kurloz's nightmare scream",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Condition"
+            }
+          ]
+        },
+        {
+          "id": "moirail",
+          "variants": [
+            {
+              "value": "Horuss Zahhak",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Moirail"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Disciple (post-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "value": "Matchmaking · Mimes · Cat puns",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Interests"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "porrim",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5263,
+      "sourcePage": 5263,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "value": "PORRIM MARYAM",
+          "sourcePage": 5263,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Porrim",
+          "sourcePage": 5263,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-porrim.webp",
+            "alt": "Porrim Maryam with tattoos and a black dress trimmed in green"
+          },
+          "sourcePage": 5263,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan Space player and critic of assigned social roles",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Maid of Space",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "value": "Glowing skin · Extraordinary speed",
+              "sourcePage": 5398,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-3",
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "value": "Rainbow drinker",
+              "sourcePage": 5263,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Form"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5263,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "blood",
+          "variants": [
+            {
+              "value": "Jade",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Blood"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Dolorosa (post-Scratch self)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latula",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5263,
+      "sourcePage": 5263,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "value": "LATULA PYROPE",
+          "sourcePage": 5263,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Latula",
+          "sourcePage": 5263,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-latula.webp",
+            "alt": "Latula Pyrope in red glasses and a turquoise skater outfit"
+          },
+          "sourcePage": 5263,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan player and self-styled rad girl",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Knight of Mind",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5263,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "value": "Cannot smell",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Condition"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Redglare (post-Scratch self)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "value": "Skateboarding · Video games",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Interests"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "aranea",
       "group": "pre-scratch-trolls",
       "reveal": "act-6-intermission-2",
@@ -9139,6 +10117,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Player from the pre-Scratch troll session",
               "sourcePage": 4777,
               "sourceKind": "direct",
+              "label": "Role"
+            },
+            {
+              "value": "Beforan player; searching for Calliope's ghost",
+              "sourcePage": 5263,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398
+              ],
+              "from": "act-6-intermission-3",
               "label": "Role"
             }
           ]
@@ -9231,6 +10219,354 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
+      "id": "horuss",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5398,
+      "sourcePage": 5398,
+      "sourceKind": "intro",
+      "rosterColumn": 1,
+      "name": [
+        {
+          "value": "HORUSS ZAHHAK",
+          "sourcePage": 5398,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Horuss",
+          "sourcePage": 5398,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-horuss.webp",
+            "alt": "Horuss Zahhak in goggles and a brown jacket"
+          },
+          "sourcePage": 5398,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan mechanic, steamwright and bodybuilder",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Page of Void",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "value": "Extraordinary physical strength",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5398,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "moirail",
+          "variants": [
+            {
+              "value": "Meulin Leijon",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Moirail"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Darkleer (post-Scratch self)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "value": "Mechanics · Steam technology · Bodybuilding · Archery · Fine art",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Interests"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kurloz",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5308,
+      "sourcePage": 5308,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "value": "KURLOZ MAKARA",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Kurloz",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-kurloz.webp",
+            "alt": "Kurloz Makara with a sewn mouth, skeleton shirt and purple boots"
+          },
+          "sourcePage": 5308,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan player; secret servant of Lord English",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Prince of Rage",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "value": "Hypnosis · Telepathic speech",
+              "sourcePage": 5308,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5308,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "value": "Tongue removed; mouth sewn shut",
+              "sourcePage": 5308,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Condition"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "The Grand Highblood (post-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cronus",
+      "group": "pre-scratch-trolls",
+      "reveal": "act-6-intermission-3",
+      "introPage": 5308,
+      "sourcePage": 5308,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "value": "CRONUS AMPORA",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "value": "Cronus",
+          "sourcePage": 5308,
+          "sourceKind": "direct",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "portrait": [
+        {
+          "value": {
+            "src": "../assets/ref-cronus.webp",
+            "alt": "Cronus Ampora in a white shirt, with slicked-back hair and a cigarette"
+          },
+          "sourcePage": 5308,
+          "sourceKind": "visual",
+          "from": "act-6-intermission-3"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "value": "Beforan musician and would-be romantic",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "formerly",
+          "variants": [
+            {
+              "value": "Would-be wizard, according to Aranea",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Formerly"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "value": "Bard of Hope",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "value": "Ghost",
+              "sourcePage": 5308,
+              "sourceKind": "visual",
+              "from": "act-6-intermission-3",
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "value": "Dualscar (post-Scratch self)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "value": "Music · Poetry",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Interests"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "meenah",
       "group": "pre-scratch-trolls",
       "reveal": "act-6-intermission-2",
@@ -9293,6 +10629,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Abdicated heiress of the pre-Scratch trolls",
               "sourcePage": 4931,
               "sourceKind": "direct"
+            },
+            {
+              "value": "Recruiting a ghost army against Lord English",
+              "sourcePage": 5263,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5398,
+                5427
+              ],
+              "from": "act-6-intermission-3",
+              "label": "Role"
             }
           ]
         },
@@ -9321,6 +10668,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 4753,
               "sourceKind": "direct",
               "label": "Weapon"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "value": "God tier",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3",
+              "label": "Form"
             }
           ]
         },
@@ -9646,7 +11005,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-3",
+  "conceptsPreparedThrough": "act-6-intermission-3",
   "concepts": [
     {
       "id": "alchemy",
@@ -10920,6 +12279,23 @@ window.HOMESTUCK_REFERENCE = {
             2088,
             1657
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Sprite",
+          "aliases": [],
+          "definition": "A guide formed through prototyping that can answer questions about the game and use unusual powers. Its components retain identities and memories: Vriska recalls sharing Tavros's experiences when briefly combined as Tavrisprite. The fusion's explosion separates their ghosts again rather than leaving a permanent combined personality.",
+          "sourcePage": 5386,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1657,
+            2088,
+            4833,
+            4834,
+            4835,
+            4837,
+            4839
+          ]
         }
       ]
     },
@@ -12183,6 +13559,20 @@ window.HOMESTUCK_REFERENCE = {
             2991,
             3041
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Furthest Ring",
+          "aliases": [
+            "The Furthest Ring"
+          ],
+          "definition": "The region outside universes, containing dream bubbles, horrorterrors and the Green Sun. Its shifting space and time resist ordinary mapping. Vriska uses the cracks left by Lord English's attacks as new landmarks, comparing their shapes with clues to a hidden weapon's location.",
+          "sourcePage": 5393,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5395,
+            5396
+          ]
         }
       ]
     },
@@ -12620,6 +14010,18 @@ window.HOMESTUCK_REFERENCE = {
             2439,
             2448
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Hemospectrum",
+          "aliases": [],
+          "definition": "The blood-color hierarchy organizing troll society. Alternia enforces violent domination; Beforus assigns higher castes responsibility for lower ones, often patronizingly. Porrim challenges roles linked to her jade blood and gender, while Kankri criticizes caste privilege yet dismisses some inequalities she raises.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5308,
+            4063
+          ]
         }
       ]
     },
@@ -12655,6 +14057,17 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "In Alternian society, killing those judged unfit. Feferi wants to change its meaning to caring for the vulnerable, which explains her unusual use of the word when tending sea creatures.",
           "sourcePage": 2441,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Culling",
+          "aliases": [
+            "Culled"
+          ],
+          "definition": "On Alternia, killing those judged unfit. Beforus uses the same word for placing vulnerable or lower-caste trolls in the care of higher castes, often through intrusive, infantilizing treatment. Latula fears that kind of coddling; the shared term conceals a major difference between the two societies.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ]
     },
@@ -12909,6 +14322,21 @@ window.HOMESTUCK_REFERENCE = {
             2397
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Auspisticism",
+          "aliases": [
+            "Auspistice",
+            "Ashen quadrant"
+          ],
+          "definition": "The ashen quadrant of troll romance, involving an auspistice mediating between two people drawn toward a destructive rivalry. Kanaya explains that the job protects their other relationships from the consequences of that animosity. Rose considers taking it on after learning about Gamzee and Terezi, despite Kanaya's warnings that it is difficult and thankless.",
+          "sourcePage": 5413,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5414,
+            5415
+          ]
         }
       ]
     },
@@ -13192,6 +14620,19 @@ window.HOMESTUCK_REFERENCE = {
             4689,
             4777,
             5261
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped environment in the Furthest Ring where ghosts and living visitors meet. Memories from different people overlap, and dreamers can mistake a memory setting for their own surroundings. Lord English can destroy both the bubble and its inhabitants; his attacks also fracture the space outside it.",
+          "sourcePage": 5386,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5387,
+            5395,
+            4733
           ]
         }
       ]
@@ -13690,6 +15131,19 @@ window.HOMESTUCK_REFERENCE = {
             4053,
             4054
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Ancestor",
+          "aliases": [],
+          "definition": "An older troll counterpart with intertwined genetic origins. Beforus's players became Alternia's adult ancestors after the Scratch exchanged the generations' roles. Their younger pre-Scratch ghosts remain separate people: Kankri is not the adult Signless, just as Aranea is not Mindfang's remembered personality.",
+          "sourcePage": 4777,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5263,
+            5308,
+            5398
+          ]
         }
       ]
     },
@@ -13843,6 +15297,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 3978,
           "sourceKind": "composite",
           "sourcePages": [
+            3523
+          ]
+        },
+        {
+          "term": "Rainbow drinker",
+          "aliases": [],
+          "from": "act-6-intermission-3",
+          "definition": "The trolls' vampire-like condition, seen in Kanaya and Porrim, with fangs, thirst for blood and glowing skin. Kanaya says it is confined to her caste and learns to dim her glow. The glow was useful in brooding caverns, but she does not know why the accompanying thirst evolved.",
+          "sourcePage": 5398,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5263,
+            3978,
             3523
           ]
         }
@@ -14100,6 +15567,23 @@ window.HOMESTUCK_REFERENCE = {
             4372,
             1674
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The god-tier Heir of Breath, two years into the ship's journey with Jade and Davesprite. He sours on Con Air, then dreams his way into a fight with Jack and an encounter with Vriska and Tavros. His wind transformation helps him escape Jack's blade, and he finds the author avatar's lost ring.",
+          "sourcePage": 5287,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5293,
+            5348,
+            5379,
+            5386
+          ]
         }
       ]
     },
@@ -14224,6 +15708,23 @@ window.HOMESTUCK_REFERENCE = {
             4701,
             4702,
             4703
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The god-tier Seer of Light, traveling on the laboratory meteor. She pursues a date with Kanaya, drinks heavily out of nervousness, and kisses her. Learning that Gamzee and Terezi are secretly kismeses, she worries about the group's other relationships and considers acting as an auspistice.",
+          "sourcePage": 5398,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5405,
+            5413,
+            5414,
+            5417
           ]
         }
       ]
@@ -14454,6 +15955,22 @@ window.HOMESTUCK_REFERENCE = {
             4737,
             4738,
             4109
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic"
+          ],
+          "definition": "The god-tier Witch of Space, carrying the old session's planets and Battlefield toward the new session. Two years into the voyage, she has recently been broken up with by Davesprite. She tries to manage John's anger and restlessness as their confinement aboard the ship wears on him.",
+          "sourcePage": 5292,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5293,
+            5305,
+            5306
           ]
         }
       ]
@@ -14704,6 +16221,19 @@ window.HOMESTUCK_REFERENCE = {
             4732,
             4733,
             1674
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The doomed-timeline Dave who became Dave's sprite guide. Two years into the ship's journey, he has broken up with Jade and stays away from John's birthday movie. A teasing note modeled on Dad's messages instead provokes John's anger and exposes tensions among the small group of passengers.",
+          "sourcePage": 5292,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5293,
+            5299,
+            5300
           ]
         }
       ]
@@ -15503,6 +17033,19 @@ window.HOMESTUCK_REFERENCE = {
             4813,
             5261
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "The destructive demon identified with Caliborn and titled Lord of Time. He annihilates dream bubbles and ghosts, cracking the Furthest Ring itself. Meenah tries to rally an army against him, Aranea seeks his sister, and Vriska hunts a weapon using the fractures his attacks leave as landmarks.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5389,
+            5395,
+            5396
+          ]
         }
       ]
     },
@@ -15646,6 +17189,23 @@ window.HOMESTUCK_REFERENCE = {
             4839,
             4840,
             3360
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Tavros Nitram",
+          "aliases": [
+            "Tavros",
+            "adiosToreador"
+          ],
+          "definition": "Tavros's ghost, separated again from Vriska after Tavrisprite exploded. He helps her search dream-bubble memories for a weapon against Lord English, while challenging her certainty. He wants the gold ring John finds so he can propose to Vriska, though she continues to order him around.",
+          "sourcePage": 5383,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5386,
+            5388,
+            5390,
+            5391
           ]
         }
       ]
@@ -15889,6 +17449,23 @@ window.HOMESTUCK_REFERENCE = {
             4357,
             4358
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The rainbow drinker traveling with the meteor crew. She admires her Beforan counterpart Porrim and discusses the burdens of preserving their species. She accepts Rose's invitation to a date, explains auspisticism when Rose worries about Gamzee and Terezi, and shares a kiss with her.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5398,
+            5408,
+            5414,
+            5417
+          ]
         }
       ]
     },
@@ -15943,6 +17520,21 @@ window.HOMESTUCK_REFERENCE = {
             4772,
             4775,
             4776
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "The Seer of Mind, traveling with the meteor crew. She has become secretly involved in kismesissitude with Gamzee. Rose learns of it and worries about its effects on Dave, Karkat and Gamzee's existing bonds, though her feared chain of conflict is a prediction rather than an accomplished event.",
+          "sourcePage": 5398,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5413,
+            5414
           ]
         }
       ]
@@ -16016,6 +17608,23 @@ window.HOMESTUCK_REFERENCE = {
             4839,
             4840,
             3771
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "The ghost of the alpha-timeline Vriska, formerly combined with Tavros as Tavrisprite. She now hunts a legendary weapon against Lord English, using his destruction of dream bubbles to mark a route through the Furthest Ring. Her plan competes with Meenah's wish to raise an army.",
+          "sourcePage": 5386,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5389,
+            5395,
+            5396,
+            5427
           ]
         }
       ]
@@ -16141,6 +17750,22 @@ window.HOMESTUCK_REFERENCE = {
             4830,
             4833,
             4837
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage, secretly involved in kismesissitude with Terezi while remaining Karkat's moirail. His pre-Scratch counterpart Kurloz supplies the final piece of his clown outfit and speaks of their service to Lord English. Rose fears that revealing his relationships could destabilize the meteor group.",
+          "sourcePage": 5308,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5398,
+            5413,
+            5414
           ]
         }
       ]
@@ -16275,6 +17900,18 @@ window.HOMESTUCK_REFERENCE = {
             4069
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "The Handmaid",
+          "aliases": [],
+          "definition": "Aradia's ancestor, the adult post-Scratch counterpart of Damara, and Lord English's time-traveling servant. Doc Scratch prepared her for a life of service across Alternian history. Porrim explains that English eventually arranged a confrontation with the Condesce when the Handmaid's usefulness ended.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4068,
+            4069
+          ]
         }
       ]
     },
@@ -16350,6 +17987,23 @@ window.HOMESTUCK_REFERENCE = {
             4085
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "The Signless",
+          "aliases": [
+            "The Sufferer",
+            "Sufferer",
+            "Signless"
+          ],
+          "definition": "Karkat's ancestor, also known as the Sufferer, and the adult post-Scratch counterpart of Kankri. Aranea explains that his Seer-of-Blood abilities recalled their more peaceful lives on Beforus. His effort to unite Alternia's bloodlines led to execution, but his followers preserved his message.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4054,
+            4055,
+            4085
+          ]
         }
       ]
     },
@@ -16388,6 +18042,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePage": 4057,
           "sourcePages": [],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "The Dolorosa",
+          "aliases": [
+            "Dolorosa"
+          ],
+          "definition": "Kanaya's ancestor and the adult post-Scratch counterpart of Porrim. She abandoned her caste's role tending the Mother Grub to raise the Signless and become his first follower. Aranea contrasts this life with Porrim's struggle against the duties assigned to her on Beforus.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4057
+          ]
         }
       ]
     },
@@ -17219,6 +18886,23 @@ window.HOMESTUCK_REFERENCE = {
             5120,
             5224
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "Calliope, the cherub Muse of Space who shared a waking body with Caliborn. Aranea recounts that the male eventually dominated their body and the female died. She searches for Calliope's elusive ghost, hoping the sister can defeat Lord English, who is said to be hunting her too.",
+          "sourcePage": 5091,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5093,
+            5263,
+            5398
+          ]
         }
       ]
     },
@@ -17799,6 +19483,21 @@ window.HOMESTUCK_REFERENCE = {
             5120,
             5261
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "Caliborn, the hostile cherub who seized the waking body he shared with Calliope, is identified by the ghosts with Lord English, the Lord of Time. His adult self attacks the afterlife, while Aranea searches for the sister whose ghost he reportedly wants to destroy.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5261,
+            5398
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -17952,6 +19651,23 @@ window.HOMESTUCK_REFERENCE = {
             4564,
             5093
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Player class",
+          "aliases": [
+            "Class"
+          ],
+          "definition": "The part of a hero's title describing how they use an aspect. Calliope presents active and passive classes as paired approaches, with individual exceptions. The pre-Scratch trolls introduce further combinations, while Muse and Lord occupy the rare extremes of the passive/active scale.",
+          "sourcePage": 4564,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4566,
+            5093,
+            5263,
+            5308,
+            5398
+          ]
         }
       ]
     },
@@ -18074,6 +19790,17 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4514,
             4564
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Void",
+          "aliases": [],
+          "definition": "The aspect of concealment and nothingness held by Roxy and Horuss. Aranea describes embracing its obscurity while finding the potential to bring something out of nothing. Her account contrasts Horuss's many painstakingly acquired skills with how little impact he had on his session.",
+          "sourcePage": 4566,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5398
           ]
         }
       ]
@@ -18308,6 +20035,20 @@ window.HOMESTUCK_REFERENCE = {
             5002,
             5235
           ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Aranea Serket",
+          "aliases": [
+            "Aranea"
+          ],
+          "definition": "The Beforan Sylph of Light and pre-Scratch counterpart of Mindfang. She pays Meenah to listen to histories of their friends while searching for the ghost of Lord English's sister. Her explanatory detours slow that search, but she and Meenah eventually agree to help each other's efforts.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5308,
+            5398
+          ]
         }
       ],
       "characterId": "aranea"
@@ -18345,6 +20086,20 @@ window.HOMESTUCK_REFERENCE = {
             5002,
             5003,
             5007
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "The Beforan Thief of Life and pre-Scratch counterpart of the Condesce. Already a god-tier player before becoming a ghost, she tries to recruit her old friends into an army against Lord English. After little success, she clashes with Vriska over whether to fight him directly or pursue a hidden weapon.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5398,
+            5427
           ]
         }
       ],
@@ -18434,6 +20189,19 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "One of the two exceptionally rare classes Calliope describes at the extremes of the active/passive scale. Her Muse is the most passive; her brother has the most active class. She withholds its name when Roxy asks.",
           "sourcePage": 5093,
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Master class",
+          "aliases": [
+            "Master classes"
+          ],
+          "definition": "One of the two exceptionally rare classes at the extremes of the active/passive scale. Calliope identifies her Muse as the most passive and her brother's class as the most active. The latter is now identified as Lord: Aranea calls English the Lord of Time and connects him to the cherub who took over their shared body.",
+          "sourcePage": 5093,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5263
+          ]
         }
       ]
     },
@@ -18462,6 +20230,17 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "A player class described by Dirk's projection as having enormous untapped potential that may take a long time to develop. Jake is a Page of Hope. This describes a possibility for his growth, rather than mastery he has already achieved.",
           "sourcePage": 4875,
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Page",
+          "aliases": [],
+          "definition": "A player class held by Jake as Page of Hope and Horuss as Page of Void. Jake's projected Dirk emphasizes his untapped potential. Aranea describes Horuss as someone who built his skills slowly from nothing, while struggling to achieve relevance despite his many accomplishments.",
+          "sourcePage": 4875,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5398
+          ]
         }
       ]
     },
@@ -18481,6 +20260,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5093,
             5120
+          ]
+        },
+        {
+          "from": "act-6-intermission-3",
+          "term": "Cherub",
+          "aliases": [
+            "Cherubs"
+          ],
+          "definition": "Calliope and Caliborn's species, distinct from humans and trolls. The two shared a waking body, taking turns being awake. Aranea says the male eventually dominated their body and became Lord English, while his female counterpart died; she seeks the sister's ghost as a possible means of defeating him.",
+          "sourcePage": 5092,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5120,
+            5263
           ]
         }
       ]
@@ -18629,6 +20422,339 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "characterId": "dirks-bro"
+    },
+    {
+      "id": "person-damara",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Damara Megido",
+          "aliases": [
+            "Damara"
+          ],
+          "definition": "The Beforan Witch of Time and pre-Scratch counterpart of the Handmaid. Once close to Rufioh, she becomes violent after his betrayal and Meenah's bullying. Aranea describes her repeated sabotage of their session, but also her crucial cooperation in damaging the Cardinal Movement to initiate the Scratch.",
+          "sourcePage": 5398,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "damara"
+    },
+    {
+      "id": "person-rufioh",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Rufioh Nitram",
+          "aliases": [
+            "Rufioh"
+          ],
+          "definition": "The winged Beforan Rogue of Breath and pre-Scratch counterpart of the Summoner. His wings grew naturally, rather than through god-tier ascension. Horuss once built him a robotic body after Damara paralyzed him; now a ghost, he struggles to end his relationship with Horuss and worries over his missing lusus.",
+          "sourcePage": 5398,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "rufioh"
+    },
+    {
+      "id": "person-mituna",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Mituna Captor",
+          "aliases": [
+            "Mituna"
+          ],
+          "definition": "The Beforan Heir of Doom and pre-Scratch counterpart of the Psiioniic. Aranea says a mysterious act of psychic overexertion saved their group but burned out his powers and left lasting impairments. The exact incident remains unclear. Latula is his longstanding partner, while Cronus treats him cruelly.",
+          "sourcePage": 5308,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "mituna"
+    },
+    {
+      "id": "person-kankri",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Kankri Vantas",
+          "aliases": [
+            "Kankri"
+          ],
+          "definition": "The Beforan Seer of Blood and pre-Scratch counterpart of the Signless. He tries to unite his friends through long lectures on privilege, caste and acceptable language, while dismissing Porrim's concerns about gender. His adult counterpart's memories become the foundation of a much more effective movement on Alternia.",
+          "sourcePage": 5263,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "kankri"
+    },
+    {
+      "id": "person-meulin",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Meulin Leijon",
+          "aliases": [
+            "Meulin"
+          ],
+          "definition": "The Beforan Mage of Heart and pre-Scratch counterpart of the Disciple. Deaf since Kurloz's nightmare scream, she communicates through signs, mimes and lip-reading. She loves matchmaking, becomes Horuss's moirail, and falls under Kurloz's hypnosis while helping assemble Gamzee's clown outfit.",
+          "sourcePage": 5308,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "meulin"
+    },
+    {
+      "id": "person-porrim",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Porrim Maryam",
+          "aliases": [
+            "Porrim"
+          ],
+          "definition": "The Beforan Maid of Space and pre-Scratch counterpart of the Dolorosa. A jade-blooded rainbow drinker, she challenges expectations attached to both caste and gender and looks after Kankri. Kanaya admires her and seeks advice about the responsibilities of preserving their species.",
+          "sourcePage": 5263,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "porrim"
+    },
+    {
+      "id": "person-latula",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Latula Pyrope",
+          "aliases": [
+            "Latula"
+          ],
+          "definition": "The Beforan Knight of Mind and pre-Scratch counterpart of Redglare. She cultivates an energetic skater and gamer persona, though Porrim questions the performance behind it. She cannot smell, and has been dating Mituna for a very long time; Kankri's interest in her remains unrequited.",
+          "sourcePage": 5263,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "latula"
+    },
+    {
+      "id": "person-horuss",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Horuss Zahhak",
+          "aliases": [
+            "Horuss"
+          ],
+          "definition": "The Beforan Page of Void and pre-Scratch counterpart of Darkleer. A skilled mechanic with extraordinary strength, he once built Rufioh a robotic body. Meulin's advice shapes his exaggerated cheerfulness; he talks at such length that he misses Rufioh's attempts to end their relationship.",
+          "sourcePage": 5398,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "horuss"
+    },
+    {
+      "id": "person-kurloz",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Kurloz Makara",
+          "aliases": [
+            "Kurloz"
+          ],
+          "definition": "The Beforan Prince of Rage and pre-Scratch counterpart of the Grand Highblood. After his nightmare scream deafens Meulin, he removes his tongue and sews his mouth shut. Behind his silent mimes, he uses hypnosis and telepathic speech to advance Lord English's plans and provide Gamzee with his completed outfit.",
+          "sourcePage": 5308,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "kurloz"
+    },
+    {
+      "id": "person-cronus",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Cronus Ampora",
+          "aliases": [
+            "Cronus"
+          ],
+          "definition": "The Beforan Bard of Hope and pre-Scratch counterpart of Dualscar. He pursues music and repeatedly rebuffed advances, while treating Mituna with contempt. Aranea recalls his abandoned belief that he was destined to defeat an evil magician, without confirming that his self-important story was true.",
+          "sourcePage": 5308,
+          "sourceKind": "composite"
+        }
+      ],
+      "characterId": "cronus"
+    },
+    {
+      "id": "beforus",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Beforus",
+          "aliases": [
+            "Beforan"
+          ],
+          "definition": "The trolls' world before the Scratch, home to Meenah, Aranea and their ten fellow players. Its caste system makes higher bloodlines responsible for lower ones, often through patronizing care rather than Alternian violence. The Scratch transforms its history into Alternia's and exchanges the two generations' roles.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5308
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cardinal-movement",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Cardinal Movement",
+          "aliases": [],
+          "definition": "The pre-Scratch troll session's reset mechanism, serving the role of the human session's Beat Mesa. Aranea says Damara's cooperation was essential: she could damage it sufficiently to release the energy needed for their Scratch. The reset would erase the players unless they took measures to preserve themselves.",
+          "sourcePage": 5398,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4777
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lord",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Lord",
+          "aliases": [],
+          "definition": "The master class held by Lord English, the Lord of Time. Calliope had described her brother's unnamed class as the most active counterpart to her Muse. Aranea's account connects that brother to the demon now destroying dream bubbles, while Meenah plots to fight him.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5093
+          ]
+        }
+      ]
+    },
+    {
+      "id": "heir",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Heir",
+          "aliases": [],
+          "definition": "A player class held by John as Heir of Breath and Mituna as Heir of Doom. John can control wind and dissolve into it to evade an attack. Mituna once had prophetic, doom-related psychic abilities, which Aranea says he lost through extreme overexertion.",
+          "sourcePage": 5348,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5308,
+            1674
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maid",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Maid",
+          "aliases": [],
+          "definition": "A player class held by Aradia as Maid of Time and Porrim as Maid of Space. Aradia can freeze time, while Porrim's session role included tending the Forge and breeding the Genesis Frog. Her team made little progress with that work before its failed session ended.",
+          "sourcePage": 5263,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3565
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mage",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Mage",
+          "aliases": [],
+          "definition": "Meulin's player class, paired with the Heart aspect. Aranea describes her as an enthusiastic student of romance with a talent for matchmaking, despite her own troubled relationship history. Her title does not make the romantic advice she gives her friends infallible.",
+          "sourcePage": 5308,
+          "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "witch",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Witch",
+          "aliases": [],
+          "definition": "A player class shared by Jade, the Witch of Space, and Damara, the Witch of Time. Jade manipulates size and spatial travel. Aranea describes Damara's disruptive appearances throughout her team's timeline and her eventual cooperation in triggering their Scratch.",
+          "sourcePage": 5398,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4297,
+            4304,
+            4337,
+            4338
+          ]
+        }
+      ]
+    },
+    {
+      "id": "breath",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Breath aspect",
+          "aliases": [],
+          "definition": "The aspect shared by John's Heir and Rufioh's Rogue titles. John commands wind, summons tornadoes and can turn his body into wind to escape Jack's attack. Rufioh's wings are a natural feature of his body, not evidence that he reached god tier.",
+          "sourcePage": 5348,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5339,
+            5398
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hussies-ring",
+      "reveal": "act-6-intermission-3",
+      "variants": [
+        {
+          "from": "act-6-intermission-3",
+          "term": "Hussie's ring",
+          "aliases": [
+            "Gold ring"
+          ],
+          "definition": "A gold ring lost by the author avatar in the dream bubbles. John finds it while Tavros wants it for a proposed marriage to Vriska; the two argue over ownership as she explains her treasure hunt. John clutches his hand after waking, with the ring reflected in his eye.",
+          "sourcePage": 5379,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5383,
+            5390,
+            5398,
+            5434,
+            5435
+          ]
+        }
+      ]
     }
   ]
 };
