@@ -3313,6 +3313,21 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-intermission-4",
+              "label": "Role",
+              "value": "Caliborn's guide and servant",
+              "sourcePage": 5471,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5505
+              ]
+            }
+          ]
+        },
+        {
           "id": "handle",
           "variants": [
             {
@@ -3403,6 +3418,22 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual",
               "sourcePages": [
                 4831
+              ]
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-intermission-4",
+              "label": "Condition",
+              "value": "Gunshot wounds and crowbar injuries",
+              "sourcePage": 5484,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5493,
+                5499
               ]
             }
           ]
@@ -7556,6 +7587,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4564
               ]
+            },
+            {
+              "from": "act-6-intermission-4",
+              "label": "Powers",
+              "value": "Obscures ordinary remote observation through Void",
+              "sourcePage": 4513,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5503
+              ]
             }
           ]
         },
@@ -8177,6 +8218,17 @@ window.HOMESTUCK_REFERENCE = {
               ],
               "from": "act-6-intermission-3",
               "label": "Status"
+            },
+            {
+              "from": "act-6-intermission-4",
+              "label": "Status",
+              "value": "Deceased; Caliborn alone controls their waking body",
+              "sourcePage": 5445,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5461,
+                5481
+              ]
             }
           ]
         },
@@ -8734,6 +8786,18 @@ window.HOMESTUCK_REFERENCE = {
               ]
             }
           ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-intermission-4",
+              "label": "Condition",
+              "value": "Golden replacement tooth",
+              "sourcePage": 5510,
+              "sourceKind": "visual"
+            }
+          ]
         }
       ],
       "rosterColumn": 1
@@ -9141,6 +9205,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 5261,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-intermission-4",
+          "value": {
+            "src": "../assets/ref-caliborn-robot-leg.webp",
+            "alt": "Caliborn in suspenders with his robotic leg, before adding a candy-corn tooth"
+          },
+          "sourcePage": 5443,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -9166,6 +9239,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5120,
                 5261
+              ]
+            },
+            {
+              "from": "act-6-intermission-4",
+              "label": "Role",
+              "value": "Solo player in a dead session; Gamzee's master",
+              "sourcePage": 5497,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5505
               ]
             }
           ]
@@ -9217,6 +9300,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "land",
+          "variants": [
+            {
+              "from": "act-6-intermission-4",
+              "label": "Land",
+              "value": "Earth (relocated cherub homeworld)",
+              "sourcePage": 5496,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "dream-moon",
           "variants": [
             {
@@ -9229,6 +9324,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-intermission-4",
+              "label": "Quest",
+              "value": "Unlock Yaldabaoth's lair and hear The Choice",
+              "sourcePage": 5496,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5497
+              ]
+            }
+          ]
+        },
+        {
           "id": "weapon",
           "variants": [
             {
@@ -9237,6 +9347,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Cane that transforms into a rifle",
               "sourcePage": 5261,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-intermission-4",
+              "label": "Weapon",
+              "value": "Machine gun · Magic crowbar",
+              "sourcePage": 5447,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5492
+              ]
             }
           ]
         },
@@ -9249,6 +9369,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Juju modus",
               "sourcePage": 5103,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-4",
+              "label": "Inventory",
+              "value": "Juju modus · Command tower keys",
+              "sourcePage": 5445,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5501,
+                5502
+              ]
             }
           ]
         },
@@ -9261,6 +9392,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Robotic leg after self-amputation",
               "sourcePage": 5261,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-intermission-4",
+              "label": "Condition",
+              "value": "Learning difficulties · Robotic leg · Candy-corn replacement tooth",
+              "sourcePage": 5480,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5443,
+                5498
+              ]
             }
           ]
         },
@@ -11083,7 +11225,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-4",
+  "conceptsPreparedThrough": "act-6-intermission-4",
   "concepts": [
     {
       "id": "alchemy",
@@ -11372,6 +11514,20 @@ window.HOMESTUCK_REFERENCE = {
             179
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Cruxtruder",
+          "aliases": [],
+          "definition": "A Sburb machine that releases a kernelsprite and starts a countdown when opened, then dispenses cruxite dowels when its wheel is turned. It is the only machine Caliborn can deploy for his unusual solo entry, rather than one part of the usual alchemy setup.",
+          "sourcePage": 172,
+          "sourceKind": "composite",
+          "sourcePages": [
+            177,
+            178,
+            179,
+            5447
+          ]
         }
       ]
     },
@@ -11457,6 +11613,19 @@ window.HOMESTUCK_REFERENCE = {
             251,
             281,
             424
+          ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Kernelsprite",
+          "aliases": [],
+          "definition": "The entity released by a Cruxtruder and changed by prototyping. Its kernel normally splits on entry, carrying prototype information to the two kingdoms while the sprite guides its player. In Caliborn's one-player dead session, the kernelsprite instead becomes a black hole and draws his home planet into the game.",
+          "sourcePage": 177,
+          "sourceKind": "composite",
+          "sourcePages": [
+            424,
+            5496,
+            5497
           ]
         }
       ]
@@ -12651,6 +12820,21 @@ window.HOMESTUCK_REFERENCE = {
             874,
             875
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Skaianet",
+          "aliases": [],
+          "definition": "The laboratory network whose terminals monitor Sburb sessions and meteor impacts. A portable computer hub bearing its symbol also powers Caliborn's command tower after Gamzee delivers it. The tower's unlockable viewpoints extend beyond the ordinary chat viewport's limitations.",
+          "sourcePage": 850,
+          "sourceKind": "composite",
+          "sourcePages": [
+            874,
+            875,
+            5485,
+            5486,
+            5503
+          ]
         }
       ]
     },
@@ -12696,6 +12880,22 @@ window.HOMESTUCK_REFERENCE = {
             2318
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Session",
+          "aliases": [
+            "Sburb session"
+          ],
+          "definition": "An instance of Sburb with its own Skaia, kingdoms and player lands. Separate connection chains can belong to the same session, as the trolls' two teams demonstrate. A solo entry is also possible, but Hussie explains that it produces a dead session with radically different conditions for victory.",
+          "sourcePage": 1674,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2315,
+            2316,
+            2318,
+            5497
+          ]
         }
       ]
     },
@@ -13516,6 +13716,21 @@ window.HOMESTUCK_REFERENCE = {
             3945,
             3979,
             3985
+          ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Denizen",
+          "aliases": [],
+          "definition": "A powerful creature tied to a player's land and quest, able to offer The Choice rather than demand a fight. Denizens can help fulfill difficult bargains. Hussie says Yaldabaoth, sleeping in Caliborn's planet, is exceptionally dangerous and that accepting his terms will unlock the next stage of the quest.",
+          "sourcePage": 3944,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3945,
+            3979,
+            3985,
+            5496,
+            5497
           ]
         }
       ]
@@ -15314,6 +15529,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             3945,
             3985
+          ]
+        },
+        {
+          "term": "The Choice",
+          "aliases": [
+            "Denizen's Choice"
+          ],
+          "from": "act-6-intermission-4",
+          "definition": "A personal dilemma offered by a denizen, often involving a difficult bargain rather than compulsory combat. Echidna asks Jade to bring her lands and their inhabitants along when she leaves. Hussie says Yaldabaoth's terms will unlock Caliborn's true land and begin his unusually difficult quest, without disclosing those terms.",
+          "sourcePage": 3985,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5497
           ]
         }
       ]
@@ -17845,6 +18073,25 @@ window.HOMESTUCK_REFERENCE = {
             5413,
             5414
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage now serving as Caliborn's guide. He survives repeated shootings and crowbar blows while supplying a power hub, magic crowbar and keys. His detachable wings and Hussie's changing claims leave god-tier status unconfirmed; his gifts nevertheless win him a place as Caliborn's servant.",
+          "sourcePage": 5471,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5483,
+            5484,
+            5485,
+            5492,
+            5501,
+            5505
+          ]
         }
       ]
     },
@@ -18873,6 +19120,26 @@ window.HOMESTUCK_REFERENCE = {
             5238,
             5252
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void, exploring the Land of Pyramids and Neon. A message sent just after entry shows her thanking Calliope for bringing the friends together and trying unsuccessfully to wake her. Caliborn later gains a view of Roxy and Jane through a command tower that bypasses their session's Void field.",
+          "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5462,
+            5463,
+            5465,
+            5503,
+            5505
+          ]
         }
       ]
     },
@@ -19051,6 +19318,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5093,
             5263,
+            5398
+          ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "The cherub Muse of Space, killed when Caliborn has her dreamself murdered and prematurely forces their predomination. Roxy's repeated calls of her name no longer wake her or displace her brother. Aranea is still searching for her elusive ghost as a possible answer to Lord English.",
+          "sourcePage": 5481,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5461,
+            5462,
+            5465,
+            5093,
             5398
           ]
         }
@@ -19403,6 +19689,19 @@ window.HOMESTUCK_REFERENCE = {
             4924,
             4932
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [],
+          "definition": "The post-Scratch Dersite archagent remains chained in his Prospit cell. His improvised golden point has broken, and a golden replacement tooth now marks his grin. Caliborn unlocks a command-tower monitor showing him, prompting a delighted reaction while Gamzee stands at his shoulder.",
+          "sourcePage": 5510,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5508,
+            5509,
+            5438
+          ]
         }
       ]
     },
@@ -19664,6 +19963,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5261,
             5398
+          ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The young Lord of Time, alone in a dead session on the ruined Earth he grew up on. He shoots Gamzee repeatedly, then reluctantly accepts him as a servant. Through the command tower, Hussie explains that keys and Yaldabaoth's Choice will unlock the real quest; Caliborn also adopts his sister's green text.",
+          "sourcePage": 5496,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5497,
+            5481,
+            5487,
+            5491,
+            5505
           ]
         }
       ],
@@ -19985,6 +20302,18 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5398
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Void",
+          "aliases": [],
+          "definition": "The aspect of concealment and nothingness held by Roxy and Horuss. It can obstruct ordinary remote observation, but command towers can bypass the field surrounding the post-Scratch session. Aranea also describes the paradoxical potential to find something within nothing, contrasting Horuss's many skills with his lack of impact.",
+          "sourcePage": 4566,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5398,
+            5503
+          ]
         }
       ]
     },
@@ -20053,6 +20382,18 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4702
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Null session",
+          "aliases": [],
+          "definition": "A game doomed to fail despite functioning normally: its sprites can be prototyped, its Battlefield can evolve and Skaia could theoretically create a universe. Hussie distinguishes this failure through events from a void session's inert machinery and a dead session's impossible universe-creation conditions.",
+          "sourcePage": 4701,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4702,
+            5497
+          ]
         }
       ]
     },
@@ -20078,6 +20419,19 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [],
           "definition": "A session without pre-entry prototyping: its enemies remain unaugmented, its Battlefield cannot grow a universe, and no normal Reckoning occurs. The new players explore burial-themed lands inhabited by skeletal foes. Rose's proposed remedy still depends on bringing in Jade's mature Battlefield.",
           "sourcePage": 5438,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4702,
+            4703,
+            4705
+          ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Void session",
+          "aliases": [],
+          "definition": "A session with no pre-entry prototyping, no evolved Battlefield and no Forge, leaving it unable to grow a universe unaided. Unlike a dead session, it can still benefit from extraordinary outside intervention. Rose's plan for the post-Scratch players depends on importing Jade's mature Battlefield.",
+          "sourcePage": 5497,
           "sourceKind": "composite",
           "sourcePages": [
             4702,
@@ -20471,6 +20825,21 @@ window.HOMESTUCK_REFERENCE = {
             5120,
             5263
           ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Cherub",
+          "aliases": [
+            "Cherubs"
+          ],
+          "definition": "Calliope and Caliborn's species, whose two personalities shared a waking body until predomination. Hussie says their internal conflict normally resolves in time, but Caliborn forces it prematurely by arranging his sister's dreamself murder. His account distinguishes that shortcut from healthy maturation, despite Caliborn's claim to be a free adult.",
+          "sourcePage": 5092,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5120,
+            5445,
+            5481
+          ]
         }
       ]
     },
@@ -20487,6 +20856,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             5105
+          ]
+        },
+        {
+          "from": "act-6-intermission-4",
+          "term": "Juju modus",
+          "aliases": [],
+          "definition": "The inventory system formerly shared by Calliope and Caliborn, in which each could retrieve only what the other stored. After his predomination, Caliborn can freely retrieve his own captchalogued items. Calliope's computer and book remain among the possessions he can access.",
+          "sourcePage": 5103,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5105,
+            5445,
+            5460
           ]
         }
       ]
@@ -21013,6 +21395,142 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Skeleton-bodied enemies encountered on the post-Scratch players' lands. Jake fires golden pistols at a towering creature among the mounds, while smaller skeletal monsters approach Dirk through the smoke and towers of his own land.",
           "sourcePage": 5438,
           "sourceKind": "visual"
+        }
+      ]
+    },
+    {
+      "id": "dead-session",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Dead session",
+          "aliases": [],
+          "definition": "A one-player game whose kernelsprite collapses into a black hole, drawing in the starting planet and eventually its solar system. Unlike a void session, it cannot produce a universe even with outside help. Hussie says victory follows different terms, beginning with the extreme challenge unlocked through Caliborn's denizen.",
+          "sourcePage": 5497,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "predomination",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Predomination",
+          "aliases": [],
+          "definition": "The process by which one cherub personality becomes dominant in a shared body. Caliborn forces it early by having Calliope's dreamself murdered rather than letting their internal struggle resolve naturally. Hussie says this leaves his personality development permanently stunted, despite his apparent freedom and confidence.",
+          "sourcePage": 5481,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5445
+          ]
+        }
+      ]
+    },
+    {
+      "id": "command-tower",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Command tower",
+          "aliases": [
+            "Command station",
+            "MSPA command station"
+          ],
+          "definition": "A radio tower of monitors connected to a narrative terminal and a small model covered in locks. Keys unlock its functions and viewpoints. With the right tower, monitor and key, Caliborn can observe distant scenes even through the Void field that blocks his ordinary chat viewport.",
+          "sourcePage": 5479,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5480,
+            5482,
+            5487,
+            5502,
+            5503
+          ]
+        }
+      ]
+    },
+    {
+      "id": "author-avatar",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Author avatar",
+          "aliases": [
+            "Andrew Hussie",
+            "Hussie",
+            "Narrator"
+          ],
+          "definition": "An in-story version of Andrew Hussie, killed by Lord English and now speaking to Caliborn through the narrative prompt. He explains parts of the quest, taunts Caliborn and controls the accompanying music. His knowledge has limits: he admits uncertainty about Gamzee's motives and how the clown arrived.",
+          "sourcePage": 5490,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5491,
+            5479,
+            5485,
+            5501
+          ]
+        }
+      ]
+    },
+    {
+      "id": "yaldabaoth",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Yaldabaoth",
+          "aliases": [],
+          "definition": "Caliborn's denizen, sleeping behind a locked door in Earth's core. Hussie describes him as the deadliest and most challenging denizen, usually assigned to exceptionally gifted warriors. Rather than simply fighting him, Caliborn must hear The Choice, whose terms will determine how his real quest begins.",
+          "sourcePage": 5496,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5497
+          ]
+        }
+      ]
+    },
+    {
+      "id": "magic-crowbar",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Magic crowbar",
+          "aliases": [
+            "Caliborn's crowbar"
+          ],
+          "definition": "Gamzee's gift to Caliborn, described by Hussie as magical and important to his quest. Caliborn uses it to beat Gamzee and strike the command tower, shaking the surrounding website. Hussie refuses to explain its intended purpose.",
+          "sourcePage": 5492,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5493,
+            5495
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cherub-homeworld",
+      "reveal": "act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-intermission-4",
+          "term": "Cherub homeworld",
+          "aliases": [
+            "Caliborn's Earth",
+            "Calliope's Earth"
+          ],
+          "definition": "The ruined Earth where Calliope and Caliborn grew up. Hussie says it was moved from its original solar system to a red sun's system when its universe faced destruction. Caliborn's entry then pulls it into the Medium; the special land promised for his quest still has to be unlocked.",
+          "sourcePage": 5496,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5449
+          ]
         }
       ]
     }
