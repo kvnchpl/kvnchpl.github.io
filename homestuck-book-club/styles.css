@@ -306,6 +306,10 @@ button {
   overflow-wrap: anywhere;
 }
 
+.notes-content section a[href*="homestuck.com/story/"] {
+  text-transform: uppercase;
+}
+
 .notes-reading {
   text-align: center;
 }
