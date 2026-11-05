@@ -9720,6 +9720,18 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5498
           ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "value": {
+            "src": "../assets/ref-caliborn-god-tier.webp",
+            "alt": "Caliborn in his red god-tier Lord of Time outfit with a trailing cape, golden tooth and robotic leg"
+          },
+          "sourcePage": 6245,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6249
+          ]
         }
       ],
       "stats": [
@@ -9755,6 +9767,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 5505
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-1",
+              "label": "Role",
+              "value": "Solo player in a dead session; narrator of Homosuck",
+              "sourcePage": 6245,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6248,
+                6249
               ]
             }
           ]
@@ -9829,6 +9852,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Earth (relocated cherub homeworld)",
               "sourcePage": 5496,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-act-1",
+              "label": "Land",
+              "value": "Land of Rust and Angels (LORAA)",
+              "sourcePage": 6005,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6245
+              ]
             }
           ]
         },
@@ -9869,6 +9902,16 @@ window.HOMESTUCK_REFERENCE = {
                 6005,
                 6192,
                 6193
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-1",
+              "label": "Quest",
+              "value": "Prepare to face Yaldabaoth",
+              "sourcePage": 6005,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6245
               ]
             }
           ]
@@ -9932,6 +9975,33 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-1",
+              "label": "Powers",
+              "value": "Unlocks locks with the Skeleton key badge",
+              "sourcePage": 6248,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-1",
+              "label": "Form",
+              "value": "God tier",
+              "sourcePage": 6245,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6246
+              ]
+            }
+          ]
+        },
+        {
           "id": "condition",
           "variants": [
             {
@@ -9974,6 +10044,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Candy red",
               "sourcePage": 4962,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-1",
+              "label": "Interests",
+              "value": "Drawing · Satire",
+              "sourcePage": 6249,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6250,
+                6262
+              ]
             }
           ]
         }
@@ -12071,7 +12157,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-intermission-5",
+  "conceptsPreparedThrough": "act-6-act-6-act-1",
   "concepts": [
     {
       "id": "alchemy",
@@ -16065,6 +16151,23 @@ window.HOMESTUCK_REFERENCE = {
             5900,
             5911,
             3630
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "A state reached through sacrificial death and ascension, granting extraordinary abilities and conditional immortality. Caliborn reports ascending offscreen and climbs further tiers, earning achievement badges. His Skeleton key badge opens the command tower's locks; this advancement does not establish that he has already claimed Yaldabaoth's promised unconditional immortality.",
+          "sourcePage": 3630,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5997,
+            6245,
+            6246,
+            6247,
+            6248
           ]
         }
       ]
@@ -20321,6 +20424,19 @@ window.HOMESTUCK_REFERENCE = {
             4292,
             4293
           ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Gift of Gab",
+          "aliases": [],
+          "definition": "A god-tier achievement badge allowing direct speech without chat clients, sprites or other intermediaries. John and Jade receive it as they advance through the tiers. Caliborn dismisses it because he could already talk to his companions, while complaining about the other badges on his increasingly decorated sash.",
+          "sourcePage": 4292,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4293,
+            4294,
+            6247
+          ]
         }
       ]
     },
@@ -21873,6 +21989,26 @@ window.HOMESTUCK_REFERENCE = {
             6006,
             6192,
             6193
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time has unlocked the Land of Rust and Angels and reports ascending to god tier offscreen. His Skeleton key badge opens the command tower's locks, letting him narrate and draw Homosuck. He resents a hidden expansion cartridge that lets the heroes' story continue outside his parody, and tampers with its port.",
+          "sourcePage": 6005,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6245,
+            6248,
+            6249,
+            6250,
+            6273,
+            6275,
+            6276
           ]
         }
       ],
@@ -23644,6 +23780,26 @@ window.HOMESTUCK_REFERENCE = {
             5790,
             5791
           ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Command tower",
+          "aliases": [
+            "Command station",
+            "MSPA command station"
+          ],
+          "definition": "The keyed station through which Caliborn observes and interferes with the story. His new Skeleton key badge unlocks its remaining mechanisms, allowing him to replace the absent guiding voice with Homosuck. A hidden compartment also contains the expansion cartridge intended to continue the heroes' adventure between his acts.",
+          "sourcePage": 5501,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5782,
+            5787,
+            6248,
+            6249,
+            6268,
+            6271,
+            6273
+          ]
         }
       ]
     },
@@ -23684,6 +23840,24 @@ window.HOMESTUCK_REFERENCE = {
             5781,
             5782,
             5787
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Author avatar",
+          "aliases": [
+            "Andrew Hussie",
+            "Hussie"
+          ],
+          "definition": "The in-story Andrew Hussie, whose voice previously guided Caliborn through his command tower. Caliborn now announces that the voice is gone and claims the narration for himself. A hidden expansion cartridge's manual explains that the heroes' actual adventure can continue between his satirical acts.",
+          "sourcePage": 5779,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5782,
+            5787,
+            6248,
+            6249,
+            6273
           ]
         }
       ]
@@ -24338,6 +24512,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6193
           ]
+        },
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Land of Rust and Angels",
+          "aliases": [],
+          "definition": "The land unlocked after Caliborn completes the planetary challenge of his dead session. Formerly the barren Earth, it is where he can prepare to fight Yaldabaoth. Caliborn instead turns his attention to its command tower, taking over the narration and drawing Homosuck.",
+          "sourcePage": 6005,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6245,
+            6248,
+            6249,
+            6250
+          ]
         }
       ]
     },
@@ -24479,6 +24667,77 @@ window.HOMESTUCK_REFERENCE = {
             6123,
             6126,
             6140
+          ]
+        }
+      ]
+    },
+    {
+      "id": "homosuck",
+      "reveal": "act-6-act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Homosuck",
+          "aliases": [],
+          "definition": "Caliborn's crudely drawn, hostile retelling of Homestuck after he takes over the narration. He recasts John's opening adventure as pointless busywork and kills his drawn protagonist in a meteor explosion. These are events in his parody, rather than a new death for the actual John.",
+          "sourcePage": 6244,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6249,
+            6251,
+            6253,
+            6263,
+            6264,
+            6265,
+            6273
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skeleton-key-badge",
+      "reveal": "act-6-act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Skeleton key badge",
+          "aliases": [
+            "Skeleton key"
+          ],
+          "definition": "A god-tier achievement badge Caliborn earns while advancing through the tiers. It lets him open any lock, including the mechanisms controlling his command tower. He uses that access to take over the narration, replacing the absent guiding voice with his own retelling of the story.",
+          "sourcePage": 6246,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6247,
+            6248,
+            6249
+          ]
+        }
+      ]
+    },
+    {
+      "id": "supercartridge-expansion-pack",
+      "reveal": "act-6-act-6-act-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-act-1",
+          "term": "Act 6 Act 6 Supercartridge Expansion Pack",
+          "aliases": [
+            "Supercartridge expansion pack",
+            "Act 6 Act 6 cartridge",
+            "Intermission cartridge",
+            "Expansion cartridge"
+          ],
+          "definition": "The hidden expansion cartridge whose manual explains that the heroes' adventure can continue in sub-sub-intermissions between Caliborn's satirical acts. Furious that he can be bypassed, Caliborn pours special stardust and drops false teeth into its port before running it, then leaves it to play while preparing his next act.",
+          "sourcePage": 6271,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6272,
+            6273,
+            6274,
+            6275,
+            6276,
+            6277
           ]
         }
       ]
