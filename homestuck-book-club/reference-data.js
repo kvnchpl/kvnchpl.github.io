@@ -403,6 +403,92 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
+      "id": "guardians-sprites",
+      "title": [
+        {
+          "from": "act-1",
+          "value": "GUARDIANS",
+          "sourcePage": 88,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-2",
+          "value": "GUARDIANS & SPRITES",
+          "sourcePage": 88,
+          "sourcePages": [
+            388,
+            420,
+            757
+          ],
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-3",
+          "value": "GUARDIANS & SPRITES",
+          "sourcePage": 88,
+          "sourcePages": [
+            388,
+            420,
+            757,
+            919,
+            943
+          ],
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-4",
+          "value": "GUARDIANS & SPRITES",
+          "sourcePage": 88,
+          "sourcePages": [
+            388,
+            420,
+            757,
+            919,
+            943,
+            1626,
+            1651
+          ],
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-1",
+          "value": "PRE-SCRATCH GUARDIANS & SPRITES",
+          "sourcePage": 4117,
+          "sourceKind": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "post-scratch-guardians-sprites",
+      "title": [
+        {
+          "from": "act-6-act-1",
+          "value": "POST-SCRATCH GUARDIANS & SPRITES",
+          "sourcePage": 4123,
+          "sourcePages": [
+            4145,
+            4168
+          ],
+          "sourceKind": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "ai-robots",
+      "title": [
+        {
+          "from": "act-6-act-1",
+          "value": "AI & ROBOTS",
+          "sourcePage": 4185,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4192,
+            4242
+          ]
+        }
+      ]
+    },
+    {
       "id": "trolls",
       "title": [
         {
@@ -472,71 +558,22 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
-      "id": "guardians-sprites",
-      "title": [
-        {
-          "from": "act-1",
-          "value": "GUARDIANS",
-          "sourcePage": 88,
-          "sourceKind": "editorial"
-        },
-        {
-          "from": "act-2",
-          "value": "GUARDIANS & SPRITES",
-          "sourcePage": 88,
-          "sourcePages": [
-            388,
-            420,
-            757
-          ],
-          "sourceKind": "editorial"
-        },
-        {
-          "from": "act-3",
-          "value": "GUARDIANS & SPRITES",
-          "sourcePage": 88,
-          "sourcePages": [
-            388,
-            420,
-            757,
-            919,
-            943
-          ],
-          "sourceKind": "editorial"
-        },
-        {
-          "from": "act-4",
-          "value": "GUARDIANS & SPRITES",
-          "sourcePage": 88,
-          "sourcePages": [
-            388,
-            420,
-            757,
-            919,
-            943,
-            1626,
-            1651
-          ],
-          "sourceKind": "editorial"
-        },
-        {
-          "from": "act-6-act-1",
-          "value": "PRE-SCRATCH GUARDIANS & SPRITES",
-          "sourcePage": 4117,
-          "sourceKind": "editorial"
-        }
-      ]
-    },
-    {
-      "id": "post-scratch-guardians-sprites",
+      "id": "other-players",
       "title": [
         {
           "from": "act-6-act-1",
-          "value": "POST-SCRATCH GUARDIANS & SPRITES",
-          "sourcePage": 4123,
+          "value": "OTHER PLAYERS",
+          "sourcePage": 4144,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "CHERUBS",
+          "sourcePage": 5092,
           "sourcePages": [
-            4145,
-            4168
+            5093,
+            5120,
+            5261
           ],
           "sourceKind": "editorial"
         }
@@ -678,32 +715,6 @@ window.HOMESTUCK_REFERENCE = {
             2253
           ],
           "sourceKind": "editorial"
-        }
-      ]
-    },
-    {
-      "id": "other-players",
-      "title": [
-        {
-          "from": "act-6-act-1",
-          "value": "OTHER PLAYERS",
-          "sourcePage": 4144,
-          "sourceKind": "editorial"
-        }
-      ]
-    },
-    {
-      "id": "ai-robots",
-      "title": [
-        {
-          "from": "act-6-act-1",
-          "value": "AI & ROBOTS",
-          "sourcePage": 4185,
-          "sourceKind": "editorial",
-          "sourcePages": [
-            4192,
-            4242
-          ]
         }
       ]
     }
@@ -4279,6 +4290,12 @@ window.HOMESTUCK_REFERENCE = {
           "value": "Mom",
           "sourcePage": 365,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-1",
+          "value": "Rose's mom",
+          "sourcePage": 365,
+          "sourceKind": "direct"
         }
       ],
       "portrait": [
@@ -4347,6 +4364,12 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-2",
           "value": "Bro",
+          "sourcePage": 419,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-1",
+          "value": "Dave's bro",
           "sourcePage": 419,
           "sourceKind": "direct"
         }
@@ -4420,6 +4443,12 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-3",
           "value": "Grandpa",
+          "sourcePage": 919,
+          "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-1",
+          "value": "Jade's grandpa",
           "sourcePage": 919,
           "sourceKind": "visual"
         }
@@ -5312,7 +5341,7 @@ window.HOMESTUCK_REFERENCE = {
       "rosterLabel": [
         {
           "from": "act-6-act-1",
-          "value": "Grandma",
+          "value": "Jake's grandma",
           "sourcePage": 4168,
           "sourceKind": "direct"
         }
