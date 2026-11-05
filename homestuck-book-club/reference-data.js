@@ -1102,6 +1102,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Condition",
+              "value": "Severe trident wound from the Condesce",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "counterpart",
           "variants": [
             {
@@ -1298,6 +1310,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Status",
+              "value": "Dead after a Heroic ruling",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "counterpart",
           "variants": [
             {
@@ -1381,6 +1405,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6296
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "value": {
+            "src": "../assets/ref-jade-god-tier.webp",
+            "alt": "Jade Harley in her god-tier Witch of Space outfit with dog ears"
+          },
+          "sourcePage": 6901,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6651,
+            4109
+          ]
         }
       ],
       "stats": [
@@ -1455,6 +1492,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Frog breeding completed; frog guarded by Echidna",
               "sourcePage": 6327,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Quest",
+              "value": "Frog breeding completed; frog last known to be with Echidna",
+              "sourcePage": 6327,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6411,
+                6901
+              ]
             }
           ]
         },
@@ -2490,6 +2538,13 @@ window.HOMESTUCK_REFERENCE = {
                 6335,
                 6336
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Status",
+              "value": "Dead; impaled by Gamzee, then falls into lava",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -2901,6 +2956,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Status",
+              "value": "Dead; vaporized by the Condesce",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
+            }
+          ]
+        },
+        {
           "id": "blood",
           "variants": [
             {
@@ -3100,6 +3167,13 @@ window.HOMESTUCK_REFERENCE = {
                 6818,
                 6835
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Condition",
+              "value": "Sight restored by Aranea · Severe injuries from Gamzee · Impaled under Aranea's control",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -3764,6 +3838,13 @@ window.HOMESTUCK_REFERENCE = {
                 6708,
                 6776
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Condition",
+              "value": "Multiple stab wounds · Bisected by Kanaya",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -8360,6 +8441,23 @@ window.HOMESTUCK_REFERENCE = {
                 5885,
                 5886
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Powers",
+              "value": "Extends life · Controls lusii and GCat · Telekinesis that can move planets · Energy blasts · Psychic control of Jade",
+              "sourcePage": 4873,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4944,
+                4060,
+                4063,
+                5836,
+                5840,
+                5885,
+                5886,
+                6901
+              ]
             }
           ]
         },
@@ -8691,6 +8789,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5245
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Status",
+              "value": "Dead after a Just ruling",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -8722,7 +8827,8 @@ window.HOMESTUCK_REFERENCE = {
                 6796
               ]
             }
-          ]
+          ],
+          "until": "act-6-act-6-intermission-3"
         },
         {
           "id": "interests",
@@ -9561,6 +9667,13 @@ window.HOMESTUCK_REFERENCE = {
                 6804,
                 6806
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Status",
+              "value": "Dead after a Heroic ruling; dreamself deceased",
+              "sourcePage": 6901,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -11999,6 +12112,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Beforan player attempting to take over the post-Scratch session",
               "sourcePage": 6553,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Role",
+              "value": "Beforan player who attempted to take over the post-Scratch session",
+              "sourcePage": 6553,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6901,
+                6914
+              ]
             }
           ]
         },
@@ -12028,7 +12152,8 @@ window.HOMESTUCK_REFERENCE = {
                 6553
               ]
             }
-          ]
+          ],
+          "until": "act-6-act-6-intermission-3"
         },
         {
           "id": "powers",
@@ -12073,6 +12198,26 @@ window.HOMESTUCK_REFERENCE = {
                 6783,
                 6845
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Powers",
+              "value": "Healing · Troll mind control · Senses human emotions · Induces sleep in humans · Moves planets through controlled ghosts' telekinesis",
+              "sourcePage": 4773,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5957,
+                6554,
+                6560,
+                6562,
+                6578,
+                6668,
+                6669,
+                6781,
+                6783,
+                6845,
+                6901
+              ]
             }
           ]
         },
@@ -12099,6 +12244,18 @@ window.HOMESTUCK_REFERENCE = {
                 6548,
                 6553,
                 6576
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-3",
+              "label": "Status",
+              "value": "Dead after a Just ruling; Ring of Life removed",
+              "sourcePage": 6914,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6908,
+                6909,
+                6913
               ]
             }
           ]
@@ -12654,7 +12811,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-3",
+  "conceptsPreparedThrough": "act-6-act-6-intermission-3",
   "concepts": [
     {
       "id": "alchemy",
@@ -15196,6 +15353,19 @@ window.HOMESTUCK_REFERENCE = {
             6352,
             6410
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Land of Light and Rain",
+          "aliases": [
+            "LOLAR"
+          ],
+          "definition": "Rose's Land of Light and Rain is an ocean world of white islands and intense color, imported into the post-Scratch session. Aranea uses controlled ghosts to hurl it into Jade's Land of Frost and Frogs, crushing the Condesce's battleship between them. The collision destroys both lands.",
+          "sourcePage": 6281,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6901
+          ]
         }
       ]
     },
@@ -15233,6 +15403,20 @@ window.HOMESTUCK_REFERENCE = {
             6387,
             6388,
             6390
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Land of Heat and Clockwork",
+          "aliases": [
+            "LOHAC"
+          ],
+          "definition": "Dave's industrial Land of Heat and Clockwork is imported into the post-Scratch session, where Jade reforges Caledfwlch. During Aranea's attack, the Condesce moves it into the path of Jane's Land of Crypts and Helium. Their collision destroys both planets, adding to the session's wreckage.",
+          "sourcePage": 6280,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6323,
+            6901
           ]
         }
       ]
@@ -16830,6 +17014,21 @@ window.HOMESTUCK_REFERENCE = {
             6803,
             6804
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "An ascended state with conditional immortality. Heroic or Just deaths can prevent automatic revival: Dave and Jake receive Heroic rulings, while Jane's death is Just. Jade's earlier Just death also remains unreversed after the attempt to save her fails. Advancement abilities and badges are separate from these death judgments.",
+          "sourcePage": 3630,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6383,
+            6652,
+            6901
+          ]
         }
       ]
     },
@@ -16981,6 +17180,21 @@ window.HOMESTUCK_REFERENCE = {
             6738,
             6848,
             6852
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Land of Frost and Frogs",
+          "aliases": [
+            "LOFAF"
+          ],
+          "definition": "Jade's Land of Frost and Frogs becomes the center of the disastrous battle after she swaps it with Derse. Aranea smashes the Land of Light and Rain into it, destroying both planets. Echidna and the Genesis Frog were last known to be at its core before the collision.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6618,
+            6630,
+            6901
           ]
         }
       ]
@@ -17191,6 +17405,22 @@ window.HOMESTUCK_REFERENCE = {
             4017,
             3319,
             6327
+          ]
+        },
+        {
+          "term": "Genesis Frog",
+          "aliases": [
+            "Speaker of the Vast Croak",
+            "Bilious Slick",
+            "Speaker of the Vast Joke"
+          ],
+          "from": "act-6-act-6-intermission-3",
+          "definition": "The frog containing a created universe and its related realities. Jade's completed frog was last known to be guarded by Echidna at LOFAF's core. Kanaya and Karkat die before their requested meeting is shown, and LOFAF is destroyed. The frog's fate is not established by the collision sequence.",
+          "sourcePage": 5083,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6327,
+            6901
           ]
         }
       ]
@@ -17905,6 +18135,23 @@ window.HOMESTUCK_REFERENCE = {
             6899,
             6900
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The Heir of Breath fights Caliborn in his studio, overcoming the cane and gun with punches, kicks and a bite. Before the fight can continue, John involuntarily jumps away. He arrives among the shattered planets of the session, bewildered by the destruction he missed.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6916,
+            6917,
+            6918,
+            6919
+          ]
         }
       ]
     },
@@ -18111,6 +18358,17 @@ window.HOMESTUCK_REFERENCE = {
             6831,
             6833
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The Seer of Light attacks the Condesce amid the collapsing battlefield, but the empress's trident impales her. Before another energy blast can strike, Roxy appears, takes hold of Rose and disappears with her. Rose is unconscious and severely wounded; her death is not established here.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -18258,6 +18516,17 @@ window.HOMESTUCK_REFERENCE = {
             6731,
             6739
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The Knight of Time fights Jack Noir and PM to recover Jade's body for revival. He frees her onto her quest bed but is impaled during the fight and falls onto her. His death receives a Heroic ruling, preventing ordinary god-tier revival; Jade remains dead as well.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -18498,6 +18767,23 @@ window.HOMESTUCK_REFERENCE = {
             6716,
             6719,
             6720
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "The Witch of Space remains dead after the earlier Just ruling. Jack Noir and PM carry her body to her quest bed; Dave dies trying to recover her, and Jane's death ends the attempted revival. Jade's last shown dream-bubble encounter is with Calliope.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6652,
+            6679,
+            6716
           ]
         }
       ]
@@ -19068,6 +19354,18 @@ window.HOMESTUCK_REFERENCE = {
             6730,
             6731
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Prospitian Monarch",
+          "aliases": [
+            "Parcel Mistress",
+            "Peregrine Mendicant",
+            "PM"
+          ],
+          "definition": "The ring-powered Prospitian Monarch guards Jade's body with Jack Noir at the quest bed. Dave's attempt to recover Jade turns into a sword fight with both guardians. Dave is impaled and dies on top of Jade, receiving a Heroic ruling; the planned revival of Jade has not happened.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -19253,6 +19551,16 @@ window.HOMESTUCK_REFERENCE = {
             6729,
             6730
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Jack Noir",
+          "aliases": [
+            "Bec Noir"
+          ],
+          "definition": "The pre-Scratch, ring-transformed Jack Noir carries Jade to her quest bed with PM. Dave attacks to recover her, and their fight ends with Dave impaled and falling onto Jade. His death is Heroic. The doglike guardians' attachment to Jade has now helped turn a rescue attempt into another death.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -20078,6 +20386,20 @@ window.HOMESTUCK_REFERENCE = {
             6841,
             6842
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The Knight of Blood charges Gamzee to save Terezi. Gamzee takes her cane and impales him, sending him into the lava below while Terezi watches. His earlier revival by Jane does not save him from this attack.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6901
+          ]
         }
       ]
     },
@@ -20276,6 +20598,20 @@ window.HOMESTUCK_REFERENCE = {
             6841,
             6842
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The rainbow drinker attacks Gamzee after he kills Karkat and cuts the clown in half with her chainsaw. The Condesce's energy blast then vaporizes her. Kanaya is killed; Gamzee's bisection leaves his fate uncertain.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6901
+          ]
         }
       ]
     },
@@ -20406,6 +20742,17 @@ window.HOMESTUCK_REFERENCE = {
             6841,
             6842
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "Gamzee holds the wounded Seer of Mind hostage and kills Karkat when he tries to rescue her. She escapes the Condesce's energy blast and attacks Aranea, who makes her impale herself with her own weapon. Badly wounded, Terezi still manages to get back up; no death is shown.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -20770,6 +21117,17 @@ window.HOMESTUCK_REFERENCE = {
             6818,
             6835
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage holds Terezi hostage and kills the charging Karkat with her cane, dropping him into lava. Kanaya then cuts Gamzee in half with her chainsaw. The halves retain contrasting expressions; the bisection is shown, but the scene does not establish his death.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -21343,6 +21701,26 @@ window.HOMESTUCK_REFERENCE = {
             6851,
             6852
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The empress devastates the battlefield with energy blasts, vaporizing Kanaya and severely wounding Rose with her trident. She survives the destruction of her battleship and counters Aranea's planet-moving attack with another planet. After stripping away Aranea's Ring of Life, she kills her and throws her into the burning wreckage.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6902,
+            6908,
+            6909,
+            6910,
+            6913
+          ]
         }
       ]
     },
@@ -21835,6 +22213,17 @@ window.HOMESTUCK_REFERENCE = {
             6795,
             6796
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The controlled Maid of Life is thrown off Aranea and targeted with Brain ghost Dirk's abandoned katana. Jake intercepts it, but Aranea then uses the impaled boy to stab Jane as well. Jane's death is ruled Just, preventing ordinary god-tier revival. Her attempt to revive Jade has failed.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -22009,6 +22398,17 @@ window.HOMESTUCK_REFERENCE = {
             6806,
             6829
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The Page of Hope jumps in front of a katana aimed at Jane. Aranea lifts the impaled Jake and uses the same blade to skewer Jane too. Jake dies with a Heroic ruling, ending his brief return to life before he can save her. His earlier dreamself is also deceased.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -22219,6 +22619,19 @@ window.HOMESTUCK_REFERENCE = {
             6755,
             6760
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void rescues Rose amid the catastrophe. She appears beside her wounded mother just before the Condesce's energy blast strikes, wraps her arms around Rose and disappears with her. They escape that immediate attack, but Rose remains badly wounded.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -23453,6 +23866,17 @@ window.HOMESTUCK_REFERENCE = {
             6899,
             6900
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time attacks John with his cane and golden assault rifle, but John beats him in their studio fight. John's abrupt disappearance leaves Caliborn bloodied and disoriented on the floor. He reaches for his computer mouse; his manga self-insert's boasts have not protected him from the actual encounter.",
+          "sourcePage": 6901,
+          "sourceKind": "visual"
         }
       ],
       "characterId": "undying-umbrage"
@@ -24117,6 +24541,19 @@ window.HOMESTUCK_REFERENCE = {
             6278,
             6327
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Void session",
+          "aliases": [],
+          "definition": "A session lacking pre-entry prototyping, a mature Battlefield and a Forge, unable to create a universe unaided. The Condesce tries to complete it using the imported lands, Battlefield and Genesis Frog. Aranea's intervention instead ends in a catastrophic battle that destroys four lands.",
+          "sourcePage": 4703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4705,
+            6327,
+            6901
+          ]
         }
       ]
     },
@@ -24362,6 +24799,24 @@ window.HOMESTUCK_REFERENCE = {
             6651,
             6669
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Aranea Serket",
+          "aliases": [
+            "Aranea"
+          ],
+          "definition": "Aranea's takeover becomes a catastrophe: she kills Jake and Jane with the abandoned katana, wounds Terezi and smashes planets together using controlled ghosts. The Condesce survives, removes the Ring of Life, snaps Aranea's neck and drops her into the fire. Her death is Just; her promised timeline healing is not achieved.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6902,
+            6908,
+            6909,
+            6910,
+            6913,
+            6914
+          ]
         }
       ],
       "characterId": "aranea"
@@ -24520,6 +24975,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             4825
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Land of Crypts and Helium",
+          "aliases": [
+            "LOCAH"
+          ],
+          "definition": "Jane's Land of Crypts and Helium contains balloons, crypts and the remains of a long-dead salamander civilization. Aranea pulls it toward the Condesce during the battle, but the empress counters with Dave's Land of Heat and Clockwork. The two planets collide and are destroyed.",
+          "sourcePage": 4820,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4825,
+            6901
           ]
         }
       ]
@@ -24790,6 +25259,20 @@ window.HOMESTUCK_REFERENCE = {
             6772,
             6742,
             6845
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Brain ghost Dirk",
+          "aliases": [],
+          "definition": "The Dirk-shaped projection made physical by Jake's Hope vanished during Jake's earlier death, leaving his katana behind. Aranea now turns that abandoned weapon against Jake and Jane. Those attacks are her actions, not the arrival of the distant real Dirk or an independent return of the projection.",
+          "sourcePage": 6691,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6767,
+            6770,
+            6772,
+            6901
           ]
         }
       ]
@@ -25270,6 +25753,24 @@ window.HOMESTUCK_REFERENCE = {
             6667,
             6704,
             6705
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Ring of Life",
+          "aliases": [
+            "Hussie's ring",
+            "Hussie's gold ring"
+          ],
+          "definition": "The gold ring restores a dead wearer to life, as demonstrated by Aranea. The Condesce flicks it off Aranea's finger before snapping her neck and dropping her into the fire, where her death is Just. The ring is removed, but this sequence does not establish its next owner.",
+          "sourcePage": 6548,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6553,
+            6908,
+            6909,
+            6913,
+            6914
           ]
         }
       ]
@@ -26487,6 +26988,18 @@ window.HOMESTUCK_REFERENCE = {
             6888,
             6898
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Homosuck",
+          "aliases": [],
+          "definition": "Caliborn's manga-styled parody remains separate from the actual players' lives. When John confronts its author, the story cuts between their fight in Caliborn's studio and the real battle tearing the session apart. John beats Caliborn, then involuntarily jumps away into the ruined session.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6916,
+            6918
+          ]
         }
       ]
     },
@@ -26625,6 +27138,18 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             6411
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-3",
+          "term": "Echidna",
+          "aliases": [],
+          "definition": "Jade's denizen was last known to guard the Genesis Frog at LOFAF's core. She requested Kanaya and Karkat rather than the controlled Jade, but both trolls die before that meeting is shown. LOFAF is destroyed in the planetary collision; Echidna's own fate remains unconfirmed.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6411,
+            6901
           ]
         }
       ]
