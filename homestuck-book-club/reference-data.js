@@ -3324,6 +3324,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5505
               ]
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Caliborn's guide and servant; creates the post-Scratch players' combined sprites",
+              "sourcePage": 5505,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5523,
+                5648,
+                5675
+              ]
             }
           ]
         },
@@ -4492,6 +4504,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Jane's father",
               "sourcePage": 4123,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Jane's father; fashion celebrity on Derse",
+              "sourcePage": 5568,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4123
+              ]
             }
           ]
         },
@@ -4503,6 +4525,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Formerly",
               "value": "Private investigator",
               "sourcePage": 4198,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Status",
+              "value": "Alive in a maximum-security VIP suite on Derse",
+              "sourcePage": 5567,
               "sourceKind": "direct"
             }
           ]
@@ -7324,6 +7358,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Oversized fork",
               "sourcePage": 5438,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Weapon",
+              "value": "Spiral sucker",
+              "sourcePage": 5707,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5711
+              ]
             }
           ]
         },
@@ -7347,6 +7391,18 @@ window.HOMESTUCK_REFERENCE = {
                 4955,
                 4156
               ]
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Form",
+              "value": "Trickster mode",
+              "sourcePage": 5711,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7572,6 +7628,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Message in a Bottle modus",
               "sourcePage": 4473,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Inventory",
+              "value": "Message in a Bottle modus · Roxy's ring · Jane's dad's PDA",
+              "sourcePage": 4473,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5633,
+                5635,
+                5636
+              ]
             }
           ]
         },
@@ -7596,6 +7664,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 5503
+              ]
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Powers",
+              "value": "Obscures ordinary remote observation through Void · Ring-granted invisibility and intangibility",
+              "sourcePage": 4513,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5503,
+                5636
               ]
             }
           ]
@@ -8098,6 +8177,13 @@ window.HOMESTUCK_REFERENCE = {
                 5120,
                 5261
               ]
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Off-world guide; seeks an alternate Calliope who predominated",
+              "sourcePage": 5615,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -8196,6 +8282,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Powers",
+              "value": "Shapes a dream bubble into a hidden sanctuary",
+              "sourcePage": 5614,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
           "id": "status",
           "variants": [
             {
@@ -8228,6 +8326,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5461,
                 5481
+              ]
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Status",
+              "value": "Ghost hiding from Lord English in the Furthest Ring",
+              "sourcePage": 5614,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5615
               ]
             }
           ]
@@ -8564,6 +8672,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Self-aware software based on Dirk's thirteen-year-old mind, housed in his sunglasses",
               "sourcePage": 4489,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Self-aware copy of Dirk's thirteen-year-old mind; now a component of Arquiusprite",
+              "sourcePage": 4489,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5654,
+                5655
+              ]
             }
           ]
         },
@@ -8833,6 +8952,15 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4402,
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-clubs-deuce.webp",
+            "alt": "Post-Scratch Courtyard Droll in a black suit and tall hat"
+          },
+          "sourcePage": 5634,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -9214,6 +9342,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 5443,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-caliborn-candy-tooth.webp",
+            "alt": "Caliborn with his robotic leg and candy-corn replacement tooth"
+          },
+          "sourcePage": 5506,
+          "sourceKind": "visual",
+          "sourcePages": [
+            5498
+          ]
         }
       ],
       "stats": [
@@ -9380,6 +9520,19 @@ window.HOMESTUCK_REFERENCE = {
                 5501,
                 5502
               ]
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Inventory",
+              "value": "Juju modus · Command tower keys · Lil Cal",
+              "sourcePage": 5445,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5501,
+                5502,
+                5675,
+                5676
+              ]
             }
           ]
         },
@@ -9402,6 +9555,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5443,
                 5498
+              ]
+            },
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Condition",
+              "value": "Learning difficulties · Robotic leg · Golden fangs",
+              "sourcePage": 5480,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5443,
+                5675
               ]
             }
           ]
@@ -9468,6 +9632,15 @@ window.HOMESTUCK_REFERENCE = {
             "alt": "Post-Scratch Draconian Dignitary in his black Dersite uniform"
           },
           "sourcePage": 4572,
+          "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-diamonds-droog.webp",
+            "alt": "Post-Scratch Draconian Dignitary in his black suit, white tie and hat"
+          },
+          "sourcePage": 5561,
           "sourceKind": "visual"
         }
       ],
@@ -11033,6 +11206,259 @@ window.HOMESTUCK_REFERENCE = {
       ]
     },
     {
+      "id": "fefetasprite",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-5-part-1",
+      "introPage": 5520,
+      "sourcePage": 5520,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "FEFETASPRITE",
+          "introLinkPage": 5533,
+          "sourcePage": 5533,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "Fefetasprite",
+          "sourcePage": 5533,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-fefetasprite.webp",
+            "alt": "Fefetasprite, a purple sprite with Nepeta and Feferi's combined symbol"
+          },
+          "sourcePage": 5520,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Roxy's sprite guide",
+              "sourcePage": 5533,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Components",
+              "value": "Feferi Peixes + Nepeta Leijon",
+              "sourcePage": 5520,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5533
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Interests",
+              "value": "Shipping",
+              "sourcePage": 5537,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arquiusprite",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-5-part-1",
+      "introPage": 5655,
+      "sourcePage": 5655,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "ARQUIUSPRITE",
+          "introLinkPage": 5656,
+          "sourcePage": 5656,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "Arquiusprite",
+          "sourcePage": 5656,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-arquiusprite.webp",
+            "alt": "Arquiusprite, a red muscular sprite wearing angular sunglasses"
+          },
+          "sourcePage": 5655,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Dirk's sprite guide",
+              "sourcePage": 5656,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "formerly",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Formerly",
+              "value": "Equiusprite (before Lil Hal was prototyped)",
+              "sourcePage": 5647,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5652,
+                5654
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Powers",
+              "value": "Exceptional physical strength",
+              "sourcePage": 5656,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5657
+              ]
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Components",
+              "value": "Equius Zahhak + Lil Hal",
+              "sourcePage": 5655,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5654
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Interests",
+              "value": "Muscles · Horses · Milk · Archery",
+              "sourcePage": 5657,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erisolsprite",
+      "group": "guardians-sprites",
+      "reveal": "act-6-act-5-part-1",
+      "introPage": 5512,
+      "sourcePage": 5512,
+      "sourceKind": "intro",
+      "rosterColumn": 4,
+      "name": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "ERISOLSPRITE",
+          "introLinkPage": 5516,
+          "sourcePage": 5516,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "Erisolsprite",
+          "sourcePage": 5516,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-erisolsprite.webp",
+            "alt": "Erisolsprite, a green sprite with four horns and red and blue glasses"
+          },
+          "sourcePage": 5512,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Jake's sprite guide",
+              "sourcePage": 5516,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Components",
+              "value": "Eridan Ampora + Sollux Captor",
+              "sourcePage": 5512,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5516
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "roxys-mom",
       "group": "guardians-sprites",
       "reveal": "act-6-act-3",
@@ -11225,7 +11651,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-intermission-4",
+  "conceptsPreparedThrough": "act-6-act-5-part-1",
   "concepts": [
     {
       "id": "alchemy",
@@ -11769,6 +12195,21 @@ window.HOMESTUCK_REFERENCE = {
             2089
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Prototyping",
+          "aliases": [],
+          "definition": "Adding an object, corpse or other entity to a kernelsprite, shaping the resulting guide. Pre-entry prototypes also alter the kingdoms and their rulers' powers; later additions affect the sprite. Gamzee combines dead trolls into the post-Scratch guides, and Dirk adds Lil Hal's sunglasses to Equiusprite to create Arquiusprite.",
+          "sourcePage": 1674,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5523,
+            5647,
+            5648,
+            5654,
+            5655
+          ]
         }
       ]
     },
@@ -14927,6 +15368,20 @@ window.HOMESTUCK_REFERENCE = {
             5395,
             4733
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A shared environment in the Furthest Ring shaped by memories, where ghosts and living dreamers meet. Calliope designs a hidden sanctuary and changes her own appearance to her trollsona there. Its protection requires care: she fears Rose's presence as a Light player will expose them to Lord English.",
+          "sourcePage": 5614,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5621,
+            5622,
+            5623,
+            5386
+          ]
         }
       ]
     },
@@ -15054,6 +15509,22 @@ window.HOMESTUCK_REFERENCE = {
             3851,
             3871
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "A level of power reached through sacrificial death and ascension, granting extraordinary abilities and conditional immortality. Heroic or just deaths can still be permanent. Calliope advises the post-Scratch players to ascend on their moon-core slabs, but her recommendation is a plan, not an accomplished transformation.",
+          "sourcePage": 5617,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3630,
+            3788,
+            3851,
+            3871
+          ]
         }
       ]
     },
@@ -15104,6 +15575,21 @@ window.HOMESTUCK_REFERENCE = {
             3081,
             3091,
             3238
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Quest bed",
+          "aliases": [
+            "Quest cocoon"
+          ],
+          "definition": "A sacrificial resting place used for god-tier ascension. Players with living dreamselves can die on the beds on their lands; the moon-core sacrificial slabs provide another route. Calliope says the post-Scratch players must use those slabs because they have no spare dreamselves and no developed Battlefield.",
+          "sourcePage": 5617,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4109,
+            3630,
+            3091
           ]
         }
       ]
@@ -18092,6 +18578,24 @@ window.HOMESTUCK_REFERENCE = {
             5501,
             5505
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage haunts the post-Scratch session, combining dead trolls into the players' sprites while Dirk bribes him to leave one kernelsprite empty. He also supplies Caliborn with Lil Cal. His survival and Caliborn's claims still do not establish god-tier ascension or reliable rules for his abilities.",
+          "sourcePage": 5523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5640,
+            5648,
+            5675,
+            5676,
+            5484
+          ]
         }
       ]
     },
@@ -18582,6 +19086,26 @@ window.HOMESTUCK_REFERENCE = {
             4873,
             4944
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The troll empress rules Derse while serving Lord English and pursuing plans of her own. She takes Roxy prisoner and sends her a secret assignment. Calliope believes she wants to exploit Roxy's Void abilities; her direct interference with Jane's computer adds another threat as the heiress's birthday approaches.",
+          "sourcePage": 5563,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5618,
+            5627,
+            5628,
+            5697,
+            5701
+          ]
         }
       ]
     },
@@ -18755,6 +19279,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4226
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Unreal Heiress Thoughtwave Tiaratop",
+          "aliases": [
+            "Tiaratop",
+            "Thoughtwave tiaratop"
+          ],
+          "definition": "Jane's wearable thoughtwave computer, fitted into a tiara and used to project her chat interface. The Condesce later intrudes through it with messages and disturbing mind waves while Jane tries to ignore her friends. Jane is distressed by the intrusion and continues using the device to follow her messages.",
+          "sourcePage": 4172,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4173,
+            5691,
+            5697,
+            5700,
+            5701
+          ]
         }
       ]
     },
@@ -18920,6 +19462,25 @@ window.HOMESTUCK_REFERENCE = {
             5245,
             5252
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The Maid of Life, frustrated by her friends' relationship troubles and frightened by Caliborn's claims about her father. After receiving Calliope's birthday message, she alchemizes the cherubs' two jujus. Their combined spiral sucker transforms her into a brightly colored trickster who blasts away through her land.",
+          "sourcePage": 5528,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5554,
+            5694,
+            5703,
+            5705,
+            5711,
+            5712
+          ]
         }
       ]
     },
@@ -19018,6 +19579,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4216,
             4875
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The Page of Hope, exploring the Land of Mounds and Xenon with Erisolsprite. He considers ending his relationship with Dirk and badly misreads Jane's anger. Caliborn offers to help him reach his potential as a future rival, giving him a juju code that he passes on to Jane.",
+          "sourcePage": 5516,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5528,
+            5672,
+            5674,
+            5675,
+            5691
           ]
         }
       ]
@@ -19140,6 +19719,28 @@ window.HOMESTUCK_REFERENCE = {
             5503,
             5505
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void, captured on Derse after GCat teleports her into danger. While unconscious she meets Calliope's ghost, who recommends ascension on the moon slabs. A gifted ring then lets Roxy escape her cell, and she tries to warn her distracted friends about the coming battle.",
+          "sourcePage": 5540,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5543,
+            5544,
+            5614,
+            5617,
+            5626,
+            5636,
+            5700
+          ]
         }
       ]
     },
@@ -19248,6 +19849,27 @@ window.HOMESTUCK_REFERENCE = {
             5244,
             5252
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart, troubled by Jake's silence and by seeing his own worst tendencies reflected in Lil Hal. He nearly destroys the responder, then relents when Hal admits he is afraid to die. Prototyping the sunglasses into Equiusprite creates Arquiusprite, a newly embodied version of the AI.",
+          "sourcePage": 5640,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5641,
+            5642,
+            5644,
+            5654,
+            5655
+          ]
         }
       ]
     },
@@ -19339,6 +19961,23 @@ window.HOMESTUCK_REFERENCE = {
             5093,
             5398
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "The deceased Muse of Space hides from Lord English in a sanctuary shaped by her imagination. She meets Roxy as Callie Ohpeee, her trollsona, and hopes to find an alternate self who predominated over Caliborn. She urges the players to win their game rather than take responsibility for defeating her brother.",
+          "sourcePage": 5614,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5615,
+            5616,
+            5617
+          ]
         }
       ]
     },
@@ -19359,6 +19998,18 @@ window.HOMESTUCK_REFERENCE = {
             4198,
             4201,
             4196
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Jane's dad",
+          "aliases": [],
+          "definition": "Jane's father is alive in a luxurious but tightly secured Derse prison suite, despite Caliborn's cruel claim that he died. His formal attire has made him a local celebrity. The Dignitary protects him and sets up a restricted social network for his fashion advice.",
+          "sourcePage": 5554,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5567,
+            5568
           ]
         }
       ]
@@ -19477,6 +20128,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5245,
             5246
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Lil Hal",
+          "aliases": [
+            "Auto-responder",
+            "Auto responder"
+          ],
+          "definition": "Dirk's self-aware software copy, whose manipulations and endless reflections of his creator bring them to a crisis. Hal drops his ironic manner and begs not to be destroyed. Dirk instead prototypes his sunglasses into Equiusprite, making him one of Arquiusprite's two components.",
+          "sourcePage": 5639,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5641,
+            5642,
+            5644,
+            5654,
+            5655
           ]
         }
       ]
@@ -19702,6 +20371,18 @@ window.HOMESTUCK_REFERENCE = {
             5509,
             5438
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [],
+          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit as negotiations drag on. The White Queen offers release in exchange for an apology from the Condesce, who refuses. The Dignitary prefers running things without him, though he misses Jack's skill at clearing bureaucratic paperwork.",
+          "sourcePage": 5560,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5561,
+            5510
+          ]
         }
       ]
     },
@@ -19750,6 +20431,19 @@ window.HOMESTUCK_REFERENCE = {
             4946,
             4947,
             4948
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Post-Scratch Draconian Dignitary",
+          "aliases": [],
+          "definition": "The post-Scratch acting archagent manages Derse while Jack remains imprisoned on Prospit. He has adopted the business attire popularized by Jane's father and personally protects his VIP prisoner. His network and newly alchemized fenestrated walls help him monitor the kingdom and players.",
+          "sourcePage": 5561,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5562,
+            5567,
+            5568
           ]
         }
       ]
@@ -19810,6 +20504,22 @@ window.HOMESTUCK_REFERENCE = {
             4893,
             4933
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Post-Scratch Courtyard Droll",
+          "aliases": [
+            "Courtyard Droll (post-Scratch)",
+            "Post-Scratch Droll"
+          ],
+          "definition": "The post-Scratch Dersite demolitions specialist also serves as an eager errand-runner. He alchemizes replacement fenestrated walls for the Dignitary and delivers a PDA and ring to Roxy's prison cell. His delighted impulse to perform an umbrella dance is thwarted by his missing umbrella.",
+          "sourcePage": 5562,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5633,
+            5634,
+            4402
+          ]
         }
       ]
     },
@@ -19848,6 +20558,22 @@ window.HOMESTUCK_REFERENCE = {
             4426,
             4944,
             4873
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "GCat",
+          "aliases": [
+            "God Cat"
+          ],
+          "definition": "The teleporting stray cat appears at Jane's planned birthday party, then abruptly transports Roxy above Derse. She falls unconscious and into the Condesce's custody. His intervention brings Roxy into contact with Calliope's ghost while her body is imprisoned.",
+          "sourcePage": 5520,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5540,
+            5543,
+            5544,
+            5618
           ]
         }
       ],
@@ -19982,6 +20708,25 @@ window.HOMESTUCK_REFERENCE = {
             5491,
             5505
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time expands his command-tower surveillance while studying Calliope's books. He harasses Jane, then offers to guide Jake toward becoming a worthy adversary. Having received Lil Cal from Gamzee, he gives away his old juju and predicts that the puppet's future curse will arise through him.",
+          "sourcePage": 5551,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5553,
+            5671,
+            5672,
+            5675,
+            5676,
+            5678
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -20040,6 +20785,19 @@ window.HOMESTUCK_REFERENCE = {
             4507,
             4508,
             4515
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Fenestrated plane",
+          "aliases": [],
+          "definition": "A linked window used for travel across a gap between its paired frames. Roxy's rifle can position a remote window, while the Dignitary uses a set of walls to watch the players. After Dirk destroys his old setup, he sends the Droll to alchemize replacements with upgrades.",
+          "sourcePage": 4510,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5438,
+            5562,
+            5563
           ]
         }
       ]
@@ -20314,6 +21072,20 @@ window.HOMESTUCK_REFERENCE = {
             5398,
             5503
           ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Void",
+          "aliases": [],
+          "definition": "The aspect of concealment and nothingness, which can obstruct ordinary remote observation. Calliope welcomes Roxy as an ideal guest in her hidden sanctuary because she is a Void player, while fearing that a Light player will expose it. Roxy's new ring supplies demonstrated invisibility and intangibility, distinct from her still-developing innate abilities.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5503,
+            5614,
+            5622,
+            5636
+          ]
         }
       ]
     },
@@ -20333,6 +21105,23 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4521,
             4649
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Lil Cal",
+          "aliases": [
+            "Cal"
+          ],
+          "definition": "The grinning puppet Caliborn receives from Gamzee after its excavation with other artifacts. He calls it a superior juju and believes his own future essence will bring its curse to life. He regards it as empty for now, but predicts misery and death wherever its future curse spreads.",
+          "sourcePage": 5675,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5676,
+            5677,
+            5678,
+            5679,
+            4520
           ]
         }
       ]
@@ -20364,6 +21153,23 @@ window.HOMESTUCK_REFERENCE = {
             4648,
             4649,
             4650
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Juju",
+          "aliases": [],
+          "definition": "A magical object governed by ownership rules rather than ordinary duplication. Caliborn says one may be taken after its owner dies or freely gives it away; alchemizing a transferred juju makes the giver's instance disappear. Jane receives the cherubs' paired suckers, whose combined enchantment triggers trickster mode.",
+          "sourcePage": 4962,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5674,
+            5675,
+            5694,
+            5703,
+            5705,
+            5707,
+            5711
           ]
         }
       ]
@@ -20475,6 +21281,20 @@ window.HOMESTUCK_REFERENCE = {
             4698,
             4354,
             3771
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Light aspect",
+          "aliases": [],
+          "definition": "Rose and Aranea's aspect, associated with knowledge, fortune and relevance. Rose is the Seer of Light and Aranea its Sylph. Calliope treats Rose's arrival in her hidden sanctuary as dangerously conspicuous, fearing a Light player's presence will draw Lord English's attention.",
+          "sourcePage": 4564,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5263,
+            5614,
+            5621,
+            5622
           ]
         }
       ]
@@ -21395,6 +22215,20 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Skeleton-bodied enemies encountered on the post-Scratch players' lands. Jake fires golden pistols at a towering creature among the mounds, while smaller skeletal monsters approach Dirk through the smoke and towers of his own land.",
           "sourcePage": 5438,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Skeletal underlings",
+          "aliases": [
+            "Skeleton monsters"
+          ],
+          "definition": "The post-Scratch lands' skeletal enemies reassemble after being knocked apart and yield very little grist for the effort of defeating them. This drives the players toward tombs and treasure chests instead of monster fights. Jane's trickster transformation later destroys the nearby horde in a rainbow blast.",
+          "sourcePage": 5523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5438,
+            5712
+          ]
         }
       ]
     },
@@ -21449,6 +22283,24 @@ window.HOMESTUCK_REFERENCE = {
             5487,
             5502,
             5503
+          ]
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Command tower",
+          "aliases": [
+            "Command station",
+            "MSPA command station"
+          ],
+          "definition": "An unlockable tower of monitors and a narrative terminal, controlled through keys and a locked model. Caliborn expands its viewpoints as he progresses, using them to spy on Jane and other players despite their session's ordinary Void obstruction. His growing access does not make him omniscient.",
+          "sourcePage": 5479,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5502,
+            5503,
+            5551,
+            5552,
+            5553
           ]
         }
       ]
@@ -21530,6 +22382,210 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             5449
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-erisolsprite",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Erisolsprite",
+          "aliases": [],
+          "definition": "Jake's sprite guide, combining Eridan and Sollux. He resents his conflicting personalities and Jake's requests for romantic advice, while Jake treats his insults as wonderful company. He urges Jake to talk to Jane about his relationship with Dirk instead of relying on a miserable sprite.",
+          "sourcePage": 5512,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5516
+          ]
+        }
+      ],
+      "characterId": "erisolsprite"
+    },
+    {
+      "id": "person-fefetasprite",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Fefetasprite",
+          "aliases": [
+            "Fefeta"
+          ],
+          "definition": "Roxy's purple sprite guide, combining Feferi and Nepeta. She joins Roxy in preparing Jane's birthday party and offers expressive, catlike replies during the ensuing argument. Roxy values her companionship and shipping expertise, though she falls asleep as the party collapses.",
+          "sourcePage": 5520,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5532,
+            5533,
+            5537
+          ]
+        }
+      ],
+      "characterId": "fefetasprite"
+    },
+    {
+      "id": "person-arquiusprite",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Arquiusprite",
+          "aliases": [
+            "Equiusprite"
+          ],
+          "definition": "Dirk's sprite guide, formed when he prototypes Lil Hal's sunglasses into Equiusprite. The resulting red sprite combines Equius's muscular body and preoccupations with the responder's computer mind. Delighted to be alive and extraordinarily strong, he immediately demands that Dirk admire and touch his muscles.",
+          "sourcePage": 5654,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5655,
+            5656,
+            5657
+          ]
+        }
+      ],
+      "characterId": "arquiusprite"
+    },
+    {
+      "id": "lil-hal-junior",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Lil Hal Junior",
+          "aliases": [
+            "Lil Hal Jr",
+            "Responder responder"
+          ],
+          "definition": "Lil Hal's own chat auto-responder, nicknamed the responder responder. Its ordinary repertoire consists of three short replies, alongside canned explanations of what it is. Hal uses it to screen Dirk's messages; Dirk sees the imitation as a passive-aggressive parody rather than another self-aware mind.",
+          "sourcePage": 5637,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5639
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wizardy-herbert",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Wizardy Herbert",
+          "aliases": [],
+          "definition": "Roxy's unfinished wizard fiction, mixing magical adventures with characters who know they are trapped in a story. A remembered writing session appears inside her dream, where she notices contradictions in the setting and eventually realizes she is meeting Calliope rather than reliving the past.",
+          "sourcePage": 5576,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5577,
+            5578,
+            5579,
+            5580,
+            5581,
+            5582
+          ]
+        }
+      ]
+    },
+    {
+      "id": "serious-business",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Serious Business",
+          "aliases": [],
+          "definition": "A social network adapted for Jane's imprisoned father and the citizens of Derse to trade fashion advice. Its local firewall prevents him from contacting the players, though Roxy later bypasses that restriction with his PDA. The Dignitary and Condesce also participate in its public conversations.",
+          "sourcePage": 5568,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5569,
+            5570,
+            5571,
+            5635
+          ]
+        }
+      ]
+    },
+    {
+      "id": "roxys-ring",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Roxy's ring",
+          "aliases": [
+            "Roxy's gold ring"
+          ],
+          "definition": "The plain gold ring delivered to Roxy's Derse cell with a PDA and a courteous note. Wearing it makes her invisible and intangible enough to escape through the wall. She wonders whether it is helping her discover Void powers, but the demonstrated effects come from the ring.",
+          "sourcePage": 5633,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5634,
+            5636
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spiral-sucker",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Spiral sucker",
+          "aliases": [
+            "Spiral lollipop"
+          ],
+          "definition": "The combined form of Calliope's green juju and Caliborn's red juju. Jane alchemizes the two suckers, which snap together like powerful magnets. The resulting enchantment compels her to lick it, triggering trickster mode and an exuberant transformation.",
+          "sourcePage": 5703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5705,
+            5706,
+            5707,
+            5708,
+            5710,
+            5711
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zillium",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Zillium",
+          "aliases": [],
+          "definition": "The unusual grist associated with the cherubs' juju suckers. Each sucker has an alchemy cost of negative one unit, so making the green and red gifts gives Jane a unit of Zillium apiece instead of consuming her resources.",
+          "sourcePage": 5703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5705
+          ]
+        }
+      ]
+    },
+    {
+      "id": "trickster-mode",
+      "reveal": "act-6-act-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-5-part-1",
+          "term": "Trickster mode",
+          "aliases": [
+            "Trickster"
+          ],
+          "definition": "The candy-colored transformation Jane undergoes after licking the spiral sucker. She dances with a huge lollipop, releases a rainbow blast that destroys nearby monsters and transforms the surrounding landscape, then flies away. This spectacle does not establish that she has ascended to god tier.",
+          "sourcePage": 5711,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5712
           ]
         }
       ]
