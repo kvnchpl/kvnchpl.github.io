@@ -11012,6 +11012,21 @@ window.HOMESTUCK_REFERENCE = {
                 6250,
                 6262
               ]
+            },
+            {
+              "from": "act-6-act-6-act-3",
+              "label": "Interests",
+              "value": "Drawing · Satire · Manga",
+              "sourcePage": 6249,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6250,
+                6262,
+                6854,
+                6856,
+                6862,
+                6863
+              ]
             }
           ]
         }
@@ -12639,7 +12654,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-intermission-2",
+  "conceptsPreparedThrough": "act-6-act-6-act-3",
   "concepts": [
     {
       "id": "alchemy",
@@ -17869,6 +17884,26 @@ window.HOMESTUCK_REFERENCE = {
             6525,
             6528,
             6530
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-3",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The Heir of Breath's uncontrolled jumps take him from Homosuck into Caliborn's studio. He recognizes the parody's author and blames him for the larger catastrophe, including his father's death. John threatens to attack; Caliborn readies his golden gun. Their confrontation remains unresolved.",
+          "sourcePage": 6884,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6885,
+            6888,
+            6889,
+            6897,
+            6898,
+            6899,
+            6900
           ]
         }
       ]
@@ -23396,6 +23431,28 @@ window.HOMESTUCK_REFERENCE = {
             6528,
             6530
           ]
+        },
+        {
+          "from": "act-6-act-6-act-3",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time discards his crude troll sprites after studying manga. He draws a flattering Lord English-like self-insert, then meets John in his studio. John accuses him of causing the wider catastrophe; Caliborn dismisses him as an intruding hater and threatens him with a golden gun.",
+          "sourcePage": 6854,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6856,
+            6862,
+            6881,
+            6882,
+            6884,
+            6888,
+            6898,
+            6899,
+            6900
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -26408,6 +26465,27 @@ window.HOMESTUCK_REFERENCE = {
             6526,
             6528,
             6530
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-3",
+          "term": "Homosuck",
+          "aliases": [],
+          "definition": "Homosuck now uses Caliborn's manga-inspired drawings. He pairs Dave- and Karkat-like leads, kills female troll caricatures and introduces a flattering self-insert dressed like Lord English. John leaves the parody for its author's studio and confronts him. These drawings do not establish the real characters' relationships or deaths.",
+          "sourcePage": 6856,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6862,
+            6864,
+            6866,
+            6873,
+            6876,
+            6878,
+            6881,
+            6882,
+            6884,
+            6888,
+            6898
           ]
         }
       ]
