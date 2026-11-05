@@ -518,6 +518,27 @@ window.HOMESTUCK_REFERENCE = {
             1651
           ],
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-1",
+          "value": "PRE-SCRATCH GUARDIANS & SPRITES",
+          "sourcePage": 4117,
+          "sourceKind": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "post-scratch-guardians-sprites",
+      "title": [
+        {
+          "from": "act-6-act-1",
+          "value": "POST-SCRATCH GUARDIANS & SPRITES",
+          "sourcePage": 4123,
+          "sourcePages": [
+            4145,
+            4168
+          ],
+          "sourceKind": "editorial"
         }
       ]
     },
@@ -1539,6 +1560,24 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Status",
+              "value": "Dead after a Just ruling; revival attempt interrupted",
+              "sourcePage": 6651,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6652,
+                6718,
+                6719,
+                6720
+              ]
+            }
+          ]
+        },
+        {
           "id": "condition",
           "variants": [
             {
@@ -1553,7 +1592,8 @@ window.HOMESTUCK_REFERENCE = {
                 5891
               ]
             }
-          ]
+          ],
+          "until": "act-6-act-6-intermission-2"
         },
         {
           "id": "interests",
@@ -3035,6 +3075,20 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Sight restored by Aranea",
               "sourcePage": 6017,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Condition",
+              "value": "Sight restored by Aranea · Severe injuries from Gamzee",
+              "sourcePage": 6033,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6034,
+                6794,
+                6807,
+                6818,
+                6835
+              ]
             }
           ]
         },
@@ -3686,6 +3740,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5493,
                 5499
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Condition",
+              "value": "Multiple stab wounds",
+              "sourcePage": 6706,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6707,
+                6708,
+                6776
               ]
             }
           ]
@@ -4712,8 +4778,81 @@ window.HOMESTUCK_REFERENCE = {
       "rosterColumn": 4
     },
     {
-      "id": "dad-crocker",
+      "id": "bec",
       "group": "guardians-sprites",
+      "reveal": "act-3",
+      "introPage": 942,
+      "name": [
+        {
+          "from": "act-3",
+          "value": "BECQUEREL",
+          "sourcePage": 942,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-3",
+          "value": "Becquerel",
+          "sourcePage": 942,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-3",
+          "value": {
+            "src": "../assets/ref-bec.webp",
+            "alt": "Becquerel"
+          },
+          "sourcePage": 943,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-3",
+              "label": "Role",
+              "value": "Jade's dog, guardian, and best friend",
+              "sourcePage": 1075,
+              "sourceKind": "direct"
+            },
+            {
+              "from": "act-5-act-2-part-1",
+              "label": "Role",
+              "value": "Earth’s First Guardian · Jade’s dog and guardian",
+              "sourcePage": 3238,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "prototyping",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-1",
+              "label": "Form",
+              "value": "Prototyped into Becsprite, then Jadesprite",
+              "sourcePage": 3238,
+              "sourceKind": "direct",
+              "sourcePages": [
+                2927,
+                3212
+              ]
+            }
+          ]
+        }
+      ],
+      "sourcePage": 942,
+      "sourceKind": "intro",
+      "rosterColumn": 4
+    },
+    {
+      "id": "dad-crocker",
+      "group": "post-scratch-guardians-sprites",
       "reveal": "act-6-act-1",
       "introPage": 4131,
       "name": [
@@ -4813,34 +4952,36 @@ window.HOMESTUCK_REFERENCE = {
       "rosterColumn": 1
     },
     {
-      "id": "bec",
-      "group": "guardians-sprites",
-      "reveal": "act-3",
-      "introPage": 942,
+      "id": "gcat",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-2",
+      "introPage": 4424,
+      "sourcePage": 4424,
+      "sourceKind": "direct",
       "name": [
         {
-          "from": "act-3",
-          "value": "BECQUEREL",
-          "sourcePage": 942,
+          "from": "act-6-act-2",
+          "value": "GCAT",
+          "sourcePage": 4426,
           "sourceKind": "direct"
         }
       ],
       "rosterLabel": [
         {
-          "from": "act-3",
-          "value": "Becquerel",
-          "sourcePage": 942,
+          "from": "act-6-act-2",
+          "value": "GCat",
+          "sourcePage": 4426,
           "sourceKind": "direct"
         }
       ],
       "portrait": [
         {
-          "from": "act-3",
+          "from": "act-6-act-2",
           "value": {
-            "src": "../assets/ref-bec.webp",
-            "alt": "Becquerel"
+            "src": "../assets/ref-gcat.webp",
+            "alt": "GCat, a white cat with a long curved tail"
           },
-          "sourcePage": 943,
+          "sourcePage": 4424,
           "sourceKind": "visual"
         }
       ],
@@ -4849,41 +4990,739 @@ window.HOMESTUCK_REFERENCE = {
           "id": "role",
           "variants": [
             {
-              "from": "act-3",
+              "from": "act-6-act-2",
               "label": "Role",
-              "value": "Jade's dog, guardian, and best friend",
-              "sourcePage": 1075,
-              "sourceKind": "direct"
-            },
+              "value": "Teleporting cat who interferes with Jane and her friends",
+              "sourcePage": 4425,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4424
+              ]
+            }
+          ]
+        },
+        {
+          "id": "also-known-as",
+          "variants": [
             {
-              "from": "act-5-act-2-part-1",
+              "from": "act-6-act-2",
+              "label": "Also known as",
+              "value": "God Cat",
+              "sourcePage": 4426,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4424
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-2",
+              "label": "Powers",
+              "value": "Teleportation",
+              "sourcePage": 4425,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 2
+    },
+    {
+      "id": "poppop",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-1",
+      "introPage": 4145,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "POPPOP CROCKER",
+          "sourcePage": 4145,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Poppop",
+          "sourcePage": 4145,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "src": "../assets/ref-poppop.webp",
+            "alt": "Poppop Crocker's stuffed body holding a joke book"
+          },
+          "sourcePage": 4201,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
               "label": "Role",
-              "value": "Earth’s First Guardian · Jade’s dog and guardian",
-              "sourcePage": 3238,
+              "value": "Jane's grandfather; comedian and sitcom actor",
+              "sourcePage": 4145,
               "sourceKind": "direct"
             }
           ]
         },
         {
-          "id": "prototyping",
+          "id": "status",
           "variants": [
             {
-              "from": "act-5-act-2-part-1",
-              "label": "Form",
-              "value": "Prototyped into Becsprite, then Jadesprite",
-              "sourcePage": 3238,
-              "sourceKind": "direct",
-              "sourcePages": [
-                2927,
-                3212
-              ]
+              "from": "act-6-act-1",
+              "label": "Status",
+              "value": "Deceased",
+              "sourcePage": 4145,
+              "sourceKind": "direct"
             }
           ]
         }
       ],
-      "sourcePage": 942,
+      "sourcePage": 4145,
+      "sourceKind": "intro",
+      "rosterColumn": 1
+    },
+    {
+      "id": "roxys-mom",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-3",
+      "introPage": 4861,
+      "sourcePage": 4861,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "from": "act-6-act-3",
+          "value": "ROXY'S MOM",
+          "sourcePage": 4861,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-3",
+          "value": "Roxy's mom",
+          "sourcePage": 4861,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-roxys-mom.webp",
+            "alt": "Roxy's mom holding her needles"
+          },
+          "sourcePage": 4869,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Roxy's genetic ancestor; wizard novelist and resistance fighter",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4861
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Needles",
+              "sourcePage": 4870,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Presumed deceased in Dirk's historical account",
+              "sourcePage": 4874,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872
+              ]
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Rose Lalonde (pre-Scratch self)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872,
+                4706
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dirks-bro",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-3",
+      "introPage": 4860,
+      "sourcePage": 4860,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "from": "act-6-act-3",
+          "value": "DIRK'S BRO",
+          "sourcePage": 4860,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-3",
+          "value": "Dirk's bro",
+          "sourcePage": 4860,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-dirks-bro.webp",
+            "alt": "Dirk's bro in a suit and round sunglasses"
+          },
+          "sourcePage": 4866,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Dirk's genetic ancestor; filmmaker and resistance fighter",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4861
+              ]
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Weapon",
+              "value": "Sword",
+              "sourcePage": 4867,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Presumed deceased in Dirk's historical account",
+              "sourcePage": 4874,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872
+              ]
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Counterpart",
+              "value": "Dave Strider (pre-Scratch self)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4872,
+                4706
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grandma",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-1",
+      "introPage": 4129,
+      "name": [
+        {
+          "from": "act-6-act-1",
+          "value": "JAKE'S GRANDMA",
+          "sourcePage": 4168,
+          "sourceKind": "direct",
+          "introLinkPage": 4183
+        },
+        {
+          "from": "act-6-act-3",
+          "value": "JADE ENGLISH",
+          "sourcePage": 4859,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4173,
+            4174
+          ]
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-1",
+          "value": "Grandma",
+          "sourcePage": 4168,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 4168,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Role",
+              "value": "Jake's grandmother; adventurer and entrepreneur",
+              "sourcePage": 4183,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Also known as",
+              "value": "Jade",
+              "sourcePage": 4173,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4174
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-1",
+              "label": "Status",
+              "value": "Deceased",
+              "sourcePage": 4189,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ],
+      "sourcePage": 4129,
       "sourceKind": "intro",
       "rosterColumn": 4
+    },
+    {
+      "id": "tavrisprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-3",
+      "introPage": 4834,
+      "sourcePage": 4834,
+      "sourceKind": "intro",
+      "rosterColumn": 1,
+      "name": [
+        {
+          "from": "act-6-act-3",
+          "value": "TAVRISPRITE",
+          "sourcePage": 4834,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-3",
+          "value": "Tavrisprite",
+          "sourcePage": 4834,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-3",
+          "value": {
+            "src": "../assets/ref-tavrisprite.webp",
+            "alt": "Tavrisprite, a blue sprite combining Tavros and Vriska"
+          },
+          "sourcePage": 4834,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Role",
+              "value": "Jane's briefly existing sprite guide",
+              "sourcePage": 4834,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4835
+              ]
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Components",
+              "value": "Tavros Nitram + Vriska Serket",
+              "sourcePage": 4830,
+              "sourceKind": "visual",
+              "sourcePages": [
+                4831,
+                4833
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-3",
+              "label": "Status",
+              "value": "Exploded; its two component ghosts returned to the afterlife",
+              "sourcePage": 4837,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4839
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fefetasprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-5-part-1",
+      "introPage": 5520,
+      "sourcePage": 5520,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "FEFETASPRITE",
+          "introLinkPage": 5533,
+          "sourcePage": 5533,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "Fefetasprite",
+          "sourcePage": 5533,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-fefetasprite.webp",
+            "alt": "Fefetasprite, a purple sprite with Nepeta and Feferi's combined symbol"
+          },
+          "sourcePage": 5520,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Roxy's sprite guide",
+              "sourcePage": 5533,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Components",
+              "value": "Feferi Peixes + Nepeta Leijon",
+              "sourcePage": 5520,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5533
+              ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Status",
+              "value": "Exploded during the sprites' argument",
+              "sourcePage": 5761,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5799
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Interests",
+              "value": "Shipping",
+              "sourcePage": 5537,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arquiusprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-5-part-1",
+      "introPage": 5655,
+      "sourcePage": 5655,
+      "sourceKind": "intro",
+      "rosterColumn": 3,
+      "name": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "ARQUIUSPRITE",
+          "introLinkPage": 5656,
+          "sourcePage": 5656,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "Arquiusprite",
+          "sourcePage": 5656,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-arquiusprite.webp",
+            "alt": "Arquiusprite, a red muscular sprite wearing angular sunglasses"
+          },
+          "sourcePage": 5655,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Dirk's sprite guide",
+              "sourcePage": 5656,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "formerly",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Formerly",
+              "value": "Equiusprite (before Lil Hal was prototyped)",
+              "sourcePage": 5647,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5652,
+                5654
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Powers",
+              "value": "Exceptional physical strength",
+              "sourcePage": 5656,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5657
+              ]
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Components",
+              "value": "Equius Zahhak + Lil Hal",
+              "sourcePage": 5655,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5654
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Interests",
+              "value": "Muscles · Horses · Milk · Archery",
+              "sourcePage": 5657,
+              "sourceKind": "direct"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "erisolsprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-5-part-1",
+      "introPage": 5512,
+      "sourcePage": 5512,
+      "sourceKind": "intro",
+      "rosterColumn": 4,
+      "name": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "ERISOLSPRITE",
+          "introLinkPage": 5516,
+          "sourcePage": 5516,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "Erisolsprite",
+          "sourcePage": 5516,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": {
+            "src": "../assets/ref-erisolsprite.webp",
+            "alt": "Erisolsprite, a green sprite with four horns and red and blue glasses"
+          },
+          "sourcePage": 5512,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Role",
+              "value": "Jake's sprite guide",
+              "sourcePage": 5516,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-5-part-1",
+              "label": "Components",
+              "value": "Eridan Ampora + Sollux Captor",
+              "sourcePage": 5512,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5516
+              ]
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "wv",
@@ -7840,6 +8679,19 @@ window.HOMESTUCK_REFERENCE = {
                 5903,
                 5905
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Condition",
+              "value": "Asleep; body still controlled through the thoughtwave tiaratop",
+              "sourcePage": 6781,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6783,
+                6793,
+                6795,
+                6796
+              ]
             }
           ]
         },
@@ -8133,6 +8985,23 @@ window.HOMESTUCK_REFERENCE = {
                 6451,
                 6463
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Powers",
+              "value": "Obscures ordinary remote observation through Void · Conjures objects from nothing · Invisibility · Intangibility",
+              "sourcePage": 4513,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5503,
+                6293,
+                6295,
+                6451,
+                6463,
+                6596,
+                6599,
+                6668
+              ]
             }
           ]
         },
@@ -8387,6 +9256,21 @@ window.HOMESTUCK_REFERENCE = {
                 5206,
                 5252
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Powers",
+              "value": "Splintered self · Soul extraction demonstrated by Brain ghost Dirk",
+              "sourcePage": 4875,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5206,
+                5252,
+                6691,
+                6692,
+                6744,
+                6745
+              ]
             }
           ]
         },
@@ -8591,6 +9475,26 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Powers",
+              "value": "Hope field · Makes imagined figures real through belief; unstable",
+              "sourcePage": 6591,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6607,
+                6616,
+                6632,
+                6634,
+                6691,
+                6750
+              ]
+            }
+          ]
+        },
+        {
           "id": "form",
           "variants": [
             {
@@ -8614,6 +9518,20 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dreamself deceased",
               "sourcePage": 4216,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Status",
+              "value": "Alive after god-tier revival; dreamself deceased",
+              "sourcePage": 4216,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6767,
+                6770,
+                6803,
+                6804,
+                6806
+              ]
             }
           ]
         },
@@ -8905,155 +9823,6 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4144,
       "sourceKind": "intro"
-    },
-    {
-      "id": "poppop",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-1",
-      "introPage": 4145,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "POPPOP CROCKER",
-          "sourcePage": 4145,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Poppop",
-          "sourcePage": 4145,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "src": "../assets/ref-poppop.webp",
-            "alt": "Poppop Crocker's stuffed body holding a joke book"
-          },
-          "sourcePage": 4201,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Jane's grandfather; comedian and sitcom actor",
-              "sourcePage": 4145,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Status",
-              "value": "Deceased",
-              "sourcePage": 4145,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4145,
-      "sourceKind": "intro",
-      "rosterColumn": 1
-    },
-    {
-      "id": "grandma",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-1",
-      "introPage": 4129,
-      "name": [
-        {
-          "from": "act-6-act-1",
-          "value": "JAKE'S GRANDMA",
-          "sourcePage": 4168,
-          "sourceKind": "direct",
-          "introLinkPage": 4183
-        },
-        {
-          "from": "act-6-act-3",
-          "value": "JADE ENGLISH",
-          "sourcePage": 4859,
-          "sourceKind": "composite",
-          "sourcePages": [
-            4173,
-            4174
-          ]
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-1",
-          "value": "Grandma",
-          "sourcePage": 4168,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-1",
-          "value": {
-            "placeholder": "?"
-          },
-          "sourcePage": 4168,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Role",
-              "value": "Jake's grandmother; adventurer and entrepreneur",
-              "sourcePage": 4183,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "also-known-as",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Also known as",
-              "value": "Jade",
-              "sourcePage": 4173,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4174
-              ]
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-1",
-              "label": "Status",
-              "value": "Deceased",
-              "sourcePage": 4189,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ],
-      "sourcePage": 4129,
-      "sourceKind": "intro",
-      "rosterColumn": 4
     },
     {
       "id": "lil-seb",
@@ -9669,85 +10438,6 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "rosterColumn": 3
-    },
-    {
-      "id": "gcat",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-2",
-      "introPage": 4424,
-      "sourcePage": 4424,
-      "sourceKind": "direct",
-      "name": [
-        {
-          "from": "act-6-act-2",
-          "value": "GCAT",
-          "sourcePage": 4426,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-2",
-          "value": "GCat",
-          "sourcePage": 4426,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-2",
-          "value": {
-            "src": "../assets/ref-gcat.webp",
-            "alt": "GCat, a white cat with a long curved tail"
-          },
-          "sourcePage": 4424,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Role",
-              "value": "Teleporting cat who interferes with Jane and her friends",
-              "sourcePage": 4425,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4424
-              ]
-            }
-          ]
-        },
-        {
-          "id": "also-known-as",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Also known as",
-              "value": "God Cat",
-              "sourcePage": 4426,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4424
-              ]
-            }
-          ]
-        },
-        {
-          "id": "powers",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Powers",
-              "value": "Teleportation",
-              "sourcePage": 4425,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ]
     },
     {
       "id": "squarewave",
@@ -11213,6 +11903,19 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4769,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "value": {
+            "src": "../assets/ref-aranea-alive.webp",
+            "alt": "Aranea Serket alive, with orange eyes, glasses, blue clothing and red shoes"
+          },
+          "sourcePage": 6548,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6549,
+            6553
+          ]
         }
       ],
       "stats": [
@@ -11245,6 +11948,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5957
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Role",
+              "value": "Beforan player attempting to take over the post-Scratch session",
+              "sourcePage": 6553,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -11257,6 +11967,22 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 4775,
               "sourceKind": "direct",
               "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Inventory",
+              "value": "Ring of Life",
+              "sourcePage": 6547,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6548,
+                6553
+              ]
             }
           ]
         },
@@ -11284,6 +12010,25 @@ window.HOMESTUCK_REFERENCE = {
                 4775,
                 5235
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Powers",
+              "value": "Healing · Troll mind control · Senses human emotions · Induces sleep in humans · Uses controlled ghosts for telekinesis",
+              "sourcePage": 4773,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5957,
+                6554,
+                6560,
+                6562,
+                6578,
+                6668,
+                6669,
+                6781,
+                6783,
+                6845
+              ]
             }
           ]
         },
@@ -11299,6 +12044,18 @@ window.HOMESTUCK_REFERENCE = {
                 4778
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Status",
+              "value": "Alive through the Ring of Life",
+              "sourcePage": 6547,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6548,
+                6553,
+                6576
+              ]
             }
           ]
         },
@@ -11757,6 +12514,13 @@ window.HOMESTUCK_REFERENCE = {
               ],
               "from": "act-6-intermission-3",
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-intermission-2",
+              "label": "Role",
+              "value": "Former recruiter of a ghost army against Lord English",
+              "sourcePage": 6749,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -11844,553 +12608,9 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ]
-    },
-    {
-      "id": "tavrisprite",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-3",
-      "introPage": 4834,
-      "sourcePage": 4834,
-      "sourceKind": "intro",
-      "rosterColumn": 1,
-      "name": [
-        {
-          "from": "act-6-act-3",
-          "value": "TAVRISPRITE",
-          "sourcePage": 4834,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-3",
-          "value": "Tavrisprite",
-          "sourcePage": 4834,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-3",
-          "value": {
-            "src": "../assets/ref-tavrisprite.webp",
-            "alt": "Tavrisprite, a blue sprite combining Tavros and Vriska"
-          },
-          "sourcePage": 4834,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Role",
-              "value": "Jane's briefly existing sprite guide",
-              "sourcePage": 4834,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4835
-              ]
-            }
-          ]
-        },
-        {
-          "id": "components",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Components",
-              "value": "Tavros Nitram + Vriska Serket",
-              "sourcePage": 4830,
-              "sourceKind": "visual",
-              "sourcePages": [
-                4831,
-                4833
-              ]
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Status",
-              "value": "Exploded; its two component ghosts returned to the afterlife",
-              "sourcePage": 4837,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4839
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "fefetasprite",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-5-part-1",
-      "introPage": 5520,
-      "sourcePage": 5520,
-      "sourceKind": "intro",
-      "rosterColumn": 2,
-      "name": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": "FEFETASPRITE",
-          "introLinkPage": 5533,
-          "sourcePage": 5533,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": "Fefetasprite",
-          "sourcePage": 5533,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": {
-            "src": "../assets/ref-fefetasprite.webp",
-            "alt": "Fefetasprite, a purple sprite with Nepeta and Feferi's combined symbol"
-          },
-          "sourcePage": 5520,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Role",
-              "value": "Roxy's sprite guide",
-              "sourcePage": 5533,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "components",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Components",
-              "value": "Feferi Peixes + Nepeta Leijon",
-              "sourcePage": 5520,
-              "sourceKind": "composite",
-              "sourcePages": [
-                5533
-              ]
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-5",
-              "label": "Status",
-              "value": "Exploded during the sprites' argument",
-              "sourcePage": 5761,
-              "sourceKind": "composite",
-              "sourcePages": [
-                5799
-              ]
-            }
-          ]
-        },
-        {
-          "id": "interests",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Interests",
-              "value": "Shipping",
-              "sourcePage": 5537,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "arquiusprite",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-5-part-1",
-      "introPage": 5655,
-      "sourcePage": 5655,
-      "sourceKind": "intro",
-      "rosterColumn": 3,
-      "name": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": "ARQUIUSPRITE",
-          "introLinkPage": 5656,
-          "sourcePage": 5656,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": "Arquiusprite",
-          "sourcePage": 5656,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": {
-            "src": "../assets/ref-arquiusprite.webp",
-            "alt": "Arquiusprite, a red muscular sprite wearing angular sunglasses"
-          },
-          "sourcePage": 5655,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Role",
-              "value": "Dirk's sprite guide",
-              "sourcePage": 5656,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "formerly",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Formerly",
-              "value": "Equiusprite (before Lil Hal was prototyped)",
-              "sourcePage": 5647,
-              "sourceKind": "composite",
-              "sourcePages": [
-                5652,
-                5654
-              ]
-            }
-          ]
-        },
-        {
-          "id": "powers",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Powers",
-              "value": "Exceptional physical strength",
-              "sourcePage": 5656,
-              "sourceKind": "composite",
-              "sourcePages": [
-                5657
-              ]
-            }
-          ]
-        },
-        {
-          "id": "components",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Components",
-              "value": "Equius Zahhak + Lil Hal",
-              "sourcePage": 5655,
-              "sourceKind": "composite",
-              "sourcePages": [
-                5654
-              ]
-            }
-          ]
-        },
-        {
-          "id": "interests",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Interests",
-              "value": "Muscles · Horses · Milk · Archery",
-              "sourcePage": 5657,
-              "sourceKind": "direct"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "erisolsprite",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-5-part-1",
-      "introPage": 5512,
-      "sourcePage": 5512,
-      "sourceKind": "intro",
-      "rosterColumn": 4,
-      "name": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": "ERISOLSPRITE",
-          "introLinkPage": 5516,
-          "sourcePage": 5516,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": "Erisolsprite",
-          "sourcePage": 5516,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-5-part-1",
-          "value": {
-            "src": "../assets/ref-erisolsprite.webp",
-            "alt": "Erisolsprite, a green sprite with four horns and red and blue glasses"
-          },
-          "sourcePage": 5512,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Role",
-              "value": "Jake's sprite guide",
-              "sourcePage": 5516,
-              "sourceKind": "direct"
-            }
-          ]
-        },
-        {
-          "id": "components",
-          "variants": [
-            {
-              "from": "act-6-act-5-part-1",
-              "label": "Components",
-              "value": "Eridan Ampora + Sollux Captor",
-              "sourcePage": 5512,
-              "sourceKind": "composite",
-              "sourcePages": [
-                5516
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "roxys-mom",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-3",
-      "introPage": 4861,
-      "sourcePage": 4861,
-      "sourceKind": "intro",
-      "rosterColumn": 2,
-      "name": [
-        {
-          "from": "act-6-act-3",
-          "value": "ROXY'S MOM",
-          "sourcePage": 4861,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-3",
-          "value": "Roxy's mom",
-          "sourcePage": 4861,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-3",
-          "value": {
-            "src": "../assets/ref-roxys-mom.webp",
-            "alt": "Roxy's mom holding her needles"
-          },
-          "sourcePage": 4869,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Role",
-              "value": "Roxy's genetic ancestor; wizard novelist and resistance fighter",
-              "sourcePage": 4860,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4861
-              ]
-            }
-          ]
-        },
-        {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Weapon",
-              "value": "Needles",
-              "sourcePage": 4870,
-              "sourceKind": "composite"
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Status",
-              "value": "Presumed deceased in Dirk's historical account",
-              "sourcePage": 4874,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4872
-              ]
-            }
-          ]
-        },
-        {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Counterpart",
-              "value": "Rose Lalonde (pre-Scratch self)",
-              "sourcePage": 4860,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4872,
-                4706
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "dirks-bro",
-      "group": "guardians-sprites",
-      "reveal": "act-6-act-3",
-      "introPage": 4860,
-      "sourcePage": 4860,
-      "sourceKind": "intro",
-      "rosterColumn": 3,
-      "name": [
-        {
-          "from": "act-6-act-3",
-          "value": "DIRK'S BRO",
-          "sourcePage": 4860,
-          "sourceKind": "direct"
-        }
-      ],
-      "rosterLabel": [
-        {
-          "from": "act-6-act-3",
-          "value": "Dirk's bro",
-          "sourcePage": 4860,
-          "sourceKind": "direct"
-        }
-      ],
-      "portrait": [
-        {
-          "from": "act-6-act-3",
-          "value": {
-            "src": "../assets/ref-dirks-bro.webp",
-            "alt": "Dirk's bro in a suit and round sunglasses"
-          },
-          "sourcePage": 4866,
-          "sourceKind": "visual"
-        }
-      ],
-      "stats": [
-        {
-          "id": "role",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Role",
-              "value": "Dirk's genetic ancestor; filmmaker and resistance fighter",
-              "sourcePage": 4860,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4861
-              ]
-            }
-          ]
-        },
-        {
-          "id": "weapon",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Weapon",
-              "value": "Sword",
-              "sourcePage": 4867,
-              "sourceKind": "composite"
-            }
-          ]
-        },
-        {
-          "id": "status",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Status",
-              "value": "Presumed deceased in Dirk's historical account",
-              "sourcePage": 4874,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4872
-              ]
-            }
-          ]
-        },
-        {
-          "id": "counterpart",
-          "variants": [
-            {
-              "from": "act-6-act-3",
-              "label": "Counterpart",
-              "value": "Dave Strider (pre-Scratch self)",
-              "sourcePage": 4860,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4872,
-                4706
-              ]
-            }
-          ]
-        }
-      ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-2",
+  "conceptsPreparedThrough": "act-6-act-6-intermission-2",
   "concepts": [
     {
       "id": "alchemy",
@@ -15114,6 +15334,24 @@ window.HOMESTUCK_REFERENCE = {
             5918,
             5920
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Derse",
+          "aliases": [],
+          "definition": "The purple kingdom near the Veil remains the Condesce's base in the post-Scratch session. Aranea brings Jade's battleship there and unleashes Jake's Hope field, while Roxy escapes prison. Unable to teleport Jake away, Jade swaps Derse's location with her own land to spare the kingdom further damage.",
+          "sourcePage": 5836,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6569,
+            6587,
+            6591,
+            6596,
+            6616,
+            6618,
+            6620,
+            6630
+          ]
         }
       ]
     },
@@ -16187,6 +16425,21 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Doomed timeline",
+          "aliases": [
+            "Doomed reality"
+          ],
+          "definition": "An offshoot from the alpha timeline whose inhabitants are fated to die, even if they return to the continuing history. Aranea deliberately plans such a branch by preventing Lord English's birth universe, then proposes healing it until it replaces the alpha. She admits this is theoretical; her confidence does not establish that it can work.",
+          "sourcePage": 2728,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2975,
+            3091,
+            6553
+          ]
         }
       ]
     },
@@ -16303,6 +16556,19 @@ window.HOMESTUCK_REFERENCE = {
             5956,
             5957,
             6027
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped meeting place for ghosts and living dreamers in the Furthest Ring. Jade meets Calliope there without remembering her death. Calliope explains that ghost eyes turn blank only after the person remembers dying, so ordinary-looking eyes do not by themselves establish that a visitor is alive.",
+          "sourcePage": 6679,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6681,
+            6715,
+            6716
           ]
         }
       ]
@@ -16500,6 +16766,26 @@ window.HOMESTUCK_REFERENCE = {
             6247,
             6383
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "An ascended state with conditional immortality: Heroic or Just deaths can prevent automatic revival. Jade's death receives a Just ruling, while Jake revives after Jane kills him. Jane's Life power offers a separate possible route to revive Jade, but the attempt is interrupted. Advancement powers and badges remain distinct from these death judgments.",
+          "sourcePage": 3630,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6383,
+            6651,
+            6652,
+            6718,
+            6719,
+            6720,
+            6803,
+            6804
+          ]
         }
       ]
     },
@@ -16631,6 +16917,26 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6324,
             6327
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Land of Frost and Frogs",
+          "aliases": [
+            "LOFAF"
+          ],
+          "definition": "Jade's Land of Frost and Frogs contains the Forge and the Genesis Frog guarded by Echidna. Jade swaps it with Derse to contain Jake's Hope field, turning her own land into the confrontation's center. Lava and Green Sun fire spread while the players converge, and the Condesce's battleship arrives overhead.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6618,
+            6620,
+            6630,
+            6632,
+            6650,
+            6738,
+            6848,
+            6852
           ]
         }
       ]
@@ -17716,6 +18022,31 @@ window.HOMESTUCK_REFERENCE = {
             6411,
             6412
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The Seer of Light joins the confrontation on Jade's land and finds her sleeping mother Roxy. She carries Roxy away from Aranea's fight, then tries to stop Gamzee from beating Terezi. Her uncertainty about troll romance delays her response, and her spell misses Gamzee and strikes Jake's platform instead.",
+          "sourcePage": 6655,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6656,
+            6735,
+            6737,
+            6752,
+            6754,
+            6755,
+            6760,
+            6809,
+            6811,
+            6830,
+            6831,
+            6833
+          ]
         }
       ]
     },
@@ -17840,6 +18171,28 @@ window.HOMESTUCK_REFERENCE = {
             6390,
             6391,
             6404
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The Knight of Time leaves WV behind and answers Karkat's call to Jade's land. Finding Jade dead, he tries to recover her body from Jack Noir and PM. Once Jane says she can revive Jade, Dave follows the two guardians as they chase GCat, hoping to bring her back for healing.",
+          "sourcePage": 6624,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6653,
+            6654,
+            6687,
+            6689,
+            6713,
+            6714,
+            6730,
+            6731,
+            6739
           ]
         }
       ]
@@ -18057,6 +18410,30 @@ window.HOMESTUCK_REFERENCE = {
             6383,
             6404,
             6453
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "The controlled Witch of Space swaps Derse with her land while fighting Jake's Hope field. Its backlash knocks her unconscious and breaks the control; Aranea then drops her house onto her. A Just ruling prevents ordinary god-tier revival. While Jane's rescue is obstructed, Jade meets Calliope in a dream bubble without remembering her death.",
+          "sourcePage": 6618,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6630,
+            6641,
+            6642,
+            6643,
+            6651,
+            6652,
+            6679,
+            6716,
+            6719,
+            6720
           ]
         }
       ]
@@ -18602,6 +18979,31 @@ window.HOMESTUCK_REFERENCE = {
             4382,
             4384
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Prospitian Monarch",
+          "aliases": [
+            "Parcel Mistress",
+            "Peregrine Mendicant",
+            "PM"
+          ],
+          "definition": "Prospit's ring-powered queen reaches Jade's land with Jack Noir. Their shared doglike loyalty to Jade leads them to guard her body, mistaking Jane's attempted revival for an attack. GCat distracts both guardians into a chase, leaving Dave to follow them and recover Jade for Jane's healing.",
+          "sourcePage": 6712,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6713,
+            6714,
+            6718,
+            6719,
+            6720,
+            6721,
+            6725,
+            6726,
+            6729,
+            6730,
+            6731
+          ]
         }
       ]
     },
@@ -18766,6 +19168,26 @@ window.HOMESTUCK_REFERENCE = {
             4315,
             4317,
             4384
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Jack Noir",
+          "aliases": [
+            "Bec Noir"
+          ],
+          "definition": "The pre-Scratch renegade archagent, transformed by Becquerel's royal-ring prototyping, reaches Jade's land with PM. Both doglike guardians protect Jade's body and obstruct Jane's revival attempt. They then chase GCat, with Jack still carrying Jade as Dave follows. Their shared attachment to her temporarily displaces their own conflict.",
+          "sourcePage": 6712,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6713,
+            6714,
+            6718,
+            6719,
+            6725,
+            6726,
+            6729,
+            6730
           ]
         }
       ]
@@ -19570,6 +19992,28 @@ window.HOMESTUCK_REFERENCE = {
             6336,
             6398
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The Knight of Blood receives Meenah's warning about Aranea and calls Dave to Jade's land. Unable to fly, he struggles to keep up with Kanaya while the confrontation escalates. Seeing Gamzee brutalize Terezi, he draws his sickle and demands her release, rejecting another peaceful reconciliation with the clown.",
+          "sourcePage": 6566,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6567,
+            6568,
+            6622,
+            6624,
+            6738,
+            6821,
+            6822,
+            6841,
+            6842
+          ]
         }
       ]
     },
@@ -19750,6 +20194,24 @@ window.HOMESTUCK_REFERENCE = {
             6411,
             6412
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The rainbow drinker remains on Jade's land with Karkat as Aranea's intervention turns it into a battlefield. Her speed helps her cross the burning terrain, but neither she nor Karkat can fly. They witness Gamzee's assault on Terezi and draw their weapons to confront him. Echidna's requested meeting remains unfinished.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6738,
+            6821,
+            6822,
+            6841,
+            6842
+          ]
         }
       ]
     },
@@ -19853,6 +20315,32 @@ window.HOMESTUCK_REFERENCE = {
             6362,
             6414,
             6415
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "The Seer of Mind confronts Gamzee over his abuse and recognizes Aranea's influence on him. She repeatedly stabs him while he is controlled, then stops when he begs her to. Freed from that control, Gamzee savagely beats and restrains her as Rose, Jake, Karkat and Kanaya attempt to intervene.",
+          "sourcePage": 6696,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6697,
+            6698,
+            6706,
+            6707,
+            6776,
+            6777,
+            6779,
+            6794,
+            6818,
+            6829,
+            6830,
+            6841,
+            6842
           ]
         }
       ]
@@ -19962,6 +20450,21 @@ window.HOMESTUCK_REFERENCE = {
             6052,
             6083,
             6084
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "Vriska's ghost recoils from Aranea's attempt to imitate Mindfang and seize the living players' session. She admits Aranea did most of the ghost-army control and questions her own hunger for importance. With Meenah's support, she gives up their planned assault on Lord English rather than continue a mission she no longer trusts.",
+          "sourcePage": 6553,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6748,
+            6749
           ]
         }
       ]
@@ -20176,6 +20679,32 @@ window.HOMESTUCK_REFERENCE = {
             6018,
             6223,
             6231
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage carries the Ring of Life while sleeping, then hands it to Aranea under her control. She uses him to obstruct Jane's attempt to revive Jade. Terezi attacks him while he is unable to respond; when Aranea's control breaks, he turns on Terezi and violently beats and restrains her.",
+          "sourcePage": 6539,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6544,
+            6546,
+            6547,
+            6554,
+            6558,
+            6665,
+            6682,
+            6706,
+            6776,
+            6788,
+            6794,
+            6818,
+            6835
           ]
         }
       ]
@@ -20727,6 +21256,29 @@ window.HOMESTUCK_REFERENCE = {
             5921,
             5926
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The troll empress's control of the session is threatened when Aranea returns to life and turns Jake's Hope powers against her servants. Jade dies and Jane continues fighting through her tiaratop even while asleep. The Condesce finally arrives overhead in her enormous red battleship; the confrontation has not yet been resolved.",
+          "sourcePage": 6553,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6607,
+            6651,
+            6793,
+            6848,
+            6849,
+            6850,
+            6851,
+            6852
+          ]
         }
       ]
     },
@@ -20938,6 +21490,26 @@ window.HOMESTUCK_REFERENCE = {
             5903,
             5905,
             5917
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Unreal Heiress Thoughtwave Tiaratop",
+          "aliases": [
+            "Tiaratop",
+            "Thoughtwave tiaratop"
+          ],
+          "definition": "Jane's wearable computer gives the Condesce control over her mind and body. Aranea can put Jane to sleep, but that does not end the device's control: Jane keeps attacking her while marked as asleep. The tiaratop's influence persists without Jane's conscious participation.",
+          "sourcePage": 5885,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5899,
+            5900,
+            6781,
+            6783,
+            6793,
+            6795,
+            6796
           ]
         }
       ]
@@ -21176,6 +21748,29 @@ window.HOMESTUCK_REFERENCE = {
             6400,
             6443
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The controlled Maid of Life tries to revive Jade, but Gamzee and the doglike guardians obstruct her. She kills Jake to stop the Hope field, then attacks Aranea. Aranea puts her to sleep, yet the thoughtwave tiaratop keeps her body fighting. Her attempted revival of Jade has not succeeded.",
+          "sourcePage": 6682,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6718,
+            6719,
+            6720,
+            6764,
+            6767,
+            6781,
+            6783,
+            6793,
+            6795,
+            6796
+          ]
         }
       ]
     },
@@ -21328,6 +21923,27 @@ window.HOMESTUCK_REFERENCE = {
             6443,
             6444,
             6445
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "Aranea forces the Page of Hope's power to emerge as an enormous field that repels Jade and makes Brain ghost Dirk physical. It fades when Aranea is distracted. Jane kills Jake, ending the projection, but his god-tier revival returns him to life. He then tries to stop Gamzee's assault on Terezi.",
+          "sourcePage": 6584,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6607,
+            6634,
+            6691,
+            6750,
+            6767,
+            6804,
+            6806,
+            6829
           ]
         }
       ]
@@ -21514,6 +22130,30 @@ window.HOMESTUCK_REFERENCE = {
             6458,
             6459,
             6463
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void escapes prison by turning invisible and intangible. She confronts Aranea over the stolen Ring of Life, insisting it should revive Calliope. Aranea instead puts her to sleep. Rose finds Roxy and carries her away from the fight; the reunion occurs while Roxy remains unconscious.",
+          "sourcePage": 6596,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6599,
+            6667,
+            6668,
+            6669,
+            6737,
+            6752,
+            6754,
+            6755,
+            6760
           ]
         }
       ]
@@ -21795,6 +22435,27 @@ window.HOMESTUCK_REFERENCE = {
             5615,
             5616,
             5617
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "The deceased Muse of Space remains lonely and hidden from Lord English, regretting how quickly she sent Roxy away. Jade arrives without remembering what happened to her. As Callie, her trollsona, Calliope befriends her; they plan Jade's own trollsona and investigate an unfamiliar drawn stage that has appeared in the sanctuary.",
+          "sourcePage": 6672,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6673,
+            6674,
+            6679,
+            6680,
+            6681,
+            6716,
+            6717
           ]
         }
       ]
@@ -22431,6 +23092,24 @@ window.HOMESTUCK_REFERENCE = {
             5544,
             5618
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "GCat",
+          "aliases": [
+            "God Cat"
+          ],
+          "definition": "The teleporting stray cat is summoned by Jane throwing a toy mouse during the confrontation on Jade's land. Jack Noir and PM abandon their standoff to chase him. Jack keeps hold of Jade's body, so the distraction frustrates Jane's attempted revival rather than solving it.",
+          "sourcePage": 6723,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6724,
+            6725,
+            6726,
+            6728,
+            6729,
+            6730
+          ]
         }
       ],
       "characterId": "gcat"
@@ -22964,6 +23643,22 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "An active destroyer class, paired with the more passive Bard. UU describes a Prince as someone who destroys their aspect or causes destruction through it. Dirk's Prince of Heart title can therefore be read as a destroyer of souls, though this describes potential rather than an ability he has demonstrated.",
           "sourcePage": 4564,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Prince",
+          "aliases": [],
+          "definition": "An active destroyer class, paired with the more passive Bard. A Prince can destroy their aspect or cause destruction through it. The Hope-made Brain ghost Dirk demonstrates the Prince of Heart's soul-related power by pulling at Aranea's soul; the attempt ends before he can finish removing it.",
+          "sourcePage": 4564,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6691,
+            6744,
+            6745,
+            6750,
+            6769,
+            6772
+          ]
         }
       ]
     },
@@ -23005,6 +23700,22 @@ window.HOMESTUCK_REFERENCE = {
             4564,
             4875,
             5206
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Heart",
+          "aliases": [],
+          "definition": "The aspect associated with the soul and self. Dirk's awareness divides into distinct splinters, including his software responder and Jake's imagined companion. Once Jake's Hope makes Brain ghost Dirk physical, that manifestation uses Prince of Heart power to begin extracting Aranea's soul. This is not the distant Dirk's bodily arrival.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4514,
+            4564,
+            6691,
+            6744,
+            6745,
+            6750
           ]
         }
       ]
@@ -23076,6 +23787,24 @@ window.HOMESTUCK_REFERENCE = {
             6295,
             6451,
             6463
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Void",
+          "aliases": [],
+          "definition": "The aspect of concealment and nothingness. Roxy can conjure objects by removing their nonexistence, and now turns invisible and intangible without her lost Ring of Void. She uses those abilities to escape prison and hide from ordinary sight, though Aranea still detects her presence.",
+          "sourcePage": 5503,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5636,
+            6451,
+            6463,
+            6596,
+            6599,
+            6661,
+            6662,
+            6668
           ]
         }
       ]
@@ -23321,6 +24050,22 @@ window.HOMESTUCK_REFERENCE = {
             4775,
             4776
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Sylph",
+          "aliases": [],
+          "definition": "A player class associated with healing. Aranea restores sight and claims she can repair physical and emotional injuries; she forces Jake's hidden power open as part of her plan. Her further proposal to heal a doomed timeline into the alpha is explicitly theoretical, not an established Sylph ability or a completed success.",
+          "sourcePage": 4773,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6033,
+            6034,
+            6553,
+            6578,
+            6584,
+            6586
+          ]
         }
       ]
     },
@@ -23512,6 +24257,25 @@ window.HOMESTUCK_REFERENCE = {
             6033,
             6034
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Aranea Serket",
+          "aliases": [
+            "Aranea"
+          ],
+          "definition": "The Beforan Sylph of Light uses the Ring of Life to return from death and attempts to seize the session, intending to erase Lord English's origin. She forces Jake's Hope powers open, kills Jade and controls other people to protect her plan. Her claim that she can heal a doomed timeline into the alpha remains theoretical.",
+          "sourcePage": 6548,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6553,
+            6584,
+            6586,
+            6642,
+            6643,
+            6651,
+            6669
+          ]
         }
       ],
       "characterId": "aranea"
@@ -23581,6 +24345,23 @@ window.HOMESTUCK_REFERENCE = {
             6070,
             6071,
             6072
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "The ghostly Thief of Life warns Aranea against reviving herself and sabotaging the session, then alerts Karkat. Left behind with Vriska, she talks through their ambitions and doubts. She supports abandoning their planned assault on Lord English, choosing their friendship over a mission that is making Vriska miserable.",
+          "sourcePage": 6553,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6566,
+            6567,
+            6568,
+            6748,
+            6749
           ]
         }
       ],
@@ -23739,6 +24520,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5398
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Page",
+          "aliases": [],
+          "definition": "A player class with a long path toward great potential. Aranea forces Jake's Page of Hope powers to emerge before he can develop them naturally, producing a vast protective field and a physical Brain ghost Dirk. That power remains unstable and dependent on support, rather than a completed mastery of his class.",
+          "sourcePage": 6576,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6577,
+            6584,
+            6586,
+            6607,
+            6691,
+            6750
+          ]
         }
       ]
     },
@@ -23887,6 +24684,26 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6445,
             5244
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Brain ghost Dirk",
+          "aliases": [],
+          "definition": "The Dirk-shaped projection in Jake's mind becomes physical through Jake's awakened Hope. He fights Aranea and tries to pull her soul from her body, remaining distinct from the real Dirk traveling back to the session. His existence weakens with Jake's belief and ends when Jane kills Jake; his katana remains behind.",
+          "sourcePage": 6691,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6692,
+            6744,
+            6745,
+            6750,
+            6767,
+            6769,
+            6770,
+            6772,
+            6742,
+            6845
           ]
         }
       ]
@@ -24346,6 +25163,27 @@ window.HOMESTUCK_REFERENCE = {
             6459,
             6470,
             6471
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Ring of Life",
+          "aliases": [
+            "Hussie's ring",
+            "Hussie's gold ring"
+          ],
+          "definition": "The gold ring restores Aranea to life after she obtains it through the controlled Gamzee. She refuses Roxy's request to give it to Calliope and claims she cannot be killed while wearing it. Her wounds close during combat, making removal of the ring an immediate goal for Brain ghost Dirk.",
+          "sourcePage": 6539,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6546,
+            6547,
+            6548,
+            6553,
+            6617,
+            6667,
+            6704,
+            6705
           ]
         }
       ]
@@ -24978,6 +25816,23 @@ window.HOMESTUCK_REFERENCE = {
             5813,
             6033,
             6034
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Ring of Void",
+          "aliases": [
+            "Roxy's ring",
+            "Roxy's gold ring"
+          ],
+          "definition": "The gold ring that made Roxy invisible and intangible, distinct from the similar Ring of Life. Aranea identifies it as the Ring of Void and traces its history through a queen, thief and rogue. Roxy loses it after the trickster spree, then later demonstrates invisibility and intangibility through her own Void powers.",
+          "sourcePage": 6034,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6035,
+            6596,
+            6599,
+            6668
           ]
         }
       ]
@@ -25733,6 +26588,29 @@ window.HOMESTUCK_REFERENCE = {
             6500,
             6501,
             6502
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hope-field",
+      "reveal": "act-6-act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-2",
+          "term": "Hope field",
+          "aliases": [],
+          "definition": "The immense protective aura Jake produces when Aranea forces his Page powers to develop. It blocks Jade's teleportation and repels her Green Sun attack. Jake's belief also makes Brain ghost Dirk physical, but the field fades when Aranea's support is interrupted. This display does not mean Jake has mastered his powers.",
+          "sourcePage": 6607,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6584,
+            6591,
+            6616,
+            6632,
+            6634,
+            6691,
+            6750
           ]
         }
       ]
