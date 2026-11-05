@@ -12390,7 +12390,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-intermission-1",
+  "conceptsPreparedThrough": "act-6-act-6-act-2",
   "concepts": [
     {
       "id": "alchemy",
@@ -17513,6 +17513,27 @@ window.HOMESTUCK_REFERENCE = {
             6458,
             6459,
             6471
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-2",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "After discovering the Ring of Life missing, the Heir of Breath makes another uncontrolled jump, this time into Caliborn's Homosuck. He handles its flat scenery, protests its treatment of his friends and tears the Dave-like hero's head off. Caliborn buries him under replacement Daves and closes the curtain; John's intrusion remains unresolved.",
+          "sourcePage": 6471,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6482,
+            6492,
+            6500,
+            6523,
+            6524,
+            6525,
+            6528,
+            6530
           ]
         }
       ]
@@ -22647,6 +22668,26 @@ window.HOMESTUCK_REFERENCE = {
             6275,
             6276
           ]
+        },
+        {
+          "from": "act-6-act-6-act-2",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time continues drawing and narrating Homosuck, now favoring a Dave-like hero and borrowing scenery from an art manual. The real John's intrusion disrupts his control of the parody. He tries hiding John behind a curtain, then buries him under replacement Daves when John attacks the story's hero.",
+          "sourcePage": 6476,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6482,
+            6489,
+            6494,
+            6524,
+            6526,
+            6528,
+            6530
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -25464,6 +25505,26 @@ window.HOMESTUCK_REFERENCE = {
             6265,
             6273
           ]
+        },
+        {
+          "from": "act-6-act-6-act-2",
+          "term": "Homosuck",
+          "aliases": [],
+          "definition": "Caliborn's crude retelling of the adventure now favors a Dave-like hero, with copied art-manual scenery and women reduced to supporting him. The real John intrudes, objects to the story and tears the hero's head off. Caliborn answers with a crowd of replacement Daves that buries John. The parody's events do not establish the real characters' fates or relationships.",
+          "sourcePage": 6475,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6476,
+            6479,
+            6494,
+            6495,
+            6523,
+            6524,
+            6525,
+            6526,
+            6528,
+            6530
+          ]
         }
       ]
     },
@@ -25649,6 +25710,29 @@ window.HOMESTUCK_REFERENCE = {
             6357,
             6358,
             6362
+          ]
+        }
+      ]
+    },
+    {
+      "id": "loshit",
+      "reveal": "act-6-act-6-act-2",
+      "variants": [
+        {
+          "from": "act-6-act-6-act-2",
+          "term": "Land of Someone's Handicrafts I Took",
+          "aliases": [
+            "LOSHIT"
+          ],
+          "definition": "The landscape Caliborn invents for Homosuck's Dave-like hero, assembled from copied pictures in Ed Emberley's Make a World. The scenery and horses behave like flat cutouts when John encounters them. This land belongs to Caliborn's parody; Dave's actual land remains the Land of Heat and Clockwork.",
+          "sourcePage": 6495,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6494,
+            6499,
+            6500,
+            6501,
+            6502
           ]
         }
       ]
