@@ -11140,6 +11140,24 @@ window.HOMESTUCK_REFERENCE = {
                 6862,
                 6863
               ]
+            },
+            {
+              "from": "act-6-act-6-act-4",
+              "label": "Interests",
+              "value": "Drawing · Satire · Manga · Storytelling",
+              "sourcePage": 6249,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6250,
+                6262,
+                6854,
+                6856,
+                6862,
+                6863,
+                6930,
+                6935,
+                6938
+              ]
             }
           ]
         }
@@ -12811,7 +12829,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-intermission-3",
+  "conceptsPreparedThrough": "act-6-act-6-act-4",
   "concepts": [
     {
       "id": "alchemy",
@@ -23877,6 +23895,30 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The Lord of Time attacks John with his cane and golden assault rifle, but John beats him in their studio fight. John's abrupt disappearance leaves Caliborn bloodied and disoriented on the floor. He reaches for his computer mouse; his manga self-insert's boasts have not protected him from the actual encounter.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-act-4",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "Humiliated after John beats him, the Lord of Time insists on being recognized as an artist and storyteller. He returns to basic lines and angles and promises a final masterpiece for Homosuck. He demands donations from his minions and audience, accepting the Cal coins he invented on his computer.",
+          "sourcePage": 6922,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6923,
+            6924,
+            6928,
+            6929,
+            6930,
+            6935,
+            6936,
+            6938,
+            6940,
+            6941,
+            6942
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -27000,6 +27042,23 @@ window.HOMESTUCK_REFERENCE = {
             6916,
             6918
           ]
+        },
+        {
+          "from": "act-6-act-6-act-4",
+          "term": "Homosuck",
+          "aliases": [],
+          "definition": "Caliborn's hostile retelling of the adventure continues after John's attack on its author. He returns from manga-inspired drawings to basic lines and angles, promising a concluding masterpiece. He demands funding from his audience and leprechaun minions, accepting his invented Cal coins. The promised conclusion has not yet been shown.",
+          "sourcePage": 6922,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6935,
+            6936,
+            6938,
+            6939,
+            6940,
+            6941,
+            6942
+          ]
         }
       ]
     },
@@ -27244,6 +27303,26 @@ window.HOMESTUCK_REFERENCE = {
             6691,
             6750
           ]
+        }
+      ]
+    },
+    {
+      "id": "cal-coins",
+      "reveal": "act-6-act-6-act-4",
+      "variants": [
+        {
+          "from": "act-6-act-6-act-4",
+          "term": "Cal coins",
+          "aliases": [
+            "Calcoins"
+          ],
+          "definition": "The imaginary currency Caliborn says he recently created on his computer. He accepts it while raising funds for his promised Homosuck conclusion, presenting the payment system as cutting-edge technology. His supposedly voluntary fundraising appeal also includes threats to his allies.",
+          "sourcePage": 6941,
+          "sourcePages": [
+            6939,
+            6940
+          ],
+          "sourceKind": "composite"
         }
       ]
     }
