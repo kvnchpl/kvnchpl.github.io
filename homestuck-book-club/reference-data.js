@@ -804,6 +804,16 @@ window.HOMESTUCK_REFERENCE = {
               ],
               "from": "act-6-intermission-3",
               "label": "Inventory"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Inventory",
+              "value": "Ring of Life",
+              "sourcePage": 5943,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6047
+              ]
             }
           ]
         },
@@ -823,6 +833,23 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual",
               "from": "act-6-intermission-3",
               "label": "Powers"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Powers",
+              "value": "Wind control · Transforms into wind · Uncontrolled travel through time and space",
+              "sourcePage": 5348,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6094,
+                6108,
+                6109,
+                6154,
+                6157,
+                6161,
+                6195,
+                6207
+              ]
             }
           ]
         },
@@ -1981,6 +2008,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4001,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-intermission-5",
+          "value": {
+            "src": "../assets/ref-sollux-blind.webp",
+            "alt": "Sollux Captor with darkened eyes after losing his sight"
+          },
+          "sourcePage": 3477,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5955
+          ]
         }
       ],
       "stats": [
@@ -2096,6 +2135,25 @@ window.HOMESTUCK_REFERENCE = {
                 3999,
                 4001
               ]
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Form",
+              "value": "Fully living body; ghost half separated into Erisolsprite",
+              "sourcePage": 5955,
+              "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-intermission-5",
+              "label": "Condition",
+              "value": "Fully blind",
+              "sourcePage": 5955,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -2294,6 +2352,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Gamzee Makara",
               "sourcePage": 4096,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Moirail",
+              "value": "Formerly Gamzee Makara",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6018
+              ]
             }
           ]
         },
@@ -2826,6 +2894,13 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Condition",
               "value": "Blind",
               "sourcePage": 2576,
+              "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Condition",
+              "value": "Sight restored by Aranea",
+              "sourcePage": 6017,
               "sourceKind": "direct"
             }
           ]
@@ -3515,6 +3590,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Karkat Vantas",
               "sourcePage": 4096,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Moirail",
+              "value": "Formerly Karkat Vantas",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6018
+              ]
             }
           ]
         },
@@ -5389,6 +5474,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Leader of the Midnight Crew",
               "sourcePage": 1155,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Role",
+              "value": "Leader of the Midnight Crew; new boss of the Felt",
+              "sourcePage": 1155,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6126
+              ]
             }
           ]
         },
@@ -5401,6 +5496,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Midnight Crew",
               "sourcePage": 1155,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Affiliation",
+              "value": "Midnight Crew · Felt",
+              "sourcePage": 1155,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6126
+              ]
             }
           ]
         },
@@ -5413,6 +5518,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Cast Iron Horse Hitcher",
               "sourcePage": 1213,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Weapon",
+              "value": "Golden Cuestaff",
+              "sourcePage": 6117,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6149
+              ]
             }
           ]
         },
@@ -5427,6 +5542,19 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 1157
+              ]
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Inventory",
+              "value": "War Chest · Die's voodoo doll · Biscuits's oven on the 13 of Stars card",
+              "sourcePage": 1161,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6124,
+                6128,
+                6140,
+                6141
               ]
             }
           ]
@@ -9656,6 +9784,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "affiliation",
+          "variants": [
+            {
+              "from": "act-6-intermission-5",
+              "label": "Affiliation",
+              "value": "Fourteen leprechaun minions",
+              "sourcePage": 6006,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6192
+              ]
+            }
+          ]
+        },
+        {
           "id": "title",
           "variants": [
             {
@@ -9712,6 +9855,20 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 5497
+              ]
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Quest",
+              "value": "Conquer the dead session's planets, sinking the eighth last, then face Yaldabaoth",
+              "sourcePage": 5997,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6002,
+                6004,
+                6005,
+                6192,
+                6193
               ]
             }
           ]
@@ -10759,6 +10916,16 @@ window.HOMESTUCK_REFERENCE = {
               ],
               "from": "act-6-intermission-3",
               "label": "Role"
+            },
+            {
+              "from": "act-6-intermission-5",
+              "label": "Role",
+              "value": "Beforan player; Vriska's treasure-hunting ally",
+              "sourcePage": 5955,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5957
+              ]
             }
           ]
         },
@@ -11904,7 +12071,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-5",
+  "conceptsPreparedThrough": "act-6-intermission-5",
   "concepts": [
     {
       "id": "alchemy",
@@ -13863,6 +14030,25 @@ window.HOMESTUCK_REFERENCE = {
             1171,
             1252
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Felt",
+          "aliases": [
+            "The Felt"
+          ],
+          "definition": "The pool-ball-themed gang whose fourteen green members begin as Caliborn's leprechaun followers. Slick brings them back with Die's doll and takes command, appointing Ms. Paint to the vacant eight-spot. The gang escapes Doc Scratch's burning apartment inside Biscuits's oven, carried on a captchalogue card.",
+          "sourcePage": 6006,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6111,
+            6123,
+            6125,
+            6126,
+            6140,
+            6141,
+            6142
+          ]
         }
       ]
     },
@@ -13910,6 +14096,25 @@ window.HOMESTUCK_REFERENCE = {
             1263,
             1265,
             1280
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Die's voodoo doll",
+          "aliases": [
+            "Voodoo doll"
+          ],
+          "definition": "Die's pin-covered doll lets its user move between timelines defined by which people are dead. Slick retains it after the mansion raid. Ms. Paint temporarily removes Stitch's pin to have Slick's hat repaired; Slick later pulls the Felt's pins, leaving Snowman's black pin in, and takes command of the returned gang.",
+          "sourcePage": 1211,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1236,
+            1239,
+            1265,
+            6123,
+            6124,
+            6125,
+            6126
           ]
         }
       ]
@@ -14165,6 +14370,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             1224,
             1318
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Biscuits's oven",
+          "aliases": [],
+          "definition": "Biscuits's supposedly magical oven merely lets him wait until its timer rings; it does not actually move him through time. It proves useful as a container when Slick orders the Felt, Ms. Paint and the centaur butler inside, then captchalogues the whole load onto a 13 of Stars card for their escape.",
+          "sourcePage": 1223,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1224,
+            1318,
+            6111,
+            6139,
+            6140,
+            6141
           ]
         }
       ]
@@ -15668,6 +15889,19 @@ window.HOMESTUCK_REFERENCE = {
             5623,
             5386
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped meeting place for ghosts and living dreamers in the Furthest Ring. Vriska and Aranea control many ghosts as bait, using Lord English's attacks to map a route to the treasure. Sollux insists that alternate-timeline ghosts are real people too, challenging Vriska's treatment of them as expendable copies.",
+          "sourcePage": 5955,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5956,
+            5957,
+            6027
+          ]
         }
       ]
     },
@@ -16354,6 +16588,21 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5497
           ]
+        },
+        {
+          "term": "The Choice",
+          "aliases": [
+            "Denizen's Choice"
+          ],
+          "from": "act-6-intermission-5",
+          "definition": "A denizen's personal dilemma. Yaldabaoth offers Caliborn sacrifice, promising his death could help end a great evil, or conquest, requiring a brutal planetary challenge and a later fight with the denizen. Aranea says success on that second path promises unconditional immortality and extraordinary destructive power.",
+          "sourcePage": 3985,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5996,
+            5997,
+            6005
+          ]
         }
       ]
     },
@@ -16721,6 +16970,30 @@ window.HOMESTUCK_REFERENCE = {
             5379,
             5386
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The Heir of Breath joins Vriska's pirate treasure hunt while dreaming, but rejects sacrificing ghosts and refuses to promise her the Ring of Life. Touching the house-shaped juju sends him into uncontrolled jumps across time and space. He returns to Jake's land, where the meteor travelers finally appear around him.",
+          "sourcePage": 5953,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5957,
+            6048,
+            6049,
+            6094,
+            6108,
+            6109,
+            6157,
+            6195,
+            6207,
+            6210,
+            6231
+          ]
         }
       ]
     },
@@ -16863,6 +17136,24 @@ window.HOMESTUCK_REFERENCE = {
             5414,
             5417
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The Seer of Light reaches the end of the meteor's journey while drunk, despite promising Kanaya she would be sober for their arrival. Her anxiety about meeting her mother feeds their argument. Jade then teleports her and the other travelers to John on Jake's land.",
+          "sourcePage": 6056,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6058,
+            6062,
+            6064,
+            6225,
+            6231
+          ]
         }
       ]
     },
@@ -16950,6 +17241,23 @@ window.HOMESTUCK_REFERENCE = {
             4331,
             4348,
             4355
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The Knight of Time nears the new session aboard the meteor. He explains that his relationship with Terezi ended as her involvement with Gamzee grew, while continuing to support Karkat. The controlled Jade then transports him and the other travelers to John on Jake's land.",
+          "sourcePage": 5937,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6224,
+            6225,
+            6228,
+            6231
           ]
         }
       ]
@@ -17130,6 +17438,23 @@ window.HOMESTUCK_REFERENCE = {
             5911,
             5913,
             5918
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic"
+          ],
+          "definition": "The Witch of Space remains under the Condesce's psychic control after bringing the ship into the post-Scratch session. When the meteor arrives, she confronts its passengers, then teleports Dave, Rose, Karkat, Terezi, Kanaya and WV to John on the Land of Mounds and Xenon.",
+          "sourcePage": 5886,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5927,
+            6228,
+            6229,
+            6231
           ]
         }
       ]
@@ -17393,6 +17718,20 @@ window.HOMESTUCK_REFERENCE = {
             5293,
             5299,
             5300
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The doomed-timeline Dave who became Dave's sprite guide reaches the new session after three years aboard the ship. Having broken up with Jade, he tells a sleeping John that feeling excluded from the original friends' lives has become unbearable. He says goodbye and flies away.",
+          "sourcePage": 5941,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5942,
+            5943,
+            5944,
+            5945
           ]
         }
       ]
@@ -17944,6 +18283,23 @@ window.HOMESTUCK_REFERENCE = {
             4799,
             1674
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Spades Slick",
+          "aliases": [],
+          "definition": "The Midnight Crew's cyborg leader takes Lord English's Golden Cuestaff and uses Die's doll to bring back the Felt. He becomes their new boss and recruits Ms. Paint into the vacant eight-spot. After escaping Doc Scratch's apartment, he flies toward the new session with the gang stored inside Biscuits's oven.",
+          "sourcePage": 6117,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6125,
+            6126,
+            6140,
+            6141,
+            6144,
+            6149,
+            6150
+          ]
         }
       ]
     },
@@ -18277,6 +18633,22 @@ window.HOMESTUCK_REFERENCE = {
             4387,
             3297
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Aradia Megido",
+          "aliases": [
+            "Aradia",
+            "apocalypseArisen"
+          ],
+          "definition": "The living Maid of Time joins Vriska's treasure hunt as a specialist while declining to fight. She treats Lord English's eventual defeat as unfinished cosmic housekeeping, without celebrating the destruction of souls. The party brings her to move the intangible house-shaped juju with her powers.",
+          "sourcePage": 5955,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6026,
+            6027,
+            6084
+          ]
         }
       ]
     },
@@ -18366,6 +18738,23 @@ window.HOMESTUCK_REFERENCE = {
             5390,
             5391
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Tavros Nitram",
+          "aliases": [
+            "Tavros",
+            "adiosToreador"
+          ],
+          "definition": "Tavros's ghost joins Vriska's pirate treasure hunt but questions her use of other ghosts as bait. After she demands the lost gold ring, he rejects her orders and flies away. Sollux, Feferi and Nepeta leave with him, ending his role as her subordinate.",
+          "sourcePage": 5957,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6042,
+            6043,
+            6044,
+            6045
+          ]
         }
       ]
     },
@@ -18438,6 +18827,22 @@ window.HOMESTUCK_REFERENCE = {
             4386,
             2514
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Sollux Captor",
+          "aliases": [
+            "Sollux",
+            "twinArmageddons"
+          ],
+          "definition": "The Mage of Doom says prototyping his corpse pulled his ghost half into Erisolsprite, leaving his present body fully alive and fully blind. He joins Vriska's pirate expedition with Aradia, then quits over its treatment of other ghosts, departing with Tavros, Feferi and Nepeta.",
+          "sourcePage": 5955,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6044,
+            6045,
+            6046
+          ]
         }
       ]
     },
@@ -18497,6 +18902,24 @@ window.HOMESTUCK_REFERENCE = {
             4357,
             4385
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The Knight of Blood has lost his moirallegiance with Gamzee, who ended it. He listens as Terezi admits that Aranea restored her sight and describes her damaging relationship with Gamzee. When the meteor reaches the new session, Jade teleports Karkat and the others to John.",
+          "sourcePage": 5937,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6017,
+            6018,
+            6020,
+            6225,
+            6231
+          ]
         }
       ]
     },
@@ -18533,6 +18956,22 @@ window.HOMESTUCK_REFERENCE = {
             3711
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Nepeta Leijon",
+          "aliases": [
+            "Nepeta",
+            "arsenicCatnip"
+          ],
+          "definition": "The Rogue of Heart's ghost returns separately after Fefetasprite's explosion, wearing a pirate costume in Vriska's crew. When Tavros and Sollux reject the treasure hunt's use of other ghosts, Nepeta leaves with them and Feferi rather than remaining under Vriska's command.",
+          "sourcePage": 5761,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6032,
+            6045,
+            6046
+          ]
         }
       ]
     },
@@ -18625,6 +19064,23 @@ window.HOMESTUCK_REFERENCE = {
             5414,
             5417
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The rainbow drinker confronts Rose over her drinking as the meteor nears its destination. She says Rose promised to be sober and worries that their efforts to preserve the troll species have stalled. Despite their argument, she rejects breaking up; Jade later transports her to John with the others.",
+          "sourcePage": 6058,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6059,
+            6062,
+            6064,
+            6231
+          ]
         }
       ]
     },
@@ -18694,6 +19150,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5413,
             5414
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "The Seer of Mind reveals that Aranea restored her sight about a year earlier, a decision she deeply regrets. Her kismesissitude with Gamzee has become harmful and difficult to leave. Karkat urges her to choose for herself; she later arrives with the meteor crew and is teleported to John.",
+          "sourcePage": 6017,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6018,
+            6019,
+            6020,
+            6226,
+            6231
           ]
         }
       ]
@@ -18784,6 +19258,25 @@ window.HOMESTUCK_REFERENCE = {
             5395,
             5396,
             5427
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "Vriska's ghost leads a pirate expedition with Meenah and Aranea, using controlled ghosts as bait to map Lord English's destruction. Tavros and others quit, and John refuses to promise her the Ring of Life. She nevertheless reaches the treasure: an intangible house-shaped juju supposedly able to defeat English.",
+          "sourcePage": 5957,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6042,
+            6045,
+            6049,
+            6052,
+            6083,
+            6084
           ]
         }
       ]
@@ -18980,6 +19473,25 @@ window.HOMESTUCK_REFERENCE = {
             5806,
             5523
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage continues serving Caliborn, whose childhood he also tended. On the meteor, his moirallegiance with Karkat has ended and his relationship with Terezi is damaging her. He remains separate from the six travelers Jade teleports to John at the end of the voyage.",
+          "sourcePage": 5937,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5985,
+            5987,
+            6017,
+            6018,
+            6223,
+            6231
+          ]
         }
       ]
     },
@@ -19095,6 +19607,22 @@ window.HOMESTUCK_REFERENCE = {
             2441
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Feferi Peixes",
+          "aliases": [
+            "Feferi",
+            "cuttlefishCuller"
+          ],
+          "definition": "The Witch of Life's ghost returns separately after Fefetasprite's explosion and joins Vriska's pirate crew. Her nominal rank is rear admiral. She leaves with Nepeta, Sollux and Tavros when the others reject Vriska's orders, rather than participating further in the treasure hunt.",
+          "sourcePage": 5761,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6032,
+            6045,
+            6046
+          ]
         }
       ]
     },
@@ -20787,6 +21315,25 @@ window.HOMESTUCK_REFERENCE = {
             4386,
             4387
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Laboratory meteor",
+          "aliases": [
+            "Lab meteor",
+            "Meteor laboratory"
+          ],
+          "definition": "The laboratory carrying Rose, Dave, the surviving trolls and WV on a three-year trip to the new session. It approaches Dirk's land with no obvious braking plan. The controlled Jade appears and teleports Dave, Rose, Karkat, Terezi, Kanaya and WV to John on Jake's land.",
+          "sourcePage": 5927,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6222,
+            6223,
+            6224,
+            6225,
+            6228,
+            6231
+          ]
         }
       ]
     },
@@ -21308,6 +21855,25 @@ window.HOMESTUCK_REFERENCE = {
             5810,
             5811
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time chooses conquest in his dead session, destroying billiard-themed planets and collecting fourteen leprechaun followers. He must save the eighth planet for last before returning to Yaldabaoth. Having unlocked his strongest minions, he recruits his session's Jack Noir to help overthrow its Black Queen.",
+          "sourcePage": 5997,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6002,
+            6004,
+            6005,
+            6006,
+            6192,
+            6193
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -21788,6 +22354,24 @@ window.HOMESTUCK_REFERENCE = {
             5811,
             5821
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Juju",
+          "aliases": [],
+          "definition": "A powerful magical object whose effects can cross ordinary physical boundaries. Vriska's recovered house-shaped juju is intangible and supposedly retains one use against Lord English after his own use of it. John's attempt to touch it produces uncontrolled appearances across time and space, illustrating how little the party understands it.",
+          "sourcePage": 6074,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6083,
+            6084,
+            6093,
+            6094,
+            6108,
+            6109,
+            6157,
+            6195
+          ]
         }
       ]
     },
@@ -22036,6 +22620,24 @@ window.HOMESTUCK_REFERENCE = {
             5308,
             5398
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Aranea Serket",
+          "aliases": [
+            "Aranea"
+          ],
+          "definition": "The Beforan Sylph of Light joins Vriska's treasure hunt and helps her control a ghost army. Her stories explain cherub maturation, Caliborn's dead session and the Ring of Life and Ring of Void. Terezi reveals that Aranea also restored her sight during an earlier dream-bubble encounter.",
+          "sourcePage": 5957,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5963,
+            5997,
+            6007,
+            6017,
+            6033,
+            6034
+          ]
         }
       ],
       "characterId": "aranea"
@@ -22087,6 +22689,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5398,
             5427
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "The ghostly Thief of Life shares leadership of the pirate army with Vriska. Though tempted by the Ring of Life, she fears that revival and conquest would take her away from friends who make her happy. She asks John to keep the ring out of her reach.",
+          "sourcePage": 5956,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5957,
+            6068,
+            6069,
+            6070,
+            6071,
+            6072
           ]
         }
       ],
@@ -22293,6 +22913,26 @@ window.HOMESTUCK_REFERENCE = {
             5120,
             5445,
             5481
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Cherub",
+          "aliases": [
+            "Cherubs"
+          ],
+          "definition": "Calliope and Caliborn's species, whose young share one body between two opposing personalities until predomination. Aranea describes solitary adults seeking a mate resembling their lost half, then dueling as immense serpents. The winner takes the loser's territory; the loser lays a single egg and leaves it to hatch alone.",
+          "sourcePage": 5962,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5963,
+            5964,
+            5968,
+            5970,
+            5971,
+            5972,
+            5973,
+            5974
           ]
         }
       ]
@@ -22785,6 +23425,25 @@ window.HOMESTUCK_REFERENCE = {
             5434,
             5435
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Ring of Life",
+          "aliases": [
+            "Hussie's ring",
+            "Hussie's gold ring"
+          ],
+          "definition": "The gold ring John brought out of the dream bubbles, now identified in Aranea's stories as the Ring of Life. It is said to restore a ghost to life. John declines Vriska's demand for it and promises Meenah he will keep it away from her, while its exact limits remain untested.",
+          "sourcePage": 6033,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6034,
+            6047,
+            6048,
+            6049,
+            6071,
+            6072
+          ]
         }
       ]
     },
@@ -22877,6 +23536,22 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "A one-player game whose kernelsprite collapses into a black hole, drawing in the starting planet and eventually its solar system. Unlike a void session, it cannot produce a universe even with outside help. Hussie says victory follows different terms, beginning with the extreme challenge unlocked through Caliborn's denizen.",
           "sourcePage": 5497,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Dead session",
+          "aliases": [],
+          "definition": "A solo game whose challenge replaces ordinary universe creation with a timed sequence of planetary conquests. After the First Break, Caliborn must sink the remaining billiard-themed planets in order, saving the eighth for last. Each requires moving a bomb from its core to the surface before a shrinking deadline.",
+          "sourcePage": 5497,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5994,
+            5995,
+            6000,
+            6002,
+            6003,
+            6004
+          ]
         }
       ]
     },
@@ -22893,6 +23568,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             5445
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Predomination",
+          "aliases": [],
+          "definition": "A cherub's maturation into one being as the stronger personality consumes and integrates the other, leaving solid-colored cheeks. Aranea says Caliborn forces the process early by having Calliope's dreamself killed. This shortcut gives him sole control while preventing the normal personal growth of their prolonged internal struggle.",
+          "sourcePage": 5481,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5963,
+            5964,
+            5976,
+            5992
           ]
         }
       ]
@@ -23013,6 +23702,18 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5497
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Yaldabaoth",
+          "aliases": [],
+          "definition": "Caliborn's formidable denizen, who offers the paths of sacrifice and conquest. Caliborn chooses conquest: completing the planetary gauntlet will unlock his true land and let him prepare to fight Yaldabaoth. The promised victory reward is unconditional immortality and power, rather than the usual just-or-heroic resurrection rule.",
+          "sourcePage": 5996,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5997,
+            6005
+          ]
         }
       ]
     },
@@ -23070,6 +23771,26 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5449
           ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Cherub homeworld",
+          "aliases": [
+            "Caliborn's Earth",
+            "Calliope's Earth"
+          ],
+          "definition": "The future Earth where Calliope and Caliborn hatch after its relocation to a dying red star. Aranea's story identifies their father as the defeated male cherub who laid their egg and left. Gamzee is shown tending the young cherub; Caliborn later brings the dead planet into his solo session.",
+          "sourcePage": 5496,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5973,
+            5974,
+            5975,
+            5985,
+            5987,
+            5993,
+            5994
+          ]
         }
       ]
     },
@@ -23099,6 +23820,19 @@ window.HOMESTUCK_REFERENCE = {
             5746,
             5759,
             5761
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Erisolsprite",
+          "aliases": [],
+          "definition": "Jake's combined Eridan and Sollux sprite survives the argument that destroys Fefetasprite. Sollux explains that prototyping his corpse drew the ghost half out of his living body and into this sprite. Erisolsprite remains on Jake's land, where he briefly appears during John's long wait for his friends.",
+          "sourcePage": 5759,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5761,
+            5955,
+            6231
           ]
         }
       ],
@@ -23273,6 +24007,22 @@ window.HOMESTUCK_REFERENCE = {
             5813,
             5814,
             5815
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Ring of Void",
+          "aliases": [
+            "Roxy's ring",
+            "Roxy's gold ring"
+          ],
+          "definition": "The gold ring that made Roxy invisible and intangible, now identified by Aranea under its present name. Her account traces it from a void session's Black Queen through a thief and a rogue. It resembles the Ring of Life, but Roxy has already lost it after the trickster spree.",
+          "sourcePage": 5636,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5813,
+            6033,
+            6034
           ]
         }
       ]
@@ -23510,6 +24260,225 @@ window.HOMESTUCK_REFERENCE = {
             5775,
             5779,
             5796
+          ]
+        }
+      ]
+    },
+    {
+      "id": "first-break",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "First Break",
+          "aliases": [],
+          "definition": "The explosion of the darkened Skaia that begins a dead session's planetary challenge. Fifteen billiard-themed planets scatter from it before the remaining matter collapses into a black hole. Three fall back into the hole in Caliborn's session, leaving twelve for him to conquer.",
+          "sourcePage": 5998,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5999,
+            6000,
+            6001,
+            6002
+          ]
+        }
+      ]
+    },
+    {
+      "id": "leprechaun",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "Leprechaun",
+          "aliases": [
+            "Leprechauns"
+          ],
+          "definition": "A magical creature awarded to Caliborn as he destroys the dead session's planets. Fourteen become his followers, recognizable as the green members of the Felt. Their differing abilities and equipment often involve time; Hussie also discovers that their bodies are literally made of felt.",
+          "sourcePage": 5939,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5946,
+            6006,
+            6022,
+            6065,
+            6111,
+            6192
+          ]
+        }
+      ]
+    },
+    {
+      "id": "charms",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "Charms",
+          "aliases": [
+            "Leprechaun romance"
+          ],
+          "definition": "The nine forms of leprechaun romance, rather than troll quadrants. Aranea describes relationships built from combinations of charms, often involving pranks, riddles and games of chance. A stable relationship combining at least three charms is called a trove.",
+          "sourcePage": 6007,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "loraa",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "Land of Rust and Angels",
+          "aliases": [],
+          "definition": "The transformed land promised after Caliborn completes the dead session's planetary challenge. Aranea's account shows the former dead Earth becoming this new land once the eighth planet is destroyed last. There he can prepare to fight Yaldabaoth; the promised transformation is still ahead of the conquest shown here.",
+          "sourcePage": 6005,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6193
+          ]
+        }
+      ]
+    },
+    {
+      "id": "house-shaped-juju",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "House-shaped juju",
+          "aliases": [
+            "House juju"
+          ],
+          "definition": "The intangible, house-shaped treasure recovered by Vriska's party. She says Lord English once used it, leaving its remaining use as a weapon against him. John puts his hand through it and begins appearing across distant scenes, then involuntarily jumps through time and space after waking.",
+          "sourcePage": 6052,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6074,
+            6083,
+            6084,
+            6093,
+            6094,
+            6108,
+            6109,
+            6154,
+            6157,
+            6195,
+            6207
+          ]
+        }
+      ]
+    },
+    {
+      "id": "golden-cuestaff",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "Golden Cuestaff",
+          "aliases": [],
+          "definition": "Lord English's enormous golden weapon, left beside the author's body. Slick takes it with his robotic arms, and the revived Felt recognize him as their new boss while looking at it. Its long staff form accompanies his flight toward the new session.",
+          "sourcePage": 6116,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6117,
+            6126,
+            6149
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fifth-wall",
+      "reveal": "act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-intermission-5",
+          "term": "Fifth wall",
+          "aliases": [
+            "5th wall"
+          ],
+          "definition": "The passage Crowbar leads Slick, Ms. Paint and the Felt through from the author's mansion to Doc Scratch's old apartment. The apartment now floats inside the Green Sun. Its clock provides a further emergency exit, depositing Slick in a tiny vehicle outside the sun.",
+          "sourcePage": 6128,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6129,
+            6130,
+            6137,
+            6143,
+            6144,
+            6145
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-casey",
+      "reveal": "act-4",
+      "variants": [
+        {
+          "from": "act-4",
+          "term": "Casey",
+          "aliases": [],
+          "definition": "The little salamander John treats as his daughter while exploring the Land of Wind and Shade. He gives Casey a bunny, carries the consort in his sylladex, then leaves Casey with Rose rather than taking a child along on his dangerous quest.",
+          "sourcePage": 1601,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1638,
+            1713
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Viceroy Bubbles Von Salamancer",
+          "aliases": [
+            "Casey",
+            "Bubbles",
+            "VBVS"
+          ],
+          "definition": "John's adopted salamander, now styling themself Viceroy Bubbles Von Salamancer after the ship's three-year voyage. With the Crook of Frailty and Rag of Demons, the young necromancer summons an army of skeletal consorts and begins naming them, starting with Bonebone.",
+          "sourcePage": 6077,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6078,
+            6079,
+            6080,
+            6081
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-ms-paint",
+      "reveal": "act-6-intermission-2",
+      "variants": [
+        {
+          "from": "act-6-intermission-2",
+          "term": "Ms. Paint",
+          "aliases": [],
+          "definition": "The author's companion, who helps care for the recuperating Spades Slick. The author calls for her to bring soup and rejects Slick's question about whether she is available. When Lord English invades the mansion, the author wants to get her to safety too.",
+          "sourcePage": 4671,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4678,
+            4794,
+            4800
+          ]
+        },
+        {
+          "from": "act-6-intermission-5",
+          "term": "Ms. Paint",
+          "aliases": [],
+          "definition": "The companion who tended Slick during his recovery, now becoming his partner with the narrator's explicit blessing. She returns his belongings, including Die's doll, and joins the Felt in its vacant eight-spot. She escapes with the gang inside Biscuits's oven.",
+          "sourcePage": 6118,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6119,
+            6122,
+            6123,
+            6126,
+            6140
           ]
         }
       ]
