@@ -815,7 +815,8 @@ window.HOMESTUCK_REFERENCE = {
                 6047
               ]
             }
-          ]
+          ],
+          "until": "act-6-act-6-intermission-1"
         },
         {
           "id": "powers",
@@ -849,6 +850,27 @@ window.HOMESTUCK_REFERENCE = {
                 6161,
                 6195,
                 6207
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Powers",
+              "value": "Wind control · Transforms into wind · Uncontrolled travel through time and space that can change established events",
+              "sourcePage": 5348,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6094,
+                6108,
+                6109,
+                6154,
+                6157,
+                6161,
+                6195,
+                6207,
+                6363,
+                6404,
+                6433,
+                6434
               ]
             }
           ]
@@ -1179,6 +1201,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Helps Jade breed the Genesis Frog",
               "sourcePage": 3869,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Quest",
+              "value": "Expected by the Condesce to fight Lord English; refuses",
+              "sourcePage": 6383,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6385
+              ]
             }
           ]
         },
@@ -1191,6 +1223,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "bladekind",
               "sourcePage": 342,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Weapon",
+              "value": "Caledfwlch",
+              "sourcePage": 6323,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -1293,6 +1337,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4109,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "value": {
+            "src": "../assets/ref-jade-grimbark.webp",
+            "alt": "Jade Harley under psychic control, with dark skin, green eyes, dog ears and her Witch outfit"
+          },
+          "sourcePage": 6288,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6296
+          ]
         }
       ],
       "stats": [
@@ -1360,6 +1416,13 @@ window.HOMESTUCK_REFERENCE = {
                 3318,
                 3319
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Quest",
+              "value": "Frog breeding completed; frog guarded by Echidna",
+              "sourcePage": 6327,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -1372,6 +1435,23 @@ window.HOMESTUCK_REFERENCE = {
               "value": "riflekind",
               "sourcePage": 1077,
               "sourceKind": "visual"
+            }
+          ],
+          "until": "act-6-act-6-intermission-1"
+        },
+        {
+          "id": "weapon",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Weapon",
+              "value": "Cutlass of Zillywair",
+              "sourcePage": 5768,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6383,
+                6384
+              ]
             }
           ]
         },
@@ -1425,6 +1505,23 @@ window.HOMESTUCK_REFERENCE = {
                 5875,
                 5911,
                 5913
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Powers",
+              "value": "Size manipulation · Teleportation within the Medium · Green Sun gateway · Enhanced smell · Universal weapon use",
+              "sourcePage": 4297,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4304,
+                4337,
+                4338,
+                5875,
+                5911,
+                5913,
+                6296,
+                6383
               ]
             }
           ]
@@ -2304,6 +2401,13 @@ window.HOMESTUCK_REFERENCE = {
                 3977,
                 4005
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Quest",
+              "value": "Asked to accompany Kanaya to Echidna",
+              "sourcePage": 6327,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -2316,6 +2420,25 @@ window.HOMESTUCK_REFERENCE = {
               "value": "sicklekind",
               "sourcePage": 1994,
               "sourceKind": "editorial"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Status",
+              "value": "Alive after revival by Jane",
+              "sourcePage": 6328,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6330,
+                6331,
+                6334,
+                6335,
+                6336
+              ]
             }
           ]
         },
@@ -2665,6 +2788,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 3319,
                 3320
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Quest",
+              "value": "Asked to seek the Genesis Frog's release from Echidna",
+              "sourcePage": 6327,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6411
               ]
             }
           ]
@@ -7437,6 +7570,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4115,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "value": {
+            "src": "../assets/ref-jane-controlled.webp",
+            "alt": "Jane Crocker under the tiaratop's control, wearing a red Life outfit and red goggles"
+          },
+          "sourcePage": 6285,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6399
+          ]
         }
       ],
       "stats": [
@@ -7448,6 +7593,13 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Role",
               "value": "Crockercorp heiress",
               "sourcePage": 4117,
+              "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Role",
+              "value": "Heiress to the Condesce's planned empire",
+              "sourcePage": 6443,
               "sourceKind": "direct"
             }
           ]
@@ -7551,6 +7703,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Battlespork of Zillywut",
               "sourcePage": 5766,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Weapon",
+              "value": "Red trident",
+              "sourcePage": 6330,
+              "sourceKind": "visual",
+              "sourcePages": [
+                6399
+              ]
             }
           ]
         },
@@ -7584,6 +7746,23 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4955,
                 4156
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Powers",
+              "value": "Revives the dead; one use per person, according to Jade",
+              "sourcePage": 6328,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6334,
+                6335,
+                6336
               ]
             }
           ]
@@ -7810,6 +7989,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Quest",
+              "value": "Ordered to recreate the matriorb for the Condesce",
+              "sourcePage": 6293,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6453
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -7925,6 +8119,20 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5503
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-1",
+              "label": "Powers",
+              "value": "Obscures ordinary remote observation through Void · Conjures objects from nothing",
+              "sourcePage": 4513,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5503,
+                6293,
+                6295,
+                6451,
+                6463
+              ]
             }
           ]
         },
@@ -8029,6 +8237,19 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4468,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "value": {
+            "src": "../assets/ref-dirk-god-tier.webp",
+            "alt": "Dirk Strider in his red god-tier Prince of Heart outfit and angular sunglasses"
+          },
+          "sourcePage": 6377,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6378,
+            6379
+          ]
         }
       ],
       "stats": [
@@ -8258,6 +8479,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4120,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "value": {
+            "src": "../assets/ref-jake-god-tier.webp",
+            "alt": "Jake English in his yellow god-tier Page of Hope outfit"
+          },
+          "sourcePage": 6286,
+          "sourceKind": "visual",
+          "sourcePages": [
+            6441
+          ]
         }
       ],
       "stats": [
@@ -12157,7 +12390,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-1",
+  "conceptsPreparedThrough": "act-6-act-6-intermission-1",
   "concepts": [
     {
       "id": "alchemy",
@@ -12595,6 +12828,24 @@ window.HOMESTUCK_REFERENCE = {
             243
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Perfectly Generic Object",
+          "aliases": [],
+          "definition": "The basic green cube produced by an uncarved cruxite dowel on the Alchemiter. Roxy learns to conjure the same kind of object directly through Void, without that machinery. She builds a pyramid from the cubes while practicing the much harder task of recreating a matriorb.",
+          "sourcePage": 189,
+          "sourceKind": "composite",
+          "sourcePages": [
+            191,
+            193,
+            243,
+            6294,
+            6295,
+            6296,
+            6450,
+            6451
+          ]
         }
       ]
     },
@@ -14665,6 +14916,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             1674
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Land of Light and Rain",
+          "aliases": [
+            "LOLAR"
+          ],
+          "definition": "Rose's Land of Light and Rain, an ocean world of white islands and intense color, now imported into the new session. Rose and Terezi are stranded there amid glitches. Rose questions resuming her old quest to play the rain, while Terezi struggles with the brightness of her restored sight.",
+          "sourcePage": 6281,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6343,
+            6349,
+            6352,
+            6410
+          ]
         }
       ]
     },
@@ -14684,6 +14951,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             1657,
             1674
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Land of Heat and Clockwork",
+          "aliases": [
+            "LOHAC"
+          ],
+          "definition": "Dave's Land of Heat and Clockwork, an industrial lava world now present in the new session. Dave arrives there with WV. Jade reforges Caledfwlch at his alchemiter and pressures him to fight, while the lava below his apartment becomes the setting for her threat against the mayor.",
+          "sourcePage": 6280,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6300,
+            6320,
+            6323,
+            6387,
+            6388,
+            6390
           ]
         }
       ]
@@ -14749,6 +15034,19 @@ window.HOMESTUCK_REFERENCE = {
             3985,
             5496,
             5497
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Denizen",
+          "aliases": [],
+          "definition": "A powerful creature tied to a player's land and quest, capable of offering The Choice rather than compulsory combat. Jade's denizen Echidna guards the Genesis Frog at the planet's core. Refusing to speak with the controlled Jade, she instead requests Kanaya and the knight who helped her breed frogs, Karkat.",
+          "sourcePage": 3985,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5497,
+            6327,
+            6411
           ]
         }
       ]
@@ -15850,6 +16148,24 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Alpha timeline",
+          "aliases": [
+            "Alpha reality"
+          ],
+          "definition": "The continuing history whose events fit together, including stable loops made by ordinary time travel. John describes his juju-granted jumps as an exception: they can change events that were not meant to change without creating a separate doomed timeline. His interruption of Dave and Jade produces a different confrontation.",
+          "sourcePage": 2728,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2737,
+            6363,
+            6404,
+            6417,
+            6418,
+            6419
+          ]
         }
       ]
     },
@@ -16169,6 +16485,21 @@ window.HOMESTUCK_REFERENCE = {
             6247,
             6248
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "A state of ascended power with conditional immortality, reached through sacrificial death. Further advancement grants abilities described as achievement badges on a handysash. Jade explicitly says the sash and badges are not physical objects; her universal weapon use illustrates the progression. This remains distinct from a denizen's promised unconditional immortality.",
+          "sourcePage": 3630,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5997,
+            6247,
+            6383
+          ]
         }
       ]
     },
@@ -16286,6 +16617,20 @@ window.HOMESTUCK_REFERENCE = {
             3318,
             3319,
             3024
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Land of Frost and Frogs",
+          "aliases": [
+            "LOFAF"
+          ],
+          "definition": "Jade's Land of Frost and Frogs, now thawed and imported into the post-Scratch session. Karkat and Kanaya are stranded there. Jade's completed Genesis Frog has descended through the Forge to the core, where Echidna guards it and requests the two trolls' presence before releasing it.",
+          "sourcePage": 6280,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6324,
+            6327
           ]
         }
       ]
@@ -16476,6 +16821,27 @@ window.HOMESTUCK_REFERENCE = {
             4017,
             3319
           ]
+        },
+        {
+          "term": "Genesis Frog",
+          "aliases": [
+            "Speaker of the Vast Croak",
+            "Bilious Slick",
+            "Speaker of the Vast Joke"
+          ],
+          "from": "act-6-act-6-intermission-1",
+          "definition": "The frog containing a created universe and its related realities. Jade's completed frog has sunk through the Forge to the core of LOFAF, where Echidna guards it. The Condesce's plan requires Kanaya and Karkat to obtain its release and send it to Skaia once the imported Battlefield makes the void session fertile.",
+          "sourcePage": 5083,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4005,
+            4009,
+            4011,
+            4016,
+            4017,
+            3319,
+            6327
+          ]
         }
       ]
     },
@@ -16532,6 +16898,23 @@ window.HOMESTUCK_REFERENCE = {
             3341,
             3342,
             3343
+          ]
+        },
+        {
+          "term": "Matriorb",
+          "aliases": [],
+          "from": "act-6-act-6-intermission-1",
+          "definition": "The egg that can hatch a new mother grub and restore troll reproduction, destroyed earlier by Eridan. The Condesce orders Roxy to conjure a replacement for her planned empire. Roxy can make simpler objects and eventually an incomplete hybrid orb, but has not yet produced a working matriorb.",
+          "sourcePage": 3306,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3341,
+            3342,
+            3343,
+            6293,
+            6295,
+            6453,
+            6463
           ]
         }
       ]
@@ -16780,6 +17163,21 @@ window.HOMESTUCK_REFERENCE = {
             5263,
             3978,
             3523
+          ]
+        },
+        {
+          "term": "Rainbow drinker",
+          "aliases": [],
+          "from": "act-6-act-6-intermission-1",
+          "definition": "A rare glowing, blood-drinking troll condition, exemplified by Kanaya. Jane exploits her thirst by selling troll blood as costly potions. Kanaya rejects the assumption that healing magic would kill her and says ordinary physical methods could do so; that threatened magical weakness remains unproven.",
+          "sourcePage": 3518,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3523,
+            6329,
+            6398,
+            6400,
+            6412
           ]
         }
       ]
@@ -17097,6 +17495,25 @@ window.HOMESTUCK_REFERENCE = {
             6210,
             6231
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The Heir of Breath evades the controlled Jade while his involuntary jumps begin changing established events. He clears glitches with wind, visits Rose and Terezi, then finds Roxy in prison. He offers the Ring of Life to revive Calliope, but returns home to discover that it is missing.",
+          "sourcePage": 6362,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6363,
+            6404,
+            6451,
+            6458,
+            6459,
+            6471
+          ]
         }
       ]
     },
@@ -17257,6 +17674,27 @@ window.HOMESTUCK_REFERENCE = {
             6225,
             6231
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The Seer of Light is stranded on LOLAR with Terezi, hung over and struggling to read favorable paths through the disrupted session. She asks John to find Roxy and tries to discuss her drinking with Kanaya. She also questions whether the planetary quest designed for her younger self still fits her.",
+          "sourcePage": 6281,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6349,
+            6363,
+            6364,
+            6365,
+            6409,
+            6410,
+            6411,
+            6412
+          ]
         }
       ]
     },
@@ -17361,6 +17799,26 @@ window.HOMESTUCK_REFERENCE = {
             6225,
             6228,
             6231
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The Knight of Time returns to LOHAC with WV. Jade reforges his sword as Caledfwlch and demands he fight Lord English, but he refuses both the role and further time travel. He rescues the mayor from Jade; John's later intrusion changes how their confrontation unfolds.",
+          "sourcePage": 6280,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6323,
+            6383,
+            6385,
+            6388,
+            6390,
+            6391,
+            6404
           ]
         }
       ]
@@ -17558,6 +18016,26 @@ window.HOMESTUCK_REFERENCE = {
             6228,
             6229,
             6231
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "The controlled Witch of Space separates her friends and serves the Condesce's plan for a new empire. She pressures Roxy to create a matriorb, orders Kanaya and Karkat to seek Echidna's frog, and demands Dave fight Lord English. John repeatedly evades her with wind and his unpredictable jumps.",
+          "sourcePage": 6293,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6296,
+            6297,
+            6327,
+            6383,
+            6404,
+            6453
           ]
         }
       ]
@@ -17836,6 +18314,17 @@ window.HOMESTUCK_REFERENCE = {
             5944,
             5945
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The doomed-timeline Dave who became a sprite guide is now spending time with Arquiusprite in the new session. The two bond over feeling excluded from their counterparts' lives. Jade says Davesprite broke her heart, but the actual Dave insists that his alternate self's choices are not automatically his own.",
+          "sourcePage": 6380,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6386
+          ]
         }
       ]
     },
@@ -17986,6 +18475,24 @@ window.HOMESTUCK_REFERENCE = {
             4698,
             4722,
             1988
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV"
+          ],
+          "definition": "The former Warweary Villein and mayor of Can Town arrives on LOHAC with Dave. Jade threatens him to force Dave to fight, then kicks him toward the lava; Dave catches him. John's later arrival changes the confrontation before that threat is carried out, with the mayor still safe.",
+          "sourcePage": 6280,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6387,
+            6388,
+            6390,
+            6391,
+            6404
           ]
         }
       ]
@@ -19023,6 +19530,25 @@ window.HOMESTUCK_REFERENCE = {
             6225,
             6231
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The Knight of Blood is stranded with Kanaya on Jade's land. Echidna requests his presence with the Space player, but he rejects the controlled Jade's orders. Jane kills and revives him to demonstrate her power, leaving him shaken while Kanaya confronts her over the cruelty.",
+          "sourcePage": 6280,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6327,
+            6330,
+            6331,
+            6334,
+            6336,
+            6398
+          ]
         }
       ]
     },
@@ -19184,6 +19710,25 @@ window.HOMESTUCK_REFERENCE = {
             6064,
             6231
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The rainbow drinker is ordered to visit Echidna with Karkat and request the Genesis Frog's release. She furiously challenges Jane after Karkat's killing and revival, rejecting the claim that healing magic can kill her. Jane then exploits her thirst by selling her troll-blood potions while Rose tries to discuss their problems.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6329,
+            6398,
+            6399,
+            6400,
+            6411,
+            6412
+          ]
         }
       ]
     },
@@ -19271,6 +19816,22 @@ window.HOMESTUCK_REFERENCE = {
             6020,
             6226,
             6231
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "The Seer of Mind is stranded with Rose on bright LOLAR, overwhelmed by her restored vision and regretting her dependence on Gamzee and sugary drinks. John reminds her of their forgotten meeting after the meteor's arrival. She later leaves Rose to hunt the clown.",
+          "sourcePage": 6349,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6362,
+            6414,
+            6415
           ]
         }
       ]
@@ -20575,6 +21136,25 @@ window.HOMESTUCK_REFERENCE = {
             5917,
             5921
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The controlled Maid of Life kills Karkat with her red trident, then revives him as a demonstration of her power. She sells troll-blood potions to Kanaya and tells the imprisoned Jake he must marry her and father heirs to her planned empire. He refuses and remains frightened of her demands.",
+          "sourcePage": 6330,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6331,
+            6334,
+            6336,
+            6399,
+            6400,
+            6443
+          ]
         }
       ]
     },
@@ -20710,6 +21290,23 @@ window.HOMESTUCK_REFERENCE = {
             5875,
             5917,
             5921
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The Page of Hope is imprisoned by the controlled Jane, who demands marriage, children and obedience in her planned empire. Jake rejects that future and asks to go home. Brain Ghost Dirk reappears, saying that Jake's undeveloped Hope powers could make him real, but Jake cannot yet call on that potential.",
+          "sourcePage": 6286,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6441,
+            6443,
+            6444,
+            6445
           ]
         }
       ]
@@ -20877,6 +21474,26 @@ window.HOMESTUCK_REFERENCE = {
             5918,
             5922
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void remains imprisoned on Derse, ordered to recreate the matriorb for the Condesce. She learns to conjure cubes and pumpkins, then produces an incomplete orb. Meeting John brings news of Rose and a proposed way to revive Calliope with the Ring of Life.",
+          "sourcePage": 6293,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6295,
+            6451,
+            6458,
+            6459,
+            6463
+          ]
         }
       ]
     },
@@ -21029,6 +21646,26 @@ window.HOMESTUCK_REFERENCE = {
             5908,
             5911,
             5913
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart is flying back from the session's edge after Jade banished him. Arquiusprite estimates that the journey will take a little over three hours and urges him to contact Dave. Dirk attempts it, but glitches make his messages unreadable and Dave mistakes him for Davesprite.",
+          "sourcePage": 6377,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6379,
+            6380,
+            6395,
+            6396
           ]
         }
       ]
@@ -22241,6 +22878,20 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "A passive stealing class, paired with the more active Thief. UU compares its use of an aspect for others' benefit to Roxy's Robin Hood analogy. Roxy is the Rogue of Void, but exactly how stealing nothingness will work remains a discovery she has yet to make.",
           "sourcePage": 4514,
           "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Rogue",
+          "aliases": [],
+          "definition": "A passive stealing class, paired with the more active Thief. Jade explains that Roxy can steal the absence from an idea, causing an object to exist. Roxy begins with perfectly generic objects and pumpkins, then attempts a matriorb; her developing ability is not yet effortless creation of anything she wants.",
+          "sourcePage": 4514,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6293,
+            6295,
+            6451,
+            6463
+          ]
         }
       ]
     },
@@ -22368,6 +23019,22 @@ window.HOMESTUCK_REFERENCE = {
             5614,
             5622,
             5636
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Void",
+          "aliases": [],
+          "definition": "The aspect of concealment and nothingness. Roxy's Rogue powers can remove an idea's nonexistence and make it physically real, beginning with cubes and pumpkins. This developing ability is distinct from the invisibility and intangibility her lost Ring of Void provided, and from Void's interference with ordinary remote observation.",
+          "sourcePage": 4513,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5503,
+            5636,
+            6293,
+            6295,
+            6451,
+            6463
           ]
         }
       ]
@@ -22581,6 +23248,19 @@ window.HOMESTUCK_REFERENCE = {
             4703,
             4705
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Void session",
+          "aliases": [],
+          "definition": "A session without pre-entry prototyping, a mature Battlefield or a Forge, unable to create a universe unaided. Jade brings in the old lands and Battlefield. The Condesce intends to use that outside machinery and Jade's existing Genesis Frog to complete the session and claim its new universe.",
+          "sourcePage": 4703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4705,
+            6278,
+            6327
+          ]
         }
       ]
     },
@@ -22651,6 +23331,23 @@ window.HOMESTUCK_REFERENCE = {
             4689,
             4401,
             2466
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Life aspect",
+          "aliases": [],
+          "definition": "The aspect shared by Feferi and Jane, with demonstrated healing and revival abilities. The controlled Jane kills Karkat and brings him back; Jade says Jane can revive each individual only once. Her further claim that healing will harm Kanaya is disputed and not demonstrated by that revival.",
+          "sourcePage": 4698,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6328,
+            6329,
+            6330,
+            6334,
+            6335,
+            6336,
+            6398
           ]
         }
       ]
@@ -23138,6 +23835,18 @@ window.HOMESTUCK_REFERENCE = {
             5013,
             5206
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Brain ghost Dirk",
+          "aliases": [],
+          "definition": "The Dirk-shaped projection in Jake's mind, distinct from Dirk's actual body and Arquiusprite. He reappears during Jake's captivity and says sufficiently strong Hope could make him real. Jake has not accomplished that, and the projection cannot simply rescue him from Jane.",
+          "sourcePage": 6444,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6445,
+            5244
+          ]
         }
       ]
     },
@@ -23579,6 +24288,23 @@ window.HOMESTUCK_REFERENCE = {
             6049,
             6071,
             6072
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Ring of Life",
+          "aliases": [
+            "Hussie's ring",
+            "Hussie's gold ring"
+          ],
+          "definition": "The Ring of Life is said to restore a ghost to life. John offers it to Roxy so she can revive Calliope, rather than letting Vriska have it. He returns to the ship to retrieve it, only to discover it missing. Its new whereabouts and practical revival limits remain unknown.",
+          "sourcePage": 6034,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6458,
+            6459,
+            6470,
+            6471
           ]
         }
       ]
@@ -24082,6 +24808,20 @@ window.HOMESTUCK_REFERENCE = {
             5759,
             5761
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Arquiusprite",
+          "aliases": [
+            "Equiusprite"
+          ],
+          "definition": "Dirk's combined Lil Hal and Equius sprite tracks his creator's return toward the session and praises Jane's takeover by an artificial intelligence. He befriends Davesprite over their shared feeling of being estranged alternate selves, then urges Dirk to contact the other Dave despite their awkward circumstances.",
+          "sourcePage": 6377,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6379,
+            6380
+          ]
         }
       ],
       "characterId": "arquiusprite"
@@ -24380,6 +25120,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5770
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Cutlass of Zillywair",
+          "aliases": [],
+          "definition": "The rainbow-colored sword with a purple guard recreated during the tricksters' alchemy spree. Jade later wields it while ordering Dave to spar, explaining that god-tier advancement lets her use weapons without an ordinary strife specibus restriction. Its current wielder is Jade rather than Dirk.",
+          "sourcePage": 5768,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5770,
+            6383,
+            6384
+          ]
         }
       ]
     },
@@ -24554,6 +25307,26 @@ window.HOMESTUCK_REFERENCE = {
             6157,
             6195,
             6207
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "House-shaped juju",
+          "aliases": [
+            "House juju"
+          ],
+          "definition": "Vriska's intangible treasure gives John involuntary jumps beyond ordinary time-travel constraints. He says he can change events without creating a doomed timeline. His interruption of Dave and Jade alters their confrontation; he remains unable to control his destinations and worries about changing important events.",
+          "sourcePage": 6083,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6094,
+            6363,
+            6404,
+            6417,
+            6418,
+            6419,
+            6433,
+            6434
           ]
         }
       ]
@@ -24738,6 +25511,144 @@ window.HOMESTUCK_REFERENCE = {
             6275,
             6276,
             6277
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Act 6 Act 6 Supercartridge Expansion Pack",
+          "aliases": [
+            "Supercartridge expansion pack",
+            "Act 6 Act 6 cartridge",
+            "Intermission cartridge",
+            "Expansion cartridge"
+          ],
+          "definition": "The cartridge meant to continue the heroes' adventure between Caliborn's Homosuck acts is now clogged with his special stardust. The resulting glitches cut short the arrival animation, block choices and obscure conversations. The characters have missing memories, while John's wind can clear visible artifacts without repairing the whole cartridge.",
+          "sourcePage": 6273,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6275,
+            6278,
+            6279,
+            6280,
+            6281,
+            6287,
+            6362
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caledfwlch",
+      "reveal": "act-5-act-2-part-1",
+      "variants": [
+        {
+          "from": "act-5-act-2-part-1",
+          "term": "Caledfwlch",
+          "aliases": [],
+          "definition": "The legendary Welsh-named sword Dave finds embedded in a golden stone and breaks to remove. Davesprite calls it a milestone in Dave's personal quest, though tactically weaker than his alchemized weapons. Hephaestus wants the broken sword back and needs Jade's Forge to complete his work.",
+          "sourcePage": 2836,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-5-act-2-part-3",
+          "term": "Caledfwlch",
+          "aliases": [],
+          "definition": "The legendary sword Dave broke to free it from its stone. Davesprite brings the remains to Hephaestus, who offers to repair one thing and needs lava from Jade's awakened Forge. Choosing the sword produces the Deringer, an upgraded weapon sent back to Dave.",
+          "sourcePage": 2836,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3927,
+            3945
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Caledfwlch",
+          "aliases": [],
+          "definition": "The white sword recreated when Jade combines Dave's broken Deringer with her magic cue ball. She says its ingredient exploits Lord English's weakness and orders Dave to prepare to fight him. Dave recognizes his old legendary sword, resents the circular upgrade path and refuses the assigned battle.",
+          "sourcePage": 6320,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6321,
+            6322,
+            6323,
+            6383,
+            6385
+          ]
+        }
+      ]
+    },
+    {
+      "id": "echidna",
+      "reveal": "act-5-act-2-part-3",
+      "variants": [
+        {
+          "from": "act-5-act-2-part-3",
+          "term": "Echidna",
+          "aliases": [],
+          "definition": "Jade's denizen, whose awakening allows the Forge to supply lava for Hephaestus's work. Her Choice requires Jade to bring the lands, their inhabitants and all the denizens along when the players leave. The bargain connects Jade's personal quest to the survival of much more than her own planet.",
+          "sourcePage": 3945,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3985
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Echidna",
+          "aliases": [],
+          "definition": "Jade's denizen now guards the Genesis Frog at the core of the Land of Frost and Frogs. She refuses to deal with the controlled Jade and instead requests another Space player, Kanaya, accompanied by the knight who helped her breed frogs, Karkat. Jade orders the two trolls to seek its release.",
+          "sourcePage": 6327,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6411
+          ]
+        }
+      ]
+    },
+    {
+      "id": "universal-specibus-badge",
+      "reveal": "act-6-act-6-intermission-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Universal specibus badge",
+          "aliases": [
+            "Universal weapon use"
+          ],
+          "definition": "A god-tier advancement that lets Jade wield weapons without needing an ordinary strife specibus restriction, including the colorful sword she draws against Dave. They explicitly agree that the achievement badges and Kiddie Camper Handysash are not real physical objects, despite speaking of them as if they were.",
+          "sourcePage": 6383,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6384
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stardust-glitches",
+      "reveal": "act-6-act-6-intermission-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-1",
+          "term": "Stardust glitches",
+          "aliases": [
+            "Stardust corruption"
+          ],
+          "definition": "The corruption that follows Caliborn clogging the expansion cartridge with special stardust. It cuts four minutes from the arrival animation, obscures dialogue and restricts interactive choices. Several characters cannot remember recent events. John can blow visible artifacts away with wind, but the wider disruption persists.",
+          "sourcePage": 6275,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6278,
+            6279,
+            6280,
+            6281,
+            6282,
+            6287,
+            6356,
+            6357,
+            6358,
+            6362
           ]
         }
       ]
