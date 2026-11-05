@@ -1384,6 +1384,21 @@ window.HOMESTUCK_REFERENCE = {
                 4337,
                 4338
               ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Powers",
+              "value": "Size manipulation · Teleportation within the Medium · Green Sun gateway",
+              "sourcePage": 4297,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4304,
+                4337,
+                4338,
+                5875,
+                5911,
+                5913
+              ]
             }
           ]
         },
@@ -1396,6 +1411,23 @@ window.HOMESTUCK_REFERENCE = {
               "value": "God tier",
               "sourcePage": 4109,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Condition",
+              "value": "Under the Condesce's psychic control",
+              "sourcePage": 5885,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5886,
+                5887,
+                5891
+              ]
             }
           ]
         },
@@ -7183,6 +7215,22 @@ window.HOMESTUCK_REFERENCE = {
                 4060,
                 4063
               ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Powers",
+              "value": "Extends life · Controls lusii and GCat · Telekinesis · Energy blasts · Psychic control of Jade",
+              "sourcePage": 4873,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4944,
+                4060,
+                4063,
+                5836,
+                5840,
+                5885,
+                5886
+              ]
             }
           ]
         },
@@ -7368,6 +7416,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5711
               ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Weapon",
+              "value": "Battlespork of Zillywut",
+              "sourcePage": 5766,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7391,6 +7446,17 @@ window.HOMESTUCK_REFERENCE = {
                 4955,
                 4156
               ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Inventory",
+              "value": "Recipe modus · Jane's dad's wallet",
+              "sourcePage": 4953,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4955,
+                4156
+              ]
             }
           ]
         },
@@ -7403,6 +7469,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Trickster mode",
               "sourcePage": 5711,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Form",
+              "value": "God tier",
+              "sourcePage": 5859,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5847
+              ]
             }
           ]
         },
@@ -7439,6 +7515,23 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 5245
+              ]
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Condition",
+              "value": "Under the Condesce's control through the thoughtwave tiaratop",
+              "sourcePage": 5900,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5901,
+                5903,
+                5905
               ]
             }
           ]
@@ -7616,6 +7709,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Rifle that deploys fenestrated planes",
               "sourcePage": 5438,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Weapon",
+              "value": "Blunderbuss of Zillywigh",
+              "sourcePage": 5769,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7639,6 +7739,17 @@ window.HOMESTUCK_REFERENCE = {
                 5633,
                 5635,
                 5636
+              ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Inventory",
+              "value": "Message in a Bottle modus · Jane's dad's PDA",
+              "sourcePage": 4473,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5635,
+                5813
               ]
             }
           ]
@@ -7675,6 +7786,31 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5503,
                 5636
+              ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Powers",
+              "value": "Obscures ordinary remote observation through Void",
+              "sourcePage": 4513,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5503
+              ]
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Form",
+              "value": "God tier",
+              "sourcePage": 5858,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5846
               ]
             }
           ]
@@ -7906,6 +8042,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Form",
+              "value": "God tier",
+              "sourcePage": 5858,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5846
+              ]
+            }
+          ]
+        },
+        {
           "id": "status",
           "variants": [
             {
@@ -8056,6 +8207,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Paired golden pistols",
               "sourcePage": 5438,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Weapon",
+              "value": "Flintlocks of Zillyhau",
+              "sourcePage": 5767,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -8068,6 +8226,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Puzzle modus",
               "sourcePage": 4176,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Form",
+              "value": "God tier",
+              "sourcePage": 5859,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5847
+              ]
             }
           ]
         },
@@ -8888,6 +9061,13 @@ window.HOMESTUCK_REFERENCE = {
                 4924,
                 4932
               ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Role",
+              "value": "Dersite archagent; escaped from Prospit prison",
+              "sourcePage": 5823,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -8903,6 +9083,51 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4399
               ]
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Weapon",
+              "value": "Knife · Red crowbar",
+              "sourcePage": 5812,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5815,
+                5876
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Powers",
+              "value": "Flight · Destructive energy blasts",
+              "sourcePage": 5837,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5839,
+                5841,
+                5870
+              ]
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Form",
+              "value": "Empowered through Lil Cal",
+              "sourcePage": 5809,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5810,
+                5811,
+                5821
+              ]
             }
           ]
         },
@@ -8915,6 +9140,19 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Golden replacement tooth",
               "sourcePage": 5510,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-5",
+              "label": "Condition",
+              "value": "Golden replacement tooth · Billiard-ball eyes · Golden peg leg",
+              "sourcePage": 5876,
+              "sourceKind": "visual",
+              "sourcePages": [
+                5510,
+                5813,
+                5814,
+                5815
+              ]
             }
           ]
         }
@@ -11270,6 +11508,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-5",
+              "label": "Status",
+              "value": "Exploded during the sprites' argument",
+              "sourcePage": 5761,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5799
+              ]
+            }
+          ]
+        },
+        {
           "id": "interests",
           "variants": [
             {
@@ -11651,7 +11904,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-5-part-1",
+  "conceptsPreparedThrough": "act-6-act-5",
   "concepts": [
     {
       "id": "alchemy",
@@ -13402,6 +13655,23 @@ window.HOMESTUCK_REFERENCE = {
             4600,
             4601
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Prospit",
+          "aliases": [],
+          "definition": "The golden kingdom near Skaia, whose moon passes through prophetic clouds and contains sacrificial slabs. The empowered post-Scratch Jack devastates its city and destroys its moon. Jane and Jake ascend from the slabs in the resulting explosion, then face Jack before Jade intervenes.",
+          "sourcePage": 1988,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5617,
+            5823,
+            5841,
+            5847,
+            5859,
+            5862,
+            5875
+          ]
         }
       ]
     },
@@ -14222,6 +14492,22 @@ window.HOMESTUCK_REFERENCE = {
             1674,
             1857,
             1988
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Derse",
+          "aliases": [],
+          "definition": "The purple kingdom near the Veil, ruled in the post-Scratch session by the Condesce. She destroys its moon while Dirk and Roxy wait on their sacrificial slabs, triggering their ascension. The kingdom itself remains her base, and she brings the captured players back through its towers.",
+          "sourcePage": 5563,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5836,
+            5840,
+            5846,
+            5858,
+            5918,
+            5920
           ]
         }
       ]
@@ -15525,6 +15811,27 @@ window.HOMESTUCK_REFERENCE = {
             3851,
             3871
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "A level of power reached through sacrificial death and ascension, granting extraordinary abilities and conditional immortality. The four post-Scratch players ascend when Jack and the Condesce destroy their moons while they lie on the core slabs. Their new powers do not protect them from psychic control, capture or teleportation by stronger foes.",
+          "sourcePage": 5840,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5841,
+            5846,
+            5847,
+            5858,
+            5859,
+            5886,
+            5900,
+            5911,
+            3630
+          ]
         }
       ]
     },
@@ -15590,6 +15897,24 @@ window.HOMESTUCK_REFERENCE = {
             4109,
             3630,
             3091
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Quest bed",
+          "aliases": [
+            "Quest cocoon"
+          ],
+          "definition": "A sacrificial resting place used for god-tier ascension. The moon-core slabs provide a route for players without spare dreamselves or a developed Battlefield. Jane, Jake, Roxy and Dirk wait on those slabs until the moons' destruction kills them and triggers their ascension, fulfilling Calliope's instructions.",
+          "sourcePage": 5617,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5790,
+            5791,
+            5840,
+            5841,
+            5846,
+            5847
           ]
         }
       ]
@@ -16251,6 +16576,26 @@ window.HOMESTUCK_REFERENCE = {
             4304,
             4510
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Fourth wall",
+          "aliases": [
+            "4th wall"
+          ],
+          "definition": "The paired enormous fenestrated planes connecting the old and new sessions through the yellow yard. After the long voyage, the ship breaks through the wall on Jake's Land of Mounds and Xenon. Jade reaches the newly ascended players in time to drive Jack away, before the Condesce takes control of her.",
+          "sourcePage": 4298,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4303,
+            4304,
+            5865,
+            5867,
+            5869,
+            5872,
+            5875,
+            5886
+          ]
         }
       ]
     },
@@ -16763,6 +17108,28 @@ window.HOMESTUCK_REFERENCE = {
             5293,
             5305,
             5306
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic"
+          ],
+          "definition": "The Witch of Space reaches the new session as the ship breaks through the fourth wall, then rescues Jake and Jane from Jack. The Condesce takes psychic control of her. Jade retrieves Jane's tiaratop, helps capture the new players and banishes Dirk to the session's edge.",
+          "sourcePage": 5869,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5872,
+            5875,
+            5885,
+            5886,
+            5897,
+            5899,
+            5911,
+            5913,
+            5918
           ]
         }
       ]
@@ -18596,6 +18963,23 @@ window.HOMESTUCK_REFERENCE = {
             5676,
             5484
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The Bard of Rage helps Caliborn operate the command tower's paired locks while continuing to appear in the post-Scratch players' session. A pumpkin parcel bearing his message delivers Lil Cal and cutting tools to Jack's prison cell. Fefetasprite's disastrous creation also remains a consequence of his prototyping choices.",
+          "sourcePage": 5759,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5786,
+            5787,
+            5806,
+            5523
+          ]
         }
       ]
     },
@@ -19106,6 +19490,30 @@ window.HOMESTUCK_REFERENCE = {
             5697,
             5701
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The troll empress destroys Derse's moon, then turns the players' new god-tier strength against them. Combining psychic influences, she seizes control of Jade, who delivers Jane's controlling tiaratop. She ends the confrontation holding Roxy and Jake captive while the controlled Jade and Jane serve her.",
+          "sourcePage": 5836,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5840,
+            5885,
+            5886,
+            5899,
+            5900,
+            5917,
+            5918,
+            5921,
+            5926
+          ]
         }
       ]
     },
@@ -19297,6 +19705,27 @@ window.HOMESTUCK_REFERENCE = {
             5700,
             5701
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Unreal Heiress Thoughtwave Tiaratop",
+          "aliases": [
+            "Tiaratop",
+            "Thoughtwave tiaratop"
+          ],
+          "definition": "Jane's wearable thoughtwave computer also provides the Condesce with a route into her mind. After taking control of Jade, the empress has her teleport the tiara onto Jane's head. Its commands overwhelm Jane, whose outfit turns red as she submits and seizes Jake.",
+          "sourcePage": 5885,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5886,
+            5897,
+            5899,
+            5900,
+            5902,
+            5903,
+            5905,
+            5917
+          ]
         }
       ]
     },
@@ -19481,6 +19910,27 @@ window.HOMESTUCK_REFERENCE = {
             5711,
             5712
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The Maid of Life spreads the trickster transformation to her friends, then wakes from it embarrassed by her confessions to Jake. The destruction of Prospit's moon triggers her god-tier ascension. Jade subsequently places the thoughtwave tiaratop on her, letting the Condesce take control; Jane captures Jake for her.",
+          "sourcePage": 5719,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5796,
+            5847,
+            5859,
+            5899,
+            5900,
+            5905,
+            5917,
+            5921
+          ]
         }
       ]
     },
@@ -19597,6 +20047,25 @@ window.HOMESTUCK_REFERENCE = {
             5674,
             5675,
             5691
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The Page of Hope joins Jane's trickster spree, only to face a breakup with Dirk and shame over ignoring his friends' feelings. He ascends when Prospit's moon is destroyed. Jade rescues him from the empowered Jack, but the controlled Jane captures him and takes him to the Condesce.",
+          "sourcePage": 5759,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5797,
+            5847,
+            5859,
+            5875,
+            5917,
+            5921
           ]
         }
       ]
@@ -19741,6 +20210,29 @@ window.HOMESTUCK_REFERENCE = {
             5636,
             5700
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "The Rogue of Void briefly becomes a trickster and resumes drinking, then regrets the lapse and mourns Fefetasprite. After losing her ring, she waits with Dirk on the moon-core slabs and ascends when Derse's moon is destroyed. The Condesce and controlled Jade then take her captive.",
+          "sourcePage": 5743,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5799,
+            5804,
+            5813,
+            5846,
+            5858,
+            5916,
+            5918,
+            5922
+          ]
         }
       ]
     },
@@ -19869,6 +20361,30 @@ window.HOMESTUCK_REFERENCE = {
             5644,
             5654,
             5655
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart remains lucid during trickster mode and ends his relationship with Jake. After reconciling with Jane and praising Roxy's efforts to hold their friends together, he ascends when Derse's moon is destroyed. He attacks the Condesce, but the controlled Jade intervenes and teleports him to the Incipisphere's edge.",
+          "sourcePage": 5759,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5798,
+            5831,
+            5846,
+            5858,
+            5906,
+            5908,
+            5911,
+            5913
           ]
         }
       ]
@@ -20383,6 +20899,25 @@ window.HOMESTUCK_REFERENCE = {
             5561,
             5510
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [],
+          "definition": "The imprisoned post-Scratch archagent receives Lil Cal and tools in a pumpkin. Under the puppet's influence, he mutilates himself and gains a destructive, color-shifting aura, doll eyes and a golden peg leg. He escapes, destroys Prospit's moon and threatens Jake and Jane before Jade teleports him to the Incipisphere's edge.",
+          "sourcePage": 5806,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5813,
+            5814,
+            5815,
+            5823,
+            5841,
+            5862,
+            5875,
+            5876,
+            5913
+          ]
         }
       ]
     },
@@ -20608,6 +21143,19 @@ window.HOMESTUCK_REFERENCE = {
             5254,
             5259
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Squarewave",
+          "aliases": [],
+          "definition": "Dirk's small beatboxing rapbot helps prepare Roxy's house for entry. The tricksters later alchemize a candy-colored robot called Zillywave, resembling his small rapbot design, alongside the tall Sawhoo. The scene displays their new designs without giving them individual dialogue.",
+          "sourcePage": 4523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5254,
+            5259,
+            5772
+          ]
         }
       ],
       "characterId": "squarewave"
@@ -20635,6 +21183,20 @@ window.HOMESTUCK_REFERENCE = {
             4967,
             4968,
             5253
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Sawtooth",
+          "aliases": [],
+          "definition": "Dirk's towering, cloaked rapbot carries concealed missile launchers and helps rescue him from imperial drones. The tricksters later alchemize Sawhoo, a tall candy-colored robot based on his design, alongside the smaller Zillywave. Their crafting spree also produces a pile of colorful Santas.",
+          "sourcePage": 4523,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4967,
+            4968,
+            5253,
+            5772
           ]
         }
       ],
@@ -20726,6 +21288,25 @@ window.HOMESTUCK_REFERENCE = {
             5675,
             5676,
             5678
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time is delighted by the trickster spectacle and furious when Hussie moves the story onward. He and Gamzee turn two keys together to unlock paired monitors. His communion with Lil Cal coincides with the puppet's influence taking hold of the imprisoned post-Scratch Jack.",
+          "sourcePage": 5714,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5779,
+            5782,
+            5787,
+            5809,
+            5810,
+            5811
           ]
         }
       ],
@@ -21123,6 +21704,26 @@ window.HOMESTUCK_REFERENCE = {
             5679,
             4520
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Lil Cal",
+          "aliases": [
+            "Cal"
+          ],
+          "definition": "The grinning juju puppet links Caliborn's distant gaze to the imprisoned post-Scratch Jack. After receiving the doll, Jack cuts out its eyes and his own, gains a color-shifting aura and replaces his severed leg with a golden spike. The episode demonstrates a sinister influence without fully explaining the puppet's contents or mechanism.",
+          "sourcePage": 5805,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5806,
+            5809,
+            5810,
+            5811,
+            5813,
+            5814,
+            5815,
+            5876
+          ]
         }
       ]
     },
@@ -21170,6 +21771,22 @@ window.HOMESTUCK_REFERENCE = {
             5705,
             5707,
             5711
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Juju",
+          "aliases": [],
+          "definition": "A magical object governed by unusual ownership and transfer rules rather than ordinary duplication. The cherubs' paired suckers induce trickster mode, a supposed boon whose effects disturb the humans. Lil Cal demonstrates a darker influence when the puppet's gaze links Caliborn to the imprisoned Jack's destructive transformation.",
+          "sourcePage": 4962,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5674,
+            5781,
+            5809,
+            5810,
+            5811,
+            5821
           ]
         }
       ]
@@ -21506,6 +22123,23 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             4703
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Noble",
+          "aliases": [
+            "Nobles"
+          ],
+          "definition": "The title given to Jane and her coplayers by their lands' inscriptions, rather than a player class. Their void session lacks the ordinary machinery for victory. Dirk interprets their long inactivity as part of this role, while crediting Roxy with holding the friends together emotionally before outside heroes arrive.",
+          "sourcePage": 4820,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4703,
+            5829,
+            5830,
+            5831,
+            5869
           ]
         }
       ]
@@ -22302,6 +22936,25 @@ window.HOMESTUCK_REFERENCE = {
             5552,
             5553
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Command tower",
+          "aliases": [
+            "Command station",
+            "MSPA command station"
+          ],
+          "definition": "A keyed monitor station through which Caliborn observes and interferes with distant scenes. Hussie tells him to smash two protective panes, then turn two locks simultaneously with a partner. Caliborn cooperates with Gamzee, unlocking paired viewpoints of the players waiting in the two moon cores.",
+          "sourcePage": 5782,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5783,
+            5784,
+            5786,
+            5787,
+            5790,
+            5791
+          ]
         }
       ]
     },
@@ -22325,6 +22978,23 @@ window.HOMESTUCK_REFERENCE = {
             5479,
             5485,
             5501
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Author avatar",
+          "aliases": [
+            "Andrew Hussie",
+            "Hussie",
+            "Narrator"
+          ],
+          "definition": "The in-story Andrew Hussie argues with Caliborn over the trickster spectacle, insisting that a magical shortcut cannot resolve the humans' problems. He moves the narrative onward without erasing those events. He then directs Caliborn to cooperate with Gamzee to unlock paired command-tower viewpoints.",
+          "sourcePage": 5779,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5781,
+            5782,
+            5787
           ]
         }
       ]
@@ -22363,6 +23033,23 @@ window.HOMESTUCK_REFERENCE = {
             5493,
             5495
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Magic crowbar",
+          "aliases": [
+            "Caliborn's crowbar"
+          ],
+          "definition": "Gamzee's magical gift to Caliborn lets him strike the command tower and shake the surrounding narrative display. The disturbance makes Jane drop the spiral sucker. Hussie then instructs him to smash protective glass with it so that he and Gamzee can operate two locks together.",
+          "sourcePage": 5492,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5495,
+            5780,
+            5782,
+            5783,
+            5784
+          ]
         }
       ]
     },
@@ -22400,6 +23087,19 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5516
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Erisolsprite",
+          "aliases": [],
+          "definition": "Jake's combined Eridan and Sollux sprite is dragged along through the tricksters' antics. He tries to apologize to Fefetasprite for Eridan killing Feferi, then clashes with Arquiusprite over speaking to her two halves. Their argument ends with Fefeta's explosion, rather than the reconciliation he hoped for.",
+          "sourcePage": 5728,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5746,
+            5759,
+            5761
+          ]
         }
       ],
       "characterId": "erisolsprite"
@@ -22422,6 +23122,22 @@ window.HOMESTUCK_REFERENCE = {
             5533,
             5537
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Fefetasprite",
+          "aliases": [
+            "Fefeta"
+          ],
+          "definition": "Roxy's combined Feferi and Nepeta sprite becomes the focus of contradictory apologies from Erisolsprite and Arquiusprite. Their conflict overwhelms her, and she explodes. Roxy mourns her friend and asks Jane to help hold a funeral, remembering Fefeta's encouragement as a reason she chose to stop drinking.",
+          "sourcePage": 5746,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5759,
+            5761,
+            5799,
+            5818
+          ]
         }
       ],
       "characterId": "fefetasprite"
@@ -22443,6 +23159,20 @@ window.HOMESTUCK_REFERENCE = {
             5655,
             5656,
             5657
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Arquiusprite",
+          "aliases": [
+            "Equiusprite"
+          ],
+          "definition": "Dirk's red sprite combines Lil Hal and Equius, remaining delighted by his new strength. Meeting Fefetasprite brings back Equius's guilt over failing Nepeta. His attempt to apologize while Erisolsprite addresses Feferi turns into an argument, overwhelming Fefeta and causing her to explode.",
+          "sourcePage": 5656,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5759,
+            5761
           ]
         }
       ],
@@ -22527,6 +23257,23 @@ window.HOMESTUCK_REFERENCE = {
             5634,
             5636
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Roxy's ring",
+          "aliases": [
+            "Roxy's gold ring"
+          ],
+          "definition": "The gold ring that made Roxy invisible and intangible enough to escape her Derse cell. During trickster mode she tries to use it to propose to Dirk. Afterward she realizes it is missing and tells Jake she had hoped to give it to the person she eventually married.",
+          "sourcePage": 5636,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5753,
+            5754,
+            5813,
+            5814,
+            5815
+          ]
         }
       ]
     },
@@ -22551,6 +23298,24 @@ window.HOMESTUCK_REFERENCE = {
             5710,
             5711
           ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Spiral sucker",
+          "aliases": [
+            "Spiral lollipop"
+          ],
+          "definition": "The combined green and red cherub juju triggers Jane's trickster transformation, which spreads to her friends. After the spree ends, Jane holds the sucker while waiting in Prospit's moon core. A jolt makes her drop it into the crypt, and Dirk is relieved that it is gone.",
+          "sourcePage": 5707,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5711,
+            5778,
+            5780,
+            5791,
+            5792,
+            5793
+          ]
         }
       ]
     },
@@ -22567,6 +23332,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             5705
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Zillium",
+          "aliases": [],
+          "definition": "The unusual grist gained when Jane alchemizes the cherubs' two juju suckers at negative cost. During trickster mode, the crafting interface prices legendary equipment, the new katana and the candy-colored robots at one zillion Zillium apiece. The spree leaves the players with extraordinary gear rather than solved personal lives.",
+          "sourcePage": 5703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5705,
+            5765,
+            5766,
+            5767,
+            5768,
+            5769,
+            5770,
+            5771,
+            5772
           ]
         }
       ]
@@ -22586,6 +23370,146 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             5712
+          ]
+        },
+        {
+          "from": "act-6-act-5",
+          "term": "Trickster mode",
+          "aliases": [
+            "Trickster"
+          ],
+          "definition": "The candy-colored juju transformation spreads from Jane to Jake, Roxy and Dirk. It grants spectacular mobility and crafting, while the first three claim their personal problems are solved; Dirk remains lucid. After it wears off, their unresolved relationships and Roxy's resumed drinking still have to be faced.",
+          "sourcePage": 5726,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5740,
+            5743,
+            5759,
+            5764,
+            5778,
+            5796,
+            5804
+          ]
+        }
+      ]
+    },
+    {
+      "id": "warhammer-of-zillyhoo",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Warhammer of Zillyhoo",
+          "aliases": [],
+          "definition": "A brightly colored hammer recreated during the tricksters' alchemy spree. Its appearance matches the legendary weapon already associated with John. The alchemy display prices this new hammer at one zillion Zillium, while the narration places its origins in elaborate cherub folklore.",
+          "sourcePage": 5765,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3678,
+            3679
+          ]
+        }
+      ]
+    },
+    {
+      "id": "battlespork-of-zillywut",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Battlespork of Zillywut",
+          "aliases": [],
+          "definition": "The oversized, brightly colored spork Jane makes during the tricksters' alchemy spree. The narration presents it as a legendary utensil from cherub folklore, and the alchemy interface assigns it a cost of one zillion Zillium. It is separate from the spiral sucker that started the transformation.",
+          "sourcePage": 5766,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5707
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flintlocks-of-zillyhau",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Flintlocks of Zillyhau",
+          "aliases": [],
+          "definition": "The pair of colorful pistols Jake creates during the trickster alchemy spree, replacing his earlier practical firearms with a cherub-folklore design. The pair is displayed at a cost of one zillion Zillium. Its ornate appearance does not establish a new strife allocation.",
+          "sourcePage": 5767,
+          "sourceKind": "direct"
+        }
+      ]
+    },
+    {
+      "id": "cutlass-of-zillywair",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Cutlass of Zillywair",
+          "aliases": [],
+          "definition": "A rainbow-colored sword recreated during the tricksters' alchemy spree, with a purple guard and an elaborate origin in cherub folklore. The alchemy display prices it at one zillion Zillium. Its creation does not make it Dirk's sword; he sticks with an unbreakable katana.",
+          "sourcePage": 5768,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5770
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blunderbuss-of-zillywigh",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Blunderbuss of Zillywigh",
+          "aliases": [],
+          "definition": "The ornate, brightly colored gun Roxy creates during the tricksters' alchemy spree. Its fanciful origin story describes an explosive snuff charge, while the alchemy display prices it at one zillion Zillium. This is newly crafted equipment, distinct from her earlier rifle that deploys fenestrated planes.",
+          "sourcePage": 5769,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5438
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thistles-of-zillywich",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Thistles of Zillywich",
+          "aliases": [],
+          "definition": "A pair of colorful, spiked jester-like weapons made during the tricksters' alchemy spree. They complete the displayed run of legendary cherub-folklore equipment, with an alchemy cost of one zillion Zillium. No new wielder or formal strife allocation is established by their creation.",
+          "sourcePage": 5771,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5764
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zilly-alchemy",
+      "reveal": "act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-5",
+          "term": "Zilly alchemy",
+          "aliases": [],
+          "definition": "The tricksters' burst of crafting, recreating legendary cherub-folklore equipment and making candy-colored robot models called Zillywave and Sawhoo. They also fill the alchemiter with Zilly Santas. The spree produces objects rather than resolving the friends' personal problems, which remain after the transformation ends.",
+          "sourcePage": 5764,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5772,
+            5774,
+            5775,
+            5779,
+            5796
           ]
         }
       ]
