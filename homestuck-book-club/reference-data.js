@@ -1090,6 +1090,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Quest",
+              "value": "Land quest unfinished; reluctant to consult Cetus",
+              "sourcePage": 7504,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1167,6 +1179,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 7405
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Revised-history self alive; original-history self revived as Rosesprite",
+              "sourcePage": 7481,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7505,
+                7506
+              ]
             }
           ]
         },
@@ -1191,7 +1214,8 @@ window.HOMESTUCK_REFERENCE = {
                 6981
               ]
             }
-          ]
+          ],
+          "until": "act-6-act-6-intermission-5-part-1"
         },
         {
           "id": "counterpart",
@@ -1508,6 +1532,18 @@ window.HOMESTUCK_REFERENCE = {
             6651,
             4109
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": {
+            "src": "../assets/ref-jade-grimbark.webp",
+            "alt": "Jade Harley in her controlled Witch outfit"
+          },
+          "sourcePage": 7405,
+          "sourceKind": "visual",
+          "sourcePages": [
+            7485
+          ]
         }
       ],
       "stats": [
@@ -1736,6 +1772,17 @@ window.HOMESTUCK_REFERENCE = {
                 7405,
                 7406
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Original-history self dead after a Just ruling; revised-history self alive and asleep",
+              "sourcePage": 6652,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7405,
+                7485
+              ]
             }
           ]
         },
@@ -1756,6 +1803,18 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-act-6-intermission-2"
+        },
+        {
+          "id": "revised-condition",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Condition",
+              "value": "Revised-history self asleep to contain the Condesce's control",
+              "sourcePage": 7485,
+              "sourceKind": "composite"
+            }
+          ]
         },
         {
           "id": "interests",
@@ -2542,6 +2601,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "formerly",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Formerly",
+              "value": "Leader of the meteor party (revised history)",
+              "sourcePage": 7460,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
           "id": "team",
           "variants": [
             {
@@ -2610,6 +2681,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Asked to accompany Kanaya to Echidna",
               "sourcePage": 6327,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Quest",
+              "value": "Original history: asked to accompany Kanaya to Echidna",
+              "sourcePage": 6327,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7515
+              ]
             }
           ]
         },
@@ -2703,6 +2784,19 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 6018
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Moirail",
+              "value": "Formerly Gamzee Makara (original history)",
+              "sourcePage": 7459,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5937,
+                6018,
+                7510,
+                7512
               ]
             }
           ]
@@ -3018,6 +3112,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 6411
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Quest",
+              "value": "Original history: asked to seek the Genesis Frog's release from Echidna",
+              "sourcePage": 6327,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6411,
+                7515
+              ]
             }
           ]
         },
@@ -3273,6 +3378,17 @@ window.HOMESTUCK_REFERENCE = {
                 7375,
                 7405
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Original-history self dead from her wounds; revised-history self alive",
+              "sourcePage": 7185,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7500,
+                7501
+              ]
             }
           ]
         },
@@ -3324,6 +3440,17 @@ window.HOMESTUCK_REFERENCE = {
                 7037,
                 7375
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Condition",
+              "value": "Revised-history self blind; original-history self had sight restored by Aranea",
+              "sourcePage": 7375,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7500,
+                7512
+              ]
             }
           ]
         },
@@ -3348,6 +3475,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Neophyte Redglare",
               "sourcePage": 3518,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "moirail",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Moirail",
+              "value": "Vriska Serket (revised history)",
+              "sourcePage": 7500,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7501
+              ]
             }
           ]
         },
@@ -3424,9 +3566,37 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 3905,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": {
+            "src": "../assets/ref-vriska-god-tier.webp",
+            "alt": "Vriska Serket alive in her god-tier Thief of Light outfit"
+          },
+          "sourcePage": 7449,
+          "sourceKind": "visual",
+          "sourcePages": [
+            7457,
+            7461
+          ]
         }
       ],
       "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Leader of the revised-session party",
+              "sourcePage": 7460,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7461
+              ]
+            }
+          ]
+        },
         {
           "id": "handle",
           "variants": [
@@ -3497,6 +3667,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "dicekind",
               "sourcePage": 2199,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Inventory",
+              "value": "Hunger trunk holding Gamzee and preserved remains",
+              "sourcePage": 7459,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7510,
+                7512
+              ]
             }
           ]
         },
@@ -3605,6 +3791,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Mindfang",
               "sourcePage": 3475,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "moirail",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Moirail",
+              "value": "Terezi Pyrope (revised history)",
+              "sourcePage": 7500,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7508
+              ]
             }
           ]
         },
@@ -3878,6 +4079,19 @@ window.HOMESTUCK_REFERENCE = {
                 5648,
                 5675
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Caliborn's guide and combined-sprite creator in the original history",
+              "sourcePage": 5505,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5523,
+                5648,
+                5675,
+                7458
+              ]
             }
           ]
         },
@@ -3973,6 +4187,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4831
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Inventory",
+              "value": "Aradia's timetables (original history)",
+              "sourcePage": 4825,
+              "sourceKind": "visual",
+              "sourcePages": [
+                4831,
+                7459,
+                7510
+              ]
             }
           ]
         },
@@ -4019,6 +4245,18 @@ window.HOMESTUCK_REFERENCE = {
                 7337,
                 7379
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Condition",
+              "value": "Original-history self bisected; revised-history self restrained inside the hunger trunk",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7459,
+                7510,
+                7512
+              ]
             }
           ]
         },
@@ -4064,6 +4302,19 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 6018
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Moirail",
+              "value": "Formerly Karkat Vantas (original history)",
+              "sourcePage": 7459,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5937,
+                6018,
+                7510,
+                7512
               ]
             }
           ]
@@ -4949,6 +5200,25 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Original-history self last seen alive; revised-history self killed in LOWAS's explosion",
+              "sourcePage": 7062,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7063,
+                7064,
+                7457,
+                7485,
+                7491
+              ]
+            }
+          ]
+        },
+        {
           "id": "condition",
           "variants": [
             {
@@ -5704,6 +5974,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4835
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Jane's briefly existing sprite guide (original history)",
+              "sourcePage": 4834,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7458,
+                7459,
+                7494
+              ]
             }
           ]
         },
@@ -5786,6 +6068,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Roxy's sprite guide",
               "sourcePage": 5533,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Roxy's sprite guide (original history)",
+              "sourcePage": 5533,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7458,
+                7459,
+                7494
+              ]
             }
           ]
         },
@@ -5988,6 +6282,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Jake's sprite guide",
               "sourcePage": 5516,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Jake's sprite guide (original history)",
+              "sourcePage": 5516,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7458,
+                7459,
+                7494
+              ]
             }
           ]
         },
@@ -6003,6 +6309,166 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5516
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tavrosprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-6-intermission-5-part-1",
+      "introPage": 7458,
+      "sourcePage": 7458,
+      "sourceKind": "intro",
+      "rosterColumn": 1,
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": "TAVROSPRITE",
+          "sourcePage": 7458,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": "Tavrosprite",
+          "sourcePage": 7458,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": {
+            "src": "../assets/ref-tavrosprite.webp",
+            "alt": "Tavrosprite, a blue sprite with Tavros's horns"
+          },
+          "sourcePage": 7458,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Jane's sprite guide, created by Vriska",
+              "sourcePage": 7458,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Components",
+              "value": "Tavros Nitram",
+              "sourcePage": 7458,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Form",
+              "value": "Single-prototyped sprite",
+              "sourcePage": 7499,
+              "sourceKind": "composite"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rosesprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-6-intermission-5-part-1",
+      "introPage": 7505,
+      "sourcePage": 7505,
+      "sourceKind": "intro",
+      "rosterColumn": 2,
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": "ROSESPRITE",
+          "sourcePage": 7505,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": "Rosesprite",
+          "sourcePage": 7505,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "value": {
+            "src": "../assets/ref-rosesprite.webp",
+            "alt": "Rosesprite, a purple sprite in Rose's Seer outfit"
+          },
+          "sourcePage": 7505,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Role",
+              "value": "Roxy's sprite guide",
+              "sourcePage": 7505,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Powers",
+              "value": "Seer insight · Sprite knowledge",
+              "sourcePage": 7506,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Components",
+              "value": "Rose Lalonde (original history)",
+              "sourcePage": 7505,
+              "sourceKind": "composite"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Form",
+              "value": "Single-prototyped sprite",
+              "sourcePage": 7505,
+              "sourceKind": "composite"
             }
           ]
         }
@@ -8981,6 +9447,17 @@ window.HOMESTUCK_REFERENCE = {
                 7356,
                 7405
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Original-history self dead after a Just ruling; revised-history self alive and asleep",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7485,
+                7512
+              ]
             }
           ]
         },
@@ -9014,6 +9491,23 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-act-6-intermission-3"
+        },
+        {
+          "id": "revised-condition",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Condition",
+              "value": "Revised-history self asleep; Arquiusprite is disabling her tiaratop",
+              "sourcePage": 7458,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7485,
+                7510,
+                7512
+              ]
+            }
+          ]
         },
         {
           "id": "interests",
@@ -9378,6 +9872,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 7396,
                 7401
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Alive; escaped the original history and reunited with the revised-session party",
+              "sourcePage": 7463,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7464,
+                7468,
+                7481
               ]
             }
           ]
@@ -9895,6 +10401,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 7377
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5-part-1",
+              "label": "Status",
+              "value": "Revised-history self alive; original-history self dead after a Heroic ruling; dreamself deceased",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7482,
+                7497,
+                7514
               ]
             }
           ]
@@ -13086,7 +13604,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-5",
+  "conceptsPreparedThrough": "act-6-act-6-intermission-5-part-1",
   "concepts": [
     {
       "id": "alchemy",
@@ -13488,6 +14006,18 @@ window.HOMESTUCK_REFERENCE = {
             5496,
             5497
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Kernelsprite",
+          "aliases": [],
+          "definition": "The entity released by a Cruxtruder and changed through prototyping. A void session leaves four kernels unused after entry. Vriska uses two for Tavrosprite and Arquiusprite, keeping the others as emergency resurrection options. Jaspersprite uses a third to create Rosesprite, leaving only one completely unprototyped kernel in reserve.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7459,
+            7505
+          ]
         }
       ]
     },
@@ -13662,6 +14192,19 @@ window.HOMESTUCK_REFERENCE = {
             5648,
             5654,
             5655
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Prototyping",
+          "aliases": [],
+          "definition": "Adding an object, corpse or person to a kernelsprite, shaping its guide. In the revised session, Vriska prototypes Tavros alone and recreates Arquiusprite. Jaspersprite later adds the original Rose's corpse to Roxy's kernel. These single-prototyped guides can still fuse with a second being through contact, which makes casual hugs dangerous.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7499,
+            7505,
+            7506
           ]
         }
       ]
@@ -14436,6 +14979,19 @@ window.HOMESTUCK_REFERENCE = {
             4835,
             4837,
             4839
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Sprite",
+          "aliases": [],
+          "definition": "A guide formed through prototyping, retaining its components' memories and gaining knowledge of the game. Rosesprite returns from the original Rose's corpse while the revised-history Rose is already alive. A single-prototyped sprite can still absorb another person: Vriska warns both Tavrosprite and Rosesprite against embracing their friends.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7499,
+            7505,
+            7506
           ]
         }
       ]
@@ -16681,6 +17237,23 @@ window.HOMESTUCK_REFERENCE = {
             2396
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Kismesissitude",
+          "aliases": [
+            "Kismesis",
+            "Kismeses",
+            "Caliginous quadrant"
+          ],
+          "definition": "The adversarial quadrant of troll romance. Karkat explains that irritation and underlying admiration can sustain it without constant outright hatred. He reads John's frustration with Terezi as a possible caliginous crush, but John remains uncertain about both the feeling and that interpretation. It is more specific than any ordinary feud.",
+          "sourcePage": 2393,
+          "sourceKind": "composite",
+          "sourcePages": [
+            2395,
+            7490,
+            7491
+          ]
         }
       ]
     },
@@ -16703,6 +17276,24 @@ window.HOMESTUCK_REFERENCE = {
             2401
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Moirallegiance",
+          "aliases": [
+            "Moirail",
+            "Pale quadrant",
+            "Moirallegience",
+            "Moirallegence"
+          ],
+          "definition": "The pale quadrant of troll romance, in which moirails balance one another emotionally. In the revised history, Vriska and Terezi share this bond, with Vriska reassuring Terezi about the pressure of her counterpart's sacrifice. It remains distinct from ordinary friendship and from Vriska's ghostly romance with Meenah in the other history.",
+          "sourcePage": 2401,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7500,
+            7501,
+            7508
+          ]
         }
       ]
     },
@@ -16737,6 +17328,21 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5414,
             5415
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Auspisticism",
+          "aliases": [
+            "Auspistice",
+            "Ashen quadrant"
+          ],
+          "definition": "The ashen quadrant of troll romance, involving an auspistice mediating a destructive rivalry. Kanaya describes the work as difficult and emotionally taxing, but credits Vriska's natural aptitude with defusing conflicts during the revised meteor voyage. This mediation is distinct from Vriska and Terezi's pale relationship.",
+          "sourcePage": 5413,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5414,
+            7508
           ]
         }
       ]
@@ -18532,6 +19138,26 @@ window.HOMESTUCK_REFERENCE = {
             7396,
             7403
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "John brings Roxy into the revised session and reunites with his living friends. He learns that this history's John and Davesprite died during the voyage, leaving Jade alone. He catches up with Dave and Karkat, then helps Jake feel more comfortable among the group while everyone waits for Vriska's strategy meeting.",
+          "sourcePage": 7463,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7467,
+            7483,
+            7485,
+            7490,
+            7513,
+            7514,
+            7515
+          ]
         }
       ]
     },
@@ -18767,6 +19393,25 @@ window.HOMESTUCK_REFERENCE = {
             7276,
             7405
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The revised-history Seer of Light reunites with Roxy, compares their childhoods and explains how her friends helped her stop drinking. The Rose who died in the original catastrophe also returns as Rosesprite. This separate sprite's arrival leaves the living Rose frustrated by what she sees as a meaningless duplication of herself.",
+          "sourcePage": 7481,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7493,
+            7494,
+            7495,
+            7505,
+            7506,
+            7507
+          ]
         }
       ]
     },
@@ -18943,6 +19588,25 @@ window.HOMESTUCK_REFERENCE = {
             7218,
             7375,
             7405
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The living Knight of Time reunites with John in the revised session. He reflects on the insecurities behind his old jokes and on the years spent with Karkat and the mayor. Meeting Roxy gives him a welcome sense of maternal connection, while the prospect of meeting Dirk still makes him uneasy.",
+          "sourcePage": 7483,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7485,
+            7487,
+            7492,
+            7502,
+            7504,
+            7510
           ]
         }
       ]
@@ -19221,6 +19885,22 @@ window.HOMESTUCK_REFERENCE = {
             7405,
             7406
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "The revised-history Jade remains asleep so the Condesce cannot use her powers against the party. John learns that she spent the voyage without that history's John and Davesprite. He wants to wake her briefly, but Vriska refuses. The Jade killed in the original battle remains a different version.",
+          "sourcePage": 7405,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7457,
+            7485
+          ]
         }
       ]
     },
@@ -19412,6 +20092,24 @@ window.HOMESTUCK_REFERENCE = {
             4617,
             1674
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Jaspersprite",
+          "aliases": [
+            "Jaspers",
+            "Frigglish"
+          ],
+          "definition": "Rose's cat guide has traveled on LOWAS with John and Roxy out of the original history. After witnessing Rose's burial, he digs up her body and prototypes it into Roxy's empty kernel, creating Rosesprite. The cat rejoins the group with his unexpected companion, using a resurrection slot Vriska wanted to keep in reserve.",
+          "sourcePage": 7279,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7282,
+            7504,
+            7505,
+            7506,
+            7514
+          ]
         }
       ]
     },
@@ -19523,6 +20221,19 @@ window.HOMESTUCK_REFERENCE = {
             7065,
             7068,
             7069
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The sprite made from a doomed Dave has different fates across histories. John remembers the Davesprite who traveled with him and dated Jade. The revised session's Davesprite died with its John when LOWAS exploded, a loss Dave and John discuss during their reunion. These versions remain distinct from the living Dave.",
+          "sourcePage": 7062,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7064,
+            7485,
+            7491
           ]
         }
       ]
@@ -20885,6 +21596,24 @@ window.HOMESTUCK_REFERENCE = {
             7375,
             7405
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The revised-history Knight of Blood relinquishes leadership to Vriska and spends much of the reunion with Dave and the mayor. He explains black romance to John and discusses romantic theory with Kanaya. His earlier death at Gamzee's hands belongs to the original catastrophe, not this living Karkat.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7460,
+            7483,
+            7490,
+            7509,
+            7514
+          ]
         }
       ]
     },
@@ -21116,6 +21845,24 @@ window.HOMESTUCK_REFERENCE = {
             7375,
             7405
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The revised-history rainbow drinker gives Rose and Roxy space to reconnect, then welcomes Dave into their conversation. She compares troll and human family structures with Vriska and remains worried about restoring her species. Her original-history death is separate from this living Kanaya, whose role in the coming battle is not yet explained.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7493,
+            7494,
+            7502,
+            7508,
+            7509
+          ]
         }
       ]
     },
@@ -21277,6 +22024,21 @@ window.HOMESTUCK_REFERENCE = {
             7368,
             7375
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "The living, blind Terezi is Vriska's moirail in the revised history. She credits her dying counterpart's instructions for their better circumstances, but feels pressure to live up to that sacrifice. Vriska reassures her before their expected separation. The scarf's author remains a distinct, deceased version of Terezi.",
+          "sourcePage": 7185,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7500,
+            7501
+          ]
         }
       ]
     },
@@ -21420,6 +22182,26 @@ window.HOMESTUCK_REFERENCE = {
             7375,
             7384,
             7405
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "The living Vriska leads the revised-session party, with Terezi as her moirail. She has restrained Gamzee, preserved the dead trolls' bodies and created Tavrosprite and Arquiusprite. She keeps Jade and Jane asleep while preparing the group for battle, then objects when Jaspersprite uses another kernel to revive the already-present Rose's dead counterpart.",
+          "sourcePage": 7449,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7458,
+            7459,
+            7460,
+            7485,
+            7500,
+            7505,
+            7515
           ]
         }
       ]
@@ -21708,6 +22490,22 @@ window.HOMESTUCK_REFERENCE = {
             7427,
             7442,
             7443
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "Vriska keeps the revised-history Gamzee bound inside a refrigerator with the remaining troll corpses. She refuses to release him and plans to leave the fridge in the new Earth's ocean, relying on his supposed future relevance. Those are her plans, not a completed disposal or confirmed death; his original-history bisection is separate.",
+          "sourcePage": 7459,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7510,
+            7511,
+            7512
           ]
         }
       ]
@@ -22534,6 +23332,23 @@ window.HOMESTUCK_REFERENCE = {
             6795,
             6796
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Unreal Heiress Thoughtwave Tiaratop",
+          "aliases": [
+            "Tiaratop",
+            "Thoughtwave tiaratop"
+          ],
+          "definition": "Jane's wearable computer lets the Condesce control her mind and body, even when she is asleep. In the revised session, Vriska keeps her unconscious while Arquiusprite works to disable the device. His work is still underway and Jane remains asleep; her freedom from its control has not yet been demonstrated.",
+          "sourcePage": 6781,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7458,
+            7485,
+            7510,
+            7512
+          ]
         }
       ]
     },
@@ -22824,6 +23639,23 @@ window.HOMESTUCK_REFERENCE = {
             7356,
             7405
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The revised-history Jane remains asleep after Vriska stops her. Arquiusprite works to disable her tiaratop and reclaim her from the Condesce's control. Her revival powers are central to Vriska's preparations, but Jane has not woken by the time the meeting resumes. Her original-history death is separate.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7485,
+            7510,
+            7512,
+            7515
+          ]
         }
       ]
     },
@@ -23025,6 +23857,24 @@ window.HOMESTUCK_REFERENCE = {
             7433,
             7436,
             7437
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The revised-history Page of Hope is alive but overwhelmed by the reunion and ashamed of his earlier behavior. Tavrosprite encourages him, while Vriska dismisses his prospects. John instead accepts his need for solitude and helps him feel at ease through their shared love of movies. The original-history Jake died in the catastrophe.",
+          "sourcePage": 7482,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7497,
+            7498,
+            7499,
+            7513,
+            7514
           ]
         }
       ]
@@ -23290,6 +24140,28 @@ window.HOMESTUCK_REFERENCE = {
             7425,
             7443,
             7444
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Roxy reunites with the living Rose of the revised session, then gets to know her and Dave as distinct people rather than copies of their parents. She and Rose compare their losses, writing and recovery from drinking. Jaspersprite unexpectedly brings back the Rose Roxy buried, now as her sprite guide.",
+          "sourcePage": 7471,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7476,
+            7493,
+            7494,
+            7495,
+            7502,
+            7505,
+            7506
           ]
         }
       ]
@@ -25351,6 +26223,20 @@ window.HOMESTUCK_REFERENCE = {
             6327,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Void session",
+          "aliases": [],
+          "definition": "A session entered without prototyping, unable to produce a universe unaided. The revised session has the Battlefield imported by the Condesce's controlled Jade and four unused kernels available for guides. Vriska and Jaspersprite use three. This differs from the original history's catastrophic battle, which destroyed four lands.",
+          "sourcePage": 4703,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7458,
+            7459,
+            7505,
+            6901
+          ]
         }
       ]
     },
@@ -26089,6 +26975,18 @@ window.HOMESTUCK_REFERENCE = {
             6772,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Brain ghost Dirk",
+          "aliases": [],
+          "definition": "Jake's imagined Dirk can offer encouragement without necessarily making him feel better. The revised-history Jake describes these visits as uncomfortable, leading Tavrosprite to recommend a real friend's support instead. The projection made physical by Hope in the original history vanished during Jake's death; it is distinct from the distant real Dirk.",
+          "sourcePage": 6691,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6767,
+            7498
+          ]
         }
       ]
     },
@@ -26129,6 +27027,20 @@ window.HOMESTUCK_REFERENCE = {
             4834,
             4837,
             4839
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Tavrisprite",
+          "aliases": [],
+          "definition": "The original history's short-lived sprite combines Tavros and Vriska in Jane's guide. Their conflicting personalities lead it to explode and return both ghosts to the afterlife. In the revised session, Vriska instead brings back Tavros alone as Tavrosprite; the living Vriska remains separate.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7459,
+            7494,
+            7497,
+            7505
           ]
         }
       ],
@@ -27048,6 +27960,20 @@ window.HOMESTUCK_REFERENCE = {
             5955,
             6231
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Erisolsprite",
+          "aliases": [],
+          "definition": "The original history's sprite combines Eridan and Sollux as Jake's guide, a pairing marked by conflict and isolation. Vriska's revised-session choices leave those bodies unprototyped. That history's Jake instead finds companionship in Tavrosprite, a separate guide who visits him and tries to encourage him.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7459,
+            7494,
+            7497,
+            7505
+          ]
         }
       ],
       "characterId": "erisolsprite"
@@ -27085,6 +28011,22 @@ window.HOMESTUCK_REFERENCE = {
             5761,
             5799,
             5818
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Fefetasprite",
+          "aliases": [
+            "Fefeta"
+          ],
+          "definition": "Roxy's original-history sprite combines Feferi and Nepeta, sharing puns and companionship with her before exploding. The revised session does not produce Fefetasprite: Vriska preserves the trolls' remains and leaves two kernels unused until Jaspersprite creates Rosesprite. Roxy remembers and misses the guide she knew.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7459,
+            7494,
+            7497,
+            7505
           ]
         }
       ],
@@ -27150,6 +28092,21 @@ window.HOMESTUCK_REFERENCE = {
             7442,
             7443,
             7448
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Arquiusprite",
+          "aliases": [
+            "Equiusprite"
+          ],
+          "definition": "Vriska recreates the Equius and Lil Hal sprite in the revised session. He works on disabling Jane's tiaratop while trading horse puns and refusing Dave's overtures toward a brotherly reunion. His role in Caliborn's future-battle account remains distinct from this present work on the sleeping Jane.",
+          "sourcePage": 7449,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7458,
+            7510,
+            7512
           ]
         }
       ],
@@ -28397,6 +29354,69 @@ window.HOMESTUCK_REFERENCE = {
             7443,
             7445,
             7447
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-tavrosprite",
+      "characterId": "tavrosprite",
+      "reveal": "act-6-act-6-intermission-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Tavrosprite",
+          "aliases": [],
+          "definition": "Vriska prototypes Tavros's preserved body into the blue sprite in the revised session. He befriends Jake and tries to rebuild his confidence, drawing on his own struggles with self-esteem. Vriska warns him against hugging Jake because his remaining prototyping slot could fuse them together.",
+          "sourcePage": 7458,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7497,
+            7498
+          ]
+        }
+      ]
+    },
+    {
+      "id": "person-rosesprite",
+      "characterId": "rosesprite",
+      "reveal": "act-6-act-6-intermission-5-part-1",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Rosesprite",
+          "aliases": [],
+          "definition": "The Rose who died in the original catastrophe returns when Jaspersprite digs up her body on LOWAS and prototypes it into Roxy's kernel. She has Seer insight and sprite knowledge, but remains a separate person from the living revised-history Rose. Her unexpected return confuses both Roses and Roxy.",
+          "sourcePage": 7505,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7506,
+            7507
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cetus",
+      "reveal": "act-5-act-2-part-3",
+      "variants": [
+        {
+          "from": "act-5-act-2-part-3",
+          "term": "Cetus",
+          "aliases": [],
+          "definition": "Vriska's denizen, a territorial sea monster dwelling among underground shipwrecks. Vriska says she killed Cetus quickly to release the hoard, paying little attention to the riddles the creature spoke during their fight.",
+          "sourcePage": 3953,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-6-act-6-intermission-5-part-1",
+          "term": "Cetus",
+          "aliases": [],
+          "definition": "The sea-monster denizen associated with Vriska and Rose. Vriska recounts killing her own Cetus quickly, then advises Rose to ignore the riddles and do the same. Rose remains reluctant to pursue her land's quest and says she probably will not visit her denizen.",
+          "sourcePage": 3953,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7504
           ]
         }
       ]

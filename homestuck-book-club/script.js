@@ -73,6 +73,8 @@
     'brobot': '#f2a400',
     'lil-seb': '#e00707',
     'tavrisprite': '#0715cd',
+    'tavrosprite': '#0715cd',
+    'rosesprite': '#b536da',
     'fefetasprite': '#b536da',
     'arquiusprite': '#e00707',
     'erisolsprite': '#4ac925',
