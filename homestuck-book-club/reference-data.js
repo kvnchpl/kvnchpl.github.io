@@ -11143,12 +11143,19 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-6-act-1",
               "label": "Land",
-              "value": "Land of Rust and Angels (LORAA)",
-              "sourcePage": 6005,
+              "value": "Unlocked cherub homeworld",
+              "sourcePage": 6245,
               "sourceKind": "composite",
               "sourcePages": [
-                6245
+                6005
               ]
+            },
+            {
+              "from": "act-6-act-6-act-5",
+              "label": "Land",
+              "value": "Land of Colours and Mayhem (LOCAM)",
+              "sourcePage": 7412,
+              "sourceKind": "composite"
             }
           ]
         },
@@ -11200,6 +11207,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 6245
               ]
+            },
+            {
+              "from": "act-6-act-6-act-5",
+              "label": "Quest",
+              "value": "Confront Yaldabaoth",
+              "sourcePage": 7447,
+              "sourceKind": "composite"
             }
           ]
         },
@@ -11379,6 +11393,16 @@ window.HOMESTUCK_REFERENCE = {
                 6930,
                 6935,
                 6938
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-5",
+              "label": "Interests",
+              "value": "Drawing · Satire · Manga · Storytelling · Clay animation",
+              "sourcePage": 7411,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7413
               ]
             }
           ]
@@ -13062,7 +13086,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-intermission-4",
+  "conceptsPreparedThrough": "act-6-act-6-act-5",
   "concepts": [
     {
       "id": "alchemy",
@@ -20413,6 +20437,21 @@ window.HOMESTUCK_REFERENCE = {
             5395,
             5396
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "The destructive Lord of Time is Caliborn's future identity. Caliborn says he takes the name English from Jake after the Page overwhelms him with Hope. His masterpiece connects English's later emergence across universes to the souls Dirk binds in Lil Cal: Caliborn, Arquiusprite and part of Gamzee.",
+          "sourcePage": 7436,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7437,
+            7442,
+            7443,
+            7445,
+            7448
+          ]
         }
       ]
     },
@@ -21650,6 +21689,25 @@ window.HOMESTUCK_REFERENCE = {
             7337,
             7365,
             7379
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "Gamzee is bisected in the original catastrophe and restrained as a younger troll in John's revised history. Caliborn's account of a future battle places him among the cherub's attendants. He is split again, and part of his soul is drawn into Lil Cal alongside Caliborn and Arquiusprite.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7379,
+            7412,
+            7417,
+            7427,
+            7442,
+            7443
           ]
         }
       ]
@@ -22951,6 +23009,23 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The Page of Hope jumps in front of a katana aimed at Jane. Aranea lifts the impaled Jake and uses the same blade to skewer Jane too. Jake dies with a Heroic ruling, ending his brief return to life before he can save her. His earlier dreamself is also deceased.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "The Page of Hope died with a Heroic ruling in the original catastrophe. Separately, Caliborn's future-battle account depicts Jake unleashing Hope after Dirk is beaten, overpowering the Lord of Time without injuring him. Caliborn says this humiliation inspires him to take Jake's surname, English.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7432,
+            7433,
+            7436,
+            7437
+          ]
         }
       ]
     },
@@ -23197,6 +23272,25 @@ window.HOMESTUCK_REFERENCE = {
             7116,
             7119
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Roxy escapes the original catastrophe with John and receives the Ring of Life. Caliborn's account of a future battle gives her another task: after Dirk fills Lil Cal with the captured souls, she banishes the puppet into the void. This is distinct from Caliborn's use of the Ring of Void to banish his own juju.",
+          "sourcePage": 7104,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7396,
+            7425,
+            7443,
+            7444
+          ]
         }
       ]
     },
@@ -23389,6 +23483,28 @@ window.HOMESTUCK_REFERENCE = {
             6958,
             6959,
             6963
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart remains alive in the ruined original session, last seen among the glitches. Caliborn's account of a future battle depicts Dirk binding souls into Lil Cal after Jake's Hope attack and Arquiusprite's intervention. The spell catches Caliborn, the sprite and part of Gamzee together.",
+          "sourcePage": 6953,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6957,
+            6959,
+            7438,
+            7441,
+            7442,
+            7443
           ]
         }
       ]
@@ -24417,7 +24533,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time has unlocked the Land of Rust and Angels and reports ascending to god tier offscreen. His Skeleton key badge opens the command tower's locks, letting him narrate and draw Homosuck. He resents a hidden expansion cartridge that lets the heroes' story continue outside his parody, and tampers with its port.",
+          "definition": "The Lord of Time has unlocked his transformed land and reports ascending to god tier offscreen. His Skeleton key badge opens the command tower's locks, letting him narrate and draw Homosuck. He resents a hidden expansion cartridge that lets the heroes' story continue outside his parody, and tampers with its port.",
           "sourcePage": 6005,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24505,6 +24621,24 @@ window.HOMESTUCK_REFERENCE = {
             6940,
             6941,
             6942
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "The Lord of Time presents a clay-puppet account of a future battle seen on his land's screens. He depicts gaining rainbow eyes, trapping four human players in his juju and having his own soul bound in Lil Cal. After finishing the account, he leaves to fight Yaldabaoth; that victory is still ahead.",
+          "sourcePage": 7412,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7414,
+            7415,
+            7422,
+            7443,
+            7447
           ]
         }
       ],
@@ -25002,6 +25136,24 @@ window.HOMESTUCK_REFERENCE = {
             5815,
             5876
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Lil Cal",
+          "aliases": [
+            "Cal"
+          ],
+          "definition": "The juju puppet's hidden contents are revealed through Caliborn's future-battle account. Dirk binds Caliborn's soul, Arquiusprite's and part of Gamzee's into the formerly hollow doll. Roxy banishes it into the void. Caliborn says its influence through dreams and children will prepare his later emergence as Lord English across universes.",
+          "sourcePage": 7426,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7441,
+            7442,
+            7443,
+            7444,
+            7445,
+            7448
+          ]
         }
       ]
     },
@@ -25083,6 +25235,22 @@ window.HOMESTUCK_REFERENCE = {
             6109,
             6157,
             6195
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Juju",
+          "aliases": [],
+          "definition": "A powerful magical object governed by specific rules. Caliborn's masterpiece illustrates two linked prisons: the house-shaped juju traps four players and becomes a weapon against its former wielder, while Lil Cal receives several souls. Banishment into the void does not keep either object from affecting the wider story.",
+          "sourcePage": 7422,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7423,
+            7424,
+            7425,
+            7443,
+            7444,
+            7445
           ]
         }
       ]
@@ -26746,6 +26914,20 @@ window.HOMESTUCK_REFERENCE = {
             5997,
             6005
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Yaldabaoth",
+          "aliases": [],
+          "definition": "Caliborn's denizen offers conquest in exchange for unconditional immortality and power. In his masterpiece, Caliborn describes the juju chest he expects to win by killing Yaldabaoth and a later battle made possible by that victory. He finishes the story and leaves to confront his denizen; the fight itself has not been shown.",
+          "sourcePage": 5996,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5997,
+            7415,
+            7424,
+            7447
+          ]
         }
       ]
     },
@@ -26954,6 +27136,21 @@ window.HOMESTUCK_REFERENCE = {
             6379,
             6380
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Arquiusprite",
+          "aliases": [
+            "Equiusprite"
+          ],
+          "definition": "The combined Equius and Lil Hal sprite appears as the muscular rescuer in Caliborn's future-battle account. He restrains Caliborn while Dirk works his soul-extraction spell, but is caught in it too. His soul is bound with Caliborn's and part of Gamzee's inside Lil Cal.",
+          "sourcePage": 7441,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7442,
+            7443,
+            7448
+          ]
         }
       ],
       "characterId": "arquiusprite"
@@ -27086,6 +27283,24 @@ window.HOMESTUCK_REFERENCE = {
             6596,
             6599,
             6668
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Ring of Void",
+          "aliases": [
+            "Roxy's ring",
+            "Roxy's gold ring"
+          ],
+          "definition": "The Ring of Void previously made Roxy invisible and intangible before she lost it. Caliborn's account places it in his possession during a future battle, though he does not know how he acquires it. He uses it to banish the house-shaped juju and its chest into the Furthest Ring.",
+          "sourcePage": 5636,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5813,
+            6034,
+            6035,
+            7416,
+            7425
           ]
         }
       ]
@@ -27406,7 +27621,7 @@ window.HOMESTUCK_REFERENCE = {
       "variants": [
         {
           "from": "act-6-intermission-5",
-          "term": "Land of Rust and Angels",
+          "term": "Caliborn's unlocked land",
           "aliases": [],
           "definition": "The transformed land promised after Caliborn completes the dead session's planetary challenge. Aranea's account shows the former dead Earth becoming this new land once the eighth planet is destroyed last. There he can prepare to fight Yaldabaoth; the promised transformation is still ahead of the conquest shown here.",
           "sourcePage": 6005,
@@ -27417,7 +27632,7 @@ window.HOMESTUCK_REFERENCE = {
         },
         {
           "from": "act-6-act-6-act-1",
-          "term": "Land of Rust and Angels",
+          "term": "Caliborn's unlocked land",
           "aliases": [],
           "definition": "The land unlocked after Caliborn completes the planetary challenge of his dead session. Formerly the barren Earth, it is where he can prepare to fight Yaldabaoth. Caliborn instead turns his attention to its command tower, taking over the narration and drawing Homosuck.",
           "sourcePage": 6005,
@@ -27427,6 +27642,21 @@ window.HOMESTUCK_REFERENCE = {
             6248,
             6249,
             6250
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Land of Colours and Mayhem",
+          "aliases": [
+            "LOCAM"
+          ],
+          "definition": "The transformed land Caliborn unlocked after completing his dead session's planetary challenge. He names it the Land of Colours and Mayhem while explaining how one of its screens showed him a future battle. Its monitors reveal events he can reenact before leaving to confront Yaldabaoth.",
+          "sourcePage": 7412,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6005,
+            6245,
+            7447
           ]
         }
       ]
@@ -27476,6 +27706,24 @@ window.HOMESTUCK_REFERENCE = {
             6419,
             6433,
             6434
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "House-shaped juju",
+          "aliases": [
+            "House juju"
+          ],
+          "definition": "The intangible treasure that gave John his retcon powers is explained in Caliborn's future-battle account. It traps John, Rose, Dave and Jade, then becomes unusable by Caliborn and dangerous to him instead. He banishes it in its chest to the Furthest Ring, accounting for the weapon Vriska later recovers.",
+          "sourcePage": 6094,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7415,
+            7421,
+            7422,
+            7423,
+            7424,
+            7425
           ]
         }
       ]
@@ -27683,6 +27931,21 @@ window.HOMESTUCK_REFERENCE = {
             6941,
             6942
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Homosuck",
+          "aliases": [],
+          "definition": "Caliborn concludes his retelling with a clay-puppet masterpiece based on a future scene he says he saw on his land's screens. The eight human players confront him, leading to the imprisonment of four in a juju and his own soul in Lil Cal. He then leaves the narration to confront Yaldabaoth.",
+          "sourcePage": 7411,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7412,
+            7413,
+            7422,
+            7443,
+            7447
+          ]
         }
       ]
     },
@@ -27793,6 +28056,20 @@ window.HOMESTUCK_REFERENCE = {
             6323,
             6383,
             6385
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Caledfwlch",
+          "aliases": [],
+          "definition": "Dave's white sword, recreated using Jade's magic cue ball. Caliborn's future-battle account identifies that ingredient as poisonous to his invincibility, explaining why he removes Dave with the house-shaped juju before fighting. The account does not show Dave landing a blow with the sword.",
+          "sourcePage": 6320,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6321,
+            6322,
+            7422,
+            7423
           ]
         }
       ]
@@ -27942,6 +28219,23 @@ window.HOMESTUCK_REFERENCE = {
             6691,
             6750
           ]
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Hope field",
+          "aliases": [],
+          "definition": "Jake's immense protective aura first appears when Aranea forces his Page powers to develop. In Caliborn's future-battle account, Jake produces an overwhelming Hope field that defeats the supposedly invincible Lord of Time without physically injuring him. This later vision is distinct from Jake's earlier unstable, externally forced display.",
+          "sourcePage": 6607,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6632,
+            6750,
+            7433,
+            7434,
+            7435,
+            7436,
+            7437
+          ]
         }
       ]
     },
@@ -27962,6 +28256,19 @@ window.HOMESTUCK_REFERENCE = {
             6940
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Cal coins",
+          "aliases": [
+            "Calcoins"
+          ],
+          "definition": "The imaginary currency Caliborn invented on his computer and demanded while raising funds for his Homosuck conclusion. He now claims his clay-puppet masterpiece cost millions in this currency, along with most of his remaining attention for creative work.",
+          "sourcePage": 6941,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7411
+          ]
         }
       ]
     },
@@ -28064,6 +28371,32 @@ window.HOMESTUCK_REFERENCE = {
             7361,
             7368,
             7378
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caliborns-masterpiece",
+      "reveal": "act-6-act-6-act-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-act-5",
+          "term": "Caliborn's masterpiece",
+          "aliases": [
+            "The masterpiece"
+          ],
+          "definition": "Caliborn's clay-puppet reenactment of a future battle seen on his land's screens. The eight human players ambush him; four are trapped in his house-shaped juju. Jake's Hope and Dirk's soul binding turn the fight, filling Lil Cal with the souls tied to Lord English's emergence. Caliborn narrates this before confronting his denizen.",
+          "sourcePage": 7411,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7412,
+            7418,
+            7422,
+            7436,
+            7442,
+            7443,
+            7445,
+            7447
           ]
         }
       ]
