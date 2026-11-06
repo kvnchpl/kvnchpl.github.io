@@ -811,6 +811,25 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Quest",
+              "value": "Clears the oil and clouds from LOWAS; releases its fireflies",
+              "sourcePage": 7087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7090,
+                7094,
+                7095,
+                7097,
+                7108
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -849,6 +868,23 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-act-6-intermission-1"
+        },
+        {
+          "id": "retcon-inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Inventory",
+              "value": "Terezi's instruction scarf · Blue chalk",
+              "sourcePage": 7175,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7181,
+                7377,
+                7396
+              ]
+            }
+          ]
         },
         {
           "id": "powers",
@@ -903,6 +939,24 @@ window.HOMESTUCK_REFERENCE = {
                 6404,
                 6433,
                 6434
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Powers",
+              "value": "Wind control · Transforms into wind · Controlled retcon travel; transports people, objects and whole lands across established history",
+              "sourcePage": 5348,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7089,
+                7090,
+                7091,
+                7159,
+                7175,
+                7400,
+                7401,
+                7402,
+                7403
               ]
             }
           ]
@@ -1102,6 +1156,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead after a Heroic ruling; alternate self alive in revised history",
+              "sourcePage": 6981,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7405
+              ]
+            }
+          ]
+        },
+        {
           "id": "condition",
           "variants": [
             {
@@ -1110,6 +1179,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Severe trident wound from the Condesce",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Condition",
+              "value": "Original self: fatal trident wound from the Condesce",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6979,
+                6981
+              ]
             }
           ]
         },
@@ -1318,6 +1398,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dead after a Heroic ruling",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead after a Heroic ruling; alternate self alive in revised history",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7405
+              ]
             }
           ]
         },
@@ -1632,6 +1722,19 @@ window.HOMESTUCK_REFERENCE = {
                 6718,
                 6719,
                 6720
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead after a Just ruling; alternate self alive and asleep",
+              "sourcePage": 6652,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7063,
+                7064,
+                7405,
+                7406
               ]
             }
           ]
@@ -2545,6 +2648,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dead; impaled by Gamzee, then falls into lava",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead; impaled by Gamzee, then falls into lava; alternate self alive in revised history",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7405
+              ]
             }
           ]
         },
@@ -2964,6 +3077,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dead; vaporized by the Condesce",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead; vaporized by the Condesce; alternate self alive in revised history",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7405
+              ]
             }
           ]
         },
@@ -3138,6 +3261,22 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead from her wounds; younger self alive in revised history",
+              "sourcePage": 7185,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7375,
+                7405
+              ]
+            }
+          ]
+        },
+        {
           "id": "condition",
           "variants": [
             {
@@ -3174,6 +3313,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Sight restored by Aranea · Severe injuries from Gamzee · Impaled under Aranea's control",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Condition",
+              "value": "Original self: sight restored by Aranea; younger self blind when John visits",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7037,
+                7375
+              ]
             }
           ]
         },
@@ -3418,6 +3568,19 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Status"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Alive in revised history; original ghost also shown with Meenah",
+              "sourcePage": 7351,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7375,
+                7381,
+                7384,
+                7405
+              ]
             }
           ]
         },
@@ -3845,6 +4008,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Multiple stab wounds · Bisected by Kanaya",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Condition",
+              "value": "Original self: bisected by Kanaya; younger self captured by Terezi in revised history",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7337,
+                7379
+              ]
             }
           ]
         },
@@ -8796,6 +8970,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dead after a Just ruling",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original self: dead after a Just ruling; alternate self asleep, according to Jade",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7356,
+                7405
+              ]
             }
           ]
         },
@@ -9060,6 +9245,22 @@ window.HOMESTUCK_REFERENCE = {
                 5635,
                 5813
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Inventory",
+              "value": "Message in a Bottle modus · Jane's dad's PDA · Dave's bro's katana · Ring of Life",
+              "sourcePage": 4473,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5635,
+                5813,
+                7116,
+                7119,
+                7394,
+                7395,
+                7396
+              ]
             }
           ]
         },
@@ -9166,6 +9367,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 5252
+              ]
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Alive; carried out of the original history with John",
+              "sourcePage": 7104,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7396,
+                7401
               ]
             }
           ]
@@ -9674,6 +9886,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dead after a Heroic ruling; dreamself deceased",
               "sourcePage": 6901,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original history: dead after a Heroic ruling; dreamself deceased",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7377
+              ]
             }
           ]
         },
@@ -12275,6 +12497,17 @@ window.HOMESTUCK_REFERENCE = {
                 6909,
                 6913
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Status",
+              "value": "Original history: dead after a Just ruling; Ring of Life removed",
+              "sourcePage": 6914,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7224,
+                7225
+              ]
             }
           ]
         },
@@ -12829,7 +13062,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-4",
+  "conceptsPreparedThrough": "act-6-act-6-intermission-4",
   "concepts": [
     {
       "id": "alchemy",
@@ -15336,6 +15569,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             1674
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Land of Wind and Shade",
+          "aliases": [
+            "LOWAS"
+          ],
+          "definition": "John's Land of Wind and Shade is freed of oil when he masters his retcon power, then clears the clouds by playing its pipe organ. The land moves into a blank refuge outside ordinary history, with Roxy aboard. A different LOWAS explodes in Jade's remembered voyage, killing that history's John and Davesprite.",
+          "sourcePage": 7063,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7064,
+            7090,
+            7094,
+            7097,
+            7104,
+            7108,
+            7109
+          ]
         }
       ]
     },
@@ -15513,6 +15765,22 @@ window.HOMESTUCK_REFERENCE = {
             5497,
             6327,
             6411
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Denizen",
+          "aliases": [],
+          "definition": "A powerful creature tied to a player's land and quest, able to offer The Choice in a language the player understands. Typheus forces John to master his retcon power, while Nix tells Roxy how to survive the rewrite. Jade recounts that denizens can respond across realities to bargains made with another version.",
+          "sourcePage": 7069,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7083,
+            7086,
+            7087,
+            7089,
+            7103,
+            7104
           ]
         }
       ]
@@ -16650,6 +16918,23 @@ window.HOMESTUCK_REFERENCE = {
             6418,
             6419
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Alpha timeline",
+          "aliases": [
+            "Alpha reality"
+          ],
+          "definition": "The continuing history usually sustained by stable time loops. John's retcon power can instead change established events: guided by Terezi's memories, he prevents Vriska's death without simply making an ordinary doomed branch. His earlier experiences and the Ring of Life still accompany him, despite the contradictions he notices.",
+          "sourcePage": 6363,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7150,
+            7175,
+            7376,
+            7377,
+            7381
+          ]
         }
       ]
     },
@@ -16815,6 +17100,18 @@ window.HOMESTUCK_REFERENCE = {
             6681,
             6715,
             6716
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped meeting place in the Furthest Ring for ghosts and living dreamers. Calliope illustrates Jade and Jane's accounts as they struggle to remember their fates. Their final realization that they are asleep overturns their earlier assumption of being dead; visitors' memories and conclusions can be incomplete.",
+          "sourcePage": 7265,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7356,
+            7405
           ]
         }
       ]
@@ -17687,6 +17984,24 @@ window.HOMESTUCK_REFERENCE = {
             5997,
             6005
           ]
+        },
+        {
+          "term": "The Choice",
+          "aliases": [
+            "Denizen's Choice"
+          ],
+          "from": "act-6-act-6-intermission-4",
+          "definition": "A denizen's personal dilemma, with terms specific to the player. Typheus's challenge makes John clear LOWAS's oil through his retcon power. Nix gives Roxy the option of vanishing with her history or joining John and carrying its responsibilities onward; both bargains warn that others will feel their loss.",
+          "sourcePage": 7086,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7087,
+            7088,
+            7089,
+            7090,
+            7103,
+            7104
+          ]
         }
       ]
     },
@@ -18170,6 +18485,29 @@ window.HOMESTUCK_REFERENCE = {
             6918,
             6919
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "The Heir of Breath masters his retcon power through Typheus's challenge and completes LOWAS's quest. Following instructions on Terezi's scarf, he retrieves the Ring of Life and prevents her from killing Vriska. He gives Roxy the ring, then begins transporting her and his planet out of the blank refuge.",
+          "sourcePage": 7086,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7089,
+            7090,
+            7104,
+            7108,
+            7175,
+            7224,
+            7368,
+            7375,
+            7396,
+            7403
+          ]
         }
       ]
     },
@@ -18387,6 +18725,24 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The Seer of Light attacks the Condesce amid the collapsing battlefield, but the empress's trident impales her. Before another energy blast can strike, Roxy appears, takes hold of Rose and disappears with her. Rose is unconscious and severely wounded; her death is not established here.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "The wounded Seer of Light briefly wakes to speak with Roxy, then dies with a Heroic ruling. Roxy later buries her on LOWAS. A different Rose survives in the history John rewrites; Jane recalls that history's Roxy dying to shield Rose during a prison raid.",
+          "sourcePage": 6976,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6979,
+            6981,
+            7273,
+            7276,
+            7405
+          ]
         }
       ]
     },
@@ -18545,6 +18901,25 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The Knight of Time fights Jack Noir and PM to recover Jade's body for revival. He frees her onto her quest bed but is impaled during the fight and falls onto her. His death receives a Heroic ruling, preventing ordinary god-tier revival; Jade remains dead as well.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "The Knight of Time's Heroic death fighting the doglike guardians belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. This character is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7212,
+            7216,
+            7217,
+            7218,
+            7375,
+            7405
+          ]
         }
       ]
     },
@@ -18802,6 +19177,25 @@ window.HOMESTUCK_REFERENCE = {
             6652,
             6679,
             6716
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "The Jade visiting Calliope remembers a history in which LOWAS exploded, killing John and Davesprite during the ship's voyage. She recounts meeting an alternate Calliope. Finally she remembers Vriska stopping the meteor interception: this Jade is a living sleeper, distinct from the Jade killed in the earlier battle.",
+          "sourcePage": 7063,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7064,
+            7068,
+            7069,
+            7405,
+            7406
           ]
         }
       ]
@@ -19090,6 +19484,21 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             6386
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Davesprite",
+          "aliases": [],
+          "definition": "The sprite guide made from a doomed Dave remains distinct from the original Dave. Jade's newly recovered memories describe another history in which Davesprite and John die when Typheus destroys LOWAS during the ship's voyage. That loss leaves her alone with the consorts and chess people for three years.",
+          "sourcePage": 7062,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7063,
+            7064,
+            7065,
+            7068,
+            7069
           ]
         }
       ]
@@ -20418,6 +20827,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "The Knight of Blood's death at Gamzee's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. This character is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7212,
+            7216,
+            7217,
+            7218,
+            7375,
+            7405
+          ]
         }
       ]
     },
@@ -20630,6 +21058,25 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "The rainbow drinker's death at the Condesce's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. This character is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7212,
+            7216,
+            7217,
+            7218,
+            7375,
+            7405
+          ]
         }
       ]
     },
@@ -20771,6 +21218,26 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Gamzee holds the wounded Seer of Mind hostage and kills Karkat when he tries to rescue her. She escapes the Condesce's energy blast and attacks Aranea, who makes her impale herself with her own weapon. Badly wounded, Terezi still manages to get back up; no death is shown.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "Mortally wounded, the Seer of Mind gives John a blood-written scarf of passwords and instructions for revising her memories. She dies after drawing her own chalk outline. Her plan leads John to expose Gamzee and knock Vriska unconscious, sparing the younger Terezi from killing her in the revised history.",
+          "sourcePage": 7175,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7180,
+            7185,
+            7315,
+            7332,
+            7337,
+            7368,
+            7375
+          ]
         }
       ]
     },
@@ -20894,6 +21361,26 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6748,
             6749
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "Vriska's ghost spends time with Meenah and begins a romance instead of pursuing Lord English. Separately, John prevents Terezi from killing the living Vriska by knocking her out. In the revised history, Vriska travels with the meteor group and puts the controlled Jade to sleep before she can scatter them.",
+          "sourcePage": 7164,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7227,
+            7230,
+            7351,
+            7368,
+            7375,
+            7384,
+            7405
           ]
         }
       ]
@@ -21146,6 +21633,24 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The Bard of Rage holds Terezi hostage and kills the charging Karkat with her cane, dropping him into lava. Kanaya then cuts Gamzee in half with her chainsaw. The halves retain contrasting expressions; the bisection is shown, but the scene does not establish his death.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "In the original battle, Gamzee is bisected by Kanaya without a confirmed death. John's retcon instead revisits the earlier meteor murders: a horn exposes Gamzee hiding with Lil Cal, and Terezi captures and gags him. His younger self is restrained while John prevents Vriska's death.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7332,
+            7333,
+            7337,
+            7365,
+            7379
+          ]
         }
       ]
     },
@@ -22242,6 +22747,25 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The controlled Maid of Life is thrown off Aranea and targeted with Brain ghost Dirk's abandoned katana. Jake intercepts it, but Aranea then uses the impaled boy to stab Jane as well. Jane's death is ruled Just, preventing ordinary god-tier revival. Her attempt to revive Jade has failed.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "The Jane visiting Calliope recalls a different history: a raid frees the Derse prisoners, but Roxy dies protecting Rose from Jane's trident. Jane believes she too died before reviving Roxy. Jade's final recollection instead identifies them both as sleepers; this account differs from the earlier battle in which Jane died.",
+          "sourcePage": 7203,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7270,
+            7271,
+            7273,
+            7355,
+            7356,
+            7405
+          ]
         }
       ]
     },
@@ -22650,6 +23174,29 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The Rogue of Void rescues Rose amid the catastrophe. She appears beside her wounded mother just before the Condesce's energy blast strikes, wraps her arms around Rose and disappears with her. They escape that immediate attack, but Rose remains badly wounded.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Roxy loses Rose, then follows Nix's advice to join John on LOWAS, preserving herself through his changes to history. She takes Dave's bro's katana and buries Rose with Jaspersprite and the salamanders nearby. John gives her the Ring of Life before they begin another jump together.",
+          "sourcePage": 6981,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7104,
+            7276,
+            7279,
+            7282,
+            7396,
+            7401,
+            7116,
+            7119
+          ]
         }
       ]
     },
@@ -22823,6 +23370,26 @@ window.HOMESTUCK_REFERENCE = {
             6395,
             6396
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The Prince of Heart has returned to the ruined session too late to prevent the catastrophe. John finds him staring at the wreckage, saying he has failed and asking to be left alone. Glitches obscure Dirk as John leaves to follow Roxy; no death is established.",
+          "sourcePage": 6953,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6957,
+            6958,
+            6959,
+            6963
+          ]
         }
       ]
     },
@@ -22951,6 +23518,26 @@ window.HOMESTUCK_REFERENCE = {
             6681,
             6716,
             6717
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "The ghostly Muse of Space helps Jade and Jane reconstruct their memories in an illustrated story. Jade recalls another Calliope who defeated her brother, reached god tier and later died in a doomed timeline. Their storytelling eventually reveals that these versions of Jade and Jane are asleep, rather than dead.",
+          "sourcePage": 7018,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7019,
+            7020,
+            7078,
+            7203,
+            7265,
+            7405
           ]
         }
       ]
@@ -24946,6 +25533,24 @@ window.HOMESTUCK_REFERENCE = {
             6748,
             6749
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "The Thief of Life gives up the ghost army's campaign and spends her afterlife with Vriska. They visit an amusement park, joke about tattoos and hold hands while Lord English destroys distant dream bubbles. Their friendship becomes romantic as they kiss during their travels together.",
+          "sourcePage": 6748,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6749,
+            7164,
+            7170,
+            7226,
+            7230,
+            7351
+          ]
         }
       ],
       "characterId": "meenah"
@@ -25813,6 +26418,25 @@ window.HOMESTUCK_REFERENCE = {
             6909,
             6913,
             6914
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Ring of Life",
+          "aliases": [
+            "Hussie's ring",
+            "Hussie's gold ring"
+          ],
+          "definition": "The ring that restored Aranea to life is recovered by John before its theft from the ship's couch. He carries it through his revisions to history and gives it to Roxy, fulfilling his promise to help Calliope. Roxy has the Ring of Life, but Calliope's revival has not happened here.",
+          "sourcePage": 6548,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7223,
+            7224,
+            7225,
+            7394,
+            7395,
+            7396
           ]
         }
       ]
@@ -27257,6 +27881,21 @@ window.HOMESTUCK_REFERENCE = {
             6358,
             6362
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Stardust glitches",
+          "aliases": [
+            "Stardust corruption"
+          ],
+          "definition": "The corruption caused by Caliborn clogging the expansion cartridge grows so severe that it obscures the ruined session. John cannot clear all of it with an ordinary gust. Completing his land's quest produces a vast wind that ejects the cartridge; after it is reinserted, John and Roxy find the glitches gone.",
+          "sourcePage": 6986,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7098,
+            7099,
+            7108
+          ]
         }
       ]
     },
@@ -27323,6 +27962,109 @@ window.HOMESTUCK_REFERENCE = {
             6940
           ],
           "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "retcon",
+      "reveal": "act-6-act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Retcon",
+          "aliases": [
+            "Retcon powers"
+          ],
+          "definition": "John's juju-granted ability to travel outside ordinary history and change established events. After Typheus's challenge, he can deliberately target a moment and transport more than himself. Terezi's passwords lead him into her memories, where small interventions culminate in preventing Vriska's death; this differs from Dave's stable time loops.",
+          "sourcePage": 7089,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7090,
+            7150,
+            7159,
+            7175,
+            7368,
+            7377,
+            7403
+          ]
+        }
+      ]
+    },
+    {
+      "id": "typheus",
+      "reveal": "act-5-act-2-part-3",
+      "variants": [
+        {
+          "from": "act-5-act-2-part-3",
+          "term": "Typheus",
+          "aliases": [],
+          "definition": "John's denizen beneath LOWAS. The doomed John describes approaching his lair and speaking with him before dying. Vriska warns that denizens are immensely powerful, making the early visit dangerous.",
+          "sourcePage": 3952,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3953
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Typheus",
+          "aliases": [],
+          "definition": "John's denizen beneath LOWAS, responsible for its oil-clogged pipes. His challenge submerges John in oil, forcing him to master his retcon power by moving the oil instead of fleeing. Jade also recounts another Typheus destroying LOWAS to make room for the John who accepted this bargain.",
+          "sourcePage": 7068,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7069,
+            7082,
+            7086,
+            7087,
+            7088,
+            7089,
+            7090
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nix",
+      "reveal": "act-6-act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Nix",
+          "aliases": [],
+          "definition": "Roxy's denizen, depicted by a statue on the Land of Pyramids and Neon. She offers Roxy the choice of disappearing with her history or flying to LOWAS to accompany John through the rewrite. Roxy follows her advice; surviving does not require a newly granted Void transformation.",
+          "sourcePage": 7032,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7103,
+            7104
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terezis-scarf",
+      "reveal": "act-6-act-6-intermission-4",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-4",
+          "term": "Terezi's scarf",
+          "aliases": [
+            "Instruction scarf",
+            "Bloody scarf"
+          ],
+          "definition": "The scarf on which the dying Terezi writes passwords and instructions in her own blood. John uses its key thoughts to target her memories and follows its directions with blue chalk. The apparently trivial interventions expose Gamzee and culminate in sparing Vriska; the final wallet instruction remains unfulfilled.",
+          "sourcePage": 7174,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7175,
+            7181,
+            7315,
+            7332,
+            7361,
+            7368,
+            7378
+          ]
         }
       ]
     }
