@@ -775,6 +775,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 8112
               ]
+            },
+            {
+              "from": "act-7",
+              "label": "Role",
+              "value": "Leads the survivors to the completed victory door",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -913,6 +920,19 @@ window.HOMESTUCK_REFERENCE = {
                 7540
               ],
               "label": "Inventory"
+            },
+            {
+              "from": "act-7",
+              "label": "Inventory",
+              "value": "Terezi's instruction scarf · Blue chalk",
+              "sourcePage": 7175,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7181,
+                7377,
+                7396,
+                8127
+              ]
             }
           ]
         },
@@ -1643,6 +1663,15 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             7485
           ]
+        },
+        {
+          "from": "act-7",
+          "value": {
+            "src": "../assets/ref-jade-god-tier.webp",
+            "alt": "Jade Harley in her god-tier Witch of Space outfit with dog ears"
+          },
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ],
       "stats": [
@@ -1753,6 +1782,13 @@ window.HOMESTUCK_REFERENCE = {
                 7539,
                 7999
               ]
+            },
+            {
+              "from": "act-7",
+              "label": "Quest",
+              "value": "Carries Earth to the victory door; restored life on its surface is shown",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -1797,6 +1833,16 @@ window.HOMESTUCK_REFERENCE = {
                 3158
               ],
               "sourceKind": "composite"
+            },
+            {
+              "from": "act-7",
+              "label": "Inventory",
+              "value": "Miniaturized post-Scratch Earth · Junior Compu-Sooth Spectagoggles",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3196
+              ]
             }
           ]
         },
@@ -1851,6 +1897,18 @@ window.HOMESTUCK_REFERENCE = {
                 5911,
                 5913,
                 6296,
+                6383
+              ]
+            },
+            {
+              "from": "act-7",
+              "label": "Powers",
+              "value": "Size manipulation · Enhanced smell · Universal weapon use; First Guardian teleportation and the Green Sun gateway lose their power source",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                4297,
+                4337,
                 6383
               ]
             }
@@ -2234,6 +2292,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Formerly archaeology and roleplaying",
               "sourcePage": 2134,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-7",
+              "label": "Role",
+              "value": "Observes the Green Sun's destruction from the Furthest Ring",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -3327,6 +3397,16 @@ window.HOMESTUCK_REFERENCE = {
                 7639
               ],
               "label": "Quest"
+            },
+            {
+              "from": "act-7",
+              "label": "Quest",
+              "value": "Genesis Frog released and matured; promise to restore her people remains",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7639
+              ]
             }
           ]
         },
@@ -3864,6 +3944,13 @@ window.HOMESTUCK_REFERENCE = {
                 8047
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-7",
+              "label": "Role",
+              "value": "Opens the recovered house-shaped juju before Lord English and the ghost army",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -3954,6 +4041,19 @@ window.HOMESTUCK_REFERENCE = {
                 8047
               ],
               "label": "Inventory"
+            },
+            {
+              "from": "act-7",
+              "label": "Inventory",
+              "value": "Opened house-shaped juju · Spider watch",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7785,
+                7841,
+                7849,
+                8047
+              ]
             }
           ]
         },
@@ -4049,6 +4149,16 @@ window.HOMESTUCK_REFERENCE = {
                 7801
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-7",
+              "label": "Status",
+              "value": "Revised-history self alive when the juju opens; later fate unresolved; original ghost reunited with the dead Terezi",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7959
+              ]
             }
           ]
         },
@@ -5764,6 +5874,13 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4123
               ]
+            },
+            {
+              "from": "act-7",
+              "label": "Role",
+              "value": "Jane's father; joins his daughter on restored Earth",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -5899,6 +6016,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Teleportation",
               "sourcePage": 4425,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-7",
+              "label": "Powers",
+              "value": "First Guardian teleportation before fusion; Green Sun power source now gone",
+              "sourcePage": 4425,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7838,
+                8127
+              ]
             }
           ]
         },
@@ -6922,6 +7050,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 7838,
               "sourceKind": "composite",
               "label": "Powers"
+            },
+            {
+              "from": "act-7",
+              "label": "Powers",
+              "value": "First Guardian abilities lose their Green Sun power source",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7838
+              ]
             }
           ]
         },
@@ -6966,6 +7104,16 @@ window.HOMESTUCK_REFERENCE = {
                 7838
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-7",
+              "label": "Status",
+              "value": "Last seen asleep under Vriska's plan",
+              "sourcePage": 7838,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7873
+              ]
             }
           ]
         }
@@ -7384,6 +7532,13 @@ window.HOMESTUCK_REFERENCE = {
                 8124,
                 8125
               ]
+            },
+            {
+              "from": "act-7",
+              "label": "Role",
+              "value": "Plans a full-sized Can Town with PM on restored Earth",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7422,7 +7577,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 8110,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-7"
         }
       ],
       "sourcePage": 666,
@@ -7479,6 +7635,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 4109,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-7",
+          "value": {
+            "src": "../assets/ref-pm.webp",
+            "alt": "PM in her earlier bandaged, unpowered form"
+          },
+          "sourcePage": 892,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8109
+          ]
         }
       ],
       "stats": [
@@ -7521,6 +7689,13 @@ window.HOMESTUCK_REFERENCE = {
                 8110,
                 8125
               ]
+            },
+            {
+              "from": "act-7",
+              "label": "Role",
+              "value": "Plans a full-sized Can Town with the Mayor on restored Earth",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7579,7 +7754,8 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 8110,
               "sourceKind": "visual"
             }
-          ]
+          ],
+          "until": "act-7"
         }
       ],
       "sourcePage": 892,
@@ -7773,6 +7949,18 @@ window.HOMESTUCK_REFERENCE = {
           },
           "sourcePage": 2927,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-7",
+          "value": {
+            "src": "../assets/ref-jack-noir.webp",
+            "alt": "Jack Noir in his original unpowered uniform"
+          },
+          "sourcePage": 955,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8098
+          ]
         }
       ],
       "stats": [
@@ -8971,6 +9159,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4111
               ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-7",
+              "label": "Status",
+              "value": "Fate unresolved after Vriska opens the house-shaped juju",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -12093,6 +12293,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Reaches the Green Sun to fulfill her promise",
               "sourcePage": 8087,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-7",
+              "label": "Quest",
+              "value": "Fulfills her promise by consuming the Green Sun in a black hole",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7616
+              ]
             }
           ]
         },
@@ -12151,6 +12361,18 @@ window.HOMESTUCK_REFERENCE = {
                 7619
               ],
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-7",
+              "label": "Powers",
+              "value": "Creates a black hole around herself that consumes the Green Sun",
+              "sourcePage": 8127,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -13220,6 +13442,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 8106
               ]
+            },
+            {
+              "from": "act-7",
+              "label": "Quest",
+              "value": "Denizen defeated; judgment clock destroyed",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8087
+              ]
             }
           ]
         },
@@ -13303,6 +13535,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Unlocks locks with the Skeleton key badge",
               "sourcePage": 6248,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-7",
+              "label": "Powers",
+              "value": "Unconditional immortality after destroying his judgment clock · Unlocks locks with the Skeleton key badge",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5997,
+                6248
+              ]
             }
           ]
         },
@@ -13349,6 +13592,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 5480,
               "sourceKind": "composite",
               "sourcePages": [
+                5443,
+                5675
+              ]
+            },
+            {
+              "from": "act-7",
+              "label": "Condition",
+              "value": "Learning difficulties · Robotic leg · Golden fangs · Flashing billiard-ball eyes",
+              "sourcePage": 8127,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5480,
                 5443,
                 5675
               ]
@@ -15116,7 +15371,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-6",
+  "conceptsPreparedThrough": "act-7",
   "concepts": [
     {
       "id": "alchemy",
@@ -15819,6 +16074,21 @@ window.HOMESTUCK_REFERENCE = {
             2618,
             4181
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Sburb",
+          "aliases": [
+            "Sgrub",
+            "Sburb alpha"
+          ],
+          "definition": "A game, called Sgrub by the trolls, that reshapes reality and draws players into the Medium. Success creates a universe within the Genesis Frog and a door to the ultimate reward. Act 7 completes the combined session's universe-creation process and shows a future life on restored Earth.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1674,
+            2134
+          ]
         }
       ]
     },
@@ -16406,6 +16676,18 @@ window.HOMESTUCK_REFERENCE = {
             1026,
             1051,
             1075
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Skaia",
+          "aliases": [],
+          "definition": "The creative center of the Incipisphere, surrounded by clouds that can show visions of past and future. After the royal rings ignite the Forge, the Genesis Tadpole flies into Skaia and descends through the mature Battlefield. Its transformation produces the Genesis Frog and the players' new universe.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            422,
+            1026
           ]
         }
       ]
@@ -18138,6 +18420,21 @@ window.HOMESTUCK_REFERENCE = {
             5395,
             5396
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Furthest Ring",
+          "aliases": [
+            "The Furthest Ring"
+          ],
+          "definition": "The region outside universes, containing dream bubbles and the immense Green Sun, with shifting space and time that resist ordinary mapping. In the finale, the alternate Muse's black hole consumes the Sun and pulls at the cracked surroundings. Aradia watches, but the scene does not establish every nearby character's fate.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5393,
+            5395,
+            5396
+          ]
         }
       ]
     },
@@ -18186,6 +18483,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             4703,
             4109
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Battlefield",
+          "aliases": [
+            "The Battlefield"
+          ],
+          "definition": "The site of the kingdoms' war inside Skaia, shaped by prototyping to support the creation of a universe. In the combined session, the tadpole enters the mature Battlefield brought from the earlier session. The board fractures as the tadpole completes its transformation into the Genesis Frog.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4702,
+            4703
           ]
         }
       ]
@@ -18314,6 +18625,18 @@ window.HOMESTUCK_REFERENCE = {
             8109,
             8110,
             8125,
+            7628
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Royal ring",
+          "aliases": [],
+          "definition": "A queen's ring grants powers and can pass pre-entry prototypes' traits to a carapacian wearer. The two recovered, prototyped rings are sacrificed in the Forge, releasing the Genesis Tadpole. Their destruction completes PM and the Mayor's task; these are separate objects from Calliope's Ring of Life.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8110,
             7628
           ]
         }
@@ -18796,6 +19119,18 @@ window.HOMESTUCK_REFERENCE = {
             4337,
             4338
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "First guardian",
+          "aliases": [],
+          "definition": "A planetary guardian with extraordinary powers fueled by the Green Sun. Before the Sun's destruction, instantaneous travel remains limited to the guardian's current universe or session, rather than the Furthest Ring. The alternate Muse consumes the star in Act 7, removing the source of these abilities without erasing the players' separate god-tier powers.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4304,
+            4337
+          ]
         }
       ]
     },
@@ -19160,6 +19495,14 @@ window.HOMESTUCK_REFERENCE = {
             8126,
             7541
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Ultimate reward",
+          "aliases": [],
+          "definition": "The new universe the players create and can reach through the door on their victory platform. The Genesis Frog matures and the white house-shaped doorway becomes complete. John reaches for its handle while a future montage shows friends and carapacians living on restored Earth; the actual crossing is left offscreen.",
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -19471,6 +19814,18 @@ window.HOMESTUCK_REFERENCE = {
             4304,
             4109
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Green Sun",
+          "aliases": [],
+          "definition": "The immense star in the Furthest Ring that powers First Guardians. The alternate Calliope creates a black hole around herself, consuming the Sun and pulling at the surrounding cracked space. Its loss removes that power source; Jade's own god-tier Space abilities are distinct from those inherited through Becquerel.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4304,
+            4109
+          ]
         }
       ]
     },
@@ -19673,6 +20028,21 @@ window.HOMESTUCK_REFERENCE = {
             6652,
             8087,
             8093
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "An ascended state with conditional immortality: Heroic or Just deaths can prevent automatic revival. Jane's Life powers restore teammates separately, including Dirk after his decapitation. Caliborn instead destroys his judgment clock and gains the unconditional immortality described in Aranea's account; the two protections are not equivalent.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5997,
+            8093,
+            6901
           ]
         }
       ]
@@ -19988,6 +20358,14 @@ window.HOMESTUCK_REFERENCE = {
             8126,
             7541
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Forge",
+          "aliases": [],
+          "definition": "The volcano tied to the final stages of the Space player's quest. PM and the Mayor sacrifice the two recovered royal rings in its lava, completing its ignition. A flashing Genesis Tadpole erupts from the summit and travels to Skaia, where it matures into the players' new universe.",
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -20142,6 +20520,21 @@ window.HOMESTUCK_REFERENCE = {
             7912,
             7932
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Genesis Frog",
+          "aliases": [
+            "Speaker of the Vast Croak",
+            "Bilious Slick",
+            "Speaker of the Vast Joke"
+          ],
+          "definition": "The living universe produced through the Space player's frog-breeding quest. After the rings ignite the Forge, the combined session's tadpole travels into Skaia and the mature Battlefield. It transforms into a vast frog containing a new universe, completing the creation process the survivors worked to secure.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7639
+          ]
         }
       ]
     },
@@ -20179,6 +20572,20 @@ window.HOMESTUCK_REFERENCE = {
             4017,
             3315,
             3318
+          ]
+        },
+        {
+          "term": "Frog breeding",
+          "aliases": [],
+          "from": "act-7",
+          "definition": "The Space player's ectobiological quest to produce the Genesis Frog from carefully combined frog samples. Breeding is only part of the work: the session must also provide the grist and mature Battlefield, then ignite the Forge. The combined session completes those preparations and produces its new universe in Act 7.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3869,
+            7541,
+            7932,
+            7639
           ]
         }
       ]
@@ -20974,6 +21381,20 @@ window.HOMESTUCK_REFERENCE = {
             8120,
             8121
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "John stands at the front of the reunited party as the Genesis Frog matures and the victory doorway becomes complete. He gives Karkat a thumbs-up, then reaches for the handle. A future glimpse shows him exploring restored Earth with Roxy and Calliope; the closing interactive scene returns to his house.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8129
+          ]
         }
       ]
     },
@@ -21242,6 +21663,20 @@ window.HOMESTUCK_REFERENCE = {
             8114,
             7650
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "Rose survives the revised session and joins the others at the completed victory door. The finale's future glimpse places her beside Kanaya, overlooking the new settlement on restored Earth. This living Rose remains separate from the original-history self incorporated into Jasprosesprite².",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7650
+          ]
         }
       ]
     },
@@ -21452,6 +21887,21 @@ window.HOMESTUCK_REFERENCE = {
             8093,
             8094,
             8114
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "Dave joins the surviving party as the new universe is born. The finale's future glimpse shows him sharing a picnic with Karkat and Jade on restored Earth, after the battles in which he helped save Dirk and defeat the Jacks.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8087,
+            8094
           ]
         }
       ]
@@ -21768,6 +22218,22 @@ window.HOMESTUCK_REFERENCE = {
             8096,
             8097,
             8113
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "Jade holds the miniaturized Earth beside her friends at the completed victory door. The finale shows its surface becoming green and inhabited, with Jade sharing a picnic with Dave and Karkat. The Green Sun's destruction removes the source of her First Guardian abilities, while her own Space powers remain distinct.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4304,
+            6383
           ]
         }
       ]
@@ -22352,6 +22818,20 @@ window.HOMESTUCK_REFERENCE = {
             8125,
             8126
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV"
+          ],
+          "definition": "The Mayor and PM sacrifice the recovered royal rings in the Forge, helping release the tadpole that becomes a new universe. A future glimpse shows them planning a full-sized Can Town on restored Earth. The model city's civic hopes become the basis of a home for carapacians.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            685
+          ]
         }
       ]
     },
@@ -22514,6 +22994,21 @@ window.HOMESTUCK_REFERENCE = {
             8109,
             8110,
             8125
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Prospitian Monarch",
+          "aliases": [
+            "Parcel Mistress",
+            "Peregrine Mendicant",
+            "PM"
+          ],
+          "definition": "After defeating Dog Jack and relinquishing her own ring, PM helps the Mayor complete the Forge's ignition by sacrificing both recovered rings. The finale's future glimpse shows the ordinary carapacians together on restored Earth, planning a full-sized Can Town. Her long pursuit ends in work toward a shared home.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8109
           ]
         }
       ]
@@ -23245,6 +23740,14 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Lord English battles Meenah's ghost army and destroys many of the spirits attacking him. The dreaming Karkat's charge ends with his avatar's death, while Davepeta also confronts the demon. Vriska approaches with the recovered juju, but neither its deployment nor Lord English's defeat has been shown.",
           "sourcePage": 8087,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-7",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "Lord English faces the ghost army as Vriska opens the recovered house-shaped juju. The confrontation unfolds alongside the Green Sun's destruction and Caliborn's breaking of his judgment clock. Its immediate result is not shown: the finale does not establish Lord English's death or explain how the apparent attack is resolved.",
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -23333,6 +23836,17 @@ window.HOMESTUCK_REFERENCE = {
             6027,
             6084
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Aradia Megido",
+          "aliases": [
+            "Aradia",
+            "apocalypseArisen"
+          ],
+          "definition": "Aradia watches as the alternate Muse's black hole consumes the Green Sun and draws at the surrounding cracked space. She remains outside it in her god-tier form, smiling as the cosmic structure collapses. The scene does not establish her death or a destination after the confrontation.",
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -23727,6 +24241,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             8114
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "Karkat stands among the survivors as the new universe is born, receiving a thumbs-up from John before the victory door. A future glimpse shows him relaxing with Dave and Jade on restored Earth.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7639
+          ]
         }
       ]
     },
@@ -24012,6 +24540,21 @@ window.HOMESTUCK_REFERENCE = {
             7775,
             7639
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "Kanaya sees the Genesis Frog mature after securing Echidna's promise and surviving the Condesce battle. The finale's future glimpse places her beside Rose above the new settlement on restored Earth. She still holds the responsibility to restore her people; the matriorb's later use is not shown in this segment.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7639,
+            7775
+          ]
         }
       ]
     },
@@ -24204,6 +24747,21 @@ window.HOMESTUCK_REFERENCE = {
             8094,
             8115
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "Terezi survives the Jacks' battle and joins the reunited party before the completed victory door. Her original-history counterpart was last seen with the dead Vriska in the afterlife. The finale gives no new destination for the living Terezi after the victory gathering.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8094,
+            7959
+          ]
         }
       ]
     },
@@ -24386,6 +24944,17 @@ window.HOMESTUCK_REFERENCE = {
             8104,
             8105
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "Vriska opens the recovered juju chest before Lord English and the ghost army. A white house bearing the four human aspects appears and lands amid the cracked surroundings. The finale cuts away without showing the confrontation's immediate outcome, so neither Vriska's death nor Lord English's defeat is established here.",
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -25333,6 +25902,23 @@ window.HOMESTUCK_REFERENCE = {
             8090,
             8112
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The empress's battle against John, Rose, Roxy and Kanaya ends when Roxy impales her with Dave's bro's katana. Jane restores the fallen teammates. The survivors then complete the Genesis Frog's birth and gather before their finished victory door, with her rule over the session ended.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8090,
+            8127
+          ]
         }
       ]
     },
@@ -25573,14 +26159,12 @@ window.HOMESTUCK_REFERENCE = {
             "Tiaratop",
             "Thoughtwave tiaratop"
           ],
-          "definition": "Jane's wearable computer lets the Condesce control her mind and body, even when she is asleep. In the revised session, Vriska keeps her unconscious while Arquiusprite works to disable the device. His work is still underway and Jane remains asleep; her freedom from its control has not yet been demonstrated.",
-          "sourcePage": 6781,
+          "definition": "Jane's wearable computer also allows the Condesce to control her mind and body. In revised history, Vriska keeps Jane asleep while Arquiusprite disables the device. Jane wakes afterward and reunites with Roxy before returning to her friends as the party's battlefield healer.",
+          "sourcePage": 7583,
           "sourceKind": "composite",
           "sourcePages": [
-            7458,
-            7485,
-            7510,
-            7512
+            7584,
+            7650
           ]
         }
       ]
@@ -25907,6 +26491,22 @@ window.HOMESTUCK_REFERENCE = {
             8093,
             8113
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "Jane reaches the completed victory platform alive after helping restore the battle's fallen teammates. The finale's future glimpse reunites her with her dad on restored Earth. This peaceful scene follows the disabled tiaratop and her return to her friends, without changing the fate of her original-history counterpart.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8093,
+            7584,
+            6901
+          ]
         }
       ]
     },
@@ -26141,6 +26741,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             8115
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "Jake survives the fight against the Felt and reaches the victory gathering with the other players. In the finale's future glimpse, he plays a ball game with Dirk on restored Earth.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8087
           ]
         }
       ]
@@ -26444,6 +27058,24 @@ window.HOMESTUCK_REFERENCE = {
             8089,
             8113
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Roxy stands with the survivors as the universe is born, having helped defeat the Condesce and restore Calliope. A future glimpse shows Roxy walking through restored Earth's forests with John and Calliope. Her contribution to the new home includes the matriorb entrusted to Kanaya, whose later use is not shown here.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7775,
+            7628,
+            8087
+          ]
         }
       ]
     },
@@ -26699,6 +27331,23 @@ window.HOMESTUCK_REFERENCE = {
             8094,
             6901
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "After Jane restores him from the battle's decapitation, Dirk joins his friends before the completed victory door. The finale's future glimpse shows him playing a ball game with Jake on restored Earth.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8093
+          ]
         }
       ]
     },
@@ -26885,6 +27534,21 @@ window.HOMESTUCK_REFERENCE = {
             8113,
             8087
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "The revived Calliope remains with the human players as their new universe is born. A future glimpse shows her exploring restored Earth with John and Roxy. Her peaceful future belongs to Roxy's revived friend; the alternate Muse separately consumes the Green Sun.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7628
+          ]
         }
       ]
     },
@@ -26933,6 +27597,17 @@ window.HOMESTUCK_REFERENCE = {
             8119,
             8120,
             8121
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Jane's dad",
+          "aliases": [],
+          "definition": "Jane's dad joins the party before the completed victory door after escaping Derse and embracing John. The finale's future glimpse shows him with Jane on restored Earth. He is the living counterpart of John's murdered father, not a resurrection of that earlier Dad.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8120
           ]
         }
       ]
@@ -27601,6 +28276,19 @@ window.HOMESTUCK_REFERENCE = {
             7837,
             7838
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "GCat",
+          "aliases": [
+            "God Cat"
+          ],
+          "definition": "GCat becomes part of Gcatavrosprite when Vriska has Jake lure him into Tavrosprite. The guide is kept asleep to contain the cat's unpredictable First Guardian powers. The finale consumes their Green Sun power source, leaving the fusion's later activities unshown.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7838
+          ]
         }
       ],
       "characterId": "gcat"
@@ -27948,7 +28636,9 @@ window.HOMESTUCK_REFERENCE = {
             8065,
             8066,
             8082,
-            7447
+            7447,
+            5997,
+            7414
           ],
           "sourceKind": "composite"
         },
@@ -27965,7 +28655,24 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             8106,
             7415,
-            7447
+            7447,
+            5997,
+            7414
+          ]
+        },
+        {
+          "from": "act-7",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "Caliborn breaks his judgment clock after defeating Yaldabaoth, gaining the unconditional immortality described in Aranea's dead-session account. Flashing billiard-ball eyes follow. His masterpiece's later battle remains a separate account from the peaceful Earth future shown for the human survivors.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5997,
+            8087
           ]
         }
       ],
@@ -29117,6 +29824,16 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Meenah leads the ghost army against Lord English, facing his destructive attacks with the volunteers Tavros recruited. The dreaming Karkat charges alongside them before being killed and waking elsewhere. The battle remains unresolved while Vriska carries the recovered juju toward the confrontation.",
           "sourcePage": 8087,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-7",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "Meenah remains with the ghost army during its confrontation with Lord English. Vriska opens the recovered weapon before them, producing the white house-shaped juju. The finale leaves the confrontation's immediate outcome and Meenah's subsequent fate unseen.",
+          "sourcePage": 8127,
+          "sourceKind": "visual"
         }
       ],
       "characterId": "meenah"
@@ -29282,6 +29999,18 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The master class Calliope identifies as the most passive, calling herself the Muse of Space. She describes it as reserved for female players, but admits she does not yet know what its abilities will be.",
           "sourcePage": 5093,
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-7",
+          "term": "Muse",
+          "aliases": [],
+          "definition": "The master class Calliope identifies as the most passive, paired with the Lord. The alternate Muse of Space fulfills her promised duty by creating a black hole that consumes the Green Sun. The two Calliopes remain separate individuals with different histories and experience.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5093,
+            7616
+          ]
         }
       ]
     },
@@ -30516,6 +31245,20 @@ window.HOMESTUCK_REFERENCE = {
             5783,
             5784
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Magic crowbar",
+          "aliases": [
+            "Caliborn's crowbar"
+          ],
+          "definition": "Gamzee's red magical gift to Caliborn, used to break objects and disturb the surrounding narrative display. In the finale, Caliborn smashes his god-tier judgment clock with it. The act leads into his flashing billiard-ball eyes and the unconditional immortality described in Aranea's account.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            5492,
+            5997
+          ]
         }
       ]
     },
@@ -31355,6 +32098,20 @@ window.HOMESTUCK_REFERENCE = {
             7422,
             7425
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "House-shaped juju",
+          "aliases": [
+            "House juju"
+          ],
+          "definition": "The intangible treasure that gives John retcon powers and traps four players in Caliborn's earlier account. Vriska opens its recovered chest during the final confrontation, producing a white house marked with the kids' four aspects. The immediate result against Lord English and Vriska's subsequent fate remain unseen.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6094,
+            7422
+          ]
         }
       ]
     },
@@ -32182,6 +32939,18 @@ window.HOMESTUCK_REFERENCE = {
             7837,
             7838
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Gcatavrosprite",
+          "aliases": [],
+          "definition": "The combined guide made from Tavrosprite and GCat is last shown asleep under Vriska's plan to contain the cat's unpredictable powers. Act 7 removes the Green Sun that fueled those First Guardian abilities. The finale does not show the guide waking or taking part in the new settlement.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7838,
+            7873
+          ]
         }
       ],
       "characterId": "gcatavrosprite"
@@ -32329,6 +33098,20 @@ window.HOMESTUCK_REFERENCE = {
             8097,
             8113
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Calliope (alternate)",
+          "aliases": [
+            "Alternate Calliope",
+            "Alt Calliope"
+          ],
+          "definition": "The alternate Muse fulfills the duty promised to Echidna by forming a black hole around herself and consuming the Green Sun. Her act is separate from the revived Calliope's return to her friends. The surrounding space is pulled toward the hole, while Aradia watches from outside.",
+          "sourcePage": 8127,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7616
+          ]
         }
       ],
       "characterId": "alternate-calliope"
@@ -32392,6 +33175,19 @@ window.HOMESTUCK_REFERENCE = {
             7923,
             7932
           ]
+        },
+        {
+          "from": "act-7",
+          "term": "Grist rig",
+          "aliases": [
+            "Grist rigs"
+          ],
+          "definition": "A device placed atop a fully built tower to release a land's grist hoard into Skaia. Arquiusprite oversees the combined session's release before the battles. The hoards feed the universe-creation process, which is completed when PM and the Mayor sacrifice the royal rings in the Forge.",
+          "sourcePage": 7928,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8127
+          ]
         }
       ]
     },
@@ -32413,6 +33209,36 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             7540
           ]
+        }
+      ]
+    },
+    {
+      "id": "can-town",
+      "reveal": "act-2",
+      "variants": [
+        {
+          "from": "act-2",
+          "term": "Can Town",
+          "aliases": [],
+          "definition": "WV's model city, built from cans inside his shelter. He appoints himself mayor, constructs a city hall and draws residential and commercial zones in chalk. Its imagined citizens include both full and empty cans, welcomed on equal terms.",
+          "sourcePage": 685,
+          "sourcePages": [
+            697,
+            711
+          ],
+          "sourceKind": "composite"
+        },
+        {
+          "from": "act-7",
+          "term": "Can Town",
+          "aliases": [],
+          "definition": "The model city WV first builds from cans becomes the basis of a much larger civic project. After sacrificing the royal rings, he and PM are shown planning a full-sized settlement on restored Earth. The finale depicts a living carapacian city where the model once expressed his hopes.",
+          "sourcePage": 8127,
+          "sourcePages": [
+            685,
+            711
+          ],
+          "sourceKind": "composite"
         }
       ]
     }
