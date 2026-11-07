@@ -765,6 +765,16 @@ window.HOMESTUCK_REFERENCE = {
                 8086
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Helps defeat the Condesce; reunites with the party at the victory door",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8112
+              ]
             }
           ]
         },
@@ -1074,6 +1084,13 @@ window.HOMESTUCK_REFERENCE = {
                 8086
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Helps defeat the Condesce alongside John, Roxy and Kanaya",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -1228,6 +1245,17 @@ window.HOMESTUCK_REFERENCE = {
                 7591,
                 7650
               ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self revived by Jane during the battle; original-history self is part of Jasprosesprite²",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8090,
+                7650
+              ]
             }
           ]
         },
@@ -1343,6 +1371,13 @@ window.HOMESTUCK_REFERENCE = {
                 8085
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Beheads Lord Jack and Spades Slick; rescues Terezi and Dirk from the resulting blast",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -1485,6 +1520,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 7405
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self alive after the battle; original-history self died with a Heroic ruling",
+              "sourcePage": 8094,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6901
               ]
             }
           ]
@@ -1696,6 +1741,18 @@ window.HOMESTUCK_REFERENCE = {
                 8033
               ],
               "label": "Quest"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Survives the two dogs' duel; Earth still awaits placement in the new universe",
+              "sourcePage": 8095,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8097,
+                7539,
+                7999
+              ]
             }
           ]
         },
@@ -1854,6 +1911,17 @@ window.HOMESTUCK_REFERENCE = {
                 8033
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self awake after PM knocks her unconscious; original-history self died with a Just ruling",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8095,
+                6652
+              ]
             }
           ]
         },
@@ -1888,7 +1956,8 @@ window.HOMESTUCK_REFERENCE = {
                 5885
               ]
             }
-          ]
+          ],
+          "until": "act-6-act-6-act-6"
         },
         {
           "id": "interests",
@@ -2783,6 +2852,13 @@ window.HOMESTUCK_REFERENCE = {
                 7993
               ],
               "label": "Quest"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Wakes from the ghost army's battle; helps Jake defeat the Felt",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -2844,6 +2920,17 @@ window.HOMESTUCK_REFERENCE = {
                 7990
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self awake and alive after the battle; original-history self killed by Gamzee",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8114,
+                6901
+              ]
             }
           ]
         },
@@ -3324,6 +3411,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 7405
               ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self revived by Jane during the battle; original-history self killed by the Condesce",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8090,
+                6901
+              ]
             }
           ]
         },
@@ -3413,6 +3511,13 @@ window.HOMESTUCK_REFERENCE = {
                 8085
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Fights the Jacks with Dave and Dirk; combines Mind and Time in a fraymotif with Dave",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -4433,6 +4538,16 @@ window.HOMESTUCK_REFERENCE = {
                 7459,
                 7510,
                 7512
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Condition",
+              "value": "Original-history self bisected; revised-history self last seen restrained in the fridge caught in Lord Jack's blast",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6901
               ]
             }
           ]
@@ -5673,6 +5788,19 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Alive in a maximum-security VIP suite on Derse",
               "sourcePage": 5567,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Escapes Derse imprisonment; joins the victory gathering and embraces John",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8117,
+                8119,
+                8120,
+                8121
+              ]
             }
           ]
         },
@@ -6394,6 +6522,13 @@ window.HOMESTUCK_REFERENCE = {
                 7923
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Fights Cans across the session's lands",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7008,6 +7143,13 @@ window.HOMESTUCK_REFERENCE = {
                 8005
               ],
               "label": "Quest"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Fights Lord English during the ghost army's battle; outcome unresolved",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7231,6 +7373,17 @@ window.HOMESTUCK_REFERENCE = {
                 7885
               ],
               "sourceKind": "composite"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Reunites with Serenity and PM; accompanies PM to the Forge",
+              "sourcePage": 8107,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8124,
+                8125
+              ]
             }
           ]
         },
@@ -7258,6 +7411,18 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-intermission-2"
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Inventory",
+              "value": "One of the two recovered royal rings; PM holds the other",
+              "sourcePage": 8110,
+              "sourceKind": "visual"
+            }
+          ]
         }
       ],
       "sourcePage": 666,
@@ -7345,6 +7510,17 @@ window.HOMESTUCK_REFERENCE = {
                 8081
               ],
               "sourceKind": "composite"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Defeats Dog Jack; brings both royal rings to the Forge with the Mayor",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8110,
+                8125
+              ]
             }
           ]
         },
@@ -7379,6 +7555,28 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Powers",
               "value": "First Guardian powers",
               "sourcePage": 4109,
+              "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Powers",
+              "value": "First Guardian powers relinquished when the Mayor removes her ring",
+              "sourcePage": 8108,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8109
+              ]
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Inventory",
+              "value": "One of the two recovered royal rings; the Mayor holds the other",
+              "sourcePage": 8110,
               "sourceKind": "visual"
             }
           ]
@@ -7587,6 +7785,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Archagent of the Dark Kingdom",
               "sourcePage": 955,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Defeated by PM; survives without his royal ring",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8100
+              ]
             }
           ]
         },
@@ -7621,6 +7829,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "First Guardian powers, drawn from the Green Sun",
               "sourcePage": 3238,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Powers",
+              "value": "First Guardian powers lost when PM takes his royal ring",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -7633,6 +7848,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Spades Slick",
               "sourcePage": 1674,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "condition",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Condition",
+              "value": "Ring-bearing arm severed; wounds tended by Ms. Paint",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8098,
+                8100
+              ]
             }
           ]
         }
@@ -7997,6 +8228,13 @@ window.HOMESTUCK_REFERENCE = {
                 7975
               ],
               "label": "Quest"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Pursuit of Lord Jack ends in his own death",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -8087,6 +8325,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Jack Noir (kids’ session)",
               "sourcePage": 1674,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Dead; decapitated by Dave alongside Lord Jack and Dirk",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -8662,6 +8912,13 @@ window.HOMESTUCK_REFERENCE = {
                 8083
               ],
               "sourceKind": "composite"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Battles Meenah's ghost army and Davepetasprite²",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -9953,6 +10210,18 @@ window.HOMESTUCK_REFERENCE = {
               ]
             }
           ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Dead; impaled by Roxy with Dave's bro's katana",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
+            }
+          ]
         }
       ],
       "sourcePage": 4063,
@@ -10028,6 +10297,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePage": 7650,
               "sourceKind": "composite",
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Revives fallen teammates, including Dirk after his decapitation",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8093
+              ]
             }
           ]
         },
@@ -10280,6 +10559,17 @@ window.HOMESTUCK_REFERENCE = {
                 7584
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self survives the battle with Nannasprite's healing; original-history self died with a Just ruling",
+              "sourcePage": 8089,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8090,
+                6901
+              ]
             }
           ]
         },
@@ -10408,6 +10698,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Computer expert; conducts ectobiology experiments",
               "sourcePage": 4464,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Kills the Condesce with Dave's bro's katana",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -10862,6 +11159,13 @@ window.HOMESTUCK_REFERENCE = {
                 8085
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Fights Lord Jack and Spades Slick alongside Dave and Terezi",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -10934,6 +11238,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Unbreakable katana",
               "sourcePage": 4518,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Weapon",
+              "value": "Unbreakable katana (broken when Dave beheads Dirk and the two Jacks)",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -10988,6 +11299,16 @@ window.HOMESTUCK_REFERENCE = {
                 6744,
                 6745
               ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Powers",
+              "value": "Splintered self · Soul extraction; attempt against Lord Jack fails",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6632
+              ]
             }
           ]
         },
@@ -11033,6 +11354,18 @@ window.HOMESTUCK_REFERENCE = {
                 8085
               ],
               "label": "Status"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self decapitated by Dave, then revived by Jane; original-history self last seen alive in the glitches",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8093,
+                8094,
+                6901
+              ]
             }
           ]
         },
@@ -11122,6 +11455,13 @@ window.HOMESTUCK_REFERENCE = {
                 8084
               ],
               "label": "Role"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Role",
+              "value": "Fights the Felt with Karkat, Jane's dad and the skeletal consorts",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -11306,6 +11646,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 7482,
                 7497,
+                7514
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Revised-history self revived by Jane after Crowbar kills him; original-history self died with a Heroic ruling; dreamself deceased",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8115,
+                6901,
                 7514
               ]
             }
@@ -11734,6 +12086,13 @@ window.HOMESTUCK_REFERENCE = {
                 8000
               ],
               "label": "Quest"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Reaches the Green Sun to fulfill her promise",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         },
@@ -12272,6 +12631,18 @@ window.HOMESTUCK_REFERENCE = {
                 5814,
                 5815
               ]
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Status",
+              "value": "Dead; decapitated by Dave; his severed head erupts into a destructive singularity",
+              "sourcePage": 8087,
+              "sourceKind": "visual"
             }
           ]
         }
@@ -12839,6 +13210,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Confront Yaldabaoth",
               "sourcePage": 7447,
               "sourceKind": "composite"
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Quest",
+              "value": "Defeats Yaldabaoth and reaches the red treasure chest",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8106
+              ]
             }
           ]
         },
@@ -12896,6 +13277,19 @@ window.HOMESTUCK_REFERENCE = {
                 5502,
                 5675,
                 5676
+              ]
+            },
+            {
+              "from": "act-6-act-6-act-6",
+              "label": "Inventory",
+              "value": "Juju modus · Command tower keys · Lil Cal · Red chest containing the house-shaped juju",
+              "sourcePage": 8087,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8106,
+                7415,
+                7416,
+                7417
               ]
             }
           ]
@@ -14722,7 +15116,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-intermission-5",
+  "conceptsPreparedThrough": "act-6-act-6-act-6",
   "concepts": [
     {
       "id": "alchemy",
@@ -16780,6 +17174,16 @@ window.HOMESTUCK_REFERENCE = {
             8084
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Felt",
+          "aliases": [
+            "The Felt"
+          ],
+          "definition": "Slick leaves the pool-themed gang to fight Jake while he pursues Lord Jack. Karkat, the skeletal consorts and Jane's dad join the battle against them, while Arquiusprite tangles with Cans. The gang is defeated, but the outcome does not establish every member's death.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -17897,6 +18301,21 @@ window.HOMESTUCK_REFERENCE = {
             3238,
             1674
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Royal ring",
+          "aliases": [],
+          "definition": "A queen's ring grants powers and can pass pre-entry prototypes' traits to a carapacian wearer. PM takes Dog Jack's ring, ending his First Guardian form; the Mayor then removes PM's own ring. The two recovered rings remain in their hands as they climb the Forge, distinct from Calliope's Ring of Life.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8108,
+            8109,
+            8110,
+            8125,
+            7628
+          ]
         }
       ]
     },
@@ -18726,6 +19145,21 @@ window.HOMESTUCK_REFERENCE = {
             7540,
             7999
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Ultimate reward",
+          "aliases": [],
+          "definition": "The new universe the players create and can enter through the house-shaped door on their victory platform. The surviving party gathers before that door after the battles. PM and the Mayor approach the Forge with the recovered rings, but the final preparations and entry into the new universe have not yet been shown.",
+          "sourcePage": 8112,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8113,
+            8122,
+            8125,
+            8126,
+            7541
+          ]
         }
       ]
     },
@@ -18974,6 +19408,14 @@ window.HOMESTUCK_REFERENCE = {
             8011,
             8013
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped meeting place for ghosts and living dreamers in the Furthest Ring. The death of a dreaming avatar need not kill the living body: Lord English kills Karkat's charging form, waking him in the cave. This differs from English's destruction of ghosts, whose original bodies are already dead.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -19016,6 +19458,18 @@ window.HOMESTUCK_REFERENCE = {
             4109,
             3041,
             3043
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Green Sun",
+          "aliases": [],
+          "definition": "The immense star in the Furthest Ring that powers First Guardians. The alternate Calliope reaches it during Collide, but its destruction has not been shown. PM ends Dog Jack's powered form by taking his ring, rather than by cutting off the shared stellar power source.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            4304,
+            4109
           ]
         }
       ]
@@ -19204,6 +19658,21 @@ window.HOMESTUCK_REFERENCE = {
             6383,
             6652,
             6901
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "God tier",
+          "aliases": [
+            "God-tier"
+          ],
+          "definition": "An ascended state with conditional immortality: Heroic or Just rulings can prevent automatic revival, as the original-history catastrophe demonstrates. Jane's Life powers provide a separate means of restoring fallen teammates, including Dirk after Dave beheads him. Revised-history survivors do not undo their counterparts' earlier deaths.",
+          "sourcePage": 6901,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6652,
+            8087,
+            8093
           ]
         }
       ]
@@ -19442,6 +19911,18 @@ window.HOMESTUCK_REFERENCE = {
             3238
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Fraymotif",
+          "aliases": [],
+          "definition": "A powerful battle technique, first introduced through Dave's purchases from consorts. Players can combine their abilities in shared fraymotifs. During Collide, Dave and Terezi coordinate Time and Mind, while the group fighting the Condesce combines its own powers; these effects are separate from Jane's Life-based revivals.",
+          "sourcePage": 3096,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3238,
+            8087
+          ]
         }
       ]
     },
@@ -19490,6 +19971,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             7932
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Forge",
+          "aliases": [],
+          "definition": "The volcano tied to the final stages of the Space player's quest. After PM recovers Dog Jack's ring and removes her own, she and the Mayor carry the two rings to its crater. They look into the lava, but have not yet thrown the rings in or completed the planned ignition.",
+          "sourcePage": 8110,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8111,
+            8123,
+            8124,
+            8125,
+            8126,
+            7541
           ]
         }
       ]
@@ -20459,6 +20956,24 @@ window.HOMESTUCK_REFERENCE = {
             7933,
             8086
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "John Egbert",
+          "aliases": [
+            "John",
+            "ectoBiologist"
+          ],
+          "definition": "John helps defeat the Condesce, then gathers with his friends before the victory door. Nannasprite brings Jane's dad, the living counterpart of John's murdered father. John embraces him as the others watch, finding a familiar parent without undoing the earlier death.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8112,
+            8117,
+            8119,
+            8120,
+            8121
+          ]
         }
       ]
     },
@@ -20711,6 +21226,22 @@ window.HOMESTUCK_REFERENCE = {
             7933,
             8086
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Rose Lalonde",
+          "aliases": [
+            "Rose",
+            "tentacleTherapist"
+          ],
+          "definition": "Rose fights the Condesce beside John, Roxy and Kanaya. Jane revives Rose and Kanaya during the fight, and both reach the victory gathering. This living Rose remains distinct from the original-history self incorporated into Jasprosesprite².",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8090,
+            8114,
+            7650
+          ]
         }
       ]
     },
@@ -20905,6 +21436,22 @@ window.HOMESTUCK_REFERENCE = {
             7752,
             7763,
             8085
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Dave Strider",
+          "aliases": [
+            "Dave",
+            "turntechGodhead"
+          ],
+          "definition": "Dave fights Lord Jack and Spades Slick beside Dirk and Terezi. His decisive slash beheads both enemies and Dirk, who is caught between them. Dave gets his companions clear of Lord Jack's exploding head; Jane restores Dirk, and the brothers reunite with their friends.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8093,
+            8094,
+            8114
           ]
         }
       ]
@@ -21204,6 +21751,24 @@ window.HOMESTUCK_REFERENCE = {
             8033,
             7520
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Jade Harley",
+          "aliases": [
+            "Jade",
+            "gardenGnostic",
+            "Grimbark Jade"
+          ],
+          "definition": "Jade tries to interrupt Dog Jack and PM's duel, but PM knocks her unconscious and continues fighting. She wakes beside the defeated, depowered Jack and receives Calliope's help. The reunion at the victory platform follows without yet showing Earth placed inside a new universe.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8095,
+            8096,
+            8097,
+            8113
+          ]
         }
       ]
     },
@@ -21384,6 +21949,20 @@ window.HOMESTUCK_REFERENCE = {
             7807,
             281,
             419
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Nannasprite",
+          "aliases": [],
+          "definition": "The two Nannasprites support the battle as healers alongside Jane and Jasprose. One tends Jane after the Condesce falls, then brings Jane's dad to the victory gathering. They remain coexisting versions of John's grandmother's sprite, rather than a fused identity.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8089,
+            8092,
+            8117,
+            7805
           ]
         }
       ]
@@ -21755,6 +22334,24 @@ window.HOMESTUCK_REFERENCE = {
             8024
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV"
+          ],
+          "definition": "The Mayor reunites with PM and Serenity after the battles. He removes PM's ring, ending her powered transformation, and takes one of the two recovered rings. Together he and PM climb the Forge and look into its crater; the rings have not yet been thrown in.",
+          "sourcePage": 8107,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8108,
+            8110,
+            8124,
+            8125,
+            8126
+          ]
         }
       ]
     },
@@ -21899,6 +22496,25 @@ window.HOMESTUCK_REFERENCE = {
             8081
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Prospitian Monarch",
+          "aliases": [
+            "Parcel Mistress",
+            "Peregrine Mendicant",
+            "PM"
+          ],
+          "definition": "PM defeats Dog Jack and recovers his royal ring, ending their long chase. After she reunites with the Mayor and Serenity, the Mayor removes her own ring and she returns to ordinary carapacian form. Each carrying a ring, PM and the Mayor climb to the Forge's crater.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8107,
+            8108,
+            8109,
+            8110,
+            8125
+          ]
         }
       ]
     },
@@ -22113,6 +22729,23 @@ window.HOMESTUCK_REFERENCE = {
             8078,
             8081
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Jack Noir",
+          "aliases": [
+            "Bec Noir",
+            "Dog Jack"
+          ],
+          "definition": "PM defeats Dog Jack by severing his ring-bearing arm and taking the source of his First Guardian powers. She knocks the ordinary carapacian down beside the unconscious Jade. Jack survives; Ms. Paint tends his wounds and receives a quiet look in return.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8095,
+            8098,
+            8099,
+            8100
+          ]
         }
       ]
     },
@@ -22296,6 +22929,20 @@ window.HOMESTUCK_REFERENCE = {
             7974,
             7975,
             8085
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Spades Slick",
+          "aliases": [
+            "Robo Jack"
+          ],
+          "definition": "Slick's pursuit brings him into the fight between Lord Jack, Dave and Dirk. His own attack leaves Dirk caught between the two Jacks. Dave's decisive slash decapitates all three; unlike Dirk, Slick receives no revival in the aftermath shown here.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8093,
+            8094
           ]
         }
       ]
@@ -22590,6 +23237,14 @@ window.HOMESTUCK_REFERENCE = {
             8083
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "Lord English battles Meenah's ghost army and destroys many of the spirits attacking him. The dreaming Karkat's charge ends with his avatar's death, while Davepeta also confronts the demon. Vriska approaches with the recovered juju, but neither its deployment nor Lord English's defeat has been shown.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -23058,6 +23713,20 @@ window.HOMESTUCK_REFERENCE = {
             7993,
             8083
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Karkat Vantas",
+          "aliases": [
+            "Karkat",
+            "carcinoGeneticist"
+          ],
+          "definition": "Karkat's charge at Lord English ends when his dreaming avatar is killed, waking him in the cave. He then joins Jake against the Felt, including a personal confrontation with Clover. The living Karkat survives to reunite with Dave and Kanaya at the victory gathering.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8114
+          ]
         }
       ]
     },
@@ -23326,6 +23995,23 @@ window.HOMESTUCK_REFERENCE = {
             7777,
             8086
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Kanaya Maryam",
+          "aliases": [
+            "Kanaya",
+            "grimAuxiliatrix"
+          ],
+          "definition": "Kanaya helps fight the Condesce while carrying the matriorb Roxy created for her. Jane revives her after she is killed during the battle. She survives to greet Karkat at the victory gathering, with Echidna's charge to protect him and restore their people still ahead.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8090,
+            8114,
+            7775,
+            7639
+          ]
         }
       ]
     },
@@ -23503,6 +24189,21 @@ window.HOMESTUCK_REFERENCE = {
             7959,
             8085
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Terezi Pyrope",
+          "aliases": [
+            "Terezi",
+            "gallowsCalibrator"
+          ],
+          "definition": "Terezi fights alongside Dave and Dirk against the two Jacks. She and Dave combine Mind and Time in a fraymotif as their battle revisits possible outcomes. Dave carries her clear of Lord Jack's final explosion, and she joins the surviving party at the victory door.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8094,
+            8115
+          ]
         }
       ]
     },
@@ -23667,6 +24368,23 @@ window.HOMESTUCK_REFERENCE = {
             8047,
             8057,
             7959
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Vriska Serket",
+          "aliases": [
+            "Vriska",
+            "arachnidsGrip"
+          ],
+          "definition": "The living Vriska carries the recovered juju chest toward the confrontation with Lord English while the ghost army battles him. She leaves the author avatar behind despite his gestures of warning. The weapon has not yet been deployed, and neither Lord English's defeat nor Vriska's fate has been shown.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8101,
+            8103,
+            8104,
+            8105
           ]
         }
       ]
@@ -23969,6 +24687,21 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite",
           "sourcePages": [
             7510,
+            7511,
+            7512
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Gamzee Makara",
+          "aliases": [
+            "Gamzee",
+            "terminallyCapricious"
+          ],
+          "definition": "The revised-history Gamzee remains trapped in the refrigerator while Arquiusprite and Cans carry their fight between lands. The fridge is caught in the destruction triggered by Lord Jack's severed head. This does not establish Gamzee's death or complete Vriska's earlier plan to dispose of him in Earth's ocean.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
             7511,
             7512
           ]
@@ -24583,6 +25316,23 @@ window.HOMESTUCK_REFERENCE = {
             8086
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The empress's battle against John, Rose, Roxy and Kanaya ends when Roxy impales her with Dave's bro's katana. The victory costs the team lives that Jane restores. Her defeat ends the immediate threat on Derse, while the players' preparations to enter their new universe remain unfinished.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8090,
+            8112
+          ]
         }
       ]
     },
@@ -25140,6 +25890,23 @@ window.HOMESTUCK_REFERENCE = {
             7805,
             7806
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Jane Crocker",
+          "aliases": [
+            "Jane",
+            "gutsyGumshoe"
+          ],
+          "definition": "Working with Jasprose and the two Nannasprites, Jane brings Life powers to several battlefields and revives fallen teammates. Nannasprite heals Jane after the Condesce's defeat. Jane then restores Dirk after his decapitation, allowing him to join the others at the victory gathering.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8089,
+            8090,
+            8093,
+            8113
+          ]
         }
       ]
     },
@@ -25360,6 +26127,20 @@ window.HOMESTUCK_REFERENCE = {
             7967,
             7968,
             8084
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Jake English",
+          "aliases": [
+            "Jake",
+            "golgothasTerror"
+          ],
+          "definition": "Jake battles the Felt with help from Karkat, the skeletal consorts and Jane's dad. Crowbar kills him during the fight, but Jane revives him. The surviving Jake reaches the victory platform with the others rather than remaining another casualty of the revised session.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8115
           ]
         }
       ]
@@ -25646,6 +26427,23 @@ window.HOMESTUCK_REFERENCE = {
             7979,
             8086
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Roxy Lalonde",
+          "aliases": [
+            "Roxy",
+            "Lalonde",
+            "tipsyGnostalgic",
+            "Ro-Lal"
+          ],
+          "definition": "Roxy turns the battle against the Condesce by using her Void powers to approach unseen and drive Dave's bro's katana through the empress. Afterward she retrieves her mask from the blade and joins the other survivors. She, Jane and Calliope embrace before the victory door.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8089,
+            8113
+          ]
         }
       ]
     },
@@ -25882,6 +26680,25 @@ window.HOMESTUCK_REFERENCE = {
             7752,
             8085
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "Dirk fights Lord Jack and Spades Slick with Dave and Terezi. His attempt to extract Lord Jack's soul fails. Caught between the two Jacks, he is decapitated along with them by Dave's decisive slash. Jane revives him afterward; the original-history Dirk remains a separate, last-seen survivor of the glitches.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8093,
+            8094,
+            6901
+          ]
         }
       ]
     },
@@ -26051,6 +26868,23 @@ window.HOMESTUCK_REFERENCE = {
             7727,
             7883
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "The revived Calliope arrives with Ms. Paint after the dogs' duel and helps Jade to her feet. She later joins Roxy and Jane in an embrace at the victory platform. Her return to her friends remains separate from the alternate Muse's arrival at the Green Sun.",
+          "sourcePage": 8096,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8097,
+            8113,
+            8087
+          ]
         }
       ]
     },
@@ -26083,6 +26917,22 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             5567,
             5568
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Jane's dad",
+          "aliases": [],
+          "definition": "Jane's dad breaks out of his Derse prison and helps defeat the Felt. Nannasprite brings him to the victory gathering, where he briefly thinks of Poppop before recognizing John. Their embrace gives John a living counterpart of his father, without reviving the Dad killed in the original session.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8091,
+            8092,
+            8117,
+            8119,
+            8120,
+            8121
           ]
         }
       ]
@@ -26512,6 +27362,17 @@ window.HOMESTUCK_REFERENCE = {
             8044,
             8085
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [
+            "Lord Jack",
+            "Jack English"
+          ],
+          "definition": "Lord Jack battles Dave, Dirk, Terezi and Spades Slick, resisting Dirk's attempt at soul extraction. Dave decapitates him together with Slick and Dirk. His severed head erupts into a destructive singularity over Dirk's land, forcing Dave to evacuate his companions.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -27090,6 +27951,22 @@ window.HOMESTUCK_REFERENCE = {
             7447
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "Caliborn defeats Yaldabaoth and reaches the red chest beside a god-tier judgment clock. He opens the chest in the aftermath, receiving the reward previously described in his masterpiece. His later rainbow eyes and battle with the human players are not shown here; his eyes remain green.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8106,
+            7415,
+            7447
+          ]
         }
       ],
       "characterId": "undying-umbrage"
@@ -28230,6 +29107,16 @@ window.HOMESTUCK_REFERENCE = {
             8057,
             8083
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "Meenah leads the ghost army against Lord English, facing his destructive attacks with the volunteers Tavros recruited. The dreaming Karkat charges alongside them before being killed and waking elsewhere. The battle remains unresolved while Vriska carries the recovered juju toward the confrontation.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ],
       "characterId": "meenah"
@@ -29268,6 +30155,16 @@ window.HOMESTUCK_REFERENCE = {
             8085
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Land of Tombs and Krypton",
+          "aliases": [
+            "LOTAK"
+          ],
+          "definition": "Dirk's land becomes the site of the battle between Dave, Dirk, Terezi, Lord Jack and Spades Slick. After Dave decapitates the two Jacks and Dirk, Lord Jack's head erupts into a destructive singularity. Dave gets his companions away as the blast consumes much of the land and catches Gamzee's refrigerator.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ]
     },
@@ -29569,6 +30466,19 @@ window.HOMESTUCK_REFERENCE = {
             7447
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Yaldabaoth",
+          "aliases": [],
+          "definition": "Caliborn's exceptionally powerful denizen, whose defeat is the condition of the reward described in his masterpiece. Collide shows Caliborn overcoming the confrontation and reaching a red chest beside a god-tier judgment clock. Caliborn then opens the chest; the later battle from his account remains separate.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8106,
+            7412,
+            7447
+          ]
         }
       ]
     },
@@ -29837,6 +30747,21 @@ window.HOMESTUCK_REFERENCE = {
             7923,
             7924,
             7928
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Arquiusprite",
+          "aliases": [
+            "Equiusprite"
+          ],
+          "definition": "After disabling Jane's tiaratop and releasing the grist, Arquiusprite clashes with Cans during the battles. Their contest carries them between lands along with the refrigerator containing Gamzee. That revised-session fight remains distinct from the later soul entrapment described in Caliborn's masterpiece.",
+          "sourcePage": 7583,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7928,
+            8087,
+            7443
           ]
         }
       ],
@@ -30412,6 +31337,24 @@ window.HOMESTUCK_REFERENCE = {
             7424,
             7425
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "House-shaped juju",
+          "aliases": [
+            "House juju"
+          ],
+          "definition": "The intangible house-shaped treasure gives John retcon powers and becomes the weapon Vriska carries against Lord English. Caliborn reaches and opens its reward chest after defeating Yaldabaoth. His earlier masterpiece describes trapping four players inside before banishing it, but Vriska has not yet deployed the recovered weapon here.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8106,
+            8101,
+            6094,
+            7415,
+            7422,
+            7425
+          ]
         }
       ]
     },
@@ -30491,6 +31434,23 @@ window.HOMESTUCK_REFERENCE = {
             6080,
             6081
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Viceroy Bubbles Von Salamancer",
+          "aliases": [
+            "Casey",
+            "Bubbles",
+            "VBVS"
+          ],
+          "definition": "John's adopted salamander becomes Viceroy Bubbles Von Salamancer, a necromancer equipped with the Crook of Frailty and Rag of Demons. The skeletal consort army raised after the ship's voyage joins the fight against the Felt, helping turn a private fantasy of command into battlefield support.",
+          "sourcePage": 6077,
+          "sourceKind": "composite",
+          "sourcePages": [
+            6078,
+            6080,
+            8087
+          ]
         }
       ]
     },
@@ -30524,6 +31484,22 @@ window.HOMESTUCK_REFERENCE = {
             6123,
             6126,
             6140
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Ms. Paint",
+          "aliases": [],
+          "definition": "Ms. Paint arrives with Calliope after PM defeats Dog Jack. While Calliope helps Jade, she tends the wounded, depowered Jack, who looks back at her peacefully. This care for Jack follows her earlier relationship with his separate counterpart Spades Slick.",
+          "sourcePage": 8096,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8097,
+            8098,
+            8099,
+            8100,
+            6118,
+            6119
           ]
         }
       ]
@@ -31232,6 +32208,22 @@ window.HOMESTUCK_REFERENCE = {
             7895,
             7896
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Jasprosesprite²",
+          "aliases": [
+            "Jasprose",
+            "Jasprosesprite^2",
+            "Jasprosesprite squared"
+          ],
+          "definition": "Jasprose uses her portals to move Jane and the Nannasprites between battlefields, putting their healing and revival powers where they are needed. She later joins the gathering around the restored Dirk and the survivors at the victory door. Her combined memories and feline impulses remain distinct from living Rose.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            8094,
+            8115
+          ]
         }
       ],
       "characterId": "jasprosesprite"
@@ -31260,6 +32252,18 @@ window.HOMESTUCK_REFERENCE = {
             8011,
             8013
           ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Davepetasprite²",
+          "aliases": [
+            "Davepeta",
+            "Davepetasprite^2",
+            "Davepetasprite squared"
+          ],
+          "definition": "The squared sprite formed from Davesprite and Nepetasprite reaches Lord English and attacks him during the ghost army's battle. Their confrontation follows the reunion with Arquiusprite and the awakening of Jade. The outcome of Davepeta's assault is not resolved here, so no new death or victory is established.",
+          "sourcePage": 8087,
+          "sourceKind": "visual"
         }
       ],
       "characterId": "davepetasprite"
@@ -31308,6 +32312,22 @@ window.HOMESTUCK_REFERENCE = {
             7619,
             7998,
             8000
+          ]
+        },
+        {
+          "from": "act-6-act-6-act-6",
+          "term": "Calliope (alternate)",
+          "aliases": [
+            "Alternate Calliope",
+            "Alt Calliope"
+          ],
+          "definition": "The alternate Muse reaches the Green Sun while the battles unfold elsewhere. Her journey fulfills the approach to the duty she accepted from Echidna, but its decisive outcome is not yet shown. She remains separate from the revived Calliope who rejoins Jade and the human players.",
+          "sourcePage": 8087,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7616,
+            8097,
+            8113
           ]
         }
       ],
