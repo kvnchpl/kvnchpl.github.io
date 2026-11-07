@@ -186,7 +186,12 @@
     try {
       const saved = localStorage.getItem(storageKey);
       if (!saved) return stages[0];
-      return clampReadingStage(saved);
+      // The retired partial intermission ends before the combined checkpoint.
+      // Old numeric saves after that cut shift back with the removed segment.
+      const migrated = saved === 'act-6-act-6-intermission-5-part-1'
+        ? 'act-6-act-6-act-5'
+        : /^(31|32|33|34)$/.test(saved) ? Number(saved) - 1 : saved;
+      return clampReadingStage(migrated);
     } catch {
       return stages[0];
     }
