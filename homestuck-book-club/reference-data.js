@@ -15410,7 +15410,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-3",
           "term": "Alchemy",
           "aliases": [],
-          "definition": "Sburb's system for creating objects from captcha codes, punched cards, carved totems, and grist. John now punches codes onto blank cards to preserve the original objects. Overlapping cards and double-punching cards combine their patterns differently, producing different results from the same starting items.",
+          "definition": "Sburb's system for creating objects from captcha codes, punched cards, carved totems, and grist. John punches codes onto blank cards to preserve the original objects. Overlapping cards and double-punching cards combine their patterns differently, producing different results from the same starting items.",
           "sourcePage": 617,
           "sourceKind": "composite",
           "sourcePages": [
@@ -15485,7 +15485,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "term": "Atheneum",
           "aliases": [],
-          "definition": "The Sburb interface's catalog of objects available to create. Rose can store carved totems here and use them to make items on the Alchemiter.",
+          "definition": "The Sburb interface's catalog of objects available to create. Rose can store carved totems in the catalog and use them to make items on the Alchemiter.",
           "sourcePage": 189,
           "sourceKind": "composite",
           "sourcePages": [
@@ -15601,7 +15601,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-1",
           "term": "Client and server",
           "aliases": [],
-          "definition": "The two sides of a Sburb connection. John runs the client; Rose runs the server and acts as his host user. She can move objects, change his house, and deploy equipment into his surroundings through the game.",
+          "definition": "The two sides of a Sburb connection. John runs the client, while Rose uses the server to interact with his environment. She can move objects, change his house, and deploy equipment into his surroundings through the game.",
           "sourcePage": 135,
           "sourcePages": [
             153
@@ -15612,7 +15612,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "term": "Client and server",
           "aliases": [],
-          "definition": "The two sides of a Sburb connection: the client player adventures while the server player acts as their host user, altering the surroundings and deploying equipment. The client must collect grist in person for the server to spend. The server cannot directly move the player or carry them by moving something they are touching.",
+          "definition": "The two sides of a Sburb connection: the client player adventures while the server player alters the client's surroundings and deploys equipment remotely. The client must collect grist in person for the server to spend. The server cannot directly move the player or carry them by moving something they are touching.",
           "sourcePage": 135,
           "sourceKind": "composite",
           "sourcePages": [
@@ -15665,7 +15665,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-4",
           "term": "Cruxtruder",
           "aliases": [],
-          "definition": "A Sburb machine that releases a kernelsprite and starts a countdown when opened, then dispenses cruxite dowels when its wheel is turned. It is the only machine Caliborn can deploy for his unusual solo entry, rather than one part of the usual alchemy setup.",
+          "definition": "A Sburb machine that releases a kernelsprite and starts a countdown when opened, then dispenses cruxite dowels when its wheel is turned. Caliborn can deploy only this machine for his unusual solo entry.",
           "sourcePage": 172,
           "sourceKind": "composite",
           "sourcePages": [
@@ -15901,7 +15901,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-1",
           "term": "Prototyping",
           "aliases": [],
-          "definition": "Applying an object to the Kernelsprite. Rose uses a harlequin doll for the first tier. Her walkthrough describes a second tier, but the first does not make the sprite's speech understandable to John.",
+          "definition": "Applying an object to the kernelsprite. Rose uses a harlequin doll for the first tier. Her walkthrough describes a second tier, but the first does not make the sprite's speech understandable to John.",
           "sourcePage": 184,
           "sourcePages": [
             185,
@@ -18588,7 +18588,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Royal ring",
           "aliases": [],
-          "definition": "A queen's ring grants its wearer the traits and powers supplied by pre-entry prototyping; removing it removes those changes. Jade's entry adds Bec's first guardian powers to Jack's stolen ring, making him the enemy who later attacks the trolls' session. The ring still does not transform a human who wears it.",
+          "definition": "A queen's ring grants its wearer the traits and powers supplied by pre-entry prototyping; removing it removes those changes. Jade's entry adds Bec's First Guardian powers to Jack's stolen ring, making him the enemy who later attacks the trolls' session. The ring still does not transform a human who wears it.",
           "sourcePage": 1674,
           "sourcePages": [
             1988,
@@ -18601,7 +18601,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-3",
           "term": "Royal ring",
           "aliases": [],
-          "definition": "A queen's ring grants powers and, when pre-entry prototyping occurs, the prototypes' traits. Jack's ring gains Bec's first guardian powers; the post-Scratch Ring of Orbs Nofold leaves its wearer unchanged but grants invisibility and Red Miles. These rings do not transform humans as they do carapacian wearers.",
+          "definition": "A queen's ring grants powers and, when pre-entry prototyping occurs, the prototypes' traits. Jack's ring gains Bec's First Guardian powers; the post-Scratch Ring of Orbs Nofold leaves its wearer unchanged but grants invisibility and Red Miles. These rings do not transform humans as they do carapacian wearers.",
           "sourcePage": 4945,
           "sourceKind": "composite",
           "sourcePages": [
@@ -19091,7 +19091,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "First guardian",
           "aliases": [],
-          "definition": "An entity meant to protect a planet destined for intelligent life and help fulfill its purpose. First guardians can take different forms, but share a genetic sequence that grants near-omnipotence and, in an intelligent host, near-omniscience.",
+          "definition": "An entity meant to protect a planet destined for intelligent life and help fulfill its purpose. First Guardians can take different forms, but share a genetic sequence that grants near-omnipotence and, in an intelligent host, near-omniscience.",
           "sourcePage": 2253,
           "sourceKind": "direct"
         },
@@ -19409,7 +19409,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Scratch",
           "aliases": [],
-          "definition": "A hard reset of a failed session that changes its universe's initial conditions. The trolls' earlier Scratch exchanged the players' and ancestors' roles and enabled their first guardian to shape a more violent Alternia; memories were normally lost, though the Signless recalled fragments. Anyone remaining in a scratched session faces erasure unless they find a way to escape.",
+          "definition": "A hard reset of a failed session that changes its universe's initial conditions. The trolls' earlier Scratch exchanged the players' and ancestors' roles and enabled their First Guardian to shape a more violent Alternia; memories were normally lost, though the Signless recalled fragments. Anyone remaining in a scratched session faces erasure unless they find a way to escape.",
           "sourcePage": 4053,
           "sourceKind": "composite",
           "sourcePages": [
@@ -19770,7 +19770,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Green Sun",
           "aliases": [],
-          "definition": "An immense star in the Furthest Ring, described as nearly twice the mass of the kids' universe. It supplies the power of first guardians and, through Bec's prototyping, Jack Noir; Rose plans to destroy it to take those powers away.",
+          "definition": "An immense star in the Furthest Ring, described as nearly twice the mass of the kids' universe. It supplies the power of First Guardians and, through Bec's prototyping, Jack Noir; Rose plans to destroy it to take those powers away.",
           "sourcePage": 3041,
           "sourcePages": [
             3043,
@@ -19782,7 +19782,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Green Sun",
           "aliases": [],
-          "definition": "The immense star in the Furthest Ring that supplies the power of first guardians. Rose and Dave's mission to destroy it instead brings about its creation: the Tumor detonates using the deaths of the human and troll universes.",
+          "definition": "The immense star in the Furthest Ring that supplies the power of First Guardians. Rose and Dave's mission to destroy it instead brings about its creation: the Tumor detonates using the deaths of the human and troll universes.",
           "sourcePage": 4109,
           "sourceKind": "composite",
           "sourcePages": [
@@ -19794,7 +19794,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-1",
           "term": "Green Sun",
           "aliases": [],
-          "definition": "The immense star in the Furthest Ring that powers first guardians across many universes and their sessions. Rose and Dave's Tumor mission creates it instead of destroying it. Its domain permits local instantaneous teleportation, but does not include the Furthest Ring itself or the yellow yard.",
+          "definition": "The immense star in the Furthest Ring that powers First Guardians across many universes and their sessions. Rose and Dave's Tumor mission creates it instead of destroying it. Its domain permits local instantaneous teleportation, but does not include the Furthest Ring itself or the yellow yard.",
           "sourcePage": 4304,
           "sourceKind": "composite",
           "sourcePages": [
@@ -20336,7 +20336,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Forge",
           "aliases": [],
-          "definition": "The volcano tied to the final stages of the Space player's quest. Vriska's plan requires igniting it after the grist hoards feed Skaia, but Kanaya notes that the known magic rings are already in use. The new session's Forge has not been lit by this checkpoint.",
+          "definition": "The volcano tied to the final stages of the Space player's quest. Vriska's plan requires igniting it after the grist hoards feed Skaia, but Kanaya notes that the known magic rings are already in use. The new session's Forge has not yet been lit.",
           "sourcePage": 7541,
           "sourceKind": "composite",
           "sourcePages": [
@@ -21609,7 +21609,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light attacks the Condesce amid the collapsing battlefield, but the empress's trident impales her. Before another energy blast can strike, Roxy appears, takes hold of Rose and disappears with her. Rose is unconscious and severely wounded; her death is not established here.",
+          "definition": "The Seer of Light attacks the Condesce amid the collapsing battlefield, but the empress's trident impales her. Before another energy blast can strike, Roxy appears, takes hold of Rose and disappears with her. Rose is unconscious and severely wounded; her fate remains unresolved.",
           "sourcePage": 6901,
           "sourceKind": "visual"
         },
@@ -21843,7 +21843,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time's Heroic death fighting the doglike guardians belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. This character is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "definition": "The Knight of Time's Heroic death fighting the doglike guardians belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. His revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -21952,7 +21952,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space, now in the Land of Frost and Frogs. Becquerel's pre-entry prototyping gives the enemies his first guardian powers. Jade later adds her dead dreamself to Becsprite, creating her sprite guide Jadesprite.",
+          "definition": "The Witch of Space, now in the Land of Frost and Frogs. Becquerel's pre-entry prototyping gives the enemies his First Guardian powers. Jade later adds her dead dreamself to Becsprite, creating her sprite guide Jadesprite.",
           "sourcePage": 2988,
           "sourcePages": [
             3238,
@@ -21987,7 +21987,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space, who reaches god tier and merges with Jadesprite, gaining first guardian powers. She shrinks the kids' lands and the Battlefield, then carries them with John through the fourth wall to escape the Scratch.",
+          "definition": "The Witch of Space, who reaches god tier and merges with Jadesprite, gaining First Guardian powers. She shrinks the kids' lands and the Battlefield, then carries them with John through the fourth wall to escape the Scratch.",
           "sourcePage": 4109,
           "sourcePages": [
             3985,
@@ -22003,7 +22003,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The god-tier Witch of Space, merged with Jadesprite and carrying first guardian powers. She pilots the ship carrying John and their miniaturized worlds out of the scratched session. During their passage between fourth walls, she advances another rank and receives Gift of Gab alongside John.",
+          "definition": "The god-tier Witch of Space, merged with Jadesprite and carrying First Guardian powers. She pilots the ship carrying John and their miniaturized worlds out of the scratched session. During their passage between fourth walls, she advances another rank and receives Gift of Gab alongside John.",
           "sourcePage": 4109,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22019,7 +22019,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The god-tier Witch of Space, piloting the ship carrying John and their miniaturized worlds through the yellow yard. Outside the Green Sun's domain, she cannot teleport them to their destination, making the voyage take three years. Her first guardian powers still let her act as a gateway to the Sun.",
+          "definition": "The god-tier Witch of Space, piloting the ship carrying John and their miniaturized worlds through the yellow yard. Outside the Green Sun's domain, she cannot teleport them to their destination, making the voyage take three years. Her First Guardian powers still let her act as a gateway to the Sun.",
           "sourcePage": 4304,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22354,7 +22354,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Bro",
           "aliases": [],
-          "definition": "Dave's late conversation with Dirk reframes Bro's supposed training as frightening violence and neglect. Dave recalls feeling less valued than the puppets and wonders about Lil Cal's influence without claiming it excuses the harm. Bro remains a separate counterpart from the younger Dirk now listening to that account.",
+          "definition": "In conversation with Dirk, Dave describes his guardian Bro's supposed training as frightening violence and neglect. Dave recalls feeling less valued than the puppets and wonders about Lil Cal's influence without claiming it excuses the harm. Bro is Dirk's counterpart, with a separate history.",
           "sourcePage": 7749,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22623,7 +22623,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Jadesprite",
           "aliases": [],
-          "definition": "Jade's sprite guide, created by prototyping her dead dreamself into Becsprite. She combines Jade's memories with Becquerel's first guardian powers, but her distress makes her far from the straightforward helper Jade hoped to summon.",
+          "definition": "Jade's sprite guide, created by prototyping her dead dreamself into Becsprite. She combines Jade's memories with Becquerel's First Guardian powers, but her distress makes her far from the straightforward helper Jade hoped to summon.",
           "sourcePage": 3213,
           "sourcePages": [
             3238
@@ -22634,7 +22634,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Jadesprite",
           "aliases": [],
-          "definition": "The sprite made from Becquerel and Jade's dead dreamself. At Jade's god-tier ascension, Jadesprite merges with her, joining the first guardian's powers to the Witch of Space instead of continuing as a separate guide.",
+          "definition": "The sprite made from Becquerel and Jade's dead dreamself. At Jade's god-tier ascension, Jadesprite merges with her, joining the First Guardian's powers to the Witch of Space instead of continuing as a separate guide.",
           "sourcePage": 3238,
           "sourcePages": [
             4109,
@@ -22668,7 +22668,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Bec"
           ],
-          "definition": "Earth's first guardian and Jade's dog. His prototyping creates Becsprite and passes his Green Sun powers to the royal rings and enemies. Jade later adds her dead dreamself, turning Becsprite into Jadesprite.",
+          "definition": "Earth's First Guardian and Jade's dog. His prototyping creates Becsprite and passes his Green Sun powers to the royal rings and enemies. Jade later adds her dead dreamself, turning Becsprite into Jadesprite.",
           "sourcePage": 2927,
           "sourcePages": [
             3238,
@@ -22734,7 +22734,7 @@ window.HOMESTUCK_REFERENCE = {
             "Warweary Villein",
             "WV"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her first guardian gateway to the laboratory meteor near the Green Sun. Rose takes him aboard the group's journey, hoping they can find help along the way.",
+          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her First Guardian gateway to the laboratory meteor near the Green Sun. Rose takes him aboard the group's journey, hoping they can find help along the way.",
           "sourcePage": 4382,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22892,7 +22892,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "The former mail carrier who becomes Prospit's queen. By wearing the royal ring after Becquerel's prototyping, she gains first guardian powers, becoming a counterpart to the transformed Jack Noir.",
+          "definition": "The former mail carrier who becomes Prospit's queen. By wearing the royal ring after Becquerel's prototyping, she gains First Guardian powers, becoming a counterpart to the transformed Jack Noir.",
           "sourcePage": 3018,
           "sourcePages": [
             3238,
@@ -22908,7 +22908,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "Prospit's queen, transformed by the royal ring into a wielder of first guardian powers. She confronts Jack Noir, then sends the critically wounded WV through her body as a gateway to the group at the Green Sun. Rose plans to get him help during the laboratory meteor's journey.",
+          "definition": "Prospit's queen, transformed by the royal ring into a wielder of First Guardian powers. She confronts Jack Noir, then sends the critically wounded WV through her body as a gateway to the group at the Green Sun. Rose plans to get him help during the laboratory meteor's journey.",
           "sourcePage": 4381,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23131,7 +23131,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Bec Noir"
           ],
-          "definition": "The kids' session's rogue archagent, also called Bec Noir. Becquerel's prototyping grants his stolen ring first guardian powers drawn from the Green Sun. He devastates the session and is the intruder who ruins the trolls' victory.",
+          "definition": "The kids' session's rogue archagent, also called Bec Noir. Becquerel's prototyping grants his stolen ring First Guardian powers drawn from the Green Sun. He devastates the session and is the intruder who ruins the trolls' victory.",
           "sourcePage": 3238,
           "sourcePages": [
             955
@@ -23144,7 +23144,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Bec Noir"
           ],
-          "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries first guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
+          "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
           "sourcePage": 4320,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23163,7 +23163,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Bec Noir"
           ],
-          "definition": "The pre-Scratch kids' renegade archagent, also called Bec Noir, whose stolen ring carries first guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
+          "definition": "The pre-Scratch kids' renegade archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
           "sourcePage": 4320,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23213,7 +23213,7 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir",
             "Dog Jack"
           ],
-          "definition": "Vriska calls the original session's Bec Noir Dog Jack to distinguish him from the other Jacks. PM continues pursuing him to the ruins of Prospit, where both draw their blades. Each still has First Guardian powers from the Green Sun; their duel is only beginning at this checkpoint.",
+          "definition": "Vriska calls the original session's Bec Noir Dog Jack to distinguish him from the other Jacks. PM continues pursuing him to the ruins of Prospit, where both draw their blades. Each still has First Guardian powers from the Green Sun; their duel has only just begun.",
           "sourcePage": 7521,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23275,7 +23275,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "CD"
           ],
-          "definition": "One of Jack Noir's lackeys in the kids' session. He is the counterpart of Clubs Deuce, sharing a recognizable counterpart relationship without being the same person or a member of the same gang.",
+          "definition": "One of Jack Noir's lackeys in the kids' session. He and his counterpart Clubs Deuce are separate people serving different gangs.",
           "sourcePage": 1784,
           "sourcePages": [
             1988,
@@ -23432,7 +23432,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Robo Jack"
           ],
-          "definition": "Slick's pursuit brings him into the fight between Lord Jack, Dave and Dirk. His own attack leaves Dirk caught between the two Jacks. Dave's decisive slash decapitates all three; unlike Dirk, Slick receives no revival in the aftermath shown here.",
+          "definition": "Slick's pursuit brings him into the fight between Lord Jack, Dave and Dirk. His own attack leaves Dirk caught between the two Jacks. Dave's decisive slash decapitates all three; unlike Dirk, Slick receives no revival in the aftermath.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23588,7 +23588,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's first guardian and an officer of Lord English, preparing for his master's arrival at the end of the universe. He combines near-omnipotence with vast knowledge, though specific blind spots interrupt his claims of omniscience.",
+          "definition": "Alternia's First Guardian and an officer of Lord English, preparing for his master's arrival at the end of the universe. He combines near-omnipotence with vast knowledge, though specific blind spots interrupt his claims of omniscience.",
           "sourcePage": 2253,
           "sourcePages": [
             2254,
@@ -23600,7 +23600,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's first guardian, preparing the universe for Lord English. His claims of omniscience coexist with specific blind spots. Even when his answers are true, their wording and omissions can guide others toward conclusions that serve his plans.",
+          "definition": "Alternia's First Guardian, preparing the universe for Lord English. His claims of omniscience coexist with specific blind spots. Even when his answers are true, their wording and omissions can guide others toward conclusions that serve his plans.",
           "sourcePage": 2253,
           "sourcePages": [
             3238,
@@ -23613,7 +23613,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission-2",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's first guardian and Lord English's servant, now dead. At the end of the trolls' universe, his corpse becomes the vessel from which English physically emerges, completing the arrival he spent centuries preparing.",
+          "definition": "Alternia's First Guardian and Lord English's servant. At the end of the trolls' universe, his corpse becomes the vessel from which English physically emerges, completing the arrival he spent centuries preparing.",
           "sourcePage": 4111,
           "sourcePages": [
             2253
@@ -23640,7 +23640,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Lord English",
           "aliases": [],
-          "definition": "An indestructible demon whom Doc Scratch serves. Alternia's first guardian prepares for his arrival, which is tied to the termination of the universe. He is also the mysterious boss whose mansion houses the Felt.",
+          "definition": "An indestructible demon whom Doc Scratch serves. Alternia's First Guardian prepares for his arrival, which is tied to the termination of the universe. He is also the mysterious boss whose mansion houses the Felt.",
           "sourcePage": 2253,
           "sourcePages": [
             1155
@@ -23745,7 +23745,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-7",
           "term": "Lord English",
           "aliases": [],
-          "definition": "Lord English faces the ghost army as Vriska opens the recovered house-shaped juju. The confrontation unfolds alongside the Green Sun's destruction and Caliborn's breaking of his judgment clock. Its immediate result is not shown: the finale does not establish Lord English's death or explain how the apparent attack is resolved.",
+          "definition": "Lord English faces the ghost army as Vriska opens the recovered house-shaped juju. The confrontation unfolds alongside the Green Sun's destruction and Caliborn's breaking of his judgment clock. The finale leaves the confrontation's immediate outcome and Lord English's fate unresolved.",
           "sourcePage": 8127,
           "sourceKind": "visual"
         }
@@ -24198,7 +24198,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The Knight of Blood's death at Gamzee's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. This character is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "definition": "The Knight of Blood's death at Gamzee's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. His revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24493,7 +24493,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker's death at the Condesce's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. This character is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "definition": "The rainbow drinker's death at the Condesce's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. Her revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24548,7 +24548,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "Kanaya sees the Genesis Frog mature after securing Echidna's promise and surviving the Condesce battle. The finale's future glimpse places her beside Rose above the new settlement on restored Earth. She still holds the responsibility to restore her people; the matriorb's later use is not shown in this segment.",
+          "definition": "Kanaya sees the Genesis Frog mature after securing Echidna's promise and surviving the Condesce battle. The finale's future glimpse places her beside Rose above the new settlement on restored Earth. She still holds the responsibility to restore her people; the matriorb's later use is not shown in the finale.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24952,7 +24952,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "Vriska opens the recovered juju chest before Lord English and the ghost army. A white house bearing the four human aspects appears and lands amid the cracked surroundings. The finale cuts away without showing the confrontation's immediate outcome, so neither Vriska's death nor Lord English's defeat is established here.",
+          "definition": "Vriska opens the recovered juju chest before Lord English and the ghost army. A white house bearing the four human aspects appears and lands amid the cracked surroundings. The finale leaves the confrontation's immediate outcome unresolved, establishing neither Vriska's death nor Lord English's defeat.",
           "sourcePage": 8127,
           "sourceKind": "visual"
         }
@@ -25320,7 +25320,7 @@ window.HOMESTUCK_REFERENCE = {
             "Eridan",
             "caligulasAquarium"
           ],
-          "definition": "The trolls' Prince of Hope, whose wand becomes a weapon against his fellow survivors. His violence on the meteor ends when the revived Kanaya kills him, bringing his grandiose ambitions to an abrupt end.",
+          "definition": "The trolls' Prince of Hope, whose wand becomes a weapon against his fellow survivors. His violence on the meteor ends when the revived Kanaya kills him.",
           "sourcePage": 3046,
           "sourcePages": [
             3352,
@@ -25691,7 +25691,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Grand Highblood",
           "aliases": [],
-          "definition": "Gamzee's ancestor, associated with the subjugglators. Dualscar approaches him with intelligence on Mindfang, but the meeting ends in Dualscar's death, showing the danger of seeking favor among the powerful figures of Alternian history.",
+          "definition": "Gamzee's ancestor, associated with the subjugglators. Dualscar approaches him with intelligence on Mindfang, but the meeting ends in Dualscar's death.",
           "sourcePage": 3514,
           "sourcePages": [],
           "sourceKind": "composite"
@@ -26499,7 +26499,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Jane reaches the completed victory platform alive after helping restore the battle's fallen teammates. The finale's future glimpse reunites her with her dad on restored Earth. This peaceful scene follows the disabled tiaratop and her return to her friends, without changing the fate of her original-history counterpart.",
+          "definition": "Jane helps revive fallen teammates and reaches the completed victory platform alive. The finale shows a future reunion with her father on restored Earth. She is the revised-history Jane, distinct from the counterpart killed in the original catastrophe.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26651,7 +26651,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope is imprisoned by the controlled Jane, who demands marriage, children and obedience in her planned empire. Jake rejects that future and asks to go home. Brain Ghost Dirk reappears, saying that Jake's undeveloped Hope powers could make him real, but Jake cannot yet call on that potential.",
+          "definition": "The Page of Hope is imprisoned by the controlled Jane, who demands marriage, children and obedience in her planned empire. Jake rejects that future and asks to go home. Brain ghost Dirk reappears, saying that Jake's undeveloped Hope powers could make him real, but Jake cannot yet call on that potential.",
           "sourcePage": 6286,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27068,7 +27068,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy stands with the survivors as the universe is born, having helped defeat the Condesce and restore Calliope. A future glimpse shows Roxy walking through restored Earth's forests with John and Calliope. Her contribution to the new home includes the matriorb entrusted to Kanaya, whose later use is not shown here.",
+          "definition": "Roxy stands with the survivors as the universe is born, having helped defeat the Condesce and restore Calliope. A future glimpse shows Roxy walking through restored Earth's forests with John and Calliope. Her contribution to the new home includes the matriorb entrusted to Kanaya, whose later use is not shown in the finale.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27543,7 +27543,7 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The revived Calliope remains with the human players as their new universe is born. A future glimpse shows her exploring restored Earth with John and Roxy. Her peaceful future belongs to Roxy's revived friend; the alternate Muse separately consumes the Green Sun.",
+          "definition": "The revived Calliope remains with the human players as their new universe is born. A future glimpse shows her exploring restored Earth with John and Roxy. She remains distinct from the alternate Muse, who consumes the Green Sun.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28611,7 +28611,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time presents a clay-puppet account of a future battle seen on his land's screens. He depicts gaining rainbow eyes, trapping four human players in his juju and having his own soul bound in Lil Cal. After finishing the account, he leaves to fight Yaldabaoth; that victory is still ahead.",
+          "definition": "The Lord of Time presents a clay-puppet account of a future battle seen on his land's screens. He depicts gaining rainbow eyes, trapping four human players in his juju and having his own soul bound in Lil Cal. After finishing the account, he leaves to fight Yaldabaoth; that confrontation is still ahead.",
           "sourcePage": 7412,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28629,7 +28629,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "After narrating his clay-puppet vision of a future battle, Caliborn enters his denizen's lair and presents a key before Yaldabaoth. The confrontation has reached its threshold, but the battle's outcome is not shown. The immortality and rainbow eyes described in his masterpiece remain future claims rather than rewards already earned here.",
+          "definition": "After narrating his clay-puppet vision of a future battle, Caliborn enters his denizen's lair and presents a key before Yaldabaoth. The confrontation has reached its threshold, but the battle's outcome is not shown. The immortality and rainbow eyes described in his masterpiece remain future claims rather than rewards already earned.",
           "sourcePage": 8060,
           "sourcePages": [
             8061,
@@ -28649,7 +28649,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "Caliborn defeats Yaldabaoth and reaches the red chest beside a god-tier judgment clock. He opens the chest in the aftermath, receiving the reward previously described in his masterpiece. His later rainbow eyes and battle with the human players are not shown here; his eyes remain green.",
+          "definition": "Caliborn defeats Yaldabaoth and reaches the red chest beside a god-tier judgment clock. He opens the chest in the aftermath, receiving the reward previously described in his masterpiece. His later rainbow eyes and battle with the human players are not yet shown; his eyes remain green.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28812,7 +28812,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "CotL"
           ],
-          "definition": "The wizard series written by Roxy's mother, centering on Calmasis and Zazzerpan. Dirk describes the books as coded opposition to the Condesce: their allegories let a reader who understood her origins recognize that the author was aware of them. Roxy loves the novels and writes her own wizard fiction.",
+          "definition": "The wizard series written by Roxy's mother, centering on Calmasis and Zazzerpan. Dirk describes the books as coded opposition to the Condesce, using allegories that signal their author's knowledge of the empress's origins. Roxy loves the novels and writes her own wizard fiction.",
           "sourcePage": 4474,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29112,7 +29112,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-2",
           "term": "Void",
           "aliases": [],
-          "definition": "The aspect of concealment and nothingness. Roxy can conjure objects by removing their nonexistence, and now turns invisible and intangible without her lost Ring of Void. She uses those abilities to escape prison and hide from ordinary sight, though Aranea still detects her presence.",
+          "definition": "The aspect of concealment and nothingness. Roxy can conjure objects by removing their nonexistence, and can turn invisible and intangible without her lost Ring of Void. She uses those abilities to escape prison and hide from ordinary sight, though Aranea still detects her presence.",
           "sourcePage": 5503,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29438,7 +29438,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-2",
           "term": "Sylph",
           "aliases": [],
-          "definition": "A player class associated here with healing. Aranea uses her Light aspect to help people see, discussing emotional wounds and offering to restore Terezi's sight. Her example does not yet establish a complete ruleset for every Sylph or aspect.",
+          "definition": "A player class associated with healing. Aranea uses her Light aspect to help people see, discussing emotional wounds and offering to restore Terezi's sight. Her example does not yet establish a complete ruleset for every Sylph or aspect.",
           "sourcePage": 4773,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29979,7 +29979,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Master classes"
           ],
-          "definition": "One of the two exceptionally rare classes at the extremes of the active/passive scale. Calliope identifies her Muse as the most passive and her brother's class as the most active. The latter is now identified as Lord: Aranea calls English the Lord of Time and connects him to the cherub who took over their shared body.",
+          "definition": "One of the two exceptionally rare classes at the extremes of the active/passive scale. Calliope identifies her Muse as the most passive and her brother's class as the most active. The latter is identified as Lord: Aranea calls English the Lord of Time and connects him to the cherub who took over their shared body.",
           "sourcePage": 5093,
           "sourceKind": "composite",
           "sourcePages": [
@@ -30381,7 +30381,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Rufioh"
           ],
-          "definition": "The winged Beforan Rogue of Breath and pre-Scratch counterpart of the Summoner. His wings grew naturally, rather than through god-tier ascension. Horuss once built him a robotic body after Damara paralyzed him; now a ghost, he struggles to end his relationship with Horuss and worries over his missing lusus.",
+          "definition": "The winged Beforan Rogue of Breath and pre-Scratch counterpart of the Summoner. His wings grew naturally, rather than through god-tier ascension. Horuss once built him a robotic body after Damara paralyzed him. As a ghost, he struggles to end his relationship with Horuss and worries over his missing lusus.",
           "sourcePage": 5398,
           "sourceKind": "composite"
         }
@@ -30767,7 +30767,7 @@ window.HOMESTUCK_REFERENCE = {
             "Hussie's ring",
             "Hussie's gold ring"
           ],
-          "definition": "The ring that restored Aranea to life is recovered by John before its theft from the ship's couch. He carries it through his revisions to history and gives it to Roxy, fulfilling his promise to help Calliope. Roxy has the Ring of Life, but Calliope's revival has not happened here.",
+          "definition": "The ring that restored Aranea to life is recovered by John before its theft from the ship's couch. He carries it through his revisions to history and gives it to Roxy, fulfilling his promise to help Calliope. Roxy has the Ring of Life, but Calliope has not yet been revived.",
           "sourcePage": 6548,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31128,7 +31128,7 @@ window.HOMESTUCK_REFERENCE = {
             "Andrew Hussie",
             "Hussie"
           ],
-          "definition": "The in-story Andrew Hussie, whose voice previously guided Caliborn through his command tower. Caliborn now announces that the voice is gone and claims the narration for himself. A hidden expansion cartridge's manual explains that the heroes' actual adventure can continue between his satirical acts.",
+          "definition": "The in-story Andrew Hussie, whose voice previously guided Caliborn through his command tower. Caliborn announces that the voice is gone and claims the narration for himself. A hidden expansion cartridge's manual explains that the heroes' actual adventure can continue between his satirical acts.",
           "sourcePage": 5779,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31978,7 +31978,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-5",
           "term": "Caliborn's unlocked land",
           "aliases": [],
-          "definition": "The transformed land promised after Caliborn completes the dead session's planetary challenge. Aranea's account shows the former dead Earth becoming this new land once the eighth planet is destroyed last. There he can prepare to fight Yaldabaoth; the promised transformation is still ahead of the conquest shown here.",
+          "definition": "The transformed land promised after Caliborn completes the dead session's planetary challenge. Aranea's account shows the former dead Earth becoming this new land once the eighth planet is destroyed last. Caliborn must finish the conquest before he can prepare to fight Yaldabaoth there.",
           "sourcePage": 6005,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32087,7 +32087,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "House juju"
           ],
-          "definition": "The intangible house-shaped treasure gives John retcon powers and becomes the weapon Vriska carries against Lord English. Caliborn reaches and opens its reward chest after defeating Yaldabaoth. His earlier masterpiece describes trapping four players inside before banishing it, but Vriska has not yet deployed the recovered weapon here.",
+          "definition": "The intangible house-shaped treasure gives John retcon powers and becomes the weapon Vriska carries against Lord English. Caliborn reaches and opens its reward chest after defeating Yaldabaoth. His earlier masterpiece describes trapping four players inside before banishing it, but Vriska has not yet deployed the recovered weapon.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32144,7 +32144,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "5th wall"
           ],
-          "definition": "The passage Crowbar leads Slick, Ms. Paint and the Felt through from the author's mansion to Doc Scratch's old apartment. The apartment now floats inside the Green Sun. Its clock provides a further emergency exit, depositing Slick in a tiny vehicle outside the sun.",
+          "definition": "The passage Crowbar leads Slick, Ms. Paint and the Felt through from the author's mansion to Doc Scratch's old apartment. The apartment floats inside the Green Sun. Its clock provides a further emergency exit, depositing Slick in a tiny vehicle outside the sun.",
           "sourcePage": 6128,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32200,7 +32200,7 @@ window.HOMESTUCK_REFERENCE = {
             "Bubbles",
             "VBVS"
           ],
-          "definition": "John's adopted salamander becomes Viceroy Bubbles Von Salamancer, a necromancer equipped with the Crook of Frailty and Rag of Demons. The skeletal consort army raised after the ship's voyage joins the fight against the Felt, helping turn a private fantasy of command into battlefield support.",
+          "definition": "John's adopted salamander becomes Viceroy Bubbles Von Salamancer, a necromancer equipped with the Crook of Frailty and Rag of Demons. The skeletal consort army raised after the ship's voyage joins the fight against the Felt.",
           "sourcePage": 6077,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32424,7 +32424,7 @@ window.HOMESTUCK_REFERENCE = {
             "Intermission cartridge",
             "Expansion cartridge"
           ],
-          "definition": "The cartridge meant to continue the heroes' adventure between Caliborn's Homosuck acts is now clogged with his special stardust. The resulting glitches cut short the arrival animation, block choices and obscure conversations. The characters have missing memories, while John's wind can clear visible artifacts without repairing the whole cartridge.",
+          "definition": "The cartridge meant to continue the heroes' adventure between Caliborn's Homosuck acts is clogged with his special stardust. The resulting glitches cut short the arrival animation, block choices and obscure conversations. The characters have missing memories, while John's wind can clear visible artifacts without repairing the whole cartridge.",
           "sourcePage": 6273,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32536,7 +32536,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Echidna",
           "aliases": [],
-          "definition": "Jade's denizen agrees to release the Genesis Frog after Kanaya promises to protect Karkat and help restore their people. The alternate Calliope describes a separate bargain with her Echidna: death and a long wait, followed by a duty she departs to fulfill. Neither promise means the new universe is already complete.",
+          "definition": "Jade's denizen agrees to release the Genesis Frog after Kanaya promises to protect Karkat and help restore their people. The alternate Calliope describes a separate bargain with her Echidna: death and a long wait, followed by a duty she departs to fulfill. The new universe is not yet complete.",
           "sourcePage": 7636,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32697,7 +32697,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Calcoins"
           ],
-          "definition": "The imaginary currency Caliborn invented on his computer and demanded while raising funds for his Homosuck conclusion. He now claims his clay-puppet masterpiece cost millions in this currency, along with most of his remaining attention for creative work.",
+          "definition": "The imaginary currency Caliborn invented on his computer and demanded while raising funds for his Homosuck conclusion. He claims his clay-puppet masterpiece cost millions in this currency, along with most of his remaining attention for creative work.",
           "sourcePage": 6941,
           "sourceKind": "composite",
           "sourcePages": [
@@ -33030,7 +33030,7 @@ window.HOMESTUCK_REFERENCE = {
             "Davepetasprite^2",
             "Davepetasprite squared"
           ],
-          "definition": "The squared sprite formed from Davesprite and Nepetasprite reaches Lord English and attacks him during the ghost army's battle. Their confrontation follows the reunion with Arquiusprite and the awakening of Jade. The outcome of Davepeta's assault is not resolved here, so no new death or victory is established.",
+          "definition": "The squared sprite formed from Davesprite and Nepetasprite reaches Lord English and attacks him during the ghost army's battle. Their confrontation follows the reunion with Arquiusprite and the awakening of Jade. The outcome of Davepeta's assault remains unresolved.",
           "sourcePage": 8087,
           "sourceKind": "visual"
         }
@@ -33090,7 +33090,7 @@ window.HOMESTUCK_REFERENCE = {
             "Alternate Calliope",
             "Alt Calliope"
           ],
-          "definition": "The alternate Muse reaches the Green Sun while the battles unfold elsewhere. Her journey fulfills the approach to the duty she accepted from Echidna, but its decisive outcome is not yet shown. She remains separate from the revived Calliope who rejoins Jade and the human players.",
+          "definition": "The alternate Muse reaches the Green Sun while the battles unfold elsewhere. She approaches the task she accepted from Echidna, but its outcome is not yet shown. She remains separate from the revived Calliope who rejoins Jade and the human players.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
