@@ -61,6 +61,11 @@
     'lalonde': '#ff6ff2',
     'strider': '#f2a400',
     'uranian-umbra': '#929292',
+    'alternate-calliope': '#ff0000',
+    'jasprosesprite': '#b536da',
+    'nepetasprite': '#4ac925',
+    'gcatavrosprite': '#0715cd',
+    'davepetasprite': '#f2a400',
     'undying-umbrage': '#323232',
     'gcat': '#4ac925',
     'squarewave': '#e00707',
@@ -537,12 +542,17 @@
     if (!labels.length) {
       return (element, text) => { element.textContent = text; };
     }
-    // Longest phrases win; whole-word matching avoids links inside unrelated words.
-    const pattern = new RegExp(`\\b(${labels.join('|')})(s)?\\b`, 'gi');
+    // Keep the large name pattern inexpensive; check Unicode edges on candidates.
+    // A right-hand guard also supports names ending in superscripts or parentheses.
+    const pattern = new RegExp(`\\b(${labels.join('|')})(s)?(?!\\w)`, 'gi');
+    const wordBefore = /[\p{L}\p{N}_]$/u;
+    const wordAfter = /^[\p{L}\p{N}_]/u;
     return (element, text) => {
       const linked = new Set();
       let cursor = 0;
       for (const match of text.matchAll(pattern)) {
+        if (wordBefore.test(text.slice(Math.max(0, match.index - 2), match.index)) ||
+            wordAfter.test(text.slice(match.index + match[0].length, match.index + match[0].length + 2))) continue;
         const id = phrases.get(match[1].toLowerCase());
         if (linked.has(id)) continue;
         element.append(document.createTextNode(text.slice(cursor, match.index)));

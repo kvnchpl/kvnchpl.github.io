@@ -753,6 +753,22 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Leads the attack on the Condesce with Rose, Roxy and Kanaya",
+              "sourcePage": 7933,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7978,
+                8086
+              ],
+              "label": "Role"
+            }
+          ]
+        },
+        {
           "id": "handle",
           "variants": [
             {
@@ -873,6 +889,20 @@ window.HOMESTUCK_REFERENCE = {
                 7377,
                 7396
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Terezi's instruction scarf · Blue chalk · Captchalogued post-Scratch Earth",
+              "sourcePage": 7175,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7181,
+                7377,
+                7396,
+                7539,
+                7540
+              ],
+              "label": "Inventory"
             }
           ]
         },
@@ -1032,6 +1062,22 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Joins John, Roxy and Kanaya against the Condesce",
+              "sourcePage": 7532,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7978,
+                8086
+              ],
+              "label": "Role"
+            }
+          ]
+        },
+        {
           "id": "handle",
           "variants": [
             {
@@ -1173,12 +1219,14 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-6-intermission-5",
               "label": "Status",
-              "value": "Revised-history self alive; original-history self revived as Rosesprite",
-              "sourcePage": 7481,
+              "value": "Revised-history self alive; original-history self became Rosesprite, now part of Jasprosesprite²",
+              "sourcePage": 7505,
               "sourceKind": "composite",
               "sourcePages": [
-                7505,
-                7506
+                7481,
+                7588,
+                7591,
+                7650
               ]
             }
           ]
@@ -1282,6 +1330,22 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Prepares to fight Lord Jack alongside Dirk and Terezi",
+              "sourcePage": 7534,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7535,
+                8085
+              ],
+              "label": "Role"
+            }
+          ]
+        },
         {
           "id": "handle",
           "variants": [
@@ -1619,6 +1683,19 @@ window.HOMESTUCK_REFERENCE = {
                 6411,
                 6901
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Plans to handle Dog Jack and PM, then place Earth in the new universe",
+              "sourcePage": 7533,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7539,
+                7999,
+                8032,
+                8033
+              ],
+              "label": "Quest"
             }
           ]
         },
@@ -1765,14 +1842,18 @@ window.HOMESTUCK_REFERENCE = {
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Status",
-              "value": "Original-history self dead after a Just ruling; revised-history self alive and asleep",
+              "value": "Original-history self dead after a Just ruling; revised-history self awake and heading to the two dogs",
               "sourcePage": 6652,
               "sourceKind": "composite",
               "sourcePages": [
                 7405,
-                7485
-              ]
+                7485,
+                8013,
+                8029,
+                8032,
+                8033
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -1799,10 +1880,13 @@ window.HOMESTUCK_REFERENCE = {
           "variants": [
             {
               "from": "act-6-act-6-intermission-5",
+              "value": "Vulnerable to the Condesce's animal communion through Becquerel's nature",
+              "sourcePage": 7520,
+              "sourceKind": "composite",
               "label": "Condition",
-              "value": "Revised-history self asleep to contain the Condesce's control",
-              "sourcePage": 7485,
-              "sourceKind": "composite"
+              "sourcePages": [
+                5885
+              ]
             }
           ]
         },
@@ -2142,6 +2226,22 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Recruits a ghost army through friendship, then yields command to Meenah",
+              "sourcePage": 7855,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7865,
+                7866
+              ],
+              "label": "Role"
+            }
+          ]
+        },
         {
           "id": "handle",
           "variants": [
@@ -2674,13 +2774,15 @@ window.HOMESTUCK_REFERENCE = {
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Quest",
-              "value": "Original history: asked to accompany Kanaya to Echidna",
-              "sourcePage": 6327,
+              "value": "Accompanies Kanaya to Echidna; agrees to join the ghost army while dreaming",
+              "sourcePage": 7636,
               "sourceKind": "composite",
               "sourcePages": [
-                7515
-              ]
+                7639,
+                7990,
+                7993
+              ],
+              "label": "Quest"
             }
           ]
         },
@@ -2729,6 +2831,19 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 7405
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Original-history self killed by Gamzee; revised-history self unconscious in the cave and dreaming among the ghosts",
+              "sourcePage": 6901,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7405,
+                7642,
+                7645,
+                7990
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -2922,6 +3037,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Deceased",
               "sourcePage": 3711,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Revived as Nepetasprite in the revised session, then joins Davesprite in Davepetasprite²",
+              "sourcePage": 7818,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7820,
+                7877,
+                7895
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -3105,14 +3232,14 @@ window.HOMESTUCK_REFERENCE = {
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Quest",
-              "value": "Original history: asked to seek the Genesis Frog's release from Echidna",
-              "sourcePage": 6327,
+              "value": "Secures Echidna's promise to release the Genesis Frog; agrees to protect Karkat and restore her people",
+              "sourcePage": 7636,
               "sourceKind": "composite",
               "sourcePages": [
-                6411,
-                7515
-              ]
+                7638,
+                7639
+              ],
+              "label": "Quest"
             }
           ]
         },
@@ -3137,6 +3264,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Lipstick that transforms into a chainsaw",
               "sourcePage": 2324,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Matriorb created by Roxy",
+              "sourcePage": 7775,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7777
+              ],
+              "label": "Inventory"
             }
           ]
         },
@@ -3259,6 +3401,22 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "stats": [
         {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Prepares to fight Lord Jack alongside Dave and Dirk",
+              "sourcePage": 7534,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7535,
+                8085
+              ],
+              "label": "Role"
+            }
+          ]
+        },
+        {
           "id": "handle",
           "variants": [
             {
@@ -3352,6 +3510,20 @@ window.HOMESTUCK_REFERENCE = {
                 3835,
                 2031
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Perception through smell and taste · Sees the consequences of decisions · Remembers the other history",
+              "sourcePage": 2031,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3832,
+                3835,
+                7946,
+                7947,
+                7959
+              ],
+              "label": "Powers"
             }
           ]
         },
@@ -3577,13 +3749,16 @@ window.HOMESTUCK_REFERENCE = {
           "variants": [
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Role",
-              "value": "Leader of the revised-session party",
-              "sourcePage": 7460,
+              "value": "Organizes the battle, then prepares the recovered weapon against Lord English",
+              "sourcePage": 7517,
               "sourceKind": "composite",
               "sourcePages": [
-                7461
-              ]
+                7542,
+                7785,
+                7849,
+                8047
+              ],
+              "label": "Role"
             }
           ]
         },
@@ -3665,14 +3840,15 @@ window.HOMESTUCK_REFERENCE = {
           "variants": [
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Inventory",
-              "value": "Hunger trunk holding Gamzee and preserved remains",
-              "sourcePage": 7459,
+              "value": "Recovered juju weapon in its red chest · Spider watch",
+              "sourcePage": 7785,
               "sourceKind": "composite",
               "sourcePages": [
-                7510,
-                7512
-              ]
+                7841,
+                7849,
+                8047
+              ],
+              "label": "Inventory"
             }
           ]
         },
@@ -3757,6 +3933,17 @@ window.HOMESTUCK_REFERENCE = {
                 7384,
                 7405
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Alive in revised history; her original ghost reunites with the dead Terezi",
+              "sourcePage": 7959,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7785,
+                7801
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -5108,6 +5295,22 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct"
             }
           ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Fuses with Rosesprite to become Jasprosesprite²",
+              "sourcePage": 7588,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7591,
+                7650
+              ],
+              "label": "Status"
+            }
+          ]
         }
       ],
       "sourcePage": 1626,
@@ -5194,17 +5397,16 @@ window.HOMESTUCK_REFERENCE = {
           "variants": [
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Status",
-              "value": "Original-history self last seen alive; revised-history self killed in LOWAS's explosion",
-              "sourcePage": 7062,
+              "value": "Original-history traveler joins Nepetasprite to become Davepetasprite²; revised-history self died on LOWAS",
+              "sourcePage": 7064,
               "sourceKind": "composite",
               "sourcePages": [
-                7063,
-                7064,
-                7457,
-                7485,
-                7491
-              ]
+                7875,
+                7876,
+                7877,
+                7895
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -5569,6 +5771,24 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Teleportation",
               "sourcePage": 4425,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Prototyped into Tavrosprite; now part of the sleeping Gcatavrosprite",
+              "sourcePage": 7833,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7834,
+                7835,
+                7837,
+                7838
+              ],
+              "label": "Status"
             }
           ]
         }
@@ -6163,6 +6383,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dirk's sprite guide",
               "sourcePage": 5656,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Dirk's sprite guide; disables Jane's tiaratop and releases the grist hoards",
+              "sourcePage": 7583,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7912,
+                7923
+              ],
+              "label": "Role"
             }
           ]
         },
@@ -6375,6 +6606,23 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite"
             }
           ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Fuses with GCat to become Gcatavrosprite",
+              "sourcePage": 7833,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7834,
+                7835,
+                7838
+              ],
+              "label": "Status"
+            }
+          ]
         }
       ]
     },
@@ -6461,8 +6709,473 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite"
             }
           ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Fuses with Jaspersprite to become Jasprosesprite²",
+              "sourcePage": 7588,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7591,
+                7650
+              ],
+              "label": "Status"
+            }
+          ]
         }
       ]
+    },
+    {
+      "id": "gcatavrosprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-6-intermission-5",
+      "introPage": 7835,
+      "sourcePage": 7835,
+      "sourceKind": "intro",
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Gcatavrosprite",
+          "sourcePage": 7835,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Gcatavrosprite",
+          "sourcePage": 7835,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": {
+            "src": "../assets/ref-gcatavrosprite.webp",
+            "alt": "Gcatavrosprite"
+          },
+          "sourcePage": 7836,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Jane's combined sprite guide",
+              "sourcePage": 7838,
+              "sourceKind": "composite",
+              "label": "Role",
+              "sourcePages": [
+                7458
+              ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "First Guardian abilities inherited from GCat",
+              "sourcePage": 7838,
+              "sourceKind": "composite",
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Tavrosprite + GCat",
+              "sourcePage": 7833,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7834,
+                7835,
+                7838
+              ],
+              "label": "Components"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Double-prototyped sprite",
+              "sourcePage": 7838,
+              "sourceKind": "composite",
+              "label": "Form"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Kept asleep by Vriska for the battle",
+              "sourcePage": 7837,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7838
+              ],
+              "label": "Status"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 1
+    },
+    {
+      "id": "jasprosesprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-6-intermission-5",
+      "introPage": 7591,
+      "sourcePage": 7591,
+      "sourceKind": "intro",
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Jasprosesprite²",
+          "sourcePage": 7591,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Jasprosesprite²",
+          "sourcePage": 7591,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": {
+            "src": "../assets/ref-jasprosesprite.webp",
+            "alt": "Jasprosesprite²"
+          },
+          "sourcePage": 7648,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Assigned to transport Jane for battlefield healing",
+              "sourcePage": 7650,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7718
+              ],
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Seer insight · Portal travel · Memories across alternate selves",
+              "sourcePage": 7648,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7650,
+                7718,
+                7895
+              ],
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Jaspersprite + Rosesprite",
+              "sourcePage": 7588,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7591,
+                7650
+              ],
+              "label": "Components"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Sprite squared",
+              "sourcePage": 7591,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7650
+              ],
+              "label": "Form"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Cat puns · Roleplaying · Nepetasprite",
+              "sourcePage": 7873,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7874,
+                7898
+              ],
+              "label": "Interests"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 2
+    },
+    {
+      "id": "davepetasprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-6-intermission-5",
+      "introPage": 7879,
+      "sourcePage": 7879,
+      "sourceKind": "intro",
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Davepetasprite²",
+          "sourcePage": 7895,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7879
+          ],
+          "introLinkPage": 7879
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Davepetasprite²",
+          "sourcePage": 7895,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7879
+          ]
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": {
+            "src": "../assets/ref-davepetasprite.webp",
+            "alt": "Davepetasprite²"
+          },
+          "sourcePage": 7899,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Seeks Lord English to fight him",
+              "sourcePage": 7898,
+              "sourceKind": "composite",
+              "sourcePages": [
+                8005
+              ],
+              "label": "Quest"
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Flight · Retractable claws · Memories across alternate selves",
+              "sourcePage": 7879,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7895,
+                8005,
+                8006,
+                8011
+              ],
+              "label": "Powers"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Davesprite + Nepetasprite",
+              "sourcePage": 7876,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7877,
+                7895
+              ],
+              "label": "Components"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Sprite squared",
+              "sourcePage": 7877,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7895
+              ],
+              "label": "Form"
+            }
+          ]
+        },
+        {
+          "id": "interests",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Roleplaying · Cat puns · Irony",
+              "sourcePage": 7895,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7896,
+                7898
+              ],
+              "label": "Interests"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 3
+    },
+    {
+      "id": "nepetasprite",
+      "group": "post-scratch-guardians-sprites",
+      "reveal": "act-6-act-6-intermission-5",
+      "introPage": 7820,
+      "sourcePage": 7820,
+      "sourceKind": "intro",
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Nepetasprite",
+          "sourcePage": 7820,
+          "sourceKind": "direct"
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Nepetasprite",
+          "sourcePage": 7820,
+          "sourceKind": "direct"
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": {
+            "src": "../assets/ref-nepetasprite.webp",
+            "alt": "Nepetasprite"
+          },
+          "sourcePage": 7872,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Jake's sprite guide in the revised session",
+              "sourcePage": 7814,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7818,
+                7820
+              ],
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "components",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Nepeta Leijon",
+              "sourcePage": 7818,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7820
+              ],
+              "label": "Components"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Single-prototyped sprite",
+              "sourcePage": 7874,
+              "sourceKind": "composite",
+              "label": "Form"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Fuses with Davesprite to become Davepetasprite²",
+              "sourcePage": 7876,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7877,
+                7879,
+                7895
+              ],
+              "label": "Status"
+            }
+          ]
+        }
+      ],
+      "rosterColumn": 4
     },
     {
       "id": "wv",
@@ -6506,6 +7219,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Founder and mayor of Can Town",
               "sourcePage": 685,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "label": "Role",
+              "value": "Protected noncombatant; shelters with Jade and Calliope",
+              "sourcePage": 7536,
+              "sourcePages": [
+                7727,
+                7883,
+                7885
+              ],
+              "sourceKind": "composite"
             }
           ]
         },
@@ -6608,6 +7333,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Queen of Prospit",
               "sourcePage": 3018,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "label": "Role",
+              "value": "Pursues Dog Jack to the ruins of Prospit",
+              "sourcePage": 7523,
+              "sourcePages": [
+                8067,
+                8069,
+                8081
+              ],
+              "sourceKind": "composite"
             }
           ]
         },
@@ -6862,6 +7599,16 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Bec Noir",
               "sourcePage": 3238,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Bec Noir · Dog Jack",
+              "sourcePage": 7521,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7522
+              ],
+              "label": "Also known as"
             }
           ]
         },
@@ -7200,6 +7947,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Robo Jack",
+              "sourcePage": 7521,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7527
+              ],
+              "label": "Also known as"
+            }
+          ]
+        },
+        {
           "id": "affiliation",
           "variants": [
             {
@@ -7218,6 +7980,23 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 6126
               ]
+            }
+          ]
+        },
+        {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Pursues Lord Jack while seeking revenge on Lord English",
+              "sourcePage": 7961,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7962,
+                7974,
+                7975
+              ],
+              "label": "Quest"
             }
           ]
         },
@@ -7268,6 +8047,22 @@ window.HOMESTUCK_REFERENCE = {
                 6140,
                 6141
               ]
+            }
+          ]
+        },
+        {
+          "id": "powers",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Rocket-propelled flight · Cyber-eye magnification",
+              "sourcePage": 7962,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7973,
+                7974
+              ],
+              "label": "Powers"
             }
           ]
         },
@@ -7852,6 +8647,21 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "label": "Quest",
+              "value": "Faces the assembled ghost army",
+              "sourcePage": 8057,
+              "sourcePages": [
+                8083
+              ],
+              "sourceKind": "composite"
             }
           ]
         },
@@ -9088,6 +9898,20 @@ window.HOMESTUCK_REFERENCE = {
                 5886,
                 6901
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "label": "Powers",
+              "value": "Extends life · Telekinesis and eye-beam attacks · Mind control of susceptible trolls · Animal communion and control of Jade",
+              "sourcePage": 7520,
+              "sourcePages": [
+                4873,
+                4060,
+                4063,
+                5885,
+                6901
+              ],
+              "sourceKind": "composite"
             }
           ]
         },
@@ -9197,6 +10021,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Heiress to the Condesce's planned empire",
               "sourcePage": 6443,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Battlefield healer working with Jasprosesprite²",
+              "sourcePage": 7650,
+              "sourceKind": "composite",
+              "label": "Role"
             }
           ]
         },
@@ -9440,14 +10271,15 @@ window.HOMESTUCK_REFERENCE = {
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "label": "Status",
-              "value": "Original-history self dead after a Just ruling; revised-history self alive and asleep",
+              "value": "Original-history self dead after a Just ruling; revised-history self awake after her tiaratop is disabled",
               "sourcePage": 6901,
               "sourceKind": "composite",
               "sourcePages": [
                 7485,
-                7512
-              ]
+                7583,
+                7584
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -9481,23 +10313,6 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-act-6-intermission-3"
-        },
-        {
-          "id": "revised-condition",
-          "variants": [
-            {
-              "from": "act-6-act-6-intermission-5",
-              "label": "Condition",
-              "value": "Revised-history self asleep; Arquiusprite is disabling her tiaratop",
-              "sourcePage": 7458,
-              "sourceKind": "composite",
-              "sourcePages": [
-                7485,
-                7510,
-                7512
-              ]
-            }
-          ]
         },
         {
           "id": "interests",
@@ -9656,6 +10471,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 6453
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Creates a matriorb and entrusts it to Kanaya",
+              "sourcePage": 7710,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7775,
+                7777
+              ],
+              "label": "Quest"
             }
           ]
         },
@@ -9694,6 +10520,13 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Blunderbuss of Zillywigh",
               "sourcePage": 5769,
               "sourceKind": "visual"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "label": "Weapon",
+              "value": "Dave's bro's katana",
+              "sourcePage": 7979,
+              "sourceKind": "direct"
             }
           ]
         },
@@ -9745,6 +10578,19 @@ window.HOMESTUCK_REFERENCE = {
                 7395,
                 7396
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Message in a Bottle modus · Jane's dad's PDA",
+              "sourcePage": 4473,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5635,
+                5813,
+                7116,
+                7119
+              ],
+              "label": "Inventory"
             }
           ]
         },
@@ -9822,6 +10668,23 @@ window.HOMESTUCK_REFERENCE = {
                 6599,
                 6668
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Obscures remote observation through Void · Conjures objects, including a matriorb · Invisibility · Intangibility · Travels through the void",
+              "sourcePage": 4473,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5813,
+                7116,
+                7624,
+                7632,
+                7633,
+                7647,
+                7710,
+                7775
+              ],
+              "label": "Powers"
             }
           ]
         },
@@ -9988,6 +10851,17 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4468
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Prepares to fight Lord Jack alongside Dave and Terezi",
+              "sourcePage": 7534,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7535,
+                8085
+              ],
+              "label": "Role"
             }
           ]
         },
@@ -10145,6 +11019,20 @@ window.HOMESTUCK_REFERENCE = {
                 5244,
                 5252
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Original-history self last seen alive in the glitches; revised-history self reunited with the party",
+              "sourcePage": 6953,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6957,
+                7546,
+                7549,
+                7674,
+                8085
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -10221,6 +11109,22 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Assigned to face Spades Slick and the Felt",
+              "sourcePage": 7536,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7968,
+                8084
+              ],
+              "label": "Role"
+            }
+          ]
+        },
         {
           "id": "handle",
           "variants": [
@@ -10508,6 +11412,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Off-world guide; seeks an alternate Calliope who predominated",
               "sourcePage": 5615,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Off-world ally revived by Roxy",
+              "sourcePage": 7647,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7649,
+                7683,
+                7727
+              ],
+              "label": "Role"
             }
           ]
         },
@@ -10602,6 +11518,20 @@ window.HOMESTUCK_REFERENCE = {
                 5108,
                 5115
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Juju modus · Juju chest · Rose's journal · Ring of Life",
+              "sourcePage": 5103,
+              "sourceKind": "composite",
+              "sourcePages": [
+                5108,
+                5115,
+                7626,
+                7627,
+                7628
+              ],
+              "label": "Inventory"
             }
           ]
         },
@@ -10661,6 +11591,19 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 5615
               ]
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Alive through Roxy's gift of the Ring of Life; sheltered with the Mayor",
+              "sourcePage": 7627,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7628,
+                7727,
+                7883,
+                8015
+              ],
+              "label": "Status"
             }
           ]
         },
@@ -10673,6 +11616,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Lime green",
               "sourcePage": 4962,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Calliope (alternate)",
+              "sourcePage": 7614,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7618,
+                7619
+              ],
+              "label": "Counterpart"
             }
           ]
         },
@@ -10695,6 +11654,148 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4144,
       "sourceKind": "intro"
+    },
+    {
+      "id": "alternate-calliope",
+      "group": "other-players",
+      "reveal": "act-6-act-6-intermission-5",
+      "introPage": 7596,
+      "sourcePage": 7596,
+      "sourceKind": "intro",
+      "name": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Calliope (alternate)",
+          "sourcePage": 7596,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            7614
+          ]
+        }
+      ],
+      "rosterLabel": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": "Calliope (alternate)",
+          "sourcePage": 7596,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            7614
+          ]
+        }
+      ],
+      "portrait": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "value": {
+            "src": "../assets/ref-alternate-calliope-portrait.webp",
+            "alt": "Calliope (alternate)"
+          },
+          "sourcePage": 7607,
+          "sourceKind": "visual"
+        }
+      ],
+      "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Jade's guide in the Furthest Ring",
+              "sourcePage": 7616,
+              "sourceKind": "composite",
+              "label": "Role"
+            }
+          ]
+        },
+        {
+          "id": "title",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Muse of Space",
+              "sourcePage": 7615,
+              "sourceKind": "composite",
+              "label": "Title"
+            }
+          ]
+        },
+        {
+          "id": "quest",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Travels to the Green Sun to fulfill her promise",
+              "sourcePage": 7616,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7998,
+                7999,
+                8000
+              ],
+              "label": "Quest"
+            }
+          ]
+        },
+        {
+          "id": "inventory",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "White wand",
+              "sourcePage": 7607,
+              "sourceKind": "composite",
+              "label": "Inventory"
+            }
+          ]
+        },
+        {
+          "id": "form",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "God tier",
+              "sourcePage": 7607,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7615
+              ],
+              "label": "Form"
+            }
+          ]
+        },
+        {
+          "id": "status",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Ghost; accepted death at Echidna's hands after failing her dead session",
+              "sourcePage": 7615,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7616
+              ],
+              "label": "Status"
+            }
+          ]
+        },
+        {
+          "id": "counterpart",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Calliope",
+              "sourcePage": 7614,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7618,
+                7619
+              ],
+              "label": "Counterpart"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "lil-seb",
@@ -11070,6 +12171,22 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Dersite archagent; escaped from Prospit prison",
               "sourcePage": 5823,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "also-known-as",
+          "variants": [
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Lord Jack · Jack English",
+              "sourcePage": 7521,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7526,
+                7974
+              ],
+              "label": "Also known as"
             }
           ]
         },
@@ -13505,6 +14622,17 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Former recruiter of a ghost army against Lord English",
               "sourcePage": 6749,
               "sourceKind": "direct"
+            },
+            {
+              "from": "act-6-act-6-intermission-5",
+              "value": "Commands the ghost army assembled by Tavros",
+              "sourcePage": 7865,
+              "sourceKind": "composite",
+              "sourcePages": [
+                7990,
+                8046
+              ],
+              "label": "Role"
             }
           ]
         },
@@ -13594,7 +14722,7 @@ window.HOMESTUCK_REFERENCE = {
       ]
     }
   ],
-  "conceptsPreparedThrough": "act-6-act-6-act-5",
+  "conceptsPreparedThrough": "act-6-act-6-intermission-5",
   "concepts": [
     {
       "id": "alchemy",
@@ -14001,12 +15129,16 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Kernelsprite",
           "aliases": [],
-          "definition": "The entity released by a Cruxtruder and changed through prototyping. A void session leaves four kernels unused after entry. Vriska uses two for Tavrosprite and Arquiusprite, keeping the others as emergency resurrection options. Jaspersprite uses a third to create Rosesprite, leaving only one completely unprototyped kernel in reserve.",
+          "definition": "The entity released by a Cruxtruder and changed through prototyping. In the revised session, the four unused kernels become Tavrosprite, Arquiusprite, Rosesprite and Nepetasprite. Further contact transforms the guides again: GCat joins Tavrosprite, while two sprite-to-sprite fusions produce squared sprites.",
           "sourcePage": 7458,
           "sourceKind": "composite",
           "sourcePages": [
-            7459,
-            7505
+            7505,
+            7814,
+            7818,
+            7834,
+            7588,
+            7877
           ]
         }
       ]
@@ -14188,13 +15320,16 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Prototyping",
           "aliases": [],
-          "definition": "Adding an object, corpse or person to a kernelsprite, shaping its guide. In the revised session, Vriska prototypes Tavros alone and recreates Arquiusprite. Jaspersprite later adds the original Rose's corpse to Roxy's kernel. These single-prototyped guides can still fuse with a second being through contact, which makes casual hugs dangerous.",
-          "sourcePage": 7458,
+          "definition": "Adding something to a kernelsprite shapes its guide. A once-prototyped guide can still absorb a second being, as Tavrosprite does with GCat. Combining two existing sprites can instead produce a sprite squared, as Jaspersprite and Rosesprite demonstrate, followed by Davesprite and Nepetasprite.",
+          "sourcePage": 7588,
           "sourceKind": "composite",
           "sourcePages": [
-            7499,
-            7505,
-            7506
+            7591,
+            7833,
+            7834,
+            7838,
+            7876,
+            7877
           ]
         }
       ]
@@ -14975,13 +16110,13 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Sprite",
           "aliases": [],
-          "definition": "A guide formed through prototyping, retaining its components' memories and gaining knowledge of the game. Rosesprite returns from the original Rose's corpse while the revised-history Rose is already alive. A single-prototyped sprite can still absorb another person: Vriska warns both Tavrosprite and Rosesprite against embracing their friends.",
-          "sourcePage": 7458,
+          "definition": "A prototyped guide that can restore a dead person in a new composite form. The revised-session guides preserve distinct identities rather than replacing their living counterparts. Combining two sprites creates a squared sprite with broader access to memories across alternate selves, as Jasprose and Davepeta explain.",
+          "sourcePage": 7505,
           "sourceKind": "composite",
           "sourcePages": [
-            7499,
-            7505,
-            7506
+            7650,
+            7895,
+            8006
           ]
         }
       ]
@@ -15628,6 +16763,23 @@ window.HOMESTUCK_REFERENCE = {
             6141,
             6142
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Felt",
+          "aliases": [
+            "The Felt"
+          ],
+          "definition": "The pool-themed gang serves Slick after his takeover. He carries the members and their associates into the session in Biscuits's oven, then unloads them on Jake's land. Slick pursues Lord Jack instead of staying to fight; Jake is left facing the assembled Felt as the battles begin.",
+          "sourcePage": 7961,
+          "sourcePages": [
+            7962,
+            7967,
+            7968,
+            7975,
+            8084
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -15966,6 +17118,24 @@ window.HOMESTUCK_REFERENCE = {
             6140,
             6141
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Biscuits's oven",
+          "aliases": [],
+          "definition": "Biscuits's oven does not move him through time, but can carry a crowd. Slick uses it to transport the Felt, Ms. Paint and the centaur butler into the session on a captchalogue card. He unloads them before Jake, then leaves to pursue Lord Jack.",
+          "sourcePage": 1223,
+          "sourcePages": [
+            6140,
+            6141,
+            6142,
+            7962,
+            7966,
+            7967,
+            7968,
+            7975
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -16158,6 +17328,21 @@ window.HOMESTUCK_REFERENCE = {
             7108,
             7109
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Wind and Shade",
+          "aliases": [
+            "LOWAS"
+          ],
+          "definition": "John's cleared Land of Wind and Shade survives its journey outside ordinary history. The original-history Davesprite, stranded there during its passage through the blank refuge, later flies out to find the others. A separate LOWAS exploded during the revised voyage, killing its John and Davesprite; those fates do not erase this surviving land.",
+          "sourcePage": 7108,
+          "sourcePages": [
+            7109,
+            7875,
+            7064
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -16206,6 +17391,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Light and Rain",
+          "aliases": [
+            "LOLAR"
+          ],
+          "definition": "Rose's oceanic Land of Light and Rain is destroyed with LOFAF in the original catastrophe. The revised session instead retains the players' lands, with towers reaching Skaia and grist rigs releasing their hoards. Rose remains reluctant to undertake her own land quest or confront Cetus.",
+          "sourcePage": 6901,
+          "sourcePages": [
+            7504,
+            7912
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -16258,6 +17457,21 @@ window.HOMESTUCK_REFERENCE = {
             6323,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Heat and Clockwork",
+          "aliases": [
+            "LOHAC"
+          ],
+          "definition": "Dave's industrial Land of Heat and Clockwork is destroyed with LOCAH during the original catastrophe. The revised session retains the players' lands and their grist hoards. Arquiusprite releases the grist from the completed towers into Skaia as part of the preparations for a new universe.",
+          "sourcePage": 6901,
+          "sourcePages": [
+            7541,
+            7912,
+            7923
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -17499,6 +18713,19 @@ window.HOMESTUCK_REFERENCE = {
             2624,
             3238
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Ultimate reward",
+          "aliases": [],
+          "definition": "The new universe the players create and can enter through the house-shaped door on their victory platform. Vriska explains the remaining preparations, including grist release and lighting the Forge. She gives John the captchalogued Earth so Jade can later settle their future home inside that universe.",
+          "sourcePage": 7541,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7539,
+            7540,
+            7999
+          ]
         }
       ]
     },
@@ -17732,6 +18959,20 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             7356,
             7405
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Dream bubble",
+          "aliases": [],
+          "definition": "A memory-shaped meeting place for ghosts and living dreamers in the Furthest Ring. Karkat joins the ghost army while his living body lies unconscious elsewhere. Jade likewise dreams near the Green Sun until Davepeta attacks her dream-bubble form, causing her to wake in the session rather than killing her physical body.",
+          "sourcePage": 7990,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7993,
+            8005,
+            8011,
+            8013
           ]
         }
       ]
@@ -18131,6 +19372,23 @@ window.HOMESTUCK_REFERENCE = {
             6630,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Frost and Frogs",
+          "aliases": [
+            "LOFAF"
+          ],
+          "definition": "Jade's Land of Frost and Frogs is destroyed in the original catastrophe but remains intact in the revised session. Kanaya and Karkat visit Echidna at its core to secure the Genesis Frog's release. The land also shelters sleeping Jade and the Mayor, later joined by the revived Calliope.",
+          "sourcePage": 6901,
+          "sourcePages": [
+            7635,
+            7636,
+            7727,
+            7883,
+            7885
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -18221,6 +19479,17 @@ window.HOMESTUCK_REFERENCE = {
           "sourcePages": [
             3945,
             3314
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Forge",
+          "aliases": [],
+          "definition": "The volcano tied to the final stages of the Space player's quest. Vriska's plan requires igniting it after the grist hoards feed Skaia, but Kanaya notes that the known magic rings are already in use. The new session's Forge has not been lit by this checkpoint.",
+          "sourcePage": 7541,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7932
           ]
         }
       ]
@@ -18357,6 +19626,25 @@ window.HOMESTUCK_REFERENCE = {
             6327,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Genesis Frog",
+          "aliases": [
+            "Speaker of the Vast Croak",
+            "Bilious Slick",
+            "Speaker of the Vast Joke"
+          ],
+          "definition": "The living universe bred through the Space player's quest. In the revised session, Echidna agrees to release the tadpole after meeting Kanaya and Karkat. The players must feed Skaia with their lands' grist hoards and ignite the Forge before the frog can mature and the new universe can be claimed.",
+          "sourcePage": 7538,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7541,
+            7636,
+            7639,
+            7912,
+            7932
+          ]
         }
       ]
     },
@@ -18430,6 +19718,18 @@ window.HOMESTUCK_REFERENCE = {
             6295,
             6453,
             6463
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Matriorb",
+          "aliases": [],
+          "definition": "The egg that can hatch a new mother grub and restore troll reproduction. After struggling with incomplete attempts, Roxy conjures a real replacement from the void and gives it to Kanaya. Its creation serves their people's future rather than fulfilling the Condesce's demand for a new empire.",
+          "sourcePage": 7710,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7775,
+            7777
           ]
         }
       ]
@@ -18621,6 +19921,20 @@ window.HOMESTUCK_REFERENCE = {
             7090,
             7103,
             7104
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "The Choice",
+          "aliases": [
+            "Denizen's Choice"
+          ],
+          "definition": "A denizen's bargain, shaped to its player and circumstances rather than one universal test. Echidna asks Kanaya to protect Karkat and restore their people before releasing the frog. The alternate Calliope accepts death and a long wait in exchange for a later duty, after her own session becomes unwinnable.",
+          "sourcePage": 7639,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7615,
+            7616
           ]
         }
       ]
@@ -19136,17 +20450,14 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "John brings Roxy into the revised session and reunites with his living friends. He learns that this history's John and Davesprite died during the voyage, leaving Jade alone. He catches up with Dave and Karkat, then helps Jake feel more comfortable among the group while everyone waits for Vriska's strategy meeting.",
-          "sourcePage": 7463,
+          "definition": "Vriska gives John the captchalogued post-Scratch Earth to pass to Jade after the battle. He accepts leadership of the group attacking the Condesce, alongside Rose, Roxy and Kanaya. Their preparations aim to secure both a new universe and a home within it, but victory has not yet been shown.",
+          "sourcePage": 7539,
           "sourceKind": "composite",
           "sourcePages": [
-            7467,
-            7483,
-            7485,
-            7490,
-            7513,
-            7514,
-            7515
+            7540,
+            7541,
+            7933,
+            8086
           ]
         }
       ]
@@ -19391,16 +20702,14 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The revised-history Seer of Light reunites with Roxy, compares their childhoods and explains how her friends helped her stop drinking. The Rose who died in the original catastrophe also returns as Rosesprite. This separate sprite's arrival leaves the living Rose frustrated by what she sees as a meaningless duplication of herself.",
-          "sourcePage": 7481,
+          "definition": "Rose prepares to confront the Condesce with John, Roxy and Kanaya. The original-history Rose continues separately through Rosesprite's fusion with Jaspersprite, becoming Jasprose. The living Rose finds the new sprite's uninhibited behavior difficult to bear, while pressing John to accept his role as their leader.",
+          "sourcePage": 7591,
           "sourceKind": "composite",
           "sourcePages": [
-            7493,
-            7494,
-            7495,
-            7505,
-            7506,
-            7507
+            7648,
+            7650,
+            7933,
+            8086
           ]
         }
       ]
@@ -19587,16 +20896,15 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The living Knight of Time reunites with John in the revised session. He reflects on the insecurities behind his old jokes and on the years spent with Karkat and the mayor. Meeting Roxy gives him a welcome sense of maternal connection, while the prospect of meeting Dirk still makes him uneasy.",
-          "sourcePage": 7483,
+          "definition": "Dave finally meets Dirk and explains the fear, neglect and violence of growing up with Bro. Their conversation distinguishes Dirk's choices from his counterpart's treatment of Dave while allowing a new connection between them. They prepare to face Lord Jack with Terezi rather than resolving Dave's past through another display of heroism.",
+          "sourcePage": 7749,
           "sourceKind": "composite",
           "sourcePages": [
-            7485,
-            7487,
-            7492,
-            7502,
-            7504,
-            7510
+            7750,
+            7751,
+            7752,
+            7763,
+            8085
           ]
         }
       ]
@@ -19884,12 +21192,17 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "The revised-history Jade remains asleep so the Condesce cannot use her powers against the party. John learns that she spent the voyage without that history's John and Davesprite. He wants to wake her briefly, but Vriska refuses. The Jade killed in the original battle remains a different version.",
-          "sourcePage": 7405,
+          "definition": "Davepeta wakes the revised-history Jade after her journey with the alternate Calliope. Dave's note directs her toward Dog Jack and PM, and she eagerly goes to help. Her First Guardian powers still leave her vulnerable to the Condesce's animal communion; the original-history Jade's death remains separate.",
+          "sourcePage": 8005,
           "sourceKind": "composite",
           "sourcePages": [
-            7457,
-            7485
+            8011,
+            8013,
+            8018,
+            8029,
+            8032,
+            8033,
+            7520
           ]
         }
       ]
@@ -20005,6 +21318,19 @@ window.HOMESTUCK_REFERENCE = {
             419
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Bro",
+          "aliases": [],
+          "definition": "Dave's late conversation with Dirk reframes Bro's supposed training as frightening violence and neglect. Dave recalls feeling less valued than the puppets and wonders about Lil Cal's influence without claiming it excuses the harm. Bro remains a separate counterpart from the younger Dirk now listening to that account.",
+          "sourcePage": 7749,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7750,
+            7751,
+            7752
+          ]
         }
       ]
     },
@@ -20045,6 +21371,20 @@ window.HOMESTUCK_REFERENCE = {
             420
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Nannasprite",
+          "aliases": [],
+          "definition": "Two Nannasprites meet Jane in the revised session, with a pie and the familiar enthusiasm for practical jokes. These coexisting versions remain John's grandmother's sprite guide rather than forming a new combined sprite. Their visit gives Jane an unexpected encounter with her older counterpart.",
+          "sourcePage": 7805,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7806,
+            7807,
+            281,
+            419
+          ]
         }
       ]
     },
@@ -20090,15 +21430,14 @@ window.HOMESTUCK_REFERENCE = {
             "Jaspers",
             "Frigglish"
           ],
-          "definition": "Rose's cat guide has traveled on LOWAS with John and Roxy out of the original history. After witnessing Rose's burial, he digs up her body and prototypes it into Roxy's empty kernel, creating Rosesprite. The cat rejoins the group with his unexpected companion, using a resurrection slot Vriska wanted to keep in reserve.",
-          "sourcePage": 7279,
+          "definition": "The cat who traveled from the original history revives Rose through Roxy's unused kernel, then affectionately embraces Rosesprite. Their contact creates Jasprosesprite², combining two sprites into a new person. The fusion retains memories and impulses from Jaspers, Rose and their alternate selves.",
+          "sourcePage": 7505,
           "sourceKind": "composite",
           "sourcePages": [
-            7282,
-            7504,
-            7505,
-            7506,
-            7514
+            7588,
+            7591,
+            7650,
+            7895
           ]
         }
       ]
@@ -20217,13 +21556,15 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The sprite made from a doomed Dave has different fates across histories. John remembers the Davesprite who traveled with him and dated Jade. The revised session's Davesprite died with its John when LOWAS exploded, a loss Dave and John discuss during their reunion. These versions remain distinct from the living Dave.",
-          "sourcePage": 7062,
+          "definition": "The original-history Davesprite survives the trip with LOWAS through the blank refuge and finds Jake's tea party. His handshake with Nepetasprite creates Davepetasprite², who embraces a new combined identity. This traveler is distinct from the revised-history Davesprite killed in LOWAS's explosion and from the living Dave.",
+          "sourcePage": 7064,
           "sourceKind": "composite",
           "sourcePages": [
-            7064,
-            7485,
-            7491
+            7875,
+            7876,
+            7877,
+            7895,
+            7896
           ]
         }
       ]
@@ -20394,6 +21735,26 @@ window.HOMESTUCK_REFERENCE = {
             6391,
             6404
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV"
+          ],
+          "definition": "The Mayor remains a protected noncombatant during Vriska's preparations. He shelters with sleeping Jade, then meets the revived Calliope. Both greet Jade when Davepeta wakes her, and the three leave the tower before Jade teleports away to help with the approaching battle.",
+          "sourcePage": 7536,
+          "sourcePages": [
+            7727,
+            7883,
+            8013,
+            8014,
+            8015,
+            8021,
+            8024
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -20518,6 +21879,26 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The ring-powered Prospitian Monarch guards Jade's body with Jack Noir at the quest bed. Dave's attempt to recover Jade turns into a sword fight with both guardians. Dave is impaled and dies on top of Jade, receiving a Heroic ruling; the planned revival of Jade has not happened.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Prospitian Monarch",
+          "aliases": [
+            "Parcel Mistress",
+            "Peregrine Mendicant",
+            "PM"
+          ],
+          "definition": "Vriska treats PM as a match for Dog Jack's First Guardian powers and advises letting her pursuit continue. They reach the ruins of Prospit and draw the swords lodged in their bodies before facing each other. This revised-session confrontation is distinct from their intervention in the original catastrophe.",
+          "sourcePage": 7523,
+          "sourcePages": [
+            8067,
+            8069,
+            8074,
+            8075,
+            8077,
+            8081
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -20713,6 +22094,25 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "The pre-Scratch, ring-transformed Jack Noir carries Jade to her quest bed with PM. Dave attacks to recover her, and their fight ends with Dave impaled and falling onto Jade. His death is Heroic. The doglike guardians' attachment to Jade has now helped turn a rescue attempt into another death.",
           "sourcePage": 6901,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Jack Noir",
+          "aliases": [
+            "Bec Noir",
+            "Dog Jack"
+          ],
+          "definition": "Vriska calls the original session's Bec Noir Dog Jack to distinguish him from the other Jacks. PM continues pursuing him to the ruins of Prospit, where both draw their blades. Each still has First Guardian powers from the Green Sun; their duel is only beginning at this checkpoint.",
+          "sourcePage": 7521,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7522,
+            8067,
+            8074,
+            8077,
+            8078,
+            8081
+          ]
         }
       ]
     },
@@ -20876,6 +22276,26 @@ window.HOMESTUCK_REFERENCE = {
             6144,
             6149,
             6150
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Spades Slick",
+          "aliases": [
+            "Robo Jack"
+          ],
+          "definition": "Vriska nicknames the cybernetic former Midnight Crew leader Robo Jack. He enters the session carrying the Felt and associates in Biscuits's oven, unloads them before Jake, then pursues Lord Jack in his continuing hunt for Lord English. His rocket propulsion and magnifying cyber-eye are demonstrated despite the narrator's objections.",
+          "sourcePage": 7521,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7961,
+            7962,
+            7967,
+            7968,
+            7973,
+            7974,
+            7975,
+            8085
           ]
         }
       ]
@@ -21153,6 +22573,23 @@ window.HOMESTUCK_REFERENCE = {
             7445,
             7448
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Lord English",
+          "aliases": [],
+          "definition": "Caliborn's future identity is tied to the souls bound in Lil Cal: Caliborn, Arquiusprite and part of Gamzee. The adult Lord of Time now arrives from a sarcophagus before Meenah's ghost army. Vriska holds the recovered weapon nearby; the coming confrontation has not yet established whether their plan succeeds.",
+          "sourcePage": 7442,
+          "sourcePages": [
+            7443,
+            7445,
+            8047,
+            8051,
+            8054,
+            8057,
+            8083
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -21346,6 +22783,23 @@ window.HOMESTUCK_REFERENCE = {
             6043,
             6044,
             6045
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Tavros Nitram",
+          "aliases": [
+            "Tavros",
+            "adiosToreador"
+          ],
+          "definition": "Tavros's ghost returns with an enormous army recruited through conversation and friendship, not animal communion or mind control. Vriska reluctantly acknowledges his accomplishment. He freely gives command to Meenah, while his revised-session counterpart follows a different path through Tavrosprite and Gcatavrosprite.",
+          "sourcePage": 7855,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7856,
+            7864,
+            7865,
+            7838
           ]
         }
       ]
@@ -21594,15 +23048,15 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The revised-history Knight of Blood relinquishes leadership to Vriska and spends much of the reunion with Dave and the mayor. He explains black romance to John and discusses romantic theory with Kanaya. His earlier death at Gamzee's hands belongs to the original catastrophe, not this living Karkat.",
-          "sourcePage": 6901,
+          "definition": "Echidna's bargain places Karkat's protection in Kanaya's hands, with a possible future role guiding their restored people. Kanaya keeps him safe by knocking him unconscious. While dreaming, the living Karkat encounters Meenah's army and volunteers to join its charge against Lord English.",
+          "sourcePage": 7639,
           "sourceKind": "composite",
           "sourcePages": [
-            7460,
-            7483,
-            7490,
-            7509,
-            7514
+            7642,
+            7645,
+            7990,
+            7993,
+            8083
           ]
         }
       ]
@@ -21655,6 +23109,24 @@ window.HOMESTUCK_REFERENCE = {
             6032,
             6045,
             6046
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Nepeta Leijon",
+          "aliases": [
+            "Nepeta",
+            "arsenicCatnip"
+          ],
+          "definition": "Nepeta returns when Jasprose prototypes her preserved head into Jake's unused kernel. After a brief tea date as Nepetasprite, she shakes hands with Davesprite and becomes part of Davepetasprite². The new fusion remembers many Nepetas and Daves while treating both immediate components as especially important to its identity.",
+          "sourcePage": 7818,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7820,
+            7873,
+            7876,
+            7877,
+            7895
           ]
         }
       ]
@@ -21843,15 +23315,16 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The revised-history rainbow drinker gives Rose and Roxy space to reconnect, then welcomes Dave into their conversation. She compares troll and human family structures with Vriska and remains worried about restoring her species. Her original-history death is separate from this living Kanaya, whose role in the coming battle is not yet explained.",
-          "sourcePage": 6901,
+          "definition": "Kanaya secures Echidna's promise to release the Genesis Frog, agreeing to protect Karkat and help restore troll society. She knocks him unconscious to keep him safe, then receives a new matriorb from Roxy. With the egg entrusted to her, she joins John and the Lalondes against the Condesce.",
+          "sourcePage": 7636,
           "sourceKind": "composite",
           "sourcePages": [
-            7493,
-            7494,
-            7502,
-            7508,
-            7509
+            7639,
+            7642,
+            7645,
+            7775,
+            7777,
+            8086
           ]
         }
       ]
@@ -22022,12 +23495,13 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The living, blind Terezi is Vriska's moirail in the revised history. She credits her dying counterpart's instructions for their better circumstances, but feels pressure to live up to that sacrifice. Vriska reassures her before their expected separation. The scarf's author remains a distinct, deceased version of Terezi.",
-          "sourcePage": 7185,
+          "definition": "Terezi prepares to fight beside Dave and Dirk while struggling with the sacrifices made by her other self. Her unanswered message to Vriska leads into a recovery of the other history's memories. The dead Terezi and Vriska also reunite in the afterlife, distinct from the living versions preparing for battle.",
+          "sourcePage": 7946,
           "sourceKind": "composite",
           "sourcePages": [
-            7500,
-            7501
+            7947,
+            7959,
+            8085
           ]
         }
       ]
@@ -22181,17 +23655,18 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The living Vriska leads the revised-session party, with Terezi as her moirail. She has restrained Gamzee, preserved the dead trolls' bodies and created Tavrosprite and Arquiusprite. She keeps Jade and Jane asleep while preparing the group for battle, then objects when Jaspersprite uses another kernel to revive the already-present Rose's dead counterpart.",
-          "sourcePage": 7449,
+          "definition": "The living Vriska assigns the battle teams, secures Earth for their future and takes the recovered juju from her ghostly counterpart. Tavros supplies the ghost army she could not rebuild through coercion, and Meenah takes command. Vriska prepares the weapon as Lord English arrives; her abandoned ghost reunites with the dead Terezi.",
+          "sourcePage": 7540,
           "sourceKind": "composite",
           "sourcePages": [
-            7458,
-            7459,
-            7460,
-            7485,
-            7500,
-            7505,
-            7515
+            7785,
+            7801,
+            7849,
+            7855,
+            7865,
+            8047,
+            8057,
+            7959
           ]
         }
       ]
@@ -23090,6 +24565,24 @@ window.HOMESTUCK_REFERENCE = {
             6910,
             6913
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension",
+            "Batterwitch",
+            "Betty Crocker"
+          ],
+          "definition": "The empress remains the revised session's main immediate threat. Vriska describes her combined telekinesis, eye beams, troll mind control and animal communion, including Jade's vulnerability. John, Rose, Roxy and Kanaya confront her on Derse while the other teams address the Jacks and the Felt; the outcome remains ahead.",
+          "sourcePage": 7520,
+          "sourcePages": [
+            7532,
+            7978,
+            8086
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -23637,14 +25130,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The revised-history Jane remains asleep after Vriska stops her. Arquiusprite works to disable her tiaratop and reclaim her from the Condesce's control. Her revival powers are central to Vriska's preparations, but Jane has not woken by the time the meeting resumes. Her original-history death is separate.",
-          "sourcePage": 7458,
+          "definition": "Arquiusprite disables Jane's tiaratop, allowing her to wake and reunite with Roxy. Jasprose recruits her as the party's battlefield healer and offers transport between patients. Jane also meets both Nannasprites. Her living revised-history self remains distinct from the Jane killed in the original catastrophe.",
+          "sourcePage": 7583,
           "sourceKind": "composite",
           "sourcePages": [
-            7485,
-            7510,
-            7512,
-            7515
+            7584,
+            7650,
+            7718,
+            7805,
+            7806
           ]
         }
       ]
@@ -23856,15 +25350,16 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The revised-history Page of Hope is alive but overwhelmed by the reunion and ashamed of his earlier behavior. Tavrosprite encourages him, while Vriska dismisses his prospects. John instead accepts his need for solitude and helps him feel at ease through their shared love of movies. The original-history Jake died in the catastrophe.",
-          "sourcePage": 7482,
+          "definition": "Jake's quiet visit with Tavrosprite becomes a tea party amid successive prototyping surprises. At Vriska's instruction, he helps lure GCat into Tavrosprite so the resulting First Guardian sprite can be kept asleep. Spades Slick then arrives and unloads the Felt, leaving Jake to face the gang with his pistols.",
+          "sourcePage": 7830,
           "sourceKind": "composite",
           "sourcePages": [
-            7497,
-            7498,
-            7499,
-            7513,
-            7514
+            7831,
+            7838,
+            7873,
+            7967,
+            7968,
+            8084
           ]
         }
       ]
@@ -24141,17 +25636,15 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy reunites with the living Rose of the revised session, then gets to know her and Dave as distinct people rather than copies of their parents. She and Rose compare their losses, writing and recovery from drinking. Jaspersprite unexpectedly brings back the Rose Roxy buried, now as her sprite guide.",
-          "sourcePage": 7471,
+          "definition": "Roxy revives Calliope with the Ring of Life, then conjures the matriorb she once struggled to create and entrusts it to Kanaya. She retrieves the sword that marked Rose's grave and joins the attack on the Condesce. Her theft of absence now serves a future for humans and trolls rather than the empress's empire.",
+          "sourcePage": 7627,
           "sourceKind": "composite",
           "sourcePages": [
-            7476,
-            7493,
-            7494,
-            7495,
-            7502,
-            7505,
-            7506
+            7628,
+            7710,
+            7775,
+            7979,
+            8086
           ]
         }
       ]
@@ -24368,6 +25861,27 @@ window.HOMESTUCK_REFERENCE = {
             7442,
             7443
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Dirk Strider",
+          "aliases": [
+            "Dirk",
+            "Strider",
+            "D. Strider",
+            "timaeusTestified",
+            "Di-Stri"
+          ],
+          "definition": "The revised-history Dirk reaches the party and meets Dave, whose account of Bro's parenting confronts him with a disturbing counterpart. Dirk wrestles with his responsibility toward his splinters and his own mistakes with Jake. He and Dave begin a new relationship before joining Terezi against Lord Jack.",
+          "sourcePage": 7551,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7674,
+            7749,
+            7751,
+            7752,
+            8085
+          ]
         }
       ]
     },
@@ -24516,6 +26030,26 @@ window.HOMESTUCK_REFERENCE = {
             7203,
             7265,
             7405
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Calliope",
+          "aliases": [
+            "uranianUmbra",
+            "UU",
+            "Callie Ohpeee"
+          ],
+          "definition": "Roxy finds Calliope after her meeting with the alternate Muse and revives her with the Ring of Life. The two versions are distinct: one departs to fulfill Echidna's bargain, while Roxy's friend returns to the human players. Calliope shelters with sleeping Jade and the Mayor as the others prepare to fight.",
+          "sourcePage": 7616,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7619,
+            7627,
+            7628,
+            7647,
+            7727,
+            7883
           ]
         }
       ]
@@ -24960,6 +26494,24 @@ window.HOMESTUCK_REFERENCE = {
             5876,
             5913
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Post-Scratch Jack Noir",
+          "aliases": [
+            "Lord Jack",
+            "Jack English"
+          ],
+          "definition": "The post-Scratch archagent is called Lord Jack or Jack English after his empowerment through Lil Cal. He arrives above Dave, Dirk and Terezi, drawing Spades Slick's attention and pursuit. His destructive energy differs from Dog Jack's unrestricted teleportation; the approaching fight has not yet been decided.",
+          "sourcePage": 7521,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7526,
+            7974,
+            7975,
+            8044,
+            8085
+          ]
         }
       ]
     },
@@ -25169,6 +26721,24 @@ window.HOMESTUCK_REFERENCE = {
             6728,
             6729,
             6730
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "GCat",
+          "aliases": [
+            "God Cat"
+          ],
+          "definition": "The First Guardian cat is lured to Jake's mouse bait and caught by Tavrosprite at Vriska's instruction. Their contact creates Gcatavrosprite. Vriska promptly puts the fusion to sleep, intending to prevent GCat's unpredictable powers or possible service to the Condesce from disrupting the battle.",
+          "sourcePage": 7828,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7830,
+            7833,
+            7834,
+            7835,
+            7837,
+            7838
           ]
         }
       ],
@@ -25502,6 +27072,24 @@ window.HOMESTUCK_REFERENCE = {
             7443,
             7447
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Caliborn",
+          "aliases": [
+            "undyingUmbrage",
+            "uu"
+          ],
+          "definition": "After narrating his clay-puppet vision of a future battle, Caliborn enters his denizen's lair and presents a key before Yaldabaoth. The confrontation has reached its threshold, but the battle's outcome is not shown. The immortality and rainbow eyes described in his masterpiece remain future claims rather than rewards already earned here.",
+          "sourcePage": 8060,
+          "sourcePages": [
+            8061,
+            8065,
+            8066,
+            8082,
+            7447
+          ],
+          "sourceKind": "composite"
         }
       ],
       "characterId": "undying-umbrage"
@@ -25852,6 +27440,18 @@ window.HOMESTUCK_REFERENCE = {
             6745,
             6750
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Heart",
+          "aliases": [],
+          "definition": "The aspect shared by Dirk and Nepeta, associated with souls and the many versions of a person. Dirk describes feeling responsible for his splinters, while Davepeta connects Heart to understanding a distributed self. Their accounts distinguish a greater identity from the choices and memories of any single incarnation.",
+          "sourcePage": 7751,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7752,
+            8006
+          ]
         }
       ]
     },
@@ -26015,6 +27615,22 @@ window.HOMESTUCK_REFERENCE = {
             7444,
             7445,
             7448
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Lil Cal",
+          "aliases": [
+            "Cal"
+          ],
+          "definition": "The puppet contains the souls identified in Caliborn's future-battle account: Caliborn, Arquiusprite and part of Gamzee. Dave recalls Bro's lifelong attachment to the doll and wonders whether its influence contributed to his cruelty. Dirk distinguishes his supposedly empty version, and the conversation offers no excuse for Bro's treatment of Dave.",
+          "sourcePage": 7442,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7443,
+            7445,
+            7749,
+            7750
           ]
         }
       ]
@@ -26595,6 +28211,25 @@ window.HOMESTUCK_REFERENCE = {
             7230,
             7351
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Meenah Peixes",
+          "aliases": [
+            "Meenah"
+          ],
+          "definition": "Meenah leaves the original Vriska behind and joins the living Vriska's renewed plan against Lord English. Tavros brings an army recruited through friendship and willingly hands over its command. Meenah leads the ghosts, joined by the dreaming Karkat, as English arrives before them.",
+          "sourcePage": 7799,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7801,
+            7855,
+            7865,
+            7990,
+            8046,
+            8057,
+            8083
+          ]
         }
       ],
       "characterId": "meenah"
@@ -26681,6 +28316,25 @@ window.HOMESTUCK_REFERENCE = {
             4825,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Crypts and Helium",
+          "aliases": [
+            "LOCAH"
+          ],
+          "definition": "Jane's Land of Crypts and Helium is destroyed with LOHAC in the original catastrophe. In the revised session, Jasprose transports the newly awakened Jane there, where a golden statue and Nannasprite greet her. Two Nannasprites then celebrate their reunion with a forceful pie prank.",
+          "sourcePage": 6901,
+          "sourcePages": [
+            7717,
+            7718,
+            7720,
+            7722,
+            7805,
+            7806,
+            7807
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -27508,6 +29162,25 @@ window.HOMESTUCK_REFERENCE = {
             7395,
             7396
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Ring of Life",
+          "aliases": [
+            "Hussie's ring",
+            "Hussie's gold ring"
+          ],
+          "definition": "The Ring of Life restores a ghost to living form while worn. Roxy brings it into the revised history, finds Calliope and places it on her finger. Calliope returns alive with her, distinct from the alternate Muse who has accepted a different purpose through Echidna's bargain.",
+          "sourcePage": 7394,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7396,
+            7616,
+            7626,
+            7627,
+            7628,
+            7647
+          ]
         }
       ]
     },
@@ -27524,6 +29197,25 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Jake's land in the post-Scratch session, a green world divided by glowing purple fissures. Burial mounds and red stone circles cover its hills, with skeletal creatures roaming the surface. Jake fights a towering monster there using paired golden pistols.",
           "sourcePage": 5438,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Mounds and Xenon",
+          "aliases": [
+            "LOMAX"
+          ],
+          "definition": "Jake's green, fissured land becomes the setting for Jasprose's tea party and several sprite transformations. Jasprose uses Jake's remaining kernel to restore Nepeta, while Vriska has GCat fused into Tavrosprite nearby. Slick later unloads the Felt before Jake, leaving him to face the gang on these hills.",
+          "sourcePage": 7810,
+          "sourcePages": [
+            7814,
+            7818,
+            7833,
+            7873,
+            7963,
+            7968,
+            8084
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -27556,6 +29248,26 @@ window.HOMESTUCK_REFERENCE = {
           "definition": "Dirk's land in the post-Scratch session, with dark towers, smoke and lightning filling its skyline. Skeletal enemies approach as he moves among the structures. Jake joins him, and the two wear gas masks as they encounter a sun-headed denizen above a monumental tomb.",
           "sourcePage": 5438,
           "sourceKind": "visual"
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Land of Tombs and Krypton",
+          "aliases": [
+            "LOTAK"
+          ],
+          "definition": "Dirk's dark, stormy land hosts his difficult first conversation with Dave. The two prepare to face Lord Jack while Terezi joins them on the rooftop. Jade briefly appears after waking, then leaves to deal with Dog Jack and PM. Lord Jack and Spades Slick arrive above the waiting trio.",
+          "sourcePage": 7674,
+          "sourcePages": [
+            7749,
+            7751,
+            8025,
+            8026,
+            8028,
+            8033,
+            8044,
+            8085
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -27615,6 +29327,19 @@ window.HOMESTUCK_REFERENCE = {
             6002,
             6003,
             6004
+          ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Dead session",
+          "aliases": [],
+          "definition": "A solo game with a timed series of planetary conquests instead of ordinary universe creation. The alternate Calliope says the shrinking deadlines favored a Lord of Time and defeated her as a Muse of Space. Immortal but trapped in the spent session, she accepted Echidna's alternative bargain.",
+          "sourcePage": 7615,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7616,
+            6019,
+            6020
           ]
         }
       ]
@@ -27830,6 +29555,20 @@ window.HOMESTUCK_REFERENCE = {
             7424,
             7447
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Yaldabaoth",
+          "aliases": [],
+          "definition": "Caliborn's exceptionally powerful denizen, associated with his final challenge. Caliborn's masterpiece attributes his future invincibility to victory over Yaldabaoth, but that account precedes the confrontation. He now enters the lair and presents a key before the towering creature; neither the battle nor its outcome has yet been shown.",
+          "sourcePage": 8065,
+          "sourcePages": [
+            8066,
+            8082,
+            7412,
+            7447
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -28090,13 +29829,14 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "Vriska recreates the Equius and Lil Hal sprite in the revised session. He works on disabling Jane's tiaratop while trading horse puns and refusing Dave's overtures toward a brotherly reunion. His role in Caliborn's future-battle account remains distinct from this present work on the sleeping Jane.",
-          "sourcePage": 7449,
+          "definition": "The revised-session combination of Equius and Lil Hal disables Jane's tiaratop, then oversees the final release of the grist hoards. Davepeta's arrival allows a reunion with both his former moirail and a version of Dave. Their extravagant bro hug is distinct from his role in Caliborn's future-battle account.",
+          "sourcePage": 7583,
           "sourceKind": "composite",
           "sourcePages": [
-            7458,
-            7510,
-            7512
+            7912,
+            7923,
+            7924,
+            7928
           ]
         }
       ],
@@ -29058,6 +30798,20 @@ window.HOMESTUCK_REFERENCE = {
             6411,
             6901
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Echidna",
+          "aliases": [],
+          "definition": "Jade's denizen agrees to release the Genesis Frog after Kanaya promises to protect Karkat and help restore their people. The alternate Calliope describes a separate bargain with her Echidna: death and a long wait, followed by a duty she departs to fulfill. Neither promise means the new universe is already complete.",
+          "sourcePage": 7636,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7639,
+            7615,
+            7616,
+            7932
+          ]
         }
       ]
     },
@@ -29319,6 +31073,24 @@ window.HOMESTUCK_REFERENCE = {
             7368,
             7378
           ]
+        },
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Terezi's scarf",
+          "aliases": [
+            "Instruction scarf",
+            "Bloody scarf"
+          ],
+          "definition": "The dying Terezi's blood-written instructions guide John's retcon interventions, culminating in Vriska's survival. Vriska later interprets the wallet request as a means of saving Earth. She deciphers its code, upgrades her modus and captchalogues the planet; John does not literally deliver the requested wallet.",
+          "sourcePage": 7174,
+          "sourcePages": [
+            7175,
+            7181,
+            7378,
+            7539,
+            7540
+          ],
+          "sourceKind": "composite"
         }
       ]
     },
@@ -29357,12 +31129,16 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Tavrosprite",
           "aliases": [],
-          "definition": "Vriska prototypes Tavros's preserved body into the blue sprite in the revised session. He befriends Jake and tries to rebuild his confidence, drawing on his own struggles with self-esteem. Vriska warns him against hugging Jake because his remaining prototyping slot could fuse them together.",
-          "sourcePage": 7458,
+          "definition": "Vriska's revised-session guide befriends Jake before receiving his hidden assignment: catch GCat. The cat's contact completes his second prototyping and creates Gcatavrosprite, combining Tavros's personality with First Guardian abilities. Vriska puts the fusion to sleep to keep it out of the battle.",
+          "sourcePage": 7497,
           "sourceKind": "composite",
           "sourcePages": [
-            7497,
-            7498
+            7831,
+            7833,
+            7834,
+            7835,
+            7837,
+            7838
           ]
         }
       ]
@@ -29376,12 +31152,14 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Rosesprite",
           "aliases": [],
-          "definition": "The Rose who died in the original catastrophe returns when Jaspersprite digs up her body on LOWAS and prototypes it into Roxy's kernel. She has Seer insight and sprite knowledge, but remains a separate person from the living revised-history Rose. Her unexpected return confuses both Roses and Roxy.",
+          "definition": "The original-history Rose returns through Roxy's kernel, but her independent sprite form is brief. Jaspersprite's affectionate contact fuses them into Jasprosesprite². The new being inherits her insight and memories while developing a distinct identity, separate from both Rosesprite and the living revised-history Rose.",
           "sourcePage": 7505,
           "sourceKind": "composite",
           "sourcePages": [
-            7506,
-            7507
+            7588,
+            7591,
+            7650,
+            7895
           ]
         }
       ]
@@ -29410,7 +31188,213 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ]
+    },
+    {
+      "id": "person-gcatavrosprite",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Gcatavrosprite",
+          "aliases": [],
+          "definition": "Vriska has Jake lure GCat into Tavrosprite, completing the guide's second prototyping. The combination gains the cat's First Guardian abilities; Jake worries that Tavros's cat allergy may now apply to himself. Vriska immediately puts him to sleep to keep another powerful, unpredictable animal out of the battle.",
+          "sourcePage": 7833,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7834,
+            7835,
+            7837,
+            7838
+          ]
+        }
+      ],
+      "characterId": "gcatavrosprite"
+    },
+    {
+      "id": "person-jasprosesprite",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Jasprosesprite²",
+          "aliases": [
+            "Jasprose",
+            "Jasprosesprite^2",
+            "Jasprosesprite squared"
+          ],
+          "definition": "Jaspersprite's affectionate contact with Rosesprite creates a new squared sprite. Jasprose combines feline impulses, Rose's insight and memories from alternate selves. She arranges Nepeta's return and a tea date, then faces unexpected loneliness when Nepetasprite joins Davesprite. She also takes responsibility for transporting Jane between patients.",
+          "sourcePage": 7591,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7650,
+            7818,
+            7874,
+            7895,
+            7896
+          ]
+        }
+      ],
+      "characterId": "jasprosesprite"
+    },
+    {
+      "id": "person-davepetasprite",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Davepetasprite²",
+          "aliases": [
+            "Davepeta",
+            "Davepetasprite^2",
+            "Davepetasprite squared"
+          ],
+          "definition": "A handshake between Davesprite and Nepetasprite produces a new squared sprite who embraces their combined identity. Davepeta remembers many versions of both components, reconciles with Arquiusprite, and explains the ultimate self to Jade. They wake Jade by attacking her dream-bubble form before continuing their search for Lord English.",
+          "sourcePage": 7877,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7879,
+            7895,
+            7896,
+            7923,
+            8006,
+            8011,
+            8013
+          ]
+        }
+      ],
+      "characterId": "davepetasprite"
+    },
+    {
+      "id": "person-nepetasprite",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Nepetasprite",
+          "aliases": [],
+          "definition": "Jasprose prototypes Nepeta's preserved head into Jake's unused kernel. The revived troll joins a tea party and cautiously accepts Jasprose's romantic attention. Her brief independent existence ends when a handshake with the original-history Davesprite creates Davepetasprite², a distinct new person rather than a return to Fefetasprite.",
+          "sourcePage": 7814,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7818,
+            7820,
+            7873,
+            7874,
+            7876,
+            7877
+          ]
+        }
+      ],
+      "characterId": "nepetasprite"
+    },
+    {
+      "id": "person-alternate-calliope",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Calliope (alternate)",
+          "aliases": [
+            "Alternate Calliope",
+            "Alt Calliope"
+          ],
+          "definition": "The Calliope who predominated over her brother meets her gentler counterpart in Echidna's remembered lair. She describes an unwinnable dead session and accepting death in exchange for a later duty. The other Calliope's arrival signals her departure; she guides Jade toward the Green Sun, then leaves to fulfill her promise.",
+          "sourcePage": 7614,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7615,
+            7616,
+            7618,
+            7619,
+            7998,
+            8000
+          ]
+        }
+      ],
+      "characterId": "alternate-calliope"
+    },
+    {
+      "id": "sprite-squared",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Sprite squared",
+          "aliases": [
+            "Sprite²",
+            "Sprite^2",
+            "Squared sprite"
+          ],
+          "definition": "A new composite formed when two sprites merge. Jasprose and Davepeta retain their components' memories while describing a much broader awareness of alternate selves. The resulting identity is more than either component alone; squaring is not simply a god-tier ascension or the ordinary addition of a second corpse to one guide.",
+          "sourcePage": 7591,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7650,
+            7877,
+            7895,
+            8006
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ultimate-self",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Ultimate self",
+          "aliases": [],
+          "definition": "Davepeta's name for a greater, timeless identity encompassing every version of a person across paradox space. Ordinary bodies partition those memories, making experience feel linear. Squared sprites can access more of that shared experience without being overwhelmed; Davepeta describes the understanding as liberating, rather than proof that individual lives cease to matter.",
+          "sourcePage": 8006,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7895
+          ]
+        }
+      ]
+    },
+    {
+      "id": "grist-rig",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Grist rig",
+          "aliases": [
+            "Grist rigs"
+          ],
+          "definition": "A device placed atop a fully built tower to release a land's grist hoard into Skaia. The grist supplies what is needed for the Genesis Frog to mature. Arquiusprite oversees this release in the revised session; lighting the Forge remains a separate step.",
+          "sourcePage": 7541,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7912,
+            7923,
+            7932
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eight-ball-wallet",
+      "reveal": "act-6-act-6-intermission-5",
+      "variants": [
+        {
+          "from": "act-6-act-6-intermission-5",
+          "term": "Eight-ball wallet modus",
+          "aliases": [
+            "8 ball modus",
+            "Eight ball modus",
+            "Earth card"
+          ],
+          "definition": "Vriska upgrades her eight-ball modus using a deciphered copy of John's dad's wallet code. After the meteor reaches the flooded post-Scratch Earth, she captchalogues the whole planet and gives it to John. The plan is to pass Earth to Jade for settlement in the new universe, after the battle.",
+          "sourcePage": 7539,
+          "sourceKind": "composite",
+          "sourcePages": [
+            7540
+          ]
+        }
+      ]
     }
-  ],
-  "conceptsInProgressThrough": "act-6-act-6-intermission-5"
+  ]
 };
