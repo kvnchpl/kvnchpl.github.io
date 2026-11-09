@@ -445,6 +445,31 @@ window.HOMESTUCK_REFERENCE = {
           "value": "PRE-SCRATCH GUARDIANS & SPRITES",
           "sourcePage": 4117,
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "PRE-SCRATCH GUARDIANS & PETS",
+          "sourcePage": 88,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            919,
+            2927
+          ]
+        }
+      ]
+    },
+    {
+      "id": "pre-scratch-sprites",
+      "title": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "PRE-SCRATCH SPRITES",
+          "sourcePage": 420,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            1651,
+            3213
+          ]
         }
       ]
     },
@@ -460,6 +485,33 @@ window.HOMESTUCK_REFERENCE = {
             4168
           ],
           "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "POST-SCRATCH GUARDIANS & PETS",
+          "sourcePage": 4123,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4145,
+            4168,
+            4426
+          ]
+        }
+      ]
+    },
+    {
+      "id": "post-scratch-sprites",
+      "title": [
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "POST-SCRATCH SPRITES",
+          "sourcePage": 5516,
+          "sourceKind": "editorial",
+          "sourcePages": [
+            4834,
+            5533,
+            5656
+          ]
         }
       ]
     },
@@ -697,7 +749,7 @@ window.HOMESTUCK_REFERENCE = {
         },
         {
           "from": "act-5-act-1",
-          "value": "THE FELT & ASSOCIATES",
+          "value": "LORD ENGLISH & ASSOCIATES",
           "sourcePage": 1155,
           "sourcePages": [
             1267,
@@ -5404,7 +5456,20 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "nannasprite",
-      "group": "guardians-sprites",
+      "group": [
+        {
+          "from": "act-2",
+          "value": "guardians-sprites",
+          "sourcePage": 420,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "pre-scratch-sprites",
+          "sourcePage": 420,
+          "sourceKind": "editorial"
+        }
+      ],
       "reveal": "act-2",
       "introPage": 420,
       "name": [
@@ -5466,7 +5531,20 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "jaspersprite",
-      "group": "guardians-sprites",
+      "group": [
+        {
+          "from": "act-4",
+          "value": "guardians-sprites",
+          "sourcePage": 1626,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "pre-scratch-sprites",
+          "sourcePage": 1626,
+          "sourceKind": "editorial"
+        }
+      ],
       "reveal": "act-4",
       "introPage": 1626,
       "name": [
@@ -5544,7 +5622,20 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "davesprite",
-      "group": "guardians-sprites",
+      "group": [
+        {
+          "from": "act-4",
+          "value": "guardians-sprites",
+          "sourcePage": 1651,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "pre-scratch-sprites",
+          "sourcePage": 1651,
+          "sourceKind": "editorial"
+        }
+      ],
       "reveal": "act-4",
       "introPage": 1651,
       "name": [
@@ -5655,7 +5746,20 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "jadesprite",
-      "group": "guardians-sprites",
+      "group": [
+        {
+          "from": "act-5-act-2-part-1",
+          "value": "guardians-sprites",
+          "sourcePage": 3213,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "pre-scratch-sprites",
+          "sourcePage": 3213,
+          "sourceKind": "editorial"
+        }
+      ],
       "reveal": "act-5-act-2-part-1",
       "introPage": 3213,
       "name": [
@@ -6394,7 +6498,20 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "tavrisprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": [
+        {
+          "from": "act-6-act-3",
+          "value": "post-scratch-guardians-sprites",
+          "sourcePage": 4834,
+          "sourceKind": "editorial"
+        },
+        {
+          "from": "act-6-act-5-part-1",
+          "value": "post-scratch-sprites",
+          "sourcePage": 4834,
+          "sourceKind": "editorial"
+        }
+      ],
       "reveal": "act-6-act-3",
       "introPage": 4834,
       "sourcePage": 4834,
@@ -6490,7 +6607,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "fefetasprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-5-part-1",
       "introPage": 5520,
       "sourcePage": 5520,
@@ -6595,7 +6712,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "arquiusprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-5-part-1",
       "introPage": 5655,
       "sourcePage": 5655,
@@ -6722,7 +6839,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "erisolsprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-5-part-1",
       "introPage": 5512,
       "sourcePage": 5512,
@@ -6800,7 +6917,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "tavrosprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-6-intermission-5",
       "introPage": 7458,
       "sourcePage": 7458,
@@ -6891,7 +7008,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "rosesprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-6-intermission-5",
       "introPage": 7505,
       "sourcePage": 7505,
@@ -6993,7 +7110,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "gcatavrosprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-6-intermission-5",
       "introPage": 7835,
       "sourcePage": 7835,
@@ -7122,7 +7239,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "jasprosesprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-6-intermission-5",
       "introPage": 7591,
       "sourcePage": 7591,
@@ -7239,7 +7356,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "davepetasprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-6-intermission-5",
       "introPage": 7879,
       "sourcePage": 7879,
@@ -7371,7 +7488,7 @@ window.HOMESTUCK_REFERENCE = {
     },
     {
       "id": "nepetasprite",
-      "group": "post-scratch-guardians-sprites",
+      "group": "post-scratch-sprites",
       "reveal": "act-6-act-6-intermission-5",
       "introPage": 7820,
       "sourcePage": 7820,
