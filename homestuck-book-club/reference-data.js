@@ -186,7 +186,7 @@ window.HOMESTUCK_REFERENCE = {
     {
       "value": 19,
       "key": "act-6-act-5-part-1",
-      "label": "Act 6 Act 5 Act 1",
+      "label": "Act 6 Act 5: Of Gods and Tricksters (Act 1)",
       "shortLabel": "A6A5A1",
       "endPage": 5713,
       "sourcePage": 5713,
@@ -196,7 +196,7 @@ window.HOMESTUCK_REFERENCE = {
     {
       "value": 20,
       "key": "act-6-act-5",
-      "label": "Act 6 Act 5 Act 2",
+      "label": "Act 6 Act 5: Of Gods and Tricksters (Act 2)",
       "shortLabel": "A6A5A2",
       "endPage": 5926,
       "sourcePage": 5926,
