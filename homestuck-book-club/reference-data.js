@@ -1,7 +1,7 @@
 // Spoiler-aware reference data.
 // Variants apply from their reading stage until superseded by a later variant.
 window.HOMESTUCK_REFERENCE = {
-  "availableThrough": "act-5-act-2-part-1",
+  "availableThrough": "act-5-act-2-part-2",
   "stages": [
     {
       "value": 1,
@@ -78,8 +78,8 @@ window.HOMESTUCK_REFERENCE = {
       "key": "act-5-act-2-part-2",
       "label": "Act 5 Act 2 (Part 2)",
       "shortLabel": "A5A2P2",
-      "endPage": 3762,
-      "sourcePage": 3762,
+      "endPage": 3760,
+      "sourcePage": 3760,
       "sourceKind": "boundary",
       "section": "Part 2"
     },
