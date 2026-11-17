@@ -3040,6 +3040,16 @@ window.HOMESTUCK_REFERENCE = {
               ]
             },
             {
+              "from": "act-5-act-2-part-2",
+              "label": "Powers",
+              "value": "Psionics",
+              "sourcePage": 2077,
+              "sourcePages": [
+                3477
+              ],
+              "sourceKind": "composite"
+            },
+            {
               "from": "act-6-intermission-1",
               "label": "Powers",
               "value": "Telekinetic force",
@@ -3078,6 +3088,28 @@ window.HOMESTUCK_REFERENCE = {
         {
           "id": "condition",
           "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Condition",
+              "value": "Blind after Eridan's attack",
+              "sourcePage": 3476,
+              "sourcePages": [
+                3477
+              ],
+              "sourceKind": "composite"
+            },
+            {
+              "from": "act-5-act-2-part-3",
+              "label": "Condition",
+              "value": "Blind; ghost half can see the Green Sun",
+              "sourcePage": 3476,
+              "sourcePages": [
+                3998,
+                3999,
+                4000
+              ],
+              "sourceKind": "composite"
+            },
             {
               "from": "act-6-intermission-5",
               "label": "Condition",
@@ -3292,7 +3324,7 @@ window.HOMESTUCK_REFERENCE = {
           "variants": [
             {
               "label": "Fetch modus",
-              "value": "Encryption initially; later exchanges modi with Sollux Captor",
+              "value": "Encryption (later exchanged with Sollux Captor)",
               "sourcePage": 1999,
               "sourceKind": "direct",
               "from": "act-5-act-1"
@@ -17957,7 +17989,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Sprite",
           "aliases": [],
-          "definition": "The guide left when a kernelsprite's kernel divides upon entry. A sprite retains traits of its prototypes and gains knowledge of the game, although it may be cryptic or unhelpful; a living person can join one, as future Dave does to become Davesprite.",
+          "definition": "The guide left when a kernelsprite's kernel divides upon entry. A sprite retains traits of its prototypes and gains knowledge of the game, although it may be cryptic or unhelpful; a living person can join one, as a doomed-timeline Dave does to become Davesprite.",
           "sourcePage": 251,
           "sourceKind": "composite",
           "sourcePages": [
@@ -17971,7 +18003,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Sprite",
           "aliases": [],
-          "definition": "The guide left when a kernelsprite's kernel divides upon entry, retaining traits of its prototypes and gaining knowledge of the game. A living person can join one, as Dave does to become Davesprite; the trolls mostly prototype dead lusii, gaining guides they can finally speak with.",
+          "definition": "The guide left when a kernelsprite's kernel divides upon entry, retaining traits of its prototypes and gaining knowledge of the game. A living person can join one, as a doomed-timeline Dave does to become Davesprite; the trolls mostly prototype dead lusii, gaining guides they can finally speak with.",
           "sourcePage": 251,
           "sourcePages": [
             281,
@@ -18082,7 +18114,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "The Ultimate Riddle"
           ],
-          "definition": "The larger mystery expressed through poems, clues, and quests in Sburb. Karkat explains that its themes include the players bringing about their own existence through the game, as John's paradox clones demonstrate; he says this is only part of its meaning.",
+          "definition": "The larger mystery expressed through poems, clues, and quests in Sburb. carcinoGeneticist explains that its themes include the players bringing about their own existence through the game, as John's paradox clones demonstrate; he says this is only part of its meaning.",
           "sourcePage": 425,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23739,7 +23771,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "A Dave from a doomed future who travels back and prototypes himself into Crowsprite. He becomes the surviving Dave's sprite guide, retaining his own experiences rather than simply being another point along that Dave's timeline.",
+          "definition": "A Dave from a doomed future who travels back and prototypes himself into Crowsprite, becoming the present Dave's sprite guide. He retains the experiences of his own failed timeline.",
           "sourcePage": 1651,
           "sourcePages": [
             1674
@@ -24498,7 +24530,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "DD"
           ],
-          "definition": "One of Jack Noir's agents in the kids' session. He is the counterpart of Diamonds Droog, but belongs to this session's royal bureaucracy rather than being the Midnight Crew member himself.",
+          "definition": "An agent of the Dark Kingdom serving Jack Noir in the kids' session. Alongside the Courtyard Droll and Hegemonic Brute, he belongs to the royal bureaucracy; Diamonds Droog is his counterpart in the trolls' session.",
           "sourcePage": 1988,
           "sourcePages": [
             1674
@@ -24518,7 +24550,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "CD"
           ],
-          "definition": "One of Jack Noir's lackeys in the kids' session. He and his counterpart Clubs Deuce are separate people serving different gangs.",
+          "definition": "Jack Noir's lackey in the kids' session, serving the Dark Kingdom alongside the Draconian Dignitary and Hegemonic Brute. Clubs Deuce is his counterpart in the trolls' session.",
           "sourcePage": 1784,
           "sourcePages": [
             1988,
@@ -24567,7 +24599,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "HB"
           ],
-          "definition": "Jack Noir's muscle in the kids' session, and the counterpart of Hearts Boxcars. He is killed during the upheaval around Jack's seizure of power; the Midnight Crew's Boxcars remains a separate character.",
+          "definition": "Jack Noir's muscle in the kids' session and the counterpart of Hearts Boxcars. He is killed during the upheaval around Jack's seizure of power, while Boxcars takes part in the Midnight Crew's separate campaign against the Felt.",
           "sourcePage": 1674,
           "sourcePages": [
             1988,
@@ -24707,13 +24739,14 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Diamonds Droog",
           "aliases": [],
-          "definition": "A suit-loving member of the Midnight Crew, armed with an Ultra-Violence Cuestick. His counterpart in the kids' session is the Draconian Dignitary, one of Jack Noir's agents; the two retain separate identities.",
+          "definition": "A suit-loving Midnight Crew member armed with an Ultra-Violence Cuestick, storing his equipment in a Brawlsoleum. His counterpart in the kids' session is the Draconian Dignitary, one of Jack Noir's agents.",
           "sourcePage": 1200,
           "sourcePages": [
             1231,
             1674,
             1988,
-            1155
+            1155,
+            1199
           ],
           "sourceKind": "composite"
         }
@@ -24740,7 +24773,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Clubs Deuce",
           "aliases": [],
-          "definition": "A Midnight Crew member equipped with the Crook of Felony and a Battledrobe. His counterpart in the kids' session is the Courtyard Droll, one of Jack Noir's lackeys, rather than another identity for Deuce himself.",
+          "definition": "A Midnight Crew member equipped with the Crook of Felony and a Battledrobe full of assorted weapons. The Courtyard Droll, one of Jack Noir's agents, is his counterpart in the kids' session.",
           "sourcePage": 1178,
           "sourcePages": [
             1192,
@@ -24772,7 +24805,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Hearts Boxcars",
           "aliases": [],
-          "definition": "The Midnight Crew's muscle and safecracker, responsible for cracking the Felt's vault during the raid. His counterpart in the kids' session is the Hegemonic Brute; their similar appearances do not make them the same person.",
+          "definition": "The Midnight Crew's heavy muscle and safecracker, sent to open Lord English's vault during the raid on the Felt's mansion. The Hegemonic Brute is his counterpart in the kids' session.",
           "sourcePage": 1172,
           "sourcePages": [
             1674,
