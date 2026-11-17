@@ -905,6 +905,34 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Stack · Queue",
+              "sourcePage": 10,
+              "sourceKind": "composite",
+              "from": "act-1",
+              "sourcePages": [
+                142
+              ]
+            },
+            {
+              "label": "Fetch modus",
+              "value": "Array of Queuestacks",
+              "sourcePage": 970,
+              "sourceKind": "composite",
+              "from": "act-3",
+              "sourcePages": [
+                965,
+                967,
+                968,
+                969
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1076,6 +1104,30 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Dad",
+              "sourcePage": 70,
+              "sourceKind": "direct",
+              "from": "act-1"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Nanna · Grandpa (parental DNA); Jade Harley (sister)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
+            }
+          ]
+        },
+        {
           "id": "interests",
           "variants": [
             {
@@ -1227,6 +1279,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Tree",
+              "sourcePage": 154,
+              "sourceKind": "composite",
+              "from": "act-1",
+              "sourcePages": [
+                224
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1356,6 +1423,30 @@ window.HOMESTUCK_REFERENCE = {
           "until": "act-6-act-6-intermission-5"
         },
         {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Mom",
+              "sourcePage": 365,
+              "sourceKind": "direct",
+              "from": "act-2"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Mom · Bro (parental DNA); Dave Strider (brother)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
+            }
+          ]
+        },
+        {
           "id": "counterpart",
           "variants": [
             {
@@ -1368,6 +1459,39 @@ window.HOMESTUCK_REFERENCE = {
                 4872,
                 4706
               ]
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Kanaya Maryam (partner)",
+              "sourcePage": 5421,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-3",
+              "sourcePages": [
+                5409
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Kanaya Maryam (partner in original history)",
+              "sourcePage": 5421,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6901,
+                7405
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Kanaya Maryam (partner in revised history)",
+              "sourcePage": 7779,
+              "sourceKind": "direct",
+              "from": "act-6-act-6-intermission-5"
             }
           ]
         },
@@ -1524,6 +1648,25 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Hash Map",
+              "sourcePage": 319,
+              "sourceKind": "direct",
+              "from": "act-2"
+            },
+            {
+              "label": "Fetch modus",
+              "value": "Hash Map (Scrabble values)",
+              "sourcePage": 1085,
+              "sourceKind": "direct",
+              "from": "act-3"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -1607,6 +1750,30 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Bro",
+              "sourcePage": 419,
+              "sourceKind": "direct",
+              "from": "act-2"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Mom · Bro (parental DNA); Rose Lalonde (sister)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
+            }
+          ]
+        },
+        {
           "id": "counterpart",
           "variants": [
             {
@@ -1618,6 +1785,39 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 4872,
                 4706
+              ]
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Terezi Pyrope (partner)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
+            },
+            {
+              "label": "Relationships",
+              "value": "Terezi Pyrope (former partner)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-5",
+              "sourcePages": [
+                6019
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Terezi Pyrope (former partner in original history)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6019,
+                7405
               ]
             }
           ]
@@ -1845,6 +2045,32 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Memory",
+              "sourcePage": 773,
+              "sourceKind": "composite",
+              "from": "act-3",
+              "sourcePages": [
+                772
+              ]
+            },
+            {
+              "label": "Fetch modus",
+              "value": "Pictionary",
+              "sourcePage": 1375,
+              "sourceKind": "composite",
+              "from": "act-4",
+              "sourcePages": [
+                1368,
+                1372
+              ]
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -2068,6 +2294,59 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-act-6-act-6"
+        },
+        {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Grandpa · Becquerel",
+              "sourcePage": 790,
+              "sourceKind": "composite",
+              "from": "act-3",
+              "sourcePages": [
+                919
+              ]
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Nanna · Grandpa (parental DNA); John Egbert (brother)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Davesprite (former partner)",
+              "sourcePage": 5294,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-3",
+              "sourcePages": [
+                5292
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Davesprite (former partner in original history)",
+              "sourcePage": 5294,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6901,
+                7405
+              ]
+            }
+          ]
         },
         {
           "id": "interests",
@@ -2572,6 +2851,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Tinkerbull",
+              "sourcePage": 2102,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -2809,6 +3100,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Bicyclops",
+              "sourcePage": 2094,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -2985,6 +3288,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Encryption initially; later exchanges modi with Sollux Captor",
+              "sourcePage": 1999,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -3069,6 +3384,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Crab lusus",
+              "sourcePage": 2069,
+              "sourceKind": "visual",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -3085,15 +3412,15 @@ window.HOMESTUCK_REFERENCE = {
           "variants": [
             {
               "from": "act-5-act-2-part-3",
-              "label": "Moirail",
-              "value": "Gamzee Makara",
+              "label": "Relationships",
+              "value": "Gamzee Makara (moirail)",
               "sourcePage": 4096,
               "sourceKind": "direct"
             },
             {
               "from": "act-6-intermission-5",
-              "label": "Moirail",
-              "value": "Formerly Gamzee Makara",
+              "label": "Relationships",
+              "value": "Gamzee Makara (former moirail)",
               "sourcePage": 5937,
               "sourceKind": "composite",
               "sourcePages": [
@@ -3101,9 +3428,20 @@ window.HOMESTUCK_REFERENCE = {
               ]
             },
             {
+              "from": "act-6-act-6-intermission-4",
+              "label": "Relationships",
+              "value": "Gamzee Makara (former moirail; original history)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "sourcePages": [
+                6018,
+                7405
+              ]
+            },
+            {
               "from": "act-6-act-6-intermission-5",
-              "label": "Moirail",
-              "value": "Formerly Gamzee Makara (original history)",
+              "label": "Relationships",
+              "value": "Gamzee Makara (former moirail; original history)",
               "sourcePage": 7459,
               "sourceKind": "composite",
               "sourcePages": [
@@ -3274,6 +3612,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Pounce de Leon",
+              "sourcePage": 2158,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -3282,6 +3632,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "The Disciple",
               "sourcePage": 4058,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Equius Zahhak (moirail)",
+              "sourcePage": 2401,
+              "sourceKind": "visual",
+              "from": "act-5-act-1"
             }
           ]
         },
@@ -3463,6 +3825,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Chastity",
+              "sourcePage": 2337,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -3570,6 +3944,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Mother Grub",
+              "sourcePage": 2331,
+              "sourceKind": "visual",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -3578,6 +3964,39 @@ window.HOMESTUCK_REFERENCE = {
               "value": "The Dolorosa",
               "sourcePage": 4057,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Rose Lalonde (partner)",
+              "sourcePage": 5421,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-3",
+              "sourcePages": [
+                5409
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Rose Lalonde (partner in original history)",
+              "sourcePage": 5421,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6901,
+                7405
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Rose Lalonde (partner in revised history)",
+              "sourcePage": 7779,
+              "sourceKind": "direct",
+              "from": "act-6-act-6-intermission-5"
             }
           ]
         },
@@ -3711,6 +4130,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Prospit",
               "sourcePage": 2505,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Scratch and Sniff",
+              "sourcePage": 2526,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
             }
           ]
         },
@@ -3866,6 +4297,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Dragon lusus",
+              "sourcePage": 2126,
+              "sourceKind": "composite",
+              "from": "act-5-act-1",
+              "sourcePages": [
+                2127
+              ]
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -3881,12 +4327,51 @@ window.HOMESTUCK_REFERENCE = {
           "id": "moirail",
           "variants": [
             {
-              "from": "act-6-act-6-intermission-5",
-              "label": "Moirail",
-              "value": "Vriska Serket (revised history)",
-              "sourcePage": 7500,
+              "label": "Relationships",
+              "value": "Dave Strider (partner) · Gamzee Makara (kismesis)",
+              "sourcePage": 5308,
               "sourceKind": "composite",
+              "from": "act-6-intermission-3",
               "sourcePages": [
+                5413
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Dave Strider (former partner) · Gamzee Makara (kismesis)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-5",
+              "sourcePages": [
+                6019,
+                5413
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Dave Strider (former partner in original history) · Gamzee Makara (kismesis in original history)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6019,
+                7405,
+                5413,
+                6901
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Dave Strider (former partner in original history) · Gamzee Makara (kismesis in original history) · Vriska Serket (moirail; revised history)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-5",
+              "sourcePages": [
+                6019,
+                7405,
+                5413,
+                6901,
+                7500,
                 7501
               ]
             }
@@ -4068,6 +4553,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Eight-ball, upgraded with a wallet",
+              "sourcePage": 7540,
+              "sourceKind": "direct",
+              "from": "act-6-act-6-intermission-5"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -4227,6 +4724,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Spidermom",
+              "sourcePage": 2273,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -4242,12 +4751,22 @@ window.HOMESTUCK_REFERENCE = {
           "id": "moirail",
           "variants": [
             {
-              "from": "act-6-act-6-intermission-5",
-              "label": "Moirail",
-              "value": "Terezi Pyrope (revised history)",
-              "sourcePage": 7500,
+              "label": "Relationships",
+              "value": "Meenah Peixes (partner of original-history ghost)",
+              "sourcePage": 7351,
+              "sourceKind": "direct",
+              "from": "act-6-act-6-intermission-4"
+            },
+            {
+              "label": "Relationships",
+              "value": "Meenah Peixes (former partner of original-history ghost) · Terezi Pyrope (moirail; revised history)",
+              "sourcePage": 7794,
               "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-5",
               "sourcePages": [
+                7799,
+                7800,
+                7500,
                 7508
               ]
             }
@@ -4418,6 +4937,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Aurthour",
+              "sourcePage": 2212,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -4426,6 +4957,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Darkleer",
               "sourcePage": 3756,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Nepeta Leijon (moirail)",
+              "sourcePage": 2401,
+              "sourceKind": "visual",
+              "from": "act-5-act-1"
             }
           ]
         },
@@ -4601,6 +5144,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Miracle",
+              "sourcePage": 2013,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -4727,6 +5282,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Goat lusus",
+              "sourcePage": 2024,
+              "sourceKind": "composite",
+              "from": "act-5-act-1",
+              "sourcePages": [
+                2019
+              ]
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -4742,33 +5312,59 @@ window.HOMESTUCK_REFERENCE = {
           "id": "moirail",
           "variants": [
             {
-              "from": "act-5-act-2-part-3",
-              "label": "Moirail",
-              "value": "Karkat Vantas",
+              "label": "Relationships",
+              "value": "Karkat Vantas (moirail)",
               "sourcePage": 4096,
-              "sourceKind": "direct"
+              "sourceKind": "direct",
+              "from": "act-5-act-2-part-3"
             },
             {
-              "from": "act-6-intermission-5",
-              "label": "Moirail",
-              "value": "Formerly Karkat Vantas",
-              "sourcePage": 5937,
+              "label": "Relationships",
+              "value": "Karkat Vantas (moirail) · Terezi Pyrope (kismesis)",
+              "sourcePage": 4096,
               "sourceKind": "composite",
+              "from": "act-6-intermission-3",
               "sourcePages": [
-                6018
+                5413
               ]
             },
             {
-              "from": "act-6-act-6-intermission-5",
-              "label": "Moirail",
-              "value": "Formerly Karkat Vantas (original history)",
+              "label": "Relationships",
+              "value": "Karkat Vantas (former moirail) · Terezi Pyrope (kismesis)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-5",
+              "sourcePages": [
+                6018,
+                5413
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Karkat Vantas (former moirail; original history) · Terezi Pyrope (kismesis in original history)",
+              "sourcePage": 5937,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6018,
+                5413,
+                7405
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Karkat Vantas (former moirail; original history) · Terezi Pyrope (kismesis in original history)",
               "sourcePage": 7459,
               "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-5",
               "sourcePages": [
                 5937,
                 6018,
                 7510,
-                7512
+                7512,
+                5413,
+                6901,
+                7405
               ]
             }
           ]
@@ -4957,6 +5553,21 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Feferi Peixes (former moirail)",
+              "sourcePage": 2467,
+              "sourceKind": "composite",
+              "from": "act-5-act-1",
+              "sourcePages": [
+                2448
+              ]
+            }
+          ]
+        },
+        {
           "id": "interests",
           "variants": [
             {
@@ -5127,6 +5738,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "lusus",
+          "variants": [
+            {
+              "label": "Lusus",
+              "value": "Gl’bgolyb",
+              "sourcePage": 2441,
+              "sourceKind": "direct",
+              "from": "act-5-act-1"
+            }
+          ]
+        },
+        {
           "id": "ancestor",
           "variants": [
             {
@@ -5135,6 +5758,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "The Condesce",
               "sourcePage": 4063,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Eridan Ampora (former moirail)",
+              "sourcePage": 2467,
+              "sourceKind": "composite",
+              "from": "act-5-act-1",
+              "sourcePages": [
+                2448
+              ]
             }
           ]
         },
@@ -5293,6 +5931,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual"
             }
           ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Rose Lalonde · Dave Strider (children through ectobiology)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
+            }
+          ]
         }
       ],
       "sourcePage": 388,
@@ -5379,6 +6029,18 @@ window.HOMESTUCK_REFERENCE = {
               ]
             }
           ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Rose Lalonde · Dave Strider (children through ectobiology)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
+            }
+          ]
         }
       ],
       "sourcePage": 757,
@@ -5446,6 +6108,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Deceased on Earth",
               "sourcePage": 920,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "John Egbert · Jade Harley (children through ectobiology)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
             }
           ]
         }
@@ -5521,6 +6195,18 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Nanna's ashes + Harlequinsprite",
               "sourcePage": 281,
               "sourceKind": "visual"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Nanna's children: John Egbert · Jade Harley (through ectobiology)",
+              "sourcePage": 1988,
+              "sourceKind": "direct",
+              "from": "act-4"
             }
           ]
         }
@@ -5738,6 +6424,32 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-intermission-2"
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Jade Harley (former partner)",
+              "sourcePage": 5294,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-3",
+              "sourcePages": [
+                5292
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Jade Harley (former partner in original history)",
+              "sourcePage": 5294,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                6901,
+                7405
+              ]
+            }
+          ]
         }
       ],
       "sourcePage": 1651,
@@ -6259,7 +6971,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-3",
               "label": "Role",
-              "value": "Roxy's genetic ancestor; wizard novelist and resistance fighter",
+              "value": "Wizard novelist and resistance fighter",
               "sourcePage": 4860,
               "sourceKind": "composite",
               "sourcePages": [
@@ -6291,6 +7003,21 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 4872
+              ]
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Roxy Lalonde (genetic descendant)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "from": "act-6-act-3",
+              "sourcePages": [
+                4861
               ]
             }
           ]
@@ -6355,7 +7082,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-3",
               "label": "Role",
-              "value": "Dirk's genetic ancestor; filmmaker and resistance fighter",
+              "value": "Filmmaker and resistance fighter",
               "sourcePage": 4860,
               "sourceKind": "composite",
               "sourcePages": [
@@ -6387,6 +7114,21 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 4872
+              ]
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Dirk Strider (genetic descendant)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "from": "act-6-act-3",
+              "sourcePages": [
+                4861
               ]
             }
           ]
@@ -8644,6 +9386,21 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "visual"
             }
           ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Ms. Paint (partner)",
+              "sourcePage": 6118,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-5",
+              "sourcePages": [
+                6119
+              ]
+            }
+          ]
         }
       ],
       "sourcePage": 1155,
@@ -9633,6 +10390,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "The Dolorosa",
+              "sourcePage": 4057,
+              "sourceKind": "direct",
+              "from": "act-5-act-2-part-3"
+            }
+          ]
+        },
+        {
           "id": "descendant",
           "variants": [
             {
@@ -9653,6 +10422,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "The Disciple (partner; bond described as transcending quadrants)",
+              "sourcePage": 4058,
+              "sourceKind": "direct",
+              "from": "act-5-act-2-part-3"
             }
           ]
         }
@@ -9730,6 +10511,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "The Signless (partner; bond described as transcending quadrants)",
+              "sourcePage": 4058,
+              "sourceKind": "direct",
+              "from": "act-5-act-2-part-3"
             }
           ]
         }
@@ -10052,6 +10845,18 @@ window.HOMESTUCK_REFERENCE = {
               ]
             }
           ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Orphaner Dualscar (kismesis)",
+              "sourcePage": 3507,
+              "sourceKind": "direct",
+              "from": "act-5-act-2-part-2"
+            }
+          ]
         }
       ],
       "sourcePage": 3475,
@@ -10314,6 +11119,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Mindfang (kismesis)",
+              "sourcePage": 3507,
+              "sourceKind": "direct",
+              "from": "act-5-act-2-part-2"
             }
           ]
         }
@@ -10686,6 +11503,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Recipe",
+              "sourcePage": 4123,
+              "sourceKind": "direct",
+              "from": "act-6-act-1"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -10743,27 +11572,9 @@ window.HOMESTUCK_REFERENCE = {
           "id": "inventory",
           "variants": [
             {
-              "from": "act-6-act-1",
-              "label": "Inventory",
-              "value": "Recipe modus",
-              "sourcePage": 4123,
-              "sourceKind": "direct"
-            },
-            {
               "from": "act-6-act-3",
               "label": "Inventory",
-              "value": "Recipe modus · Dad's wallet",
-              "sourcePage": 4953,
-              "sourceKind": "composite",
-              "sourcePages": [
-                4955,
-                4156
-              ]
-            },
-            {
-              "from": "act-6-act-5",
-              "label": "Inventory",
-              "value": "Recipe modus · Jane's dad's wallet",
+              "value": "Jane's dad's wallet",
               "sourcePage": 4953,
               "sourceKind": "composite",
               "sourcePages": [
@@ -10920,6 +11731,21 @@ window.HOMESTUCK_REFERENCE = {
             }
           ],
           "until": "act-6-act-6-intermission-3"
+        },
+        {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Jane's dad",
+              "sourcePage": 4123,
+              "sourceKind": "composite",
+              "from": "act-6-act-1",
+              "sourcePages": [
+                4125
+              ]
+            }
+          ]
         },
         {
           "id": "interests",
@@ -11100,6 +11926,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Message in a Bottle",
+              "sourcePage": 4473,
+              "sourceKind": "direct",
+              "from": "act-6-act-2"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -11148,20 +11986,12 @@ window.HOMESTUCK_REFERENCE = {
           "id": "inventory",
           "variants": [
             {
-              "from": "act-6-act-2",
-              "label": "Inventory",
-              "value": "Message in a Bottle modus",
-              "sourcePage": 4473,
-              "sourceKind": "direct"
-            },
-            {
               "from": "act-6-act-5-part-1",
               "label": "Inventory",
-              "value": "Message in a Bottle modus · Roxy's ring · Jane's dad's PDA",
-              "sourcePage": 4473,
+              "value": "Roxy's ring · Jane's dad's PDA",
+              "sourcePage": 5633,
               "sourceKind": "composite",
               "sourcePages": [
-                5633,
                 5635,
                 5636
               ]
@@ -11169,22 +11999,20 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-5",
               "label": "Inventory",
-              "value": "Message in a Bottle modus · Jane's dad's PDA",
-              "sourcePage": 4473,
+              "value": "Jane's dad's PDA",
+              "sourcePage": 5635,
               "sourceKind": "composite",
               "sourcePages": [
-                5635,
                 5813
               ]
             },
             {
               "from": "act-6-act-6-intermission-4",
               "label": "Inventory",
-              "value": "Message in a Bottle modus · Jane's dad's PDA · Dave's bro's katana · Ring of Life",
-              "sourcePage": 4473,
+              "value": "Jane's dad's PDA · Dave's bro's katana · Ring of Life",
+              "sourcePage": 5635,
               "sourceKind": "composite",
               "sourcePages": [
-                5635,
                 5813,
                 7116,
                 7119,
@@ -11195,16 +12023,15 @@ window.HOMESTUCK_REFERENCE = {
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "value": "Message in a Bottle modus · Jane's dad's PDA",
-              "sourcePage": 4473,
+              "value": "Jane's dad's PDA",
+              "sourcePage": 5635,
               "sourceKind": "composite",
+              "label": "Inventory",
               "sourcePages": [
-                5635,
                 5813,
                 7116,
                 7119
-              ],
-              "label": "Inventory"
+              ]
             }
           ]
         },
@@ -11351,6 +12178,40 @@ window.HOMESTUCK_REFERENCE = {
                 7464,
                 7468,
                 7481
+              ]
+            }
+          ]
+        },
+        {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Carapacians (Dirk's account of her childhood)",
+              "sourcePage": 4851,
+              "sourceKind": "direct",
+              "from": "act-6-act-3"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Her mother (genetic forebear)",
+              "sourcePage": 4513,
+              "sourceKind": "direct",
+              "from": "act-6-act-2"
+            },
+            {
+              "label": "Genetic family",
+              "value": "Roxy's mom (genetic forebear)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "from": "act-6-act-3",
+              "sourcePages": [
+                4513
               ]
             }
           ]
@@ -11535,6 +12396,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Tech-Hop",
+              "sourcePage": 4533,
+              "sourceKind": "direct",
+              "from": "act-6-act-2"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -11562,18 +12435,6 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Unbreakable katana (broken when Dave beheads Dirk and the two Jacks)",
               "sourcePage": 8087,
               "sourceKind": "visual"
-            }
-          ]
-        },
-        {
-          "id": "inventory",
-          "variants": [
-            {
-              "from": "act-6-act-2",
-              "label": "Inventory",
-              "value": "Tech-Hop modus",
-              "sourcePage": 4533,
-              "sourceKind": "direct"
             }
           ]
         },
@@ -11682,6 +12543,61 @@ window.HOMESTUCK_REFERENCE = {
                 8093,
                 8094,
                 6901
+              ]
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "His older brother (genetically related through recombination)",
+              "sourcePage": 4257,
+              "sourceKind": "direct",
+              "from": "act-6-act-1"
+            },
+            {
+              "label": "Genetic family",
+              "value": "Dirk's bro (genetic forebear)",
+              "sourcePage": 4860,
+              "sourceKind": "composite",
+              "from": "act-6-act-3",
+              "sourcePages": [
+                4257
+              ]
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Jake English (partner)",
+              "sourcePage": 5530,
+              "sourceKind": "direct",
+              "from": "act-6-act-5-part-1"
+            },
+            {
+              "label": "Relationships",
+              "value": "Jake English (past relationship)",
+              "sourcePage": 5798,
+              "sourceKind": "composite",
+              "from": "act-6-act-5",
+              "sourcePages": [
+                5797
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Jake English (past relationship in original history)",
+              "sourcePage": 5798,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                5797,
+                7405
               ]
             }
           ]
@@ -11867,14 +12783,14 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
-          "id": "inventory",
+          "id": "fetch-modus",
           "variants": [
             {
-              "from": "act-6-act-1",
-              "label": "Inventory",
-              "value": "Puzzle modus",
+              "label": "Fetch modus",
+              "value": "Puzzle",
               "sourcePage": 4176,
-              "sourceKind": "direct"
+              "sourceKind": "direct",
+              "from": "act-6-act-1"
             }
           ]
         },
@@ -11976,6 +12892,51 @@ window.HOMESTUCK_REFERENCE = {
                 8115,
                 6901,
                 7514
+              ]
+            }
+          ]
+        },
+        {
+          "id": "guardian",
+          "variants": [
+            {
+              "label": "Guardian",
+              "value": "Grandma (raised Jake until her death)",
+              "sourcePage": 4854,
+              "sourceKind": "direct",
+              "from": "act-6-act-3"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Dirk Strider (partner)",
+              "sourcePage": 5530,
+              "sourceKind": "direct",
+              "from": "act-6-act-5-part-1"
+            },
+            {
+              "label": "Relationships",
+              "value": "Dirk Strider (past relationship)",
+              "sourcePage": 5798,
+              "sourceKind": "composite",
+              "from": "act-6-act-5",
+              "sourcePages": [
+                5797
+              ]
+            },
+            {
+              "label": "Relationships",
+              "value": "Dirk Strider (past relationship in original history)",
+              "sourcePage": 5798,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-4",
+              "sourcePages": [
+                5797,
+                7405
               ]
             }
           ]
@@ -12145,6 +13106,18 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Juju; each sibling can retrieve only the other's items",
+              "sourcePage": 5103,
+              "sourceKind": "direct",
+              "from": "act-6-act-3"
+            }
+          ]
+        },
+        {
           "id": "strife-specibus",
           "variants": [
             {
@@ -12180,27 +13153,25 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-3",
               "label": "Inventory",
-              "value": "Juju modus · Juju chest · Rose's journal",
-              "sourcePage": 5103,
+              "value": "Juju chest · Rose's journal",
+              "sourcePage": 5108,
               "sourceKind": "composite",
               "sourcePages": [
-                5108,
                 5115
               ]
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "value": "Juju modus · Juju chest · Rose's journal · Ring of Life",
-              "sourcePage": 5103,
+              "value": "Juju chest · Rose's journal · Ring of Life",
+              "sourcePage": 5108,
               "sourceKind": "composite",
+              "label": "Inventory",
               "sourcePages": [
-                5108,
                 5115,
                 7626,
                 7627,
                 7628
-              ],
-              "label": "Inventory"
+              ]
             }
           ]
         },
@@ -12285,6 +13256,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Lime green",
               "sourcePage": 4962,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Caliborn (cherub sibling)",
+              "sourcePage": 5093,
+              "sourceKind": "composite",
+              "from": "act-6-act-3",
+              "sourcePages": [
+                5120
+              ]
             }
           ]
         },
@@ -13373,7 +14359,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-3",
               "label": "Role",
-              "value": "Calliope's hostile brother; starts a one-player session",
+              "value": "Cherub starting a one-player session",
               "sourcePage": 5093,
               "sourceKind": "composite",
               "sourcePages": [
@@ -13573,6 +14559,25 @@ window.HOMESTUCK_REFERENCE = {
           ]
         },
         {
+          "id": "fetch-modus",
+          "variants": [
+            {
+              "label": "Fetch modus",
+              "value": "Juju; each sibling can retrieve only the other's items",
+              "sourcePage": 5103,
+              "sourceKind": "direct",
+              "from": "act-6-act-3"
+            },
+            {
+              "label": "Fetch modus",
+              "value": "Juju; retrieves his own items after predominating",
+              "sourcePage": 5445,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-4"
+            }
+          ]
+        },
+        {
           "id": "weapon",
           "variants": [
             {
@@ -13598,16 +14603,9 @@ window.HOMESTUCK_REFERENCE = {
           "id": "inventory",
           "variants": [
             {
-              "from": "act-6-act-3",
-              "label": "Inventory",
-              "value": "Juju modus",
-              "sourcePage": 5103,
-              "sourceKind": "direct"
-            },
-            {
               "from": "act-6-intermission-4",
               "label": "Inventory",
-              "value": "Juju modus · Command tower keys",
+              "value": "Command tower keys",
               "sourcePage": 5445,
               "sourceKind": "composite",
               "sourcePages": [
@@ -13618,7 +14616,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-5-part-1",
               "label": "Inventory",
-              "value": "Juju modus · Command tower keys · Lil Cal",
+              "value": "Command tower keys · Lil Cal",
               "sourcePage": 5445,
               "sourceKind": "composite",
               "sourcePages": [
@@ -13631,7 +14629,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-6-act-6-act-6",
               "label": "Inventory",
-              "value": "Juju modus · Command tower keys · Lil Cal · Red chest containing the house-shaped juju",
+              "value": "Command tower keys · Lil Cal · Red chest containing the house-shaped juju",
               "sourcePage": 8087,
               "sourceKind": "composite",
               "sourcePages": [
@@ -13736,6 +14734,21 @@ window.HOMESTUCK_REFERENCE = {
               "value": "Candy red",
               "sourcePage": 4962,
               "sourceKind": "direct"
+            }
+          ]
+        },
+        {
+          "id": "genetic-family",
+          "variants": [
+            {
+              "label": "Genetic family",
+              "value": "Calliope (cherub sibling)",
+              "sourcePage": 5093,
+              "sourceKind": "composite",
+              "from": "act-6-act-3",
+              "sourcePages": [
+                5120
+              ]
             }
           ]
         },
@@ -13997,6 +15010,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Counterpart"
             }
           ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Rufioh Nitram (former matesprit)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
+            }
+          ]
         }
       ]
     },
@@ -14093,6 +15118,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Horuss Zahhak (partner) · Damara Megido (former matesprit)",
+              "sourcePage": 5398,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
             }
           ]
         },
@@ -14203,6 +15240,21 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Latula Pyrope (matesprit) · Kurloz Makara (moirail)",
+              "sourcePage": 5308,
+              "sourceKind": "composite",
+              "from": "act-6-intermission-3",
+              "sourcePages": [
+                5263
+              ]
             }
           ]
         }
@@ -14406,11 +15458,14 @@ window.HOMESTUCK_REFERENCE = {
           "id": "moirail",
           "variants": [
             {
-              "value": "Horuss Zahhak",
-              "sourcePage": 5398,
-              "sourceKind": "direct",
+              "label": "Relationships",
+              "value": "Kurloz Makara (former matesprit) · Horuss Zahhak (moirail)",
+              "sourcePage": 5308,
+              "sourceKind": "composite",
               "from": "act-6-intermission-3",
-              "label": "Moirail"
+              "sourcePages": [
+                5398
+              ]
             }
           ]
         },
@@ -14562,6 +15617,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Counterpart"
             }
           ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Aranea Serket (former red partner)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
+            }
+          ]
         }
       ]
     },
@@ -14658,6 +15725,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Mituna Captor (matesprit)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
             }
           ]
         },
@@ -14956,6 +16035,18 @@ window.HOMESTUCK_REFERENCE = {
               "label": "Counterpart"
             }
           ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Porrim Maryam (former red partner)",
+              "sourcePage": 5263,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
+            }
+          ]
         }
       ]
     },
@@ -15047,11 +16138,11 @@ window.HOMESTUCK_REFERENCE = {
           "id": "moirail",
           "variants": [
             {
-              "value": "Meulin Leijon",
+              "label": "Relationships",
+              "value": "Rufioh Nitram (partner) · Meulin Leijon (moirail)",
               "sourcePage": 5398,
               "sourceKind": "direct",
-              "from": "act-6-intermission-3",
-              "label": "Moirail"
+              "from": "act-6-intermission-3"
             }
           ]
         },
@@ -15192,6 +16283,18 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "direct",
               "from": "act-6-intermission-3",
               "label": "Counterpart"
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Mituna Captor (moirail) · Meulin Leijon (former matesprit)",
+              "sourcePage": 5308,
+              "sourceKind": "direct",
+              "from": "act-6-intermission-3"
             }
           ]
         }
@@ -15481,6 +16584,29 @@ window.HOMESTUCK_REFERENCE = {
               "sourceKind": "composite",
               "sourcePages": [
                 5003
+              ]
+            }
+          ]
+        },
+        {
+          "id": "relationships",
+          "variants": [
+            {
+              "label": "Relationships",
+              "value": "Vriska Serket (original-history ghost; partner)",
+              "sourcePage": 7351,
+              "sourceKind": "direct",
+              "from": "act-6-act-6-intermission-4"
+            },
+            {
+              "label": "Relationships",
+              "value": "Vriska Serket (original-history ghost; former partner)",
+              "sourcePage": 7794,
+              "sourceKind": "composite",
+              "from": "act-6-act-6-intermission-5",
+              "sourcePages": [
+                7799,
+                7800
               ]
             }
           ]
