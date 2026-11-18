@@ -8697,6 +8697,16 @@ window.HOMESTUCK_REFERENCE = {
               "sourcePages": [
                 1103
               ]
+            },
+            {
+              "from": "act-5-act-2-part-2",
+              "label": "Role",
+              "value": "Armaments Regent for PM's kingdom",
+              "sourcePage": 3270,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3265
+              ]
             }
           ]
         },
@@ -8761,6 +8771,21 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "stats": [
+        {
+          "id": "role",
+          "variants": [
+            {
+              "from": "act-5-act-2-part-1",
+              "label": "Role",
+              "value": "Royal adviser to Prospitian Monarch",
+              "sourcePage": 3018,
+              "sourceKind": "composite",
+              "sourcePages": [
+                3019
+              ]
+            }
+          ]
+        },
         {
           "id": "formerly",
           "variants": [
@@ -8881,19 +8906,33 @@ window.HOMESTUCK_REFERENCE = {
           "id": "alias",
           "variants": [
             {
+              "from": "act-4",
+              "label": "Also known as",
+              "value": "Sovereign Slayer",
+              "sourcePage": 1788,
+              "sourceKind": "composite",
+              "sourcePages": [
+                1988
+              ]
+            },
+            {
               "from": "act-5-act-2-part-1",
               "label": "Also known as",
-              "value": "Bec Noir",
+              "value": "Sovereign Slayer · Bec Noir",
               "sourcePage": 3238,
-              "sourceKind": "direct"
+              "sourceKind": "composite",
+              "sourcePages": [
+                1788
+              ]
             },
             {
               "from": "act-6-act-6-intermission-5",
-              "value": "Bec Noir · Dog Jack",
+              "value": "Sovereign Slayer · Bec Noir · Dog Jack",
               "sourcePage": 7521,
               "sourceKind": "composite",
               "sourcePages": [
-                7522
+                7522,
+                1788
               ],
               "label": "Also known as"
             }
@@ -23962,7 +24001,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "term": "Wayward Vagabond",
           "aliases": [
-            "WV"
+            "WV",
+            "The Mayor"
           ],
           "definition": "A wanderer who declares himself mayor of Can Town, building an orderly little society from empty cans. He fashions a mayoral sash from cables and places a book of manners atop his improvised city hall.",
           "sourcePage": 685,
@@ -23976,7 +24016,8 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor"
           ],
           "definition": "The former Warweary Villein, a pawn who rebelled against the kings during the Battlefield's war. As an exile, he becomes the founder and mayor of Can Town, imagining a gentler form of government among his cans.",
           "sourcePage": 1988,
@@ -23987,18 +24028,39 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite"
         },
         {
+          "from": "act-5-act-2-part-2",
+          "term": "Wayward Vagabond",
+          "aliases": [
+            "Warweary Villein",
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
+          ],
+          "definition": "The former Warweary Villein and mayor of Can Town, whom John regards as a Wizardly Vassal on the Battlefield. He guards the royal ring that WQ envisages a Wastelandic Vindicator using against Jack Noir.",
+          "sourcePage": 3394,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1988,
+            685,
+            3264
+          ]
+        },
+        {
           "from": "act-5-act-2-part-3",
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The former Warweary Villein and self-appointed mayor of Can Town. This exiled rebel against the kings is severely wounded by Jack Noir during the final events surrounding the kids' session.",
           "sourcePage": 1988,
           "sourcePages": [
             685,
             4109,
-            666
+            666,
+            3394
           ],
           "sourceKind": "composite"
         },
@@ -24007,7 +24069,9 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her First Guardian gateway to the laboratory meteor near the Green Sun. Rose takes him aboard the group's journey, hoping they can find help along the way.",
           "sourcePage": 4382,
@@ -24018,7 +24082,8 @@ window.HOMESTUCK_REFERENCE = {
             4109,
             4381,
             4383,
-            4384
+            4384,
+            3394
           ]
         },
         {
@@ -24026,7 +24091,9 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The former Warweary Villein and mayor of Can Town, brought aboard the meteor after Jack's attack. During a passage through a dream bubble, a god-tier Feferi ghost treats his wounds. He survives into the group's journey, where Dave enthusiastically takes up the Can Town project.",
           "sourcePage": 4690,
@@ -24035,7 +24102,9 @@ window.HOMESTUCK_REFERENCE = {
             4689,
             4698,
             4722,
-            1988
+            1988,
+            685,
+            3394
           ]
         },
         {
@@ -24043,7 +24112,9 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The former Warweary Villein and mayor of Can Town arrives on LOHAC with Dave. Jade threatens him to force Dave to fight, then kicks him toward the lava; Dave catches him. John's later arrival changes the confrontation before that threat is carried out, with the mayor still safe.",
           "sourcePage": 6280,
@@ -24053,7 +24124,9 @@ window.HOMESTUCK_REFERENCE = {
             6388,
             6390,
             6391,
-            6404
+            6404,
+            685,
+            3394
           ]
         },
         {
@@ -24061,7 +24134,9 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The Mayor remains a protected noncombatant during Vriska's preparations. He shelters with sleeping Jade, then meets the revived Calliope. Both greet Jade when Davepeta wakes her, and the three leave the tower before Jade teleports away to help with the approaching battle.",
           "sourcePage": 7536,
@@ -24072,7 +24147,9 @@ window.HOMESTUCK_REFERENCE = {
             8014,
             8015,
             8021,
-            8024
+            8024,
+            685,
+            3394
           ],
           "sourceKind": "composite"
         },
@@ -24081,7 +24158,9 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The Mayor reunites with PM and Serenity after the battles. He removes PM's ring, ending her powered transformation, and takes one of the two recovered rings. Together he and PM climb the Forge and look into its crater; the rings have not yet been thrown in.",
           "sourcePage": 8107,
@@ -24091,7 +24170,9 @@ window.HOMESTUCK_REFERENCE = {
             8110,
             8124,
             8125,
-            8126
+            8126,
+            685,
+            3394
           ]
         },
         {
@@ -24099,13 +24180,16 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Wayward Vagabond",
           "aliases": [
             "Warweary Villein",
-            "WV"
+            "WV",
+            "The Mayor",
+            "Wizardly Vassal"
           ],
           "definition": "The Mayor and PM sacrifice the recovered royal rings in the Forge, helping release the tadpole that becomes a new universe. A future glimpse shows them planning a full-sized Can Town on restored Earth. The model city's civic hopes become the basis of a home for carapacians.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            685
+            685,
+            3394
           ]
         }
       ]
@@ -24321,17 +24405,37 @@ window.HOMESTUCK_REFERENCE = {
           "sourceKind": "composite"
         },
         {
+          "from": "act-5-act-2-part-2",
+          "term": "Aimless Renegade",
+          "aliases": [
+            "Authority Regulator",
+            "AR",
+            "Armaments Regent"
+          ],
+          "definition": "The former Authority Regulator, an exile devoted to law and order. PM appoints him Armaments Regent, putting his stockpile of explosives to use preparing the exile stations for demolition.",
+          "sourcePage": 3270,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3265,
+            1100,
+            1674
+          ]
+        },
+        {
           "from": "act-5-act-2-part-3",
           "term": "Aimless Renegade",
           "aliases": [
             "Authority Regulator",
-            "AR"
+            "AR",
+            "Armaments Regent"
           ],
-          "definition": "The former Authority Regulator, an exile who continues to act as a wasteland law enforcer. Jack Noir kills him during the closing events of the kids' session, ending his improvised defense of its ruins.",
+          "definition": "The former Authority Regulator, appointed PM's Armaments Regent to demolish the exile stations. He continues his devotion to law and order until Jack Noir kills him during the closing events of the kids' session.",
           "sourcePage": 1674,
           "sourcePages": [
             1100,
-            4109
+            4109,
+            3270,
+            3265
           ],
           "sourceKind": "composite"
         }
@@ -24347,28 +24451,54 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Windswept Questant",
           "aliases": [
             "White Queen",
-            "WQ"
+            "WQ",
+            "Adored Sovereign"
           ],
           "definition": "The former White Queen of Prospit, encountered in exile as the Windswept Questant. Her royal past connects the wasteland travelers with the war inside the kids' session and the struggle over its crowns.",
           "sourcePage": 1543,
           "sourcePages": [
-            1674
+            1674,
+            1614
           ],
           "sourceKind": "composite"
+        },
+        {
+          "from": "act-5-act-2-part-1",
+          "term": "Windswept Questant",
+          "aliases": [
+            "White Queen",
+            "WQ",
+            "Adored Sovereign",
+            "Royal advisor to PM"
+          ],
+          "definition": "The former White Queen of Prospit, known in exile as the Windswept Questant. After giving her crown to PM, she becomes the new Prospitian Monarch's royal adviser, helping plan the kingdom's future.",
+          "sourcePage": 3018,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3019,
+            1674,
+            1543,
+            1614
+          ]
         },
         {
           "from": "act-5-act-2-part-3",
           "term": "Windswept Questant",
           "aliases": [
             "White Queen",
-            "WQ"
+            "WQ",
+            "Adored Sovereign",
+            "Royal advisor to PM"
           ],
-          "definition": "The former White Queen of Prospit, known in exile as the Windswept Questant. She is killed by Jack Noir during the final events surrounding the kids' session, after her crown has passed to PM.",
+          "definition": "The former White Queen of Prospit and PM's royal adviser, known in exile as the Windswept Questant. She passes her crown to PM and helps plan the new kingdom's future before Jack Noir kills her during Cascade.",
           "sourcePage": 1674,
           "sourcePages": [
             3018,
             4109,
-            1543
+            1543,
+            3019,
+            3260,
+            1614
           ],
           "sourceKind": "composite"
         }
@@ -24391,12 +24521,15 @@ window.HOMESTUCK_REFERENCE = {
         {
           "from": "act-4",
           "term": "Jack Noir",
-          "aliases": [],
+          "aliases": [
+            "Sovereign Slayer"
+          ],
           "definition": "The kids' session's archagent, who overthrows the Black Queen and takes her ring. Its prototypings transform him into a far greater threat. Spades Slick is his counterpart in the trolls' session, not the same individual.",
           "sourcePage": 1674,
           "sourcePages": [
             1988,
-            955
+            955,
+            1788
           ],
           "sourceKind": "composite"
         },
@@ -24404,12 +24537,14 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Jack Noir",
           "aliases": [
-            "Bec Noir"
+            "Bec Noir",
+            "Sovereign Slayer"
           ],
           "definition": "The kids' session's rogue archagent, also called Bec Noir. Becquerel's prototyping grants his stolen ring First Guardian powers drawn from the Green Sun. He devastates the session and is the intruder who ruins the trolls' victory.",
           "sourcePage": 3238,
           "sourcePages": [
-            955
+            955,
+            1788
           ],
           "sourceKind": "composite"
         },
@@ -24417,7 +24552,8 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-1",
           "term": "Jack Noir",
           "aliases": [
-            "Bec Noir"
+            "Bec Noir",
+            "Sovereign Slayer"
           ],
           "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
           "sourcePage": 4320,
@@ -24429,14 +24565,16 @@ window.HOMESTUCK_REFERENCE = {
             4314,
             4315,
             4317,
-            4384
+            4384,
+            1788
           ]
         },
         {
           "from": "act-6-act-2",
           "term": "Jack Noir",
           "aliases": [
-            "Bec Noir"
+            "Bec Noir",
+            "Sovereign Slayer"
           ],
           "definition": "The pre-Scratch kids' renegade archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
           "sourcePage": 4320,
@@ -24448,14 +24586,16 @@ window.HOMESTUCK_REFERENCE = {
             4314,
             4315,
             4317,
-            4384
+            4384,
+            1788
           ]
         },
         {
           "from": "act-6-act-6-intermission-2",
           "term": "Jack Noir",
           "aliases": [
-            "Bec Noir"
+            "Bec Noir",
+            "Sovereign Slayer"
           ],
           "definition": "The pre-Scratch renegade archagent, transformed by Becquerel's royal-ring prototyping, reaches Jade's land with PM. Both doglike guardians protect Jade's body and obstruct Jane's revival attempt. They then chase GCat, with Jack still carrying Jade as Dave follows. Their shared attachment to her temporarily displaces their own conflict.",
           "sourcePage": 6712,
@@ -24468,25 +24608,31 @@ window.HOMESTUCK_REFERENCE = {
             6725,
             6726,
             6729,
-            6730
+            6730,
+            1788
           ]
         },
         {
           "from": "act-6-act-6-intermission-3",
           "term": "Jack Noir",
           "aliases": [
-            "Bec Noir"
+            "Bec Noir",
+            "Sovereign Slayer"
           ],
           "definition": "The pre-Scratch, ring-transformed Jack Noir carries Jade to her quest bed with PM. Dave attacks to recover her, and their fight ends with Dave impaled and falling onto Jade. His death is Heroic. The doglike guardians' attachment to Jade has now helped turn a rescue attempt into another death.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "composite",
+          "sourcePages": [
+            1788
+          ]
         },
         {
           "from": "act-6-act-6-intermission-5",
           "term": "Jack Noir",
           "aliases": [
             "Bec Noir",
-            "Dog Jack"
+            "Dog Jack",
+            "Sovereign Slayer"
           ],
           "definition": "Vriska calls the original session's Bec Noir Dog Jack to distinguish him from the other Jacks. PM continues pursuing him to the ruins of Prospit, where both draw their blades. Each still has First Guardian powers from the Green Sun; their duel has only just begun.",
           "sourcePage": 7521,
@@ -24497,7 +24643,8 @@ window.HOMESTUCK_REFERENCE = {
             8074,
             8077,
             8078,
-            8081
+            8081,
+            1788
           ]
         },
         {
@@ -24505,7 +24652,8 @@ window.HOMESTUCK_REFERENCE = {
           "term": "Jack Noir",
           "aliases": [
             "Bec Noir",
-            "Dog Jack"
+            "Dog Jack",
+            "Sovereign Slayer"
           ],
           "definition": "PM defeats Dog Jack by severing his ring-bearing arm and taking the source of his First Guardian powers. She knocks the ordinary carapacian down beside the unconscious Jade. Jack survives; Ms. Paint tends his wounds and receives a quiet look in return.",
           "sourcePage": 8087,
@@ -24514,7 +24662,8 @@ window.HOMESTUCK_REFERENCE = {
             8095,
             8098,
             8099,
-            8100
+            8100,
+            1788
           ]
         }
       ]
@@ -29269,7 +29418,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-5-part-1",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit as negotiations drag on. The White Queen offers release in exchange for an apology from the Condesce, who refuses. The Dignitary prefers running things without him, though he misses Jack's skill at clearing bureaucratic paperwork.",
+          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit as negotiations drag on. Prospit's post-Scratch queen offers release in exchange for an apology from the Condesce, who refuses. The Dignitary prefers running things without him, though he misses Jack's skill at clearing bureaucratic paperwork.",
           "sourcePage": 5560,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34515,6 +34664,74 @@ window.HOMESTUCK_REFERENCE = {
             711
           ],
           "sourceKind": "composite"
+        }
+      ]
+    },
+    {
+      "id": "person-white-king",
+      "reveal": "act-4",
+      "variants": [
+        {
+          "from": "act-4",
+          "term": "White King",
+          "aliases": [
+            "WK"
+          ],
+          "definition": "The king of Prospit in the kids' session, commanding its army on the Battlefield. He deactivates his prototyped scepter and gives it, along with his crown, to PM as she tries to fulfill Jack Noir's demand.",
+          "sourcePage": 1988,
+          "sourceKind": "composite",
+          "sourcePages": [
+            1619,
+            1780
+          ]
+        },
+        {
+          "from": "act-5-act-2-part-2",
+          "term": "Writ Keeper",
+          "aliases": [
+            "White King",
+            "WK"
+          ],
+          "definition": "The former White King, now called the Writ Keeper. WQ expects him to emerge from the Lotus time capsule as a fifth exile and serve PM. He is shown reading Complacency of the Learned beside the capsule.",
+          "sourcePage": 3262,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3260,
+            3261,
+            1988
+          ]
+        },
+        {
+          "from": "act-5-act-2-part-3",
+          "term": "Writ Keeper",
+          "aliases": [
+            "White King",
+            "WK"
+          ],
+          "definition": "The Writ Keeper, formerly the White King, emerges from the Lotus time capsule carrying Complacency of the Learned. His reunion with WQ is cut short when Jack Noir arrives and kills them both during Cascade.",
+          "sourcePage": 4109,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3262,
+            1988
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wastelandic-vindicator",
+      "reveal": "act-5-act-2-part-2",
+      "variants": [
+        {
+          "from": "act-5-act-2-part-2",
+          "term": "Wastelandic Vindicator",
+          "aliases": [],
+          "definition": "A champion WQ suggests PM could appoint to confront Jack Noir with the royal ring guarded by WV. The title describes a proposed role for WV in the new kingdom, distinct from his established identity as Can Town's mayor.",
+          "sourcePage": 3264,
+          "sourceKind": "composite",
+          "sourcePages": [
+            3263
+          ]
         }
       ]
     }
