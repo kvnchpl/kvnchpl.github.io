@@ -1492,6 +1492,10 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     margin: 0;
   }
 
+  :focus-visible {
+    outline: none;
+  }
+
   html,
   body.recap {
     background: white;

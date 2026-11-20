@@ -24036,7 +24036,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, whom John regards as a Wizardly Vassal on the Battlefield. He guards the royal ring that WQ envisages a Wastelandic Vindicator using against Jack Noir.",
+          "definition": "The former Warweary Villein and mayor of Can Town, whom John regards as a Wizardly Vassal on the Battlefield. He guards the royal ring, which WQ suggests a Wastelandic Vindicator could use against Jack Noir.",
           "sourcePage": 3394,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24073,7 +24073,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her First Guardian gateway to the laboratory meteor near the Green Sun. Rose takes him aboard the group's journey, hoping they can find help along the way.",
+          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her First Guardian gateway to the laboratory meteor near the Green Sun. Rose takes him along, hoping the group can find help on their journey.",
           "sourcePage": 4382,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24095,7 +24095,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, brought aboard the meteor after Jack's attack. During a passage through a dream bubble, a god-tier Feferi ghost treats his wounds. He survives into the group's journey, where Dave enthusiastically takes up the Can Town project.",
+          "definition": "The former Warweary Villein and mayor of Can Town, brought aboard the meteor after Jack's attack. During a passage through a dream bubble, a god-tier Feferi ghost treats his wounds. He survives, and Dave enthusiastically takes up the Can Town project during the group's journey.",
           "sourcePage": 4690,
           "sourceKind": "composite",
           "sourcePages": [
