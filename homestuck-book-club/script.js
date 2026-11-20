@@ -794,8 +794,12 @@
   }
 
   // Print includes every slide, including panels not yet visited in the reader.
-  window.addEventListener('beforeprint', () => {
+  const preparePrintPanels = () => {
     panelImages.forEach(img => { img.loading = 'eager'; });
+  };
+  window.addEventListener('beforeprint', preparePrintPanels);
+  window.matchMedia('print').addEventListener?.('change', event => {
+    if (event.matches) preparePrintPanels();
   });
   // Canonical act/intermission subdivisions, plus legacy act and recap prefixes.
   const panelFilenamePattern = /^(A\d+(?:\.?[AI]\d+)*|I\d+|R\d+)_(\d+)[_-]story-(\d+)\.(gif|png|jpe?g|webp)$/i;
@@ -911,4 +915,37 @@
   document.body.classList.add('is-presenting');
   recapControls.hidden = false;
   showSlide(slideIndexFromHash(), false);
+})();
+
+// Original animated panels remain the fallback; picture sources provide stills.
+(() => {
+  'use strict';
+  const button = document.getElementById('recap-motion-toggle');
+  if (!button) return;
+  const sources = [...document.querySelectorAll('.recap-reader picture source[data-recap-still]')];
+  if (!sources.length) return;
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const storageKey = 'homestuck-recap-motion';
+  let choice = null;
+  try {
+    const saved = localStorage.getItem(storageKey);
+    if (saved === 'still' || saved === 'animated') choice = saved;
+  } catch { /* Device preference still works when storage is blocked. */ }
+  function apply() {
+    const still = choice ? choice === 'still' : preference.matches;
+    for (const source of sources) {
+      // Print always uses the selected complete still, including without JS.
+      source.media = still ? 'all' : 'print';
+    }
+    button.setAttribute('aria-pressed', String(still));
+    button.textContent = still ? 'Still images: on' : 'Still images: off';
+  }
+  button.addEventListener('click', () => {
+    choice = button.getAttribute('aria-pressed') === 'true' ? 'animated' : 'still';
+    try { localStorage.setItem(storageKey, choice); } catch { /* Keep the in-page choice. */ }
+    apply();
+  });
+  preference.addEventListener?.('change', () => { if (choice === null) apply(); });
+  button.hidden = false;
+  apply();
 })();

@@ -595,6 +595,37 @@ button {
   padding: 0 8px 0 4px;
 }
 
+.reader-options {
+  gap: 4px 16px;
+}
+
+.slide-media picture {
+  display: block;
+}
+
+.current-reading {
+  margin: 0 0 24px;
+  padding: 20px 0;
+  border-block: 1px solid var(--frame);
+}
+
+.current-reading h2 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+}
+
+.current-reading p {
+  margin: 8px 0;
+}
+
+.current-reading .command-links {
+  margin: 16px 0 0;
+}
+
+.current-reading .command-links li {
+  font-size: 1rem;
+}
+
 .reader-history {
   flex-wrap: nowrap;
 }
@@ -1526,6 +1557,11 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
   .slide:not(.slide-cover) .slide-media img {
     height: 100%;
     object-fit: contain;
+  }
+
+  .slide:not(.slide-cover) .slide-media picture {
+    width: 100%;
+    height: 100%;
   }
 
   .slide-title,
