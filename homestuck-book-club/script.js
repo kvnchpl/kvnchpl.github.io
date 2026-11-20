@@ -13,6 +13,7 @@
   const selectedReadingLink = document.getElementById('selected-reading-link');
   const spoilerlog = document.getElementById('spoilerlog');
   const referenceLoadingMessage = document.getElementById('reference-loading');
+  if (referenceLoadingMessage) referenceLoadingMessage.hidden = false;
   const appendix = document.getElementById('concept-appendix');
   const appendixSearchInput = document.getElementById('concept-search');
   const appendixClearButton = document.getElementById('concept-clear');

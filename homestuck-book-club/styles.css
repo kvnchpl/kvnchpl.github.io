@@ -1483,6 +1483,10 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
 }
 
 @media print {
+  @page {
+    margin: 0.5in;
+  }
+
   @page recap {
     size: 7.5in 7.5in;
     margin: 0;
