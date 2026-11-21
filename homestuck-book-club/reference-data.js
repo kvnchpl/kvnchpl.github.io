@@ -5737,7 +5737,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-5-act-2-part-1",
               "label": "Status",
-              "value": "Appears as a ghost in a dream bubble",
+              "value": "Appears in Jade's dream and says she is dead",
               "sourcePage": 2994,
               "sourceKind": "composite",
               "sourcePages": [
@@ -20711,7 +20711,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Scratch",
           "aliases": [],
-          "definition": "A hard reset of a failed session that changes conditions in its originating universe long before the players began the game. It is triggered through a special construct on the Time player's planet; anyone remaining in the session faces erasure, and the new lives do not retain their memories. Doc Scratch clarifies that the reset itself does not open the rift the kids expected.",
+          "definition": "Doc Scratch describes a hard reset of a failed session that changes a universe's conditions long before the players began. A special construct on the Time player's planet triggers it. He warns that anyone left in the session faces erasure and the new lives retain no memories; the reset itself does not open the rift the kids expected.",
           "sourcePage": 3629,
           "sourceKind": "composite",
           "sourcePages": [
@@ -20941,9 +20941,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Dream bubble",
           "aliases": [],
-          "definition": "A shared dream environment made by the horrorterrors in the Furthest Ring at Feferi's request. After losing her dreamself, Jade meets Feferi in one that uses a remembered conversation as its setting, then realizes they are interacting rather than merely replaying the past.",
+          "definition": "A shared dream environment made by the horrorterrors in the Furthest Ring at Feferi's request. Jade's dream replays an earlier conversation with her, then departs from it. A white-eyed Feferi says she is dead; whether Jade is meeting Feferi or imagining her remains unclear.",
           "sourcePage": 2991,
           "sourcePages": [
+            2992,
+            2993,
+            2994,
             3238
           ],
           "sourceKind": "composite"
@@ -21385,7 +21388,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Quest cocoon"
           ],
-          "definition": "A sacrificial resting place involved in reaching god tier, called a quest cocoon in Vriska's case. John and Vriska ascend after dying on theirs while their dreamselves are alive; Doc Scratch also confirms a second quest bed provides another route to ascension.",
+          "definition": "A sacrificial resting place involved in reaching god tier, called a quest cocoon in Vriska's case. John and Vriska ascend after dying on theirs while their dreamselves are alive; Doc Scratch also describes another route to ascension through a second quest bed.",
           "sourcePage": 3630,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26785,7 +26788,7 @@ window.HOMESTUCK_REFERENCE = {
             "Feferi",
             "cuttlefishCuller"
           ],
-          "definition": "The trolls' Witch of Life, who asks the horrorterrors to create dream bubbles where people can meet in their sleep. She later appears there as a ghost, a separate development from the earlier death of her dreamself.",
+          "definition": "The trolls' Witch of Life, who asks the horrorterrors to create dream bubbles where people can meet in their sleep. She appears with white eyes in Jade's dream and says she is dead. Her dreamself has died, but the dream does not establish whether her waking self is also dead.",
           "sourcePage": 2466,
           "sourcePages": [
             2991,
