@@ -911,17 +911,25 @@ button {
 .profile-story-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 4px 14px;
-  margin: 6px 0 0;
-  font: 400 12px/1.5 Verdana, Arial, sans-serif;
+  gap: 2px 10px;
+  margin: 4px 0 0;
+  font: 400 12px/1.5 "Courier New", Courier, monospace;
 }
 
-.profile-story-links a {
+.profile-story-links a,
+.profile-story-links a:visited {
   display: inline-flex;
   align-items: center;
   min-height: 24px;
-  color: var(--link);
+  color: #535353;
+  font: inherit;
+  text-underline-offset: 2px;
+}
+
+.profile-story-links a:hover,
+.profile-story-links a:focus-visible {
+  color: #000;
+  text-decoration-thickness: 2px;
 }
 
 .profile-stats {
@@ -1106,6 +1114,7 @@ button {
 
   .is-ready .profile-header {
     flex: none;
+    width: 100%;
   }
 
   .is-ready .profile-portrait {
