@@ -304,18 +304,40 @@
     if (portraitElement) header.append(portraitElement);
 
     const heading = document.createElement('h3');
-    const link = document.createElement('a');
-    link.className = 'profile-intro-link';
-    link.href = `https://homestuck.com/story/${nameVariant.introLinkPage || nameVariant.sourcePage || character.introPage}`;
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
+    const ownEntryId = appendixEntries.find(entry => entry.characterId === character.id)?.id;
+    const link = document.createElement(ownEntryId ? 'a' : 'span');
+    link.className = 'profile-name-link';
+    if (ownEntryId) {
+      link.href = `#concept-${ownEntryId}`;
+      link.addEventListener('click', event => {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button > 0) return;
+        event.preventDefault();
+        showAppendixEntry(ownEntryId, { focusSearch: true });
+      });
+    }
     link.textContent = nameVariant.value;
     heading.append(link);
     header.append(heading);
 
+    const storyLinks = document.createElement('p');
+    storyLinks.className = 'profile-story-links';
+    const addStoryLink = (label, page, className) => {
+      if (!Number.isInteger(page) || page < 1 || page > selectedReadingStage.endPage) return;
+      const storyLink = document.createElement('a');
+      storyLink.className = className;
+      storyLink.href = `https://homestuck.com/story/${page}`;
+      storyLink.target = '_blank';
+      storyLink.rel = 'noopener noreferrer';
+      storyLink.textContent = label;
+      storyLink.setAttribute('aria-label', `${label}: ${nameVariant.value}`);
+      storyLinks.append(storyLink);
+    };
+    addStoryLink('Introduction', nameVariant.introLinkPage || nameVariant.sourcePage || character.introPage, 'profile-intro-link');
+    addStoryLink('First Appearance', character.firstAppearancePage, 'profile-first-appearance-link');
+    header.append(storyLinks);
+
     const stats = document.createElement('dl');
     stats.className = 'profile-stats';
-    const ownEntryId = appendixEntries.find(entry => entry.characterId === character.id)?.id;
     const appendStatLinks = createAppendixLinker(appendixEntries, ownEntryId, 'profile-term-link', true);
     let statCount = 0;
 

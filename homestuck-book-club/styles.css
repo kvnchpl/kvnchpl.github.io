@@ -891,21 +891,37 @@ button {
 }
 
 
-.character-profile h3 .profile-intro-link,
-.character-profile h3 .profile-intro-link:visited {
+.character-profile h3 .profile-name-link,
+.character-profile h3 .profile-name-link:visited {
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
 
-.is-ready .character-profile h3 .profile-intro-link,
-.is-ready .character-profile h3 .profile-intro-link:visited {
+.is-ready .character-profile h3 .profile-name-link,
+.is-ready .character-profile h3 .profile-name-link:visited {
   color: var(--character-color, #000);
 }
 
-.character-profile h3 .profile-intro-link:hover {
+.character-profile h3 .profile-name-link:hover {
   text-decoration-thickness: 2px;
+}
+
+.profile-story-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px 14px;
+  margin: 6px 0 0;
+  font: 400 12px/1.5 Verdana, Arial, sans-serif;
+}
+
+.profile-story-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  color: var(--link);
 }
 
 .profile-stats {
@@ -934,7 +950,7 @@ button {
   print-color-adjust: exact;
 }
 
-.profile-intro-link,
+.profile-name-link,
 .profile-handle {
   text-shadow: var(--character-name-shadow, none);
 }

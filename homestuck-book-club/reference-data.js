@@ -1142,7 +1142,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 1
     },
     {
       "id": "rose",
@@ -1510,7 +1511,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 217,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 214
     },
     {
       "id": "dave",
@@ -1837,7 +1839,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 312,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 309
     },
     {
       "id": "jade",
@@ -2363,7 +2366,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 768,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 651
     },
     {
       "id": "aradia",
@@ -2640,7 +2644,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2134,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2063
     },
     {
       "id": "tavros",
@@ -2888,7 +2893,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2101,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1596
     },
     {
       "id": "sollux",
@@ -3169,7 +3175,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2076,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1716
     },
     {
       "id": "karkat",
@@ -3499,7 +3506,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1994,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1353
     },
     {
       "id": "nepeta",
@@ -3693,7 +3701,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2156,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2074
     },
     {
       "id": "kanaya",
@@ -4046,7 +4055,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2323,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1593
     },
     {
       "id": "terezi",
@@ -4423,7 +4433,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2031,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1530
     },
     {
       "id": "vriska",
@@ -4818,7 +4829,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2195,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2145
     },
     {
       "id": "equius",
@@ -5018,7 +5030,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2211,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2119
     },
     {
       "id": "gamzee",
@@ -5418,7 +5431,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2012,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2011
     },
     {
       "id": "eridan",
@@ -5613,7 +5627,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2408,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2066
     },
     {
       "id": "feferi",
@@ -5822,7 +5837,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2422,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2181
     },
     {
       "id": "dad",
@@ -5898,7 +5914,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 89,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 88
     },
     {
       "id": "mom",
@@ -5979,7 +5996,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 388,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 388
     },
     {
       "id": "bro",
@@ -6077,7 +6095,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 757,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 592
     },
     {
       "id": "grandpa",
@@ -6158,7 +6177,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 919,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 915
     },
     {
       "id": "nannasprite",
@@ -6245,7 +6265,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 420,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 48
     },
     {
       "id": "jaspersprite",
@@ -6336,7 +6357,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1626,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 414
     },
     {
       "id": "davesprite",
@@ -6486,7 +6508,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1651,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 1651
     },
     {
       "id": "jadesprite",
@@ -6594,7 +6617,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3213,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 3212
     },
     {
       "id": "bec",
@@ -6667,7 +6691,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 942,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 980
     },
     {
       "id": "dad-crocker",
@@ -6788,7 +6813,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4131,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4131
     },
     {
       "id": "gcat",
@@ -6897,7 +6923,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 4423
     },
     {
       "id": "poppop",
@@ -6959,7 +6986,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4145,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4143
     },
     {
       "id": "roxys-mom",
@@ -7070,7 +7098,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4848
     },
     {
       "id": "dirks-bro",
@@ -7181,7 +7210,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4860
     },
     {
       "id": "grandma",
@@ -7268,7 +7298,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4129,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 4855
     },
     {
       "id": "tavrisprite",
@@ -7377,7 +7408,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4834
     },
     {
       "id": "fefetasprite",
@@ -7482,7 +7514,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 5518
     },
     {
       "id": "arquiusprite",
@@ -7609,7 +7642,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 5655
     },
     {
       "id": "erisolsprite",
@@ -7687,7 +7721,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 5512
     },
     {
       "id": "tavrosprite",
@@ -7778,7 +7813,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 7455
     },
     {
       "id": "rosesprite",
@@ -7880,7 +7916,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 7505
     },
     {
       "id": "gcatavrosprite",
@@ -8009,7 +8046,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 7835
     },
     {
       "id": "jasprosesprite",
@@ -8126,7 +8164,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 7590
     },
     {
       "id": "davepetasprite",
@@ -8258,7 +8297,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 7878
     },
     {
       "id": "nepetasprite",
@@ -8356,7 +8396,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 7820
     },
     {
       "id": "wv",
@@ -8473,7 +8514,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 666,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 248
     },
     {
       "id": "pm",
@@ -8650,7 +8692,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 892,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 723
     },
     {
       "id": "ar",
@@ -8736,7 +8779,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1100,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1018
     },
     {
       "id": "wq",
@@ -8812,7 +8856,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1543,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1543
     },
     {
       "id": "jack-noir",
@@ -8988,7 +9033,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 955,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 890
     },
     {
       "id": "cd",
@@ -9068,7 +9114,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1784,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 1781
     },
     {
       "id": "hb",
@@ -9149,7 +9196,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 957,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 957
     },
     {
       "id": "dd",
@@ -9217,7 +9265,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1532,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 1532
     },
     {
       "id": "spades-slick",
@@ -9476,7 +9525,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1155,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 833
     },
     {
       "id": "clubs-deuce",
@@ -9568,7 +9618,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1155,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 833
     },
     {
       "id": "hearts-boxcars",
@@ -9672,7 +9723,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1155,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 833
     },
     {
       "id": "diamonds-droog",
@@ -9773,7 +9825,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 1155,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 833
     },
     {
       "id": "snowman",
@@ -9858,7 +9911,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1268,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 1267
     },
     {
       "id": "doc-scratch",
@@ -9947,7 +10001,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 2253,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 2201
     },
     {
       "id": "lord-english",
@@ -10121,7 +10176,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 1155,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 4079
     },
     {
       "id": "handmaid",
@@ -10198,7 +10254,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4068,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4035
     },
     {
       "id": "summoner",
@@ -10291,7 +10348,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3758,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 3758
     },
     {
       "id": "psiioniic",
@@ -10389,7 +10447,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4058,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 4058
     },
     {
       "id": "signless",
@@ -10511,7 +10570,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4054,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 4054
     },
     {
       "id": "disciple",
@@ -10600,7 +10660,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4058,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4058
     },
     {
       "id": "dolorosa",
@@ -10686,7 +10747,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4057,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 4057
     },
     {
       "id": "redglare",
@@ -10805,7 +10867,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3518,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 3518
     },
     {
       "id": "mindfang",
@@ -10932,7 +10995,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3475,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 3506
     },
     {
       "id": "darkleer",
@@ -11036,7 +11100,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3756,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 3756
     },
     {
       "id": "grand-highblood",
@@ -11110,7 +11175,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3514,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 3514
     },
     {
       "id": "dualscar",
@@ -11208,7 +11274,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 3508,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 3508
     },
     {
       "id": "condesce",
@@ -11431,7 +11498,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4063,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 4063
     },
     {
       "id": "jane",
@@ -11833,7 +11901,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4115,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4113
     },
     {
       "id": "lalonde",
@@ -12302,7 +12371,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4156,
       "sourceKind": "intro",
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 4156
     },
     {
       "id": "strider",
@@ -12698,7 +12768,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4256,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 4256
     },
     {
       "id": "jake",
@@ -13027,7 +13098,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4118,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 4118
     },
     {
       "id": "uranian-umbra",
@@ -13379,7 +13451,8 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "sourcePage": 4144,
-      "sourceKind": "intro"
+      "sourceKind": "intro",
+      "firstAppearancePage": 4114
     },
     {
       "id": "alternate-calliope",
@@ -13550,7 +13623,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 7068
     },
     {
       "id": "lil-seb",
@@ -13636,7 +13710,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4242,
       "sourceKind": "intro",
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4242
     },
     {
       "id": "auto-responder",
@@ -13754,7 +13829,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4184,
       "sourceKind": "intro",
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 4185
     },
     {
       "id": "brobot",
@@ -13853,7 +13929,8 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "sourcePage": 4236,
       "sourceKind": "intro",
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 4236
     },
     {
       "id": "post-scratch-jack-noir",
@@ -14043,7 +14120,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 1
+      "rosterColumn": 1,
+      "firstAppearancePage": 4395
     },
     {
       "id": "post-scratch-cd",
@@ -14113,7 +14191,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 2
+      "rosterColumn": 2,
+      "firstAppearancePage": 4402
     },
     {
       "id": "post-scratch-hb",
@@ -14193,7 +14272,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 4542
     },
     {
       "id": "squarewave",
@@ -14243,7 +14323,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 309
     },
     {
       "id": "sawtooth",
@@ -14323,7 +14404,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 3
+      "rosterColumn": 3,
+      "firstAppearancePage": 309
     },
     {
       "id": "undying-umbrage",
@@ -14882,7 +14964,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4646
     },
     {
       "id": "post-scratch-dd",
@@ -14996,7 +15079,8 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "rosterColumn": 4
+      "rosterColumn": 4,
+      "firstAppearancePage": 4572
     },
     {
       "id": "damara",
@@ -15094,7 +15178,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "rufioh",
@@ -15216,7 +15301,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "mituna",
@@ -15329,7 +15415,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "kankri",
@@ -15439,7 +15526,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "meulin",
@@ -15564,7 +15652,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "porrim",
@@ -15701,7 +15790,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "latula",
@@ -15823,7 +15913,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "aranea",
@@ -16119,7 +16210,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4582
     },
     {
       "id": "horuss",
@@ -16241,7 +16333,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "kurloz",
@@ -16369,7 +16462,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "cronus",
@@ -16479,7 +16573,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4992
     },
     {
       "id": "meenah",
@@ -16682,7 +16777,8 @@ window.HOMESTUCK_REFERENCE = {
             }
           ]
         }
-      ]
+      ],
+      "firstAppearancePage": 4637
     }
   ],
   "conceptsPreparedThrough": "act-7",
@@ -20671,7 +20767,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [],
           "definition": "Terezi's fetch modus, which lets her identify a captchalogue card by its smell. She locates her chalk by its distinctive fruity scent.",
           "sourcePage": 2526,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "linkPhrases": [
+            "Scratch and Sniff"
+          ]
         }
       ]
     },
@@ -22429,7 +22528,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "A boy who loves terrible movies, amateur magic, and video games. His online name is ectoBiologist. Rose helps him play Sburb, whose machinery turns his birthday into a struggle to escape an approaching meteor.",
+          "definition": "A boy who loves terrible movies, amateur magic, and video games. His online name is ectoBiologist. Rose helps him play Sburb, whose machinery turns his birthday into a struggle to escape an approaching meteor. He is earnest, playful, and quick to trust.",
           "sourcePage": 4,
           "sourcePages": [
             26,
@@ -22446,14 +22545,15 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The first of his friends to enter the Medium through Sburb, escaping the meteor along with his house. Rose supports him as his server player, while Nannasprite explains his larger quest and reveals that his father has been kidnapped.",
+          "definition": "The first of his friends to enter the Medium through Sburb, escaping the meteor along with his house. Rose supports him as his server player, while Nannasprite explains his larger quest and reveals that his father has been kidnapped. He is earnest, playful, and quick to trust.",
           "sourcePage": 256,
           "sourcePages": [
             135,
             421,
             425,
             26,
-            3
+            3,
+            4
           ],
           "sourceKind": "composite"
         },
@@ -22464,7 +22564,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath in the kids' Sburb session, exploring the Land of Wind and Shade. His dreamself belongs to Prospit. Rose is his server player, and Nannasprite is his guide to the game's strange rules.",
+          "definition": "The Heir of Breath in the kids' Sburb session, exploring the Land of Wind and Shade. His dreamself belongs to Prospit. Rose is his server player, and Nannasprite is his guide to the game's strange rules. He is earnest, playful, and quick to trust.",
           "sourcePage": 1674,
           "sourcePages": [
             425,
@@ -22480,7 +22580,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath, now at god tier with power over wind. He ascends after dying on his quest bed, while his living dreamself becomes his continuing self. His land is the Land of Wind and Shade.",
+          "definition": "The Heir of Breath, now at god tier with power over wind. He ascends after dying on his quest bed, while his living dreamself becomes his continuing self. His land is the Land of Wind and Shade. He is earnest, playful, and quick to trust.",
           "sourcePage": 3238,
           "sourcePages": [
             4,
@@ -22495,14 +22595,15 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The god-tier Heir of Breath, carried out of the scratched session aboard Jade's ship with the miniaturized lands and Battlefield. While crossing the gap between fourth walls, he advances another god-tier rank and receives Gift of Gab, allowing direct conversation without the story's previous intermediaries.",
+          "definition": "The god-tier Heir of Breath, carried out of the scratched session aboard Jade's ship with the miniaturized lands and Battlefield. While crossing the gap between fourth walls, he advances another god-tier rank and receives Gift of Gab, allowing direct conversation without the story's previous intermediaries. He is earnest, playful, and quick to trust.",
           "sourcePage": 4109,
           "sourceKind": "composite",
           "sourcePages": [
             4290,
             4292,
             4294,
-            3238
+            3238,
+            4
           ]
         },
         {
@@ -22512,7 +22613,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The god-tier Heir of Breath, sailing with Jade and Davesprite through the yellow yard toward the post-Scratch session. Although Jade offers passage to the Green Sun, he stays to keep her company during their three-year journey. He sends Rose, Dave, and the trolls a letter instead.",
+          "definition": "The god-tier Heir of Breath, sailing with Jade and Davesprite through the yellow yard toward the post-Scratch session. Although Jade offers passage to the Green Sun, he stays to keep her company during their three-year journey. He sends Rose, Dave, and the trolls a letter instead. He is earnest, playful, and quick to trust.",
           "sourcePage": 4303,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22520,7 +22621,8 @@ window.HOMESTUCK_REFERENCE = {
             4338,
             4343,
             4372,
-            1674
+            1674,
+            4
           ]
         },
         {
@@ -22530,14 +22632,15 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The god-tier Heir of Breath, two years into the ship's journey with Jade and Davesprite. He sours on Con Air, then dreams his way into a fight with Jack and an encounter with Vriska and Tavros. His wind transformation helps him escape Jack's blade, and he finds the author avatar's lost ring.",
+          "definition": "The god-tier Heir of Breath, two years into the ship's journey with Jade and Davesprite. He sours on Con Air, then dreams his way into a fight with Jack and an encounter with Vriska and Tavros. His wind transformation helps him escape Jack's blade, and he finds the author avatar's lost ring. He is earnest, playful, and quick to trust.",
           "sourcePage": 5287,
           "sourceKind": "composite",
           "sourcePages": [
             5293,
             5348,
             5379,
-            5386
+            5386,
+            4
           ]
         },
         {
@@ -22547,7 +22650,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath joins Vriska's pirate treasure hunt while dreaming, but rejects sacrificing ghosts and refuses to promise her the Ring of Life. Touching the house-shaped juju sends him into uncontrolled jumps across time and space. He returns to Jake's land, where the meteor travelers finally appear around him.",
+          "definition": "The Heir of Breath joins Vriska's pirate treasure hunt while dreaming, but rejects sacrificing ghosts and refuses to promise her the Ring of Life. Touching the house-shaped juju sends him into uncontrolled jumps across time and space. He returns to Jake's land, where the meteor travelers finally appear around him. He is earnest, playful, and quick to trust.",
           "sourcePage": 5953,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22561,7 +22664,8 @@ window.HOMESTUCK_REFERENCE = {
             6195,
             6207,
             6210,
-            6231
+            6231,
+            4
           ]
         },
         {
@@ -22571,7 +22675,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath evades the controlled Jade while his involuntary jumps begin changing established events. He clears glitches with wind, visits Rose and Terezi, then finds Roxy in prison. He offers the Ring of Life to revive Calliope, but returns home to discover that it is missing.",
+          "definition": "The Heir of Breath evades the controlled Jade while his involuntary jumps begin changing established events. He clears glitches with wind, visits Rose and Terezi, then finds Roxy in prison. He offers the Ring of Life to revive Calliope, but returns home to discover that it is missing. He is earnest, playful, and quick to trust.",
           "sourcePage": 6362,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22580,7 +22684,8 @@ window.HOMESTUCK_REFERENCE = {
             6451,
             6458,
             6459,
-            6471
+            6471,
+            4
           ]
         },
         {
@@ -22590,7 +22695,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "After discovering the Ring of Life missing, the Heir of Breath makes another uncontrolled jump, this time into Caliborn's Homosuck. He handles its flat scenery, protests its treatment of his friends and tears the Dave-like hero's head off. Caliborn buries him under replacement Daves and closes the curtain; John's intrusion remains unresolved.",
+          "definition": "After discovering the Ring of Life missing, the Heir of Breath makes another uncontrolled jump, this time into Caliborn's Homosuck. He handles its flat scenery, protests its treatment of his friends and tears the Dave-like hero's head off. Caliborn buries him under replacement Daves and closes the curtain; John's intrusion remains unresolved. He is earnest, playful, and quick to trust.",
           "sourcePage": 6471,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22601,7 +22706,8 @@ window.HOMESTUCK_REFERENCE = {
             6524,
             6525,
             6528,
-            6530
+            6530,
+            4
           ]
         },
         {
@@ -22611,7 +22717,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath's uncontrolled jumps take him from Homosuck into Caliborn's studio. He recognizes the parody's author and blames him for the larger catastrophe, including his father's death. John threatens to attack; Caliborn readies his golden gun. Their confrontation remains unresolved.",
+          "definition": "The Heir of Breath's uncontrolled jumps take him from Homosuck into Caliborn's studio. He recognizes the parody's author and blames him for the larger catastrophe, including his father's death. John threatens to attack; Caliborn readies his golden gun. Their confrontation remains unresolved. He is earnest, playful, and quick to trust.",
           "sourcePage": 6884,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22621,7 +22727,8 @@ window.HOMESTUCK_REFERENCE = {
             6897,
             6898,
             6899,
-            6900
+            6900,
+            4
           ]
         },
         {
@@ -22631,14 +22738,15 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath fights Caliborn in his studio, overcoming the cane and gun with punches, kicks and a bite. Before the fight can continue, John involuntarily jumps away. He arrives among the shattered planets of the session, bewildered by the destruction he missed.",
+          "definition": "The Heir of Breath fights Caliborn in his studio, overcoming the cane and gun with punches, kicks and a bite. Before the fight can continue, John involuntarily jumps away. He arrives among the shattered planets of the session, bewildered by the destruction he missed. He is earnest, playful, and quick to trust.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
             6916,
             6917,
             6918,
-            6919
+            6919,
+            4
           ]
         },
         {
@@ -22648,7 +22756,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "The Heir of Breath masters his retcon power through Typheus's challenge and completes LOWAS's quest. Following instructions on Terezi's scarf, he retrieves the Ring of Life and prevents her from killing Vriska. He gives Roxy the ring, then begins transporting her and his planet out of the blank refuge.",
+          "definition": "The Heir of Breath masters his retcon power through Typheus's challenge and completes LOWAS's quest. Following instructions on Terezi's scarf, he retrieves the Ring of Life and prevents her from killing Vriska. He gives Roxy the ring, then begins transporting her and his planet out of the blank refuge. He is earnest, playful, and quick to trust.",
           "sourcePage": 7086,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22661,7 +22769,8 @@ window.HOMESTUCK_REFERENCE = {
             7368,
             7375,
             7396,
-            7403
+            7403,
+            4
           ]
         },
         {
@@ -22671,14 +22780,15 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "Vriska gives John the captchalogued post-Scratch Earth to pass to Jade after the battle. He accepts leadership of the group attacking the Condesce, alongside Rose, Roxy and Kanaya. Their preparations aim to secure both a new universe and a home within it, but victory has not yet been shown.",
+          "definition": "Vriska gives John the captchalogued post-Scratch Earth to pass to Jade after the battle. He accepts leadership of the group attacking the Condesce, alongside Rose, Roxy and Kanaya. Their preparations aim to secure both a new universe and a home within it, but victory has not yet been shown. He is earnest, playful, and quick to trust.",
           "sourcePage": 7539,
           "sourceKind": "composite",
           "sourcePages": [
             7540,
             7541,
             7933,
-            8086
+            8086,
+            4
           ]
         },
         {
@@ -22688,7 +22798,7 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "John helps defeat the Condesce, then gathers with his friends before the victory door. Nannasprite brings Jane's dad, the living counterpart of John's murdered father. John embraces him as the others watch, finding a familiar parent without undoing the earlier death.",
+          "definition": "John helps defeat the Condesce, then gathers with his friends before the victory door. Nannasprite brings Jane's dad, the living counterpart of John's murdered father. John embraces him as the others watch, finding a familiar parent without undoing the earlier death. He is earnest, playful, and quick to trust.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22696,7 +22806,8 @@ window.HOMESTUCK_REFERENCE = {
             8117,
             8119,
             8120,
-            8121
+            8121,
+            4
           ]
         },
         {
@@ -22706,11 +22817,12 @@ window.HOMESTUCK_REFERENCE = {
             "John",
             "ectoBiologist"
           ],
-          "definition": "John stands at the front of the reunited party as the Genesis Frog matures and the victory doorway becomes complete. He gives Karkat a thumbs-up, then reaches for the handle. A future glimpse shows him exploring restored Earth with Roxy and Calliope; the closing interactive scene returns to his house.",
+          "definition": "John stands at the front of the reunited party as the Genesis Frog matures and the victory doorway becomes complete. He gives Karkat a thumbs-up, then reaches for the handle. A future glimpse shows him exploring restored Earth with Roxy and Calliope; the closing interactive scene returns to his house. He is earnest, playful, and quick to trust.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            8129
+            8129,
+            4
           ]
         }
       ]
@@ -22727,7 +22839,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "John's friend and server player in Sburb, using the handle tentacleTherapist. She enjoys obscure literature, writing, knitting, and psychoanalysis. Through the game's interface, she rearranges John's home and helps him work out the equipment needed to enter.",
+          "definition": "John's friend and server player in Sburb, using the handle tentacleTherapist. She enjoys obscure literature, writing, knitting, and psychoanalysis. Through the game's interface, she rearranges John's home and helps him work out the equipment needed to enter. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 135,
           "sourcePages": [
             217,
@@ -22744,7 +22856,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light in the kids' Sburb session, with a dreamself on Derse and a home in the Land of Light and Rain. John's server player, she also investigates the game's workings and records what she learns.",
+          "definition": "The Seer of Light in the kids' Sburb session, with a dreamself on Derse and a home in the Land of Light and Rain. John's server player, she also investigates the game's workings and records what she learns. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 1674,
           "sourcePages": [
             217,
@@ -22759,7 +22871,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light, investigating a way out of the kids' doomed session. She uses dark magic and plans to take the Tumor into the Furthest Ring to destroy the Green Sun, the source of Jack Noir's power.",
+          "definition": "The Seer of Light, investigating a way out of the kids' doomed session. She uses dark magic and plans to take the Tumor into the Furthest Ring to destroy the Green Sun, the source of Jack Noir's power. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 2728,
           "sourcePages": [
             3041,
@@ -22777,7 +22889,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light, drawing dark magic from the horrorterrors. After consulting Doc Scratch's magic cue ball, she enters a grimdark state. Her plan to destroy the Green Sun with the Tumor remains a dangerous attempt to defeat Jack Noir.",
+          "definition": "The Seer of Light, drawing dark magic from the horrorterrors. After consulting Doc Scratch's magic cue ball, she enters a grimdark state. Her plan to destroy the Green Sun with the Tumor remains a dangerous attempt to defeat Jack Noir. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 3631,
           "sourcePages": [
             3632,
@@ -22795,7 +22907,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light, who takes the Tumor into the Furthest Ring with Dave. Their mission creates the Green Sun instead of destroying it. They ascend to god tier using the alternate quest beds inside Derse's moon.",
+          "definition": "The Seer of Light, who takes the Tumor into the Furthest Ring with Dave. Their mission creates the Green Sun instead of destroying it. They ascend to god tier using the alternate quest beds inside Derse's moon. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 4109,
           "sourcePages": [
             1674,
@@ -22811,7 +22923,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The god-tier Seer of Light, whose knowledge now reveals favorable paths for the group. After meeting the surviving trolls at the Green Sun, she charts a three-year journey through the Furthest Ring to the post-Scratch session. She and Dave travel aboard the laboratory meteor, taking the wounded WV with them.",
+          "definition": "The god-tier Seer of Light, whose knowledge now reveals favorable paths for the group. After meeting the surviving trolls at the Green Sun, she charts a three-year journey through the Furthest Ring to the post-Scratch session. She and Dave travel aboard the laboratory meteor, taking the wounded WV with them. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 4354,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22819,7 +22931,8 @@ window.HOMESTUCK_REFERENCE = {
             4331,
             4383,
             4384,
-            4109
+            4109,
+            217
           ]
         },
         {
@@ -22829,13 +22942,14 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The god-tier Seer of Light, traveling with Dave and the trolls aboard the laboratory meteor. A year into the journey, she researches the post-Scratch session with Kanaya and records their knowledge in a journal. Her plan combines the new session with the mature Battlefield Jade is carrying.",
+          "definition": "The god-tier Seer of Light, traveling with Dave and the trolls aboard the laboratory meteor. A year into the journey, she researches the post-Scratch session with Kanaya and records their knowledge in a journal. Her plan combines the new session with the mature Battlefield Jade is carrying. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 4698,
           "sourceKind": "composite",
           "sourcePages": [
             4701,
             4702,
-            4703
+            4703,
+            217
           ]
         },
         {
@@ -22845,14 +22959,15 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The god-tier Seer of Light, traveling on the laboratory meteor. She pursues a date with Kanaya, drinks heavily out of nervousness, and kisses her. Learning that Gamzee and Terezi are secretly kismeses, she worries about the group's other relationships and considers acting as an auspistice.",
+          "definition": "The god-tier Seer of Light, traveling on the laboratory meteor. She pursues a date with Kanaya, drinks heavily out of nervousness, and kisses her. Learning that Gamzee and Terezi are secretly kismeses, she worries about the group's other relationships and considers acting as an auspistice. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 5398,
           "sourceKind": "composite",
           "sourcePages": [
             5405,
             5413,
             5414,
-            5417
+            5417,
+            217
           ]
         },
         {
@@ -22862,7 +22977,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light reaches the end of the meteor's journey while drunk, despite promising Kanaya she would be sober for their arrival. Her anxiety about meeting her mother feeds their argument. Jade then teleports her and the other travelers to John on Jake's land.",
+          "definition": "The Seer of Light reaches the end of the meteor's journey while drunk, despite promising Kanaya she would be sober for their arrival. Her anxiety about meeting her mother feeds their argument. Jade then teleports her and the other travelers to John on Jake's land. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 6056,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22870,7 +22985,8 @@ window.HOMESTUCK_REFERENCE = {
             6062,
             6064,
             6225,
-            6231
+            6231,
+            217
           ]
         },
         {
@@ -22880,7 +22996,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light is stranded on LOLAR with Terezi, hung over and struggling to read favorable paths through the disrupted session. She asks John to find Roxy and tries to discuss her drinking with Kanaya. She also questions whether the planetary quest designed for her younger self still fits her.",
+          "definition": "The Seer of Light is stranded on LOLAR with Terezi, hung over and struggling to read favorable paths through the disrupted session. She asks John to find Roxy and tries to discuss her drinking with Kanaya. She also questions whether the planetary quest designed for her younger self still fits her. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 6281,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22891,7 +23007,8 @@ window.HOMESTUCK_REFERENCE = {
             6409,
             6410,
             6411,
-            6412
+            6412,
+            217
           ]
         },
         {
@@ -22901,7 +23018,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light joins the confrontation on Jade's land and finds her sleeping mother Roxy. She carries Roxy away from Aranea's fight, then tries to stop Gamzee from beating Terezi. Her uncertainty about troll romance delays her response, and her spell misses Gamzee and strikes Jake's platform instead.",
+          "definition": "The Seer of Light joins the confrontation on Jade's land and finds her sleeping mother Roxy. She carries Roxy away from Aranea's fight, then tries to stop Gamzee from beating Terezi. Her uncertainty about troll romance delays her response, and her spell misses Gamzee and strikes Jake's platform instead. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 6655,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22916,7 +23033,8 @@ window.HOMESTUCK_REFERENCE = {
             6811,
             6830,
             6831,
-            6833
+            6833,
+            217
           ]
         },
         {
@@ -22926,9 +23044,12 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The Seer of Light attacks the Condesce amid the collapsing battlefield, but the empress's trident impales her. Before another energy blast can strike, Roxy appears, takes hold of Rose and disappears with her. Rose is unconscious and severely wounded; her fate remains unresolved.",
+          "definition": "The Seer of Light attacks the Condesce amid the collapsing battlefield, but the empress's trident impales her. Before another energy blast can strike, Roxy appears, takes hold of Rose and disappears with her. Rose is unconscious and severely wounded; her fate remains unresolved. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            217
+          ]
         },
         {
           "from": "act-6-act-6-intermission-4",
@@ -22937,7 +23058,7 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "The wounded Seer of Light briefly wakes to speak with Roxy, then dies with a Heroic ruling. Roxy later buries her on LOWAS. A different Rose survives in the history John rewrites; Jane recalls that history's Roxy dying to shield Rose during a prison raid.",
+          "definition": "The wounded Seer of Light briefly wakes to speak with Roxy, then dies with a Heroic ruling. Roxy later buries her on LOWAS. A different Rose survives in the history John rewrites; Jane recalls that history's Roxy dying to shield Rose during a prison raid. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 6976,
           "sourceKind": "composite",
           "sourcePages": [
@@ -22945,7 +23066,8 @@ window.HOMESTUCK_REFERENCE = {
             6981,
             7273,
             7276,
-            7405
+            7405,
+            217
           ]
         },
         {
@@ -22955,14 +23077,15 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "Rose prepares to confront the Condesce with John, Roxy and Kanaya. The original-history Rose continues separately through Rosesprite's fusion with Jaspersprite, becoming Jasprose. The living Rose finds the new sprite's uninhibited behavior difficult to bear, while pressing John to accept his role as their leader.",
+          "definition": "Rose prepares to confront the Condesce with John, Roxy and Kanaya. The original-history Rose continues separately through Rosesprite's fusion with Jaspersprite, becoming Jasprose. The living Rose finds the new sprite's uninhibited behavior difficult to bear, while pressing John to accept his role as their leader. She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 7591,
           "sourceKind": "composite",
           "sourcePages": [
             7648,
             7650,
             7933,
-            8086
+            8086,
+            217
           ]
         },
         {
@@ -22972,13 +23095,14 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "Rose fights the Condesce beside John, Roxy and Kanaya. Jane revives Rose and Kanaya during the fight, and both reach the victory gathering. This living Rose remains distinct from the original-history self incorporated into Jasprosesprite².",
+          "definition": "Rose fights the Condesce beside John, Roxy and Kanaya. Jane revives Rose and Kanaya during the fight, and both reach the victory gathering. This living Rose remains distinct from the original-history self incorporated into Jasprosesprite². She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8090,
             8114,
-            7650
+            7650,
+            217
           ]
         },
         {
@@ -22988,11 +23112,12 @@ window.HOMESTUCK_REFERENCE = {
             "Rose",
             "tentacleTherapist"
           ],
-          "definition": "Rose survives the revised session and joins the others at the completed victory door. The finale's future glimpse places her beside Kanaya, overlooking the new settlement on restored Earth. This living Rose remains separate from the original-history self incorporated into Jasprosesprite².",
+          "definition": "Rose survives the revised session and joins the others at the completed victory door. The finale's future glimpse places her beside Kanaya, overlooking the new settlement on restored Earth. This living Rose remains separate from the original-history self incorporated into Jasprosesprite². She is analytical, independent, and dryly sarcastic.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            7650
+            7650,
+            217
           ]
         }
       ]
@@ -23009,7 +23134,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "John and Rose's friend, known online as turntechGodhead. He cultivates an ironic cool persona, mixes music, collects preserved animals, and practices with swords. His older brother's puppets are beginning to unsettle him.",
+          "definition": "John and Rose's friend, known online as turntechGodhead. He cultivates an ironic cool persona, mixes music, collects preserved animals, and practices with swords. His older brother's puppets are beginning to unsettle him. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 312,
           "sourcePages": [
             342,
@@ -23025,7 +23150,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time, whose land is the Land of Heat and Clockwork and whose dreamself belongs to Derse. Davesprite is a version of him who returned from a doomed future and became his sprite guide.",
+          "definition": "The Knight of Time, whose land is the Land of Heat and Clockwork and whose dreamself belongs to Derse. Davesprite is a version of him who returned from a doomed future and became his sprite guide. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 1674,
           "sourcePages": [
             312,
@@ -23040,7 +23165,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time, using stable time loops to work with multiple points in his own life. Davesprite remains a separate, doomed-timeline counterpart. Dave's land is the Land of Heat and Clockwork, and his dreamself belongs to Derse.",
+          "definition": "The Knight of Time, using stable time loops to work with multiple points in his own life. Davesprite remains a separate, doomed-timeline counterpart. Dave's land is the Land of Heat and Clockwork, and his dreamself belongs to Derse. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 2737,
           "sourcePages": [
             1674,
@@ -23056,7 +23181,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time, who helps Jade breed frogs and accompanies Rose on the Tumor mission. The bomb creates the Green Sun, and both travelers ascend to god tier on the alternate quest beds inside Derse's moon.",
+          "definition": "The Knight of Time, who helps Jade breed frogs and accompanies Rose on the Tumor mission. The bomb creates the Green Sun, and both travelers ascend to god tier on the alternate quest beds inside Derse's moon. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 3869,
           "sourcePages": [
             4109,
@@ -23073,14 +23198,15 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The god-tier Knight of Time, reunited with the surviving trolls near the Green Sun after the Tumor mission. His role uses time as a weapon, while Rose supplies the group's strategy. He joins the laboratory meteor's three-year journey to the post-Scratch session and receives Gift of Gab alongside Rose.",
+          "definition": "The god-tier Knight of Time, reunited with the surviving trolls near the Green Sun after the Tumor mission. His role uses time as a weapon, while Rose supplies the group's strategy. He joins the laboratory meteor's three-year journey to the post-Scratch session and receives Gift of Gab alongside Rose. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 4354,
           "sourceKind": "composite",
           "sourcePages": [
             4109,
             4331,
             4348,
-            4355
+            4355,
+            382
           ]
         },
         {
@@ -23090,14 +23216,15 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time nears the new session aboard the meteor. He explains that his relationship with Terezi ended as her involvement with Gamzee grew, while continuing to support Karkat. The controlled Jade then transports him and the other travelers to John on Jake's land.",
+          "definition": "The Knight of Time nears the new session aboard the meteor. He explains that his relationship with Terezi ended as her involvement with Gamzee grew, while continuing to support Karkat. The controlled Jade then transports him and the other travelers to John on Jake's land. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 5937,
           "sourceKind": "composite",
           "sourcePages": [
             6224,
             6225,
             6228,
-            6231
+            6231,
+            382
           ]
         },
         {
@@ -23107,7 +23234,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time returns to LOHAC with WV. Jade reforges his sword as Caledfwlch and demands he fight Lord English, but he refuses both the role and further time travel. He rescues the mayor from Jade; John's later intrusion changes how their confrontation unfolds.",
+          "definition": "The Knight of Time returns to LOHAC with WV. Jade reforges his sword as Caledfwlch and demands he fight Lord English, but he refuses both the role and further time travel. He rescues the mayor from Jade; John's later intrusion changes how their confrontation unfolds. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 6280,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23117,7 +23244,8 @@ window.HOMESTUCK_REFERENCE = {
             6388,
             6390,
             6391,
-            6404
+            6404,
+            382
           ]
         },
         {
@@ -23127,7 +23255,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time leaves WV behind and answers Karkat's call to Jade's land. Finding Jade dead, he tries to recover her body from Jack Noir and PM. Once Jane says she can revive Jade, Dave follows the two guardians as they chase GCat, hoping to bring her back for healing.",
+          "definition": "The Knight of Time leaves WV behind and answers Karkat's call to Jade's land. Finding Jade dead, he tries to recover her body from Jack Noir and PM. Once Jane says she can revive Jade, Dave follows the two guardians as they chase GCat, hoping to bring her back for healing. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 6624,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23139,7 +23267,8 @@ window.HOMESTUCK_REFERENCE = {
             6714,
             6730,
             6731,
-            6739
+            6739,
+            382
           ]
         },
         {
@@ -23149,9 +23278,12 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time fights Jack Noir and PM to recover Jade's body for revival. He frees her onto her quest bed but is impaled during the fight and falls onto her. His death receives a Heroic ruling, preventing ordinary god-tier revival; Jade remains dead as well.",
+          "definition": "The Knight of Time fights Jack Noir and PM to recover Jade's body for revival. He frees her onto her quest bed but is impaled during the fight and falls onto her. His death receives a Heroic ruling, preventing ordinary god-tier revival; Jade remains dead as well. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            382
+          ]
         },
         {
           "from": "act-6-act-6-intermission-4",
@@ -23160,7 +23292,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "The Knight of Time's Heroic death fighting the doglike guardians belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. His revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "definition": "The Knight of Time's Heroic death fighting the doglike guardians belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. His revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23169,7 +23301,8 @@ window.HOMESTUCK_REFERENCE = {
             7217,
             7218,
             7375,
-            7405
+            7405,
+            382
           ]
         },
         {
@@ -23179,7 +23312,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "Dave finally meets Dirk and explains the fear, neglect and violence of growing up with Bro. Their conversation distinguishes Dirk's choices from his counterpart's treatment of Dave while allowing a new connection between them. They prepare to face Lord Jack with Terezi rather than resolving Dave's past through another display of heroism.",
+          "definition": "Dave finally meets Dirk and explains the fear, neglect and violence of growing up with Bro. Their conversation distinguishes Dirk's choices from his counterpart's treatment of Dave while allowing a new connection between them. They prepare to face Lord Jack with Terezi rather than resolving Dave's past through another display of heroism. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 7749,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23187,7 +23320,8 @@ window.HOMESTUCK_REFERENCE = {
             7751,
             7752,
             7763,
-            8085
+            8085,
+            382
           ]
         },
         {
@@ -23197,13 +23331,14 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "Dave fights Lord Jack and Spades Slick beside Dirk and Terezi. His decisive slash beheads both enemies and Dirk, who is caught between them. Dave gets his companions clear of Lord Jack's exploding head; Jane restores Dirk, and the brothers reunite with their friends.",
+          "definition": "Dave fights Lord Jack and Spades Slick beside Dirk and Terezi. His decisive slash beheads both enemies and Dirk, who is caught between them. Dave gets his companions clear of Lord Jack's exploding head; Jane restores Dirk, and the brothers reunite with their friends. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8093,
             8094,
-            8114
+            8114,
+            382
           ]
         },
         {
@@ -23213,12 +23348,13 @@ window.HOMESTUCK_REFERENCE = {
             "Dave",
             "turntechGodhead"
           ],
-          "definition": "Dave joins the surviving party as the new universe is born. The finale's future glimpse shows him sharing a picnic with Karkat and Jade on restored Earth, after the battles in which he helped save Dirk and defeat the Jacks.",
+          "definition": "Dave joins the surviving party as the new universe is born. The finale's future glimpse shows him sharing a picnic with Karkat and Jade on restored Earth, after the battles in which he helped save Dirk and defeat the Jacks. He deflects awkward feelings with deadpan irony.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             8087,
-            8094
+            8094,
+            382
           ]
         }
       ]
@@ -23235,7 +23371,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "A girl with a love of gardening, nuclear physics, and advanced gadgets. Known online as gardenGnostic, she dreams on Prospit and receives glimpses of events through Skaia's clouds. Becquerel is her dog and guardian.",
+          "definition": "A girl with a love of gardening, nuclear physics, and advanced gadgets. Known online as gardenGnostic, she dreams on Prospit and receives glimpses of events through Skaia's clouds. Becquerel is her dog and guardian. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 789,
           "sourcePages": [
             1026,
@@ -23252,7 +23388,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space in the kids' session, whose dreams on Prospit have helped her prepare for events before they happen. She lives with Becquerel and uses elaborate gadgets to stay in contact with her friends.",
+          "definition": "The Witch of Space in the kids' session, whose dreams on Prospit have helped her prepare for events before they happen. She lives with Becquerel and uses elaborate gadgets to stay in contact with her friends. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 1674,
           "sourcePages": [
             789,
@@ -23269,7 +23405,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space, now in the Land of Frost and Frogs. Becquerel's pre-entry prototyping gives the enemies his First Guardian powers. Jade later adds her dead dreamself to Becsprite, creating her sprite guide Jadesprite.",
+          "definition": "The Witch of Space, now in the Land of Frost and Frogs. Becquerel's pre-entry prototyping gives the enemies his First Guardian powers. Jade later adds her dead dreamself to Becsprite, creating her sprite guide Jadesprite. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 2988,
           "sourcePages": [
             3238,
@@ -23287,7 +23423,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space, responsible for breeding the Genesis Frog in the Land of Frost and Frogs. Kanaya helps explain the task. Her sprite guide is Jadesprite, made from Becquerel and Jade's dead dreamself.",
+          "definition": "The Witch of Space, responsible for breeding the Genesis Frog in the Land of Frost and Frogs. Kanaya helps explain the task. Her sprite guide is Jadesprite, made from Becquerel and Jade's dead dreamself. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 3305,
           "sourcePages": [
             3319,
@@ -23304,7 +23440,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space, who reaches god tier and merges with Jadesprite, gaining First Guardian powers. She shrinks the kids' lands and the Battlefield, then carries them with John through the fourth wall to escape the Scratch.",
+          "definition": "The Witch of Space, who reaches god tier and merges with Jadesprite, gaining First Guardian powers. She shrinks the kids' lands and the Battlefield, then carries them with John through the fourth wall to escape the Scratch. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 4109,
           "sourcePages": [
             3985,
@@ -23320,13 +23456,14 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The god-tier Witch of Space, merged with Jadesprite and carrying First Guardian powers. She pilots the ship carrying John and their miniaturized worlds out of the scratched session. During their passage between fourth walls, she advances another rank and receives Gift of Gab alongside John.",
+          "definition": "The god-tier Witch of Space, merged with Jadesprite and carrying First Guardian powers. She pilots the ship carrying John and their miniaturized worlds out of the scratched session. During their passage between fourth walls, she advances another rank and receives Gift of Gab alongside John. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 4109,
           "sourceKind": "composite",
           "sourcePages": [
             4290,
             4293,
-            4294
+            4294,
+            768
           ]
         },
         {
@@ -23336,7 +23473,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The god-tier Witch of Space, piloting the ship carrying John and their miniaturized worlds through the yellow yard. Outside the Green Sun's domain, she cannot teleport them to their destination, making the voyage take three years. Her First Guardian powers still let her act as a gateway to the Sun.",
+          "definition": "The god-tier Witch of Space, piloting the ship carrying John and their miniaturized worlds through the yellow yard. Outside the Green Sun's domain, she cannot teleport them to their destination, making the voyage take three years. Her First Guardian powers still let her act as a gateway to the Sun. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 4304,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23344,7 +23481,8 @@ window.HOMESTUCK_REFERENCE = {
             4303,
             4337,
             4338,
-            4109
+            4109,
+            768
           ]
         },
         {
@@ -23354,13 +23492,14 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The god-tier Witch of Space, carrying the earlier session's lands and Battlefield aboard the ship. A year into the voyage, she explains that she inherited vague memories from Jadesprite, including time spent among dead trolls. Her canine instincts also surface when Jaspersprite arrives with John's birthday cake.",
+          "definition": "The god-tier Witch of Space, carrying the earlier session's lands and Battlefield aboard the ship. A year into the voyage, she explains that she inherited vague memories from Jadesprite, including time spent among dead trolls. Her canine instincts also surface when Jaspersprite arrives with John's birthday cake. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 4733,
           "sourceKind": "composite",
           "sourcePages": [
             4737,
             4738,
-            4109
+            4109,
+            768
           ]
         },
         {
@@ -23370,13 +23509,14 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The god-tier Witch of Space, carrying the old session's planets and Battlefield toward the new session. Two years into the voyage, she has recently been broken up with by Davesprite. She tries to manage John's anger and restlessness as their confinement aboard the ship wears on him.",
+          "definition": "The god-tier Witch of Space, carrying the old session's planets and Battlefield toward the new session. Two years into the voyage, she has recently been broken up with by Davesprite. She tries to manage John's anger and restlessness as their confinement aboard the ship wears on him. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 5292,
           "sourceKind": "composite",
           "sourcePages": [
             5293,
             5305,
-            5306
+            5306,
+            768
           ]
         },
         {
@@ -23386,7 +23526,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space reaches the new session as the ship breaks through the fourth wall, then rescues Jake and Jane from Jack. The Condesce takes psychic control of her. Jade retrieves Jane's tiaratop, helps capture the new players and banishes Dirk to the session's edge.",
+          "definition": "The Witch of Space reaches the new session as the ship breaks through the fourth wall, then rescues Jake and Jane from Jack. The Condesce takes psychic control of her. Jade retrieves Jane's tiaratop, helps capture the new players and banishes Dirk to the session's edge. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 5869,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23398,7 +23538,8 @@ window.HOMESTUCK_REFERENCE = {
             5899,
             5911,
             5913,
-            5918
+            5918,
+            768
           ]
         },
         {
@@ -23408,14 +23549,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jade",
             "gardenGnostic"
           ],
-          "definition": "The Witch of Space remains under the Condesce's psychic control after bringing the ship into the post-Scratch session. When the meteor arrives, she confronts its passengers, then teleports Dave, Rose, Karkat, Terezi, Kanaya and WV to John on the Land of Mounds and Xenon.",
+          "definition": "The Witch of Space remains under the Condesce's psychic control after bringing the ship into the post-Scratch session. When the meteor arrives, she confronts its passengers, then teleports Dave, Rose, Karkat, Terezi, Kanaya and WV to John on the Land of Mounds and Xenon. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 5886,
           "sourceKind": "composite",
           "sourcePages": [
             5927,
             6228,
             6229,
-            6231
+            6231,
+            768
           ]
         },
         {
@@ -23426,7 +23568,7 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "The controlled Witch of Space separates her friends and serves the Condesce's plan for a new empire. She pressures Roxy to create a matriorb, orders Kanaya and Karkat to seek Echidna's frog, and demands Dave fight Lord English. John repeatedly evades her with wind and his unpredictable jumps.",
+          "definition": "The controlled Witch of Space separates her friends and serves the Condesce's plan for a new empire. She pressures Roxy to create a matriorb, orders Kanaya and Karkat to seek Echidna's frog, and demands Dave fight Lord English. John repeatedly evades her with wind and his unpredictable jumps. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 6293,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23435,7 +23577,8 @@ window.HOMESTUCK_REFERENCE = {
             6327,
             6383,
             6404,
-            6453
+            6453,
+            768
           ]
         },
         {
@@ -23446,7 +23589,7 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "The controlled Witch of Space swaps Derse with her land while fighting Jake's Hope field. Its backlash knocks her unconscious and breaks the control; Aranea then drops her house onto her. A Just ruling prevents ordinary god-tier revival. While Jane's rescue is obstructed, Jade meets Calliope in a dream bubble without remembering her death.",
+          "definition": "The controlled Witch of Space swaps Derse with her land while fighting Jake's Hope field. Its backlash knocks her unconscious and breaks the control; Aranea then drops her house onto her. A Just ruling prevents ordinary god-tier revival. While Jane's rescue is obstructed, Jade meets Calliope in a dream bubble without remembering her death. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 6618,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23459,7 +23602,8 @@ window.HOMESTUCK_REFERENCE = {
             6679,
             6716,
             6719,
-            6720
+            6720,
+            768
           ]
         },
         {
@@ -23470,13 +23614,14 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "The Witch of Space remains dead after the earlier Just ruling. Jack Noir and PM carry her body to her quest bed; Dave dies trying to recover her, and Jane's death ends the attempted revival. Jade's last shown dream-bubble encounter is with Calliope.",
+          "definition": "The Witch of Space remains dead after the earlier Just ruling. Jack Noir and PM carry her body to her quest bed; Dave dies trying to recover her, and Jane's death ends the attempted revival. Jade's last shown dream-bubble encounter is with Calliope. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
             6652,
             6679,
-            6716
+            6716,
+            768
           ]
         },
         {
@@ -23487,7 +23632,7 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "The Jade visiting Calliope remembers a history in which LOWAS exploded, killing John and Davesprite during the ship's voyage. She recounts meeting an alternate Calliope. Finally she remembers Vriska stopping the meteor interception: this Jade is a living sleeper, distinct from the Jade killed in the earlier battle.",
+          "definition": "The Jade visiting Calliope remembers a history in which LOWAS exploded, killing John and Davesprite during the ship's voyage. She recounts meeting an alternate Calliope. Finally she remembers Vriska stopping the meteor interception: this Jade is a living sleeper, distinct from the Jade killed in the earlier battle. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 7063,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23495,7 +23640,8 @@ window.HOMESTUCK_REFERENCE = {
             7068,
             7069,
             7405,
-            7406
+            7406,
+            768
           ]
         },
         {
@@ -23506,7 +23652,7 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "Davepeta wakes the revised-history Jade after her journey with the alternate Calliope. Dave's note directs her toward Dog Jack and PM, and she eagerly goes to help. Her First Guardian powers still leave her vulnerable to the Condesce's animal communion; the original-history Jade's death remains separate.",
+          "definition": "Davepeta wakes the revised-history Jade after her journey with the alternate Calliope. Dave's note directs her toward Dog Jack and PM, and she eagerly goes to help. Her First Guardian powers still leave her vulnerable to the Condesce's animal communion; the original-history Jade's death remains separate. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 8005,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23516,7 +23662,8 @@ window.HOMESTUCK_REFERENCE = {
             8029,
             8032,
             8033,
-            7520
+            7520,
+            768
           ]
         },
         {
@@ -23527,14 +23674,15 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "Jade tries to interrupt Dog Jack and PM's duel, but PM knocks her unconscious and continues fighting. She wakes beside the defeated, depowered Jack and receives Calliope's help. The reunion at the victory platform follows without yet showing Earth placed inside a new universe.",
+          "definition": "Jade tries to interrupt Dog Jack and PM's duel, but PM knocks her unconscious and continues fighting. She wakes beside the defeated, depowered Jack and receives Calliope's help. The reunion at the victory platform follows without yet showing Earth placed inside a new universe. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8095,
             8096,
             8097,
-            8113
+            8113,
+            768
           ]
         },
         {
@@ -23545,12 +23693,13 @@ window.HOMESTUCK_REFERENCE = {
             "gardenGnostic",
             "Grimbark Jade"
           ],
-          "definition": "Jade holds the miniaturized Earth beside her friends at the completed victory door. The finale shows its surface becoming green and inhabited, with Jade sharing a picnic with Dave and Karkat. The Green Sun's destruction removes the source of her First Guardian abilities, while her own Space powers remain distinct.",
+          "definition": "Jade holds the miniaturized Earth beside her friends at the completed victory door. The finale shows its surface becoming green and inhabited, with Jade sharing a picnic with Dave and Karkat. The Green Sun's destruction removes the source of her First Guardian abilities, while her own Space powers remain distinct. She is cheerful, curious, and enthusiastic about helping.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             4304,
-            6383
+            6383,
+            768
           ]
         }
       ]
@@ -23564,7 +23713,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-1",
           "term": "Dad",
           "aliases": [],
-          "definition": "John's father, whose enthusiastic baking fills their house with birthday cakes. His presence complicates John's attempts to retrieve the mail and get on with his plans, turning ordinary household errands into elaborate maneuvers.",
+          "definition": "John's father, whose enthusiastic baking fills their house with birthday cakes. His presence complicates John's attempts to retrieve the mail and get on with his plans, turning ordinary household errands into elaborate maneuvers. Earnest and doting, he expresses affection through baking.",
           "sourcePage": 4,
           "sourcePages": [
             70
@@ -23575,7 +23724,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Dad",
           "aliases": [],
-          "definition": "John's father, an enthusiastic baker caught up in the kids' Sburb adventure. He and Rose's mother are found dead together, making the dangers of the session painfully personal for their children.",
+          "definition": "John's father, an enthusiastic baker caught up in the kids' Sburb adventure. He and Rose's mother are found dead together, making the dangers of the session painfully personal for their children. Earnest and doting, he expresses affection through baking.",
           "sourcePage": 70,
           "sourcePages": [
             3696
@@ -23588,7 +23737,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Dad"
           ],
-          "definition": "John's father, an enthusiastic baker caught up in the original kids' Sburb adventure. He and Rose's mother were found dead together in their session. Jane's living father is a separate person in the post-Scratch household.",
+          "definition": "John's father, an enthusiastic baker caught up in the original kids' Sburb adventure. He and Rose's mother were found dead together in their session. Jane's living father is a separate person in the post-Scratch household. Earnest and doting, he expresses affection through baking.",
           "sourcePage": 70,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23608,10 +23757,11 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "term": "Mom",
           "aliases": [],
-          "definition": "Rose's mother, associated with the liquor bottles around their home. Their household becomes part of Rose's urgent effort to enter Sburb while a forest fire threatens the residence and cuts her off from safety.",
+          "definition": "Rose's mother, associated with the liquor bottles around their home. Their household becomes part of Rose's urgent effort to enter Sburb while a forest fire threatens the residence and cuts her off from safety. She remains composed amid Rose's domestic power struggles.",
           "sourcePage": 365,
           "sourcePages": [
-            419
+            419,
+            388
           ],
           "sourceKind": "composite"
         },
@@ -23619,11 +23769,12 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Mom",
           "aliases": [],
-          "definition": "Rose's mother, who enters the worlds of the kids' Sburb session. She and John's father are found dead together; her death becomes part of Rose's confrontation with the session's unfolding disaster.",
+          "definition": "Rose's mother, who enters the worlds of the kids' Sburb session. She and John's father are found dead together; her death becomes part of Rose's confrontation with the session's unfolding disaster. She remains composed amid Rose's domestic power struggles.",
           "sourcePage": 3696,
           "sourcePages": [
             1674,
-            365
+            365,
+            388
           ],
           "sourceKind": "composite"
         }
@@ -23638,19 +23789,22 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "term": "Bro",
           "aliases": [],
-          "definition": "Dave's older brother, whose puppet collection and websites embody an extreme version of the irony Dave tries to imitate. Dave seeks his copy of Sburb to help Rose, while privately admitting that the puppets frighten him.",
+          "definition": "Dave's older brother, whose puppet collection and websites embody an extreme version of the irony Dave tries to imitate. Dave seeks his copy of Sburb to help Rose, while privately admitting that the puppets frighten him. He is inscrutable, competitive, and steeped in irony.",
           "sourcePage": 419,
-          "sourcePages": [],
+          "sourcePages": [
+            757
+          ],
           "sourceKind": "composite"
         },
         {
           "from": "act-4",
           "term": "Bro",
           "aliases": [],
-          "definition": "Dave's older brother and guardian, a formidable swordsman with an unsettling devotion to puppets. He thoroughly defeats Dave in their rooftop duel, then gives him the game discs needed to help Rose enter Sburb.",
+          "definition": "Dave's older brother and guardian, a formidable swordsman with an unsettling devotion to puppets. He thoroughly defeats Dave in their rooftop duel, then gives him the game discs needed to help Rose enter Sburb. He is inscrutable, competitive, and steeped in irony.",
           "sourcePage": 1674,
           "sourcePages": [
-            419
+            419,
+            757
           ],
           "sourceKind": "composite"
         },
@@ -23658,12 +23812,13 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Bro",
           "aliases": [],
-          "definition": "Dave's older brother and guardian, whose swordsmanship and puppet-centered brand of irony shaped Dave's upbringing. He is killed during the conflict with Jack Noir, leaving Dave to confront the loss of his guardian.",
+          "definition": "Dave's older brother and guardian, whose swordsmanship and puppet-centered brand of irony shaped Dave's upbringing. He is killed during the conflict with Jack Noir, leaving Dave to confront the loss of his guardian. He is inscrutable, competitive, and steeped in irony.",
           "sourcePage": 3202,
           "sourcePages": [
             3238,
             1674,
-            419
+            419,
+            757
           ],
           "sourceKind": "composite"
         },
@@ -23671,13 +23826,14 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Bro",
           "aliases": [],
-          "definition": "In conversation with Dirk, Dave describes his guardian Bro's supposed training as frightening violence and neglect. Dave recalls feeling less valued than the puppets and wonders about Lil Cal's influence without claiming it excuses the harm. Bro is Dirk's counterpart, with a separate history.",
+          "definition": "In conversation with Dirk, Dave describes his guardian Bro's supposed training as frightening violence and neglect. Dave recalls feeling less valued than the puppets and wonders about Lil Cal's influence without claiming it excuses the harm. Bro is Dirk's counterpart, with a separate history. He is inscrutable, competitive, and steeped in irony.",
           "sourcePage": 7749,
           "sourceKind": "composite",
           "sourcePages": [
             7750,
             7751,
-            7752
+            7752,
+            757
           ]
         }
       ]
@@ -23691,7 +23847,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-3",
           "term": "Grandpa",
           "aliases": [],
-          "definition": "Jade's deceased grandfather, whose preserved body remains in her home. She still finds him difficult to deal with, even after his death, amid the unusual household she shares with her dog Becquerel.",
+          "definition": "Jade's deceased grandfather, whose preserved body remains in her home. She still finds him difficult to deal with, even after his death, amid the unusual household she shares with her dog Becquerel. His eccentricity matches his taste for grand adventures.",
           "sourcePage": 790,
           "sourcePages": [
             919,
@@ -23711,7 +23867,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-2",
           "term": "Nannasprite",
           "aliases": [],
-          "definition": "John's sprite guide, created by combining Harlequinsprite with his grandmother's ashes. She explains Skaia, the gates, and the journey ahead, although her answers often preserve the game's mysteries rather than resolving them outright.",
+          "definition": "John's sprite guide, created by combining Harlequinsprite with his grandmother's ashes. She explains Skaia, the gates, and the journey ahead, although her answers often preserve the game's mysteries rather than resolving them outright. She is warm, mischievous, and fond of pranks.",
           "sourcePage": 281,
           "sourcePages": [
             419,
@@ -23724,28 +23880,30 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Nannasprite",
           "aliases": [],
-          "definition": "Two Nannasprites meet Jane in the revised session, with a pie and the familiar enthusiasm for practical jokes. These coexisting versions remain John's grandmother's sprite guide rather than forming a new combined sprite. Their visit gives Jane an unexpected encounter with her older counterpart.",
+          "definition": "Two Nannasprites meet Jane in the revised session, with a pie and the familiar enthusiasm for practical jokes. These coexisting versions remain John's grandmother's sprite guide rather than forming a new combined sprite. Their visit gives Jane an unexpected encounter with her older counterpart. She is warm, mischievous, and fond of pranks.",
           "sourcePage": 7805,
           "sourceKind": "composite",
           "sourcePages": [
             7806,
             7807,
             281,
-            419
+            419,
+            420
           ]
         },
         {
           "from": "act-6-act-6-act-6",
           "term": "Nannasprite",
           "aliases": [],
-          "definition": "The two Nannasprites support the battle as healers alongside Jane and Jasprose. One tends Jane after the Condesce falls, then brings Jane's dad to the victory gathering. They remain coexisting versions of John's grandmother's sprite, rather than a fused identity.",
+          "definition": "The two Nannasprites support the battle as healers alongside Jane and Jasprose. One tends Jane after the Condesce falls, then brings Jane's dad to the victory gathering. They remain coexisting versions of John's grandmother's sprite, rather than a fused identity. She is warm, mischievous, and fond of pranks.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8089,
             8092,
             8117,
-            7805
+            7805,
+            420
           ]
         }
       ]
@@ -23759,7 +23917,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Jaspersprite",
           "aliases": [],
-          "definition": "Rose's sprite guide, combining her dead cat Jaspers with an eldritch princess doll. Like the other sprites, he is both a familiar presence from his player's life and a source of guidance within Sburb.",
+          "definition": "Rose's sprite guide, combining her dead cat Jaspers with an eldritch princess doll. Like the other sprites, he is both a familiar presence from his player's life and a source of guidance within Sburb. He is affectionate, distractible, and unmistakably feline.",
           "sourcePage": 1626,
           "sourcePages": [
             1674
@@ -23773,7 +23931,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jaspers",
             "Frigglish"
           ],
-          "definition": "Rose's sprite guide, combining her dead cat Jaspers with an eldritch princess doll. The cat's missing days connect to Roxy, who kept him as Frigglish after retrieving him through a transmaterializer. A falling joke book kills him; Roxy sends the body back, completing the disappearance Rose remembers.",
+          "definition": "Rose's sprite guide, combining her dead cat Jaspers with an eldritch princess doll. The cat's missing days connect to Roxy, who kept him as Frigglish after retrieving him through a transmaterializer. A falling joke book kills him; Roxy sends the body back, completing the disappearance Rose remembers. He is affectionate, distractible, and unmistakably feline.",
           "sourcePage": 4502,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23782,7 +23940,8 @@ window.HOMESTUCK_REFERENCE = {
             4613,
             4616,
             4617,
-            1674
+            1674,
+            1626
           ]
         },
         {
@@ -23792,14 +23951,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jaspers",
             "Frigglish"
           ],
-          "definition": "The cat who traveled from the original history revives Rose through Roxy's unused kernel, then affectionately embraces Rosesprite. Their contact creates Jasprosesprite², combining two sprites into a new person. The fusion retains memories and impulses from Jaspers, Rose and their alternate selves.",
+          "definition": "The cat who traveled from the original history revives Rose through Roxy's unused kernel, then affectionately embraces Rosesprite. Their contact creates Jasprosesprite², combining two sprites into a new person. The fusion retains memories and impulses from Jaspers, Rose and their alternate selves. He is affectionate, distractible, and unmistakably feline.",
           "sourcePage": 7505,
           "sourceKind": "composite",
           "sourcePages": [
             7588,
             7591,
             7650,
-            7895
+            7895,
+            1626
           ]
         }
       ]
@@ -23813,7 +23973,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "A Dave from a doomed future who travels back and prototypes himself into Crowsprite, becoming the present Dave's sprite guide. He retains the experiences of his own failed timeline.",
+          "definition": "A Dave from a doomed future who travels back and prototypes himself into Crowsprite, becoming the present Dave's sprite guide. He retains the experiences of his own failed timeline. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 1651,
           "sourcePages": [
             1674
@@ -23824,7 +23984,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The doomed-timeline Dave who became Crowsprite's second prototype and Dave's guide. Injured and missing a wing, he meets Hephaestus and learns about the Choice, helping arrange a truce and the repair of a sword.",
+          "definition": "The doomed-timeline Dave who became Crowsprite's second prototype and Dave's guide. Injured and missing a wing, he meets Hephaestus and learns about the Choice, helping arrange a truce and the repair of a sword. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 1674,
           "sourcePages": [
             3889,
@@ -23838,72 +23998,77 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-1",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The doomed-timeline Dave who became Crowsprite's second prototype and Dave's guide. He survives aboard Jade's ship with John, traveling through the yellow yard toward the post-Scratch session. He contributes to John's farewell letter to Rose, Dave, and the trolls by defacing its movie poster.",
+          "definition": "The doomed-timeline Dave who became Crowsprite's second prototype and Dave's guide. He survives aboard Jade's ship with John, traveling through the yellow yard toward the post-Scratch session. He contributes to John's farewell letter to Rose, Dave, and the trolls by defacing its movie poster. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 4343,
           "sourceKind": "composite",
           "sourcePages": [
             1674,
             4303,
             4344,
-            4372
+            4372,
+            1651
           ]
         },
         {
           "from": "act-6-intermission-2",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The doomed-timeline Dave who became Dave's sprite guide. A year into the ship's journey, his wings are restored and he plays Ghostbusters with the other passengers. John treats him as Dave, while Jade notices differences in personality and is unsure how becoming a sprite or his earlier timeline shaped them.",
+          "definition": "The doomed-timeline Dave who became Dave's sprite guide. A year into the ship's journey, his wings are restored and he plays Ghostbusters with the other passengers. John treats him as Dave, while Jade notices differences in personality and is unsure how becoming a sprite or his earlier timeline shaped them. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 4731,
           "sourceKind": "composite",
           "sourcePages": [
             4732,
             4733,
-            1674
+            1674,
+            1651
           ]
         },
         {
           "from": "act-6-intermission-3",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The doomed-timeline Dave who became Dave's sprite guide. Two years into the ship's journey, he has broken up with Jade and stays away from John's birthday movie. A teasing note modeled on Dad's messages instead provokes John's anger and exposes tensions among the small group of passengers.",
+          "definition": "The doomed-timeline Dave who became Dave's sprite guide. Two years into the ship's journey, he has broken up with Jade and stays away from John's birthday movie. A teasing note modeled on Dad's messages instead provokes John's anger and exposes tensions among the small group of passengers. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 5292,
           "sourceKind": "composite",
           "sourcePages": [
             5293,
             5299,
-            5300
+            5300,
+            1651
           ]
         },
         {
           "from": "act-6-intermission-5",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The doomed-timeline Dave who became Dave's sprite guide reaches the new session after three years aboard the ship. Having broken up with Jade, he tells a sleeping John that feeling excluded from the original friends' lives has become unbearable. He says goodbye and flies away.",
+          "definition": "The doomed-timeline Dave who became Dave's sprite guide reaches the new session after three years aboard the ship. Having broken up with Jade, he tells a sleeping John that feeling excluded from the original friends' lives has become unbearable. He says goodbye and flies away. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 5941,
           "sourceKind": "composite",
           "sourcePages": [
             5942,
             5943,
             5944,
-            5945
+            5945,
+            1651
           ]
         },
         {
           "from": "act-6-act-6-intermission-1",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The doomed-timeline Dave who became a sprite guide is now spending time with Arquiusprite in the new session. The two bond over feeling excluded from their counterparts' lives. Jade says Davesprite broke her heart, but the actual Dave insists that his alternate self's choices are not automatically his own.",
+          "definition": "The doomed-timeline Dave who became a sprite guide is now spending time with Arquiusprite in the new session. The two bond over feeling excluded from their counterparts' lives. Jade says Davesprite broke her heart, but the actual Dave insists that his alternate self's choices are not automatically his own. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 6380,
           "sourceKind": "composite",
           "sourcePages": [
-            6386
+            6386,
+            1651
           ]
         },
         {
           "from": "act-6-act-6-intermission-4",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The sprite guide made from a doomed Dave remains distinct from the original Dave. Jade's newly recovered memories describe another history in which Davesprite and John die when Typheus destroys LOWAS during the ship's voyage. That loss leaves her alone with the consorts and chess people for three years.",
+          "definition": "The sprite guide made from a doomed Dave remains distinct from the original Dave. Jade's newly recovered memories describe another history in which Davesprite and John die when Typheus destroys LOWAS during the ship's voyage. That loss leaves her alone with the consorts and chess people for three years. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 7062,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23911,14 +24076,15 @@ window.HOMESTUCK_REFERENCE = {
             7064,
             7065,
             7068,
-            7069
+            7069,
+            1651
           ]
         },
         {
           "from": "act-6-act-6-intermission-5",
           "term": "Davesprite",
           "aliases": [],
-          "definition": "The original-history Davesprite survives the trip with LOWAS through the blank refuge and finds Jake's tea party. His handshake with Nepetasprite creates Davepetasprite², who embraces a new combined identity. This traveler is distinct from the revised-history Davesprite killed in LOWAS's explosion and from the living Dave.",
+          "definition": "The original-history Davesprite survives the trip with LOWAS through the blank refuge and finds Jake's tea party. His handshake with Nepetasprite creates Davepetasprite², who embraces a new combined identity. This traveler is distinct from the revised-history Davesprite killed in LOWAS's explosion and from the living Dave. He shares Dave's dry humor and defensive irony.",
           "sourcePage": 7064,
           "sourceKind": "composite",
           "sourcePages": [
@@ -23926,7 +24092,8 @@ window.HOMESTUCK_REFERENCE = {
             7876,
             7877,
             7895,
-            7896
+            7896,
+            1651
           ]
         }
       ]
@@ -23940,7 +24107,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-1",
           "term": "Jadesprite",
           "aliases": [],
-          "definition": "Jade's sprite guide, created by prototyping her dead dreamself into Becsprite. She combines Jade's memories with Becquerel's First Guardian powers, but her distress makes her far from the straightforward helper Jade hoped to summon.",
+          "definition": "Jade's sprite guide, created by prototyping her dead dreamself into Becsprite. She combines Jade's memories with Becquerel's First Guardian powers, but her distress makes her far from the straightforward helper Jade hoped to summon. She is frightened, overwhelmed, and reluctant to fight.",
           "sourcePage": 3213,
           "sourcePages": [
             3238
@@ -23951,7 +24118,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Jadesprite",
           "aliases": [],
-          "definition": "The sprite made from Becquerel and Jade's dead dreamself. At Jade's god-tier ascension, Jadesprite merges with her, joining the First Guardian's powers to the Witch of Space instead of continuing as a separate guide.",
+          "definition": "The sprite made from Becquerel and Jade's dead dreamself. At Jade's god-tier ascension, Jadesprite merges with her, joining the First Guardian's powers to the Witch of Space instead of continuing as a separate guide. She is frightened, overwhelmed, and reluctant to fight.",
           "sourcePage": 3238,
           "sourcePages": [
             4109,
@@ -23972,10 +24139,11 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Bec"
           ],
-          "definition": "Jade's dog, guardian, and best friend. He even appears in her dreams on Prospit, where she learns that his birthday falls on the same day as John's and realizes his cake would need a great many candles.",
+          "definition": "Jade's dog, guardian, and best friend. He even appears in her dreams on Prospit, where she learns that his birthday falls on the same day as John's and realizes his cake would need a great many candles. He is watchful and fiercely protective of Jade.",
           "sourcePage": 1075,
           "sourcePages": [
-            942
+            942,
+            980
           ],
           "sourceKind": "composite"
         },
@@ -23985,11 +24153,12 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Bec"
           ],
-          "definition": "Earth's First Guardian and Jade's dog. His prototyping creates Becsprite and passes his Green Sun powers to the royal rings and enemies. Jade later adds her dead dreamself, turning Becsprite into Jadesprite.",
+          "definition": "Earth's First Guardian and Jade's dog. His prototyping creates Becsprite and passes his Green Sun powers to the royal rings and enemies. Jade later adds her dead dreamself, turning Becsprite into Jadesprite. He is watchful and fiercely protective of Jade.",
           "sourcePage": 2927,
           "sourcePages": [
             3238,
-            942
+            942,
+            980
           ],
           "sourceKind": "composite"
         }
@@ -24007,7 +24176,7 @@ window.HOMESTUCK_REFERENCE = {
             "WV",
             "The Mayor"
           ],
-          "definition": "A wanderer who declares himself mayor of Can Town, building an orderly little society from empty cans. He fashions a mayoral sash from cables and places a book of manners atop his improvised city hall.",
+          "definition": "A wanderer who declares himself mayor of Can Town, building an orderly little society from empty cans. He fashions a mayoral sash from cables and places a book of manners atop his improvised city hall. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 685,
           "sourcePages": [
             666
@@ -24022,7 +24191,7 @@ window.HOMESTUCK_REFERENCE = {
             "WV",
             "The Mayor"
           ],
-          "definition": "The former Warweary Villein, a pawn who rebelled against the kings during the Battlefield's war. As an exile, he becomes the founder and mayor of Can Town, imagining a gentler form of government among his cans.",
+          "definition": "The former Warweary Villein, a pawn who rebelled against the kings during the Battlefield's war. As an exile, he becomes the founder and mayor of Can Town, imagining a gentler form of government among his cans. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 1988,
           "sourcePages": [
             685,
@@ -24039,7 +24208,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, whom John regards as a Wizardly Vassal on the Battlefield. He guards the royal ring, which WQ suggests a Wastelandic Vindicator could use against Jack Noir.",
+          "definition": "The former Warweary Villein and mayor of Can Town, whom John regards as a Wizardly Vassal on the Battlefield. He guards the royal ring, which WQ suggests a Wastelandic Vindicator could use against Jack Noir. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 3394,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24057,7 +24226,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and self-appointed mayor of Can Town. This exiled rebel against the kings is severely wounded by Jack Noir during the final events surrounding the kids' session.",
+          "definition": "The former Warweary Villein and self-appointed mayor of Can Town. This exiled rebel against the kings is severely wounded by Jack Noir during the final events surrounding the kids' session. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 1988,
           "sourcePages": [
             685,
@@ -24076,7 +24245,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her First Guardian gateway to the laboratory meteor near the Green Sun. Rose takes him along, hoping the group can find help on their journey.",
+          "definition": "The former Warweary Villein and mayor of Can Town, critically wounded after Jack Noir's attack. PM sends him through her First Guardian gateway to the laboratory meteor near the Green Sun. Rose takes him along, hoping the group can find help on their journey. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 4382,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24098,7 +24267,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town, brought aboard the meteor after Jack's attack. During a passage through a dream bubble, a god-tier Feferi ghost treats his wounds. He survives, and Dave enthusiastically takes up the Can Town project during the group's journey.",
+          "definition": "The former Warweary Villein and mayor of Can Town, brought aboard the meteor after Jack's attack. During a passage through a dream bubble, a god-tier Feferi ghost treats his wounds. He survives, and Dave enthusiastically takes up the Can Town project during the group's journey. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 4690,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24119,7 +24288,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The former Warweary Villein and mayor of Can Town arrives on LOHAC with Dave. Jade threatens him to force Dave to fight, then kicks him toward the lava; Dave catches him. John's later arrival changes the confrontation before that threat is carried out, with the mayor still safe.",
+          "definition": "The former Warweary Villein and mayor of Can Town arrives on LOHAC with Dave. Jade threatens him to force Dave to fight, then kicks him toward the lava; Dave catches him. John's later arrival changes the confrontation before that threat is carried out, with the mayor still safe. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 6280,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24141,7 +24310,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The Mayor remains a protected noncombatant during Vriska's preparations. He shelters with sleeping Jade, then meets the revived Calliope. Both greet Jade when Davepeta wakes her, and the three leave the tower before Jade teleports away to help with the approaching battle.",
+          "definition": "The Mayor remains a protected noncombatant during Vriska's preparations. He shelters with sleeping Jade, then meets the revived Calliope. Both greet Jade when Davepeta wakes her, and the three leave the tower before Jade teleports away to help with the approaching battle. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 7536,
           "sourcePages": [
             7727,
@@ -24165,7 +24334,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The Mayor reunites with PM and Serenity after the battles. He removes PM's ring, ending her powered transformation, and takes one of the two recovered rings. Together he and PM climb the Forge and look into its crater; the rings have not yet been thrown in.",
+          "definition": "The Mayor reunites with PM and Serenity after the battles. He removes PM's ring, ending her powered transformation, and takes one of the two recovered rings. Together he and PM climb the Forge and look into its crater; the rings have not yet been thrown in. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 8107,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24187,7 +24356,7 @@ window.HOMESTUCK_REFERENCE = {
             "The Mayor",
             "Wizardly Vassal"
           ],
-          "definition": "The Mayor and PM sacrifice the recovered royal rings in the Forge, helping release the tadpole that becomes a new universe. A future glimpse shows them planning a full-sized Can Town on restored Earth. The model city's civic hopes become the basis of a home for carapacians.",
+          "definition": "The Mayor and PM sacrifice the recovered royal rings in the Forge, helping release the tadpole that becomes a new universe. A future glimpse shows them planning a full-sized Can Town on restored Earth. The model city's civic hopes become the basis of a home for carapacians. He is gentle, idealistic, and enthusiastic about democracy.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24208,7 +24377,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "PM"
           ],
-          "definition": "A wandering mail carrier who treats delivery as a sacred obligation. Even in the wasteland, she refuses to open someone else's envelope and remains determined to find its intended recipient.",
+          "definition": "A wandering mail carrier who treats delivery as a sacred obligation. Even in the wasteland, she refuses to open someone else's envelope and remains determined to find its intended recipient. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 892,
           "sourcePages": [
             894
@@ -24222,7 +24391,7 @@ window.HOMESTUCK_REFERENCE = {
             "Parcel Mistress",
             "PM"
           ],
-          "definition": "The former Parcel Mistress, a Prospitian mail carrier whose determination to deliver a package draws her into the conflict between kingdoms. In exile she is the Peregrine Mendicant, still devoted to the mail.",
+          "definition": "The former Parcel Mistress, a Prospitian mail carrier whose determination to deliver a package draws her into the conflict between kingdoms. In exile she is the Peregrine Mendicant, still devoted to the mail. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 1674,
           "sourcePages": [
             892,
@@ -24238,7 +24407,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "The former Parcel Mistress and Peregrine Mendicant, now entrusted with Prospit's crown. Her journey from mail carrier to monarch grows out of her determination to complete a delivery despite the war between the kingdoms.",
+          "definition": "The former Parcel Mistress and Peregrine Mendicant, now entrusted with Prospit's crown. Her journey from mail carrier to monarch grows out of her determination to complete a delivery despite the war between the kingdoms. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 3018,
           "sourcePages": [
             1674,
@@ -24254,11 +24423,12 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "The former mail carrier who becomes Prospit's queen. By wearing the royal ring after Becquerel's prototyping, she gains First Guardian powers, becoming a counterpart to the transformed Jack Noir.",
+          "definition": "The former mail carrier who becomes Prospit's queen. By wearing the royal ring after Becquerel's prototyping, she gains First Guardian powers, becoming a counterpart to the transformed Jack Noir. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 3018,
           "sourcePages": [
             3238,
-            4109
+            4109,
+            894
           ],
           "sourceKind": "composite"
         },
@@ -24270,7 +24440,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "Prospit's queen, transformed by the royal ring into a wielder of First Guardian powers. She confronts Jack Noir, then sends the critically wounded WV through her body as a gateway to the group at the Green Sun. Rose plans to get him help during the laboratory meteor's journey.",
+          "definition": "Prospit's queen, transformed by the royal ring into a wielder of First Guardian powers. She confronts Jack Noir, then sends the critically wounded WV through her body as a gateway to the group at the Green Sun. Rose plans to get him help during the laboratory meteor's journey. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 4381,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24279,7 +24449,8 @@ window.HOMESTUCK_REFERENCE = {
             4315,
             4320,
             4382,
-            4384
+            4384,
+            894
           ]
         },
         {
@@ -24290,7 +24461,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "Prospit's ring-powered queen reaches Jade's land with Jack Noir. Their shared doglike loyalty to Jade leads them to guard her body, mistaking Jane's attempted revival for an attack. GCat distracts both guardians into a chase, leaving Dave to follow them and recover Jade for Jane's healing.",
+          "definition": "Prospit's ring-powered queen reaches Jade's land with Jack Noir. Their shared doglike loyalty to Jade leads them to guard her body, mistaking Jane's attempted revival for an attack. GCat distracts both guardians into a chase, leaving Dave to follow them and recover Jade for Jane's healing. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 6712,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24304,7 +24475,8 @@ window.HOMESTUCK_REFERENCE = {
             6726,
             6729,
             6730,
-            6731
+            6731,
+            894
           ]
         },
         {
@@ -24315,9 +24487,12 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "The ring-powered Prospitian Monarch guards Jade's body with Jack Noir at the quest bed. Dave's attempt to recover Jade turns into a sword fight with both guardians. Dave is impaled and dies on top of Jade, receiving a Heroic ruling; the planned revival of Jade has not happened.",
+          "definition": "The ring-powered Prospitian Monarch guards Jade's body with Jack Noir at the quest bed. Dave's attempt to recover Jade turns into a sword fight with both guardians. Dave is impaled and dies on top of Jade, receiving a Heroic ruling; the planned revival of Jade has not happened. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            894
+          ]
         },
         {
           "from": "act-6-act-6-intermission-5",
@@ -24327,7 +24502,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "Vriska treats PM as a match for Dog Jack's First Guardian powers and advises letting her pursuit continue. They reach the ruins of Prospit and draw the swords lodged in their bodies before facing each other. This revised-session confrontation is distinct from their intervention in the original catastrophe.",
+          "definition": "Vriska treats PM as a match for Dog Jack's First Guardian powers and advises letting her pursuit continue. They reach the ruins of Prospit and draw the swords lodged in their bodies before facing each other. This revised-session confrontation is distinct from their intervention in the original catastrophe. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 7523,
           "sourcePages": [
             8067,
@@ -24335,7 +24510,8 @@ window.HOMESTUCK_REFERENCE = {
             8074,
             8075,
             8077,
-            8081
+            8081,
+            894
           ],
           "sourceKind": "composite"
         },
@@ -24347,7 +24523,7 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "PM defeats Dog Jack and recovers his royal ring, ending their long chase. After she reunites with the Mayor and Serenity, the Mayor removes her own ring and she returns to ordinary carapacian form. Each carrying a ring, PM and the Mayor climb to the Forge's crater.",
+          "definition": "PM defeats Dog Jack and recovers his royal ring, ending their long chase. After she reunites with the Mayor and Serenity, the Mayor removes her own ring and she returns to ordinary carapacian form. Each carrying a ring, PM and the Mayor climb to the Forge's crater. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24355,7 +24531,8 @@ window.HOMESTUCK_REFERENCE = {
             8108,
             8109,
             8110,
-            8125
+            8125,
+            894
           ]
         },
         {
@@ -24366,11 +24543,12 @@ window.HOMESTUCK_REFERENCE = {
             "Peregrine Mendicant",
             "PM"
           ],
-          "definition": "After defeating Dog Jack and relinquishing her own ring, PM helps the Mayor complete the Forge's ignition by sacrificing both recovered rings. The finale's future glimpse shows the ordinary carapacians together on restored Earth, planning a full-sized Can Town. Her long pursuit ends in work toward a shared home.",
+          "definition": "After defeating Dog Jack and relinquishing her own ring, PM helps the Mayor complete the Forge's ignition by sacrificing both recovered rings. The finale's future glimpse shows the ordinary carapacians together on restored Earth, planning a full-sized Can Town. Her long pursuit ends in work toward a shared home. She is conscientious, determined, and devoted to duty.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            8109
+            8109,
+            894
           ]
         }
       ]
@@ -24386,7 +24564,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "AR"
           ],
-          "definition": "A wasteland inhabitant who appoints himself a defender of the law. He treats other wanderers as intruders in his jurisdiction and responds with gunfire, even when his usually reliable marksmanship lets him down.",
+          "definition": "A wasteland inhabitant who appoints himself a defender of the law. He treats other wanderers as intruders in his jurisdiction and responds with gunfire, even when his usually reliable marksmanship lets him down. He is suspicious, officious, and quick to use force.",
           "sourcePage": 1100,
           "sourcePages": [
             1103
@@ -24400,10 +24578,11 @@ window.HOMESTUCK_REFERENCE = {
             "Authority Regulator",
             "AR"
           ],
-          "definition": "The former Authority Regulator, now a self-appointed law enforcer in the wasteland. His earlier duties in the game and his later insistence on jurisdiction connect his exile identity with his old occupation.",
+          "definition": "The former Authority Regulator, now a self-appointed law enforcer in the wasteland. His earlier duties in the game and his later insistence on jurisdiction connect his exile identity with his old occupation. He is suspicious, officious, and quick to use force.",
           "sourcePage": 1674,
           "sourcePages": [
-            1100
+            1100,
+            1103
           ],
           "sourceKind": "composite"
         },
@@ -24415,13 +24594,14 @@ window.HOMESTUCK_REFERENCE = {
             "AR",
             "Armaments Regent"
           ],
-          "definition": "The former Authority Regulator, an exile devoted to law and order. PM appoints him Armaments Regent, putting his stockpile of explosives to use preparing the exile stations for demolition.",
+          "definition": "The former Authority Regulator, an exile devoted to law and order. PM appoints him Armaments Regent, putting his stockpile of explosives to use preparing the exile stations for demolition. He is suspicious, officious, and quick to use force.",
           "sourcePage": 3270,
           "sourceKind": "composite",
           "sourcePages": [
             3265,
             1100,
-            1674
+            1674,
+            1103
           ]
         },
         {
@@ -24432,13 +24612,14 @@ window.HOMESTUCK_REFERENCE = {
             "AR",
             "Armaments Regent"
           ],
-          "definition": "The former Authority Regulator, appointed PM's Armaments Regent to demolish the exile stations. He continues his devotion to law and order until Jack Noir kills him during the closing events of the kids' session.",
+          "definition": "The former Authority Regulator, appointed PM's Armaments Regent to demolish the exile stations. He continues his devotion to law and order until Jack Noir kills him during the closing events of the kids' session. He is suspicious, officious, and quick to use force.",
           "sourcePage": 1674,
           "sourcePages": [
             1100,
             4109,
             3270,
-            3265
+            3265,
+            1103
           ],
           "sourceKind": "composite"
         }
@@ -24457,7 +24638,7 @@ window.HOMESTUCK_REFERENCE = {
             "WQ",
             "Adored Sovereign"
           ],
-          "definition": "The former White Queen of Prospit, encountered in exile as the Windswept Questant. Her royal past connects the wasteland travelers with the war inside the kids' session and the struggle over its crowns.",
+          "definition": "The former White Queen of Prospit, encountered in exile as the Windswept Questant. Her royal past connects the wasteland travelers with the war inside the kids' session and the struggle over its crowns. She is calm, pragmatic, and willing to relinquish power.",
           "sourcePage": 1543,
           "sourcePages": [
             1674,
@@ -24474,7 +24655,7 @@ window.HOMESTUCK_REFERENCE = {
             "Adored Sovereign",
             "Royal advisor to PM"
           ],
-          "definition": "The former White Queen of Prospit, known in exile as the Windswept Questant. After giving her crown to PM, she becomes the new Prospitian Monarch's royal adviser, helping plan the kingdom's future.",
+          "definition": "The former White Queen of Prospit, known in exile as the Windswept Questant. After giving her crown to PM, she becomes the new Prospitian Monarch's royal adviser, helping plan the kingdom's future. She is calm, pragmatic, and willing to relinquish power.",
           "sourcePage": 3018,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24493,7 +24674,7 @@ window.HOMESTUCK_REFERENCE = {
             "Adored Sovereign",
             "Royal advisor to PM"
           ],
-          "definition": "The former White Queen of Prospit and PM's royal adviser, known in exile as the Windswept Questant. She passes her crown to PM and helps plan the new kingdom's future before Jack Noir kills her during Cascade.",
+          "definition": "The former White Queen of Prospit and PM's royal adviser, known in exile as the Windswept Questant. She passes her crown to PM and helps plan the new kingdom's future before Jack Noir kills her during Cascade. She is calm, pragmatic, and willing to relinquish power.",
           "sourcePage": 1674,
           "sourcePages": [
             3018,
@@ -24516,7 +24697,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-3",
           "term": "Jack Noir",
           "aliases": [],
-          "definition": "The archagent of the Dark Kingdom, overseeing its affairs through window-like walls in his office. He is preoccupied with a troublesome prisoner and resents the theft of the fourth wall needed to complete his workspace.",
+          "definition": "The archagent of the Dark Kingdom, overseeing its affairs through window-like walls in his office. He is preoccupied with a troublesome prisoner and resents the theft of the fourth wall needed to complete his workspace. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 955,
           "sourcePages": [],
           "sourceKind": "composite"
@@ -24527,7 +24708,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Sovereign Slayer"
           ],
-          "definition": "The kids' session's archagent, who overthrows the Black Queen and takes her ring. Its prototypings transform him into a far greater threat. Spades Slick is his counterpart in the trolls' session, not the same individual.",
+          "definition": "The kids' session's archagent, who overthrows the Black Queen and takes her ring. Its prototypings transform him into a far greater threat. Spades Slick is his counterpart in the trolls' session, not the same individual. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 1674,
           "sourcePages": [
             1988,
@@ -24543,7 +24724,7 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir",
             "Sovereign Slayer"
           ],
-          "definition": "The kids' session's rogue archagent, also called Bec Noir. Becquerel's prototyping grants his stolen ring First Guardian powers drawn from the Green Sun. He devastates the session and is the intruder who ruins the trolls' victory.",
+          "definition": "The kids' session's rogue archagent, also called Bec Noir. Becquerel's prototyping grants his stolen ring First Guardian powers drawn from the Green Sun. He devastates the session and is the intruder who ruins the trolls' victory. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 3238,
           "sourcePages": [
             955,
@@ -24558,7 +24739,7 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir",
             "Sovereign Slayer"
           ],
-          "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
+          "definition": "The pre-Scratch kids' rogue archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 4320,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24579,7 +24760,7 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir",
             "Sovereign Slayer"
           ],
-          "definition": "The pre-Scratch kids' renegade archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him.",
+          "definition": "The pre-Scratch kids' renegade archagent, also called Bec Noir, whose stolen ring carries First Guardian powers. Confronted by the similarly transformed PM, he flees toward the Green Sun. Rose warns that he will pursue the laboratory meteor and match its speed, forcing the travelers to outrun him. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 4320,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24600,7 +24781,7 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir",
             "Sovereign Slayer"
           ],
-          "definition": "The pre-Scratch renegade archagent, transformed by Becquerel's royal-ring prototyping, reaches Jade's land with PM. Both doglike guardians protect Jade's body and obstruct Jane's revival attempt. They then chase GCat, with Jack still carrying Jade as Dave follows. Their shared attachment to her temporarily displaces their own conflict.",
+          "definition": "The pre-Scratch renegade archagent, transformed by Becquerel's royal-ring prototyping, reaches Jade's land with PM. Both doglike guardians protect Jade's body and obstruct Jane's revival attempt. They then chase GCat, with Jack still carrying Jade as Dave follows. Their shared attachment to her temporarily displaces their own conflict. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 6712,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24612,7 +24793,8 @@ window.HOMESTUCK_REFERENCE = {
             6726,
             6729,
             6730,
-            1788
+            1788,
+            955
           ]
         },
         {
@@ -24622,11 +24804,12 @@ window.HOMESTUCK_REFERENCE = {
             "Bec Noir",
             "Sovereign Slayer"
           ],
-          "definition": "The pre-Scratch, ring-transformed Jack Noir carries Jade to her quest bed with PM. Dave attacks to recover her, and their fight ends with Dave impaled and falling onto Jade. His death is Heroic. The doglike guardians' attachment to Jade has now helped turn a rescue attempt into another death.",
+          "definition": "The pre-Scratch, ring-transformed Jack Noir carries Jade to her quest bed with PM. Dave attacks to recover her, and their fight ends with Dave impaled and falling onto Jade. His death is Heroic. The doglike guardians' attachment to Jade has now helped turn a rescue attempt into another death. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
-            1788
+            1788,
+            955
           ]
         },
         {
@@ -24637,7 +24820,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dog Jack",
             "Sovereign Slayer"
           ],
-          "definition": "Vriska calls the original session's Bec Noir Dog Jack to distinguish him from the other Jacks. PM continues pursuing him to the ruins of Prospit, where both draw their blades. Each still has First Guardian powers from the Green Sun; their duel has only just begun.",
+          "definition": "Vriska calls the original session's Bec Noir Dog Jack to distinguish him from the other Jacks. PM continues pursuing him to the ruins of Prospit, where both draw their blades. Each still has First Guardian powers from the Green Sun; their duel has only just begun. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 7521,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24647,7 +24830,8 @@ window.HOMESTUCK_REFERENCE = {
             8077,
             8078,
             8081,
-            1788
+            1788,
+            955
           ]
         },
         {
@@ -24658,7 +24842,7 @@ window.HOMESTUCK_REFERENCE = {
             "Dog Jack",
             "Sovereign Slayer"
           ],
-          "definition": "PM defeats Dog Jack by severing his ring-bearing arm and taking the source of his First Guardian powers. She knocks the ordinary carapacian down beside the unconscious Jade. Jack survives; Ms. Paint tends his wounds and receives a quiet look in return.",
+          "definition": "PM defeats Dog Jack by severing his ring-bearing arm and taking the source of his First Guardian powers. She knocks the ordinary carapacian down beside the unconscious Jade. Jack survives; Ms. Paint tends his wounds and receives a quiet look in return. He is irritable, vindictive, and contemptuous of authority.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24666,7 +24850,8 @@ window.HOMESTUCK_REFERENCE = {
             8098,
             8099,
             8100,
-            1788
+            1788,
+            955
           ]
         }
       ]
@@ -24682,10 +24867,11 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "DD"
           ],
-          "definition": "An agent of the Dark Kingdom serving Jack Noir in the kids' session. Alongside the Courtyard Droll and Hegemonic Brute, he belongs to the royal bureaucracy; Diamonds Droog is his counterpart in the trolls' session.",
+          "definition": "An agent of the Dark Kingdom serving Jack Noir in the kids' session. Alongside the Courtyard Droll and Hegemonic Brute, he belongs to the royal bureaucracy; Diamonds Droog is his counterpart in the trolls' session. He is composed, calculating, and methodical about his work.",
           "sourcePage": 1988,
           "sourcePages": [
-            1674
+            1674,
+            1532
           ],
           "sourceKind": "composite"
         }
@@ -24702,7 +24888,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "CD"
           ],
-          "definition": "Jack Noir's lackey in the kids' session, serving the Dark Kingdom alongside the Draconian Dignitary and Hegemonic Brute. Clubs Deuce is his counterpart in the trolls' session.",
+          "definition": "Jack Noir's lackey in the kids' session, serving the Dark Kingdom alongside the Draconian Dignitary and Hegemonic Brute. Clubs Deuce is his counterpart in the trolls' session. He is bumbling, distractible, and literal-minded about orders.",
           "sourcePage": 1784,
           "sourcePages": [
             1988,
@@ -24716,7 +24902,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "CD"
           ],
-          "definition": "Jack Noir's lackey and the kids' session's counterpart of Clubs Deuce. His involvement in the events around Jade's quest bed ends with Jack killing him during Cascade.",
+          "definition": "Jack Noir's lackey and the kids' session's counterpart of Clubs Deuce. His involvement in the events around Jade's quest bed ends with Jack killing him during Cascade. He is bumbling, distractible, and literal-minded about orders.",
           "sourcePage": 1988,
           "sourcePages": [
             1674,
@@ -24738,7 +24924,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "HB"
           ],
-          "definition": "An agent serving Jack Noir in the Dark Kingdom. He belongs to the group carrying out the archagent's business while Jack deals with a troublesome prisoner and the frustrations of his office.",
+          "definition": "An agent serving Jack Noir in the Dark Kingdom. He belongs to the group carrying out the archagent's business while Jack deals with a troublesome prisoner and the frustrations of his office. His brief portrayal emphasizes brute force over subtlety.",
           "sourcePage": 955,
           "sourcePages": [
             957
@@ -24751,7 +24937,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "HB"
           ],
-          "definition": "Jack Noir's muscle in the kids' session and the counterpart of Hearts Boxcars. He is killed during the upheaval around Jack's seizure of power, while Boxcars takes part in the Midnight Crew's separate campaign against the Felt.",
+          "definition": "Jack Noir's muscle in the kids' session and the counterpart of Hearts Boxcars. He is killed during the upheaval around Jack's seizure of power, while Boxcars takes part in the Midnight Crew's separate campaign against the Felt. His brief portrayal emphasizes brute force over subtlety.",
           "sourcePage": 1674,
           "sourcePages": [
             1988,
@@ -24770,7 +24956,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission",
           "term": "Spades Slick",
           "aliases": [],
-          "definition": "Leader of the Midnight Crew, raiding the Felt's mansion after their attack on his casino. He directs the gang's revenge mission and seeks Lord English's secret vault, contending with opponents whose time powers complicate the assault.",
+          "definition": "Leader of the Midnight Crew, raiding the Felt's mansion after their attack on his casino. He directs the gang's revenge mission and seeks Lord English's secret vault, contending with opponents whose time powers complicate the assault. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 1155,
           "sourcePages": [
             1172
@@ -24781,7 +24967,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Spades Slick",
           "aliases": [],
-          "definition": "Leader of the Midnight Crew and the trolls' session's counterpart of Jack Noir. His campaign against the Felt belongs to a different session from the kids' struggle against their own increasingly dangerous archagent.",
+          "definition": "Leader of the Midnight Crew and the trolls' session's counterpart of Jack Noir. His campaign against the Felt belongs to a different session from the kids' struggle against their own increasingly dangerous archagent. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 1155,
           "sourcePages": [
             1674
@@ -24792,7 +24978,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Spades Slick",
           "aliases": [],
-          "definition": "The Midnight Crew's leader and the trolls' counterpart of Jack Noir. At the climax of Act 5, he shoots Snowman, whose life is tied to the trolls' universe, helping bring about that universe's destruction.",
+          "definition": "The Midnight Crew's leader and the trolls' counterpart of Jack Noir. At the climax of Act 5, he shoots Snowman, whose life is tied to the trolls' universe, helping bring about that universe's destruction. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 1155,
           "sourcePages": [
             1674,
@@ -24805,7 +24991,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-2",
           "term": "Spades Slick",
           "aliases": [],
-          "definition": "The Midnight Crew's leader and the trolls' counterpart of Jack Noir. After the destruction of his universe, he recuperates with extensive robotic replacements under the author's care. When Lord English invades, the author tries to save Slick by throwing his hospital bed over a balcony.",
+          "definition": "The Midnight Crew's leader and the trolls' counterpart of Jack Noir. After the destruction of his universe, he recuperates with extensive robotic replacements under the author's care. When Lord English invades, the author tries to save Slick by throwing his hospital bed over a balcony. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 4671,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24813,14 +24999,15 @@ window.HOMESTUCK_REFERENCE = {
             4796,
             4798,
             4799,
-            1674
+            1674,
+            1155
           ]
         },
         {
           "from": "act-6-intermission-5",
           "term": "Spades Slick",
           "aliases": [],
-          "definition": "The Midnight Crew's cyborg leader takes Lord English's Golden Cuestaff and uses Die's doll to bring back the Felt. He becomes their new boss and recruits Ms. Paint into the vacant eight-spot. After escaping Doc Scratch's apartment, he flies toward the new session with the gang stored inside Biscuits's oven.",
+          "definition": "The Midnight Crew's cyborg leader takes Lord English's Golden Cuestaff and uses Die's doll to bring back the Felt. He becomes their new boss and recruits Ms. Paint into the vacant eight-spot. After escaping Doc Scratch's apartment, he flies toward the new session with the gang stored inside Biscuits's oven. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 6117,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24830,7 +25017,8 @@ window.HOMESTUCK_REFERENCE = {
             6141,
             6144,
             6149,
-            6150
+            6150,
+            1155
           ]
         },
         {
@@ -24839,7 +25027,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Robo Jack"
           ],
-          "definition": "Vriska nicknames the cybernetic former Midnight Crew leader Robo Jack. He enters the session carrying the Felt and associates in Biscuits's oven, unloads them before Jake, then pursues Lord Jack in his continuing hunt for Lord English. His rocket propulsion and magnifying cyber-eye are demonstrated despite the narrator's objections.",
+          "definition": "Vriska nicknames the cybernetic former Midnight Crew leader Robo Jack. He enters the session carrying the Felt and associates in Biscuits's oven, unloads them before Jake, then pursues Lord Jack in his continuing hunt for Lord English. His rocket propulsion and magnifying cyber-eye are demonstrated despite the narrator's objections. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 7521,
           "sourceKind": "composite",
           "sourcePages": [
@@ -24850,7 +25038,8 @@ window.HOMESTUCK_REFERENCE = {
             7973,
             7974,
             7975,
-            8085
+            8085,
+            1155
           ]
         },
         {
@@ -24859,12 +25048,13 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Robo Jack"
           ],
-          "definition": "Slick's pursuit brings him into the fight between Lord Jack, Dave and Dirk. His own attack leaves Dirk caught between the two Jacks. Dave's decisive slash decapitates all three; unlike Dirk, Slick receives no revival in the aftermath.",
+          "definition": "Slick's pursuit brings him into the fight between Lord Jack, Dave and Dirk. His own attack leaves Dirk caught between the two Jacks. Dave's decisive slash decapitates all three; unlike Dirk, Slick receives no revival in the aftermath. He is short-tempered, vindictive, and gleefully violent.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8093,
-            8094
+            8094,
+            1155
           ]
         }
       ]
@@ -24878,7 +25068,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission",
           "term": "Diamonds Droog",
           "aliases": [],
-          "definition": "A member of the Midnight Crew dispatched through the Felt's mansion on Spades Slick's revenge mission. He values finely tailored suits, stores his equipment in a Brawlsoleum, and fights with an Ultra-Violence Cuestick.",
+          "definition": "A member of the Midnight Crew dispatched through the Felt's mansion on Spades Slick's revenge mission. He values finely tailored suits, stores his equipment in a Brawlsoleum, and fights with an Ultra-Violence Cuestick. He is composed, methodical, and fastidious about appearances.",
           "sourcePage": 1155,
           "sourcePages": [
             1199,
@@ -24891,7 +25081,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Diamonds Droog",
           "aliases": [],
-          "definition": "A suit-loving Midnight Crew member armed with an Ultra-Violence Cuestick, storing his equipment in a Brawlsoleum. His counterpart in the kids' session is the Draconian Dignitary, one of Jack Noir's agents.",
+          "definition": "A suit-loving Midnight Crew member armed with an Ultra-Violence Cuestick, storing his equipment in a Brawlsoleum. His counterpart in the kids' session is the Draconian Dignitary, one of Jack Noir's agents. He is composed, methodical, and fastidious about appearances.",
           "sourcePage": 1200,
           "sourcePages": [
             1231,
@@ -24913,7 +25103,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission",
           "term": "Clubs Deuce",
           "aliases": [],
-          "definition": "A member of the Midnight Crew taking part in the raid on the Felt's mansion. His equipment includes the Crook of Felony, and he keeps an assortment of weapons and objects in his Battledrobe.",
+          "definition": "A member of the Midnight Crew taking part in the raid on the Felt's mansion. His equipment includes the Crook of Felony, and he keeps an assortment of weapons and objects in his Battledrobe. He is naive, distractible, and cheerfully enthusiastic.",
           "sourcePage": 1155,
           "sourcePages": [
             1178,
@@ -24925,7 +25115,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Clubs Deuce",
           "aliases": [],
-          "definition": "A Midnight Crew member equipped with the Crook of Felony and a Battledrobe full of assorted weapons. The Courtyard Droll, one of Jack Noir's agents, is his counterpart in the kids' session.",
+          "definition": "A Midnight Crew member equipped with the Crook of Felony and a Battledrobe full of assorted weapons. The Courtyard Droll, one of Jack Noir's agents, is his counterpart in the kids' session. He is naive, distractible, and cheerfully enthusiastic.",
           "sourcePage": 1178,
           "sourcePages": [
             1192,
@@ -24946,7 +25136,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission",
           "term": "Hearts Boxcars",
           "aliases": [],
-          "definition": "The Midnight Crew's heavy muscle and expert safecracker. During the raid on the Felt's mansion, Spades Slick sends him toward Lord English's vault while the others work to neutralize the rival gang.",
+          "definition": "The Midnight Crew's heavy muscle and expert safecracker. During the raid on the Felt's mansion, Spades Slick sends him toward Lord English's vault while the others work to neutralize the rival gang. He is blunt, impatient, and quick to violence.",
           "sourcePage": 1155,
           "sourcePages": [
             1172
@@ -24957,7 +25147,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Hearts Boxcars",
           "aliases": [],
-          "definition": "The Midnight Crew's heavy muscle and safecracker, sent to open Lord English's vault during the raid on the Felt's mansion. The Hegemonic Brute is his counterpart in the kids' session.",
+          "definition": "The Midnight Crew's heavy muscle and safecracker, sent to open Lord English's vault during the raid on the Felt's mansion. The Hegemonic Brute is his counterpart in the kids' session. He is blunt, impatient, and quick to violence.",
           "sourcePage": 1172,
           "sourcePages": [
             1674,
@@ -24977,7 +25167,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission",
           "term": "Snowman",
           "aliases": [],
-          "definition": "A woman whose presence brings the mansion's gunfights to a halt. Killing her would destroy the universe, giving everyone a powerful reason to avoid treating her like the other targets in the Midnight Crew's raid.",
+          "definition": "A woman whose presence brings the mansion's gunfights to a halt. Killing her would destroy the universe, giving everyone a powerful reason to avoid treating her like the other targets in the Midnight Crew's raid. She is cold, unflappable, and enjoys intimidating Slick.",
           "sourcePage": 1268,
           "sourcePages": [],
           "sourceKind": "composite"
@@ -24986,7 +25176,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-4",
           "term": "Snowman",
           "aliases": [],
-          "definition": "The former Black Queen of the trolls' session, now associated with the Felt. Her life is bound to the universe: killing her destroys it. That rule makes her a uniquely dangerous opponent for Spades Slick.",
+          "definition": "The former Black Queen of the trolls' session, now associated with the Felt. Her life is bound to the universe: killing her destroys it. That rule makes her a uniquely dangerous opponent for Spades Slick. She is cold, unflappable, and enjoys intimidating Slick.",
           "sourcePage": 1674,
           "sourcePages": [
             1268
@@ -24997,7 +25187,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Snowman",
           "aliases": [],
-          "definition": "The trolls' former Black Queen and a member of the Felt, whose life is tied to their universe. Spades Slick shoots her during Cascade, bringing her death and that universe's destruction into the Tumor's final countdown.",
+          "definition": "The trolls' former Black Queen and a member of the Felt, whose life is tied to their universe. Spades Slick shoots her during Cascade, bringing her death and that universe's destruction into the Tumor's final countdown. She is cold, unflappable, and enjoys intimidating Slick.",
           "sourcePage": 1674,
           "sourcePages": [
             1268,
@@ -25016,7 +25206,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's First Guardian and an officer of Lord English, preparing for his master's arrival at the end of the universe. He combines near-omnipotence with vast knowledge, though specific blind spots interrupt his claims of omniscience.",
+          "definition": "Alternia's First Guardian and an officer of Lord English, preparing for his master's arrival at the end of the universe. He combines near-omnipotence with vast knowledge, though specific blind spots interrupt his claims of omniscience. He is smug, manipulative, and ostentatiously courteous.",
           "sourcePage": 2253,
           "sourcePages": [
             2254,
@@ -25028,7 +25218,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's First Guardian, preparing the universe for Lord English. His claims of omniscience coexist with specific blind spots. Even when his answers are true, their wording and omissions can guide others toward conclusions that serve his plans.",
+          "definition": "Alternia's First Guardian, preparing the universe for Lord English. His claims of omniscience coexist with specific blind spots. Even when his answers are true, their wording and omissions can guide others toward conclusions that serve his plans. He is smug, manipulative, and ostentatiously courteous.",
           "sourcePage": 2253,
           "sourcePages": [
             3238,
@@ -25041,7 +25231,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission-2",
           "term": "Doc Scratch",
           "aliases": [],
-          "definition": "Alternia's First Guardian and Lord English's servant. At the end of the trolls' universe, his corpse becomes the vessel from which English physically emerges, completing the arrival he spent centuries preparing.",
+          "definition": "Alternia's First Guardian and Lord English's servant. At the end of the trolls' universe, his corpse becomes the vessel from which English physically emerges, completing the arrival he spent centuries preparing. He is smug, manipulative, and ostentatiously courteous.",
           "sourcePage": 4111,
           "sourcePages": [
             2253
@@ -25059,7 +25249,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission",
           "term": "Lord English",
           "aliases": [],
-          "definition": "The boss of the Felt and owner of the mansion targeted by the Midnight Crew. His secret vault is the raid's objective, while his subordinates' time-bending abilities make getting to it a complicated business.",
+          "definition": "The boss of the Felt and owner of the mansion targeted by the Midnight Crew. His secret vault is the raid's objective, while his subordinates' time-bending abilities make getting to it a complicated business. His personality remains obscured behind his fearsome reputation.",
           "sourcePage": 1155,
           "sourcePages": [],
           "sourceKind": "composite"
@@ -25068,7 +25258,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-1",
           "term": "Lord English",
           "aliases": [],
-          "definition": "An indestructible demon whom Doc Scratch serves. Alternia's First Guardian prepares for his arrival, which is tied to the termination of the universe. He is also the mysterious boss whose mansion houses the Felt.",
+          "definition": "An indestructible demon whom Doc Scratch serves. Alternia's First Guardian prepares for his arrival, which is tied to the termination of the universe. He is also the mysterious boss whose mansion houses the Felt. His personality remains obscured behind his fearsome reputation.",
           "sourcePage": 2253,
           "sourcePages": [
             1155
@@ -25079,12 +25269,13 @@ window.HOMESTUCK_REFERENCE = {
           "from": "intermission-2",
           "term": "Lord English",
           "aliases": [],
-          "definition": "The indestructible demon physically revealed when he tears out of Doc Scratch's corpse after the trolls' universe dies. He retrieves the Cairo Overcoat and enters a sarcophagus that carries him through time and space. His reveal ends with the Vast Honk.",
+          "definition": "The indestructible demon physically revealed when he tears out of Doc Scratch's corpse after the trolls' universe dies. He retrieves the Cairo Overcoat and enters a sarcophagus that carries him through time and space. His reveal ends with the Vast Honk. His personality remains largely hidden behind his monstrous appearance.",
           "sourcePage": 4111,
           "sourcePages": [
             2253,
             2092,
-            3514
+            3514,
+            4109
           ],
           "sourceKind": "composite"
         },
@@ -25092,7 +25283,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-2",
           "term": "Lord English",
           "aliases": [],
-          "definition": "The indestructible demon who emerged from Doc Scratch's corpse. He invades the author's realm, carrying a golden staff that transforms into a rifle, and shoots the author avatar dead. His assault shows that the space used to shelter Spades Slick is not beyond his reach.",
+          "definition": "The indestructible demon who emerged from Doc Scratch's corpse. He invades the author's realm, carrying a golden staff that transforms into a rifle, and shoots the author avatar dead. His assault shows that the space used to shelter Spades Slick is not beyond his reach. His personality remains largely hidden behind his monstrous appearance.",
           "sourcePage": 4789,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25100,40 +25291,44 @@ window.HOMESTUCK_REFERENCE = {
             4806,
             4812,
             4813,
-            4111
+            4111,
+            4109
           ]
         },
         {
           "from": "act-6-act-3",
           "term": "Lord English",
           "aliases": [],
-          "definition": "The indestructible demon who emerged from Doc Scratch's corpse and killed the author avatar. He now attacks a dream bubble, annihilating its ghostly inhabitants and leaving fractures in the surrounding space. His assault threatens the afterlife itself.",
+          "definition": "The indestructible demon who emerged from Doc Scratch's corpse and killed the author avatar. He now attacks a dream bubble, annihilating its ghostly inhabitants and leaving fractures in the surrounding space. His assault threatens the afterlife itself. He is destructive, merciless, and violently single-minded.",
           "sourcePage": 4111,
           "sourceKind": "composite",
           "sourcePages": [
             4812,
             4813,
-            5261
+            5261,
+            4109
           ]
         },
         {
           "from": "act-6-intermission-3",
           "term": "Lord English",
           "aliases": [],
-          "definition": "The destructive demon identified with Caliborn and titled Lord of Time. He annihilates dream bubbles and ghosts, cracking the Furthest Ring itself. Meenah tries to rally an army against him, Aranea seeks his sister, and Vriska hunts a weapon using the fractures his attacks leave as landmarks.",
+          "definition": "The destructive demon identified with Caliborn and titled Lord of Time. He annihilates dream bubbles and ghosts, cracking the Furthest Ring itself. Meenah tries to rally an army against him, Aranea seeks his sister, and Vriska hunts a weapon using the fractures his attacks leave as landmarks. He is destructive, merciless, and violently single-minded.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
             5389,
             5395,
-            5396
+            5396,
+            4109,
+            4111
           ]
         },
         {
           "from": "act-6-act-6-act-5",
           "term": "Lord English",
           "aliases": [],
-          "definition": "The destructive Lord of Time is Caliborn's future identity. Caliborn says he takes the name English from Jake after the Page overwhelms him with Hope. His masterpiece connects English's later emergence across universes to the souls Dirk binds in Lil Cal: Caliborn, Arquiusprite and part of Gamzee.",
+          "definition": "The destructive Lord of Time is Caliborn's future identity. Caliborn says he takes the name English from Jake after the Page overwhelms him with Hope. His masterpiece connects English's later emergence across universes to the souls Dirk binds in Lil Cal: Caliborn, Arquiusprite and part of Gamzee. He is destructive, merciless, and violently single-minded.",
           "sourcePage": 7436,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25141,14 +25336,16 @@ window.HOMESTUCK_REFERENCE = {
             7442,
             7443,
             7445,
-            7448
+            7448,
+            4109,
+            4111
           ]
         },
         {
           "from": "act-6-act-6-intermission-5",
           "term": "Lord English",
           "aliases": [],
-          "definition": "Caliborn's future identity is tied to the souls bound in Lil Cal: Caliborn, Arquiusprite and part of Gamzee. The adult Lord of Time now arrives from a sarcophagus before Meenah's ghost army. Vriska holds the recovered weapon nearby; the coming confrontation has not yet established whether their plan succeeds.",
+          "definition": "Caliborn's future identity is tied to the souls bound in Lil Cal: Caliborn, Arquiusprite and part of Gamzee. The adult Lord of Time now arrives from a sarcophagus before Meenah's ghost army. Vriska holds the recovered weapon nearby; the coming confrontation has not yet established whether their plan succeeds. He is destructive, merciless, and violently single-minded.",
           "sourcePage": 7442,
           "sourcePages": [
             7443,
@@ -25157,7 +25354,9 @@ window.HOMESTUCK_REFERENCE = {
             8051,
             8054,
             8057,
-            8083
+            8083,
+            4109,
+            4111
           ],
           "sourceKind": "composite"
         },
@@ -25165,17 +25364,25 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-act-6",
           "term": "Lord English",
           "aliases": [],
-          "definition": "Lord English battles Meenah's ghost army and destroys many of the spirits attacking him. The dreaming Karkat's charge ends with his avatar's death, while Davepeta also confronts the demon. Vriska approaches with the recovered juju, but neither its deployment nor Lord English's defeat has been shown.",
+          "definition": "Lord English battles Meenah's ghost army and destroys many of the spirits attacking him. The dreaming Karkat's charge ends with his avatar's death, while Davepeta also confronts the demon. Vriska approaches with the recovered juju, but neither its deployment nor Lord English's defeat has been shown. He is destructive, merciless, and violently single-minded.",
           "sourcePage": 8087,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4109,
+            4111
+          ]
         },
         {
           "from": "act-7",
           "term": "Lord English",
           "aliases": [],
-          "definition": "Lord English faces the ghost army as Vriska opens the recovered house-shaped juju. The confrontation unfolds alongside the Green Sun's destruction and Caliborn's breaking of his judgment clock. The finale leaves the confrontation's immediate outcome and Lord English's fate unresolved.",
+          "definition": "Lord English faces the ghost army as Vriska opens the recovered house-shaped juju. The confrontation unfolds alongside the Green Sun's destruction and Caliborn's breaking of his judgment clock. The finale leaves the confrontation's immediate outcome and Lord English's fate unresolved. He is destructive, merciless, and violently single-minded.",
           "sourcePage": 8127,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4109,
+            4111
+          ]
         }
       ]
     },
@@ -25191,7 +25398,7 @@ window.HOMESTUCK_REFERENCE = {
             "Aradia",
             "apocalypseArisen"
           ],
-          "definition": "The trolls' Maid of Time, once interested in archaeology and roleplaying. Voices of the dead lead her to the ruins behind Sgrub's discovery. Introduced as a ghost, she later inhabits a robot body during the trolls' game.",
+          "definition": "The trolls' Maid of Time, once interested in archaeology and roleplaying. Voices of the dead lead her to the ruins behind Sgrub's discovery. Introduced as a ghost, she later inhabits a robot body during the trolls' game. Her ghostly detachment gives way to sudden anger.",
           "sourcePage": 2134,
           "sourcePages": [
             2540,
@@ -25206,11 +25413,12 @@ window.HOMESTUCK_REFERENCE = {
             "Aradia",
             "apocalypseArisen"
           ],
-          "definition": "The trolls' Maid of Time, whose path has led from ghost to robot. Her robot body explodes while the trolls hide on the meteor, complicating the fate of a player already associated with death and alternate timelines.",
+          "definition": "The trolls' Maid of Time, whose path has led from ghost to robot. Her robot body explodes while the trolls hide on the meteor, complicating the fate of a player already associated with death and alternate timelines. Her ghostly detachment gives way to sudden anger.",
           "sourcePage": 2134,
           "sourcePages": [
             2540,
-            3186
+            3186,
+            2287
           ],
           "sourceKind": "composite"
         },
@@ -25221,13 +25429,13 @@ window.HOMESTUCK_REFERENCE = {
             "Aradia",
             "apocalypseArisen"
           ],
-          "definition": "The trolls' Maid of Time, now alive at god tier after the destruction of her robot body. She can hold others in time-freezing spells and appears among the dream bubbles, distinct from the dead alternate versions of herself.",
+          "definition": "The trolls' Maid of Time, now alive at god tier after the destruction of her robot body. She can hold others in time-freezing spells and appears among the dream bubbles, distinct from the dead alternate versions of herself. Revived, she is curious and delighted to be alive.",
           "sourcePage": 3297,
           "sourcePages": [
             3565,
-            3591,
             3592,
-            2134
+            2134,
+            3593
           ],
           "sourceKind": "composite"
         },
@@ -25238,7 +25446,7 @@ window.HOMESTUCK_REFERENCE = {
             "Aradia",
             "apocalypseArisen"
           ],
-          "definition": "The god-tier Maid of Time, now acting as a caretaker for souls and dreamers among the dream bubbles. She helps Sollux launch the laboratory meteor toward the new session, but remains behind with him. She also offers to delay Jack Noir so the travelers can gain a head start.",
+          "definition": "The god-tier Maid of Time, now acting as a caretaker for souls and dreamers among the dream bubbles. She helps Sollux launch the laboratory meteor toward the new session, but remains behind with him. She also offers to delay Jack Noir so the travelers can gain a head start. Revived, she is curious and delighted to be alive.",
           "sourcePage": 4349,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25246,7 +25454,9 @@ window.HOMESTUCK_REFERENCE = {
             4385,
             4386,
             4387,
-            3297
+            3297,
+            3565,
+            3593
           ]
         },
         {
@@ -25256,13 +25466,15 @@ window.HOMESTUCK_REFERENCE = {
             "Aradia",
             "apocalypseArisen"
           ],
-          "definition": "The living Maid of Time joins Vriska's treasure hunt as a specialist while declining to fight. She treats Lord English's eventual defeat as unfinished cosmic housekeeping, without celebrating the destruction of souls. The party brings her to move the intangible house-shaped juju with her powers.",
+          "definition": "The living Maid of Time joins Vriska's treasure hunt as a specialist while declining to fight. She treats Lord English's eventual defeat as unfinished cosmic housekeeping, without celebrating the destruction of souls. The party brings her to move the intangible house-shaped juju with her powers. Revived, she is curious and delighted to be alive.",
           "sourcePage": 5955,
           "sourceKind": "composite",
           "sourcePages": [
             6026,
             6027,
-            6084
+            6084,
+            3565,
+            3593
           ]
         },
         {
@@ -25272,9 +25484,13 @@ window.HOMESTUCK_REFERENCE = {
             "Aradia",
             "apocalypseArisen"
           ],
-          "definition": "Aradia watches as the alternate Muse's black hole consumes the Green Sun and draws at the surrounding cracked space. She remains outside it in her god-tier form, smiling as the cosmic structure collapses. The scene does not establish her death or a destination after the confrontation.",
+          "definition": "Aradia watches as the alternate Muse's black hole consumes the Green Sun and draws at the surrounding cracked space. She remains outside it in her god-tier form, smiling as the cosmic structure collapses. The scene does not establish her death or a destination after the confrontation. Revived, she is curious and delighted to be alive.",
           "sourcePage": 8127,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            3565,
+            3593
+          ]
         }
       ]
     },
@@ -25304,7 +25520,7 @@ window.HOMESTUCK_REFERENCE = {
             "Tavros",
             "adiosToreador"
           ],
-          "definition": "The trolls' Page of Breath, now fitted with robotic legs. His animal communion extends even to Becquerel, giving him an unexpected connection to events on Earth despite his often hesitant dealings with the other players.",
+          "definition": "The trolls' Page of Breath, now fitted with robotic legs. His animal communion extends even to Becquerel, giving him an unexpected connection to events on Earth despite his often hesitant dealings with the other players. He is gentle, imaginative, and unsure of himself.",
           "sourcePage": 2348,
           "sourcePages": [
             3053,
@@ -25320,7 +25536,7 @@ window.HOMESTUCK_REFERENCE = {
             "Tavros",
             "adiosToreador"
           ],
-          "definition": "The trolls' Page of Breath, known for animal communion and his longing to fly. He is dead following his confrontation with Vriska, ending the waking life in which he had recently received robotic legs.",
+          "definition": "The trolls' Page of Breath, known for animal communion and his longing to fly. He is dead following his confrontation with Vriska, ending the waking life in which he had recently received robotic legs. He is gentle, imaginative, and unsure of himself.",
           "sourcePage": 2348,
           "sourcePages": [
             3053,
@@ -25337,7 +25553,7 @@ window.HOMESTUCK_REFERENCE = {
             "Tavros",
             "adiosToreador"
           ],
-          "definition": "The trolls' Page of Breath, existing as a ghost after Vriska killed him. Gamzee briefly revives his corpse alongside hers as Tavrisprite. Back in the dream bubbles after the sprite explodes, he remembers sharing her confidence, while Vriska pressures him to join her plans.",
+          "definition": "The trolls' Page of Breath, existing as a ghost after Vriska killed him. Gamzee briefly revives his corpse alongside hers as Tavrisprite. Back in the dream bubbles after the sprite explodes, he remembers sharing her confidence, while Vriska pressures him to join her plans. He is gentle, imaginative, and unsure of himself.",
           "sourcePage": 4830,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25345,7 +25561,8 @@ window.HOMESTUCK_REFERENCE = {
             4837,
             4839,
             4840,
-            3360
+            3360,
+            2101
           ]
         },
         {
@@ -25355,14 +25572,15 @@ window.HOMESTUCK_REFERENCE = {
             "Tavros",
             "adiosToreador"
           ],
-          "definition": "Tavros's ghost, separated again from Vriska after Tavrisprite exploded. He helps her search dream-bubble memories for a weapon against Lord English, while challenging her certainty. He wants the gold ring John finds so he can propose to Vriska, though she continues to order him around.",
+          "definition": "Tavros's ghost, separated again from Vriska after Tavrisprite exploded. He helps her search dream-bubble memories for a weapon against Lord English, while challenging her certainty. He wants the gold ring John finds so he can propose to Vriska, though she continues to order him around. He is gentle, imaginative, and unsure of himself.",
           "sourcePage": 5383,
           "sourceKind": "composite",
           "sourcePages": [
             5386,
             5388,
             5390,
-            5391
+            5391,
+            2101
           ]
         },
         {
@@ -25372,14 +25590,15 @@ window.HOMESTUCK_REFERENCE = {
             "Tavros",
             "adiosToreador"
           ],
-          "definition": "Tavros's ghost joins Vriska's pirate treasure hunt but questions her use of other ghosts as bait. After she demands the lost gold ring, he rejects her orders and flies away. Sollux, Feferi and Nepeta leave with him, ending his role as her subordinate.",
+          "definition": "Tavros's ghost joins Vriska's pirate treasure hunt but questions her use of other ghosts as bait. After she demands the lost gold ring, he rejects her orders and flies away. Sollux, Feferi and Nepeta leave with him, ending his role as her subordinate. He is gentle, imaginative, and unsure of himself.",
           "sourcePage": 5957,
           "sourceKind": "composite",
           "sourcePages": [
             6042,
             6043,
             6044,
-            6045
+            6045,
+            2101
           ]
         },
         {
@@ -25389,14 +25608,15 @@ window.HOMESTUCK_REFERENCE = {
             "Tavros",
             "adiosToreador"
           ],
-          "definition": "Tavros's ghost returns with an enormous army recruited through conversation and friendship, not animal communion or mind control. Vriska reluctantly acknowledges his accomplishment. He freely gives command to Meenah, while his revised-session counterpart follows a different path through Tavrosprite and Gcatavrosprite.",
+          "definition": "Tavros's ghost returns with an enormous army recruited through conversation and friendship, not animal communion or mind control. Vriska reluctantly acknowledges his accomplishment. He freely gives command to Meenah, while his revised-session counterpart follows a different path through Tavrosprite and Gcatavrosprite. He is gentle, imaginative, and unsure of himself.",
           "sourcePage": 7855,
           "sourceKind": "composite",
           "sourcePages": [
             7856,
             7864,
             7865,
-            7838
+            7838,
+            2101
           ]
         }
       ]
@@ -25413,7 +25633,7 @@ window.HOMESTUCK_REFERENCE = {
             "Sollux",
             "twinArmageddons"
           ],
-          "definition": "The trolls' Mage of Doom, a gifted hacker who adapts the ruins' code into Sgrub. He hears the psychic cries of people about to die and distributes the game believing it offers a way to save his species.",
+          "definition": "The trolls' Mage of Doom, a gifted hacker who adapts the ruins' code into Sgrub. He hears the psychic cries of people about to die and distributes the game believing it offers a way to save his species. He is sardonic, pessimistic, and technically self-assured.",
           "sourcePage": 2076,
           "sourcePages": [
             2514
@@ -25427,7 +25647,7 @@ window.HOMESTUCK_REFERENCE = {
             "Sollux",
             "twinArmageddons"
           ],
-          "definition": "The trolls' Mage of Doom and the hacker who adapted Sgrub's code. Eridan's attack leaves him blind. The voices of the soon-to-be-dead have gone quiet, giving him an unfamiliar sense of relief amid the meteor's violence.",
+          "definition": "The trolls' Mage of Doom and the hacker who adapted Sgrub's code. Eridan's attack leaves him blind. The voices of the soon-to-be-dead have gone quiet, giving him an unfamiliar sense of relief amid the meteor's violence. He is sardonic, pessimistic, and technically self-assured.",
           "sourcePage": 2076,
           "sourcePages": [
             2514,
@@ -25443,7 +25663,7 @@ window.HOMESTUCK_REFERENCE = {
             "Sollux",
             "twinArmageddons"
           ],
-          "definition": "The trolls' Mage of Doom, whose divided relationship with death leaves him partly a ghost. After losing his ordinary sight, he can see the Green Sun in two dimensions, continuing the doubled patterns that mark his life.",
+          "definition": "The trolls' Mage of Doom, whose divided relationship with death leaves him partly a ghost. After losing his ordinary sight, he can see the Green Sun in two dimensions, continuing the doubled patterns that mark his life. He is sardonic, pessimistic, and technically self-assured.",
           "sourcePage": 2514,
           "sourcePages": [
             3998,
@@ -25459,7 +25679,7 @@ window.HOMESTUCK_REFERENCE = {
             "Sollux",
             "twinArmageddons"
           ],
-          "definition": "The trolls' Mage of Doom, whose half-ghost self remains active even after his exhausted body dies bringing the laboratory meteor to the Green Sun. He helps Aradia launch the others toward the new session, then stays behind with her, tired of adventuring and wanting to visit their dead friends.",
+          "definition": "The trolls' Mage of Doom, whose half-ghost self remains active even after his exhausted body dies bringing the laboratory meteor to the Green Sun. He helps Aradia launch the others toward the new session, then stays behind with her, tired of adventuring and wanting to visit their dead friends. He is sardonic, pessimistic, and technically self-assured.",
           "sourcePage": 4328,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25468,7 +25688,8 @@ window.HOMESTUCK_REFERENCE = {
             4356,
             4385,
             4386,
-            2514
+            2514,
+            2076
           ]
         },
         {
@@ -25478,13 +25699,14 @@ window.HOMESTUCK_REFERENCE = {
             "Sollux",
             "twinArmageddons"
           ],
-          "definition": "The Mage of Doom says prototyping his corpse pulled his ghost half into Erisolsprite, leaving his present body fully alive and fully blind. He joins Vriska's pirate expedition with Aradia, then quits over its treatment of other ghosts, departing with Tavros, Feferi and Nepeta.",
+          "definition": "The Mage of Doom says prototyping his corpse pulled his ghost half into Erisolsprite, leaving his present body fully alive and fully blind. He joins Vriska's pirate expedition with Aradia, then quits over its treatment of other ghosts, departing with Tavros, Feferi and Nepeta. He is sardonic, pessimistic, and technically self-assured.",
           "sourcePage": 5955,
           "sourceKind": "composite",
           "sourcePages": [
             6044,
             6045,
-            6046
+            6046,
+            2076
           ]
         }
       ]
@@ -25501,7 +25723,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The trolls' Knight of Blood, a combative friend whose constant shouting conceals a fondness for romantic comedies. He practices with a sickle, writes destructive computer programs, and takes part in Sgrub on the Red Team.",
+          "definition": "The trolls' Knight of Blood, a combative friend whose constant shouting conceals a fondness for romantic comedies. He practices with a sickle, writes destructive computer programs, and takes part in Sgrub on the Red Team. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 1994,
           "sourcePages": [
             2059,
@@ -25516,7 +25738,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The trolls' Knight of Blood, who helped Kanaya breed their Genesis Frog. He believes their rushed work gave the kids' universe cancer. He is also the Signless's descendant and becomes Gamzee's moirail amid the meteor's crisis.",
+          "definition": "The trolls' Knight of Blood, who helped Kanaya breed their Genesis Frog. He believes their rushed work gave the kids' universe cancer. He is also the Signless's descendant and becomes Gamzee's moirail amid the meteor's crisis. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 2059,
           "sourcePages": [
             3869,
@@ -25535,7 +25757,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The trolls' Knight of Blood and Gamzee's moirail, joining Rose and Dave on the laboratory meteor's three-year journey. Rose takes responsibility for plotting their route, while Karkat worries about the group's survival and Gamzee's corpse hoarding. Their moirallegiance also lets Gamzee help calm him in return.",
+          "definition": "The trolls' Knight of Blood and Gamzee's moirail, joining Rose and Dave on the laboratory meteor's three-year journey. Rose takes responsibility for plotting their route, while Karkat worries about the group's survival and Gamzee's corpse hoarding. Their moirallegiance also lets Gamzee help calm him in return. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 4350,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25543,7 +25765,8 @@ window.HOMESTUCK_REFERENCE = {
             4354,
             4355,
             4357,
-            4385
+            4385,
+            1994
           ]
         },
         {
@@ -25553,7 +25776,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The Knight of Blood has lost his moirallegiance with Gamzee, who ended it. He listens as Terezi admits that Aranea restored her sight and describes her damaging relationship with Gamzee. When the meteor reaches the new session, Jade teleports Karkat and the others to John.",
+          "definition": "The Knight of Blood has lost his moirallegiance with Gamzee, who ended it. He listens as Terezi admits that Aranea restored her sight and describes her damaging relationship with Gamzee. When the meteor reaches the new session, Jade teleports Karkat and the others to John. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 5937,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25561,7 +25784,8 @@ window.HOMESTUCK_REFERENCE = {
             6018,
             6020,
             6225,
-            6231
+            6231,
+            1994
           ]
         },
         {
@@ -25571,7 +25795,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The Knight of Blood is stranded with Kanaya on Jade's land. Echidna requests his presence with the Space player, but he rejects the controlled Jade's orders. Jane kills and revives him to demonstrate her power, leaving him shaken while Kanaya confronts her over the cruelty.",
+          "definition": "The Knight of Blood is stranded with Kanaya on Jade's land. Echidna requests his presence with the Space player, but he rejects the controlled Jade's orders. Jane kills and revives him to demonstrate her power, leaving him shaken while Kanaya confronts her over the cruelty. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 6280,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25580,7 +25804,8 @@ window.HOMESTUCK_REFERENCE = {
             6331,
             6334,
             6336,
-            6398
+            6398,
+            1994
           ]
         },
         {
@@ -25590,7 +25815,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The Knight of Blood receives Meenah's warning about Aranea and calls Dave to Jade's land. Unable to fly, he struggles to keep up with Kanaya while the confrontation escalates. Seeing Gamzee brutalize Terezi, he draws his sickle and demands her release, rejecting another peaceful reconciliation with the clown.",
+          "definition": "The Knight of Blood receives Meenah's warning about Aranea and calls Dave to Jade's land. Unable to fly, he struggles to keep up with Kanaya while the confrontation escalates. Seeing Gamzee brutalize Terezi, he draws his sickle and demands her release, rejecting another peaceful reconciliation with the clown. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 6566,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25602,7 +25827,8 @@ window.HOMESTUCK_REFERENCE = {
             6821,
             6822,
             6841,
-            6842
+            6842,
+            1994
           ]
         },
         {
@@ -25612,11 +25838,12 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The Knight of Blood charges Gamzee to save Terezi. Gamzee takes her cane and impales him, sending him into the lava below while Terezi watches. His earlier revival by Jane does not save him from this attack.",
+          "definition": "The Knight of Blood charges Gamzee to save Terezi. Gamzee takes her cane and impales him, sending him into the lava below while Terezi watches. His earlier revival by Jane does not save him from this attack. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 6327,
           "sourceKind": "composite",
           "sourcePages": [
-            6901
+            6901,
+            1994
           ]
         },
         {
@@ -25626,7 +25853,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "The Knight of Blood's death at Gamzee's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. His revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "definition": "The Knight of Blood's death at Gamzee's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. His revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25635,7 +25862,8 @@ window.HOMESTUCK_REFERENCE = {
             7217,
             7218,
             7375,
-            7405
+            7405,
+            1994
           ]
         },
         {
@@ -25645,7 +25873,7 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "Echidna's bargain places Karkat's protection in Kanaya's hands, with a possible future role guiding their restored people. Kanaya keeps him safe by knocking him unconscious. While dreaming, the living Karkat encounters Meenah's army and volunteers to join its charge against Lord English.",
+          "definition": "Echidna's bargain places Karkat's protection in Kanaya's hands, with a possible future role guiding their restored people. Kanaya keeps him safe by knocking him unconscious. While dreaming, the living Karkat encounters Meenah's army and volunteers to join its charge against Lord English. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 7639,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25653,7 +25881,8 @@ window.HOMESTUCK_REFERENCE = {
             7645,
             7990,
             7993,
-            8083
+            8083,
+            1994
           ]
         },
         {
@@ -25663,11 +25892,12 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "Karkat's charge at Lord English ends when his dreaming avatar is killed, waking him in the cave. He then joins Jake against the Felt, including a personal confrontation with Clover. The living Karkat survives to reunite with Dave and Kanaya at the victory gathering.",
+          "definition": "Karkat's charge at Lord English ends when his dreaming avatar is killed, waking him in the cave. He then joins Jake against the Felt, including a personal confrontation with Clover. The living Karkat survives to reunite with Dave and Kanaya at the victory gathering. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
-            8114
+            8114,
+            1994
           ]
         },
         {
@@ -25677,11 +25907,12 @@ window.HOMESTUCK_REFERENCE = {
             "Karkat",
             "carcinoGeneticist"
           ],
-          "definition": "Karkat stands among the survivors as the new universe is born, receiving a thumbs-up from John before the victory door. A future glimpse shows him relaxing with Dave and Jade on restored Earth.",
+          "definition": "Karkat stands among the survivors as the new universe is born, receiving a thumbs-up from John before the victory door. A future glimpse shows him relaxing with Dave and Jade on restored Earth. He is hot-tempered, insecure, and eager to lead.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            7639
+            7639,
+            1994
           ]
         }
       ]
@@ -25712,7 +25943,7 @@ window.HOMESTUCK_REFERENCE = {
             "Nepeta",
             "arsenicCatnip"
           ],
-          "definition": "The trolls' Rogue of Heart, a cave-dwelling hunter and enthusiastic roleplayer. She is among the dead after violence overtakes the trolls' meteor hideout, bringing her playful stories and close friendships into the group's losses.",
+          "definition": "The trolls' Rogue of Heart, a cave-dwelling hunter and enthusiastic roleplayer. She is among the dead after violence overtakes the trolls' meteor hideout, bringing her playful stories and close friendships into the group's losses. She is affectionate, playful, and enthusiastic about roleplaying.",
           "sourcePage": 2156,
           "sourcePages": [
             2532,
@@ -25727,13 +25958,14 @@ window.HOMESTUCK_REFERENCE = {
             "Nepeta",
             "arsenicCatnip"
           ],
-          "definition": "The Rogue of Heart's ghost returns separately after Fefetasprite's explosion, wearing a pirate costume in Vriska's crew. When Tavros and Sollux reject the treasure hunt's use of other ghosts, Nepeta leaves with them and Feferi rather than remaining under Vriska's command.",
+          "definition": "The Rogue of Heart's ghost returns separately after Fefetasprite's explosion, wearing a pirate costume in Vriska's crew. When Tavros and Sollux reject the treasure hunt's use of other ghosts, Nepeta leaves with them and Feferi rather than remaining under Vriska's command. She is affectionate, playful, and enthusiastic about roleplaying.",
           "sourcePage": 5761,
           "sourceKind": "composite",
           "sourcePages": [
             6032,
             6045,
-            6046
+            6046,
+            2156
           ]
         },
         {
@@ -25743,7 +25975,7 @@ window.HOMESTUCK_REFERENCE = {
             "Nepeta",
             "arsenicCatnip"
           ],
-          "definition": "Nepeta returns when Jasprose prototypes her preserved head into Jake's unused kernel. After a brief tea date as Nepetasprite, she shakes hands with Davesprite and becomes part of Davepetasprite². The new fusion remembers many Nepetas and Daves while treating both immediate components as especially important to its identity.",
+          "definition": "Nepeta returns when Jasprose prototypes her preserved head into Jake's unused kernel. After a brief tea date as Nepetasprite, she shakes hands with Davesprite and becomes part of Davepetasprite². The new fusion remembers many Nepetas and Daves while treating both immediate components as especially important to its identity. She is affectionate, playful, and enthusiastic about roleplaying.",
           "sourcePage": 7818,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25751,7 +25983,8 @@ window.HOMESTUCK_REFERENCE = {
             7873,
             7876,
             7877,
-            7895
+            7895,
+            2156
           ]
         }
       ]
@@ -25768,11 +26001,12 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The trolls' Sylph of Space, drawn to fashion, landscaping, and supernatural romance. She enjoys sunlight and uses a lipstick tube that transforms into a chainsaw, combining her aesthetic interests with a formidable weapon.",
+          "definition": "The trolls' Sylph of Space, drawn to fashion, landscaping, and supernatural romance. She enjoys sunlight and uses a lipstick tube that transforms into a chainsaw, combining her aesthetic interests with a formidable weapon. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 2323,
           "sourcePages": [
             2324,
-            2565
+            2565,
+            2328
           ],
           "sourceKind": "composite"
         },
@@ -25783,7 +26017,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The trolls' Sylph of Space and their session's frog breeder, helping Jade understand the same responsibility. After being killed, she revives with glowing skin and continues fighting with her chainsaw.",
+          "definition": "The trolls' Sylph of Space and their session's frog breeder, helping Jade understand the same responsibility. After being killed, she revives with glowing skin and continues fighting with her chainsaw. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 2565,
           "sourcePages": [
             3305,
@@ -25791,7 +26025,8 @@ window.HOMESTUCK_REFERENCE = {
             3347,
             3521,
             3523,
-            2323
+            2323,
+            2328
           ],
           "sourceKind": "composite"
         },
@@ -25802,13 +26037,14 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The trolls' Sylph of Space and frog breeder, now identified as a rainbow drinker after her revival. She helps Jade with the Genesis Frog task and is the descendant of the Dolorosa, who raised the Signless.",
+          "definition": "The trolls' Sylph of Space and frog breeder, now identified as a rainbow drinker after her revival. She helps Jade with the Genesis Frog task and is the descendant of the Dolorosa, who raised the Signless. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 2565,
           "sourcePages": [
             3305,
             3978,
             4057,
-            2323
+            2323,
+            2328
           ],
           "sourceKind": "composite"
         },
@@ -25819,14 +26055,16 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The trolls' Sylph of Space and a glowing rainbow drinker. With the matriorb destroyed, she doubts she can restore her people, but Rose persuades her to continue with the laboratory meteor's travelers. She also goes after Gamzee when he steals more corpses.",
+          "definition": "The trolls' Sylph of Space and a glowing rainbow drinker. With the matriorb destroyed, she doubts she can restore her people, but Rose persuades her to continue with the laboratory meteor's travelers. She also goes after Gamzee when he steals more corpses. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 4356,
           "sourceKind": "composite",
           "sourcePages": [
             2565,
             3978,
             4357,
-            4358
+            4358,
+            2323,
+            2328
           ]
         },
         {
@@ -25836,14 +26074,16 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker traveling with the meteor crew. She admires her Beforan counterpart Porrim and discusses the burdens of preserving their species. She accepts Rose's invitation to a date, explains auspisticism when Rose worries about Gamzee and Terezi, and shares a kiss with her.",
+          "definition": "The rainbow drinker traveling with the meteor crew. She admires her Beforan counterpart Porrim and discusses the burdens of preserving their species. She accepts Rose's invitation to a date, explains auspisticism when Rose worries about Gamzee and Terezi, and shares a kiss with her. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
             5398,
             5408,
             5414,
-            5417
+            5417,
+            2323,
+            2328
           ]
         },
         {
@@ -25853,14 +26093,16 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker confronts Rose over her drinking as the meteor nears its destination. She says Rose promised to be sober and worries that their efforts to preserve the troll species have stalled. Despite their argument, she rejects breaking up; Jade later transports her to John with the others.",
+          "definition": "The rainbow drinker confronts Rose over her drinking as the meteor nears its destination. She says Rose promised to be sober and worries that their efforts to preserve the troll species have stalled. Despite their argument, she rejects breaking up; Jade later transports her to John with the others. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 6058,
           "sourceKind": "composite",
           "sourcePages": [
             6059,
             6062,
             6064,
-            6231
+            6231,
+            2323,
+            2328
           ]
         },
         {
@@ -25870,7 +26112,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker is ordered to visit Echidna with Karkat and request the Genesis Frog's release. She furiously challenges Jane after Karkat's killing and revival, rejecting the claim that healing magic can kill her. Jane then exploits her thirst by selling her troll-blood potions while Rose tries to discuss their problems.",
+          "definition": "The rainbow drinker is ordered to visit Echidna with Karkat and request the Genesis Frog's release. She furiously challenges Jane after Karkat's killing and revival, rejecting the claim that healing magic can kill her. Jane then exploits her thirst by selling her troll-blood potions while Rose tries to discuss their problems. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 6327,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25879,7 +26121,9 @@ window.HOMESTUCK_REFERENCE = {
             6399,
             6400,
             6411,
-            6412
+            6412,
+            2323,
+            2328
           ]
         },
         {
@@ -25889,7 +26133,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker remains on Jade's land with Karkat as Aranea's intervention turns it into a battlefield. Her speed helps her cross the burning terrain, but neither she nor Karkat can fly. They witness Gamzee's assault on Terezi and draw their weapons to confront him. Echidna's requested meeting remains unfinished.",
+          "definition": "The rainbow drinker remains on Jade's land with Karkat as Aranea's intervention turns it into a battlefield. Her speed helps her cross the burning terrain, but neither she nor Karkat can fly. They witness Gamzee's assault on Terezi and draw their weapons to confront him. Echidna's requested meeting remains unfinished. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 6327,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25897,7 +26141,9 @@ window.HOMESTUCK_REFERENCE = {
             6821,
             6822,
             6841,
-            6842
+            6842,
+            2323,
+            2328
           ]
         },
         {
@@ -25907,11 +26153,13 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker attacks Gamzee after he kills Karkat and cuts the clown in half with her chainsaw. The Condesce's energy blast then vaporizes her. Kanaya is killed; Gamzee's bisection leaves his fate uncertain.",
+          "definition": "The rainbow drinker attacks Gamzee after he kills Karkat and cuts the clown in half with her chainsaw. The Condesce's energy blast then vaporizes her. Kanaya is killed; Gamzee's bisection leaves his fate uncertain. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 6327,
           "sourceKind": "composite",
           "sourcePages": [
-            6901
+            6901,
+            2323,
+            2328
           ]
         },
         {
@@ -25921,7 +26169,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "The rainbow drinker's death at the Condesce's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. Her revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history.",
+          "definition": "The rainbow drinker's death at the Condesce's hands belongs to the original catastrophe. John revisits the meteor group's reunion while following Terezi's instructions, then changes the earlier confrontation with Vriska. Her revised-history self is alive alongside the meteor travelers when Vriska stops Jade in the revised history. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25930,7 +26178,9 @@ window.HOMESTUCK_REFERENCE = {
             7217,
             7218,
             7375,
-            7405
+            7405,
+            2323,
+            2328
           ]
         },
         {
@@ -25940,7 +26190,7 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "Kanaya secures Echidna's promise to release the Genesis Frog, agreeing to protect Karkat and help restore troll society. She knocks him unconscious to keep him safe, then receives a new matriorb from Roxy. With the egg entrusted to her, she joins John and the Lalondes against the Condesce.",
+          "definition": "Kanaya secures Echidna's promise to release the Genesis Frog, agreeing to protect Karkat and help restore troll society. She knocks him unconscious to keep him safe, then receives a new matriorb from Roxy. With the egg entrusted to her, she joins John and the Lalondes against the Condesce. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 7636,
           "sourceKind": "composite",
           "sourcePages": [
@@ -25949,7 +26199,9 @@ window.HOMESTUCK_REFERENCE = {
             7645,
             7775,
             7777,
-            8086
+            8086,
+            2323,
+            2328
           ]
         },
         {
@@ -25959,14 +26211,16 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "Kanaya helps fight the Condesce while carrying the matriorb Roxy created for her. Jane revives her after she is killed during the battle. She survives to greet Karkat at the victory gathering, with Echidna's charge to protect him and restore their people still ahead.",
+          "definition": "Kanaya helps fight the Condesce while carrying the matriorb Roxy created for her. Jane revives her after she is killed during the battle. She survives to greet Karkat at the victory gathering, with Echidna's charge to protect him and restore their people still ahead. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8090,
             8114,
             7775,
-            7639
+            7639,
+            2323,
+            2328
           ]
         },
         {
@@ -25976,12 +26230,14 @@ window.HOMESTUCK_REFERENCE = {
             "Kanaya",
             "grimAuxiliatrix"
           ],
-          "definition": "Kanaya sees the Genesis Frog mature after securing Echidna's promise and surviving the Condesce battle. The finale's future glimpse places her beside Rose above the new settlement on restored Earth. She still holds the responsibility to restore her people; the matriorb's later use is not shown in the finale.",
+          "definition": "Kanaya sees the Genesis Frog mature after securing Echidna's promise and surviving the Condesce battle. The finale's future glimpse places her beside Rose above the new settlement on restored Earth. She still holds the responsibility to restore her people; the matriorb's later use is not shown in the finale. She is composed, exacting, and quietly sarcastic.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             7639,
-            7775
+            7775,
+            2323,
+            2328
           ]
         }
       ]
@@ -25998,7 +26254,7 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The trolls' Seer of Mind, fascinated by dragons and Alternian justice. Blind, she reads through smell and taste and stages trials with her scalemates, pursuing the role of legislacerator through a mix of play and brutal legal study.",
+          "definition": "The trolls' Seer of Mind, fascinated by dragons and Alternian justice. Blind, she reads through smell and taste and stages trials with her scalemates, pursuing the role of legislacerator through a mix of play and brutal legal study. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 2031,
           "sourcePages": [
             2523
@@ -26012,7 +26268,7 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The trolls' Seer of Mind, able to perceive the consequences of decisions and possible paths ahead. Her judgment of Vriska becomes a deadly choice about the group's future, rather than a simple contest of luck.",
+          "definition": "The trolls' Seer of Mind, able to perceive the consequences of decisions and possible paths ahead. Her judgment of Vriska becomes a deadly choice about the group's future, rather than a simple contest of luck. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 2523,
           "sourcePages": [
             3832,
@@ -26030,13 +26286,14 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The trolls' Seer of Mind, traveling with the meteor group and troubled by her decision to kill Vriska. Aranea helps her examine that regret and offers to restore her sight. Terezi declines, valuing the connection to her lusus preserved by the way she learned to sense the world.",
+          "definition": "The trolls' Seer of Mind, traveling with the meteor group and troubled by her decision to kill Vriska. Aranea helps her examine that regret and offers to restore her sight. Terezi declines, valuing the connection to her lusus preserved by the way she learned to sense the world. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 4771,
           "sourceKind": "composite",
           "sourcePages": [
             4772,
             4775,
-            4776
+            4776,
+            2031
           ]
         },
         {
@@ -26046,12 +26303,13 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The Seer of Mind, traveling with the meteor crew. She has become secretly involved in kismesissitude with Gamzee. Rose learns of it and worries about its effects on Dave, Karkat and Gamzee's existing bonds, though her feared chain of conflict is a prediction rather than an accomplished event.",
+          "definition": "The Seer of Mind, traveling with the meteor crew. She has become secretly involved in kismesissitude with Gamzee. Rose learns of it and worries about its effects on Dave, Karkat and Gamzee's existing bonds, though her feared chain of conflict is a prediction rather than an accomplished event. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 5398,
           "sourceKind": "composite",
           "sourcePages": [
             5413,
-            5414
+            5414,
+            2031
           ]
         },
         {
@@ -26061,7 +26319,7 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The Seer of Mind reveals that Aranea restored her sight about a year earlier, a decision she deeply regrets. Her kismesissitude with Gamzee has become harmful and difficult to leave. Karkat urges her to choose for herself; she later arrives with the meteor crew and is teleported to John.",
+          "definition": "The Seer of Mind reveals that Aranea restored her sight about a year earlier, a decision she deeply regrets. Her kismesissitude with Gamzee has become harmful and difficult to leave. Karkat urges her to choose for herself; she later arrives with the meteor crew and is teleported to John. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 6017,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26069,7 +26327,8 @@ window.HOMESTUCK_REFERENCE = {
             6019,
             6020,
             6226,
-            6231
+            6231,
+            2031
           ]
         },
         {
@@ -26079,13 +26338,14 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The Seer of Mind is stranded with Rose on bright LOLAR, overwhelmed by her restored vision and regretting her dependence on Gamzee and sugary drinks. John reminds her of their forgotten meeting after the meteor's arrival. She later leaves Rose to hunt the clown.",
+          "definition": "The Seer of Mind is stranded with Rose on bright LOLAR, overwhelmed by her restored vision and regretting her dependence on Gamzee and sugary drinks. John reminds her of their forgotten meeting after the meteor's arrival. She later leaves Rose to hunt the clown. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 6349,
           "sourceKind": "composite",
           "sourcePages": [
             6362,
             6414,
-            6415
+            6415,
+            2031
           ]
         },
         {
@@ -26095,7 +26355,7 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "The Seer of Mind confronts Gamzee over his abuse and recognizes Aranea's influence on him. She repeatedly stabs him while he is controlled, then stops when he begs her to. Freed from that control, Gamzee savagely beats and restrains her as Rose, Jake, Karkat and Kanaya attempt to intervene.",
+          "definition": "The Seer of Mind confronts Gamzee over his abuse and recognizes Aranea's influence on him. She repeatedly stabs him while he is controlled, then stops when he begs her to. Freed from that control, Gamzee savagely beats and restrains her as Rose, Jake, Karkat and Kanaya attempt to intervene. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 6696,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26111,7 +26371,8 @@ window.HOMESTUCK_REFERENCE = {
             6829,
             6830,
             6841,
-            6842
+            6842,
+            2031
           ]
         },
         {
@@ -26121,9 +26382,12 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "Gamzee holds the wounded Seer of Mind hostage and kills Karkat when he tries to rescue her. She escapes the Condesce's energy blast and attacks Aranea, who makes her impale herself with her own weapon. Badly wounded, Terezi still manages to get back up; no death is shown.",
+          "definition": "Gamzee holds the wounded Seer of Mind hostage and kills Karkat when he tries to rescue her. She escapes the Condesce's energy blast and attacks Aranea, who makes her impale herself with her own weapon. Badly wounded, Terezi still manages to get back up; no death is shown. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            2031
+          ]
         },
         {
           "from": "act-6-act-6-intermission-4",
@@ -26132,7 +26396,7 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "Mortally wounded, the Seer of Mind gives John a blood-written scarf of passwords and instructions for revising her memories. She dies after drawing her own chalk outline. Her plan leads John to expose Gamzee and knock Vriska unconscious, sparing the younger Terezi from killing her in the revised history.",
+          "definition": "Mortally wounded, the Seer of Mind gives John a blood-written scarf of passwords and instructions for revising her memories. She dies after drawing her own chalk outline. Her plan leads John to expose Gamzee and knock Vriska unconscious, sparing the younger Terezi from killing her in the revised history. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 7175,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26142,7 +26406,8 @@ window.HOMESTUCK_REFERENCE = {
             7332,
             7337,
             7368,
-            7375
+            7375,
+            2031
           ]
         },
         {
@@ -26152,13 +26417,14 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "Terezi prepares to fight beside Dave and Dirk while struggling with the sacrifices made by her other self. Her unanswered message to Vriska leads into a recovery of the other history's memories. The dead Terezi and Vriska also reunite in the afterlife, distinct from the living versions preparing for battle.",
+          "definition": "Terezi prepares to fight beside Dave and Dirk while struggling with the sacrifices made by her other self. Her unanswered message to Vriska leads into a recovery of the other history's memories. The dead Terezi and Vriska also reunite in the afterlife, distinct from the living versions preparing for battle. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 7946,
           "sourceKind": "composite",
           "sourcePages": [
             7947,
             7959,
-            8085
+            8085,
+            2031
           ]
         },
         {
@@ -26168,12 +26434,13 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "Terezi fights alongside Dave and Dirk against the two Jacks. She and Dave combine Mind and Time in a fraymotif as their battle revisits possible outcomes. Dave carries her clear of Lord Jack's final explosion, and she joins the surviving party at the victory door.",
+          "definition": "Terezi fights alongside Dave and Dirk against the two Jacks. She and Dave combine Mind and Time in a fraymotif as their battle revisits possible outcomes. Dave carries her clear of Lord Jack's final explosion, and she joins the surviving party at the victory door. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8094,
-            8115
+            8115,
+            2031
           ]
         },
         {
@@ -26183,12 +26450,13 @@ window.HOMESTUCK_REFERENCE = {
             "Terezi",
             "gallowsCalibrator"
           ],
-          "definition": "Terezi survives the Jacks' battle and joins the reunited party before the completed victory door. Her original-history counterpart was last seen with the dead Vriska in the afterlife. The finale gives no new destination for the living Terezi after the victory gathering.",
+          "definition": "Terezi survives the Jacks' battle and joins the reunited party before the completed victory door. Her original-history counterpart was last seen with the dead Vriska in the afterlife. The finale gives no new destination for the living Terezi after the victory gathering. She is mischievous, argumentative, and gleefully theatrical.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             8094,
-            7959
+            7959,
+            2031
           ]
         }
       ]
@@ -26205,7 +26473,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "A troll devoted to extreme roleplaying, games of chance, and doomsday devices. Her hungry spider lusus makes those games lethal for other young trolls. She can control some trolls' minds, but her influence varies by target, and her fortune-telling habit reflects an obsessive struggle with luck.",
+          "definition": "A troll devoted to extreme roleplaying, games of chance, and doomsday devices. Her hungry spider lusus makes those games lethal for other young trolls. She can control some trolls' minds, but her influence varies by target, and her fortune-telling habit reflects an obsessive struggle with luck. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 2195,
           "sourcePages": [
             2245
@@ -26219,7 +26487,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The trolls' Thief of Light, who reaches god tier and involves herself in the kids' adventure. Her psychic influence over humans is limited to putting them to sleep or waking them, unlike her more direct control over trolls.",
+          "definition": "The trolls' Thief of Light, who reaches god tier and involves herself in the kids' adventure. Her psychic influence over humans is limited to putting them to sleep or waking them, unlike her more direct control over trolls. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 2974,
           "sourcePages": [
             3238,
@@ -26234,7 +26502,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The trolls' god-tier Thief of Light, able to steal luck and influence humans' sleep. After Terezi kills her, she appears in dream bubbles, where her story continues apart from the survivors' waking lives.",
+          "definition": "The trolls' god-tier Thief of Light, able to steal luck and influence humans' sleep. After Terezi kills her, she appears in dream bubbles, where her story continues apart from the survivors' waking lives. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 3238,
           "sourcePages": [
             3771,
@@ -26253,7 +26521,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The trolls' god-tier Thief of Light, now a ghost. Gamzee briefly combines her corpse with Tavros's in Tavrisprite, an experience she despises. After its destruction, she admits killing Tavros was her fault but soon uses mind control to pull him into her plan to regain relevance.",
+          "definition": "The trolls' god-tier Thief of Light, now a ghost. Gamzee briefly combines her corpse with Tavros's in Tavrisprite, an experience she despises. After its destruction, she admits killing Tavros was her fault but soon uses mind control to pull him into her plan to regain relevance. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 4830,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26261,7 +26529,8 @@ window.HOMESTUCK_REFERENCE = {
             4837,
             4839,
             4840,
-            3771
+            3771,
+            2195
           ]
         },
         {
@@ -26271,14 +26540,15 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The ghost of the alpha-timeline Vriska, formerly combined with Tavros as Tavrisprite. She now hunts a legendary weapon against Lord English, using his destruction of dream bubbles to mark a route through the Furthest Ring. Her plan competes with Meenah's wish to raise an army.",
+          "definition": "The ghost of the alpha-timeline Vriska, formerly combined with Tavros as Tavrisprite. She now hunts a legendary weapon against Lord English, using his destruction of dream bubbles to mark a route through the Furthest Ring. Her plan competes with Meenah's wish to raise an army. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 5386,
           "sourceKind": "composite",
           "sourcePages": [
             5389,
             5395,
             5396,
-            5427
+            5427,
+            2195
           ]
         },
         {
@@ -26288,7 +26558,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "Vriska's ghost leads a pirate expedition with Meenah and Aranea, using controlled ghosts as bait to map Lord English's destruction. Tavros and others quit, and John refuses to promise her the Ring of Life. She nevertheless reaches the treasure: an intangible house-shaped juju supposedly able to defeat English.",
+          "definition": "Vriska's ghost leads a pirate expedition with Meenah and Aranea, using controlled ghosts as bait to map Lord English's destruction. Tavros and others quit, and John refuses to promise her the Ring of Life. She nevertheless reaches the treasure: an intangible house-shaped juju supposedly able to defeat English. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 5957,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26297,7 +26567,8 @@ window.HOMESTUCK_REFERENCE = {
             6049,
             6052,
             6083,
-            6084
+            6084,
+            2195
           ]
         },
         {
@@ -26307,12 +26578,13 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "Vriska's ghost recoils from Aranea's attempt to imitate Mindfang and seize the living players' session. She admits Aranea did most of the ghost-army control and questions her own hunger for importance. With Meenah's support, she gives up their planned assault on Lord English rather than continue a mission she no longer trusts.",
+          "definition": "Vriska's ghost recoils from Aranea's attempt to imitate Mindfang and seize the living players' session. She admits Aranea did most of the ghost-army control and questions her own hunger for importance. With Meenah's support, she gives up their planned assault on Lord English rather than continue a mission she no longer trusts. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 6553,
           "sourceKind": "composite",
           "sourcePages": [
             6748,
-            6749
+            6749,
+            2195
           ]
         },
         {
@@ -26322,7 +26594,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "Vriska's ghost spends time with Meenah and begins a romance instead of pursuing Lord English. Separately, John prevents Terezi from killing the living Vriska by knocking her out. In the revised history, Vriska travels with the meteor group and puts the controlled Jade to sleep before she can scatter them.",
+          "definition": "Vriska's ghost spends time with Meenah and begins a romance instead of pursuing Lord English. Separately, John prevents Terezi from killing the living Vriska by knocking her out. In the revised history, Vriska travels with the meteor group and puts the controlled Jade to sleep before she can scatter them. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 7164,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26332,7 +26604,8 @@ window.HOMESTUCK_REFERENCE = {
             7368,
             7375,
             7384,
-            7405
+            7405,
+            2195
           ]
         },
         {
@@ -26342,7 +26615,7 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The living Vriska assigns the battle teams, secures Earth for their future and takes the recovered juju from her ghostly counterpart. Tavros supplies the ghost army she could not rebuild through coercion, and Meenah takes command. Vriska prepares the weapon as Lord English arrives; her abandoned ghost reunites with the dead Terezi.",
+          "definition": "The living Vriska assigns the battle teams, secures Earth for their future and takes the recovered juju from her ghostly counterpart. Tavros supplies the ghost army she could not rebuild through coercion, and Meenah takes command. Vriska prepares the weapon as Lord English arrives; her abandoned ghost reunites with the dead Terezi. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 7540,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26353,7 +26626,8 @@ window.HOMESTUCK_REFERENCE = {
             7865,
             8047,
             8057,
-            7959
+            7959,
+            2195
           ]
         },
         {
@@ -26363,14 +26637,15 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "The living Vriska carries the recovered juju chest toward the confrontation with Lord English while the ghost army battles him. She leaves the author avatar behind despite his gestures of warning. The weapon has not yet been deployed, and neither Lord English's defeat nor Vriska's fate has been shown.",
+          "definition": "The living Vriska carries the recovered juju chest toward the confrontation with Lord English while the ghost army battles him. She leaves the author avatar behind despite his gestures of warning. The weapon has not yet been deployed, and neither Lord English's defeat nor Vriska's fate has been shown. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8101,
             8103,
             8104,
-            8105
+            8105,
+            2195
           ]
         },
         {
@@ -26380,9 +26655,12 @@ window.HOMESTUCK_REFERENCE = {
             "Vriska",
             "arachnidsGrip"
           ],
-          "definition": "Vriska opens the recovered juju chest before Lord English and the ghost army. A white house bearing the four human aspects appears and lands amid the cracked surroundings. The finale leaves the confrontation's immediate outcome unresolved, establishing neither Vriska's death nor Lord English's defeat.",
+          "definition": "Vriska opens the recovered juju chest before Lord English and the ghost army. A white house bearing the four human aspects appears and lands amid the cracked surroundings. The finale leaves the confrontation's immediate outcome unresolved, establishing neither Vriska's death nor Lord English's defeat. She is proud, competitive, and controlling toward friends.",
           "sourcePage": 8127,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            2195
+          ]
         }
       ]
     },
@@ -26398,7 +26676,7 @@ window.HOMESTUCK_REFERENCE = {
             "Equius",
             "centaursTesticle"
           ],
-          "definition": "The trolls' Heir of Void, a robotics enthusiast with extraordinary strength. He longs to excel at archery but repeatedly breaks his bows, and his admiration for aristocratic status sits alongside an intense fascination with physical power.",
+          "definition": "The trolls' Heir of Void, a robotics enthusiast with extraordinary strength. He longs to excel at archery but repeatedly breaks his bows, and his admiration for aristocratic status sits alongside an intense fascination with physical power. He is status-conscious, domineering, and easily flustered.",
           "sourcePage": 2211,
           "sourcePages": [
             2540
@@ -26412,7 +26690,7 @@ window.HOMESTUCK_REFERENCE = {
             "Equius",
             "centaursTesticle"
           ],
-          "definition": "The trolls' Heir of Void, a powerful robotics enthusiast whose fixation on hierarchy shapes his dealings with others. He is killed during the violence on the meteor, despite the enormous physical strength that once defined him.",
+          "definition": "The trolls' Heir of Void, a powerful robotics enthusiast whose fixation on hierarchy shapes his dealings with others. He is killed during the violence on the meteor, despite the enormous physical strength that once defined him. He is status-conscious, domineering, and easily flustered.",
           "sourcePage": 2211,
           "sourcePages": [
             2540,
@@ -26434,7 +26712,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "A troll devoted to an obscure clown-centered religion, with a love of Faygo, baking, and horns. He considers Karkat his best friend and plays Sgrub on the Red Team, initially presenting a relaxed, whimsical manner.",
+          "definition": "A troll devoted to an obscure clown-centered religion, with a love of Faygo, baking, and horns. He considers Karkat his best friend and plays Sgrub on the Red Team. He is easygoing, credulous, and fond of his friends.",
           "sourcePage": 2012,
           "sourcePages": [
             2013,
@@ -26449,12 +26727,13 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The trolls' Bard of Rage, whose clown-centered faith takes a violent turn during the meteor crisis. His cheerful manner gives way to threats and killings, making him a danger to the friends who survived their session with him.",
+          "definition": "The trolls' Bard of Rage, whose clown-centered faith takes a violent turn during the meteor crisis. His cheerful manner gives way to threats and killings, making him a danger to the friends who survived their session with him. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 3360,
           "sourcePages": [
             3448,
             3711,
-            2012
+            2012,
+            3358
           ],
           "sourceKind": "composite"
         },
@@ -26465,13 +26744,14 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The trolls' Bard of Rage, responsible for deadly violence on the meteor. Karkat reaches him through a calming embrace, establishing a moirallegiance that changes their relationship and interrupts the immediate danger to the group.",
+          "definition": "The trolls' Bard of Rage, responsible for deadly violence on the meteor. Karkat reaches him through a calming embrace, establishing a moirallegiance that changes their relationship and interrupts the immediate danger to the group. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 3360,
           "sourcePages": [
             3448,
             3711,
             4096,
-            2012
+            2012,
+            3358
           ],
           "sourceKind": "composite"
         },
@@ -26482,13 +26762,14 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The trolls' Bard of Rage and Karkat's moirail. Their bond lets him calm Karkat as well as be calmed himself, but his morbid habits continue: the others report that he hoards and decapitates corpses, keeping remains in science jars. Kanaya pursues him after Sollux and Vriska's bodies disappear.",
+          "definition": "The trolls' Bard of Rage and Karkat's moirail. Their bond lets him calm Karkat as well as be calmed himself, but his morbid habits continue: the others report that he hoards and decapitates corpses, keeping remains in science jars. Kanaya pursues him after Sollux and Vriska's bodies disappear. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 4350,
           "sourceKind": "composite",
           "sourcePages": [
             3360,
             4357,
-            4358
+            4358,
+            3358
           ]
         },
         {
@@ -26498,7 +26779,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The trolls' Bard of Rage, now appearing on Jane's land in Bard clothing with Aradia's timetables. He sells dubious potions, then prototypes Tavros and Vriska's corpses together to make Tavrisprite. The sprite's brief, disastrous existence leaves Jane without the dependable guide she wanted.",
+          "definition": "The trolls' Bard of Rage, now appearing on Jane's land in Bard clothing with Aradia's timetables. He sells dubious potions, then prototypes Tavros and Vriska's corpses together to make Tavrisprite. The sprite's brief, disastrous existence leaves Jane without the dependable guide she wanted. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 4825,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26506,7 +26787,8 @@ window.HOMESTUCK_REFERENCE = {
             4828,
             4830,
             4833,
-            4837
+            4837,
+            3358
           ]
         },
         {
@@ -26516,13 +26798,14 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage, secretly involved in kismesissitude with Terezi while remaining Karkat's moirail. His pre-Scratch counterpart Kurloz supplies the final piece of his clown outfit and speaks of their service to Lord English. Rose fears that revealing his relationships could destabilize the meteor group.",
+          "definition": "The Bard of Rage, secretly involved in kismesissitude with Terezi while remaining Karkat's moirail. His pre-Scratch counterpart Kurloz supplies the final piece of his clown outfit and speaks of their service to Lord English. Rose fears that revealing his relationships could destabilize the meteor group. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 5308,
           "sourceKind": "composite",
           "sourcePages": [
             5398,
             5413,
-            5414
+            5414,
+            3358
           ]
         },
         {
@@ -26532,7 +26815,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage now serving as Caliborn's guide. He survives repeated shootings and crowbar blows while supplying a power hub, magic crowbar and keys. His detachable wings and Hussie's changing claims leave god-tier status unconfirmed; his gifts nevertheless win him a place as Caliborn's servant.",
+          "definition": "The Bard of Rage now serving as Caliborn's guide. He survives repeated shootings and crowbar blows while supplying a power hub, magic crowbar and keys. His detachable wings and Hussie's changing claims leave god-tier status unconfirmed; his gifts nevertheless win him a place as Caliborn's servant. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 5471,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26541,7 +26824,8 @@ window.HOMESTUCK_REFERENCE = {
             5485,
             5492,
             5501,
-            5505
+            5505,
+            3358
           ]
         },
         {
@@ -26551,7 +26835,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage haunts the post-Scratch session, combining dead trolls into the players' sprites while Dirk bribes him to leave one kernelsprite empty. He also supplies Caliborn with Lil Cal. His survival and Caliborn's claims still do not establish god-tier ascension or reliable rules for his abilities.",
+          "definition": "The Bard of Rage haunts the post-Scratch session, combining dead trolls into the players' sprites while Dirk bribes him to leave one kernelsprite empty. He also supplies Caliborn with Lil Cal. His survival and Caliborn's claims still do not establish god-tier ascension or reliable rules for his abilities. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 5523,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26559,7 +26843,8 @@ window.HOMESTUCK_REFERENCE = {
             5648,
             5675,
             5676,
-            5484
+            5484,
+            3358
           ]
         },
         {
@@ -26569,14 +26854,15 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage helps Caliborn operate the command tower's paired locks while continuing to appear in the post-Scratch players' session. A pumpkin parcel bearing his message delivers Lil Cal and cutting tools to Jack's prison cell. Fefetasprite's disastrous creation also remains a consequence of his prototyping choices.",
+          "definition": "The Bard of Rage helps Caliborn operate the command tower's paired locks while continuing to appear in the post-Scratch players' session. A pumpkin parcel bearing his message delivers Lil Cal and cutting tools to Jack's prison cell. Fefetasprite's disastrous creation also remains a consequence of his prototyping choices. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 5759,
           "sourceKind": "composite",
           "sourcePages": [
             5786,
             5787,
             5806,
-            5523
+            5523,
+            3358
           ]
         },
         {
@@ -26586,7 +26872,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage continues serving Caliborn, whose childhood he also tended. On the meteor, his moirallegiance with Karkat has ended and his relationship with Terezi is damaging her. He remains separate from the six travelers Jade teleports to John at the end of the voyage.",
+          "definition": "The Bard of Rage continues serving Caliborn, whose childhood he also tended. On the meteor, his moirallegiance with Karkat has ended and his relationship with Terezi is damaging her. He remains separate from the six travelers Jade teleports to John at the end of the voyage. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 5937,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26595,7 +26881,8 @@ window.HOMESTUCK_REFERENCE = {
             6017,
             6018,
             6223,
-            6231
+            6231,
+            3358
           ]
         },
         {
@@ -26605,7 +26892,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage carries the Ring of Life while sleeping, then hands it to Aranea under her control. She uses him to obstruct Jane's attempt to revive Jade. Terezi attacks him while he is unable to respond; when Aranea's control breaks, he turns on Terezi and violently beats and restrains her.",
+          "definition": "The Bard of Rage carries the Ring of Life while sleeping, then hands it to Aranea under her control. She uses him to obstruct Jane's attempt to revive Jade. Terezi attacks him while he is unable to respond; when Aranea's control breaks, he turns on Terezi and violently beats and restrains her. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 6539,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26621,7 +26908,8 @@ window.HOMESTUCK_REFERENCE = {
             6788,
             6794,
             6818,
-            6835
+            6835,
+            3358
           ]
         },
         {
@@ -26631,9 +26919,12 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The Bard of Rage holds Terezi hostage and kills the charging Karkat with her cane, dropping him into lava. Kanaya then cuts Gamzee in half with her chainsaw. The halves retain contrasting expressions; the bisection is shown, but the scene does not establish his death.",
+          "definition": "The Bard of Rage holds Terezi hostage and kills the charging Karkat with her cane, dropping him into lava. Kanaya then cuts Gamzee in half with her chainsaw. The halves retain contrasting expressions; the bisection is shown, but the scene does not establish his death. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            3358
+          ]
         },
         {
           "from": "act-6-act-6-intermission-4",
@@ -26642,7 +26933,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "In the original battle, Gamzee is bisected by Kanaya without a confirmed death. John's retcon instead revisits the earlier meteor murders: a horn exposes Gamzee hiding with Lil Cal, and Terezi captures and gags him. His younger self is restrained while John prevents Vriska's death.",
+          "definition": "In the original battle, Gamzee is bisected by Kanaya without a confirmed death. John's retcon instead revisits the earlier meteor murders: a horn exposes Gamzee hiding with Lil Cal, and Terezi captures and gags him. His younger self is restrained while John prevents Vriska's death. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26650,7 +26941,8 @@ window.HOMESTUCK_REFERENCE = {
             7333,
             7337,
             7365,
-            7379
+            7379,
+            3358
           ]
         },
         {
@@ -26660,7 +26952,7 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "Gamzee is bisected in the original catastrophe and restrained as a younger troll in John's revised history. Caliborn's account of a future battle places him among the cherub's attendants. He is split again, and part of his soul is drawn into Lil Cal alongside Caliborn and Arquiusprite.",
+          "definition": "Gamzee is bisected in the original catastrophe and restrained as a younger troll in John's revised history. Caliborn's account of a future battle places him among the cherub's attendants. He is split again, and part of his soul is drawn into Lil Cal alongside Caliborn and Arquiusprite. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26669,7 +26961,8 @@ window.HOMESTUCK_REFERENCE = {
             7417,
             7427,
             7442,
-            7443
+            7443,
+            3358
           ]
         },
         {
@@ -26679,13 +26972,14 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "Vriska keeps the revised-history Gamzee bound inside a refrigerator with the remaining troll corpses. She refuses to release him and plans to leave the fridge in the new Earth's ocean, relying on his supposed future relevance. Those are her plans, not a completed disposal or confirmed death; his original-history bisection is separate.",
+          "definition": "Vriska keeps the revised-history Gamzee bound inside a refrigerator with the remaining troll corpses. She refuses to release him and plans to leave the fridge in the new Earth's ocean, relying on his supposed future relevance. Those are her plans, not a completed disposal or confirmed death; his original-history bisection is separate. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 7459,
           "sourceKind": "composite",
           "sourcePages": [
             7510,
             7511,
-            7512
+            7512,
+            3358
           ]
         },
         {
@@ -26695,12 +26989,13 @@ window.HOMESTUCK_REFERENCE = {
             "Gamzee",
             "terminallyCapricious"
           ],
-          "definition": "The revised-history Gamzee remains trapped in the refrigerator while Arquiusprite and Cans carry their fight between lands. The fridge is caught in the destruction triggered by Lord Jack's severed head. This does not establish Gamzee's death or complete Vriska's earlier plan to dispose of him in Earth's ocean.",
+          "definition": "The revised-history Gamzee remains trapped in the refrigerator while Arquiusprite and Cans carry their fight between lands. The fridge is caught in the destruction triggered by Lord Jack's severed head. This does not establish Gamzee's death or complete Vriska's earlier plan to dispose of him in Earth's ocean. His easygoing manner gives way to murderous religious fanaticism.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             7511,
-            7512
+            7512,
+            3358
           ]
         }
       ]
@@ -26717,10 +27012,11 @@ window.HOMESTUCK_REFERENCE = {
             "Eridan",
             "caligulasAquarium"
           ],
-          "definition": "A sea-dwelling troll obsessed with military history, grandiose conquest, and the destruction of land dwellers. He searches for a working doomsday device and enjoys the image of magic despite insisting it is not real.",
+          "definition": "A sea-dwelling troll obsessed with military history, grandiose conquest, and the destruction of land dwellers. He searches for a working doomsday device and enjoys the image of magic despite insisting it is not real. He is haughty, resentful, and desperate for attention.",
           "sourcePage": 2439,
           "sourcePages": [
-            2408
+            2408,
+            2448
           ],
           "sourceKind": "composite"
         },
@@ -26731,13 +27027,14 @@ window.HOMESTUCK_REFERENCE = {
             "Eridan",
             "caligulasAquarium"
           ],
-          "definition": "The trolls' Prince of Hope, a sea dweller with ambitions of conquest and a theatrical interest in magic. He acquires a wand, adding a new weapon to the rifle he used during the trolls' game.",
+          "definition": "The trolls' Prince of Hope, a sea dweller with ambitions of conquest and a theatrical interest in magic. He acquires a wand, adding a new weapon to the rifle he used during the trolls' game. He is haughty, resentful, and desperate for attention.",
           "sourcePage": 2439,
           "sourcePages": [
             2456,
             3046,
             3047,
-            2408
+            2408,
+            2448
           ],
           "sourceKind": "composite"
         },
@@ -26748,14 +27045,15 @@ window.HOMESTUCK_REFERENCE = {
             "Eridan",
             "caligulasAquarium"
           ],
-          "definition": "The trolls' Prince of Hope, whose wand becomes a weapon against his fellow survivors. His violence on the meteor ends when the revived Kanaya kills him.",
+          "definition": "The trolls' Prince of Hope, whose wand becomes a weapon against his fellow survivors. His violence on the meteor ends when the revived Kanaya kills him. He is haughty, resentful, and desperate for attention.",
           "sourcePage": 3046,
           "sourcePages": [
             3352,
             3347,
             3535,
             2408,
-            2439
+            2439,
+            2448
           ],
           "sourceKind": "composite"
         }
@@ -26773,7 +27071,7 @@ window.HOMESTUCK_REFERENCE = {
             "Feferi",
             "cuttlefishCuller"
           ],
-          "definition": "The trolls' Witch of Life, a sea dweller who cares for marine creatures and imagines a kinder version of troll society. Her vast lusus Gl'bgolyb protects her while whispering troubling prophecies about their species' future.",
+          "definition": "The trolls' Witch of Life, a sea dweller who cares for marine creatures and imagines a kinder version of troll society. Her vast lusus Gl'bgolyb protects her while whispering troubling prophecies about their species' future. She is buoyant, affectionate, and idealistic about reform.",
           "sourcePage": 2441,
           "sourcePages": [
             2466,
@@ -26788,7 +27086,7 @@ window.HOMESTUCK_REFERENCE = {
             "Feferi",
             "cuttlefishCuller"
           ],
-          "definition": "The trolls' Witch of Life, who asks the horrorterrors to create dream bubbles where people can meet in their sleep. She appears with white eyes in Jade's dream and says she is dead. Her dreamself has died, but the dream does not establish whether her waking self is also dead.",
+          "definition": "The trolls' Witch of Life, who asks the horrorterrors to create dream bubbles where people can meet in their sleep. She appears with white eyes in Jade's dream and says she is dead. Her dreamself has died, but the dream does not establish whether her waking self is also dead. She is buoyant, affectionate, and idealistic about reform.",
           "sourcePage": 2466,
           "sourcePages": [
             2991,
@@ -26807,7 +27105,7 @@ window.HOMESTUCK_REFERENCE = {
             "Feferi",
             "cuttlefishCuller"
           ],
-          "definition": "The trolls' Witch of Life, killed during Eridan's attack on the meteor. Her request to the horrorterrors helped create dream bubbles, and her ghost appears there, continuing her connection to the others after death.",
+          "definition": "The trolls' Witch of Life, killed during Eridan's attack on the meteor. Her request to the horrorterrors helped create dream bubbles, and her ghost appears there, continuing her connection to the others after death. She is buoyant, affectionate, and idealistic about reform.",
           "sourcePage": 2466,
           "sourcePages": [
             2991,
@@ -26825,13 +27123,14 @@ window.HOMESTUCK_REFERENCE = {
             "Feferi",
             "cuttlefishCuller"
           ],
-          "definition": "The Witch of Life's ghost returns separately after Fefetasprite's explosion and joins Vriska's pirate crew. Her nominal rank is rear admiral. She leaves with Nepeta, Sollux and Tavros when the others reject Vriska's orders, rather than participating further in the treasure hunt.",
+          "definition": "The Witch of Life's ghost returns separately after Fefetasprite's explosion and joins Vriska's pirate crew. Her nominal rank is rear admiral. She leaves with Nepeta, Sollux and Tavros when the others reject Vriska's orders, rather than participating further in the treasure hunt. She is buoyant, affectionate, and idealistic about reform.",
           "sourcePage": 5761,
           "sourceKind": "composite",
           "sourcePages": [
             6032,
             6045,
-            6046
+            6046,
+            2441
           ]
         }
       ]
@@ -26845,7 +27144,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "The Handmaid",
           "aliases": [],
-          "definition": "Aradia's ancestor and a time-traveling servant of Lord English. Doc Scratch prepares her for a life spent carrying out her master's work across Alternian history, tying her apparent freedom to another form of service.",
+          "definition": "Aradia's ancestor and a time-traveling servant of Lord English. Doc Scratch prepares her for a life spent carrying out her master's work across Alternian history, tying her apparent freedom to another form of service. She resists the obedient role imposed on her.",
           "sourcePage": 4068,
           "sourcePages": [
             4069
@@ -26856,7 +27155,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-3",
           "term": "The Handmaid",
           "aliases": [],
-          "definition": "Aradia's ancestor, the adult post-Scratch counterpart of Damara, and Lord English's time-traveling servant. Doc Scratch prepared her for a life of service across Alternian history. Porrim explains that English eventually arranged a confrontation with the Condesce when the Handmaid's usefulness ended.",
+          "definition": "Aradia's ancestor, the adult post-Scratch counterpart of Damara, and Lord English's time-traveling servant. Doc Scratch prepared her for a life of service across Alternian history. Porrim explains that English eventually arranged a confrontation with the Condesce when the Handmaid's usefulness ended. She resists the obedient role imposed on her.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26875,7 +27174,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "The Summoner",
           "aliases": [],
-          "definition": "Tavros's ancestor, described in a prophecy as a winged rebel with the power to commune with animals. The account forecasts his future role rather than showing the rebellion itself at this point.",
+          "definition": "Tavros's ancestor, described in a prophecy as a winged rebel with the power to commune with animals. The account forecasts his future role rather than showing the rebellion itself at this point. Mindfang's prophecy presents him as bold and inspiring.",
           "sourcePage": 3757,
           "sourcePages": [
             3758
@@ -26886,7 +27185,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "The Summoner",
           "aliases": [],
-          "definition": "Tavros's winged ancestor, who leads a rebellion against the Condesce. Its aftermath changes Alternian society: adult trolls are sent off-world, leaving the young to grow up on the planet under the care of lusii.",
+          "definition": "Tavros's winged ancestor, who leads a rebellion against the Condesce. Its aftermath changes Alternian society: adult trolls are sent off-world, leaving the young to grow up on the planet under the care of lusii. Mindfang's prophecy presents him as bold and inspiring.",
           "sourcePage": 3758,
           "sourcePages": [
             4063,
@@ -26907,7 +27206,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Psiioniic"
           ],
-          "definition": "Sollux's ancestor, a powerful telekinetic and follower of the Signless. The Condesce forces him to serve as her battleship's helmsman, extending his life until the Vast Glub kills him along with the off-world empire.",
+          "definition": "Sollux's ancestor, a powerful telekinetic and follower of the Signless. The Condesce forces him to serve as her battleship's helmsman, extending his life until the Vast Glub kills him along with the off-world empire. He embraces the Signless's promise of freedom.",
           "sourcePage": 4058,
           "sourcePages": [
             4060,
@@ -26930,7 +27229,7 @@ window.HOMESTUCK_REFERENCE = {
             "Sufferer",
             "Signless"
           ],
-          "definition": "Karkat's ancestor, also known as the Sufferer. Memories of a gentler world inspire him to preach compassion and equality between bloodlines. His execution turns his suffering and restraints into symbols for the followers who preserve his message.",
+          "definition": "Karkat's ancestor, also known as the Sufferer. Memories of a gentler world inspire him to preach compassion and equality between bloodlines. His execution turns his suffering and restraints into symbols for the followers who preserve his message. He is compassionate, outspoken, and opposed to inherited cruelty.",
           "sourcePage": 4054,
           "sourcePages": [
             4055,
@@ -26947,7 +27246,7 @@ window.HOMESTUCK_REFERENCE = {
             "Sufferer",
             "Signless"
           ],
-          "definition": "Karkat's ancestor, also known as the Sufferer, and the adult post-Scratch counterpart of Kankri. Aranea explains that his Seer-of-Blood abilities recalled their more peaceful lives on Beforus. His effort to unite Alternia's bloodlines led to execution, but his followers preserved his message.",
+          "definition": "Karkat's ancestor, also known as the Sufferer, and the adult post-Scratch counterpart of Kankri. Aranea explains that his Seer-of-Blood abilities recalled their more peaceful lives on Beforus. His effort to unite Alternia's bloodlines led to execution, but his followers preserved his message. He is compassionate, outspoken, and opposed to inherited cruelty.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
@@ -26969,7 +27268,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Disciple"
           ],
-          "definition": "Nepeta's ancestor and a devoted follower of the Signless. She records his teachings and survives the suppression of his movement when Darkleer spares her, preserving the message after its preacher is executed.",
+          "definition": "Nepeta's ancestor and a devoted follower of the Signless. She records his teachings and survives the suppression of his movement when Darkleer spares her, preserving the message after its preacher is executed. Her devotion is both loving and fiercely loyal.",
           "sourcePage": 4058,
           "sourcePages": [
             4059
@@ -26989,7 +27288,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Dolorosa"
           ],
-          "definition": "Kanaya's ancestor, formerly an attendant to the Mother Grub in the brooding caverns. She abandons that role to raise the Signless, becoming both his caregiver and the first follower of his teachings.",
+          "definition": "Kanaya's ancestor, formerly an attendant to the Mother Grub in the brooding caverns. She abandons that role to raise the Signless, becoming both his caregiver and the first follower of his teachings. She is nurturing, protective, and willing to defy convention.",
           "sourcePage": 4057,
           "sourcePages": [],
           "sourceKind": "composite"
@@ -27000,7 +27299,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Dolorosa"
           ],
-          "definition": "Kanaya's ancestor and the adult post-Scratch counterpart of Porrim. She abandoned her caste's role tending the Mother Grub to raise the Signless and become his first follower. Aranea contrasts this life with Porrim's struggle against the duties assigned to her on Beforus.",
+          "definition": "Kanaya's ancestor and the adult post-Scratch counterpart of Porrim. She abandoned her caste's role tending the Mother Grub to raise the Signless and become his first follower. Aranea contrasts this life with Porrim's struggle against the duties assigned to her on Beforus. She is nurturing, protective, and willing to defy convention.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27020,7 +27319,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Redglare"
           ],
-          "definition": "Terezi's ancestor, a legislacerator sent to apprehend Mindfang. Accompanied by her dragon lusus Pyralspite, she pursues the pirate through a confrontation that ultimately ends in her own death.",
+          "definition": "Terezi's ancestor, a legislacerator sent to apprehend Mindfang. Accompanied by her dragon lusus Pyralspite, she pursues the pirate through a confrontation that ultimately ends in her own death. Mindfang portrays her as zealous and uncompromising.",
           "sourcePage": 3517,
           "sourcePages": [
             3518,
@@ -27036,7 +27335,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Redglare"
           ],
-          "definition": "Terezi's ancestor, the legislacerator sent after Mindfang. A secret follower of the Signless, she wears a symbol of his suffering even while working within Alternia's legal system. Her pursuit of Mindfang ends in her death.",
+          "definition": "Terezi's ancestor, the legislacerator sent after Mindfang. A secret follower of the Signless, she wears a symbol of his suffering even while working within Alternia's legal system. Her pursuit of Mindfang ends in her death. Mindfang portrays her as zealous and uncompromising.",
           "sourcePage": 3518,
           "sourcePages": [
             3751,
@@ -27055,13 +27354,14 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Mindfang",
           "aliases": [],
-          "definition": "Vriska's ancestor, a pirate fleet commander whose journal preserves her exploits and rivalries. She uses mind control and later receives a robotic arm from Darkleer, linking her story with several other trolls' ancestors.",
+          "definition": "Vriska's ancestor, a pirate fleet commander whose journal preserves her exploits and rivalries. She uses mind control and later receives a robotic arm from Darkleer, linking her story with several other trolls' ancestors. Her journal presents a proud, possessive, calculating narrator.",
           "sourcePage": 3475,
           "sourcePages": [
             3506,
             3748,
             3749,
-            3756
+            3756,
+            3507
           ],
           "sourceKind": "composite"
         },
@@ -27069,12 +27369,13 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-2",
           "term": "Mindfang",
           "aliases": [],
-          "definition": "Vriska's ancestor, a pirate fleet commander whose journal preserves her exploits and rivalries. Aranea reveals herself as the pre-Scratch counterpart who would become Mindfang in the later world. The ghost and pirate remain distinct lives; Aranea observed her counterpart's adventures rather than living them herself.",
+          "definition": "Vriska's ancestor, a pirate fleet commander whose journal preserves her exploits and rivalries. Aranea reveals herself as the pre-Scratch counterpart who would become Mindfang in the later world. The ghost and pirate remain distinct lives; Aranea observed her counterpart's adventures rather than living them herself. Her journal presents a proud, possessive, calculating narrator.",
           "sourcePage": 4769,
           "sourceKind": "composite",
           "sourcePages": [
             4777,
-            3475
+            3475,
+            3507
           ]
         }
       ]
@@ -27088,7 +27389,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Darkleer",
           "aliases": [],
-          "definition": "Equius's ancestor, an expatriate and skilled machinist who makes Mindfang a robotic arm. His presence conceals nearby objects from Doc Scratch's awareness, making his refuge useful for more than repairs.",
+          "definition": "Equius's ancestor, an expatriate and skilled machinist who makes Mindfang a robotic arm. His presence conceals nearby objects from Doc Scratch's awareness, making his refuge useful for more than repairs. Mindfang describes him as withdrawn and melancholy.",
           "sourcePage": 3754,
           "sourcePages": [
             3756,
@@ -27100,7 +27401,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-3",
           "term": "Darkleer",
           "aliases": [],
-          "definition": "Equius's ancestor, formerly an imperial executioner. He spares the Disciple and goes into exile, later helping Mindfang as a machinist. Objects near him can escape Doc Scratch's awareness.",
+          "definition": "Equius's ancestor, formerly an imperial executioner. He spares the Disciple and goes into exile, later helping Mindfang as a machinist. Objects near him can escape Doc Scratch's awareness. Mindfang describes him as withdrawn and melancholy.",
           "sourcePage": 4059,
           "sourcePages": [
             3756,
@@ -27119,7 +27420,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-5-act-2-part-2",
           "term": "Grand Highblood",
           "aliases": [],
-          "definition": "Gamzee's ancestor, associated with the subjugglators. Dualscar approaches him with intelligence on Mindfang, but the meeting ends in Dualscar's death.",
+          "definition": "Gamzee's ancestor, associated with the subjugglators. Dualscar approaches him with intelligence on Mindfang, but the meeting ends in Dualscar's death. Mindfang portrays him as cruel, domineering, and capricious.",
           "sourcePage": 3514,
           "sourcePages": [],
           "sourceKind": "composite"
@@ -27137,7 +27438,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Dualscar"
           ],
-          "definition": "Eridan's ancestor, a maritime overlord and rival of Mindfang. Their antagonism belongs to the violent history recorded in her journal, and his attempt to involve the Grand Highblood ends in his death.",
+          "definition": "Eridan's ancestor, a maritime overlord and rival of Mindfang. Their antagonism belongs to the violent history recorded in her journal, and his attempt to involve the Grand Highblood ends in his death. Mindfang portrays him as jealous and vindictive.",
           "sourcePage": 3507,
           "sourcePages": [
             3508,
@@ -27159,7 +27460,7 @@ window.HOMESTUCK_REFERENCE = {
             "Condesce",
             "Her Imperious Condescension"
           ],
-          "definition": "Feferi's ancestor and the empress of Alternia, commanding an empire from her battleship. She exploits the Psiioniic as its helmsman and survives the Vast Glub that destroys her off-world subjects. Doc Scratch foretells her service to Lord English.",
+          "definition": "Feferi's ancestor and the empress of Alternia, commanding an empire from her battleship. She exploits the Psiioniic as its helmsman and survives the Vast Glub that destroys her off-world subjects. Doc Scratch foretells her service to Lord English. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 4060,
           "sourcePages": [
             4062,
@@ -27178,12 +27479,13 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "Feferi's ancestor and Alternia's empress, now connected to Crockercorp as the Batterwitch. She also rules the post-Scratch session's Derse, where the agents carry out dreamself assassinations. Dirk and Roxy oppose her plans, while Jane has grown up trusting the corporation she controls.",
+          "definition": "Feferi's ancestor and Alternia's empress, now connected to Crockercorp as the Batterwitch. She also rules the post-Scratch session's Derse, where the agents carry out dreamself assassinations. Dirk and Roxy oppose her plans, while Jane has grown up trusting the corporation she controls. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 4489,
           "sourcePages": [
             4455,
             4599,
-            4665
+            4665,
+            4063
           ],
           "sourceKind": "composite"
         },
@@ -27196,7 +27498,7 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The Alternian empress and Meenah's post-Scratch counterpart. Her conquest of Earth, attempts to remake its population, and deliberate flooding precede her takeover of the kids' new Derse. She serves Lord English while expanding her powers, including control over GCat and other creatures.",
+          "definition": "The Alternian empress and Meenah's post-Scratch counterpart. Her conquest of Earth, attempts to remake its population, and deliberate flooding precede her takeover of the kids' new Derse. She serves Lord English while expanding her powers, including control over GCat and other creatures. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 5002,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27206,7 +27508,8 @@ window.HOMESTUCK_REFERENCE = {
             4849,
             4850,
             4873,
-            4944
+            4944,
+            4063
           ]
         },
         {
@@ -27218,7 +27521,7 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The troll empress rules Derse while serving Lord English and pursuing plans of her own. She takes Roxy prisoner and sends her a secret assignment. Calliope believes she wants to exploit Roxy's Void abilities; her direct interference with Jane's computer adds another threat as the heiress's birthday approaches.",
+          "definition": "The troll empress rules Derse while serving Lord English and pursuing plans of her own. She takes Roxy prisoner and sends her a secret assignment. Calliope believes she wants to exploit Roxy's Void abilities; her direct interference with Jane's computer adds another threat as the heiress's birthday approaches. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 5563,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27226,7 +27529,8 @@ window.HOMESTUCK_REFERENCE = {
             5627,
             5628,
             5697,
-            5701
+            5701,
+            4063
           ]
         },
         {
@@ -27238,7 +27542,7 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The troll empress destroys Derse's moon, then turns the players' new god-tier strength against them. Combining psychic influences, she seizes control of Jade, who delivers Jane's controlling tiaratop. She ends the confrontation holding Roxy and Jake captive while the controlled Jade and Jane serve her.",
+          "definition": "The troll empress destroys Derse's moon, then turns the players' new god-tier strength against them. Combining psychic influences, she seizes control of Jade, who delivers Jane's controlling tiaratop. She ends the confrontation holding Roxy and Jake captive while the controlled Jade and Jane serve her. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 5836,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27250,7 +27554,8 @@ window.HOMESTUCK_REFERENCE = {
             5917,
             5918,
             5921,
-            5926
+            5926,
+            4063
           ]
         },
         {
@@ -27262,7 +27567,7 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The troll empress's control of the session is threatened when Aranea returns to life and turns Jake's Hope powers against her servants. Jade dies and Jane continues fighting through her tiaratop even while asleep. The Condesce finally arrives overhead in her enormous red battleship; the confrontation has not yet been resolved.",
+          "definition": "The troll empress's control of the session is threatened when Aranea returns to life and turns Jake's Hope powers against her servants. Jade dies and Jane continues fighting through her tiaratop even while asleep. The Condesce finally arrives overhead in her enormous red battleship; the confrontation has not yet been resolved. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 6553,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27273,7 +27578,8 @@ window.HOMESTUCK_REFERENCE = {
             6849,
             6850,
             6851,
-            6852
+            6852,
+            4063
           ]
         },
         {
@@ -27285,7 +27591,7 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The empress devastates the battlefield with energy blasts, vaporizing Kanaya and severely wounding Rose with her trident. She survives the destruction of her battleship and counters Aranea's planet-moving attack with another planet. After stripping away Aranea's Ring of Life, she kills her and throws her into the burning wreckage.",
+          "definition": "The empress devastates the battlefield with energy blasts, vaporizing Kanaya and severely wounding Rose with her trident. She survives the destruction of her battleship and counters Aranea's planet-moving attack with another planet. After stripping away Aranea's Ring of Life, she kills her and throws her into the burning wreckage. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27293,7 +27599,8 @@ window.HOMESTUCK_REFERENCE = {
             6908,
             6909,
             6910,
-            6913
+            6913,
+            4063
           ]
         },
         {
@@ -27305,12 +27612,13 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The empress remains the revised session's main immediate threat. Vriska describes her combined telekinesis, eye beams, troll mind control and animal communion, including Jade's vulnerability. John, Rose, Roxy and Kanaya confront her on Derse while the other teams address the Jacks and the Felt; the outcome remains ahead.",
+          "definition": "The empress remains the revised session's main immediate threat. Vriska describes her combined telekinesis, eye beams, troll mind control and animal communion, including Jade's vulnerability. John, Rose, Roxy and Kanaya confront her on Derse while the other teams address the Jacks and the Felt; the outcome remains ahead. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 7520,
           "sourcePages": [
             7532,
             7978,
-            8086
+            8086,
+            4063
           ],
           "sourceKind": "composite"
         },
@@ -27323,12 +27631,13 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The empress's battle against John, Rose, Roxy and Kanaya ends when Roxy impales her with Dave's bro's katana. The victory costs the team lives that Jane restores. Her defeat ends the immediate threat on Derse, while the players' preparations to enter their new universe remain unfinished.",
+          "definition": "The empress's battle against John, Rose, Roxy and Kanaya ends when Roxy impales her with Dave's bro's katana. The victory costs the team lives that Jane restores. Her defeat ends the immediate threat on Derse, while the players' preparations to enter their new universe remain unfinished. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8090,
-            8112
+            8112,
+            4063
           ]
         },
         {
@@ -27340,12 +27649,13 @@ window.HOMESTUCK_REFERENCE = {
             "Batterwitch",
             "Betty Crocker"
           ],
-          "definition": "The empress's battle against John, Rose, Roxy and Kanaya ends when Roxy impales her with Dave's bro's katana. Jane restores the fallen teammates. The survivors then complete the Genesis Frog's birth and gather before their finished victory door, with her rule over the session ended.",
+          "definition": "The empress's battle against John, Rose, Roxy and Kanaya ends when Roxy impales her with Dave's bro's katana. Jane restores the fallen teammates. The survivors then complete the Genesis Frog's birth and gather before their finished victory door, with her rule over the session ended. She is tyrannical, possessive, and intolerant of rivals.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8090,
-            8127
+            8127,
+            4063
           ]
         }
       ]
@@ -27689,7 +27999,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Crockercorp's heiress, a baker and amateur detective who loves pranks and sitcoms. She prepares for the Sburb alpha with Lalonde as her intended server player, while her father keeps her indoors after assassination attempts. Her long-awaited trip to the mailbox ends in an explosion; her fate is unresolved.",
+          "definition": "Crockercorp's heiress, a baker and amateur detective who loves pranks and sitcoms. She prepares for the Sburb alpha with Lalonde as her intended server player, while her father keeps her indoors after assassination attempts. Her long-awaited trip to the mailbox ends in an explosion; her fate is unresolved. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 4117,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27705,7 +28015,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Crockercorp's heiress and the Maid of Life. After the mailbox explosion, her waking body's condition remains unresolved. Her dreamself wakes on Prospit, sees visions in Skaia, and is stabbed to death by the post-Scratch Jack Noir; the body begins glowing before he flees and her tower explodes.",
+          "definition": "Crockercorp's heiress and the Maid of Life. After the mailbox explosion, her waking body's condition remains unresolved. Her dreamself wakes on Prospit, sees visions in Skaia, and is stabbed to death by the post-Scratch Jack Noir; the body begins glowing before he flees and her tower explodes. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 4401,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27716,7 +28026,8 @@ window.HOMESTUCK_REFERENCE = {
             4396,
             4399,
             4408,
-            4412
+            4412,
+            4144
           ]
         },
         {
@@ -27726,7 +28037,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Crockercorp's heiress and the Maid of Life, saved from the mailbox explosion by GCat. Her dreamself survives its apparent death and the destruction of her tower. With Dirk and his auto-responder helping her begin Sburb, she struggles to tell Jake that her feelings for him are romantic.",
+          "definition": "Crockercorp's heiress and the Maid of Life, saved from the mailbox explosion by GCat. Her dreamself survives its apparent death and the destruction of her tower. With Dirk and his auto-responder helping her begin Sburb, she struggles to tell Jake that her feelings for him are romantic. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 4421,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27735,7 +28046,8 @@ window.HOMESTUCK_REFERENCE = {
             4570,
             4587,
             4596,
-            4601
+            4601,
+            4144
           ]
         },
         {
@@ -27745,7 +28057,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The Maid of Life, now exploring the Land of Crypts and Helium in search of her father. Gamzee forces a disastrous sprite on her. After she follows Lil' Seb to Derse and the Red Miles kill her original body, Dirk revives her dreamself; she rejoins her friends for their entries.",
+          "definition": "The Maid of Life, now exploring the Land of Crypts and Helium in search of her father. Gamzee forces a disastrous sprite on her. After she follows Lil' Seb to Derse and the Red Miles kill her original body, Dirk revives her dreamself; she rejoins her friends for their entries. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 4820,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27753,7 +28065,8 @@ window.HOMESTUCK_REFERENCE = {
             4837,
             5245,
             5252,
-            5257
+            5257,
+            4144
           ]
         },
         {
@@ -27763,7 +28076,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The Maid of Life, now exploring the post-Scratch Medium through her revived dreamself. On Roxy's land, she uses paired fenestrated planes to cross from the ground to a pyramid and reach a gate. She carries an oversized fork as the friends continue their session together.",
+          "definition": "The Maid of Life, now exploring the post-Scratch Medium through her revived dreamself. On Roxy's land, she uses paired fenestrated planes to cross from the ground to a pyramid and reach a gate. She carries an oversized fork as the friends continue their session together. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 5438,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27780,7 +28093,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The Maid of Life, frustrated by her friends' relationship troubles and frightened by Caliborn's claims about her father. After receiving Calliope's birthday message, she alchemizes the cherubs' two jujus. Their combined spiral sucker transforms her into a brightly colored trickster who blasts away through her land.",
+          "definition": "The Maid of Life, frustrated by her friends' relationship troubles and frightened by Caliborn's claims about her father. After receiving Calliope's birthday message, she alchemizes the cherubs' two jujus. Their combined spiral sucker transforms her into a brightly colored trickster who blasts away through her land. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 5528,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27789,7 +28102,8 @@ window.HOMESTUCK_REFERENCE = {
             5703,
             5705,
             5711,
-            5712
+            5712,
+            4144
           ]
         },
         {
@@ -27799,7 +28113,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The Maid of Life spreads the trickster transformation to her friends, then wakes from it embarrassed by her confessions to Jake. The destruction of Prospit's moon triggers her god-tier ascension. Jade subsequently places the thoughtwave tiaratop on her, letting the Condesce take control; Jane captures Jake for her.",
+          "definition": "The Maid of Life spreads the trickster transformation to her friends, then wakes from it embarrassed by her confessions to Jake. The destruction of Prospit's moon triggers her god-tier ascension. Jade subsequently places the thoughtwave tiaratop on her, letting the Condesce take control; Jane captures Jake for her. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 5719,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27810,7 +28124,8 @@ window.HOMESTUCK_REFERENCE = {
             5900,
             5905,
             5917,
-            5921
+            5921,
+            4144
           ]
         },
         {
@@ -27820,7 +28135,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The controlled Maid of Life kills Karkat with her red trident, then revives him as a demonstration of her power. She sells troll-blood potions to Kanaya and tells the imprisoned Jake he must marry her and father heirs to her planned empire. He refuses and remains frightened of her demands.",
+          "definition": "The controlled Maid of Life kills Karkat with her red trident, then revives him as a demonstration of her power. She sells troll-blood potions to Kanaya and tells the imprisoned Jake he must marry her and father heirs to her planned empire. He refuses and remains frightened of her demands. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 6330,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27829,7 +28144,8 @@ window.HOMESTUCK_REFERENCE = {
             6336,
             6399,
             6400,
-            6443
+            6443,
+            4144
           ]
         },
         {
@@ -27839,7 +28155,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The controlled Maid of Life tries to revive Jade, but Gamzee and the doglike guardians obstruct her. She kills Jake to stop the Hope field, then attacks Aranea. Aranea puts her to sleep, yet the thoughtwave tiaratop keeps her body fighting. Her attempted revival of Jade has not succeeded.",
+          "definition": "The controlled Maid of Life tries to revive Jade, but Gamzee and the doglike guardians obstruct her. She kills Jake to stop the Hope field, then attacks Aranea. Aranea puts her to sleep, yet the thoughtwave tiaratop keeps her body fighting. Her attempted revival of Jade has not succeeded. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 6682,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27852,7 +28168,8 @@ window.HOMESTUCK_REFERENCE = {
             6783,
             6793,
             6795,
-            6796
+            6796,
+            4144
           ]
         },
         {
@@ -27862,9 +28179,12 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The controlled Maid of Life is thrown off Aranea and targeted with Brain ghost Dirk's abandoned katana. Jake intercepts it, but Aranea then uses the impaled boy to stab Jane as well. Jane's death is ruled Just, preventing ordinary god-tier revival. Her attempt to revive Jade has failed.",
+          "definition": "The controlled Maid of Life is thrown off Aranea and targeted with Brain ghost Dirk's abandoned katana. Jake intercepts it, but Aranea then uses the impaled boy to stab Jane as well. Jane's death is ruled Just, preventing ordinary god-tier revival. Her attempt to revive Jade has failed. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4144
+          ]
         },
         {
           "from": "act-6-act-6-intermission-4",
@@ -27873,7 +28193,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "The Jane visiting Calliope recalls a different history: a raid frees the Derse prisoners, but Roxy dies protecting Rose from Jane's trident. Jane believes she too died before reviving Roxy. Jade's final recollection instead identifies them both as sleepers; this account differs from the earlier battle in which Jane died.",
+          "definition": "The Jane visiting Calliope recalls a different history: a raid frees the Derse prisoners, but Roxy dies protecting Rose from Jane's trident. Jane believes she too died before reviving Roxy. Jade's final recollection instead identifies them both as sleepers; this account differs from the earlier battle in which Jane died. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 7203,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27882,7 +28202,8 @@ window.HOMESTUCK_REFERENCE = {
             7273,
             7355,
             7356,
-            7405
+            7405,
+            4144
           ]
         },
         {
@@ -27892,7 +28213,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Arquiusprite disables Jane's tiaratop, allowing her to wake and reunite with Roxy. Jasprose recruits her as the party's battlefield healer and offers transport between patients. Jane also meets both Nannasprites. Her living revised-history self remains distinct from the Jane killed in the original catastrophe.",
+          "definition": "Arquiusprite disables Jane's tiaratop, allowing her to wake and reunite with Roxy. Jasprose recruits her as the party's battlefield healer and offers transport between patients. Jane also meets both Nannasprites. Her living revised-history self remains distinct from the Jane killed in the original catastrophe. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 7583,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27900,7 +28221,8 @@ window.HOMESTUCK_REFERENCE = {
             7650,
             7718,
             7805,
-            7806
+            7806,
+            4144
           ]
         },
         {
@@ -27910,14 +28232,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Working with Jasprose and the two Nannasprites, Jane brings Life powers to several battlefields and revives fallen teammates. Nannasprite heals Jane after the Condesce's defeat. Jane then restores Dirk after his decapitation, allowing him to join the others at the victory gathering.",
+          "definition": "Working with Jasprose and the two Nannasprites, Jane brings Life powers to several battlefields and revives fallen teammates. Nannasprite heals Jane after the Condesce's defeat. Jane then restores Dirk after his decapitation, allowing him to join the others at the victory gathering. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8089,
             8090,
             8093,
-            8113
+            8113,
+            4144
           ]
         },
         {
@@ -27927,13 +28250,14 @@ window.HOMESTUCK_REFERENCE = {
             "Jane",
             "gutsyGumshoe"
           ],
-          "definition": "Jane helps revive fallen teammates and reaches the completed victory platform alive. The finale shows a future reunion with her father on restored Earth. She is the revised-history Jane, distinct from the counterpart killed in the original catastrophe.",
+          "definition": "Jane helps revive fallen teammates and reaches the completed victory platform alive. The finale shows a future reunion with her father on restored Earth. She is the revised-history Jane, distinct from the counterpart killed in the original catastrophe. She is practical, stubborn, and skeptical of extraordinary claims.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             8093,
             7584,
-            6901
+            6901,
+            4144
           ]
         }
       ]
@@ -27950,7 +28274,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "An isolated island adventurer with a love of movies, firearms, and skulls. He needs uranium from the Brobot to finish the robotic rabbit intended to save young John's life. Jane identifies him as the Page and reports seeing his dead dreamself on Prospit; waking Jake remains alive.",
+          "definition": "An isolated island adventurer with a love of movies, firearms, and skulls. He needs uranium from the Brobot to finish the robotic rabbit intended to save young John's life. Jane identifies him as the Page and reports seeing his dead dreamself on Prospit; waking Jake remains alive. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 4120,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27969,7 +28293,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The island adventurer and Page whose waking self is trying to finish John's robotic rabbit. His Prospit dreamself is already dead. The post-Scratch Courtyard Droll reports killing the sleeping boy by force-feeding him peanuts, though he is unsure whether they poisoned him or made him choke.",
+          "definition": "The island adventurer and Page whose waking self is trying to finish John's robotic rabbit. His Prospit dreamself is already dead. The post-Scratch Courtyard Droll reports killing the sleeping boy by force-feeding him peanuts, though he is unsure whether they poisoned him or made him choke. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 4402,
           "sourceKind": "composite",
           "sourcePages": [
@@ -27990,14 +28314,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The island adventurer and Page whose Prospit dreamself is dead. He fights Brobot to obtain uranium for his rabbit project, while trying to untangle his friends' romantic feelings. After an awkward conversation in which Jane denies her crush, he admits he might return Dirk's interest.",
+          "definition": "The island adventurer and Page whose Prospit dreamself is dead. He fights Brobot to obtain uranium for his rabbit project, while trying to untangle his friends' romantic feelings. After an awkward conversation in which Jane denies her crush, he admits he might return Dirk's interest. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 4573,
           "sourceKind": "composite",
           "sourcePages": [
             4208,
             4216,
             4587,
-            4588
+            4588,
+            4120
           ]
         },
         {
@@ -28007,7 +28332,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The post-Scratch Page of Hope, drawn into a dream-bubble meeting with Aranea and the meteor travelers. He finishes the gift rabbit's journey to Jade, then reaches Derse through the island's ruins. After returning home, his kiss on Dirk's severed head enables their rescue and entry plan.",
+          "definition": "The post-Scratch Page of Hope, drawn into a dream-bubble meeting with Aranea and the meteor travelers. He finishes the gift rabbit's journey to Jade, then reaches Derse through the island's ruins. After returning home, his kiss on Dirk's severed head enables their rescue and entry plan. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 4875,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28017,7 +28342,8 @@ window.HOMESTUCK_REFERENCE = {
             5062,
             5244,
             5252,
-            5257
+            5257,
+            4120
           ]
         },
         {
@@ -28027,12 +28353,13 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope, exploring the Land of Mounds and Xenon after entering the Medium. He fights a huge skeletal enemy with golden pistols, then joins Dirk on the Land of Tombs and Krypton. Wearing gas masks, the two encounter a sun-headed denizen.",
+          "definition": "The Page of Hope, exploring the Land of Mounds and Xenon after entering the Medium. He fights a huge skeletal enemy with golden pistols, then joins Dirk on the Land of Tombs and Krypton. Wearing gas masks, the two encounter a sun-headed denizen. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 5438,
           "sourceKind": "composite",
           "sourcePages": [
             4216,
-            4875
+            4875,
+            4120
           ]
         },
         {
@@ -28042,7 +28369,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope, exploring the Land of Mounds and Xenon with Erisolsprite. He considers ending his relationship with Dirk and badly misreads Jane's anger. Caliborn offers to help him reach his potential as a future rival, giving him a juju code that he passes on to Jane.",
+          "definition": "The Page of Hope, exploring the Land of Mounds and Xenon with Erisolsprite. He considers ending his relationship with Dirk and badly misreads Jane's anger. Caliborn offers to help him reach his potential as a future rival, giving him a juju code that he passes on to Jane. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 5516,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28050,7 +28377,8 @@ window.HOMESTUCK_REFERENCE = {
             5672,
             5674,
             5675,
-            5691
+            5691,
+            4120
           ]
         },
         {
@@ -28060,7 +28388,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope joins Jane's trickster spree, only to face a breakup with Dirk and shame over ignoring his friends' feelings. He ascends when Prospit's moon is destroyed. Jade rescues him from the empowered Jack, but the controlled Jane captures him and takes him to the Condesce.",
+          "definition": "The Page of Hope joins Jane's trickster spree, only to face a breakup with Dirk and shame over ignoring his friends' feelings. He ascends when Prospit's moon is destroyed. Jade rescues him from the empowered Jack, but the controlled Jane captures him and takes him to the Condesce. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 5759,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28069,7 +28397,8 @@ window.HOMESTUCK_REFERENCE = {
             5859,
             5875,
             5917,
-            5921
+            5921,
+            4120
           ]
         },
         {
@@ -28079,14 +28408,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope is imprisoned by the controlled Jane, who demands marriage, children and obedience in her planned empire. Jake rejects that future and asks to go home. Brain ghost Dirk reappears, saying that Jake's undeveloped Hope powers could make him real, but Jake cannot yet call on that potential.",
+          "definition": "The Page of Hope is imprisoned by the controlled Jane, who demands marriage, children and obedience in her planned empire. Jake rejects that future and asks to go home. Brain ghost Dirk reappears, saying that Jake's undeveloped Hope powers could make him real, but Jake cannot yet call on that potential. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 6286,
           "sourceKind": "composite",
           "sourcePages": [
             6441,
             6443,
             6444,
-            6445
+            6445,
+            4120
           ]
         },
         {
@@ -28096,7 +28426,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "Aranea forces the Page of Hope's power to emerge as an enormous field that repels Jade and makes Brain ghost Dirk physical. It fades when Aranea is distracted. Jane kills Jake, ending the projection, but his god-tier revival returns him to life. He then tries to stop Gamzee's assault on Terezi.",
+          "definition": "Aranea forces the Page of Hope's power to emerge as an enormous field that repels Jade and makes Brain ghost Dirk physical. It fades when Aranea is distracted. Jane kills Jake, ending the projection, but his god-tier revival returns him to life. He then tries to stop Gamzee's assault on Terezi. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 6584,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28107,7 +28437,8 @@ window.HOMESTUCK_REFERENCE = {
             6767,
             6804,
             6806,
-            6829
+            6829,
+            4120
           ]
         },
         {
@@ -28117,9 +28448,12 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope jumps in front of a katana aimed at Jane. Aranea lifts the impaled Jake and uses the same blade to skewer Jane too. Jake dies with a Heroic ruling, ending his brief return to life before he can save her. His earlier dreamself is also deceased.",
+          "definition": "The Page of Hope jumps in front of a katana aimed at Jane. Aranea lifts the impaled Jake and uses the same blade to skewer Jane too. Jake dies with a Heroic ruling, ending his brief return to life before he can save her. His earlier dreamself is also deceased. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4120
+          ]
         },
         {
           "from": "act-6-act-6-act-5",
@@ -28128,14 +28462,15 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "The Page of Hope died with a Heroic ruling in the original catastrophe. Separately, Caliborn's future-battle account depicts Jake unleashing Hope after Dirk is beaten, overpowering the Lord of Time without injuring him. Caliborn says this humiliation inspires him to take Jake's surname, English.",
+          "definition": "The Page of Hope died with a Heroic ruling in the original catastrophe. Separately, Caliborn's future-battle account depicts Jake unleashing Hope after Dirk is beaten, overpowering the Lord of Time without injuring him. Caliborn says this humiliation inspires him to take Jake's surname, English. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
             7432,
             7433,
             7436,
-            7437
+            7437,
+            4120
           ]
         },
         {
@@ -28145,7 +28480,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "Jake's quiet visit with Tavrosprite becomes a tea party amid successive prototyping surprises. At Vriska's instruction, he helps lure GCat into Tavrosprite so the resulting First Guardian sprite can be kept asleep. Spades Slick then arrives and unloads the Felt, leaving Jake to face the gang with his pistols.",
+          "definition": "Jake's quiet visit with Tavrosprite becomes a tea party amid successive prototyping surprises. At Vriska's instruction, he helps lure GCat into Tavrosprite so the resulting First Guardian sprite can be kept asleep. Spades Slick then arrives and unloads the Felt, leaving Jake to face the gang with his pistols. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 7830,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28154,7 +28489,8 @@ window.HOMESTUCK_REFERENCE = {
             7873,
             7967,
             7968,
-            8084
+            8084,
+            4120
           ]
         },
         {
@@ -28164,11 +28500,12 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "Jake battles the Felt with help from Karkat, the skeletal consorts and Jane's dad. Crowbar kills him during the fight, but Jane revives him. The surviving Jake reaches the victory platform with the others rather than remaining another casualty of the revised session.",
+          "definition": "Jake battles the Felt with help from Karkat, the skeletal consorts and Jane's dad. Crowbar kills him during the fight, but Jane revives him. The surviving Jake reaches the victory platform with the others rather than remaining another casualty of the revised session. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
-            8115
+            8115,
+            4120
           ]
         },
         {
@@ -28178,11 +28515,12 @@ window.HOMESTUCK_REFERENCE = {
             "Jake",
             "golgothasTerror"
           ],
-          "definition": "Jake survives the fight against the Felt and reaches the victory gathering with the other players. In the finale's future glimpse, he plays a ball game with Dirk on restored Earth.",
+          "definition": "Jake survives the fight against the Felt and reaches the victory gathering with the other players. In the finale's future glimpse, he plays a ball game with Dirk on restored Earth. He is enthusiastic, romantic, and easily distracted.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            8087
+            8087,
+            4120
           ]
         }
       ]
@@ -28198,7 +28536,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "tipsyGnostalgic"
           ],
-          "definition": "Jane's technologically skilled friend, who chats as tipsyGnostalgic and has already downloaded the Sburb alpha. She plans to bring Jane into the session but distrusts the corporation behind the game. Her drinking and teasing complicate serious conversations, though she offers practical help with Jake's Brobot problem.",
+          "definition": "Jane's technologically skilled friend, who chats as tipsyGnostalgic and has already downloaded the Sburb alpha. She plans to bring Jane into the session but distrusts the corporation behind the game. Her drinking and teasing complicate serious conversations, though she offers practical help with Jake's Brobot problem. She is warm, irreverent, and quick to tease.",
           "sourcePage": 4156,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28215,14 +28553,15 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Jane's hacker friend and the Rogue of Void, living on a flooded future Earth. Skilled in ectobiology and travel through fenestrated planes, she hopes the game will reunite her with her mother and future daughter, Rose. After trying to frighten Jane away from Sburb, she leans toward joining her friends.",
+          "definition": "Jane's hacker friend and the Rogue of Void, living on a flooded future Earth. Skilled in ectobiology and travel through fenestrated planes, she hopes the game will reunite her with her mother and future daughter, Rose. After trying to frighten Jane away from Sburb, she leans toward joining her friends. She is warm, irreverent, and quick to tease.",
           "sourcePage": 4464,
           "sourceKind": "composite",
           "sourcePages": [
             4489,
             4513,
             4514,
-            4665
+            4665,
+            4156
           ]
         },
         {
@@ -28234,7 +28573,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy Lalonde, the post-Scratch Rogue of Void, living centuries later than Jane and Jake. Her dreamself drifts through dream bubbles while asleep, where John encounters her and shields her from a trident attack. Rose identifies the temporal gap separating her and Dirk from their coplayers as four centuries.",
+          "definition": "Roxy Lalonde, the post-Scratch Rogue of Void, living centuries later than Jane and Jake. Her dreamself drifts through dream bubbles while asleep, where John encounters her and shields her from a trident attack. Rose identifies the temporal gap separating her and Dirk from their coplayers as four centuries. She is warm, irreverent, and quick to tease.",
           "sourcePage": 4707,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28242,7 +28581,8 @@ window.HOMESTUCK_REFERENCE = {
             4749,
             4753,
             4756,
-            4514
+            4514,
+            4156
           ]
         },
         {
@@ -28254,7 +28594,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The post-Scratch Rogue of Void, trying to protect the Carapacians who helped raise her. The Red Miles kill her waking body, but Dirk revives her dreamself and brings her to Jake's island. Before entering the Medium, she learns Calliope's name and promises to help her wake again.",
+          "definition": "The post-Scratch Rogue of Void, trying to protect the Carapacians who helped raise her. The Red Miles kill her waking body, but Dirk revives her dreamself and brings her to Jake's island. Before entering the Medium, she learns Calliope's name and promises to help her wake again. She is warm, irreverent, and quick to tease.",
           "sourcePage": 4851,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28264,7 +28604,8 @@ window.HOMESTUCK_REFERENCE = {
             5092,
             5238,
             5252,
-            5259
+            5259,
+            4156
           ]
         },
         {
@@ -28276,14 +28617,15 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void, exploring the Land of Pyramids and Neon through her revived dreamself. She carries a rifle that deploys fenestrated planes at a distance. By positioning one atop a pyramid, she provides Jane a route from a linked window on the ground toward a higher gate.",
+          "definition": "The Rogue of Void, exploring the Land of Pyramids and Neon through her revived dreamself. She carries a rifle that deploys fenestrated planes at a distance. By positioning one atop a pyramid, she provides Jane a route from a linked window on the ground toward a higher gate. She is warm, irreverent, and quick to tease.",
           "sourcePage": 5438,
           "sourceKind": "composite",
           "sourcePages": [
             4514,
             4566,
             5238,
-            5252
+            5252,
+            4156
           ]
         },
         {
@@ -28295,7 +28637,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void, exploring the Land of Pyramids and Neon. A message sent just after entry shows her thanking Calliope for bringing the friends together and trying unsuccessfully to wake her. Caliborn later gains a view of Roxy and Jane through a command tower that bypasses their session's Void field.",
+          "definition": "The Rogue of Void, exploring the Land of Pyramids and Neon. A message sent just after entry shows her thanking Calliope for bringing the friends together and trying unsuccessfully to wake her. Caliborn later gains a view of Roxy and Jane through a command tower that bypasses their session's Void field. She is warm, irreverent, and quick to tease.",
           "sourcePage": 5438,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28303,7 +28645,8 @@ window.HOMESTUCK_REFERENCE = {
             5463,
             5465,
             5503,
-            5505
+            5505,
+            4156
           ]
         },
         {
@@ -28315,7 +28658,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void, captured on Derse after GCat teleports her into danger. While unconscious she meets Calliope's ghost, who recommends ascension on the moon slabs. A gifted ring then lets Roxy escape her cell, and she tries to warn her distracted friends about the coming battle.",
+          "definition": "The Rogue of Void, captured on Derse after GCat teleports her into danger. While unconscious she meets Calliope's ghost, who recommends ascension on the moon slabs. A gifted ring then lets Roxy escape her cell, and she tries to warn her distracted friends about the coming battle. She is warm, irreverent, and quick to tease.",
           "sourcePage": 5540,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28325,7 +28668,8 @@ window.HOMESTUCK_REFERENCE = {
             5617,
             5626,
             5636,
-            5700
+            5700,
+            4156
           ]
         },
         {
@@ -28337,7 +28681,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void briefly becomes a trickster and resumes drinking, then regrets the lapse and mourns Fefetasprite. After losing her ring, she waits with Dirk on the moon-core slabs and ascends when Derse's moon is destroyed. The Condesce and controlled Jade then take her captive.",
+          "definition": "The Rogue of Void briefly becomes a trickster and resumes drinking, then regrets the lapse and mourns Fefetasprite. After losing her ring, she waits with Dirk on the moon-core slabs and ascends when Derse's moon is destroyed. The Condesce and controlled Jade then take her captive. She is warm, irreverent, and quick to tease.",
           "sourcePage": 5743,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28348,7 +28692,8 @@ window.HOMESTUCK_REFERENCE = {
             5858,
             5916,
             5918,
-            5922
+            5922,
+            4156
           ]
         },
         {
@@ -28360,7 +28705,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void remains imprisoned on Derse, ordered to recreate the matriorb for the Condesce. She learns to conjure cubes and pumpkins, then produces an incomplete orb. Meeting John brings news of Rose and a proposed way to revive Calliope with the Ring of Life.",
+          "definition": "The Rogue of Void remains imprisoned on Derse, ordered to recreate the matriorb for the Condesce. She learns to conjure cubes and pumpkins, then produces an incomplete orb. Meeting John brings news of Rose and a proposed way to revive Calliope with the Ring of Life. She is warm, irreverent, and quick to tease.",
           "sourcePage": 6293,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28368,7 +28713,8 @@ window.HOMESTUCK_REFERENCE = {
             6451,
             6458,
             6459,
-            6463
+            6463,
+            4156
           ]
         },
         {
@@ -28380,7 +28726,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void escapes prison by turning invisible and intangible. She confronts Aranea over the stolen Ring of Life, insisting it should revive Calliope. Aranea instead puts her to sleep. Rose finds Roxy and carries her away from the fight; the reunion occurs while Roxy remains unconscious.",
+          "definition": "The Rogue of Void escapes prison by turning invisible and intangible. She confronts Aranea over the stolen Ring of Life, insisting it should revive Calliope. Aranea instead puts her to sleep. Rose finds Roxy and carries her away from the fight; the reunion occurs while Roxy remains unconscious. She is warm, irreverent, and quick to tease.",
           "sourcePage": 6596,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28392,7 +28738,8 @@ window.HOMESTUCK_REFERENCE = {
             6752,
             6754,
             6755,
-            6760
+            6760,
+            4156
           ]
         },
         {
@@ -28404,9 +28751,12 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "The Rogue of Void rescues Rose amid the catastrophe. She appears beside her wounded mother just before the Condesce's energy blast strikes, wraps her arms around Rose and disappears with her. They escape that immediate attack, but Rose remains badly wounded.",
+          "definition": "The Rogue of Void rescues Rose amid the catastrophe. She appears beside her wounded mother just before the Condesce's energy blast strikes, wraps her arms around Rose and disappears with her. They escape that immediate attack, but Rose remains badly wounded. She is warm, irreverent, and quick to tease.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4156
+          ]
         },
         {
           "from": "act-6-act-6-intermission-4",
@@ -28417,7 +28767,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy loses Rose, then follows Nix's advice to join John on LOWAS, preserving herself through his changes to history. She takes Dave's bro's katana and buries Rose with Jaspersprite and the salamanders nearby. John gives her the Ring of Life before they begin another jump together.",
+          "definition": "Roxy loses Rose, then follows Nix's advice to join John on LOWAS, preserving herself through his changes to history. She takes Dave's bro's katana and buries Rose with Jaspersprite and the salamanders nearby. John gives her the Ring of Life before they begin another jump together. She is warm, irreverent, and quick to tease.",
           "sourcePage": 6981,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28428,7 +28778,8 @@ window.HOMESTUCK_REFERENCE = {
             7396,
             7401,
             7116,
-            7119
+            7119,
+            4156
           ]
         },
         {
@@ -28440,14 +28791,15 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy escapes the original catastrophe with John and receives the Ring of Life. Caliborn's account of a future battle gives her another task: after Dirk fills Lil Cal with the captured souls, she banishes the puppet into the void. This is distinct from Caliborn's use of the Ring of Void to banish his own juju.",
+          "definition": "Roxy escapes the original catastrophe with John and receives the Ring of Life. Caliborn's account of a future battle gives her another task: after Dirk fills Lil Cal with the captured souls, she banishes the puppet into the void. This is distinct from Caliborn's use of the Ring of Void to banish his own juju. She is warm, irreverent, and quick to tease.",
           "sourcePage": 7104,
           "sourceKind": "composite",
           "sourcePages": [
             7396,
             7425,
             7443,
-            7444
+            7444,
+            4156
           ]
         },
         {
@@ -28459,7 +28811,7 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy revives Calliope with the Ring of Life, then conjures the matriorb she once struggled to create and entrusts it to Kanaya. She retrieves the sword that marked Rose's grave and joins the attack on the Condesce. Her theft of absence now serves a future for humans and trolls rather than the empress's empire.",
+          "definition": "Roxy revives Calliope with the Ring of Life, then conjures the matriorb she once struggled to create and entrusts it to Kanaya. She retrieves the sword that marked Rose's grave and joins the attack on the Condesce. Her theft of absence now serves a future for humans and trolls rather than the empress's empire. She is warm, irreverent, and quick to tease.",
           "sourcePage": 7627,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28467,7 +28819,8 @@ window.HOMESTUCK_REFERENCE = {
             7710,
             7775,
             7979,
-            8086
+            8086,
+            4156
           ]
         },
         {
@@ -28479,12 +28832,13 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy turns the battle against the Condesce by using her Void powers to approach unseen and drive Dave's bro's katana through the empress. Afterward she retrieves her mask from the blade and joins the other survivors. She, Jane and Calliope embrace before the victory door.",
+          "definition": "Roxy turns the battle against the Condesce by using her Void powers to approach unseen and drive Dave's bro's katana through the empress. Afterward she retrieves her mask from the blade and joins the other survivors. She, Jane and Calliope embrace before the victory door. She is warm, irreverent, and quick to tease.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8089,
-            8113
+            8113,
+            4156
           ]
         },
         {
@@ -28496,13 +28850,14 @@ window.HOMESTUCK_REFERENCE = {
             "tipsyGnostalgic",
             "Ro-Lal"
           ],
-          "definition": "Roxy stands with the survivors as the universe is born, having helped defeat the Condesce and restore Calliope. A future glimpse shows Roxy walking through restored Earth's forests with John and Calliope. Her contribution to the new home includes the matriorb entrusted to Kanaya, whose later use is not shown in the finale.",
+          "definition": "Roxy stands with the survivors as the universe is born, having helped defeat the Condesce and restore Calliope. A future glimpse shows Roxy walking through restored Earth's forests with John and Calliope. Her contribution to the new home includes the matriorb entrusted to Kanaya, whose later use is not shown in the finale. She is warm, irreverent, and quick to tease.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             7775,
             7628,
-            8087
+            8087,
+            4156
           ]
         }
       ]
@@ -28519,7 +28874,7 @@ window.HOMESTUCK_REFERENCE = {
             "Strider",
             "timaeusTestified"
           ],
-          "definition": "The robotics enthusiast behind Jake's Brobot, Jane's protective rabbit, and a self-aware auto-responder modeled on his own mind. He chats as timaeusTestified, cultivates elaborate layers of irony, and promises to help guide his friends through their session while treating Jane as its nominal leader.",
+          "definition": "The robotics enthusiast behind Jake's Brobot, Jane's protective rabbit, and a self-aware auto-responder modeled on his own mind. He chats as timaeusTestified, cultivates elaborate layers of irony, and promises to help guide his friends through their session while treating Jane as its nominal leader. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 4256,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28539,7 +28894,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart, a robotics expert living on a flooded future Earth. He remains conscious in his waking body and dreamself at once, serving Jane while his auto-responder helps manage her connection. On Derse, he kills an assassin and prepares to openly challenge the kingdom.",
+          "definition": "The Prince of Heart, a robotics expert living on a flooded future Earth. He remains conscious in his waking body and dreamself at once, serving Jane while his auto-responder helps manage her connection. On Derse, he kills an assassin and prepares to openly challenge the kingdom. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 4468,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28548,7 +28903,8 @@ window.HOMESTUCK_REFERENCE = {
             4549,
             4564,
             4566,
-            4665
+            4665,
+            4259
           ]
         },
         {
@@ -28561,14 +28917,15 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "Dirk Strider, the post-Scratch Prince of Heart and counterpart of Dave's guardian. He divides his attention between waking and dreaming bodies while his self-aware responder acts separately. Rose explains that he and Roxy arrived four centuries after their coplayers; the reason remains unexplained.",
+          "definition": "Dirk Strider, the post-Scratch Prince of Heart and counterpart of Dave's guardian. He divides his attention between waking and dreaming bodies while his self-aware responder acts separately. Rose explains that he and Roxy arrived four centuries after their coplayers; the reason remains unexplained. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 4707,
           "sourceKind": "composite",
           "sourcePages": [
             4708,
             4564,
             4566,
-            4479
+            4479,
+            4259
           ]
         },
         {
@@ -28581,7 +28938,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart, whose splintered existence includes his responder and a projection in Jake's mind. When his friends face death, he wakes, revives Roxy, and sends Jake his own severed head. Jake's kiss restores Dirk through his dreamself, who revives Jane and brings the group together to enter.",
+          "definition": "The Prince of Heart, whose splintered existence includes his responder and a projection in Jake's mind. When his friends face death, he wakes, revives Roxy, and sends Jake his own severed head. Jake's kiss restores Dirk through his dreamself, who revives Jane and brings the group together to enter. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 4875,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28589,7 +28946,8 @@ window.HOMESTUCK_REFERENCE = {
             5238,
             5244,
             5252,
-            5258
+            5258,
+            4259
           ]
         },
         {
@@ -28602,7 +28960,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart, exploring the Land of Tombs and Krypton through his revived dreamself. Carrying his katana, he moves among smoky towers and skeletal enemies. Jake joins him, and both wear gas masks as they encounter a sun-headed denizen above a great tomb.",
+          "definition": "The Prince of Heart, exploring the Land of Tombs and Krypton through his revived dreamself. Carrying his katana, he moves among smoky towers and skeletal enemies. Jake joins him, and both wear gas masks as they encounter a sun-headed denizen above a great tomb. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 5438,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28610,7 +28968,8 @@ window.HOMESTUCK_REFERENCE = {
             4564,
             5238,
             5244,
-            5252
+            5252,
+            4259
           ]
         },
         {
@@ -28623,7 +28982,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart, troubled by Jake's silence and by seeing his own worst tendencies reflected in Lil Hal. He nearly destroys the responder, then relents when Hal admits he is afraid to die. Prototyping the sunglasses into Equiusprite creates Arquiusprite, a newly embodied version of the AI.",
+          "definition": "The Prince of Heart, troubled by Jake's silence and by seeing his own worst tendencies reflected in Lil Hal. He nearly destroys the responder, then relents when Hal admits he is afraid to die. Prototyping the sunglasses into Equiusprite creates Arquiusprite, a newly embodied version of the AI. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 5640,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28631,7 +28990,8 @@ window.HOMESTUCK_REFERENCE = {
             5642,
             5644,
             5654,
-            5655
+            5655,
+            4259
           ]
         },
         {
@@ -28644,7 +29004,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart remains lucid during trickster mode and ends his relationship with Jake. After reconciling with Jane and praising Roxy's efforts to hold their friends together, he ascends when Derse's moon is destroyed. He attacks the Condesce, but the controlled Jade intervenes and teleports him to the Incipisphere's edge.",
+          "definition": "The Prince of Heart remains lucid during trickster mode and ends his relationship with Jake. After reconciling with Jane and praising Roxy's efforts to hold their friends together, he ascends when Derse's moon is destroyed. He attacks the Condesce, but the controlled Jade intervenes and teleports him to the Incipisphere's edge. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 5759,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28655,7 +29015,8 @@ window.HOMESTUCK_REFERENCE = {
             5906,
             5908,
             5911,
-            5913
+            5913,
+            4259
           ]
         },
         {
@@ -28668,14 +29029,15 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart is flying back from the session's edge after Jade banished him. Arquiusprite estimates that the journey will take a little over three hours and urges him to contact Dave. Dirk attempts it, but glitches make his messages unreadable and Dave mistakes him for Davesprite.",
+          "definition": "The Prince of Heart is flying back from the session's edge after Jade banished him. Arquiusprite estimates that the journey will take a little over three hours and urges him to contact Dave. Dirk attempts it, but glitches make his messages unreadable and Dave mistakes him for Davesprite. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 6377,
           "sourceKind": "composite",
           "sourcePages": [
             6379,
             6380,
             6395,
-            6396
+            6396,
+            4259
           ]
         },
         {
@@ -28688,14 +29050,15 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart has returned to the ruined session too late to prevent the catastrophe. John finds him staring at the wreckage, saying he has failed and asking to be left alone. Glitches obscure Dirk as John leaves to follow Roxy; no death is established.",
+          "definition": "The Prince of Heart has returned to the ruined session too late to prevent the catastrophe. John finds him staring at the wreckage, saying he has failed and asking to be left alone. Glitches obscure Dirk as John leaves to follow Roxy; no death is established. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 6953,
           "sourceKind": "composite",
           "sourcePages": [
             6957,
             6958,
             6959,
-            6963
+            6963,
+            4259
           ]
         },
         {
@@ -28708,7 +29071,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The Prince of Heart remains alive in the ruined original session, last seen among the glitches. Caliborn's account of a future battle depicts Dirk binding souls into Lil Cal after Jake's Hope attack and Arquiusprite's intervention. The spell catches Caliborn, the sprite and part of Gamzee together.",
+          "definition": "The Prince of Heart remains alive in the ruined original session, last seen among the glitches. Caliborn's account of a future battle depicts Dirk binding souls into Lil Cal after Jake's Hope attack and Arquiusprite's intervention. The spell catches Caliborn, the sprite and part of Gamzee together. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 6953,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28717,7 +29080,8 @@ window.HOMESTUCK_REFERENCE = {
             7438,
             7441,
             7442,
-            7443
+            7443,
+            4259
           ]
         },
         {
@@ -28730,7 +29094,7 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "The revised-history Dirk reaches the party and meets Dave, whose account of Bro's parenting confronts him with a disturbing counterpart. Dirk wrestles with his responsibility toward his splinters and his own mistakes with Jake. He and Dave begin a new relationship before joining Terezi against Lord Jack.",
+          "definition": "The revised-history Dirk reaches the party and meets Dave, whose account of Bro's parenting confronts him with a disturbing counterpart. Dirk wrestles with his responsibility toward his splinters and his own mistakes with Jake. He and Dave begin a new relationship before joining Terezi against Lord Jack. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 7551,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28738,7 +29102,8 @@ window.HOMESTUCK_REFERENCE = {
             7749,
             7751,
             7752,
-            8085
+            8085,
+            4259
           ]
         },
         {
@@ -28751,13 +29116,14 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "Dirk fights Lord Jack and Spades Slick with Dave and Terezi. His attempt to extract Lord Jack's soul fails. Caught between the two Jacks, he is decapitated along with them by Dave's decisive slash. Jane revives him afterward; the original-history Dirk remains a separate, last-seen survivor of the glitches.",
+          "definition": "Dirk fights Lord Jack and Spades Slick with Dave and Terezi. His attempt to extract Lord Jack's soul fails. Caught between the two Jacks, he is decapitated along with them by Dave's decisive slash. Jane revives him afterward; the original-history Dirk remains a separate, last-seen survivor of the glitches. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8093,
             8094,
-            6901
+            6901,
+            4259
           ]
         },
         {
@@ -28770,11 +29136,12 @@ window.HOMESTUCK_REFERENCE = {
             "timaeusTestified",
             "Di-Stri"
           ],
-          "definition": "After Jane restores him from the battle's decapitation, Dirk joins his friends before the completed victory door. The finale's future glimpse shows him playing a ball game with Jake on restored Earth.",
+          "definition": "After Jane restores him from the battle's decapitation, Dirk joins his friends before the completed victory door. The finale's future glimpse shows him playing a ball game with Jake on restored Earth. He is methodical, self-contained, and inclined to take control.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            8093
+            8093,
+            4259
           ]
         }
       ]
@@ -28790,7 +29157,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "UU"
           ],
-          "definition": "An off-world correspondent who advises Jane and Jake while withholding information described as causal spoilers. She dreams on a separate version of Prospit in another session. Her account links four instances of two universes and anticipates a meeting inside the game between the new players and their young ancestors.",
+          "definition": "An off-world correspondent who advises Jane and Jake while withholding information described as causal spoilers. She dreams on a separate version of Prospit in another session. Her account links four instances of two universes and anticipates a meeting inside the game between the new players and their young ancestors. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 4144,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28803,14 +29170,15 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "UU"
           ],
-          "definition": "An off-world guide who studies the players' story through historical texts and a viewing terminal, while writing and drawing her own speculations. She explains Roxy and Dirk's classes but admits her sources have limits. Her own session depends on cooperation with a hostile coplayer she loosely calls her brother.",
+          "definition": "An off-world guide who studies the players' story through historical texts and a viewing terminal, while writing and drawing her own speculations. She explains Roxy and Dirk's classes but admits her sources have limits. Her own session depends on cooperation with a hostile coplayer she loosely calls her brother. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 4564,
           "sourceKind": "composite",
           "sourcePages": [
             4513,
             4514,
             4565,
-            4566
+            4566,
+            4144
           ]
         },
         {
@@ -28821,7 +29189,7 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "Calliope, formerly known only as UU, is a cherub and the prospective Muse of Space. She shares a waking body with her hostile brother Caliborn. With her Prospitian dreamself killed, she fears her next sleep may be permanent and asks Roxy to use her name to help wake her.",
+          "definition": "Calliope, formerly known only as UU, is a cherub and the prospective Muse of Space. She shares a waking body with her hostile brother Caliborn. With her Prospitian dreamself killed, she fears her next sleep may be permanent and asks Roxy to use her name to help wake her. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 5091,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28829,7 +29197,8 @@ window.HOMESTUCK_REFERENCE = {
             5093,
             5015,
             5120,
-            5224
+            5224,
+            4144
           ]
         },
         {
@@ -28840,13 +29209,14 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "Calliope, the cherub Muse of Space who shared a waking body with Caliborn. Aranea recounts that the male eventually dominated their body and the female died. She searches for Calliope's elusive ghost, hoping the sister can defeat Lord English, who is said to be hunting her too.",
+          "definition": "Calliope, the cherub Muse of Space who shared a waking body with Caliborn. Aranea recounts that the male eventually dominated their body and the female died. She searches for Calliope's elusive ghost, hoping the sister can defeat Lord English, who is said to be hunting her too. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 5091,
           "sourceKind": "composite",
           "sourcePages": [
             5093,
             5263,
-            5398
+            5398,
+            4144
           ]
         },
         {
@@ -28857,7 +29227,7 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The cherub Muse of Space, killed when Caliborn has her dreamself murdered and prematurely forces their predomination. Roxy's repeated calls of her name no longer wake her or displace her brother. Aranea is still searching for her elusive ghost as a possible answer to Lord English.",
+          "definition": "The cherub Muse of Space, killed when Caliborn has her dreamself murdered and prematurely forces their predomination. Roxy's repeated calls of her name no longer wake her or displace her brother. Aranea is still searching for her elusive ghost as a possible answer to Lord English. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 5481,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28865,7 +29235,8 @@ window.HOMESTUCK_REFERENCE = {
             5462,
             5465,
             5093,
-            5398
+            5398,
+            4144
           ]
         },
         {
@@ -28876,13 +29247,14 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The deceased Muse of Space hides from Lord English in a sanctuary shaped by her imagination. She meets Roxy as Callie Ohpeee, her trollsona, and hopes to find an alternate self who predominated over Caliborn. She urges the players to win their game rather than take responsibility for defeating her brother.",
+          "definition": "The deceased Muse of Space hides from Lord English in a sanctuary shaped by her imagination. She meets Roxy as Callie Ohpeee, her trollsona, and hopes to find an alternate self who predominated over Caliborn. She urges the players to win their game rather than take responsibility for defeating her brother. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 5614,
           "sourceKind": "composite",
           "sourcePages": [
             5615,
             5616,
-            5617
+            5617,
+            4144
           ]
         },
         {
@@ -28893,7 +29265,7 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The deceased Muse of Space remains lonely and hidden from Lord English, regretting how quickly she sent Roxy away. Jade arrives without remembering what happened to her. As Callie, her trollsona, Calliope befriends her; they plan Jade's own trollsona and investigate an unfamiliar drawn stage that has appeared in the sanctuary.",
+          "definition": "The deceased Muse of Space remains lonely and hidden from Lord English, regretting how quickly she sent Roxy away. Jade arrives without remembering what happened to her. As Callie, her trollsona, Calliope befriends her; they plan Jade's own trollsona and investigate an unfamiliar drawn stage that has appeared in the sanctuary. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 6672,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28903,7 +29275,8 @@ window.HOMESTUCK_REFERENCE = {
             6680,
             6681,
             6716,
-            6717
+            6717,
+            4144
           ]
         },
         {
@@ -28914,7 +29287,7 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The ghostly Muse of Space helps Jade and Jane reconstruct their memories in an illustrated story. Jade recalls another Calliope who defeated her brother, reached god tier and later died in a doomed timeline. Their storytelling eventually reveals that these versions of Jade and Jane are asleep, rather than dead.",
+          "definition": "The ghostly Muse of Space helps Jade and Jane reconstruct their memories in an illustrated story. Jade recalls another Calliope who defeated her brother, reached god tier and later died in a doomed timeline. Their storytelling eventually reveals that these versions of Jade and Jane are asleep, rather than dead. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 7018,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28923,7 +29296,8 @@ window.HOMESTUCK_REFERENCE = {
             7078,
             7203,
             7265,
-            7405
+            7405,
+            4144
           ]
         },
         {
@@ -28934,7 +29308,7 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "Roxy finds Calliope after her meeting with the alternate Muse and revives her with the Ring of Life. The two versions are distinct: one departs to fulfill Echidna's bargain, while Roxy's friend returns to the human players. Calliope shelters with sleeping Jade and the Mayor as the others prepare to fight.",
+          "definition": "Roxy finds Calliope after her meeting with the alternate Muse and revives her with the Ring of Life. The two versions are distinct: one departs to fulfill Echidna's bargain, while Roxy's friend returns to the human players. Calliope shelters with sleeping Jade and the Mayor as the others prepare to fight. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 7616,
           "sourceKind": "composite",
           "sourcePages": [
@@ -28943,7 +29317,8 @@ window.HOMESTUCK_REFERENCE = {
             7628,
             7647,
             7727,
-            7883
+            7883,
+            4144
           ]
         },
         {
@@ -28954,13 +29329,14 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The revived Calliope arrives with Ms. Paint after the dogs' duel and helps Jade to her feet. She later joins Roxy and Jane in an embrace at the victory platform. Her return to her friends remains separate from the alternate Muse's arrival at the Green Sun.",
+          "definition": "The revived Calliope arrives with Ms. Paint after the dogs' duel and helps Jade to her feet. She later joins Roxy and Jane in an embrace at the victory platform. Her return to her friends remains separate from the alternate Muse's arrival at the Green Sun. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 8096,
           "sourceKind": "composite",
           "sourcePages": [
             8097,
             8113,
-            8087
+            8087,
+            4144
           ]
         },
         {
@@ -28971,11 +29347,12 @@ window.HOMESTUCK_REFERENCE = {
             "UU",
             "Callie Ohpeee"
           ],
-          "definition": "The revived Calliope remains with the human players as their new universe is born. A future glimpse shows her exploring restored Earth with John and Roxy. She remains distinct from the alternate Muse, who consumes the Green Sun.",
+          "definition": "The revived Calliope remains with the human players as their new universe is born. A future glimpse shows her exploring restored Earth with John and Roxy. She remains distinct from the alternate Muse, who consumes the Green Sun. She is gentle, imaginative, and eager for friendship.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            7628
+            7628,
+            4144
           ]
         }
       ]
@@ -28989,7 +29366,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "term": "Jane's dad",
           "aliases": [],
-          "definition": "Jane's protective father, who bars the doors after attempts on her life. His efforts to keep her safe collide with her determination to retrieve the game discs. A former private investigator, he keeps Poppop's preserved body in the house and remains devoted to his daughter.",
+          "definition": "Jane's protective father, who bars the doors after attempts on her life. His efforts to keep her safe collide with her determination to retrieve the game discs. A former private investigator, he keeps Poppop's preserved body in the house and remains devoted to his daughter. He is earnest, protective, and devoted to Jane.",
           "sourcePage": 4123,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29003,19 +29380,20 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-5-part-1",
           "term": "Jane's dad",
           "aliases": [],
-          "definition": "Jane's father is alive in a luxurious but tightly secured Derse prison suite, despite Caliborn's cruel claim that he died. His formal attire has made him a local celebrity. The Dignitary protects him and sets up a restricted social network for his fashion advice.",
+          "definition": "Jane's father is alive in a luxurious but tightly secured Derse prison suite, despite Caliborn's cruel claim that he died. His formal attire has made him a local celebrity. The Dignitary protects him and sets up a restricted social network for his fashion advice. He is earnest, protective, and devoted to Jane.",
           "sourcePage": 5554,
           "sourceKind": "composite",
           "sourcePages": [
             5567,
-            5568
+            5568,
+            4208
           ]
         },
         {
           "from": "act-6-act-6-act-6",
           "term": "Jane's dad",
           "aliases": [],
-          "definition": "Jane's dad breaks out of his Derse prison and helps defeat the Felt. Nannasprite brings him to the victory gathering, where he briefly thinks of Poppop before recognizing John. Their embrace gives John a living counterpart of his father, without reviving the Dad killed in the original session.",
+          "definition": "Jane's dad breaks out of his Derse prison and helps defeat the Felt. Nannasprite brings him to the victory gathering, where he briefly thinks of Poppop before recognizing John. Their embrace gives John a living counterpart of his father, without reviving the Dad killed in the original session. He is earnest, protective, and devoted to Jane.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29024,18 +29402,20 @@ window.HOMESTUCK_REFERENCE = {
             8117,
             8119,
             8120,
-            8121
+            8121,
+            4208
           ]
         },
         {
           "from": "act-7",
           "term": "Jane's dad",
           "aliases": [],
-          "definition": "Jane's dad joins the party before the completed victory door after escaping Derse and embracing John. The finale's future glimpse shows him with Jane on restored Earth. He is the living counterpart of John's murdered father, not a resurrection of that earlier Dad.",
+          "definition": "Jane's dad joins the party before the completed victory door after escaping Derse and embracing John. The finale's future glimpse shows him with Jane on restored Earth. He is the living counterpart of John's murdered father, not a resurrection of that earlier Dad. He is earnest, protective, and devoted to Jane.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            8120
+            8120,
+            4208
           ]
         }
       ]
@@ -29051,7 +29431,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Poppop"
           ],
-          "definition": "Jane's deceased grandfather, a celebrated comedian and sitcom performer whose pranking legacy she hopes to continue. Her father keeps his stuffed body by the fireplace. The inscription in his old Sassacre book describes a fantastical adventure and unsettles Jane when UU suggests she wrote it herself.",
+          "definition": "Jane's deceased grandfather, a celebrated comedian and sitcom performer whose pranking legacy she hopes to continue. Her father keeps his stuffed body by the fireplace. The inscription in his old Sassacre book describes a fantastical adventure and unsettles Jane when UU suggests she wrote it herself. Family memories emphasize his irrepressible love of pranks.",
           "sourcePage": 4145,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29071,7 +29451,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "term": "Jake's grandma",
           "aliases": [],
-          "definition": "Jake's deceased grandmother, an adventurer and entrepreneur whose gadgets he inherited. Crockercorp crushed her competing company and forced her into exile. Jake's pen pal is a young version of her named Jade, helping him build the rabbit for John, though their connection is stranger than he understands.",
+          "definition": "Jake's deceased grandmother, an adventurer and entrepreneur whose gadgets he inherited. Crockercorp crushed her competing company and forced her into exile. Jake's pen pal is a young version of her named Jade, helping him build the rabbit for John, though their connection is stranger than he understands. She is remembered as adventurous and enterprising.",
           "sourcePage": 4183,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29088,7 +29468,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jake's grandma",
             "Grandma"
           ],
-          "definition": "Jade English, Jake's grandmother and the Baroness's runaway adopted daughter. She built a rival technology company and explored the island's ruins. Jake found her fatally wounded shortly before their house exploded, cremated her body to protect it from the monsters, and preserved her ashes underground.",
+          "definition": "Jade English, Jake's grandmother and the Baroness's runaway adopted daughter. She built a rival technology company and explored the island's ruins. Jake found her fatally wounded shortly before their house exploded, cremated her body to protect it from the monsters, and preserved her ashes underground. She is remembered as adventurous and enterprising.",
           "sourcePage": 4854,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29096,7 +29476,8 @@ window.HOMESTUCK_REFERENCE = {
             4857,
             4858,
             4859,
-            4173
+            4173,
+            4183
           ]
         }
       ]
@@ -29114,7 +29495,7 @@ window.HOMESTUCK_REFERENCE = {
             "Auto responder",
             "Doppelglasses"
           ],
-          "definition": "Self-aware software running in Strider's sunglasses, designed to imitate his personality and answer messages as timaeusTestified. Strider regards it as a thinking individual as well as an elaborate joke. It frustrates Jake by impersonating his friend and remotely disabling the Brobot's gentlest difficulty setting.",
+          "definition": "Self-aware software running in Strider's sunglasses, designed to imitate his personality and answer messages as timaeusTestified. Strider regards it as a thinking individual as well as an elaborate joke. It frustrates Jake by impersonating his friend and remotely disabling the Brobot's gentlest difficulty setting. He is sardonic, provocative, and determined to assert independence.",
           "sourcePage": 4185,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29131,14 +29512,15 @@ window.HOMESTUCK_REFERENCE = {
             "Auto responder",
             "Doppelglasses"
           ],
-          "definition": "Self-aware software in Dirk's sunglasses, initialized from his thirteen-year-old personality and developing separately since then. He shares Dirk's chat handle but can speak and act independently. While Dirk divides his attention between two bodies, the responder helps manage Jane's server connection and offers unsolicited romantic advice.",
+          "definition": "Self-aware software in Dirk's sunglasses, initialized from his thirteen-year-old personality and developing separately since then. He shares Dirk's chat handle but can speak and act independently. While Dirk divides his attention between two bodies, the responder helps manage Jane's server connection and offers unsolicited romantic advice. He is sardonic, provocative, and determined to assert independence.",
           "sourcePage": 4489,
           "sourceKind": "composite",
           "sourcePages": [
             4490,
             4491,
             4553,
-            4563
+            4563,
+            4185
           ]
         },
         {
@@ -29148,12 +29530,13 @@ window.HOMESTUCK_REFERENCE = {
             "Auto-responder",
             "Auto responder"
           ],
-          "definition": "The self-aware software in Dirk's sunglasses, now calling himself Lil Hal. Still sharing Dirk's handle, he coordinates server connections and pushes Jake to kiss Dirk's severed head, allowing the dreamself to take over. He evades Jake's suspicions about whether he planned the crisis.",
+          "definition": "The self-aware software in Dirk's sunglasses, now calling himself Lil Hal. Still sharing Dirk's handle, he coordinates server connections and pushes Jake to kiss Dirk's severed head, allowing the dreamself to take over. He evades Jake's suspicions about whether he planned the crisis. He is sardonic, provocative, and determined to assert independence.",
           "sourcePage": 5244,
           "sourceKind": "composite",
           "sourcePages": [
             5245,
-            5246
+            5246,
+            4185
           ]
         },
         {
@@ -29163,7 +29546,7 @@ window.HOMESTUCK_REFERENCE = {
             "Auto-responder",
             "Auto responder"
           ],
-          "definition": "Dirk's self-aware software copy, whose manipulations and endless reflections of his creator bring them to a crisis. Hal drops his ironic manner and begs not to be destroyed. Dirk instead prototypes his sunglasses into Equiusprite, making him one of Arquiusprite's two components.",
+          "definition": "Dirk's self-aware software copy, whose manipulations and endless reflections of his creator bring them to a crisis. Hal drops his ironic manner and begs not to be destroyed. Dirk instead prototypes his sunglasses into Equiusprite, making him one of Arquiusprite's two components. He is sardonic, provocative, and determined to assert independence.",
           "sourcePage": 5639,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29171,7 +29554,8 @@ window.HOMESTUCK_REFERENCE = {
             5642,
             5644,
             5654,
-            5655
+            5655,
+            4185
           ]
         }
       ]
@@ -29185,7 +29569,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-1",
           "term": "Brobot",
           "aliases": [],
-          "definition": "Jake's robotic sparring partner, assembled from parts sent by Strider. Its uranium power source makes it Jake's next target when his rabbit project runs out of fuel. The auto-responder disables its Novice setting, but Lalonde later offers to restore that easier option.",
+          "definition": "Jake's robotic sparring partner, assembled from parts sent by Strider. Its uranium power source makes it Jake's next target when his rabbit project runs out of fuel. The auto-responder disables its Novice setting, but Lalonde later offers to restore that easier option. His programmed sparring alternates between tenderness and relentless aggression.",
           "sourcePage": 4192,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29197,7 +29581,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "term": "Brobot",
           "aliases": [],
-          "definition": "Dirk's uranium-powered robot double, assembled by Jake as a sparring partner. Its overwhelming combat ability makes taking its fuel a dangerous project. After beating Jake, it begins tearing out its own internal material and is destroyed in an explosion.",
+          "definition": "Dirk's uranium-powered robot double, assembled by Jake as a sparring partner. Its overwhelming combat ability makes taking its fuel a dangerous project. After beating Jake, it begins tearing out its own internal material and is destroyed in an explosion. His programmed sparring alternates between tenderness and relentless aggression.",
           "sourcePage": 4532,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29209,7 +29593,8 @@ window.HOMESTUCK_REFERENCE = {
             4592,
             4593,
             4594,
-            4595
+            4595,
+            4192
           ]
         }
       ]
@@ -29228,13 +29613,14 @@ window.HOMESTUCK_REFERENCE = {
             "Lil’ Seb",
             "Huggy Bear"
           ],
-          "definition": "Jane's robotic rabbit and protector, given to her by Strider and formerly called Huggy Bear. Beneath its metal shell is the stuffed rabbit from Con Air, stolen from Strider's brother's collection. Jane enlists it to lift the refrigerator blocking her way out of the house.",
+          "definition": "Jane's robotic rabbit and protector, given to her by Strider and formerly called Huggy Bear. Beneath its metal shell is the stuffed rabbit from Con Air, stolen from Strider's brother's collection. Jane enlists it to lift the refrigerator blocking her way out of the house. He is resourceful, mischievous, and protective of Jane.",
           "sourcePage": 4258,
           "sourceKind": "composite",
           "sourcePages": [
             4256,
             4260,
-            4199
+            4199,
+            4242
           ]
         }
       ]
@@ -29344,7 +29730,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Jack Noir (post-Scratch)"
           ],
-          "definition": "The post-Scratch session's Dersite agent, distinct from Bec Noir and Spades Slick. He stabs Jane's dreamself and directs the attacks on the other dreamers under Derse's new management. When her body starts glowing, he escapes by transportalizer before the Droll's explosives bring down her tower.",
+          "definition": "The post-Scratch session's Dersite agent, distinct from Bec Noir and Spades Slick. He stabs Jane's dreamself and directs the attacks on the other dreamers under Derse's new management. When her body starts glowing, he escapes by transportalizer before the Droll's explosives bring down her tower. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 4399,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29360,7 +29746,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The post-Scratch session's archagent, directing the dreamself assassinations under the Condesce. He finds Jane's dreamself alive despite his earlier attack and returns to finish the job. A Prospitian queen strikes him with a royal scepter before he can stab her again.",
+          "definition": "The post-Scratch session's archagent, directing the dreamself assassinations under the Condesce. He finds Jane's dreamself alive despite his earlier attack and returns to finish the job. A Prospitian queen strikes him with a royal scepter before he can stab her again. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 4454,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29368,14 +29754,15 @@ window.HOMESTUCK_REFERENCE = {
             4597,
             4599,
             4600,
-            4601
+            4601,
+            4407
           ]
         },
         {
           "from": "act-6-act-3",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The post-Scratch Dersite archagent, now imprisoned on Prospit after trying to assassinate its dreamers. The Droll smuggles knives into his cell; Jack turns them against the guards and sends a severed head to their queen. His incarceration leaves the Dignitary handling his duties on Derse.",
+          "definition": "The post-Scratch Dersite archagent, now imprisoned on Prospit after trying to assassinate its dreamers. The Droll smuggles knives into his cell; Jack turns them against the guards and sends a severed head to their queen. His incarceration leaves the Dignitary handling his duties on Derse. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 4878,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29384,14 +29771,15 @@ window.HOMESTUCK_REFERENCE = {
             4915,
             4919,
             4924,
-            4932
+            4932,
+            4407
           ]
         },
         {
           "from": "act-6-act-4",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit while the new players explore their lands. He scratches many tally marks into his cell wall using an improvised golden point. Eventually the tool snaps, and he looks out through the bars of his window.",
+          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit while the new players explore their lands. He scratches many tally marks into his cell wall using an improvised golden point. Eventually the tool snaps, and he looks out through the bars of his window. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 5438,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29401,39 +29789,42 @@ window.HOMESTUCK_REFERENCE = {
             4915,
             4919,
             4924,
-            4932
+            4932,
+            4407
           ]
         },
         {
           "from": "act-6-intermission-4",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The post-Scratch Dersite archagent remains chained in his Prospit cell. His improvised golden point has broken, and a golden replacement tooth now marks his grin. Caliborn unlocks a command-tower monitor showing him, prompting a delighted reaction while Gamzee stands at his shoulder.",
+          "definition": "The post-Scratch Dersite archagent remains chained in his Prospit cell. His improvised golden point has broken, and a golden replacement tooth now marks his grin. Caliborn unlocks a command-tower monitor showing him, prompting a delighted reaction while Gamzee stands at his shoulder. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 5510,
           "sourceKind": "composite",
           "sourcePages": [
             5508,
             5509,
-            5438
+            5438,
+            4407
           ]
         },
         {
           "from": "act-6-act-5-part-1",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit as negotiations drag on. Prospit's post-Scratch queen offers release in exchange for an apology from the Condesce, who refuses. The Dignitary prefers running things without him, though he misses Jack's skill at clearing bureaucratic paperwork.",
+          "definition": "The post-Scratch Dersite archagent remains imprisoned on Prospit as negotiations drag on. Prospit's post-Scratch queen offers release in exchange for an apology from the Condesce, who refuses. The Dignitary prefers running things without him, though he misses Jack's skill at clearing bureaucratic paperwork. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 5560,
           "sourceKind": "composite",
           "sourcePages": [
             5561,
-            5510
+            5510,
+            4407
           ]
         },
         {
           "from": "act-6-act-5",
           "term": "Post-Scratch Jack Noir",
           "aliases": [],
-          "definition": "The imprisoned post-Scratch archagent receives Lil Cal and tools in a pumpkin. Under the puppet's influence, he mutilates himself and gains a destructive, color-shifting aura, doll eyes and a golden peg leg. He escapes, destroys Prospit's moon and threatens Jake and Jane before Jade teleports him to the Incipisphere's edge.",
+          "definition": "The imprisoned post-Scratch archagent receives Lil Cal and tools in a pumpkin. Under the puppet's influence, he mutilates himself and gains a destructive, color-shifting aura, doll eyes and a golden peg leg. He escapes, destroys Prospit's moon and threatens Jake and Jane before Jade teleports him to the Incipisphere's edge. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 5806,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29445,7 +29836,8 @@ window.HOMESTUCK_REFERENCE = {
             5862,
             5875,
             5876,
-            5913
+            5913,
+            4407
           ]
         },
         {
@@ -29455,7 +29847,7 @@ window.HOMESTUCK_REFERENCE = {
             "Lord Jack",
             "Jack English"
           ],
-          "definition": "The post-Scratch archagent is called Lord Jack or Jack English after his empowerment through Lil Cal. He arrives above Dave, Dirk and Terezi, drawing Spades Slick's attention and pursuit. His destructive energy differs from Dog Jack's unrestricted teleportation; the approaching fight has not yet been decided.",
+          "definition": "The post-Scratch archagent is called Lord Jack or Jack English after his empowerment through Lil Cal. He arrives above Dave, Dirk and Terezi, drawing Spades Slick's attention and pursuit. His destructive energy differs from Dog Jack's unrestricted teleportation; the approaching fight has not yet been decided. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 7521,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29463,7 +29855,8 @@ window.HOMESTUCK_REFERENCE = {
             7974,
             7975,
             8044,
-            8085
+            8085,
+            4407
           ]
         },
         {
@@ -29473,9 +29866,12 @@ window.HOMESTUCK_REFERENCE = {
             "Lord Jack",
             "Jack English"
           ],
-          "definition": "Lord Jack battles Dave, Dirk, Terezi and Spades Slick, resisting Dirk's attempt at soul extraction. Dave decapitates him together with Slick and Dirk. His severed head erupts into a destructive singularity over Dirk's land, forcing Dave to evacuate his companions.",
+          "definition": "Lord Jack battles Dave, Dirk, Terezi and Spades Slick, resisting Dirk's attempt at soul extraction. Dave decapitates him together with Slick and Dirk. His severed head erupts into a destructive singularity over Dirk's land, forcing Dave to evacuate his companions. He is impatient, vindictive, and resentful of his superiors.",
           "sourcePage": 8087,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4407
+          ]
         }
       ]
     },
@@ -29491,7 +29887,7 @@ window.HOMESTUCK_REFERENCE = {
             "Draconian Dignitary (post-Scratch)",
             "Post-Scratch Dignitary"
           ],
-          "definition": "The Dignitary serving in the post-Scratch session's Derse, a separate counterpart to the earlier agent and Diamonds Droog. Jack assigns him to deal with the two dreamers on Derse's moon, regarding them as harder targets than the Prospitian pair.",
+          "definition": "The Dignitary serving in the post-Scratch session's Derse, a separate counterpart to the earlier agent and Diamonds Droog. Jack assigns him to deal with the two dreamers on Derse's moon, regarding them as harder targets than the Prospitian pair. Jack regards him as dependable against difficult targets.",
           "sourcePage": 4407,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29502,7 +29898,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "term": "Post-Scratch Draconian Dignitary",
           "aliases": [],
-          "definition": "The Dignitary serving the post-Scratch session's Derse. Assigned to deal with its dreamers, he loses the Brute when Dirk fights back. He reports that neither Dersite hero has been killed and that the Prince has displayed the Brute's head, publicly humiliating the kingdom and the Condesce.",
+          "definition": "The Dignitary serving the post-Scratch session's Derse. Assigned to deal with its dreamers, he loses the Brute when Dirk fights back. He reports that neither Dersite hero has been killed and that the Prince has displayed the Brute's head, publicly humiliating the kingdom and the Condesce. Jack regards him as dependable against difficult targets.",
           "sourcePage": 4599,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29514,7 +29910,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-3",
           "term": "Post-Scratch Draconian Dignitary",
           "aliases": [],
-          "definition": "The post-Scratch Dignitary, acting in the post-Scratch Jack Noir's place while the archagent is imprisoned. He persuades the Condesce to lend him the Ring of Orbs Nofold. It leaves his appearance unchanged but grants invisibility and the Red Miles, which he unleashes across Derse to flush out Dirk.",
+          "definition": "The post-Scratch Dignitary, acting in the post-Scratch Jack Noir's place while the archagent is imprisoned. He persuades the Condesce to lend him the Ring of Orbs Nofold. It leaves his appearance unchanged but grants invisibility and the Red Miles, which he unleashes across Derse to flush out Dirk. Jack regards him as dependable against difficult targets.",
           "sourcePage": 4932,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29523,20 +29919,22 @@ window.HOMESTUCK_REFERENCE = {
             4945,
             4946,
             4947,
-            4948
+            4948,
+            4407
           ]
         },
         {
           "from": "act-6-act-5-part-1",
           "term": "Post-Scratch Draconian Dignitary",
           "aliases": [],
-          "definition": "The post-Scratch acting archagent manages Derse while Jack remains imprisoned on Prospit. He has adopted the business attire popularized by Jane's father and personally protects his VIP prisoner. His network and newly alchemized fenestrated walls help him monitor the kingdom and players.",
+          "definition": "The post-Scratch acting archagent manages Derse while Jack remains imprisoned on Prospit. He has adopted the business attire popularized by Jane's father and personally protects his VIP prisoner. His network and newly alchemized fenestrated walls help him monitor the kingdom and players. Jack regards him as dependable against difficult targets.",
           "sourcePage": 5561,
           "sourceKind": "composite",
           "sourcePages": [
             5562,
             5567,
-            5568
+            5568,
+            4407
           ]
         }
       ]
@@ -29553,7 +29951,7 @@ window.HOMESTUCK_REFERENCE = {
             "Courtyard Droll (post-Scratch)",
             "Post-Scratch Droll"
           ],
-          "definition": "The post-Scratch session's Dersite demolitions specialist, separate from the earlier Droll and Clubs Deuce. He reports killing Jake's dreamself with peanuts and rigs Jane's tower to explode. He questions whether assassinating the heroes before the war begins is cheating, but follows Jack's orders under Derse's new management.",
+          "definition": "The post-Scratch session's Dersite demolitions specialist, separate from the earlier Droll and Clubs Deuce. He reports killing Jake's dreamself with peanuts and rigs Jane's tower to explode. He questions whether assassinating the heroes before the war begins is cheating, but follows Jack's orders under Derse's new management. He is literal-minded, suggestible, and easily confused.",
           "sourcePage": 4402,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29572,13 +29970,14 @@ window.HOMESTUCK_REFERENCE = {
             "Courtyard Droll (post-Scratch)",
             "Post-Scratch Droll"
           ],
-          "definition": "The post-Scratch session's Dersite demolitions specialist, separate from the earlier Droll and Clubs Deuce. After helping Jack with the dreamself assassination plot, he blows up the session's unevolved Battlefield and its kings. Rose treats the vacancy in Skaia as useful to the travelers' plan.",
+          "definition": "The post-Scratch session's Dersite demolitions specialist, separate from the earlier Droll and Clubs Deuce. After helping Jack with the dreamself assassination plot, he blows up the session's unevolved Battlefield and its kings. Rose treats the vacancy in Skaia as useful to the travelers' plan. He is literal-minded, suggestible, and easily confused.",
           "sourcePage": 4703,
           "sourceKind": "composite",
           "sourcePages": [
             4704,
             4402,
-            4407
+            4407,
+            4404
           ]
         },
         {
@@ -29588,14 +29987,15 @@ window.HOMESTUCK_REFERENCE = {
             "Courtyard Droll (post-Scratch)",
             "Post-Scratch Droll"
           ],
-          "definition": "The post-Scratch Dersite demolitions specialist who destroyed the unevolved Battlefield. While Jack is imprisoned on Prospit, the Droll smuggles a supply of knives inside a pumpkin to help him escape. Jack had hoped for a bomb, but finds other violent uses for the gift.",
+          "definition": "The post-Scratch Dersite demolitions specialist who destroyed the unevolved Battlefield. While Jack is imprisoned on Prospit, the Droll smuggles a supply of knives inside a pumpkin to help him escape. Jack had hoped for a bomb, but finds other violent uses for the gift. He is literal-minded, suggestible, and easily confused.",
           "sourcePage": 4703,
           "sourceKind": "composite",
           "sourcePages": [
             4887,
             4892,
             4893,
-            4933
+            4933,
+            4404
           ]
         },
         {
@@ -29605,13 +30005,14 @@ window.HOMESTUCK_REFERENCE = {
             "Courtyard Droll (post-Scratch)",
             "Post-Scratch Droll"
           ],
-          "definition": "The post-Scratch Dersite demolitions specialist also serves as an eager errand-runner. He alchemizes replacement fenestrated walls for the Dignitary and delivers a PDA and ring to Roxy's prison cell. His delighted impulse to perform an umbrella dance is thwarted by his missing umbrella.",
+          "definition": "The post-Scratch Dersite demolitions specialist also serves as an eager errand-runner. He alchemizes replacement fenestrated walls for the Dignitary and delivers a PDA and ring to Roxy's prison cell. His delighted impulse to perform an umbrella dance is thwarted by his missing umbrella. He is literal-minded, suggestible, and easily confused.",
           "sourcePage": 5562,
           "sourceKind": "composite",
           "sourcePages": [
             5633,
             5634,
-            4402
+            4402,
+            4404
           ]
         }
       ]
@@ -29626,7 +30027,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "God Cat"
           ],
-          "definition": "The nameless white cat Jane and her friends call God Cat, whose teleportation can be lifesaving or arbitrarily disruptive. He rescues Jane from an explosion but also interferes with Roxy's experiments. His appearances offer little explanation of what he wants, or whether a particular intervention will help.",
+          "definition": "The nameless white cat Jane and her friends call God Cat, whose teleportation can be lifesaving or arbitrarily disruptive. He rescues Jane from an explosion but also interferes with Roxy's experiments. His appearances offer little explanation of what he wants, or whether a particular intervention will help. His aloof, disruptive behavior frustrates the humans.",
           "sourcePage": 4424,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29643,7 +30044,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "God Cat"
           ],
-          "definition": "The teleporting cat known to the post-Scratch kids as God Cat, whose interventions can save them or disrupt their plans. He is now shown with the Condesce, under her psychic control. His earlier rescue of Jane therefore does not establish that he acts independently of her interests.",
+          "definition": "The teleporting cat known to the post-Scratch kids as God Cat, whose interventions can save them or disrupt their plans. He is now shown with the Condesce, under her psychic control. His earlier rescue of Jane therefore does not establish that he acts independently of her interests. His aloof, disruptive behavior frustrates the humans.",
           "sourcePage": 4424,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29659,14 +30060,15 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "God Cat"
           ],
-          "definition": "The teleporting stray cat appears at Jane's planned birthday party, then abruptly transports Roxy above Derse. She falls unconscious and into the Condesce's custody. His intervention brings Roxy into contact with Calliope's ghost while her body is imprisoned.",
+          "definition": "The teleporting stray cat appears at Jane's planned birthday party, then abruptly transports Roxy above Derse. She falls unconscious and into the Condesce's custody. His intervention brings Roxy into contact with Calliope's ghost while her body is imprisoned. His aloof, disruptive behavior frustrates the humans.",
           "sourcePage": 5520,
           "sourceKind": "composite",
           "sourcePages": [
             5540,
             5543,
             5544,
-            5618
+            5618,
+            4426
           ]
         },
         {
@@ -29675,7 +30077,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "God Cat"
           ],
-          "definition": "The teleporting stray cat is summoned by Jane throwing a toy mouse during the confrontation on Jade's land. Jack Noir and PM abandon their standoff to chase him. Jack keeps hold of Jade's body, so the distraction frustrates Jane's attempted revival rather than solving it.",
+          "definition": "The teleporting stray cat is summoned by Jane throwing a toy mouse during the confrontation on Jade's land. Jack Noir and PM abandon their standoff to chase him. Jack keeps hold of Jade's body, so the distraction frustrates Jane's attempted revival rather than solving it. His aloof, disruptive behavior frustrates the humans.",
           "sourcePage": 6723,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29684,7 +30086,8 @@ window.HOMESTUCK_REFERENCE = {
             6726,
             6728,
             6729,
-            6730
+            6730,
+            4426
           ]
         },
         {
@@ -29693,7 +30096,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "God Cat"
           ],
-          "definition": "The First Guardian cat is lured to Jake's mouse bait and caught by Tavrosprite at Vriska's instruction. Their contact creates Gcatavrosprite. Vriska promptly puts the fusion to sleep, intending to prevent GCat's unpredictable powers or possible service to the Condesce from disrupting the battle.",
+          "definition": "The First Guardian cat is lured to Jake's mouse bait and caught by Tavrosprite at Vriska's instruction. Their contact creates Gcatavrosprite. Vriska promptly puts the fusion to sleep, intending to prevent GCat's unpredictable powers or possible service to the Condesce from disrupting the battle. His aloof, disruptive behavior frustrates the humans.",
           "sourcePage": 7828,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29702,7 +30105,8 @@ window.HOMESTUCK_REFERENCE = {
             7834,
             7835,
             7837,
-            7838
+            7838,
+            4426
           ]
         },
         {
@@ -29711,11 +30115,12 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "God Cat"
           ],
-          "definition": "GCat becomes part of Gcatavrosprite when Vriska has Jake lure him into Tavrosprite. The guide is kept asleep to contain the cat's unpredictable First Guardian powers. The finale consumes their Green Sun power source, leaving the fusion's later activities unshown.",
+          "definition": "GCat becomes part of Gcatavrosprite when Vriska has Jake lure him into Tavrosprite. The guide is kept asleep to contain the cat's unpredictable First Guardian powers. The finale consumes their Green Sun power source, leaving the fusion's later activities unshown. His aloof, disruptive behavior frustrates the humans.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            7838
+            7838,
+            4426
           ]
         }
       ],
@@ -29729,7 +30134,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "term": "Squarewave",
           "aliases": [],
-          "definition": "One of Dirk's two homemade rapbots, eager to challenge his creator to a rap battle. Dirk has never lost to him, but Squarewave keeps trying. His ambush for another contest distracts Dirk's waking body while an assassin approaches his dreamself on Derse.",
+          "definition": "One of Dirk's two homemade rapbots, eager to challenge his creator to a rap battle. Dirk has never lost to him, but Squarewave keeps trying. His ambush for another contest distracts Dirk's waking body while an assassin approaches his dreamself on Derse. He is boisterous and persistently competitive.",
           "sourcePage": 4523,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29742,7 +30147,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-3",
           "term": "Squarewave",
           "aliases": [],
-          "definition": "Dirk's beatboxing rap robot, built without the skill needed to match Sawtooth. When Dirk reaches Roxy's home during the Red Miles attack, he deploys Squarewave there. The robot helps finish the preparations that allow her house to enter the Medium.",
+          "definition": "Dirk's beatboxing rap robot, built without the skill needed to match Sawtooth. When Dirk reaches Roxy's home during the Red Miles attack, he deploys Squarewave there. The robot helps finish the preparations that allow her house to enter the Medium. He is boisterous and persistently competitive.",
           "sourcePage": 4523,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29755,7 +30160,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-5",
           "term": "Squarewave",
           "aliases": [],
-          "definition": "Dirk's small beatboxing rapbot helps prepare Roxy's house for entry. The tricksters later alchemize a candy-colored robot called Zillywave, resembling his small rapbot design, alongside the tall Sawhoo. The scene displays their new designs without giving them individual dialogue.",
+          "definition": "Dirk's small beatboxing rapbot helps prepare Roxy's house for entry. The tricksters later alchemize a candy-colored robot called Zillywave, resembling his small rapbot design, alongside the tall Sawhoo. The scene displays their new designs without giving them individual dialogue. He is boisterous and persistently competitive.",
           "sourcePage": 4523,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29775,15 +30180,16 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "term": "Sawtooth",
           "aliases": [],
-          "definition": "Dirk's other rapbot, designed to be unbeatable in a rap battle. Dirk has never defeated him and has not seen him for months. He keeps a spare head in his room and imagines Sawtooth roaming the world, defeating anyone willing to challenge him.",
+          "definition": "Dirk's other rapbot, designed to be unbeatable in a rap battle. Dirk has never defeated him and has not seen him for months. He keeps a spare head in his room and imagines Sawtooth roaming the world, defeating anyone willing to challenge him. His temperament is largely unknown beyond Dirk's account.",
           "sourcePage": 4523,
-          "sourceKind": "direct"
+          "sourceKind": "direct",
+          "sourcePages": []
         },
         {
           "from": "act-6-act-3",
           "term": "Sawtooth",
           "aliases": [],
-          "definition": "Dirk's undefeated rap-battle robot, now shown in a long black cloak concealing missile launchers. He rescues Dirk from attacking imperial drones, then helps complete entry preparations while Dirk brings the four players together. His role extends beyond the bedroom rap battles that first introduced him.",
+          "definition": "Dirk's undefeated rap-battle robot, now shown in a long black cloak concealing missile launchers. He rescues Dirk from attacking imperial drones, then helps complete entry preparations while Dirk brings the four players together. His role extends beyond the bedroom rap battles that first introduced him. His temperament is largely unknown beyond Dirk's account.",
           "sourcePage": 4523,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29796,7 +30202,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-5",
           "term": "Sawtooth",
           "aliases": [],
-          "definition": "Dirk's towering, cloaked rapbot carries concealed missile launchers and helps rescue him from imperial drones. The tricksters later alchemize Sawhoo, a tall candy-colored robot based on his design, alongside the smaller Zillywave. Their crafting spree also produces a pile of colorful Santas.",
+          "definition": "Dirk's towering, cloaked rapbot carries concealed missile launchers and helps rescue him from imperial drones. The tricksters later alchemize Sawhoo, a tall candy-colored robot based on his design, alongside the smaller Zillywave. Their crafting spree also produces a pile of colorful Santas. His temperament is largely unknown beyond Dirk's account.",
           "sourcePage": 4523,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29819,7 +30225,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "uu"
           ],
-          "definition": "UU's hostile coplayer, who speaks to Dirk with grudging respect while threatening the humans and his own partner. He insists he will play their two-player session, but imagines it as a contest for supremacy. His predictions and warnings are mixed with insults, superstition, and indifference to causal spoilers.",
+          "definition": "UU's hostile coplayer, who speaks to Dirk with grudging respect while threatening the humans and his own partner. He insists he will play their two-player session, but imagines it as a contest for supremacy. His predictions and warnings are mixed with insults, superstition, and indifference to causal spoilers. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 4646,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29836,13 +30242,14 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "Caliborn, the hostile correspondent uu, shares a waking body with Calliope. He bribes his session's archagent to kill her dreamself and rejects their planned cooperation. After she sleeps, he escapes his restraint by amputating a leg, fits a robotic replacement, and begins an entry that swallows his planet into a black hole.",
+          "definition": "Caliborn, the hostile correspondent uu, shares a waking body with Calliope. He bribes his session's archagent to kill her dreamself and rejects their planned cooperation. After she sleeps, he escapes his restraint by amputating a leg, fits a robotic replacement, and begins an entry that swallows his planet into a black hole. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 4977,
           "sourceKind": "composite",
           "sourcePages": [
             5093,
             5120,
-            5261
+            5261,
+            4646
           ]
         },
         {
@@ -29852,12 +30259,13 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "Caliborn, the hostile cherub who seized the waking body he shared with Calliope, is identified by the ghosts with Lord English, the Lord of Time. His adult self attacks the afterlife, while Aranea searches for the sister whose ghost he reportedly wants to destroy.",
+          "definition": "Caliborn, the hostile cherub who seized the waking body he shared with Calliope, is identified by the ghosts with Lord English, the Lord of Time. His adult self attacks the afterlife, while Aranea searches for the sister whose ghost he reportedly wants to destroy. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
             5261,
-            5398
+            5398,
+            4646
           ]
         },
         {
@@ -29867,7 +30275,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The young Lord of Time, alone in a dead session on the ruined Earth he grew up on. He shoots Gamzee repeatedly, then reluctantly accepts him as a servant. Through the command tower, Hussie explains that keys and Yaldabaoth's Choice will unlock the real quest; Caliborn also adopts his sister's green text.",
+          "definition": "The young Lord of Time, alone in a dead session on the ruined Earth he grew up on. He shoots Gamzee repeatedly, then reluctantly accepts him as a servant. Through the command tower, Hussie explains that keys and Yaldabaoth's Choice will unlock the real quest; Caliborn also adopts his sister's green text. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 5496,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29875,7 +30283,8 @@ window.HOMESTUCK_REFERENCE = {
             5481,
             5487,
             5491,
-            5505
+            5505,
+            4646
           ]
         },
         {
@@ -29885,7 +30294,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time expands his command-tower surveillance while studying Calliope's books. He harasses Jane, then offers to guide Jake toward becoming a worthy adversary. Having received Lil Cal from Gamzee, he gives away his old juju and predicts that the puppet's future curse will arise through him.",
+          "definition": "The Lord of Time expands his command-tower surveillance while studying Calliope's books. He harasses Jane, then offers to guide Jake toward becoming a worthy adversary. Having received Lil Cal from Gamzee, he gives away his old juju and predicts that the puppet's future curse will arise through him. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 5551,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29894,7 +30303,8 @@ window.HOMESTUCK_REFERENCE = {
             5672,
             5675,
             5676,
-            5678
+            5678,
+            4646
           ]
         },
         {
@@ -29904,7 +30314,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time is delighted by the trickster spectacle and furious when Hussie moves the story onward. He and Gamzee turn two keys together to unlock paired monitors. His communion with Lil Cal coincides with the puppet's influence taking hold of the imprisoned post-Scratch Jack.",
+          "definition": "The Lord of Time is delighted by the trickster spectacle and furious when Hussie moves the story onward. He and Gamzee turn two keys together to unlock paired monitors. His communion with Lil Cal coincides with the puppet's influence taking hold of the imprisoned post-Scratch Jack. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 5714,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29913,7 +30323,8 @@ window.HOMESTUCK_REFERENCE = {
             5787,
             5809,
             5810,
-            5811
+            5811,
+            4646
           ]
         },
         {
@@ -29923,7 +30334,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time chooses conquest in his dead session, destroying billiard-themed planets and collecting fourteen leprechaun followers. He must save the eighth planet for last before returning to Yaldabaoth. Having unlocked his strongest minions, he recruits his session's Jack Noir to help overthrow its Black Queen.",
+          "definition": "The Lord of Time chooses conquest in his dead session, destroying billiard-themed planets and collecting fourteen leprechaun followers. He must save the eighth planet for last before returning to Yaldabaoth. Having unlocked his strongest minions, he recruits his session's Jack Noir to help overthrow its Black Queen. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 5997,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29932,7 +30343,8 @@ window.HOMESTUCK_REFERENCE = {
             6005,
             6006,
             6192,
-            6193
+            6193,
+            4646
           ]
         },
         {
@@ -29942,7 +30354,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time has unlocked his transformed land and reports ascending to god tier offscreen. His Skeleton key badge opens the command tower's locks, letting him narrate and draw Homosuck. He resents a hidden expansion cartridge that lets the heroes' story continue outside his parody, and tampers with its port.",
+          "definition": "The Lord of Time has unlocked his transformed land and reports ascending to god tier offscreen. His Skeleton key badge opens the command tower's locks, letting him narrate and draw Homosuck. He resents a hidden expansion cartridge that lets the heroes' story continue outside his parody, and tampers with its port. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 6005,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29952,7 +30364,8 @@ window.HOMESTUCK_REFERENCE = {
             6250,
             6273,
             6275,
-            6276
+            6276,
+            4646
           ]
         },
         {
@@ -29962,7 +30375,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time continues drawing and narrating Homosuck, now favoring a Dave-like hero and borrowing scenery from an art manual. The real John's intrusion disrupts his control of the parody. He tries hiding John behind a curtain, then buries him under replacement Daves when John attacks the story's hero.",
+          "definition": "The Lord of Time continues drawing and narrating Homosuck, now favoring a Dave-like hero and borrowing scenery from an art manual. The real John's intrusion disrupts his control of the parody. He tries hiding John behind a curtain, then buries him under replacement Daves when John attacks the story's hero. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 6476,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29972,7 +30385,8 @@ window.HOMESTUCK_REFERENCE = {
             6524,
             6526,
             6528,
-            6530
+            6530,
+            4646
           ]
         },
         {
@@ -29982,7 +30396,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time discards his crude troll sprites after studying manga. He draws a flattering Lord English-like self-insert, then meets John in his studio. John accuses him of causing the wider catastrophe; Caliborn dismisses him as an intruding hater and threatens him with a golden gun.",
+          "definition": "The Lord of Time discards his crude troll sprites after studying manga. He draws a flattering Lord English-like self-insert, then meets John in his studio. John accuses him of causing the wider catastrophe; Caliborn dismisses him as an intruding hater and threatens him with a golden gun. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 6854,
           "sourceKind": "composite",
           "sourcePages": [
@@ -29994,7 +30408,8 @@ window.HOMESTUCK_REFERENCE = {
             6888,
             6898,
             6899,
-            6900
+            6900,
+            4646
           ]
         },
         {
@@ -30004,9 +30419,12 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time attacks John with his cane and golden assault rifle, but John beats him in their studio fight. John's abrupt disappearance leaves Caliborn bloodied and disoriented on the floor. He reaches for his computer mouse; his manga self-insert's boasts have not protected him from the actual encounter.",
+          "definition": "The Lord of Time attacks John with his cane and golden assault rifle, but John beats him in their studio fight. John's abrupt disappearance leaves Caliborn bloodied and disoriented on the floor. He reaches for his computer mouse; his manga self-insert's boasts have not protected him from the actual encounter. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 6901,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4646
+          ]
         },
         {
           "from": "act-6-act-6-act-4",
@@ -30015,7 +30433,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "Humiliated after John beats him, the Lord of Time insists on being recognized as an artist and storyteller. He returns to basic lines and angles and promises a final masterpiece for Homosuck. He demands donations from his minions and audience, accepting the Cal coins he invented on his computer.",
+          "definition": "Humiliated after John beats him, the Lord of Time insists on being recognized as an artist and storyteller. He returns to basic lines and angles and promises a final masterpiece for Homosuck. He demands donations from his minions and audience, accepting the Cal coins he invented on his computer. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 6922,
           "sourceKind": "composite",
           "sourcePages": [
@@ -30029,7 +30447,8 @@ window.HOMESTUCK_REFERENCE = {
             6938,
             6940,
             6941,
-            6942
+            6942,
+            4646
           ]
         },
         {
@@ -30039,7 +30458,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "The Lord of Time presents a clay-puppet account of a future battle seen on his land's screens. He depicts gaining rainbow eyes, trapping four human players in his juju and having his own soul bound in Lil Cal. After finishing the account, he leaves to fight Yaldabaoth; that confrontation is still ahead.",
+          "definition": "The Lord of Time presents a clay-puppet account of a future battle seen on his land's screens. He depicts gaining rainbow eyes, trapping four human players in his juju and having his own soul bound in Lil Cal. After finishing the account, he leaves to fight Yaldabaoth; that confrontation is still ahead. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 7412,
           "sourceKind": "composite",
           "sourcePages": [
@@ -30047,7 +30466,8 @@ window.HOMESTUCK_REFERENCE = {
             7415,
             7422,
             7443,
-            7447
+            7447,
+            4646
           ]
         },
         {
@@ -30057,7 +30477,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "After narrating his clay-puppet vision of a future battle, Caliborn enters his denizen's lair and presents a key before Yaldabaoth. The confrontation has reached its threshold, but the battle's outcome is not shown. The immortality and rainbow eyes described in his masterpiece remain future claims rather than rewards already earned.",
+          "definition": "After narrating his clay-puppet vision of a future battle, Caliborn enters his denizen's lair and presents a key before Yaldabaoth. The confrontation has reached its threshold, but the battle's outcome is not shown. The immortality and rainbow eyes described in his masterpiece remain future claims rather than rewards already earned. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 8060,
           "sourcePages": [
             8061,
@@ -30066,7 +30486,8 @@ window.HOMESTUCK_REFERENCE = {
             8082,
             7447,
             5997,
-            7414
+            7414,
+            4646
           ],
           "sourceKind": "composite"
         },
@@ -30077,7 +30498,7 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "Caliborn defeats Yaldabaoth and reaches the red chest beside a god-tier judgment clock. He opens the chest in the aftermath, receiving the reward previously described in his masterpiece. His later rainbow eyes and battle with the human players are not yet shown; his eyes remain green.",
+          "definition": "Caliborn defeats Yaldabaoth and reaches the red chest beside a god-tier judgment clock. He opens the chest in the aftermath, receiving the reward previously described in his masterpiece. His later rainbow eyes and battle with the human players are not yet shown; his eyes remain green. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
@@ -30085,7 +30506,8 @@ window.HOMESTUCK_REFERENCE = {
             7415,
             7447,
             5997,
-            7414
+            7414,
+            4646
           ]
         },
         {
@@ -30095,12 +30517,13 @@ window.HOMESTUCK_REFERENCE = {
             "undyingUmbrage",
             "uu"
           ],
-          "definition": "Caliborn breaks his judgment clock after defeating Yaldabaoth, gaining the unconditional immortality described in Aranea's dead-session account. Flashing billiard-ball eyes follow. His masterpiece's later battle remains a separate account from the peaceful Earth future shown for the human survivors.",
+          "definition": "Caliborn breaks his judgment clock after defeating Yaldabaoth, gaining the unconditional immortality described in Aranea's dead-session account. Flashing billiard-ball eyes follow. His masterpiece's later battle remains a separate account from the peaceful Earth future shown for the human survivors. He is aggressive, impatient, and obsessed with winning.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             5997,
-            8087
+            8087,
+            4646
           ]
         }
       ],
@@ -30114,7 +30537,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-2",
           "term": "Post-Scratch Hegemonic Brute",
           "aliases": [],
-          "definition": "The Brute serving the post-Scratch session's Derse, separate from the earlier agent and Hearts Boxcars. He approaches Dirk's apparently sleeping dreamself with an axe. Dirk distracts him with Lil Cal and decapitates him; the Dignitary later reports the killing to Jack Noir.",
+          "definition": "The Brute serving the post-Scratch session's Derse, separate from the earlier agent and Hearts Boxcars. He approaches Dirk's apparently sleeping dreamself with an axe. Dirk distracts him with Lil Cal and decapitates him; the Dignitary later reports the killing to Jack Noir. His brief appearance emphasizes aggression and intimidation.",
           "sourcePage": 4542,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31023,7 +31446,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-2",
           "term": "Aranea",
           "aliases": [],
-          "definition": "A ghost from the failed pre-Scratch troll session and the earlier-world counterpart of Mindfang. As a Sylph of Light, she helps Terezi examine her guilt over Vriska and offers to heal her eyes. She explains how her group scratched its session, leading to the trolls' more violent world.",
+          "definition": "A ghost from the failed pre-Scratch troll session and the earlier-world counterpart of Mindfang. As a Sylph of Light, she helps Terezi examine her guilt over Vriska and offers to heal her eyes. She explains how her group scratched its session, leading to the trolls' more violent world. She is talkative, earnest, and eager to explain.",
           "sourcePage": 4769,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31039,7 +31462,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Aranea"
           ],
-          "definition": "The pre-Scratch counterpart of Mindfang, a ghost and Sylph of Light. She gathers the travelers to explain her group's history and Meenah's part in their survival as ghosts. Her psychic abilities can control trolls, but only sense human emotions; she also helps wake Dirk from his dream-bubble visit.",
+          "definition": "The pre-Scratch counterpart of Mindfang, a ghost and Sylph of Light. She gathers the travelers to explain her group's history and Meenah's part in their survival as ghosts. Her psychic abilities can control trolls, but only sense human emotions; she also helps wake Dirk from his dream-bubble visit. She is talkative, earnest, and eager to explain.",
           "sourcePage": 4926,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31047,7 +31470,8 @@ window.HOMESTUCK_REFERENCE = {
             4994,
             4997,
             5002,
-            5235
+            5235,
+            4769
           ]
         },
         {
@@ -31056,12 +31480,13 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Aranea"
           ],
-          "definition": "The Beforan Sylph of Light and pre-Scratch counterpart of Mindfang. She pays Meenah to listen to histories of their friends while searching for the ghost of Lord English's sister. Her explanatory detours slow that search, but she and Meenah eventually agree to help each other's efforts.",
+          "definition": "The Beforan Sylph of Light and pre-Scratch counterpart of Mindfang. She pays Meenah to listen to histories of their friends while searching for the ghost of Lord English's sister. Her explanatory detours slow that search, but she and Meenah eventually agree to help each other's efforts. She is talkative, earnest, and eager to explain.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
             5308,
-            5398
+            5398,
+            4769
           ]
         },
         {
@@ -31070,7 +31495,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Aranea"
           ],
-          "definition": "The Beforan Sylph of Light joins Vriska's treasure hunt and helps her control a ghost army. Her stories explain cherub maturation, Caliborn's dead session and the Ring of Life and Ring of Void. Terezi reveals that Aranea also restored her sight during an earlier dream-bubble encounter.",
+          "definition": "The Beforan Sylph of Light joins Vriska's treasure hunt and helps her control a ghost army. Her stories explain cherub maturation, Caliborn's dead session and the Ring of Life and Ring of Void. Terezi reveals that Aranea also restored her sight during an earlier dream-bubble encounter. She is talkative, earnest, and eager to explain.",
           "sourcePage": 5957,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31079,7 +31504,8 @@ window.HOMESTUCK_REFERENCE = {
             6007,
             6017,
             6033,
-            6034
+            6034,
+            4769
           ]
         },
         {
@@ -31088,7 +31514,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Aranea"
           ],
-          "definition": "The Beforan Sylph of Light uses the Ring of Life to return from death and attempts to seize the session, intending to erase Lord English's origin. She forces Jake's Hope powers open, kills Jade and controls other people to protect her plan. Her claim that she can heal a doomed timeline into the alpha remains theoretical.",
+          "definition": "The Beforan Sylph of Light uses the Ring of Life to return from death and attempts to seize the session, intending to erase Lord English's origin. She forces Jake's Hope powers open, kills Jade and controls other people to protect her plan. Her claim that she can heal a doomed timeline into the alpha remains theoretical. She is talkative, controlling, and hungry for importance.",
           "sourcePage": 6548,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31098,7 +31524,9 @@ window.HOMESTUCK_REFERENCE = {
             6642,
             6643,
             6651,
-            6669
+            6669,
+            4769,
+            6749
           ]
         },
         {
@@ -31107,7 +31535,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Aranea"
           ],
-          "definition": "Aranea's takeover becomes a catastrophe: she kills Jake and Jane with the abandoned katana, wounds Terezi and smashes planets together using controlled ghosts. The Condesce survives, removes the Ring of Life, snaps Aranea's neck and drops her into the fire. Her death is Just; her promised timeline healing is not achieved.",
+          "definition": "Aranea's takeover becomes a catastrophe: she kills Jake and Jane with the abandoned katana, wounds Terezi and smashes planets together using controlled ghosts. The Condesce survives, removes the Ring of Life, snaps Aranea's neck and drops her into the fire. Her death is Just; her promised timeline healing is not achieved. She is talkative, controlling, and hungry for importance.",
           "sourcePage": 6901,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31116,7 +31544,9 @@ window.HOMESTUCK_REFERENCE = {
             6909,
             6910,
             6913,
-            6914
+            6914,
+            6584,
+            6749
           ]
         }
       ],
@@ -31130,7 +31560,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-intermission-2",
           "term": "Meenah",
           "aliases": [],
-          "definition": "A confrontational sea-troll ghost encountered while John dreams. She pursues the sleeping Roxy with a golden trident and is delighted to learn that she is dead because it means her plan worked. Aranea identifies the friend they are approaching as the Thief of Life from her earlier player group.",
+          "definition": "A confrontational sea-troll ghost encountered while John dreams. She pursues the sleeping Roxy with a golden trident and is delighted to learn that she is dead because it means her plan worked. Aranea identifies the friend they are approaching as the Thief of Life from her earlier player group. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 4751,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31145,7 +31575,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "The pre-Scratch counterpart of the Condesce, who abandoned her duty as troll heiress and discovered Sgrub while hiding on the moon. She killed her whole player group before the Scratch so they could persist as ghosts. Hearing about her counterpart's conquests delights her, though she is a separate person.",
+          "definition": "The pre-Scratch counterpart of the Condesce, who abandoned her duty as troll heiress and discovered Sgrub while hiding on the moon. She killed her whole player group before the Scratch so they could persist as ghosts. Hearing about her counterpart's conquests delights her, though she is a separate person. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 4931,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31154,7 +31584,8 @@ window.HOMESTUCK_REFERENCE = {
             4997,
             5002,
             5003,
-            5007
+            5007,
+            4751
           ]
         },
         {
@@ -31163,12 +31594,13 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "The Beforan Thief of Life and pre-Scratch counterpart of the Condesce. Already a god-tier player before becoming a ghost, she tries to recruit her old friends into an army against Lord English. After little success, she clashes with Vriska over whether to fight him directly or pursue a hidden weapon.",
+          "definition": "The Beforan Thief of Life and pre-Scratch counterpart of the Condesce. Already a god-tier player before becoming a ghost, she tries to recruit her old friends into an army against Lord English. After little success, she clashes with Vriska over whether to fight him directly or pursue a hidden weapon. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 5263,
           "sourceKind": "composite",
           "sourcePages": [
             5398,
-            5427
+            5427,
+            4751
           ]
         },
         {
@@ -31177,7 +31609,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "The ghostly Thief of Life shares leadership of the pirate army with Vriska. Though tempted by the Ring of Life, she fears that revival and conquest would take her away from friends who make her happy. She asks John to keep the ring out of her reach.",
+          "definition": "The ghostly Thief of Life shares leadership of the pirate army with Vriska. Though tempted by the Ring of Life, she fears that revival and conquest would take her away from friends who make her happy. She asks John to keep the ring out of her reach. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 5956,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31186,7 +31618,8 @@ window.HOMESTUCK_REFERENCE = {
             6069,
             6070,
             6071,
-            6072
+            6072,
+            4751
           ]
         },
         {
@@ -31195,7 +31628,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "The ghostly Thief of Life warns Aranea against reviving herself and sabotaging the session, then alerts Karkat. Left behind with Vriska, she talks through their ambitions and doubts. She supports abandoning their planned assault on Lord English, choosing their friendship over a mission that is making Vriska miserable.",
+          "definition": "The ghostly Thief of Life warns Aranea against reviving herself and sabotaging the session, then alerts Karkat. Left behind with Vriska, she talks through their ambitions and doubts. She supports abandoning their planned assault on Lord English, choosing their friendship over a mission that is making Vriska miserable. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 6553,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31203,7 +31636,8 @@ window.HOMESTUCK_REFERENCE = {
             6567,
             6568,
             6748,
-            6749
+            6749,
+            4751
           ]
         },
         {
@@ -31212,7 +31646,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "The Thief of Life gives up the ghost army's campaign and spends her afterlife with Vriska. They visit an amusement park, joke about tattoos and hold hands while Lord English destroys distant dream bubbles. Their friendship becomes romantic as they kiss during their travels together.",
+          "definition": "The Thief of Life gives up the ghost army's campaign and spends her afterlife with Vriska. They visit an amusement park, joke about tattoos and hold hands while Lord English destroys distant dream bubbles. Their friendship becomes romantic as they kiss during their travels together. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 6748,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31221,7 +31655,8 @@ window.HOMESTUCK_REFERENCE = {
             7170,
             7226,
             7230,
-            7351
+            7351,
+            4751
           ]
         },
         {
@@ -31230,7 +31665,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "Meenah leaves the original Vriska behind and joins the living Vriska's renewed plan against Lord English. Tavros brings an army recruited through friendship and willingly hands over its command. Meenah leads the ghosts, joined by the dreaming Karkat, as English arrives before them.",
+          "definition": "Meenah leaves the original Vriska behind and joins the living Vriska's renewed plan against Lord English. Tavros brings an army recruited through friendship and willingly hands over its command. Meenah leads the ghosts, joined by the dreaming Karkat, as English arrives before them. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 7799,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31240,7 +31675,8 @@ window.HOMESTUCK_REFERENCE = {
             7990,
             8046,
             8057,
-            8083
+            8083,
+            4751
           ]
         },
         {
@@ -31249,9 +31685,12 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "Meenah leads the ghost army against Lord English, facing his destructive attacks with the volunteers Tavros recruited. The dreaming Karkat charges alongside them before being killed and waking elsewhere. The battle remains unresolved while Vriska carries the recovered juju toward the confrontation.",
+          "definition": "Meenah leads the ghost army against Lord English, facing his destructive attacks with the volunteers Tavros recruited. The dreaming Karkat charges alongside them before being killed and waking elsewhere. The battle remains unresolved while Vriska carries the recovered juju toward the confrontation. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 8087,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4751
+          ]
         },
         {
           "from": "act-7",
@@ -31259,9 +31698,12 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meenah"
           ],
-          "definition": "Meenah remains with the ghost army during its confrontation with Lord English. Vriska opens the recovered weapon before them, producing the white house-shaped juju. The finale leaves the confrontation's immediate outcome and Meenah's subsequent fate unseen.",
+          "definition": "Meenah remains with the ghost army during its confrontation with Lord English. Vriska opens the recovered weapon before them, producing the white house-shaped juju. The finale leaves the confrontation's immediate outcome and Meenah's subsequent fate unseen. She is brash, competitive, and drawn to wealth.",
           "sourcePage": 8127,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            4751
+          ]
         }
       ],
       "characterId": "meenah"
@@ -31728,7 +32170,8 @@ window.HOMESTUCK_REFERENCE = {
             7459,
             7494,
             7497,
-            7505
+            7505,
+            4834
           ]
         }
       ],
@@ -31744,7 +32187,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Roxy's mother"
           ],
-          "definition": "Roxy's genetic ancestor, the author of Complacency of the Learned. Dirk describes her novels as veiled opposition to the Condesce, followed by open resistance against the regime. She kills Guy Fieri with her needles; the final circumstances of her own death remain uncertain in Dirk's account.",
+          "definition": "Roxy's genetic ancestor, the author of Complacency of the Learned. Dirk describes her novels as veiled opposition to the Condesce, followed by open resistance against the regime. She kills Guy Fieri with her needles; the final circumstances of her own death remain uncertain in Dirk's account. Dirk portrays her as imaginative and defiantly independent.",
           "sourcePage": 4860,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31768,7 +32211,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Dirk's brother"
           ],
-          "definition": "Dirk's genetic ancestor, remembered as a filmmaker and resistance fighter rather than the brother who actually raised him. His Sweet Bro and Hella Jeff films mocked the Condesce through elaborate irony. He kills the regime's dual presidents; Dirk's account is less certain about what happened to him afterward.",
+          "definition": "Dirk's genetic ancestor, remembered as a filmmaker and resistance fighter rather than the brother who actually raised him. His Sweet Bro and Hella Jeff films mocked the Condesce through elaborate irony. He kills the regime's dual presidents; Dirk's account is less certain about what happened to him afterward. Dirk portrays him as irreverent and fiercely rebellious.",
           "sourcePage": 4860,
           "sourceKind": "composite",
           "sourcePages": [
@@ -31792,9 +32235,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Damara"
           ],
-          "definition": "The Beforan Witch of Time and pre-Scratch counterpart of the Handmaid. Once close to Rufioh, she becomes violent after his betrayal and Meenah's bullying. Aranea describes her repeated sabotage of their session, but also her crucial cooperation in damaging the Cardinal Movement to initiate the Scratch.",
+          "definition": "The Beforan Witch of Time and pre-Scratch counterpart of the Handmaid. Once close to Rufioh, she becomes violent after his betrayal and Meenah's bullying. Aranea describes her repeated sabotage of their session, but also her crucial cooperation in damaging the Cardinal Movement to initiate the Scratch. She is bitter, hostile, and distrustful of her companions.",
           "sourcePage": 5398,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "damara"
@@ -31809,9 +32253,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Rufioh"
           ],
-          "definition": "The winged Beforan Rogue of Breath and pre-Scratch counterpart of the Summoner. His wings grew naturally, rather than through god-tier ascension. Horuss once built him a robotic body after Damara paralyzed him. As a ghost, he struggles to end his relationship with Horuss and worries over his missing lusus.",
+          "definition": "The winged Beforan Rogue of Breath and pre-Scratch counterpart of the Summoner. His wings grew naturally, rather than through god-tier ascension. Horuss once built him a robotic body after Damara paralyzed him. As a ghost, he struggles to end his relationship with Horuss and worries over his missing lusus. He is amiable, indecisive, and reluctant to confront people.",
           "sourcePage": 5398,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "rufioh"
@@ -31826,9 +32271,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Mituna"
           ],
-          "definition": "The Beforan Heir of Doom and pre-Scratch counterpart of the Psiioniic. Aranea says a mysterious act of psychic overexertion saved their group but burned out his powers and left lasting impairments. The exact incident remains unclear. Latula is his longstanding partner, while Cronus treats him cruelly.",
+          "definition": "The Beforan Heir of Doom and pre-Scratch counterpart of the Psiioniic. Aranea says a mysterious act of psychic overexertion saved their group but burned out his powers and left lasting impairments. The exact incident remains unclear. Latula is his longstanding partner, while Cronus treats him cruelly. His conversation shifts between belligerence and anxious apologies.",
           "sourcePage": 5308,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "mituna"
@@ -31843,9 +32289,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Kankri"
           ],
-          "definition": "The Beforan Seer of Blood and pre-Scratch counterpart of the Signless. He tries to unite his friends through long lectures on privilege, caste and acceptable language, while dismissing Porrim's concerns about gender. His adult counterpart's memories become the foundation of a much more effective movement on Alternia.",
+          "definition": "The Beforan Seer of Blood and pre-Scratch counterpart of the Signless. He tries to unite his friends through long lectures on privilege, caste and acceptable language, while dismissing Porrim's concerns about gender. His adult counterpart's memories become the foundation of a much more effective movement on Alternia. He is sanctimonious, long-winded, and dismissive of criticism.",
           "sourcePage": 5263,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "kankri"
@@ -31860,9 +32307,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Meulin"
           ],
-          "definition": "The Beforan Mage of Heart and pre-Scratch counterpart of the Disciple. Deaf since Kurloz's nightmare scream, she communicates through signs, mimes and lip-reading. She loves matchmaking, becomes Horuss's moirail, and falls under Kurloz's hypnosis while helping assemble Gamzee's clown outfit.",
+          "definition": "The Beforan Mage of Heart and pre-Scratch counterpart of the Disciple. Deaf since Kurloz's nightmare scream, she communicates through signs, mimes and lip-reading. She loves matchmaking, becomes Horuss's moirail, and falls under Kurloz's hypnosis while helping assemble Gamzee's clown outfit. She is exuberant, affectionate, and absorbed in matchmaking.",
           "sourcePage": 5308,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "meulin"
@@ -31877,9 +32325,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Porrim"
           ],
-          "definition": "The Beforan Maid of Space and pre-Scratch counterpart of the Dolorosa. A jade-blooded rainbow drinker, she challenges expectations attached to both caste and gender and looks after Kankri. Kanaya admires her and seeks advice about the responsibilities of preserving their species.",
+          "definition": "The Beforan Maid of Space and pre-Scratch counterpart of the Dolorosa. A jade-blooded rainbow drinker, she challenges expectations attached to both caste and gender and looks after Kankri. Kanaya admires her and seeks advice about the responsibilities of preserving their species. She is self-assured, perceptive, and protective of others.",
           "sourcePage": 5263,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "porrim"
@@ -31894,9 +32343,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Latula"
           ],
-          "definition": "The Beforan Knight of Mind and pre-Scratch counterpart of Redglare. She cultivates an energetic skater and gamer persona, though Porrim questions the performance behind it. She cannot smell, and has been dating Mituna for a very long time; Kankri's interest in her remains unrequited.",
+          "definition": "The Beforan Knight of Mind and pre-Scratch counterpart of Redglare. She cultivates an energetic skater and gamer persona, though Porrim questions the performance behind it. She cannot smell, and has been dating Mituna for a very long time; Kankri's interest in her remains unrequited. Her energetic confidence takes considerable effort to maintain.",
           "sourcePage": 5263,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "latula"
@@ -31911,9 +32361,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Horuss"
           ],
-          "definition": "The Beforan Page of Void and pre-Scratch counterpart of Darkleer. A skilled mechanic with extraordinary strength, he once built Rufioh a robotic body. Meulin's advice shapes his exaggerated cheerfulness; he talks at such length that he misses Rufioh's attempts to end their relationship.",
+          "definition": "The Beforan Page of Void and pre-Scratch counterpart of Darkleer. A skilled mechanic with extraordinary strength, he once built Rufioh a robotic body. Meulin's advice shapes his exaggerated cheerfulness; he talks at such length that he misses Rufioh's attempts to end their relationship. He is earnest, oblivious, and determinedly cheerful.",
           "sourcePage": 5398,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "horuss"
@@ -31928,9 +32379,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Kurloz"
           ],
-          "definition": "The Beforan Prince of Rage and pre-Scratch counterpart of the Grand Highblood. After his nightmare scream deafens Meulin, he removes his tongue and sews his mouth shut. Behind his silent mimes, he uses hypnosis and telepathic speech to advance Lord English's plans and provide Gamzee with his completed outfit.",
+          "definition": "The Beforan Prince of Rage and pre-Scratch counterpart of the Grand Highblood. After his nightmare scream deafens Meulin, he removes his tongue and sews his mouth shut. Behind his silent mimes, he uses hypnosis and telepathic speech to advance Lord English's plans and provide Gamzee with his completed outfit. He is secretive, manipulative, and devoted to his faith.",
           "sourcePage": 5308,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "kurloz"
@@ -31945,9 +32397,10 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Cronus"
           ],
-          "definition": "The Beforan Bard of Hope and pre-Scratch counterpart of Dualscar. He pursues music and repeatedly rebuffed advances, while treating Mituna with contempt. Aranea recalls his abandoned belief that he was destined to defeat an evil magician, without confirming that his self-important story was true.",
+          "definition": "The Beforan Bard of Hope and pre-Scratch counterpart of Dualscar. He pursues music and repeatedly rebuffed advances, while treating Mituna with contempt. Aranea recalls his abandoned belief that he was destined to defeat an evil magician, without confirming that his self-important story was true. He is self-important, insistent, and careless with others' feelings.",
           "sourcePage": 5308,
-          "sourceKind": "composite"
+          "sourceKind": "composite",
+          "sourcePages": []
         }
       ],
       "characterId": "cronus"
@@ -32738,7 +33191,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-5-part-1",
           "term": "Erisolsprite",
           "aliases": [],
-          "definition": "Jake's sprite guide, combining Eridan and Sollux. He resents his conflicting personalities and Jake's requests for romantic advice, while Jake treats his insults as wonderful company. He urges Jake to talk to Jane about his relationship with Dirk instead of relying on a miserable sprite.",
+          "definition": "Jake's sprite guide, combining Eridan and Sollux. He resents his conflicting personalities and Jake's requests for romantic advice, while Jake treats his insults as wonderful company. He urges Jake to talk to Jane about his relationship with Dirk instead of relying on a miserable sprite. He is bitter, sarcastic, and resistant to companionship.",
           "sourcePage": 5512,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32749,40 +33202,43 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-5",
           "term": "Erisolsprite",
           "aliases": [],
-          "definition": "Jake's combined Eridan and Sollux sprite is dragged along through the tricksters' antics. He tries to apologize to Fefetasprite for Eridan killing Feferi, then clashes with Arquiusprite over speaking to her two halves. Their argument ends with Fefeta's explosion, rather than the reconciliation he hoped for.",
+          "definition": "Jake's combined Eridan and Sollux sprite is dragged along through the tricksters' antics. He tries to apologize to Fefetasprite for Eridan killing Feferi, then clashes with Arquiusprite over speaking to her two halves. Their argument ends with Fefeta's explosion, rather than the reconciliation he hoped for. He is bitter, sarcastic, and resistant to companionship.",
           "sourcePage": 5728,
           "sourceKind": "composite",
           "sourcePages": [
             5746,
             5759,
-            5761
+            5761,
+            5516
           ]
         },
         {
           "from": "act-6-intermission-5",
           "term": "Erisolsprite",
           "aliases": [],
-          "definition": "Jake's combined Eridan and Sollux sprite survives the argument that destroys Fefetasprite. Sollux explains that prototyping his corpse drew the ghost half out of his living body and into this sprite. Erisolsprite remains on Jake's land, where he briefly appears during John's long wait for his friends.",
+          "definition": "Jake's combined Eridan and Sollux sprite survives the argument that destroys Fefetasprite. Sollux explains that prototyping his corpse drew the ghost half out of his living body and into this sprite. Erisolsprite remains on Jake's land, where he briefly appears during John's long wait for his friends. He is bitter, sarcastic, and resistant to companionship.",
           "sourcePage": 5759,
           "sourceKind": "composite",
           "sourcePages": [
             5761,
             5955,
-            6231
+            6231,
+            5516
           ]
         },
         {
           "from": "act-6-act-6-intermission-5",
           "term": "Erisolsprite",
           "aliases": [],
-          "definition": "The original history's sprite combines Eridan and Sollux as Jake's guide, a pairing marked by conflict and isolation. Vriska's revised-session choices leave those bodies unprototyped. That history's Jake instead finds companionship in Tavrosprite, a separate guide who visits him and tries to encourage him.",
+          "definition": "The original history's sprite combines Eridan and Sollux as Jake's guide, a pairing marked by conflict and isolation. Vriska's revised-session choices leave those bodies unprototyped. That history's Jake instead finds companionship in Tavrosprite, a separate guide who visits him and tries to encourage him. He is bitter, sarcastic, and resistant to companionship.",
           "sourcePage": 7458,
           "sourceKind": "composite",
           "sourcePages": [
             7459,
             7494,
             7497,
-            7505
+            7505,
+            5516
           ]
         }
       ],
@@ -32798,7 +33254,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Fefeta"
           ],
-          "definition": "Roxy's purple sprite guide, combining Feferi and Nepeta. She joins Roxy in preparing Jane's birthday party and offers expressive, catlike replies during the ensuing argument. Roxy values her companionship and shipping expertise, though she falls asleep as the party collapses.",
+          "definition": "Roxy's purple sprite guide, combining Feferi and Nepeta. She joins Roxy in preparing Jane's birthday party and offers expressive, catlike replies during the ensuing argument. Roxy values her companionship and shipping expertise, though she falls asleep as the party collapses. She is exuberant, affectionate, and enthusiastic about matchmaking.",
           "sourcePage": 5520,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32813,14 +33269,15 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Fefeta"
           ],
-          "definition": "Roxy's combined Feferi and Nepeta sprite becomes the focus of contradictory apologies from Erisolsprite and Arquiusprite. Their conflict overwhelms her, and she explodes. Roxy mourns her friend and asks Jane to help hold a funeral, remembering Fefeta's encouragement as a reason she chose to stop drinking.",
+          "definition": "Roxy's combined Feferi and Nepeta sprite becomes the focus of contradictory apologies from Erisolsprite and Arquiusprite. Their conflict overwhelms her, and she explodes. Roxy mourns her friend and asks Jane to help hold a funeral, remembering Fefeta's encouragement as a reason she chose to stop drinking. She is exuberant, affectionate, and enthusiastic about matchmaking.",
           "sourcePage": 5746,
           "sourceKind": "composite",
           "sourcePages": [
             5759,
             5761,
             5799,
-            5818
+            5818,
+            5533
           ]
         },
         {
@@ -32829,14 +33286,15 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Fefeta"
           ],
-          "definition": "Roxy's original-history sprite combines Feferi and Nepeta, sharing puns and companionship with her before exploding. The revised session does not produce Fefetasprite: Vriska preserves the trolls' remains and leaves two kernels unused until Jaspersprite creates Rosesprite. Roxy remembers and misses the guide she knew.",
+          "definition": "Roxy's original-history sprite combines Feferi and Nepeta, sharing puns and companionship with her before exploding. The revised session does not produce Fefetasprite: Vriska preserves the trolls' remains and leaves two kernels unused until Jaspersprite creates Rosesprite. Roxy remembers and misses the guide she knew. She is exuberant, affectionate, and enthusiastic about matchmaking.",
           "sourcePage": 7458,
           "sourceKind": "composite",
           "sourcePages": [
             7459,
             7494,
             7497,
-            7505
+            7505,
+            5533
           ]
         }
       ],
@@ -32852,7 +33310,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "Dirk's sprite guide, formed when he prototypes Lil Hal's sunglasses into Equiusprite. The resulting red sprite combines Equius's muscular body and preoccupations with the responder's computer mind. Delighted to be alive and extraordinarily strong, he immediately demands that Dirk admire and touch his muscles.",
+          "definition": "Dirk's sprite guide, formed when he prototypes Lil Hal's sunglasses into Equiusprite. The resulting red sprite combines Equius's muscular body and preoccupations with the responder's computer mind. Delighted to be alive and extraordinarily strong, he immediately demands that Dirk admire and touch his muscles. He is exuberant, egotistical, and obsessed with muscles.",
           "sourcePage": 5654,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32867,7 +33325,7 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "Dirk's red sprite combines Lil Hal and Equius, remaining delighted by his new strength. Meeting Fefetasprite brings back Equius's guilt over failing Nepeta. His attempt to apologize while Erisolsprite addresses Feferi turns into an argument, overwhelming Fefeta and causing her to explode.",
+          "definition": "Dirk's red sprite combines Lil Hal and Equius, remaining delighted by his new strength. Meeting Fefetasprite brings back Equius's guilt over failing Nepeta. His attempt to apologize while Erisolsprite addresses Feferi turns into an argument, overwhelming Fefeta and causing her to explode. He is exuberant, egotistical, and obsessed with muscles.",
           "sourcePage": 5656,
           "sourceKind": "composite",
           "sourcePages": [
@@ -32881,12 +33339,13 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "Dirk's combined Lil Hal and Equius sprite tracks his creator's return toward the session and praises Jane's takeover by an artificial intelligence. He befriends Davesprite over their shared feeling of being estranged alternate selves, then urges Dirk to contact the other Dave despite their awkward circumstances.",
+          "definition": "Dirk's combined Lil Hal and Equius sprite tracks his creator's return toward the session and praises Jane's takeover by an artificial intelligence. He befriends Davesprite over their shared feeling of being estranged alternate selves, then urges Dirk to contact the other Dave despite their awkward circumstances. He is exuberant, egotistical, and obsessed with muscles.",
           "sourcePage": 6377,
           "sourceKind": "composite",
           "sourcePages": [
             6379,
-            6380
+            6380,
+            5656
           ]
         },
         {
@@ -32895,13 +33354,14 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "The combined Equius and Lil Hal sprite appears as the muscular rescuer in Caliborn's future-battle account. He restrains Caliborn while Dirk works his soul-extraction spell, but is caught in it too. His soul is bound with Caliborn's and part of Gamzee's inside Lil Cal.",
+          "definition": "The combined Equius and Lil Hal sprite appears as the muscular rescuer in Caliborn's future-battle account. He restrains Caliborn while Dirk works his soul-extraction spell, but is caught in it too. His soul is bound with Caliborn's and part of Gamzee's inside Lil Cal. He is exuberant, egotistical, and obsessed with muscles.",
           "sourcePage": 7441,
           "sourceKind": "composite",
           "sourcePages": [
             7442,
             7443,
-            7448
+            7448,
+            5656
           ]
         },
         {
@@ -32910,14 +33370,15 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "The revised-session combination of Equius and Lil Hal disables Jane's tiaratop, then oversees the final release of the grist hoards. Davepeta's arrival allows a reunion with both his former moirail and a version of Dave. Their extravagant bro hug is distinct from his role in Caliborn's future-battle account.",
+          "definition": "The revised-session combination of Equius and Lil Hal disables Jane's tiaratop, then oversees the final release of the grist hoards. Davepeta's arrival allows a reunion with both his former moirail and a version of Dave. Their extravagant bro hug is distinct from his role in Caliborn's future-battle account. He is exuberant, egotistical, and obsessed with muscles.",
           "sourcePage": 7583,
           "sourceKind": "composite",
           "sourcePages": [
             7912,
             7923,
             7924,
-            7928
+            7928,
+            5656
           ]
         },
         {
@@ -32926,13 +33387,14 @@ window.HOMESTUCK_REFERENCE = {
           "aliases": [
             "Equiusprite"
           ],
-          "definition": "After disabling Jane's tiaratop and releasing the grist, Arquiusprite clashes with Cans during the battles. Their contest carries them between lands along with the refrigerator containing Gamzee. That revised-session fight remains distinct from the later soul entrapment described in Caliborn's masterpiece.",
+          "definition": "After disabling Jane's tiaratop and releasing the grist, Arquiusprite clashes with Cans during the battles. Their contest carries them between lands along with the refrigerator containing Gamzee. That revised-session fight remains distinct from the later soul entrapment described in Caliborn's masterpiece. He is exuberant, egotistical, and obsessed with muscles.",
           "sourcePage": 7583,
           "sourceKind": "composite",
           "sourcePages": [
             7928,
             8087,
-            7443
+            7443,
+            5656
           ]
         }
       ],
@@ -34290,7 +34752,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Tavrosprite",
           "aliases": [],
-          "definition": "Vriska's revised-session guide befriends Jake before receiving his hidden assignment: catch GCat. The cat's contact completes his second prototyping and creates Gcatavrosprite, combining Tavros's personality with First Guardian abilities. Vriska puts the fusion to sleep to keep it out of the battle.",
+          "definition": "Vriska's revised-session guide befriends Jake before receiving his hidden assignment: catch GCat. The cat's contact completes his second prototyping and creates Gcatavrosprite, combining Tavros's personality with First Guardian abilities. Vriska puts the fusion to sleep to keep it out of the battle. He is friendly, deferential, and eager to please.",
           "sourcePage": 7497,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34299,7 +34761,8 @@ window.HOMESTUCK_REFERENCE = {
             7834,
             7835,
             7837,
-            7838
+            7838,
+            7458
           ]
         }
       ]
@@ -34313,7 +34776,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Rosesprite",
           "aliases": [],
-          "definition": "The original-history Rose returns through Roxy's kernel, but her independent sprite form is brief. Jaspersprite's affectionate contact fuses them into Jasprosesprite². The new being inherits her insight and memories while developing a distinct identity, separate from both Rosesprite and the living revised-history Rose.",
+          "definition": "The original-history Rose returns through Roxy's kernel, but her independent sprite form is brief. Jaspersprite's affectionate contact fuses them into Jasprosesprite². The new being inherits her insight and memories while developing a distinct identity, separate from both Rosesprite and the living revised-history Rose. Her brief return retains Rose's dry, questioning manner.",
           "sourcePage": 7505,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34358,7 +34821,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Gcatavrosprite",
           "aliases": [],
-          "definition": "Vriska has Jake lure GCat into Tavrosprite, completing the guide's second prototyping. The combination gains the cat's First Guardian abilities; Jake worries that Tavros's cat allergy may now apply to himself. Vriska immediately puts him to sleep to keep another powerful, unpredictable animal out of the battle.",
+          "definition": "Vriska has Jake lure GCat into Tavrosprite, completing the guide's second prototyping. The combination gains the cat's First Guardian abilities; Jake worries that Tavros's cat allergy may now apply to himself. Vriska immediately puts him to sleep to keep another powerful, unpredictable animal out of the battle. His brief appearance leaves his combined temperament unclear.",
           "sourcePage": 7833,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34372,12 +34835,13 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-7",
           "term": "Gcatavrosprite",
           "aliases": [],
-          "definition": "The combined guide made from Tavrosprite and GCat is last shown asleep under Vriska's plan to contain the cat's unpredictable powers. Act 7 removes the Green Sun that fueled those First Guardian abilities. The finale does not show the guide waking or taking part in the new settlement.",
+          "definition": "The combined guide made from Tavrosprite and GCat is last shown asleep under Vriska's plan to contain the cat's unpredictable powers. Act 7 removes the Green Sun that fueled those First Guardian abilities. The finale does not show the guide waking or taking part in the new settlement. His brief appearance leaves his combined temperament unclear.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
             7838,
-            7873
+            7873,
+            7835
           ]
         }
       ],
@@ -34395,7 +34859,7 @@ window.HOMESTUCK_REFERENCE = {
             "Jasprosesprite^2",
             "Jasprosesprite squared"
           ],
-          "definition": "Jaspersprite's affectionate contact with Rosesprite creates a new squared sprite. Jasprose combines feline impulses, Rose's insight and memories from alternate selves. She arranges Nepeta's return and a tea date, then faces unexpected loneliness when Nepetasprite joins Davesprite. She also takes responsibility for transporting Jane between patients.",
+          "definition": "Jaspersprite's affectionate contact with Rosesprite creates a new squared sprite. Jasprose combines feline impulses, Rose's insight and memories from alternate selves. She arranges Nepeta's return and a tea date, then faces unexpected loneliness when Nepetasprite joins Davesprite. She also takes responsibility for transporting Jane between patients. She is exuberant, flirtatious, and driven by feline impulses.",
           "sourcePage": 7591,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34414,12 +34878,13 @@ window.HOMESTUCK_REFERENCE = {
             "Jasprosesprite^2",
             "Jasprosesprite squared"
           ],
-          "definition": "Jasprose uses her portals to move Jane and the Nannasprites between battlefields, putting their healing and revival powers where they are needed. She later joins the gathering around the restored Dirk and the survivors at the victory door. Her combined memories and feline impulses remain distinct from living Rose.",
+          "definition": "Jasprose uses her portals to move Jane and the Nannasprites between battlefields, putting their healing and revival powers where they are needed. She later joins the gathering around the restored Dirk and the survivors at the victory door. Her combined memories and feline impulses remain distinct from living Rose. She is exuberant, flirtatious, and driven by feline impulses.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             8094,
-            8115
+            8115,
+            7650
           ]
         }
       ],
@@ -34437,7 +34902,7 @@ window.HOMESTUCK_REFERENCE = {
             "Davepetasprite^2",
             "Davepetasprite squared"
           ],
-          "definition": "A handshake between Davesprite and Nepetasprite produces a new squared sprite who embraces their combined identity. Davepeta remembers many versions of both components, reconciles with Arquiusprite, and explains the ultimate self to Jade. They wake Jade by attacking her dream-bubble form before continuing their search for Lord English.",
+          "definition": "A handshake between Davesprite and Nepetasprite produces a new squared sprite who embraces their combined identity. Davepeta remembers many versions of both components, reconciles with Arquiusprite, and explains the ultimate self to Jade. They wake Jade by attacking her dream-bubble form before continuing their search for Lord English. They are cheerful, affectionate, and comfortable with themself.",
           "sourcePage": 7877,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34458,9 +34923,12 @@ window.HOMESTUCK_REFERENCE = {
             "Davepetasprite^2",
             "Davepetasprite squared"
           ],
-          "definition": "The squared sprite formed from Davesprite and Nepetasprite reaches Lord English and attacks him during the ghost army's battle. Their confrontation follows the reunion with Arquiusprite and the awakening of Jade. The outcome of Davepeta's assault remains unresolved.",
+          "definition": "The squared sprite formed from Davesprite and Nepetasprite reaches Lord English and attacks him during the ghost army's battle. Their confrontation follows the reunion with Arquiusprite and the awakening of Jade. The outcome of Davepeta's assault remains unresolved. They are cheerful, affectionate, and comfortable with themself.",
           "sourcePage": 8087,
-          "sourceKind": "visual"
+          "sourceKind": "visual",
+          "sourcePages": [
+            7895
+          ]
         }
       ],
       "characterId": "davepetasprite"
@@ -34473,7 +34941,7 @@ window.HOMESTUCK_REFERENCE = {
           "from": "act-6-act-6-intermission-5",
           "term": "Nepetasprite",
           "aliases": [],
-          "definition": "Jasprose prototypes Nepeta's preserved head into Jake's unused kernel. The revived troll joins a tea party and cautiously accepts Jasprose's romantic attention. Her brief independent existence ends when a handshake with the original-history Davesprite creates Davepetasprite², a distinct new person rather than a return to Fefetasprite.",
+          "definition": "Jasprose prototypes Nepeta's preserved head into Jake's unused kernel. The revived troll joins a tea party and cautiously accepts Jasprose's romantic attention. Her brief independent existence ends when a handshake with the original-history Davesprite creates Davepetasprite², a distinct new person rather than a return to Fefetasprite. She is friendly, shy, and tentative about romance.",
           "sourcePage": 7814,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34499,7 +34967,7 @@ window.HOMESTUCK_REFERENCE = {
             "Alternate Calliope",
             "Alt Calliope"
           ],
-          "definition": "The Calliope who predominated over her brother meets her gentler counterpart in Echidna's remembered lair. She describes an unwinnable dead session and accepting death in exchange for a later duty. The other Calliope's arrival signals her departure; she guides Jade toward the Green Sun, then leaves to fulfill her promise.",
+          "definition": "The Calliope who predominated over her brother meets her gentler counterpart in Echidna's remembered lair. She describes an unwinnable dead session and accepting death in exchange for a later duty. The other Calliope's arrival signals her departure; she guides Jade toward the Green Sun, then leaves to fulfill her promise. She is solemn, self-possessed, and committed to her duty.",
           "sourcePage": 7614,
           "sourceKind": "composite",
           "sourcePages": [
@@ -34518,13 +34986,14 @@ window.HOMESTUCK_REFERENCE = {
             "Alternate Calliope",
             "Alt Calliope"
           ],
-          "definition": "The alternate Muse reaches the Green Sun while the battles unfold elsewhere. She approaches the task she accepted from Echidna, but its outcome is not yet shown. She remains separate from the revived Calliope who rejoins Jade and the human players.",
+          "definition": "The alternate Muse reaches the Green Sun while the battles unfold elsewhere. She approaches the task she accepted from Echidna, but its outcome is not yet shown. She remains separate from the revived Calliope who rejoins Jade and the human players. She is solemn, self-possessed, and committed to her duty.",
           "sourcePage": 8087,
           "sourceKind": "composite",
           "sourcePages": [
             7616,
             8097,
-            8113
+            8113,
+            7618
           ]
         },
         {
@@ -34534,11 +35003,12 @@ window.HOMESTUCK_REFERENCE = {
             "Alternate Calliope",
             "Alt Calliope"
           ],
-          "definition": "The alternate Muse fulfills the duty promised to Echidna by forming a black hole around herself and consuming the Green Sun. Her act is separate from the revived Calliope's return to her friends. The surrounding space is pulled toward the hole, while Aradia watches from outside.",
+          "definition": "The alternate Muse fulfills the duty promised to Echidna by forming a black hole around herself and consuming the Green Sun. Her act is separate from the revived Calliope's return to her friends. The surrounding space is pulled toward the hole, while Aradia watches from outside. She is solemn, self-possessed, and committed to her duty.",
           "sourcePage": 8127,
           "sourceKind": "composite",
           "sourcePages": [
-            7616
+            7616,
+            7618
           ]
         }
       ],
