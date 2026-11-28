@@ -1668,7 +1668,8 @@ img:is([src$="/ref-wq.webp"], [src$="/ref-doc-scratch.webp"], [src$="/ref-pm-pro
     list-style-position: inside;
   }
 
-  .notes-content h2 {
+  .notes-content h2,
+  .notes-content h3 {
     break-after: avoid;
   }
 
