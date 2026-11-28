@@ -578,6 +578,12 @@ window.HOMESTUCK_REFERENCE = {
       "id": "ancestors",
       "title": [
         {
+          "from": "act-5-act-1",
+          "value": "ANCESTORS",
+          "sourcePage": 2441,
+          "sourceKind": "editorial"
+        },
+        {
           "from": "act-5-act-2-part-2",
           "value": "ANCESTORS",
           "sourcePage": 3473,
@@ -2487,7 +2493,7 @@ window.HOMESTUCK_REFERENCE = {
             {
               "from": "act-5-act-1",
               "label": "Strife specibus",
-              "value": "Not yet revealed",
+              "value": "Unknown",
               "sourcePage": 2134,
               "sourceKind": "editorial"
             }
@@ -10453,9 +10459,15 @@ window.HOMESTUCK_REFERENCE = {
     {
       "id": "signless",
       "group": "ancestors",
-      "reveal": "act-5-act-2-part-3",
-      "introPage": 4054,
+      "reveal": "act-5-act-2-part-2",
+      "introPage": 3758,
       "name": [
+        {
+          "from": "act-5-act-2-part-2",
+          "value": "THE SUFFERER",
+          "sourcePage": 3758,
+          "sourceKind": "direct"
+        },
         {
           "from": "act-5-act-2-part-3",
           "value": "THE SIGNLESS",
@@ -10465,6 +10477,12 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "rosterLabel": [
         {
+          "from": "act-5-act-2-part-2",
+          "value": "The Sufferer",
+          "sourcePage": 3758,
+          "sourceKind": "direct"
+        },
+        {
           "from": "act-5-act-2-part-3",
           "value": "Signless",
           "sourcePage": 4054,
@@ -10472,6 +10490,14 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "portrait": [
+        {
+          "from": "act-5-act-2-part-2",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 3758,
+          "sourceKind": "editorial"
+        },
         {
           "from": "act-5-act-2-part-3",
           "value": {
@@ -10486,6 +10512,13 @@ window.HOMESTUCK_REFERENCE = {
         {
           "id": "role",
           "variants": [
+            {
+              "from": "act-5-act-2-part-2",
+              "value": "Figure in forbidden troll history",
+              "sourcePage": 3758,
+              "sourceKind": "direct",
+              "label": "Role"
+            },
             {
               "from": "act-5-act-2-part-3",
               "label": "Role",
@@ -10568,7 +10601,7 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "sourcePage": 4054,
+      "sourcePage": 3758,
       "sourceKind": "intro",
       "rosterColumn": 4,
       "firstAppearancePage": 4054
@@ -11280,9 +11313,21 @@ window.HOMESTUCK_REFERENCE = {
     {
       "id": "condesce",
       "group": "ancestors",
-      "reveal": "act-5-act-2-part-3",
-      "introPage": 4063,
+      "reveal": "act-5-act-1",
+      "introPage": 2441,
       "name": [
+        {
+          "from": "act-5-act-1",
+          "value": "HER IMPERIOUS CONDESCENSION",
+          "sourcePage": 2441,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-5-act-2-part-2",
+          "value": "THE CONDESCE",
+          "sourcePage": 3758,
+          "sourceKind": "direct"
+        },
         {
           "from": "act-5-act-2-part-3",
           "value": "THE CONDESCE",
@@ -11292,6 +11337,18 @@ window.HOMESTUCK_REFERENCE = {
       ],
       "rosterLabel": [
         {
+          "from": "act-5-act-1",
+          "value": "Her Imperious Condescension",
+          "sourcePage": 2441,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-5-act-2-part-2",
+          "value": "Condesce",
+          "sourcePage": 3758,
+          "sourceKind": "direct"
+        },
+        {
           "from": "act-5-act-2-part-3",
           "value": "Condesce",
           "sourcePage": 4060,
@@ -11299,6 +11356,14 @@ window.HOMESTUCK_REFERENCE = {
         }
       ],
       "portrait": [
+        {
+          "from": "act-5-act-1",
+          "value": {
+            "placeholder": "?"
+          },
+          "sourcePage": 2441,
+          "sourceKind": "editorial"
+        },
         {
           "from": "act-5-act-2-part-3",
           "value": {
@@ -11313,6 +11378,13 @@ window.HOMESTUCK_REFERENCE = {
         {
           "id": "role",
           "variants": [
+            {
+              "from": "act-5-act-1",
+              "value": "Empress of Alternia",
+              "sourcePage": 2441,
+              "sourceKind": "direct",
+              "label": "Role"
+            },
             {
               "from": "act-5-act-2-part-3",
               "label": "Role",
@@ -11496,7 +11568,7 @@ window.HOMESTUCK_REFERENCE = {
           ]
         }
       ],
-      "sourcePage": 4063,
+      "sourcePage": 2441,
       "sourceKind": "intro",
       "rosterColumn": 4,
       "firstAppearancePage": 4063
@@ -27219,8 +27291,18 @@ window.HOMESTUCK_REFERENCE = {
     {
       "id": "person-signless",
       "characterId": "signless",
-      "reveal": "act-5-act-2-part-3",
+      "reveal": "act-5-act-2-part-2",
       "variants": [
+        {
+          "from": "act-5-act-2-part-2",
+          "term": "The Sufferer",
+          "aliases": [
+            "Sufferer"
+          ],
+          "definition": "Mindfang alludes to a forbidden tale about the Sufferer while recalling a sectarian revolt suppressed by the highbloods. She avoids elaborating because even mentioning the tale could risk execution.",
+          "sourcePage": 3758,
+          "sourceKind": "direct"
+        },
         {
           "from": "act-5-act-2-part-3",
           "term": "The Signless",
@@ -27451,8 +27533,31 @@ window.HOMESTUCK_REFERENCE = {
     {
       "id": "person-condesce",
       "characterId": "condesce",
-      "reveal": "act-5-act-2-part-3",
+      "reveal": "act-5-act-1",
       "variants": [
+        {
+          "from": "act-5-act-1",
+          "term": "Her Imperious Condescension",
+          "aliases": [],
+          "definition": "Alternia's reigning empress. Feferi is the heir apparent to her throne, but Gl'bgolyb's protection keeps the ruler from attempting to kill her young rival.",
+          "sourcePage": 2441,
+          "sourceKind": "direct"
+        },
+        {
+          "from": "act-5-act-2-part-2",
+          "term": "The Condesce",
+          "aliases": [
+            "Condesce",
+            "Her Imperious Condescension"
+          ],
+          "definition": "Alternia's empress, whose heir apparent is Feferi. Mindfang calls her the Condesce and records a prophecy that she will banish adult trolls from the homeworld after the Summoner's rebellion, sending them to fight her wars. The journal also describes Dualscar's dangerous, unrequited ambitions toward her.",
+          "sourcePage": 3758,
+          "sourcePages": [
+            2441,
+            3513
+          ],
+          "sourceKind": "composite"
+        },
         {
           "from": "act-5-act-2-part-3",
           "term": "The Condesce",
